@@ -74,6 +74,17 @@ const description =
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open in Google Maps</a>
       </p>
 
+            <h2>Spot us from the street</h2>
+      <p>Look for the green Dubliners neon and the vintage window display on Espoz y Mina.</p>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/window-display-sm.webp')} 800w, ${withBase('/images/window-display.webp')} 1600w`}
+          sizes="(max-width: 880px) 100vw, 70vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/window-display.jpg')} alt="Vintage curios in the Dubliners window display on Espoz y Mina" width="1600" height="902" loading="lazy" />
+      </picture>
+
       <h2>Useful links</h2>
       <ul>
         <li><a href={withBase('/whats-on/')}>What’s on</a></li>

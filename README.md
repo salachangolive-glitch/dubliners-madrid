@@ -3,8 +3,10 @@
 Static Astro site for Dubliners Irish pub, Calle de Espoz y Mina 7, 28012 Madrid.
 
 - **Live (GitHub Pages):** https://salachangolive-glitch.github.io/dubliners-madrid/
+- **Repo:** https://github.com/salachangolive-glitch/dubliners-madrid
 - **Stack:** Astro + TypeScript, `output: 'static'`, `base: '/dubliners-madrid'`
-- **Deploy:** GitHub Actions → GitHub Pages (free)
+- **Deploy (V1):** `gh-pages` branch (built `dist`). Free GitHub Pages.
+- **Actions:** see `docs/github-pages-actions-workflow.yml.example` (needs `workflow` token scope to commit under `.github/workflows/`).
 
 ## Develop
 
@@ -18,3 +20,4 @@ npm run build
 
 - Do not invent Thursday hours, shot start times, fixtures, terrace, live music, or reservations.
 - Photos: original venue images in `public/images/`.
+- Independent of any other venue brands.

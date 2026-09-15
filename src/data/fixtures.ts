@@ -1,4 +1,4 @@
-/** Kick-offs re-verified 15 Sep 2026 (Europe/Madrid) from club / LaLiga / UEFA-facing sources. */
+/** Kick-offs: prefer official competition/club, then a second official source. Atleti–Osasuna 16 Sep = 19:00 Madrid (Atleti tickets EN + entradas listing ES). Do not publish 17:00. */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
   whenLabel: string;
@@ -20,7 +20,7 @@ export const FIXTURES: Fixture[] = [
     whenLabel: 'Wed 16 Sep',
     competition: 'LaLiga',
     teams: 'Atlético Madrid vs Osasuna',
-    madridTime: '17:00',
+    madridTime: '19:00',
   },
   {
     dateKey: '2026-09-16',

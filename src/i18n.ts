@@ -106,7 +106,7 @@ export function t(lang: Lang) {
       menu: 'Menú',
       explore: 'Explorar',
       hours: 'Horario',
-      fineprint: 'Pub irlandés walk-in · pantallas indoor · sin reserva de mesa · Espoz y Mina 7, Madrid',
+      fineprint: 'Pub irlandés cerca de Puerta del Sol · deporte en directo · miércoles chupitos a 1 € · Espoz y Mina 7, Madrid',
       tagline: 'Pub irlandés cerca de Puerta del Sol',
       home: 'Inicio',
       whatsOn: 'Partidos',
@@ -120,7 +120,7 @@ export function t(lang: Lang) {
       nearSol: 'Bar de fútbol cerca de Sol',
       students: 'Estudiantes internacionales',
       jsonLdDescription:
-        'Pub irlandés cerca de Puerta del Sol en Madrid con pantallas deportivas indoor. Entrada libre. Miércoles chupitos a 1 €.',
+        'Pub irlandés cerca de Puerta del Sol en Madrid con pantallas deportivas y ambiente internacional. Miércoles chupitos a 1 €.',
     };
   }
   return {
@@ -130,7 +130,7 @@ export function t(lang: Lang) {
     menu: 'Menu',
     explore: 'Explore',
     hours: 'Hours',
-    fineprint: 'Walk-in Irish pub · indoor screens · no table booking · Espoz y Mina 7, Madrid',
+    fineprint: 'Irish pub near Puerta del Sol · live sport · Wednesday €1 shots · Espoz y Mina 7, Madrid',
     tagline: 'Irish pub near Puerta del Sol',
     home: 'Home',
     whatsOn: "What's on",
@@ -144,7 +144,7 @@ export function t(lang: Lang) {
     nearSol: 'Football bar near Sol',
     students: 'International students',
     jsonLdDescription:
-      'Irish pub near Puerta del Sol in Madrid with indoor sports screens. Walk-in. Wednesday €1 shots.',
+      'Irish pub near Puerta del Sol in Madrid with sports screens and an international crowd. Wednesday €1 shots.',
   };
 }
 

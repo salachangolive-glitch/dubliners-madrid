@@ -5,7 +5,7 @@ import { SITE, withBase } from '../site';
 
 const title = 'Dubliners Madrid | Irish Pub near Puerta del Sol';
 const description =
-  'Irish pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Indoor screens for live sport, walk-in nights, Wednesday €1 shots.';
+  'Irish pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Live sport on the screens, international crowd, Wednesday €1 shots.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/mural-hero.jpg">
@@ -49,8 +49,8 @@ const description =
       <h1>Your Irish corner in the heart of Madrid</h1>
       <p class="lead">
         Dubliners sits on Calle de Espoz y Mina 7 — a short walk from Puerta del Sol.
-        Warm indoor room, friendly English-speaking crowd, and screens for the big nights.
-        Walk in anytime. No booking needed.
+        Dark wood, proper pints, and an international crowd that makes Sol feel like home.
+        Sport on the screens, midweek energy, and Wednesday nights that run late.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -64,11 +64,11 @@ const description =
         <h2>Atmosphere you’ll want to stay in</h2>
         <p>
           Dark wood, proper pints, and that easy Sol energy — locals, travellers, and internationals
-          sharing the same room. It’s an indoor Irish pub built for conversation as much as kick-off.
+          sharing the same room. An Irish pub built for conversation as much as kick-off.
         </p>
         <p>
-          Come for a midweek pint, a student Wednesday, or a match night. Leave when you’re ready —
-          we’re walk-in, so there’s no table to reserve.
+          Come for a midweek pint, a student Wednesday, or a match night. The room fills with the Sol
+          crowd — sport, chatter, and nights that stretch.
         </p>
       </div>
       <picture>
@@ -100,7 +100,7 @@ const description =
         <div class="card-grid cols-3" style="margin-top:1rem">
           <article class="card">
             <h3>Match nights</h3>
-            <p>Indoor screens in centro. Arrive a little early for the big fixtures.</p>
+            <p>Screens in the heart of centro. Arrive a little early for the big fixtures.</p>
             <a href={withBase('/watch-football-madrid/')}>Watch football →</a>
           </article>
           <article class="card">
@@ -142,7 +142,7 @@ const description =
           The midweek classic for Erasmus and international nights out — €1 shots at Dubliners,
           then (Wednesdays only) Four Corner After Party on Calle Victoria 6 until 05:30.
         </p>
-        <p>Busy room, walk-in only. Ask staff about the deal when you arrive.</p>
+        <p>Busy room, lively midweek crowd. Ask staff about the deal when you arrive.</p>
         <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
       </div>
       <picture>
@@ -200,7 +200,6 @@ const description =
           { src: 'bar-interior', alt: 'Bar counter and checkered floor inside Dubliners Madrid', w: 1400, h: 788 },
           { src: 'screens-sports', alt: 'Sports screens and projector at Dubliners Irish Pub', w: 1400, h: 788 },
           { src: 'window-display', alt: 'Vintage window display outside Dubliners Irish Pub Madrid', w: 1600, h: 902 },
-          { src: 'window-display-2', alt: 'Jameson crate and antiques in the Dubliners window', w: 1600, h: 902 },
         ].map(({ src, alt, w, h }) => (
           <picture>
             <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />

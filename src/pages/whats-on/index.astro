@@ -6,7 +6,36 @@ import { SITE, withBase } from '../../site';
 
 const title = "What's On at Dubliners Madrid | Live Sport & Nights";
 const description =
-  "What's on at Dubliners Madrid: verified fixtures only when confirmed. Ask staff for tonight's screens. Wednesday €1 shots. Espoz y Mina 7.";
+  "What's on at Dubliners Madrid: verified fixtures when on screens. Walk-in, ask staff. Wednesday €1 shots. Espoz y Mina 7.";
+
+/** Re-verified 15 Sep 2026 (Europe/Madrid) from club / LaLiga / UEFA-facing sources. Staff confirm screens. */
+const fixtures = [
+  {
+    when: 'Tue 15 Sep · 21:30',
+    match: 'Elche vs Real Madrid',
+    comp: 'LaLiga',
+  },
+  {
+    when: 'Wed 16 Sep · 17:00',
+    match: 'Atlético Madrid vs Osasuna',
+    comp: 'LaLiga',
+  },
+  {
+    when: 'Wed 16 Sep · 21:00',
+    match: 'Europa League MD1 (e.g. Milan–Benfica, Sunderland–AZ)',
+    comp: 'UEFA Europa League',
+  },
+  {
+    when: 'Wed 16 Sep · 21:30',
+    match: 'Barcelona vs Racing Santander',
+    comp: 'LaLiga',
+  },
+  {
+    when: 'Thu 17 Sep · 21:00',
+    match: 'Celtic vs Ferencváros',
+    comp: 'UEFA Europa League',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} path="/whats-on/">
@@ -15,19 +44,30 @@ const description =
       <Breadcrumb current="What's on" />
       <h1>What’s on</h1>
       <p class="lead">
-        Live sport on indoor screens when fixtures are scheduled — Premier League, Champions League, LaLiga,
-        Six Nations, F1, NFL and NBA <strong>when on</strong>. We only list kickoffs here once they’re staff-confirmed.
+        Live sport on indoor screens <strong>when fixtures are on</strong> — Premier League, Champions League,
+        LaLiga, Six Nations, F1, NFL and NBA <strong>when on screens</strong>. Walk-in. Ask staff which matches
+        are showing tonight. We do not claim every match.
       </p>
       <CtaRow showWhatsOn={false} />
 
       <div class="card" style="margin:1.25rem 0">
-        <h3 style="margin-top:0">Tonight / this week</h3>
-        <p>
-          No verified fixture list is published on this page yet. For what’s showing tonight, ask at the bar or call
-          <a href={SITE.phoneHref}>{SITE.phone}</a>. Follow {SITE.instagramHandle} for updates.
+        <h3 style="margin-top:0">This week (Madrid times)</h3>
+        <p class="note">
+          Kick-offs below were re-checked from public club / league sources on 15 Sep 2026. Screens and coverage
+          can change — always ask at the bar.
         </p>
-        <p class="note" style="margin-bottom:0">
-          We never invent match times or claim full league coverage. When fixtures are confirmed, they’ll appear in this section.
+        <ul>
+          {
+            fixtures.map((f) => (
+              <li>
+                <strong>{f.when}</strong> — {f.match} <span class="note">({f.comp})</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p style="margin-bottom:0">
+          For tonight’s screens: walk in, ask staff, or call <a href={SITE.phoneHref}>{SITE.phone}</a>. Follow{' '}
+          {SITE.instagramHandle}.
         </p>
       </div>
 
@@ -35,7 +75,8 @@ const description =
       <p>
         <strong>Wednesdays:</strong> €1 shots —
         details on <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots Madrid</a>
-        (including Four Corner After Party, Wednesday only, Calle Victoria 6 until 05:30).
+        (including Four Corner After Party, Wednesday only, Calle Victoria 6 until 05:30). Ask staff for deal
+        timing — we don’t publish an unverified 23:00 start.
       </p>
 
       <h2>Find a sports night</h2>

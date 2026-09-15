@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /
 
+# Preview host (github.io) — do not index. Sitemap kept for later domain flip.
 Sitemap: https://salachangolive-glitch.github.io/dubliners-madrid/sitemap-index.xml

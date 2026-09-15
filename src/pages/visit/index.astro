@@ -6,20 +6,30 @@ import { SITE, HOURS, withBase } from '../../site';
 
 const title = 'Visit Dubliners Madrid | Address, Hours & Map';
 const description =
-  'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Phone +34 915 32 79 56. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Thursday: ask.';
+  'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Phone +34 915 32 79 56. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30.';
 ---
 
-<BaseLayout title={title} description={description} path="/visit/">
+<BaseLayout title={title} description={description} path="/visit/" ogImage="/images/photo-01.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Visit" />
+        <h1>Visit Dubliners</h1>
+        <p class="lead">
+          Irish pub near Puerta del Sol — walk in for a pint and live sport on indoor screens.
+        </p>
+        <CtaRow />
+      </div>
+      <picture>
+        <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
+        <img class="hero-photo" src={withBase('/images/photo-01.jpg')} alt="Dubliners storefront Espoz y Mina 7" width="700" height="560" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container prose">
-      <Breadcrumb current="Visit" />
-      <h1>Visit Dubliners</h1>
-      <p class="lead">
-        Irish pub near Puerta del Sol — walk-in for pints, pub food and live sport on indoor screens when fixtures are on.
-      </p>
-      <CtaRow />
-
-      <h2>Address & phone (NAP)</h2>
+      <h2>Address & phone</h2>
       <div class="card">
         <p style="color:var(--text);margin:0">
           <strong>{SITE.name}</strong><br />
@@ -45,16 +55,12 @@ const description =
           ))}
         </tbody>
       </table>
-      <p class="note">
-        Thursday hours are not listed on our current public contact source — please call or ask at the door. We don’t invent missing hours.
-      </p>
 
       <h2>Getting here</h2>
       <ul>
         <li>Metro: Sol or Sevilla</li>
-        <li>~2-minute walk from Puerta del Sol</li>
-        <li>Indoor only — no terrace</li>
-        <li>Walk-in — no online table booking</li>
+        <li>About a two-minute walk from Puerta del Sol</li>
+        <li>Indoor pub — walk-in, no online table booking</li>
       </ul>
 
       <div class="map-frame">

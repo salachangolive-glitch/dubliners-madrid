@@ -6,46 +6,57 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Champions League Bar Madrid | Watch UCL near Sol — Dubliners';
 const description =
-  'Champions League bar in Madrid near Puerta del Sol. Watch UCL on indoor screens when fixtures are on. Walk-in Irish pub, Espoz y Mina 7.';
+  'Champions League bar in Madrid near Puerta del Sol. Watch UCL on indoor screens. Walk-in Irish pub, Espoz y Mina 7.';
 ---
 
-<BaseLayout title={title} description={description} path="/champions-league-bar-madrid/">
-  <section class="section">
-    <div class="container prose">
+<BaseLayout title={title} description={description} path="/champions-league-bar-madrid/" ogImage="/images/photo-01.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
       <Breadcrumb current="Champions League bar Madrid" />
       <h1>Champions League bar Madrid — near Sol</h1>
       <p class="lead">
-        Where to watch Champions League in Madrid centro? Dubliners is a walk-in Irish pub with indoor screens
-        on Calle de Espoz y Mina 7, steps from Puerta del Sol. UCL nights when fixtures are on our screens.
+        European nights without leaving the centre. Dubliners puts Champions League on the indoor screens
+        when it’s showing — walk-in Irish pub on Calle de Espoz y Mina 7.
       </p>
       <CtaRow />
+    </div>
+  </section>
 
-      <h2>European nights near Puerta del Sol</h2>
+  <section class="section">
+    <div class="container">
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Where</h3>
+          <p>Heart of Madrid, steps from Puerta del Sol — not stadium-adjacent.</p>
+        </article>
+        <article class="card">
+          <h3>How to get there</h3>
+          <p>Metro to Sol, short walk to Espoz y Mina 7.</p>
+        </article>
+        <article class="card">
+          <h3>What’s on</h3>
+          <p>Check <a href={withBase('/whats-on/')}>What’s on</a> before you set out.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>After a Bernabéu day</h2>
       <p>
-        Tourists without tickets and locals alike come in for Champions League kickoffs when we’re showing the match.
-        Arrive early, grab a pint, and watch indoors — no terrace viewing, no live-music “fan zone,” no reservations.
+        We’re in Sol / centro. After the stadium, Metro back and walk in for a pint —
+        or another fixture when it’s on the screens.
       </p>
-      <p class="note">
-        Other UEFA nights (Europa / Conference) may appear when on screens — ask staff. We don’t invent exclusive coverage.
+      <p>
+        More: <a href={withBase('/watch-football-madrid/')}>watch football</a> ·
+        <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a> ·
+        <a href={withBase('/sports-bar-madrid/')}>sports bar</a>.
       </p>
-
-      <h2>Related</h2>
-      <ul>
-        <li><a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a></li>
-        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub Madrid</a></li>
-        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
-        <li><a href={withBase('/whats-on/')}>What’s on</a></li>
-      </ul>
-
-      <h2>FAQ</h2>
       <div class="faq">
         <details>
-          <summary>Ver Champions / UCL en Madrid centro?</summary>
-          <p>Cuando el partido esté en pantallas, sí. Walk-in cerca de Sol. Ver también <a href={withBase('/ver-futbol-madrid/')}>ver fútbol Madrid</a>.</p>
-        </details>
-        <details>
           <summary>Is this near the Bernabéu?</summary>
-          <p>No — we’re in Sol / centro. After a stadium match, Metro to Sol and walk to Espoz y Mina 7.</p>
+          <p>No — Sol / centro. Metro from the stadium area to Sol, then walk to Espoz y Mina 7.</p>
         </details>
         <details>
           <summary>Contact</summary>

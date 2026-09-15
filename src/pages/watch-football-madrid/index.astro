@@ -6,66 +6,90 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Watch Football in Madrid | Pub near Sol — Dubliners';
 const description =
-  'Where to watch football in Madrid near Puerta del Sol. Walk-in Irish pub with indoor screens for PL, CL, LaLiga when on. Espoz y Mina 7.';
+  'Where to watch football in Madrid near Puerta del Sol. Walk-in Irish pub with indoor screens for PL, Champions League and LaLiga. Espoz y Mina 7.';
 ---
 
 <BaseLayout
   title={title}
   description={description}
   path="/watch-football-madrid/"
+  ogImage="/images/photo-01.jpg"
   hreflang={{ en: '/watch-football-madrid/', es: '/ver-futbol-madrid/' }}
 >
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Watch football Madrid" />
+        <p class="lang-switch">También en español: <a href={withBase('/ver-futbol-madrid/')}>Ver fútbol Madrid</a></p>
+        <h1>Watch football in Madrid — steps from Sol</h1>
+        <p class="lead">
+          Flying in for a long weekend? Already hotel’d near the plaza?
+          Dubliners is a walk-in Irish pub with indoor screens on Calle de Espoz y Mina 7 —
+          an easy centro spot for Premier League, Champions League and LaLiga nights.
+        </p>
+        <CtaRow />
+      </div>
+      <picture>
+        <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
+        <img class="hero-photo" src={withBase('/images/photo-01.jpg')} alt="Dubliners football pub near Puerta del Sol" width="700" height="560" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
   <section class="section">
+    <div class="container">
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Where</h3>
+          <p>{SITE.address} — about two minutes from Puerta del Sol. Metro Sol or Sevilla.</p>
+        </article>
+        <article class="card">
+          <h3>How to get there</h3>
+          <p>Walk from the plaza, or hop Metro to Sol. No booking — just walk in.</p>
+        </article>
+        <article class="card">
+          <h3>What’s on</h3>
+          <p>See <a href={withBase('/whats-on/')}>this week’s fixtures</a>, or ask staff what’s on the screens tonight.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
     <div class="container prose">
-      <Breadcrumb current="Watch football Madrid" />
-      <p class="lang-switch">Also in Spanish: <a href={withBase('/ver-futbol-madrid/')}>Ver fútbol Madrid</a></p>
-      <h1>Where to watch football in Madrid (near Sol)</h1>
-      <p class="lead">
-        Dubliners is a football pub in Madrid centro — indoor screens a short walk from Puerta del Sol.
-        Walk in for the match when fixtures are showing. No reservations.
-      </p>
-      <CtaRow />
-
-      <h2>How match nights work</h2>
-      <ul>
-        <li>Walk-in Irish pub — no table booking</li>
-        <li>Multiple indoor screens</li>
-        <li>Arrive early for big kickoffs</li>
-        <li>Ask staff or check <a href={withBase('/whats-on/')}>What’s on</a> for tonight</li>
-      </ul>
-
-      <h2>Premier League, Champions League & LaLiga</h2>
+      <h2>Built for UK, Irish, EU and US trip planners</h2>
       <p>
-        We show Premier League, Champions League and LaLiga fixtures <strong>when they are on our screens</strong> —
-        not a promise of every match. For competition-focused pages:
+        Sol is the natural hub if you’re exploring Madrid on foot. Base yourself nearby,
+        then swing into Dubliners for kick-off without a long taxi ride across the city.
+      </p>
+      <p>
+        We show Premier League, Champions League, LaLiga and other sports when they’re on our screens.
+        For big nights, arrive a little early — the room fills up.
       </p>
       <ul>
         <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub Madrid</a></li>
         <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar Madrid</a></li>
+        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Puerta del Sol</a></li>
         <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
       </ul>
-      <p>
-        LaLiga nights are popular with locals and visitors alike. Same rule: when it’s scheduled on our screens, you can watch here.
-      </p>
+    </div>
+  </section>
 
-      <h2>Already in Madrid or staying near Sol?</h2>
+  <section class="section">
+    <div class="container prose">
+      <h2>After the Bernabéu</h2>
       <p>
-        If your hotel is near Puerta del Sol, you’re about a two-minute walk from Calle de Espoz y Mina 7.
-        See <a href={withBase('/football-bar-puerta-del-sol/')}>football bar near Puerta del Sol</a> for walking directions.
+        We’re in Sol / centro — not next to the stadium. After a match day, Metro back to Sol
+        and walk in for a pint or a later fixture when it’s showing.
       </p>
-      <p class="note">
-        After a Bernabéu match, Metro back to Sol and walk in for a pint or a later fixture when on — we’re centro, not stadium-adjacent.
-      </p>
-
-      <h2>FAQ</h2>
       <div class="faq">
         <details>
           <summary>Can I watch soccer here (US visitors)?</summary>
-          <p>Yes — football/soccer on indoor screens when fixtures are on. Walk-in near Sol.</p>
+          <p>Yes — football/soccer on indoor screens. Walk-in near Sol.</p>
         </details>
         <details>
           <summary>Do you show every Premier League or Champions League match?</summary>
-          <p>No. We show fixtures when they are on our screens. Ask staff or check What’s on.</p>
+          <p>We put fixtures on when they’re showing here. Check What’s on or ask the bar.</p>
         </details>
         <details>
           <summary>Address & phone</summary>

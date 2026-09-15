@@ -6,34 +6,36 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Sports Bar Madrid near Sol | Dubliners';
 const description =
-  'Sports bar in Madrid centro near Puerta del Sol. Indoor screens for football and live sport when on. Walk-in Irish pub, Espoz y Mina 7.';
+  'Sports bar in Madrid centro near Puerta del Sol. Indoor screens for football and live sport. Walk-in Irish pub, Espoz y Mina 7.';
 ---
 
-<BaseLayout title={title} description={description} path="/sports-bar-madrid/">
+<BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/photo-02.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Sports bar Madrid" />
+        <h1>Sports bar Madrid — near Puerta del Sol</h1>
+        <p class="lead">
+          Multiple indoor screens, an Irish-pub room, and Sol on your doorstep.
+          Walk in for football and live sport — Premier League, Champions League, LaLiga,
+          Six Nations, F1, NFL and NBA when they’re showing.
+        </p>
+        <CtaRow />
+      </div>
+      <picture>
+        <source srcset={withBase('/images/photo-02.webp')} type="image/webp" />
+        <img class="hero-photo" src={withBase('/images/photo-02.jpg')} alt="Indoor sports pub atmosphere at Dubliners" width="500" height="700" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container prose">
-      <Breadcrumb current="Sports bar Madrid" />
-      <h1>Sports bar Madrid — near Puerta del Sol</h1>
-      <p class="lead">
-        Dubliners is a sports bar in Madrid centro: an Irish pub with multiple indoor screens on Calle de Espoz y Mina 7,
-        steps from Puerta del Sol. Walk in for live sport and a pint — no table booking.
-      </p>
-      <CtaRow />
-
-      <h2>Live sport on indoor screens</h2>
+      <h2>Live sport in Madrid centro</h2>
       <p>
-        We show football and other sports when fixtures are on our screens, including Premier League, Champions League,
-        LaLiga, Six Nations rugby, Formula 1, NFL and NBA when scheduled. Ask staff what’s on tonight, or see
-        <a href={withBase('/whats-on/')}>What’s on</a>.
-      </p>
-      <p>
-        For big kickoffs, arrive early — we’re walk-in only and the room fills up. Indoor seating only.
-      </p>
-
-      <h2>Sports bar in Madrid centro / Sol</h2>
-      <p>
-        Looking for a sports bar near Puerta del Sol or a sports pub in Madrid city centre? We’re on Espoz y Mina,
-        a short walk from Metro Sol. English-friendly Irish sports pub atmosphere — pints and pub food, ask at the bar.
+        Looking for a sports bar near Puerta del Sol? We’re on Espoz y Mina 7 —
+        Metro Sol or Sevilla, walk-in only. For tonight’s screens, see
+        <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
       </p>
       <ul>
         <li><a href={withBase('/watch-football-madrid/')}>Watch football in Madrid</a></li>
@@ -41,33 +43,16 @@ const description =
         <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar Madrid</a></li>
         <li><a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Puerta del Sol</a></li>
       </ul>
-
-      <h2>Other sports when on</h2>
-      <p>
-        Rugby and Six Nations weekends, NFL Sundays, and F1 race days appear on our screens when scheduled.
-        We don’t run a separate “dedicated” rugby or NFL venue — if it’s on the screens, you’ll see it here. Check What’s on or ask at the bar.
-      </p>
-
-      <h2>FAQ</h2>
       <div class="faq">
         <details>
           <summary>Do you take reservations for match nights?</summary>
-          <p>No. Dubliners is walk-in. Arrive early for popular fixtures.</p>
-        </details>
-        <details>
-          <summary>Is there a terrace?</summary>
-          <p>No — indoor pub and screens only.</p>
+          <p>No — walk-in. Arrive early for popular fixtures.</p>
         </details>
         <details>
           <summary>Where exactly are you?</summary>
-          <p>{SITE.address}, {SITE.postal}. Short walk from Puerta del Sol. Phone: <a href={SITE.phoneHref}>{SITE.phone}</a>.</p>
-        </details>
-        <details>
-          <summary>Bar deportivo / pantallas en Sol?</summary>
-          <p>Sí: pantallas indoor cerca de Puerta del Sol, sin reserva. Detalles en <a href={withBase('/ver-futbol-madrid/')}>ver fútbol Madrid</a>.</p>
+          <p>{SITE.address}, {SITE.postal}. Phone: <a href={SITE.phoneHref}>{SITE.phone}</a>.</p>
         </details>
       </div>
-
       <div class="map-frame" style="margin-top:1.5rem">
         <iframe title="Map to Dubliners sports bar" loading="lazy" src={SITE.mapsEmbed}></iframe>
       </div>

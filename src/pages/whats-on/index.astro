@@ -3,96 +3,108 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
+import { FIXTURES, PREVIEW_TODAY } from '../../data/fixtures';
 
 const title = "What's On at Dubliners Madrid | Live Sport & Nights";
 const description =
-  "What's on at Dubliners Madrid: verified fixtures when on screens. Walk-in, ask staff. Wednesday €1 shots. Espoz y Mina 7.";
+  "What's on at Dubliners Madrid this week — live sport on screens, Wednesday €1 shots. Walk-in near Puerta del Sol. Call +34 915 32 79 56.";
 
-/** Re-verified 15 Sep 2026 (Europe/Madrid) from club / LaLiga / UEFA-facing sources. Staff confirm screens. */
-const fixtures = [
-  {
-    when: 'Tue 15 Sep · 21:30',
-    match: 'Elche vs Real Madrid',
-    comp: 'LaLiga',
-  },
-  {
-    when: 'Wed 16 Sep · 17:00',
-    match: 'Atlético Madrid vs Osasuna',
-    comp: 'LaLiga',
-  },
-  {
-    when: 'Wed 16 Sep · 21:00',
-    match: 'Europa League MD1 (e.g. Milan–Benfica, Sunderland–AZ)',
-    comp: 'UEFA Europa League',
-  },
-  {
-    when: 'Wed 16 Sep · 21:30',
-    match: 'Barcelona vs Racing Santander',
-    comp: 'LaLiga',
-  },
-  {
-    when: 'Thu 17 Sep · 21:00',
-    match: 'Celtic vs Ferencváros',
-    comp: 'UEFA Europa League',
-  },
-];
+const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
+const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
 ---
 
-<BaseLayout title={title} description={description} path="/whats-on/">
-  <section class="section">
-    <div class="container prose">
+<BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/photo-02.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
       <Breadcrumb current="What's on" />
       <h1>What’s on</h1>
       <p class="lead">
-        Live sport on indoor screens <strong>when fixtures are on</strong> — Premier League, Champions League,
-        LaLiga, Six Nations, F1, NFL and NBA <strong>when on screens</strong>. Walk-in. Ask staff which matches
-        are showing tonight. We do not claim every match.
+        Live sport on our indoor screens — and Wednesday €1 shots when you’re in for a midweek night.
+        Walk in, grab a seat if one’s free, and ask the team what’s showing.
       </p>
       <CtaRow showWhatsOn={false} />
+    </div>
+  </section>
 
-      <div class="card" style="margin:1.25rem 0">
-        <h3 style="margin-top:0">This week (Madrid times)</h3>
-        <p class="note">
-          Kick-offs below were re-checked from public club / league sources on 15 Sep 2026. Screens and coverage
-          can change — always ask at the bar.
-        </p>
-        <ul>
-          {
-            fixtures.map((f) => (
-              <li>
-                <strong>{f.when}</strong> — {f.match} <span class="note">({f.comp})</span>
-              </li>
-            ))
-          }
-        </ul>
-        <p style="margin-bottom:0">
-          For tonight’s screens: walk in, ask staff, or call <a href={SITE.phoneHref}>{SITE.phone}</a>. Follow{' '}
-          {SITE.instagramHandle}.
-        </p>
+  <section class="section">
+    <div class="container">
+      <div class="fixture-board">
+        <div class="fixture-col">
+          <h2>Today</h2>
+          {today.length === 0 ? (
+            <p class="empty-slot">Nothing listed for today — ask at the bar what’s on the screens.</p>
+          ) : (
+            <ul class="fixture-list">
+              {today.map((f) => (
+                <li>
+                  <span class="fx-time">{f.madridTime}</span>
+                  <span class="fx-body">
+                    <strong>{f.teams}</strong>
+                    <em>{f.competition}</em>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div class="fixture-col">
+          <h2>This week</h2>
+          {week.length === 0 ? (
+            <p class="empty-slot">This week’s list will appear here when fixtures are ready.</p>
+          ) : (
+            <ul class="fixture-list">
+              {week.map((f) => (
+                <li>
+                  <span class="fx-day">{f.whenLabel}</span>
+                  <span class="fx-time">{f.madridTime}</span>
+                  <span class="fx-body">
+                    <strong>{f.teams}</strong>
+                    <em>{f.competition}</em>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-
-      <h2>Regular weekly highlight</h2>
-      <p>
-        <strong>Wednesdays:</strong> €1 shots —
-        details on <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots Madrid</a>
-        (including Four Corner After Party, Wednesday only, Calle Victoria 6 until 05:30). Ask staff for deal
-        timing — we don’t publish an unverified 23:00 start.
+      <p class="fx-note">
+        Times are Madrid (CEST). Screens and coverage can change — call or ask staff on the night.
       </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={SITE.phoneHref}>Call {SITE.phone}</a>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      </div>
+    </div>
+  </section>
 
-      <h2>Find a sports night</h2>
+  <section class="section band">
+    <div class="container split">
+      <div>
+        <h2>Wednesday highlight</h2>
+        <p>
+          €1 shots every Wednesday — a favourite with the international crowd.
+          Four Corner After Party continues the night on Calle Victoria 6 (Wednesdays only) until 05:30.
+        </p>
+        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
+      </div>
+      <picture>
+        <source srcset={withBase('/images/photo-04.webp')} type="image/webp" />
+        <img src={withBase('/images/photo-04.jpg')} alt="Pint at Dubliners Madrid" class="split-photo" width="500" height="600" loading="lazy" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>More match nights</h2>
       <ul>
         <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
         <li><a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a></li>
         <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub</a></li>
         <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar</a></li>
-        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Near Puerta del Sol</a></li>
       </ul>
-
       <h2>Visit</h2>
-      <p>
-        {SITE.address}, {SITE.postal} ·
-        <a href={withBase('/visit/')}>Hours & map</a>
-      </p>
+      <p>{SITE.address}, {SITE.postal} · <a href={withBase('/visit/')}>Hours & map</a></p>
     </div>
   </section>
 </BaseLayout>

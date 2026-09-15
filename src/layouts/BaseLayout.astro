@@ -12,7 +12,6 @@ interface Props {
   lang?: string;
   ogImage?: string;
   hreflang?: { en?: string; es?: string };
-  noindex?: boolean;
 }
 
 const {
@@ -22,11 +21,14 @@ const {
   lang = 'en',
   ogImage = '/images/photo-01.jpg',
   hreflang,
-  noindex = false,
 } = Astro.props;
 
 const canonical = absUrl(path);
 const ogImageAbs = absUrl(ogImage);
+
+// github.io = preview only — always noindex until domain flip
+const robots = 'noindex,follow';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BarOrPub',
@@ -36,7 +38,11 @@ const jsonLd = {
     'Irish pub near Puerta del Sol in Madrid with indoor sports screens. Walk-in. Wednesday €1 shots.',
   url: absUrl('/'),
   telephone: SITE.phone,
-  image: [absUrl('/images/photo-01.jpg'), absUrl('/images/photo-02.jpg')],
+  image: [
+    absUrl('/images/photo-01.jpg'),
+    absUrl('/images/photo-02.jpg'),
+    absUrl('/images/photo-04.jpg'),
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: SITE.address,
@@ -58,8 +64,6 @@ const jsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '12:00', closes: '02:00' },
   ],
   sameAs: [SITE.instagram],
-  servesCuisine: 'Irish pub food',
-  priceRange: '€€',
 };
 ---
 
@@ -71,7 +75,7 @@ const jsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex ? <meta name="robots" content="noindex,follow" /> : <meta name="robots" content="index,follow" />}
+    <meta name="robots" content={robots} />
     {hreflang?.en && <link rel="alternate" hreflang="en" href={absUrl(hreflang.en)} />}
     {hreflang?.es && <link rel="alternate" hreflang="es" href={absUrl(hreflang.es)} />}
     {(hreflang?.en || hreflang?.es) && (

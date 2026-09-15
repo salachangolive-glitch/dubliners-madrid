@@ -9,7 +9,7 @@ const description =
   'Wednesday €1 shots at Dubliners near Puerta del Sol. Walk-in Irish pub on Espoz y Mina 7. Four Corner after-party Wednesday only, Victoria 6 until 05:30.';
 ---
 
-<BaseLayout title={title} description={description} path="/wednesday-1-euro-shots-madrid/" ogImage="/images/photo-04.jpg">
+<BaseLayout title={title} description={description} path="/wednesday-1-euro-shots-madrid/" ogImage="/images/interior-vert.jpg">
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -23,8 +23,12 @@ const description =
         <CtaRow showWednesday={false} />
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-04.webp')} type="image/webp" />
-        <img class="hero-photo" src={withBase('/images/photo-04.jpg')} alt="Pint ready at Dubliners Wednesday night" width="600" height="750" loading="eager" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Wednesday night room inside Dubliners Madrid" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>

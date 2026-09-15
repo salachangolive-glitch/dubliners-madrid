@@ -19,7 +19,7 @@ const {
   description,
   path,
   lang = 'en',
-  ogImage = '/images/photo-01.jpg',
+  ogImage = '/images/facade.jpg',
   hreflang,
 } = Astro.props;
 
@@ -39,9 +39,9 @@ const jsonLd = {
   url: absUrl('/'),
   telephone: SITE.phone,
   image: [
-    absUrl('/images/photo-01.jpg'),
-    absUrl('/images/photo-02.jpg'),
-    absUrl('/images/photo-04.jpg'),
+    absUrl('/images/facade.jpg'),
+    absUrl('/images/mural-hero.jpg'),
+    absUrl('/images/bar-interior.jpg'),
   ],
   address: {
     '@type': 'PostalAddress',

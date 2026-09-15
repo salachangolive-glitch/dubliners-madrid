@@ -9,7 +9,7 @@ const description =
   'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Phone +34 915 32 79 56. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30.';
 ---
 
-<BaseLayout title={title} description={description} path="/visit/" ogImage="/images/photo-01.jpg">
+<BaseLayout title={title} description={description} path="/visit/" ogImage="/images/facade.jpg">
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -21,8 +21,12 @@ const description =
         <CtaRow />
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
-        <img class="hero-photo" src={withBase('/images/photo-01.jpg')} alt="Dubliners storefront Espoz y Mina 7" width="700" height="560" loading="eager" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/facade-sm.webp')} 800w, ${withBase('/images/facade.webp')} 1280w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/facade.jpg')} alt="Dubliners storefront with green neon on Espoz y Mina 7" width="1280" height="720" loading="eager" />
       </picture>
     </div>
   </section>

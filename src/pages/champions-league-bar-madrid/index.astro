@@ -9,16 +9,26 @@ const description =
   'Champions League bar in Madrid near Puerta del Sol. Watch UCL on indoor screens. Walk-in Irish pub, Espoz y Mina 7.';
 ---
 
-<BaseLayout title={title} description={description} path="/champions-league-bar-madrid/" ogImage="/images/photo-01.jpg">
+<BaseLayout title={title} description={description} path="/champions-league-bar-madrid/" ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact">
-    <div class="container">
-      <Breadcrumb current="Champions League bar Madrid" />
-      <h1>Champions League bar Madrid — near Sol</h1>
-      <p class="lead">
-        European nights without leaving the centre. Dubliners puts Champions League on the indoor screens
-        when it’s showing — walk-in Irish pub on Calle de Espoz y Mina 7.
-      </p>
-      <CtaRow />
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Champions League bar Madrid" />
+        <h1>Champions League bar Madrid — near Sol</h1>
+        <p class="lead">
+          European nights without leaving the centre. Dubliners puts Champions League on the indoor screens
+          when it’s showing — walk-in Irish pub on Calle de Espoz y Mina 7.
+        </p>
+        <CtaRow />
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Champions League on the big screen at Dubliners Madrid" width="1400" height="788" loading="eager" />
+      </picture>
     </div>
   </section>
 

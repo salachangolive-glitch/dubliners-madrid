@@ -13,7 +13,7 @@ const description =
   title={title}
   description={description}
   path="/watch-football-madrid/"
-  ogImage="/images/photo-01.jpg"
+  ogImage="/images/screens-sports.jpg"
   hreflang={{ en: '/watch-football-madrid/', es: '/ver-futbol-madrid/' }}
 >
   <section class="hero hero-compact">
@@ -30,8 +30,12 @@ const description =
         <CtaRow />
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
-        <img class="hero-photo" src={withBase('/images/photo-01.jpg')} alt="Dubliners football pub near Puerta del Sol" width="700" height="560" loading="eager" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Watching football on big screens at Dubliners near Sol" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>

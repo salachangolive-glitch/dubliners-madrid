@@ -9,7 +9,7 @@ const description =
   'Sports bar in Madrid centro near Puerta del Sol. Indoor screens for football and live sport. Walk-in Irish pub, Espoz y Mina 7.';
 ---
 
-<BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/photo-02.jpg">
+<BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -23,8 +23,12 @@ const description =
         <CtaRow />
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-02.webp')} type="image/webp" />
-        <img class="hero-photo" src={withBase('/images/photo-02.jpg')} alt="Indoor sports pub atmosphere at Dubliners" width="500" height="700" loading="eager" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="DAZN TV and projector screen for live sport at Dubliners Madrid" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>

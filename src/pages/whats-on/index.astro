@@ -13,7 +13,7 @@ const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
 const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
 ---
 
-<BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/photo-02.jpg">
+<BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
@@ -88,8 +88,12 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
         <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-04.webp')} type="image/webp" />
-        <img src={withBase('/images/photo-04.jpg')} alt="Pint at Dubliners Madrid" class="split-photo" width="500" height="600" loading="lazy" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img src={withBase('/images/bar-interior.jpg')} alt="Wednesday night atmosphere at Dubliners Madrid" class="split-photo landscape" width="1400" height="788" loading="lazy" />
       </picture>
     </div>
   </section>

@@ -8,36 +8,39 @@ const description =
   'Irish pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Indoor screens for live sport, walk-in nights, Wednesday €1 shots. Call +34 915 32 79 56.';
 ---
 
-<BaseLayout title={title} description={description} path="/">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge">Near Puerta del Sol · Madrid Centro</span>
-        <h1>Your Irish corner in the heart of Madrid</h1>
-        <p class="lead">
-          Dubliners sits on Calle de Espoz y Mina 7 — a short walk from Puerta del Sol.
-          Warm indoor room, friendly English-speaking crowd, and screens for the big nights.
-          Walk in anytime. No booking needed.
-        </p>
-        <CtaRow />
-        <p class="nap-line">
-          <strong>{SITE.address}</strong>, {SITE.postal}<br />
-          <a href={SITE.phoneHref}>{SITE.phone}</a>
-        </p>
-      </div>
-      <div>
-        <picture>
-          <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
-          <img
-            class="hero-photo"
-            src={withBase('/images/photo-01.jpg')}
-            alt="Dubliners Irish Pub exterior near Puerta del Sol, Madrid"
-            width="800"
-            height="640"
-            loading="eager"
-          />
-        </picture>
-      </div>
+<BaseLayout title={title} description={description} path="/" ogImage="/images/mural-hero.jpg">
+  <section class="hero-mural" aria-label="Welcome">
+    <div class="hero-mural__media">
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+          sizes="100vw"
+        />
+        <img
+          src={withBase('/images/mural-hero.jpg')}
+          alt="Classical ceiling mural inside Dubliners Irish Pub Madrid"
+          width="1872"
+          height="1056"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
+    <div class="hero-mural__content">
+      <span class="badge">Near Puerta del Sol · Madrid Centro</span>
+      <h1>Your Irish corner in the heart of Madrid</h1>
+      <p class="lead">
+        Dubliners sits on Calle de Espoz y Mina 7 — a short walk from Puerta del Sol.
+        Warm indoor room, friendly English-speaking crowd, and screens for the big nights.
+        Walk in anytime. No booking needed.
+      </p>
+      <CtaRow />
+      <p class="nap-line">
+        <strong>{SITE.address}</strong>, {SITE.postal}<br />
+        <a href={SITE.phoneHref}>{SITE.phone}</a>
+      </p>
     </div>
   </section>
 
@@ -55,43 +58,64 @@ const description =
         </p>
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-04.webp')} type="image/webp" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
         <img
-          src={withBase('/images/photo-04.jpg')}
-          alt="Fresh Guinness pint on the bar at Dubliners Madrid"
-          width="600"
-          height="800"
+          src={withBase('/images/bar-interior.jpg')}
+          alt="Bar interior with checkered floor and ceiling mural at Dubliners Madrid"
+          width="1400"
+          height="788"
           loading="lazy"
-          class="split-photo"
+          class="split-photo landscape"
         />
       </picture>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <h2>Live sport on the screens</h2>
-      <p>
-        Premier League, Champions League, LaLiga, Six Nations, Formula 1, NFL and NBA —
-        when they’re showing here. Check <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
-      </p>
-      <div class="card-grid cols-3">
-        <article class="card">
-          <h3>Match nights</h3>
-          <p>Indoor screens in centro. Arrive a little early for the big fixtures.</p>
-          <a href={withBase('/watch-football-madrid/')}>Watch football →</a>
-        </article>
-        <article class="card">
-          <h3>Sports bar near Sol</h3>
-          <p>Steps from Metro Sol — ideal if your hotel is already in the centre.</p>
-          <a href={withBase('/sports-bar-madrid/')}>Sports bar →</a>
-        </article>
-        <article class="card">
-          <h3>This week’s fixtures</h3>
-          <p>Today and this week listed when we have kick-offs ready to share.</p>
-          <a href={withBase('/whats-on/')}>What’s on →</a>
-        </article>
+    <div class="container split">
+      <div>
+        <h2>Live sport on the screens</h2>
+        <p>
+          Premier League, Champions League, LaLiga, Six Nations, Formula 1, NFL and NBA —
+          when they’re showing here. Check <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+        </p>
+        <div class="card-grid cols-3" style="margin-top:1rem">
+          <article class="card">
+            <h3>Match nights</h3>
+            <p>Indoor screens in centro. Arrive a little early for the big fixtures.</p>
+            <a href={withBase('/watch-football-madrid/')}>Watch football →</a>
+          </article>
+          <article class="card">
+            <h3>Sports bar near Sol</h3>
+            <p>Steps from Metro Sol — ideal if your hotel is already in the centre.</p>
+            <a href={withBase('/sports-bar-madrid/')}>Sports bar →</a>
+          </article>
+          <article class="card">
+            <h3>This week’s fixtures</h3>
+            <p>Today and this week listed when we have kick-offs ready to share.</p>
+            <a href={withBase('/whats-on/')}>What’s on →</a>
+          </article>
+        </div>
       </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img
+          src={withBase('/images/screens-sports.jpg')}
+          alt="Large TV and projector screen for live sport at Dubliners Madrid"
+          width="1400"
+          height="788"
+          loading="lazy"
+          class="split-photo landscape"
+        />
+      </picture>
     </div>
   </section>
 
@@ -108,12 +132,16 @@ const description =
         <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-02.webp')} type="image/webp" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
+          sizes="(max-width: 880px) 100vw, 35vw"
+        />
         <img
-          src={withBase('/images/photo-02.jpg')}
-          alt="Warm interior of Dubliners Irish pub in Madrid"
-          width="500"
-          height="700"
+          src={withBase('/images/interior-vert.jpg')}
+          alt="Doorway into seating with neon signs and TVs at Dubliners Madrid"
+          width="900"
+          height="1600"
           loading="lazy"
           class="split-photo tall"
         />
@@ -154,14 +182,14 @@ const description =
       <h2>Inside & outside</h2>
       <div class="photo-grid">
         {[
-          { n: '01', alt: 'Dubliners storefront with Irish flags near Sol' },
-          { n: '02', alt: 'Bar interior at Dubliners Madrid' },
-          { n: '03', alt: 'Guinness and table at Dubliners' },
-          { n: '04', alt: 'Pint of Guinness at Dubliners Madrid' },
-        ].map(({ n, alt }) => (
+          { src: 'facade', alt: 'Dubliners storefront with green neon and Irish flags near Sol', w: 1280, h: 720 },
+          { src: 'bar-interior', alt: 'Bar counter and checkered floor inside Dubliners Madrid', w: 1400, h: 788 },
+          { src: 'screens-sports', alt: 'Sports screens and projector at Dubliners Irish Pub', w: 1400, h: 788 },
+          { src: 'mural-hero', alt: 'Classical ceiling mural above the room at Dubliners Madrid', w: 1872, h: 1056 },
+        ].map(({ src, alt, w, h }) => (
           <picture>
-            <source srcset={withBase(`/images/photo-${n}.webp`)} type="image/webp" />
-            <img src={withBase(`/images/photo-${n}.jpg`)} alt={alt} width="600" height="450" loading="lazy" />
+            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
+            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
           </picture>
         ))}
       </div>
@@ -169,16 +197,34 @@ const description =
   </section>
 
   <section class="section">
-    <div class="container">
-      <h2>Find us</h2>
-      <p>
-        Calle de Espoz y Mina 7, 28012 Madrid — short walk from Puerta del Sol.
-        Metro: Sol or Sevilla.
-      </p>
+    <div class="container split">
+      <div>
+        <h2>Find us</h2>
+        <p>
+          Calle de Espoz y Mina 7, 28012 Madrid — short walk from Puerta del Sol.
+          Metro: Sol or Sevilla.
+        </p>
+        <picture>
+          <source
+            type="image/webp"
+            srcset={`${withBase('/images/facade-sm.webp')} 800w, ${withBase('/images/facade.webp')} 1280w`}
+            sizes="(max-width: 880px) 100vw, 45vw"
+          />
+          <img
+            src={withBase('/images/facade.jpg')}
+            alt="Dubliners Irish Pub facade on Calle de Espoz y Mina, Madrid"
+            width="1280"
+            height="720"
+            loading="lazy"
+            class="split-photo landscape"
+            style="margin-bottom:1rem"
+          />
+        </picture>
+        <CtaRow />
+      </div>
       <div class="map-frame">
         <iframe title="Map to Dubliners Madrid" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={SITE.mapsEmbed}></iframe>
       </div>
-      <CtaRow />
     </div>
   </section>
 </BaseLayout>

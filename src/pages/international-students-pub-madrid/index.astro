@@ -9,7 +9,7 @@ const description =
   'English-speaking Irish pub near Sol for Erasmus and international students. Walk-in meeting point, Wednesday €1 shots. Calle de Espoz y Mina 7, Madrid.';
 ---
 
-<BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/photo-02.jpg">
+<BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/interior-vert.jpg">
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -22,8 +22,12 @@ const description =
         <CtaRow />
       </div>
       <picture>
-        <source srcset={withBase('/images/photo-02.webp')} type="image/webp" />
-        <img class="hero-photo" src={withBase('/images/photo-02.jpg')} alt="International crowd vibe inside Dubliners Madrid" width="500" height="700" loading="eager" />
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Seating doorway and neon signs inside Dubliners Madrid" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>

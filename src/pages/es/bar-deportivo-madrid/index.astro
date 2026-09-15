@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaRow from '../../../components/CtaRow.astro';
+import { SITE, withBase } from '../../../site';
+
+const title = 'Bar deportivo Madrid cerca de Sol | Dubliners';
+const description =
+  'Bar deportivo en Madrid centro cerca de Puerta del Sol. Pantallas indoor para fútbol y deporte en directo. Pub irlandés walk-in, Espoz y Mina 7.';
+---
+
+<BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Bar deportivo Madrid" lang="es" />
+        <h1>Bar deportivo Madrid — cerca de Puerta del Sol</h1>
+        <p class="lead">
+          Varias pantallas indoor, ambiente de pub irlandés y Sol a la puerta.
+          Entra a ver fútbol y deporte en directo — Premier League, Champions League, LaLiga,
+          Seis Naciones, F1, NFL y NBA cuando se echan.
+        </p>
+        <CtaRow lang="es" />
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Pantalla DAZN y proyector para deporte en directo en Dubliners Madrid" width="1400" height="788" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Deporte en directo en Madrid centro</h2>
+      <p>
+        ¿Buscas un bar deportivo cerca de Puerta del Sol? Estamos en Espoz y Mina 7 —
+        Metro Sol o Sevilla, solo walk-in. Para lo de hoy en pantallas, mira
+        <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+      </p>
+      <ul>
+        <li><a href={withBase('/es/ver-futbol-madrid/')}>Ver fútbol en Madrid</a></li>
+        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Pub Premier League Madrid</a></li>
+        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Bar Champions League Madrid</a></li>
+        <li><a href={withBase('/es/bar-futbol-puerta-del-sol/')}>Bar de fútbol cerca de Puerta del Sol</a></li>
+      </ul>
+      <div class="faq">
+        <details>
+          <summary>¿Reserváis mesa para noches de partido?</summary>
+          <p>No — walk-in. Llega pronto en los partidos populares.</p>
+        </details>
+        <details>
+          <summary>¿Dónde estáis exactamente?</summary>
+          <p>{SITE.address}, {SITE.postal}. Teléfono: <a href={SITE.phoneHref}>{SITE.phone}</a>.</p>
+        </details>
+      </div>
+      <div class="map-frame" style="margin-top:1.5rem">
+        <iframe title="Mapa a Dubliners bar deportivo" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

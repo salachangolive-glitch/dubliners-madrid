@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../../site';
+
+const title = 'Contacto Dubliners Madrid | Pub irlandés cerca de Sol';
+const description =
+  'Contacta con Dubliners, pub irlandés cerca de Puerta del Sol. Llama al +34 915 32 79 56, visítanos o envía un mensaje sobre noches de deporte, grupos o consultas generales.';
+const formReady = Boolean(SITE.formspreeId);
+const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
+---
+
+<BaseLayout title={title} description={description} path="/es/contacto/" lang="es" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Contacto" lang="es" />
+      <h1>Contacto</h1>
+      <p class="lead">
+        Dudas sobre una noche de partido, una visita en grupo o cómo encontrarnos cerca de Sol — escríbenos.
+        Walk-ins bienvenidos; no hacemos reservas online de mesa.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <div class="contact-aside">
+        <h2>Habla con Dubliners</h2>
+        <p>
+          <strong>Teléfono</strong><br />
+          <a href={SITE.phoneHref}>{SITE.phone}</a>
+        </p>
+        <p>
+          <strong>Visitar</strong><br />
+          {SITE.address}<br />
+          {SITE.postal}
+        </p>
+        <p>
+          <strong>Instagram</strong><br />
+          <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
+        </p>
+        {SITE.publicEmail ? (
+          <p>
+            <strong>Email</strong><br />
+            <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
+          </p>
+        ) : (
+          <p class="contact-note">
+            El email de Dubliners se activará con el dominio oficial. Hasta entonces, llama o escríbenos por Instagram.
+          </p>
+        )}
+        <p>
+          <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        </p>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h2>Enviar un mensaje</h2>
+        {!formReady && (
+          <p class="contact-note" role="status">
+            El formulario se activará cuando esté configurado el email de Dubliners. Mientras tanto, llama al{' '}
+            <a href={SITE.phoneHref}>{SITE.phone}</a> o escribe por Instagram.
+          </p>
+        )}
+        <form
+          class="contact-form"
+          method="POST"
+          action={formAction}
+          data-form-ready={formReady ? 'true' : 'false'}
+          novalidate
+        >
+          {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — contacto web" />}
+          {formReady && <input type="hidden" name="_next" value={withBase('/es/contacto/?sent=1')} />}
+          <div class="hp" aria-hidden="true">
+            <label for="company_website">Company</label>
+            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" required maxlength="120" autocomplete="name" disabled={!formReady} />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required maxlength="160" autocomplete="email" disabled={!formReady} />
+
+          <label for="reason">Motivo del contacto</label>
+          <select id="reason" name="reason" required disabled={!formReady}>
+            <option value="">Elige…</option>
+            <option value="Información general">Información general</option>
+            <option value="Grupos">Grupos</option>
+            <option value="Deporte / partidos">Deporte / partidos</option>
+            <option value="Eventos">Eventos</option>
+            <option value="Otro">Otro</option>
+          </select>
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="6" required maxlength="4000" disabled={!formReady}></textarea>
+
+          <p class="form-legal">
+            Al enviar este mensaje aceptas que usemos tus datos solo para responder a esta consulta.
+            Consulta nuestra <a href={withBase('/es/privacidad/')}>nota de privacidad</a>.
+          </p>
+
+          <button class="btn btn-primary" type="submit" disabled={!formReady}>Enviar mensaje</button>
+          <p id="form-status" class="contact-note" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const status = document.getElementById('form-status');
+  const params = new URLSearchParams(location.search);
+  if (params.get('sent') === '1' && status) {
+    status.hidden = false;
+    status.textContent = 'Gracias — tu mensaje se ha enviado. Te responderemos pronto.';
+  }
+  form?.addEventListener('submit', (e) => {
+    if (form.getAttribute('data-form-ready') !== 'true') {
+      e.preventDefault();
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'El formulario aún no está activo. Por favor, llama o usa Instagram.';
+      }
+    }
+  });
+</script>

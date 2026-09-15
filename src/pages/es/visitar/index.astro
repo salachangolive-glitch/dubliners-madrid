@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaRow from '../../../components/CtaRow.astro';
+import { SITE, withBase } from '../../../site';
+import { HOURS_ES } from '../../../i18n';
+
+const title = 'Visitar Dubliners Madrid | Dirección, horario y mapa';
+const description =
+  'Visita Dubliners, pub irlandés: Calle de Espoz y Mina 7, 28012 Madrid. Teléfono +34 915 32 79 56. Horario lun–mié y dom 12:00–02:00; vie–sáb 12:30–02:30.';
+---
+
+<BaseLayout title={title} description={description} path="/es/visitar/" lang="es" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Visitar" lang="es" />
+        <h1>Visitar Dubliners</h1>
+        <p class="lead">
+          Pub irlandés cerca de Puerta del Sol — entra a por una cerveza y fútbol en pantallas indoor.
+        </p>
+        <CtaRow lang="es" />
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/facade-sm.webp')} 800w, ${withBase('/images/facade.webp')} 1280w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/facade.jpg')} alt="Fachada de Dubliners con neón verde en Espoz y Mina 7" width="1280" height="720" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Dirección y teléfono</h2>
+      <div class="card">
+        <p style="color:var(--text);margin:0">
+          <strong>{SITE.name}</strong><br />
+          {SITE.address}<br />
+          {SITE.postal}<br />
+          España<br /><br />
+          Teléfono: <a href={SITE.phoneHref}>{SITE.phone}</a><br />
+          Instagram: <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
+        </p>
+      </div>
+
+      <h2>Horario</h2>
+      <table class="hours-table">
+        <thead>
+          <tr><th>Día</th><th>Horario</th></tr>
+        </thead>
+        <tbody>
+          {HOURS_ES.map((h) => (
+            <tr>
+              <th scope="row">{h.day}</th>
+              <td>{h.hours}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>Cómo llegar</h2>
+      <ul>
+        <li>Metro: Sol o Sevilla</li>
+        <li>Unos dos minutos a pie desde Puerta del Sol</li>
+        <li>Pub indoor — walk-in, sin reserva online de mesa</li>
+      </ul>
+
+      <div class="map-frame">
+        <iframe title="Mapa de Google — Dubliners Madrid" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Abrir en Google Maps</a>
+      </p>
+
+      <h2>Reconócenos desde la calle</h2>
+      <p>Busca el neón verde de Dubliners y el escaparate vintage en Espoz y Mina.</p>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/window-display-sm.webp')} 800w, ${withBase('/images/window-display.webp')} 1600w`}
+          sizes="(max-width: 880px) 100vw, 70vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/window-display.jpg')} alt="Curiosidades vintage en el escaparate de Dubliners en Espoz y Mina" width="1600" height="902" loading="lazy" />
+      </picture>
+      <picture style="margin-top:1rem;display:block">
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/window-display-2-sm.webp')} 800w, ${withBase('/images/window-display-2.webp')} 1600w`}
+          sizes="(max-width: 880px) 100vw, 70vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/window-display-2.jpg')} alt="Caja de Jameson y antigüedades en el escaparate de Dubliners" width="1600" height="902" loading="lazy" />
+      </picture>
+
+      <h2>Enlaces útiles</h2>
+      <ul>
+        <li><a href={withBase('/es/partidos/')}>Partidos</a></li>
+        <li><a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a></li>
+        <li><a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

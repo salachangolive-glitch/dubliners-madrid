@@ -4,12 +4,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyCta from '../components/StickyCta.astro';
 import { SITE, absUrl, withBase } from '../site';
+import { type Lang, detectLang, hreflangFor, t, normalizePath } from '../i18n';
 
 interface Props {
   title: string;
   description: string;
   path: string;
-  lang?: string;
+  lang?: Lang;
   ogImage?: string;
   hreflang?: { en?: string; es?: string };
 }
@@ -18,12 +19,17 @@ const {
   title,
   description,
   path,
-  lang = 'en',
+  lang: langProp,
   ogImage = '/images/facade.jpg',
-  hreflang,
+  hreflang: hreflangProp,
 } = Astro.props;
 
-const canonical = absUrl(path);
+const pathNorm = normalizePath(path);
+const lang: Lang = langProp || detectLang(pathNorm);
+const hreflang = hreflangProp || hreflangFor(pathNorm);
+const copy = t(lang);
+
+const canonical = absUrl(pathNorm);
 const ogImageAbs = absUrl(ogImage);
 
 // github.io = preview only — always noindex until domain flip
@@ -34,9 +40,8 @@ const jsonLd = {
   '@type': 'BarOrPub',
   name: SITE.name,
   alternateName: SITE.fullName,
-  description:
-    'Irish pub near Puerta del Sol in Madrid with indoor sports screens. Walk-in. Wednesday €1 shots.',
-  url: absUrl('/'),
+  description: copy.jsonLdDescription,
+  url: absUrl(lang === 'es' ? '/es/' : '/'),
   telephone: SITE.phone,
   image: [
     absUrl('/images/facade.jpg'),
@@ -79,7 +84,7 @@ const jsonLd = {
     {hreflang?.en && <link rel="alternate" hreflang="en" href={absUrl(hreflang.en)} />}
     {hreflang?.es && <link rel="alternate" hreflang="es" href={absUrl(hreflang.es)} />}
     {(hreflang?.en || hreflang?.es) && (
-      <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || path)} />
+      <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.fullName} />
@@ -88,6 +93,11 @@ const jsonLd = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    {lang === 'es' ? (
+      <meta property="og:locale:alternate" content="en_GB" />
+    ) : (
+      <meta property="og:locale:alternate" content="es_ES" />
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -99,11 +109,11 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <Header />
+    <Header lang={lang} path={pathNorm} />
     <main>
       <slot />
     </main>
-    <Footer />
-    <StickyCta />
+    <Footer lang={lang} />
+    <StickyCta lang={lang} />
   </body>
 </html>

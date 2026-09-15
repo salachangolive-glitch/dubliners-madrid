@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../../site';
+
+const title = 'Nota de privacidad | Dubliners Madrid';
+const description = 'Cómo usa Dubliners Madrid los datos del formulario de contacto. Nota breve de privacidad para consultas web.';
+---
+
+<BaseLayout title={title} description={description} path="/es/privacidad/" lang="es" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Privacidad" lang="es" />
+      <h1>Nota de privacidad</h1>
+      <p class="lead">Cómo tratamos los datos que envías a través del formulario de contacto del sitio.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Quiénes somos</h2>
+      <p>
+        Este sitio web es de <strong>Dubliners</strong>, un pub irlandés en {SITE.address}, {SITE.postal}.
+        Teléfono: <a href={SITE.phoneHref}>{SITE.phone}</a>.
+      </p>
+      <p class="contact-note">
+        Nombre legal completo, CIF/NIF y domicilio social para avisos de privacidad:
+        <strong>PENDIENTE INTERNO</strong> — no se publica hasta confirmación del titular.
+      </p>
+
+      <h2>Qué recogemos con el formulario de contacto</h2>
+      <ul>
+        <li>Nombre</li>
+        <li>Dirección de email</li>
+        <li>Motivo del contacto</li>
+        <li>Contenido del mensaje</li>
+      </ul>
+      <p>No pedimos datos de tarjeta de pago en este formulario.</p>
+
+      <h2>Para qué lo usamos</h2>
+      <p>Solo para leer y responder a tu consulta sobre Dubliners (información, grupos, noches de deporte, eventos u otras preguntas que plantees).</p>
+
+      <h2>Dónde van los mensajes</h2>
+      <p>
+        Los mensajes se entregan al buzón operativo de Dubliners configurado para este local.
+        No publicamos esa dirección interna en el sitio web.
+      </p>
+
+      <h2>Cuánto tiempo lo guardamos</h2>
+      <p>Los emails de consulta se conservan solo el tiempo necesario para gestionar tu petición y el seguimiento habitual; después se eliminan o archivan según la práctica ordinaria del negocio.</p>
+
+      <h2>Tus derechos</h2>
+      <p>
+        Según la normativa europea y española de protección de datos, puedes solicitar acceso, rectificación o
+        supresión de datos personales de una consulta, u oponerte al tratamiento, contactándonos por teléfono en
+        <a href={SITE.phoneHref}>{SITE.phone}</a> o mediante el formulario de contacto cuando esté activo.
+      </p>
+      <p>
+        También puedes presentar una reclamación ante la AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).
+      </p>
+
+      <h2>Cookies</h2>
+      <p>Este sitio estático de previsualización no establece cookies de marketing para el formulario de contacto. Si se añaden analíticas más adelante, esta nota se actualizará antes de activarlas.</p>
+
+      <p><a href={withBase('/es/contacto/')}>Volver a Contacto</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaRow from '../../../components/CtaRow.astro';
+import { SITE, withBase } from '../../../site';
+
+const title = 'Bar de fútbol cerca de Puerta del Sol | Dubliners Madrid';
+const description =
+  'Bar de fútbol cerca de Puerta del Sol. Dubliners en Espoz y Mina 7 — unos 2 minutos a pie desde la plaza. Pantallas indoor, walk-in.';
+---
+
+<BaseLayout title={title} description={description} path="/es/bar-futbol-puerta-del-sol/" lang="es" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Bar de fútbol Puerta del Sol" lang="es" />
+        <h1>Bar de fútbol cerca de Puerta del Sol</h1>
+        <p class="lead">
+          ¿Te alojas junto a la plaza? Ya casi estás.
+          Dubliners queda a unos dos minutos a pie de Puerta del Sol — pantallas indoor, walk-in, sin reserva.
+        </p>
+        <CtaRow lang="es" />
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/facade-sm.webp')} 800w, ${withBase('/images/facade.webp')} 1280w`}
+          sizes="(max-width: 880px) 100vw, 45vw"
+        />
+        <img class="hero-photo landscape" src={withBase('/images/facade.jpg')} alt="Fachada de Dubliners a un paso de Puerta del Sol" width="1280" height="720" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Cómo llegar a pie desde Puerta del Sol</h2>
+      <p>
+        Desde la plaza, dirígete hacia Calle de Espoz y Mina. El número 7 está a un paseo corto.
+        Metro Sol o Sevilla — ideal si tu hotel ya está en el centro.
+      </p>
+      <h2>Qué ver cerca de Sol</h2>
+      <p>
+        Premier League, Champions League, LaLiga y más cuando están en pantallas.
+        Empieza por <a href={withBase('/es/partidos/')}>Partidos</a>
+        o mira <a href={withBase('/es/ver-futbol-madrid/')}>ver fútbol en Madrid</a>.
+      </p>
+      <div class="faq">
+        <details>
+          <summary>Hotel cerca de Sol — ¿puedo ir andando?</summary>
+          <p>Sí. La mayoría de hoteles de la zona Sol están a un paseo corto de Espoz y Mina 7.</p>
+        </details>
+        <details>
+          <summary>Dirección y teléfono</summary>
+          <p>{SITE.address}, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a></p>
+        </details>
+      </div>
+      <div class="map-frame" style="margin-top:1.5rem">
+        <iframe title="Mapa desde Puerta del Sol a Dubliners" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

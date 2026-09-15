@@ -1,11 +1,16 @@
 ---
 import { withBase } from '../site';
+import { type Lang, t } from '../i18n';
+
 interface Props {
   current: string;
+  lang?: Lang;
 }
-const { current } = Astro.props;
+const { current, lang = 'en' } = Astro.props;
+const copy = t(lang);
+const home = lang === 'es' ? '/es/' : '/';
 ---
 
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href={withBase('/')}>Home</a> · <span>{current}</span>
+<nav class="breadcrumb" aria-label={lang === 'es' ? 'Migas de pan' : 'Breadcrumb'}>
+  <a href={withBase(home)}>{copy.home}</a> · <span>{current}</span>
 </nav>

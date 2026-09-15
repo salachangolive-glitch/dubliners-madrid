@@ -1,5 +1,41 @@
 ---
 import { SITE, HOURS, withBase } from '../site';
+import { type Lang, t, HOURS_ES } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const copy = t(lang);
+const hours = lang === 'es' ? HOURS_ES : HOURS;
+const explore =
+  lang === 'es'
+    ? [
+        { href: '/es/bar-deportivo-madrid/', label: copy.sportsBar },
+        { href: '/es/ver-futbol-madrid/', label: copy.watchFootball },
+        { href: '/es/premier-league-pub-madrid/', label: copy.premierLeague },
+        { href: '/es/champions-league-bar-madrid/', label: copy.champions },
+        { href: '/es/bar-futbol-puerta-del-sol/', label: copy.nearSol },
+        { href: '/es/estudiantes-internacionales/', label: copy.students },
+        { href: '/es/miercoles-chupitos-1-euro/', label: copy.wednesday },
+        { href: '/es/partidos/', label: copy.whatsOn },
+        { href: '/es/visitar/', label: copy.visitHours },
+        { href: '/es/contacto/', label: 'Contacto' },
+        { href: '/es/privacidad/', label: copy.privacy },
+      ]
+    : [
+        { href: '/sports-bar-madrid/', label: copy.sportsBar },
+        { href: '/watch-football-madrid/', label: copy.watchFootball },
+        { href: '/premier-league-pub-madrid/', label: copy.premierLeague },
+        { href: '/champions-league-bar-madrid/', label: copy.champions },
+        { href: '/football-bar-puerta-del-sol/', label: copy.nearSol },
+        { href: '/international-students-pub-madrid/', label: copy.students },
+        { href: '/wednesday-1-euro-shots-madrid/', label: copy.wednesday },
+        { href: '/whats-on/', label: copy.whatsOn },
+        { href: '/visit/', label: copy.visitHours },
+        { href: '/contact/', label: 'Contact' },
+        { href: '/privacy/', label: copy.privacy },
+      ];
 ---
 
 <footer class="site-footer">
@@ -7,7 +43,7 @@ import { SITE, HOURS, withBase } from '../site';
     <div>
       <h3>{SITE.name}</h3>
       <p>
-        Irish pub near Puerta del Sol.<br />
+        {copy.tagline}.<br />
         {SITE.address}, {SITE.postal}<br />
         <a href={SITE.phoneHref}>{SITE.phone}</a>
       </p>
@@ -16,27 +52,19 @@ import { SITE, HOURS, withBase } from '../site';
       </p>
     </div>
     <div>
-      <h3>Explore</h3>
-      <a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
-      <a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a>
-      <a href={withBase('/premier-league-pub-madrid/')}>Premier League pub</a>
-      <a href={withBase('/champions-league-bar-madrid/')}>Champions League bar</a>
-      <a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Sol</a>
-      <a href={withBase('/international-students-pub-madrid/')}>International students</a>
-      <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
-      <a href={withBase('/whats-on/')}>What's on</a>
-      <a href={withBase('/visit/')}>Visit / hours</a>
-      <a href={withBase('/contact/')}>Contact</a>
-      <a href={withBase('/privacy/')}>Privacy</a>
+      <h3>{copy.explore}</h3>
+      {explore.map((l) => (
+        <a href={withBase(l.href)}>{l.label}</a>
+      ))}
     </div>
     <div>
-      <h3>Hours</h3>
-      {HOURS.map((h) => (
+      <h3>{copy.hours}</h3>
+      {hours.map((h) => (
         <p style="margin:0 0 0.25rem">{h.day}: {h.hours}</p>
       ))}
     </div>
   </div>
   <div class="container fineprint">
-    Walk-in Irish pub · indoor screens · no table booking · Espoz y Mina 7, Madrid
+    {copy.fineprint}
   </div>
 </footer>

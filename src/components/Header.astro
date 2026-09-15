@@ -1,36 +1,51 @@
 ---
 import { SITE, withBase } from '../site';
+import { type Lang, navLinks, t, alternatePath } from '../i18n';
 
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/sports-bar-madrid/', label: 'Sports bar' },
-  { href: '/watch-football-madrid/', label: 'Watch football' },
-  { href: '/whats-on/', label: "What's on" },
-  { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday' },
-  { href: '/visit/', label: 'Visit' },
-  { href: '/contact/', label: 'Contact' },
-];
+interface Props {
+  lang?: Lang;
+  path?: string;
+}
+const { lang = 'en', path = '/' } = Astro.props;
+const links = navLinks(lang);
+const copy = t(lang);
+const alt = alternatePath(path);
+const enHref = lang === 'en' ? withBase(path) : withBase(alt);
+const esHref = lang === 'es' ? withBase(path) : withBase(alt);
+const logoHref = withBase(lang === 'es' ? '/es/' : '/');
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href={withBase('/')}>{SITE.name} <span>Madrid</span></a>
-    <nav class="nav" aria-label="Primary">
+    <a class="logo" href={logoHref}>{SITE.name} <span>Madrid</span></a>
+    <nav class="nav" aria-label={lang === 'es' ? 'Principal' : 'Primary'}>
       {links.map((l) => (
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
-      <a href={SITE.phoneHref}>Call</a>
+      <a href={SITE.phoneHref}>{copy.call}</a>
+      <span class="lang-sel" aria-label={lang === 'es' ? 'Idioma' : 'Language'}>
+        <a href={enHref} class:list={[{ active: lang === 'en' }]} hreflang="en" lang="en">EN</a>
+        <span aria-hidden="true">|</span>
+        <a href={esHref} class:list={[{ active: lang === 'es' }]} hreflang="es" lang="es">ES</a>
+      </span>
     </nav>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="menu-btn">
-      Menu
-    </button>
+    <div class="header-actions">
+      <span class="lang-sel lang-sel--mobile" aria-label={lang === 'es' ? 'Idioma' : 'Language'}>
+        <a href={enHref} class:list={[{ active: lang === 'en' }]} hreflang="en" lang="en">EN</a>
+        <span aria-hidden="true">|</span>
+        <a href={esHref} class:list={[{ active: lang === 'es' }]} hreflang="es" lang="es">ES</a>
+      </span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="menu-btn">
+        {copy.menu}
+      </button>
+    </div>
   </div>
-  <nav class="container mobile-nav" id="mobile-nav" aria-label="Mobile">
+  <nav class="container mobile-nav" id="mobile-nav" aria-label={lang === 'es' ? 'Móvil' : 'Mobile'}>
     {links.map((l) => (
       <a href={withBase(l.href)}>{l.label}</a>
     ))}
-    <a href={SITE.phoneHref}>Call {SITE.phone}</a>
-    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+    <a href={SITE.phoneHref}>{copy.call} {SITE.phone}</a>
+    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   </nav>
 </header>
 <script>

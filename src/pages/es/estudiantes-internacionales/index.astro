@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaRow from '../../../components/CtaRow.astro';
+import { SITE, withBase } from '../../../site';
+
+const title = 'Pub para estudiantes internacionales Madrid | Ambiente cerca de Sol';
+const description =
+  'Pub irlandés cerca de Sol para Erasmus y estudiantes internacionales. Punto de encuentro walk-in, miércoles chupitos a 1 €. Calle de Espoz y Mina 7, Madrid.';
+---
+
+<BaseLayout title={title} description={description} path="/es/estudiantes-internacionales/" lang="es" ogImage="/images/interior-vert.jpg">
+  <section class="hero hero-compact">
+    <div class="container hero-grid">
+      <div>
+        <Breadcrumb current="Estudiantes internacionales" lang="es" />
+        <h1>Conoce gente. Ambiente internacional. En Sol.</h1>
+        <p class="lead">
+          Dubliners es el punto de encuentro fácil para Erasmus y estudiantes internacionales —
+          un pub irlandés a un paso de Puerta del Sol, donde la sala ya se siente como en casa.
+        </p>
+        <CtaRow lang="es" />
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Entrada a la zona de mesas y neones en Dubliners Madrid" width="900" height="1600" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Ambiente internacional</h3>
+          <p>Equipo que habla inglés y un público mezclado de estudiantes, viajeros y locales.</p>
+        </article>
+        <article class="card">
+          <h3>Justo en Sol</h3>
+          <p>Calle de Espoz y Mina 7 — fácil de encontrar después de clase, turismo o antes de salir.</p>
+        </article>
+        <article class="card">
+          <h3>Miércoles chupitos a 1 €</h3>
+          <p>El ritual semanal. Entra y, solo miércoles, Four Corner en Victoria 6 hasta las 05:30.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Tu punto de media semana</h2>
+      <p>
+        ¿Nuevo en Madrid? Trae a tu grupo o ven solo y siéntate con una cerveza.
+        Los miércoles son los más animados — chupitos a 1 € y la opción de seguir en Four Corner After Party
+        (Calle Victoria 6, solo miércoles, hasta las 05:30).
+      </p>
+      <p>
+        Otras noches, fútbol en directo cuando está en pantallas, o simplemente tu base en el centro.
+        Detalles: <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> ·
+        <a href={withBase('/es/partidos/')}>Partidos</a>.
+      </p>
+      <CtaRow lang="es" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Se habla inglés?</summary>
+          <p>Sí — pub irlandés con ambiente internacional y equipo que habla inglés.</p>
+        </details>
+        <details>
+          <summary>¿Dónde estáis?</summary>
+          <p>{SITE.address}, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a></p>
+        </details>
+        <details>
+          <summary>¿Mejor noche para estudiantes?</summary>
+          <p>Miércoles por los chupitos a 1 € — llega cuando te vaya bien; la sala se llena.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

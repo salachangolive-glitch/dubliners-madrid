@@ -1,20 +1,25 @@
 ---
 import { SITE, withBase } from '../site';
+import { type Lang, t } from '../i18n';
 
 interface Props {
   showWednesday?: boolean;
   showWhatsOn?: boolean;
+  lang?: Lang;
 }
-const { showWednesday = true, showWhatsOn = true } = Astro.props;
+const { showWednesday = true, showWhatsOn = true, lang = 'en' } = Astro.props;
+const copy = t(lang);
+const whatsOnHref = lang === 'es' ? '/es/partidos/' : '/whats-on/';
+const wedHref = lang === 'es' ? '/es/miercoles-chupitos-1-euro/' : '/wednesday-1-euro-shots-madrid/';
 ---
 
 <div class="cta-row">
-  <a class="btn btn-primary" href={SITE.phoneHref}>Call {SITE.phone}</a>
-  <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+  <a class="btn btn-primary" href={SITE.phoneHref}>{copy.call} {SITE.phone}</a>
+  <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   {showWhatsOn && (
-    <a class="btn btn-secondary" href={withBase('/whats-on/')}>What's on</a>
+    <a class="btn btn-secondary" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
   )}
   {showWednesday && (
-    <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+    <a class="btn btn-secondary" href={withBase(wedHref)}>{copy.wednesday}</a>
   )}
 </div>

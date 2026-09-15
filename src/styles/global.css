@@ -235,36 +235,121 @@ ul {
   }
 }
 
-.home-cta-band {
+/* Home rail under mural — discreet links + Wednesday promo (not template buttons) */
+.home-rail {
+  border-top: 1px solid rgba(201, 162, 39, 0.22);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #141a12 0%, var(--bg) 100%);
+  padding: 0.7rem 1rem 0.85rem;
+}
+
+.home-rail__inner {
+  width: min(100%, var(--max));
+  margin-inline: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.55rem 0.75rem;
-  padding: 0.95rem 1rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  font-weight: 700;
+  justify-content: space-between;
+  gap: 0.65rem 1.25rem;
+}
+
+.home-rail__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+.home-rail__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.home-rail__links a:hover {
+  color: var(--accent-2);
+  border-bottom-color: rgba(201, 162, 39, 0.55);
+}
+
+.home-rail__dot {
+  color: rgba(184, 176, 158, 0.45);
+  user-select: none;
+}
+
+.home-wed {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.05;
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(201, 162, 39, 0.55);
+}
+
+.home-wed:hover .home-wed__euro {
+  color: #e6c45a;
+}
+
+.home-wed__day {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.home-wed__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-top: 0.12rem;
+}
+
+.home-wed__euro {
+  font-size: clamp(1.65rem, 5.5vw, 2.15rem);
+  font-weight: 800;
+  color: var(--accent-2);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-wed__shots {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 0.78rem;
 }
 
-.home-cta-band a {
-  color: var(--accent-2);
-  text-decoration: none;
-}
-
-.home-cta-band a:hover {
-  color: #e6c45a;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.home-cta-band__sep {
-  color: var(--border);
-  font-weight: 400;
-  user-select: none;
+@media (max-width: 520px) {
+  .home-rail {
+    padding: 0.65rem 1rem 0.75rem;
+  }
+  .home-rail__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .home-rail__links {
+    justify-content: center;
+    font-size: 0.88rem;
+  }
+  .home-wed {
+    align-items: center;
+    border-left: 0;
+    padding-left: 0;
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
+  }
+  .home-wed__day {
+    text-align: center;
+  }
 }
 
 .home-intro {

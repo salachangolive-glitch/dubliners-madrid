@@ -29,13 +29,19 @@ const description =
     </picture>
   </section>
 
-  <nav class="home-cta-band" aria-label="Quick links">
-    <a href={withBase('/whats-on/')}>What's on</a>
-    <span class="home-cta-band__sep" aria-hidden="true">|</span>
-    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-    <span class="home-cta-band__sep" aria-hidden="true">|</span>
-    <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1</a>
-  </nav>
+  <div class="home-rail">
+    <div class="home-rail__inner">
+      <nav class="home-rail__links" aria-label="Quick links">
+        <a href={withBase('/whats-on/')}>What's on</a>
+        <span class="home-rail__dot" aria-hidden="true">·</span>
+        <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      </nav>
+      <a class="home-wed" href={withBase('/wednesday-1-euro-shots-madrid/')}>
+        <span class="home-wed__day">Wednesday</span>
+        <span class="home-wed__price"><span class="home-wed__euro">€1</span> <span class="home-wed__shots">shots</span></span>
+      </a>
+    </div>
+  </div>
 
   <section class="section home-intro">
     <div class="container">

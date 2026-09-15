@@ -9,26 +9,36 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/mural-hero.jpg">
-  <section class="hero-mural" aria-label="Welcome">
-    <div class="hero-mural__media">
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
-          sizes="100vw"
-        />
-        <img
-          src={withBase('/images/mural-hero.jpg')}
-          alt="Classical ceiling mural inside Dubliners Irish Pub Madrid"
-          width="1872"
-          height="1056"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </picture>
-    </div>
-    <div class="hero-mural__content">
+  <section class="hero-artwork" aria-label="Ceiling mural">
+    <picture>
+      <source
+        type="image/webp"
+        srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+        sizes="100vw"
+      />
+      <img
+        class="hero-artwork__img"
+        src={withBase('/images/mural-hero.jpg')}
+        alt="Classical ceiling mural inside Dubliners Irish Pub Madrid"
+        width="1872"
+        height="1056"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+  </section>
+
+  <nav class="home-cta-band" aria-label="Quick links">
+    <a href={withBase('/whats-on/')}>What's on</a>
+    <span class="home-cta-band__sep" aria-hidden="true">|</span>
+    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+    <span class="home-cta-band__sep" aria-hidden="true">|</span>
+    <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1</a>
+  </nav>
+
+  <section class="section home-intro">
+    <div class="container">
       <span class="badge">Near Puerta del Sol · Madrid Centro</span>
       <h1>Your Irish corner in the heart of Madrid</h1>
       <p class="lead">
@@ -36,10 +46,8 @@ const description =
         Warm indoor room, friendly English-speaking crowd, and screens for the big nights.
         Walk in anytime. No booking needed.
       </p>
-      <CtaRow />
       <p class="nap-line">
-        <strong>{SITE.address}</strong>, {SITE.postal}<br />
-        <a href={SITE.phoneHref}>{SITE.phone}</a>
+        <strong>{SITE.address}</strong>, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a>
       </p>
     </div>
   </section>

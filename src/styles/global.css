@@ -840,3 +840,65 @@ a.card.card-link:hover h3 {
   font-size: 0.92rem;
   color: var(--muted);
 }
+
+
+/* Contact */
+.contact-layout {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 880px) {
+  .contact-layout {
+    grid-template-columns: 0.9fr 1.2fr;
+    align-items: start;
+  }
+}
+.contact-aside .btn { margin-top: 0.25rem; }
+.contact-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-left: 2px solid rgba(201, 162, 39, 0.45);
+  padding-left: 0.75rem;
+}
+.contact-form-wrap h2 { margin-top: 0; }
+.contact-form {
+  display: grid;
+  gap: 0.45rem;
+}
+.contact-form label {
+  font-size: 0.88rem;
+  color: var(--accent-2);
+  margin-top: 0.55rem;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+}
+.contact-form input:disabled,
+.contact-form select:disabled,
+.contact-form textarea:disabled,
+.contact-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.contact-form textarea { resize: vertical; min-height: 8rem; }
+.form-legal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0.5rem;
+}
+.hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

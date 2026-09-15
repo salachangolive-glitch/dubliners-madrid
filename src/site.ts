@@ -16,6 +16,10 @@ export const SITE = {
   instagramHandle: '@dublinersirishpubmadrid',
   siteUrl: 'https://salachangolive-glitch.github.io',
   base: '/dubliners-madrid',
+  /** Public mailbox — only set after domain + mail are live. Never invent @dubliners… */
+  publicEmail: '' as string,
+  /** Formspree form id (e.g. xyzabc). Empty = form UI only, no submit. Never put Gmail here. */
+  formspreeId: '' as string,
 } as const;
 
 export const HOURS = [

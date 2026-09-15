@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'Premier League Pub Madrid | Watch PL near Sol — Dubliners';
+const description =
+  'Premier League pub in Madrid near Puerta del Sol. Watch English football when PL fixtures are on our indoor screens. Walk-in, Espoz y Mina 7.';
+---
+
+<BaseLayout title={title} description={description} path="/premier-league-pub-madrid/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="Premier League pub Madrid" />
+      <h1>Premier League pub Madrid — near Puerta del Sol</h1>
+      <p class="lead">
+        Looking for a Premier League pub in Madrid? Dubliners is an English-friendly Irish pub on Espoz y Mina 7
+        with indoor screens. We show Premier League fixtures <strong>when they are on our screens</strong> — walk in early.
+      </p>
+      <CtaRow />
+
+      <h2>English football in a Sol pub</h2>
+      <p>
+        UK and Irish visitors, expats and locals use Dubliners for Premier League weekends and midweek fixtures when shown.
+        Pints, pub food (ask at the bar), and a central walk-in spot two minutes from Puerta del Sol.
+      </p>
+      <p class="note">
+        We do not claim every PL match or exclusive broadcast rights. Check <a href={withBase('/whats-on/')}>What’s on</a> or ask staff.
+      </p>
+
+      <h2>Related</h2>
+      <ul>
+        <li><a href={withBase('/watch-football-madrid/')}>Watch football in Madrid</a></li>
+        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar Madrid</a></li>
+        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
+        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Sol</a></li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Ver Premier League / fútbol inglés en Madrid?</summary>
+          <p>Sí, cuando el partido esté en pantallas. Pub walk-in cerca de Sol. Más en <a href={withBase('/ver-futbol-madrid/')}>ver fútbol Madrid</a>.</p>
+        </details>
+        <details>
+          <summary>Do I need to book?</summary>
+          <p>No — walk-in only. Arrive early for big games.</p>
+        </details>
+        <details>
+          <summary>Address</summary>
+          <p>{SITE.address}, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a></p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

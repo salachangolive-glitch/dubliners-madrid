@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'Football Bar near Puerta del Sol | Dubliners Madrid';
+const description =
+  'Football bar near Puerta del Sol. Dubliners on Espoz y Mina 7 — ~2 min walk from the plaza. Indoor screens, walk-in, sports when on.';
+---
+
+<BaseLayout title={title} description={description} path="/football-bar-puerta-del-sol/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="Football bar Puerta del Sol" />
+      <h1>Football bar near Puerta del Sol</h1>
+      <p class="lead">
+        Staying near Sol or already at the plaza? Dubliners is a football / sports pub about a two-minute walk
+        from Puerta del Sol, at Calle de Espoz y Mina 7. Indoor screens, walk-in, no booking.
+      </p>
+      <CtaRow />
+
+      <h2>How to walk from Puerta del Sol</h2>
+      <p>
+        From Puerta del Sol, head toward Calle de Espoz y Mina (east side of the plaza area). Number 7 is a short stroll —
+        Metro Sol or Sevilla both work. Ideal if your hotel is in centro / Sol and you want a match night without a long taxi.
+      </p>
+
+      <h2>What we show</h2>
+      <p>
+        Premier League, Champions League, LaLiga and other sports <strong>when on our screens</strong>.
+        See <a href={withBase('/watch-football-madrid/')}>watch football Madrid</a>,
+        <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a>,
+        <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a>,
+        or <a href={withBase('/whats-on/')}>What’s on</a>.
+      </p>
+
+      <h2>After Bernabéu, back in centro</h2>
+      <p class="note">
+        We’re not a pre-match Bernabéu pub. If you’re heading back to Sol after a stadium day, Metro to Sol and walk in for a pint or a later fixture when showing.
+      </p>
+
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Ver fútbol en Sol / Puerta del Sol?</summary>
+          <p>Sí — pantallas indoor en Espoz y Mina 7. Más info en <a href={withBase('/ver-futbol-madrid/')}>ver fútbol Madrid</a>.</p>
+        </details>
+        <details>
+          <summary>Hotel near Sol — can I walk?</summary>
+          <p>Yes. Most Sol-area hotels are a short walk to Espoz y Mina 7.</p>
+        </details>
+        <details>
+          <summary>NAP</summary>
+          <p>{SITE.address}, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a></p>
+        </details>
+      </div>
+
+      <div class="map-frame" style="margin-top:1.5rem">
+        <iframe title="Map from Puerta del Sol to Dubliners" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

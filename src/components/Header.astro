@@ -1,0 +1,42 @@
+---
+import { SITE, withBase } from '../site';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/sports-bar-madrid/', label: 'Sports bar' },
+  { href: '/watch-football-madrid/', label: 'Watch football' },
+  { href: '/whats-on/', label: "What's on" },
+  { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday' },
+  { href: '/visit/', label: 'Visit' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href={withBase('/')}>{SITE.name} <span>Madrid</span></a>
+    <nav class="nav" aria-label="Primary">
+      {links.map((l) => (
+        <a href={withBase(l.href)}>{l.label}</a>
+      ))}
+      <a href={SITE.phoneHref}>Call</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="menu-btn">
+      Menu
+    </button>
+  </div>
+  <nav class="container mobile-nav" id="mobile-nav" aria-label="Mobile">
+    {links.map((l) => (
+      <a href={withBase(l.href)}>{l.label}</a>
+    ))}
+    <a href={SITE.phoneHref}>Call {SITE.phone}</a>
+    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+  </nav>
+</header>
+<script>
+  const btn = document.getElementById('menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

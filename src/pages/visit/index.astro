@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, HOURS, withBase } from '../../site';
+
+const title = 'Visit Dubliners Madrid | Address, Hours & Map';
+const description =
+  'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Phone +34 915 32 79 56. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Thursday: ask.';
+---
+
+<BaseLayout title={title} description={description} path="/visit/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="Visit" />
+      <h1>Visit Dubliners</h1>
+      <p class="lead">
+        Irish pub near Puerta del Sol — walk-in for pints, pub food and live sport on indoor screens when fixtures are on.
+      </p>
+      <CtaRow />
+
+      <h2>Address & phone (NAP)</h2>
+      <div class="card">
+        <p style="color:var(--text);margin:0">
+          <strong>{SITE.name}</strong><br />
+          {SITE.address}<br />
+          {SITE.postal}<br />
+          Spain<br /><br />
+          Phone: <a href={SITE.phoneHref}>{SITE.phone}</a><br />
+          Instagram: <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
+        </p>
+      </div>
+
+      <h2>Opening hours</h2>
+      <table class="hours-table">
+        <thead>
+          <tr><th>Day</th><th>Hours</th></tr>
+        </thead>
+        <tbody>
+          {HOURS.map((h) => (
+            <tr>
+              <th scope="row">{h.day}</th>
+              <td>{h.hours}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">
+        Thursday hours are not listed on our current public contact source — please call or ask at the door. We don’t invent missing hours.
+      </p>
+
+      <h2>Getting here</h2>
+      <ul>
+        <li>Metro: Sol or Sevilla</li>
+        <li>~2-minute walk from Puerta del Sol</li>
+        <li>Indoor only — no terrace</li>
+        <li>Walk-in — no online table booking</li>
+      </ul>
+
+      <div class="map-frame">
+        <iframe title="Google Map — Dubliners Madrid" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open in Google Maps</a>
+      </p>
+
+      <h2>Useful links</h2>
+      <ul>
+        <li><a href={withBase('/whats-on/')}>What’s on</a></li>
+        <li><a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a></li>
+        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

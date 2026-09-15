@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = "What's On at Dubliners Madrid | Live Sport & Nights";
+const description =
+  "What's on at Dubliners Madrid: verified fixtures only when confirmed. Ask staff for tonight's screens. Wednesday €1 shots. Espoz y Mina 7.";
+---
+
+<BaseLayout title={title} description={description} path="/whats-on/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="What's on" />
+      <h1>What’s on</h1>
+      <p class="lead">
+        Live sport on indoor screens when fixtures are scheduled — Premier League, Champions League, LaLiga,
+        Six Nations, F1, NFL and NBA <strong>when on</strong>. We only list kickoffs here once they’re staff-confirmed.
+      </p>
+      <CtaRow showWhatsOn={false} />
+
+      <div class="card" style="margin:1.25rem 0">
+        <h3 style="margin-top:0">Tonight / this week</h3>
+        <p>
+          No verified fixture list is published on this page yet. For what’s showing tonight, ask at the bar or call
+          <a href={SITE.phoneHref}>{SITE.phone}</a>. Follow {SITE.instagramHandle} for updates.
+        </p>
+        <p class="note" style="margin-bottom:0">
+          We never invent match times or claim full league coverage. When fixtures are confirmed, they’ll appear in this section.
+        </p>
+      </div>
+
+      <h2>Regular weekly highlight</h2>
+      <p>
+        <strong>Wednesdays:</strong> €1 shots —
+        details on <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots Madrid</a>
+        (including Four Corner After Party, Wednesday only, Calle Victoria 6 until 05:30).
+      </p>
+
+      <h2>Find a sports night</h2>
+      <ul>
+        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
+        <li><a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a></li>
+        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub</a></li>
+        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar</a></li>
+        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Near Puerta del Sol</a></li>
+      </ul>
+
+      <h2>Visit</h2>
+      <p>
+        {SITE.address}, {SITE.postal} ·
+        <a href={withBase('/visit/')}>Hours & map</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'Wednesday €1 Shots Madrid | Dubliners Sol Erasmus Night';
+const description =
+  'Wednesday €1 shots at Dubliners near Puerta del Sol. Walk-in Irish pub on Espoz y Mina 7. Four Corner after-party Wednesday only, Victoria 6 until 05:30.';
+---
+
+<BaseLayout title={title} description={description} path="/wednesday-1-euro-shots-madrid/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="Wednesday €1 shots" />
+      <h1>Wednesday €1 shots at Dubliners (Sol)</h1>
+      <p class="lead">
+        Midweek favourite for Erasmus and international students: Wednesday €1 shots at Dubliners,
+        Calle de Espoz y Mina 7 — a short walk from Puerta del Sol. Walk-in Irish pub; expect a busy night.
+      </p>
+      <CtaRow showWednesday={false} />
+
+      <h2>What to know</h2>
+      <ul>
+        <li><strong>Deal:</strong> shots at €1 on Wednesdays</li>
+        <li><strong>Where:</strong> {SITE.address}, {SITE.postal}</li>
+        <li><strong>How:</strong> walk-in — no reservations</li>
+        <li><strong>Crowd:</strong> popular midweek; lines are common — plan accordingly</li>
+      </ul>
+      <p class="note">
+        Exact start time for the €1 deal can vary — ask staff on the night. We don’t list unverified timings here.
+      </p>
+
+      <h2>Four Corner After Party — Wednesday only</h2>
+      <p>
+        On <strong>Wednesdays only</strong>, the night can continue at Four Corner After Party,
+        <strong>Calle Victoria 6</strong>, until <strong>05:30</strong>.
+      </p>
+      <p>
+        That’s the verified detail we publish: Wednesday only, Victoria 6, until 05:30.
+        We don’t invent entry prices, DJ line-ups, dress codes or other days.
+      </p>
+
+      <h2>Other nights & sports</h2>
+      <p>
+        Looking for an English-speaking pub any night?
+        See <a href={withBase('/international-students-pub-madrid/')}>international students pub Madrid</a>.
+        For match days: <a href={withBase('/sports-bar-madrid/')}>sports bar</a> /
+        <a href={withBase('/watch-football-madrid/')}>watch football</a>.
+      </p>
+
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Do I need a ticket or guest list?</summary>
+          <p>No for Dubliners — walk-in. Four Corner details beyond location/hours aren’t listed here; ask on the night.</p>
+        </details>
+        <details>
+          <summary>Is Four Corner every night?</summary>
+          <p>No. Wednesday only.</p>
+        </details>
+        <details>
+          <summary>ESN or university discount?</summary>
+          <p>We don’t claim official ESN or university partnerships. The Wednesday €1 shots deal is the public offer.</p>
+        </details>
+        <details>
+          <summary>Contact</summary>
+          <p><a href={SITE.phoneHref}>{SITE.phone}</a> · {SITE.instagramHandle}</p>
+        </details>
+      </div>
+
+      <div class="map-frame" style="margin-top:1.5rem">
+        <iframe title="Map to Dubliners Wednesday shots" loading="lazy" src={SITE.mapsEmbed}></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import { withBase } from '../site';
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+---
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href={withBase('/')}>Home</a> · <span>{current}</span>
+</nav>

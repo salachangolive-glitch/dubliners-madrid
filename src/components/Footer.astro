@@ -1,0 +1,41 @@
+---
+import { SITE, HOURS, withBase } from '../site';
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>{SITE.name}</h3>
+      <p>
+        Irish pub near Puerta del Sol.<br />
+        {SITE.address}, {SITE.postal}<br />
+        <a href={SITE.phoneHref}>{SITE.phone}</a>
+      </p>
+      <p>
+        <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
+      </p>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
+      <a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a>
+      <a href={withBase('/premier-league-pub-madrid/')}>Premier League pub</a>
+      <a href={withBase('/champions-league-bar-madrid/')}>Champions League bar</a>
+      <a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Sol</a>
+      <a href={withBase('/international-students-pub-madrid/')}>International students</a>
+      <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+      <a href={withBase('/whats-on/')}>What's on</a>
+      <a href={withBase('/visit/')}>Visit / hours</a>
+    </div>
+    <div>
+      <h3>Hours</h3>
+      {HOURS.map((h) => (
+        <p style="margin:0 0 0.25rem">{h.day}: {h.hours}</p>
+      ))}
+      <p style="margin-top:0.5rem;font-size:0.9rem">Thursday hours: ask at the bar.</p>
+    </div>
+  </div>
+  <div class="container fineprint">
+    Walk-in Irish pub · indoor screens · no table booking listed online. Pub food and pints — ask at the bar.
+  </div>
+</footer>

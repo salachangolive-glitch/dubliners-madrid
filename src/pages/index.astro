@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaRow from '../components/CtaRow.astro';
+import { SITE, withBase } from '../site';
+
+const title = 'Dubliners Madrid | Irish Pub near Puerta del Sol';
+const description =
+  'Irish pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Indoor sports screens, walk-in, Wednesday €1 shots. Call +34 915 32 79 56.';
+---
+
+<BaseLayout title={title} description={description} path="/">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Near Puerta del Sol · Madrid Centro</span>
+        <h1>Irish pub near Sol — walk in for pints and live sport</h1>
+        <p class="lead">
+          Dubliners is an indoor Irish pub on Calle de Espoz y Mina 7, a short walk from Puerta del Sol.
+          Multiple screens for football and other sports when fixtures are on. English-friendly, walk-in — no table booking.
+        </p>
+        <CtaRow />
+        <p>
+          <strong style="color:var(--text)">Address:</strong> {SITE.address}, {SITE.postal}<br />
+          <strong style="color:var(--text)">Phone:</strong> <a href={SITE.phoneHref}>{SITE.phone}</a>
+        </p>
+      </div>
+      <div>
+        <picture>
+          <source srcset={withBase('/images/photo-01.webp')} type="image/webp" />
+          <img class="hero-photo" src={withBase('/images/photo-01.jpg')} alt="Interior of Dubliners Irish pub in Madrid" width="800" height="640" loading="eager" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What you’ll find</h2>
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Irish pub near Sol</h3>
+          <p>Central Madrid, steps from Puerta del Sol and Metro Sol. Indoor room, pints, and pub food — ask at the bar.</p>
+          <a href={withBase('/visit/')}>Visit & hours →</a>
+        </article>
+        <article class="card">
+          <h3>Sports on screens</h3>
+          <p>Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA when shown. Arrive early for big fixtures.</p>
+          <a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid →</a>
+        </article>
+        <article class="card">
+          <h3>Wednesday €1 shots</h3>
+          <p>Midweek favourite with international students. Optional Four Corner after-party on Wednesdays only.</p>
+          <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Watch football & sport in centro</h2>
+      <p>
+        Looking for a place to watch the match while you’re in Madrid? We’re a short walk from Sol with indoor screens.
+        Check <a href={withBase('/whats-on/')}>What’s on</a> or ask staff what’s showing tonight.
+      </p>
+      <div class="card-grid">
+        <a class="card card-link" href={withBase('/watch-football-madrid/')}>
+          <h3>Watch football in Madrid</h3>
+          <p>Where to watch football near Sol — walk-in match nights.</p>
+        </a>
+        <a class="card card-link" href={withBase('/premier-league-pub-madrid/')}>
+          <h3>Premier League pub</h3>
+          <p>English football when Premier League fixtures are on our screens.</p>
+        </a>
+        <a class="card card-link" href={withBase('/champions-league-bar-madrid/')}>
+          <h3>Champions League bar</h3>
+          <p>European nights near Puerta del Sol.</p>
+        </a>
+        <a class="card card-link" href={withBase('/football-bar-puerta-del-sol/')}>
+          <h3>Football bar near Sol</h3>
+          <p>Two minutes from the plaza — ideal if your hotel is in centro.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Photos</h2>
+      <div class="photo-grid">
+        {[1, 2, 3, 4].map((n) => {
+          const id = String(n).padStart(2, '0');
+          return (
+            <picture>
+              <source srcset={withBase(`/images/photo-${id}.webp`)} type="image/webp" />
+              <img src={withBase(`/images/photo-${id}.jpg`)} alt={`Dubliners Madrid pub photo ${n}`} width="600" height="450" loading="lazy" />
+            </picture>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Find us</h2>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — short walk from Puerta del Sol.
+        Metro: Sol or Sevilla.
+      </p>
+      <div class="map-frame">
+        <iframe title="Map to Dubliners Madrid" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={SITE.mapsEmbed}></iframe>
+      </div>
+      <CtaRow />
+    </div>
+  </section>
+</BaseLayout>

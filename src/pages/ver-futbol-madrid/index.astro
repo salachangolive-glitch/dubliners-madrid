@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'Ver Fútbol en Madrid | Pub cerca de Sol — Dubliners';
+const description =
+  'Dónde ver fútbol en Madrid cerca de Puerta del Sol. Pub irlandés con pantallas indoor. Premier, Champions y LaLiga cuando las echen. Espoz y Mina 7.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/ver-futbol-madrid/"
+  lang="es"
+  hreflang={{ en: '/watch-football-madrid/', es: '/ver-futbol-madrid/' }}
+>
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="Ver fútbol Madrid" />
+      <p class="lang-switch">Also in English: <a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a></p>
+      <h1>Dónde ver fútbol en Madrid (cerca de Sol)</h1>
+      <p class="lead">
+        Dubliners es un pub para ver fútbol en el centro de Madrid: pantallas indoor a dos minutos de Puerta del Sol.
+        Entrada libre (walk-in), sin reserva de mesa.
+      </p>
+      <CtaRow />
+
+      <h2>Cómo funcionan las noches de partido</h2>
+      <ul>
+        <li>Pub irlandés walk-in — sin reserva</li>
+        <li>Varias pantallas en sala</li>
+        <li>Llega pronto en partidos grandes</li>
+        <li>Pregunta al personal o mira <a href={withBase('/whats-on/')}>What’s on</a></li>
+      </ul>
+
+      <h2>Premier League, Champions y LaLiga</h2>
+      <p>
+        Emitimos Premier League, Champions League y LaLiga <strong>cuando están en nuestras pantallas</strong>.
+        No prometemos todos los partidos. Más detalle:
+      </p>
+      <ul>
+        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub Madrid</a></li>
+        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar Madrid</a></li>
+        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar / bar deportivo Madrid</a></li>
+        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Bar para ver fútbol en Sol</a></li>
+      </ul>
+
+      <h2>Ubicación</h2>
+      <p>
+        {SITE.address}, {SITE.postal}. Metro Sol o Sevilla. Teléfono: <a href={SITE.phoneHref}>{SITE.phone}</a>.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Hay terraza?</summary>
+          <p>No — solo interior con pantallas.</p>
+        </details>
+        <details>
+          <summary>¿Hay que reservar?</summary>
+          <p>No. Es walk-in. En partidos grandes, mejor llegar pronto.</p>
+        </details>
+        <details>
+          <summary>¿Música en directo?</summary>
+          <p>No ofrecemos música en directo como producto del local.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

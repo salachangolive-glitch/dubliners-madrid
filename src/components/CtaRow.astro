@@ -1,0 +1,20 @@
+---
+import { SITE, withBase } from '../site';
+
+interface Props {
+  showWednesday?: boolean;
+  showWhatsOn?: boolean;
+}
+const { showWednesday = true, showWhatsOn = true } = Astro.props;
+---
+
+<div class="cta-row">
+  <a class="btn btn-primary" href={SITE.phoneHref}>Call {SITE.phone}</a>
+  <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+  {showWhatsOn && (
+    <a class="btn btn-secondary" href={withBase('/whats-on/')}>What's on</a>
+  )}
+  {showWednesday && (
+    <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+  )}
+</div>

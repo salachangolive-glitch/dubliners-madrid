@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'International Students Pub Madrid | English-speaking near Sol';
+const description =
+  'English-speaking Irish pub near Sol for Erasmus and international students. Walk-in, Wednesday €1 shots. Calle de Espoz y Mina 7, Madrid.';
+---
+
+<BaseLayout title={title} description={description} path="/international-students-pub-madrid/">
+  <section class="section">
+    <div class="container prose">
+      <Breadcrumb current="International students pub" />
+      <h1>International & English-speaking pub near Sol</h1>
+      <p class="lead">
+        Dubliners is an English-friendly Irish pub near Puerta del Sol — popular with Erasmus, study-abroad and international students
+        looking for a walk-in room in Madrid centro. No guest lists, no official university partnership claims — just a Sol pub that speaks your language.
+      </p>
+      <CtaRow />
+
+      <h2>Who it’s for</h2>
+      <p>
+        New arrivals, internationals and travellers who want an English-speaking pub near Sol for a pint —
+        and on Wednesdays, the well-known €1 shots night. See
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots Madrid</a>.
+      </p>
+
+      <h2>Other nights</h2>
+      <p>
+        Pub food and pints — ask at the bar. Sports on indoor screens when fixtures are on
+        (<a href={withBase('/sports-bar-madrid/')}>sports bar</a> /
+        <a href={withBase('/watch-football-madrid/')}>watch football</a>).
+      </p>
+
+      <h2>What we don’t claim</h2>
+      <ul>
+        <li>No official ESN / university / SLU partner deals</li>
+        <li>No organised language-exchange or intercambio nights</li>
+        <li>No terrace, no live music, no table reservations</li>
+        <li>We’re not a club crawl or VIP promoter night</li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Is English spoken?</summary>
+          <p>Yes — English-friendly Irish pub, tourist and international crowd.</p>
+        </details>
+        <details>
+          <summary>Where are you?</summary>
+          <p>{SITE.address}, {SITE.postal} · <a href={SITE.phoneHref}>{SITE.phone}</a></p>
+        </details>
+        <details>
+          <summary>Best night for students?</summary>
+          <p>Wednesdays are the busiest for €1 shots — expect a crowd and arrive when it suits you.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

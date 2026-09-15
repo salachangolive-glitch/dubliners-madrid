@@ -101,6 +101,7 @@ export function t(lang: Lang) {
   if (lang === 'es') {
     return {
       call: 'Llamar',
+      contact: 'Contacto',
       directions: 'Cómo llegar',
       menu: 'Menú',
       explore: 'Explorar',
@@ -124,6 +125,7 @@ export function t(lang: Lang) {
   }
   return {
     call: 'Call',
+    contact: 'Contact',
     directions: 'Directions',
     menu: 'Menu',
     explore: 'Explore',

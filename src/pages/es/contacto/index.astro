@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'Contacto Dubliners Madrid | Pub irlandés cerca de Sol';
 const description =
-  'Contacta con Dubliners, pub irlandés cerca de Puerta del Sol. Llama al +34 915 32 79 56, visítanos o envía un mensaje sobre noches de deporte, grupos o consultas generales.';
+  'Contacta con Dubliners, pub irlandés cerca de Puerta del Sol. Visítanos, escríbenos por Instagram o usa el formulario cuando el email esté activo — noches de deporte, grupos o consultas generales.';
 const formReady = Boolean(SITE.formspreeId);
 const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
 ---
@@ -27,10 +27,6 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
       <div class="contact-aside">
         <h2>Habla con Dubliners</h2>
         <p>
-          <strong>Teléfono</strong><br />
-          <a href={SITE.phoneHref}>{SITE.phone}</a>
-        </p>
-        <p>
           <strong>Visitar</strong><br />
           {SITE.address}<br />
           {SITE.postal}
@@ -46,11 +42,12 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
           </p>
         ) : (
           <p class="contact-note">
-            El email de Dubliners se activará con el dominio oficial. Hasta entonces, llama o escríbenos por Instagram.
+            El contacto directo será por email cuando esté activa la dirección oficial. Mientras tanto, Instagram, una visita o el formulario cuando se active.
           </p>
         )}
         <p>
           <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+          <a class="btn btn-secondary" href={withBase('/es/visitar/')}>Visitar / horario</a>
         </p>
       </div>
 
@@ -58,8 +55,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
         <h2>Enviar un mensaje</h2>
         {!formReady && (
           <p class="contact-note" role="status">
-            El formulario se activará cuando esté configurado el email de Dubliners. Mientras tanto, llama al{' '}
-            <a href={SITE.phoneHref}>{SITE.phone}</a> o escribe por Instagram.
+            El formulario se activará cuando esté configurado el email de Dubliners. Mientras tanto, escríbenos por Instagram o pásate — Cómo llegar y Visitar.
           </p>
         )}
         <form
@@ -121,7 +117,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
       e.preventDefault();
       if (status) {
         status.hidden = false;
-        status.textContent = 'El formulario aún no está activo. Por favor, llama o usa Instagram.';
+        status.textContent = 'El formulario aún no está activo. Usa Instagram o visítanos.';
       }
     }
   });

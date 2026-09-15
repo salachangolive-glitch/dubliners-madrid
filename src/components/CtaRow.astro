@@ -5,19 +5,28 @@ import { type Lang, t } from '../i18n';
 interface Props {
   showWednesday?: boolean;
   showWhatsOn?: boolean;
+  showContact?: boolean;
   lang?: Lang;
 }
-const { showWednesday = true, showWhatsOn = true, lang = 'en' } = Astro.props;
+const {
+  showWednesday = true,
+  showWhatsOn = true,
+  showContact = true,
+  lang = 'en',
+} = Astro.props;
 const copy = t(lang);
 const whatsOnHref = lang === 'es' ? '/es/partidos/' : '/whats-on/';
 const wedHref = lang === 'es' ? '/es/miercoles-chupitos-1-euro/' : '/wednesday-1-euro-shots-madrid/';
+const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
 ---
 
 <div class="cta-row">
-  <a class="btn btn-primary" href={SITE.phoneHref}>{copy.call} {SITE.phone}</a>
   <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   {showWhatsOn && (
     <a class="btn btn-secondary" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
+  )}
+  {showContact && (
+    <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>
   )}
   {showWednesday && (
     <a class="btn btn-secondary" href={withBase(wedHref)}>{copy.wednesday}</a>

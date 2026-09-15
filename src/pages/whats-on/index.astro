@@ -7,7 +7,7 @@ import { FIXTURES, PREVIEW_TODAY } from '../../data/fixtures';
 
 const title = "What's On at Dubliners Madrid | Live Sport & Nights";
 const description =
-  "What's on at Dubliners Madrid this week — live sport on screens, Wednesday €1 shots. Walk-in near Puerta del Sol. Call +34 915 32 79 56.";
+  "What's on at Dubliners Madrid this week — live sport on screens, Wednesday €1 shots. Walk-in near Puerta del Sol.";
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
 const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
@@ -68,11 +68,11 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
         </div>
       </div>
       <p class="fx-note">
-        Times are Madrid (CEST). Screens and coverage can change — call or ask staff on the night.
+        Times are Madrid (CEST). Screens and coverage can change — ask staff on the night.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href={SITE.phoneHref}>Call {SITE.phone}</a>
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/')}>Contact</a>
       </div>
     </div>
   </section>

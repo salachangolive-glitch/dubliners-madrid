@@ -6,7 +6,7 @@ import { SITE, HOURS, withBase } from '../../site';
 
 const title = 'Visit Dubliners Madrid | Address, Hours & Map';
 const description =
-  'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Phone +34 915 32 79 56. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30.';
+  'Visit Dubliners Irish pub: Calle de Espoz y Mina 7, 28012 Madrid. Hours Mon–Wed & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Walk-in near Puerta del Sol.';
 ---
 
 <BaseLayout title={title} description={description} path="/visit/" ogImage="/images/facade.jpg">
@@ -33,14 +33,13 @@ const description =
 
   <section class="section">
     <div class="container prose">
-      <h2>Address & phone</h2>
+      <h2>Address</h2>
       <div class="card">
         <p style="color:var(--text);margin:0">
           <strong>{SITE.name}</strong><br />
           {SITE.address}<br />
           {SITE.postal}<br />
           Spain<br /><br />
-          Phone: <a href={SITE.phoneHref}>{SITE.phone}</a><br />
           Instagram: <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
         </p>
       </div>

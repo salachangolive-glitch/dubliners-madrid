@@ -21,7 +21,6 @@ const description = 'How Dubliners Madrid uses contact-form details. Short priva
       <h2>Who we are</h2>
       <p>
         This website is for <strong>Dubliners</strong>, an Irish pub at {SITE.address}, {SITE.postal}.
-        Phone: <a href={SITE.phoneHref}>{SITE.phone}</a>.
       </p>
       <p class="contact-note">
         Full legal entity name, tax ID (CIF/NIF), and registered office for privacy notices:
@@ -52,8 +51,8 @@ const description = 'How Dubliners Madrid uses contact-form details. Short priva
       <h2>Your rights</h2>
       <p>
         Under applicable EU/Spanish data rules you may ask to access, correct, or delete personal data in an enquiry,
-        or object to processing, by contacting us by phone at <a href={SITE.phoneHref}>{SITE.phone}</a>
-        or via the contact form when it is active.
+        or object to processing, via the <a href={withBase('/contact/')}>contact form</a> when it is active,
+        or through Instagram ({SITE.instagramHandle}).
       </p>
       <p>
         You may also lodge a complaint with the Spanish AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).

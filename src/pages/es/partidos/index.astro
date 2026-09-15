@@ -8,7 +8,7 @@ import { whenLabelEs } from '../../../i18n';
 
 const title = 'Partidos en Dubliners Madrid | Fútbol en directo y noches';
 const description =
-  'Qué ver hoy en Dubliners Madrid: fútbol en directo en pantallas, miércoles con chupitos a 1 €. Walk-in cerca de Puerta del Sol. Llama al +34 915 32 79 56.';
+  'Qué ver hoy en Dubliners Madrid: fútbol en directo en pantallas, miércoles con chupitos a 1 €. Walk-in cerca de Puerta del Sol.';
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
 const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
@@ -69,11 +69,11 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
         </div>
       </div>
       <p class="fx-note">
-        Horarios en hora de Madrid (CEST). Las pantallas y la cobertura pueden cambiar — llama o pregunta al equipo esa noche.
+        Horarios en hora de Madrid (CEST). Las pantallas y la cobertura pueden cambiar — pregunta al equipo esa noche.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href={SITE.phoneHref}>Llamar {SITE.phone}</a>
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase('/es/contacto/')}>Contacto</a>
       </div>
     </div>
   </section>

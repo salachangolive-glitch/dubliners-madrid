@@ -21,7 +21,6 @@ const description = 'Cómo usa Dubliners Madrid los datos del formulario de cont
       <h2>Quiénes somos</h2>
       <p>
         Este sitio web es de <strong>Dubliners</strong>, un pub irlandés en {SITE.address}, {SITE.postal}.
-        Teléfono: <a href={SITE.phoneHref}>{SITE.phone}</a>.
       </p>
       <p class="contact-note">
         Nombre legal completo, CIF/NIF y domicilio social para avisos de privacidad:
@@ -52,8 +51,9 @@ const description = 'Cómo usa Dubliners Madrid los datos del formulario de cont
       <h2>Tus derechos</h2>
       <p>
         Según la normativa europea y española de protección de datos, puedes solicitar acceso, rectificación o
-        supresión de datos personales de una consulta, u oponerte al tratamiento, contactándonos por teléfono en
-        <a href={SITE.phoneHref}>{SITE.phone}</a> o mediante el formulario de contacto cuando esté activo.
+        supresión de datos personales de una consulta, u oponerte al tratamiento, mediante el
+        <a href={withBase('/es/contacto/')}>formulario de contacto</a> cuando esté activo,
+        o a través de Instagram ({SITE.instagramHandle}).
       </p>
       <p>
         También puedes presentar una reclamación ante la AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).

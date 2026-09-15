@@ -22,7 +22,6 @@ const logoHref = withBase(lang === 'es' ? '/es/' : '/');
       {links.map((l) => (
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
-      <a href={SITE.phoneHref}>{copy.call}</a>
       <span class="lang-sel" aria-label={lang === 'es' ? 'Idioma' : 'Language'}>
         <a href={enHref} class:list={[{ active: lang === 'en' }]} hreflang="en" lang="en">EN</a>
         <span aria-hidden="true">|</span>
@@ -44,7 +43,6 @@ const logoHref = withBase(lang === 'es' ? '/es/' : '/');
     {links.map((l) => (
       <a href={withBase(l.href)}>{l.label}</a>
     ))}
-    <a href={SITE.phoneHref}>{copy.call} {SITE.phone}</a>
     <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   </nav>
 </header>

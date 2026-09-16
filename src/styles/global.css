@@ -1,3 +1,25 @@
+/* Keyboard-only skip link — hidden until focused */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -100vh;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--accent-2);
+  color: #1a1405;
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+#hours {
+  scroll-margin-top: 5rem;
+}
+
 :root {
   --bg: #0f1410;
   --bg-elev: #1a2218;

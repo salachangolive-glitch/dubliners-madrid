@@ -8,11 +8,10 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const copy = t(lang);
 const whatsOnHref = lang === 'es' ? '/es/partidos/' : '/whats-on/';
-const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
 ---
 
 <div class="sticky-cta" role="region" aria-label={lang === 'es' ? 'Acciones rápidas' : 'Quick actions'}>
   <a class="btn btn-secondary" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
   <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
-  <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>
+  <a class="btn btn-primary" href="#hours">{copy.openingHours}</a>
 </div>

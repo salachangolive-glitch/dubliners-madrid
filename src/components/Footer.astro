@@ -45,7 +45,7 @@ const explore =
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
     </div>
-    <div>
+    <div id="hours" class="hours-block">
       <h3>{copy.hours}</h3>
       {hours.map((h) => (
         <p style="margin:0 0 0.25rem">{h.day}: {h.hours}</p>

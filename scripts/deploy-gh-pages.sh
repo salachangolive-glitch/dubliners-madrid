@@ -56,6 +56,15 @@ grep -q 'Descubre nuestra historia' "$HOME_ES" || { echo "HOME ES About CTA miss
 grep -q 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid' "$HOME_EN" || { echo "HOME EN brand footer missing — abort"; exit 1; }
 grep -q 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid' "$HOME_ES" || { echo "HOME ES brand footer missing — abort"; exit 1; }
 
+grep -qE 'Barragán|Barragan' "$HOME_EN" || { echo "HOME EN Barragán missing — abort"; exit 1; }
+grep -q '1885' "$HOME_EN" || { echo "HOME EN 1885 missing — abort"; exit 1; }
+grep -qE 'Barragán|Barragan' "$HOME_ES" || { echo "HOME ES Barragán missing — abort"; exit 1; }
+grep -q '1885' "$HOME_ES" || { echo "HOME ES 1885 missing — abort"; exit 1; }
+if grep -q 'The rooms' "$HOME_EN"; then
+  echo "Stale EN heading The rooms — abort"; exit 1
+fi
+
+
 touch dist/.nojekyll
 MSG="${1:-deploy: Pages from $(git rev-parse --short HEAD)}"
 npx gh-pages -d dist -b gh-pages -m "$MSG"

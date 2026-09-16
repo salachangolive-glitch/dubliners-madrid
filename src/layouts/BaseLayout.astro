@@ -59,14 +59,21 @@ const jsonLd = {
     latitude: 40.4164,
     longitude: -3.7025,
   },
+  // Google Search Central: hours past midnight = one spec on the opening day
+  // with closes earlier than opens (e.g. Sat 18:00–03:00). Same hours as GBP/footer.
   openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '12:00', closes: '02:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '12:00', closes: '02:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '12:00', closes: '02:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Thursday', opens: '12:00', closes: '02:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '12:30', closes: '02:30' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '12:30', closes: '02:30' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '12:00', closes: '02:00' },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Sunday'],
+      opens: '12:00',
+      closes: '02:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Friday', 'Saturday'],
+      opens: '12:30',
+      closes: '02:30',
+    },
   ],
   sameAs: [SITE.instagram],
 };
@@ -110,8 +117,9 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">{copy.skip}</a>
     <Header lang={lang} path={pathNorm} />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer lang={lang} />

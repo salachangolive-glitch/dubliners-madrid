@@ -80,7 +80,7 @@ export function navLinks(lang: Lang): NavLink[] {
   if (lang === 'es') {
     return [
       { href: '/es/', label: 'Inicio' },
-      { href: '/es/sobre-dubliners/', label: 'Sobre Dubliners' },
+      { href: '/es/sobre-dubliners/', label: 'Historia' },
       { href: '/es/partidos/', label: 'Partidos' },
       { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles' },
       { href: '/es/visitar/', label: 'Visitar' },
@@ -105,6 +105,8 @@ export function t(lang: Lang) {
       menu: 'Menú',
       explore: 'Explorar',
       hours: 'Horario',
+      openingHours: 'Horarios',
+      skip: 'Saltar al contenido principal',
       fineprint: 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid',
       tagline: 'Dubliners Madrid',
       home: 'Inicio',
@@ -129,6 +131,8 @@ export function t(lang: Lang) {
     menu: 'Menu',
     explore: 'Explore',
     hours: 'Hours',
+    openingHours: 'Opening hours',
+    skip: 'Skip to main content',
     fineprint: 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid',
     tagline: 'Dubliners Madrid',
     home: 'Home',

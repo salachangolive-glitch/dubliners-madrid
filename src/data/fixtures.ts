@@ -1,4 +1,4 @@
-/** Kick-offs: prefer official competition/club, then a second official source. Atleti–Osasuna 16 Sep = 19:00 Madrid (Atleti tickets EN + entradas listing ES). Do not publish 17:00. */
+/** Kick-offs: prefer official competition/club, then a second official source. Atleti–Osasuna 16 Sep = 19:00 Madrid (Atleti club + RM.com). Do not publish 17:00. */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
   whenLabel: string;
@@ -9,17 +9,17 @@ export type Fixture = {
 
 export const FIXTURES: Fixture[] = [
   {
-    dateKey: '2026-09-15',
-    whenLabel: 'Tue 15 Sep',
+    dateKey: '2026-09-16',
+    whenLabel: 'Wed 16 Sep',
     competition: 'LaLiga',
-    teams: 'Elche vs Real Madrid',
-    madridTime: '21:30',
+    teams: 'Atlético Madrid vs Osasuna',
+    madridTime: '19:00',
   },
   {
     dateKey: '2026-09-16',
     whenLabel: 'Wed 16 Sep',
     competition: 'LaLiga',
-    teams: 'Atlético Madrid vs Osasuna',
+    teams: 'Deportivo vs Sevilla',
     madridTime: '19:00',
   },
   {
@@ -44,6 +44,13 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:30',
   },
   {
+    dateKey: '2026-09-16',
+    whenLabel: 'Wed 16 Sep',
+    competition: 'LaLiga',
+    teams: 'Levante vs Athletic Club',
+    madridTime: '21:30',
+  },
+  {
     dateKey: '2026-09-17',
     whenLabel: 'Thu 17 Sep',
     competition: 'UEFA Europa League',
@@ -53,4 +60,4 @@ export const FIXTURES: Fixture[] = [
 ];
 
 /** Madrid calendar date string YYYY-MM-DD for "today" at build/runtime preview. */
-export const PREVIEW_TODAY = '2026-09-15';
+export const PREVIEW_TODAY = '2026-09-16';

@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Irish Pub with History near Sol | Dubliners Madrid';
 const description =
-  'Dubliners sits two minutes from Puerta del Sol in the historic Barragán tailor-shop premises (from 1885). Live sport, international atmosphere and €1 shots on Wednesdays — a favourite with Erasmus and international students.';
+  'Dubliners sits two minutes from Puerta del Sol in the historic Barragán tailor-shop premises (from 1885). Irish pub with live sport, international atmosphere and €1 shots on Wednesdays.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/mural-hero.jpg">
@@ -14,7 +14,7 @@ const description =
       <Breadcrumb current="International students" />
       <h1>An Irish pub with a story to tell</h1>
       <p class="lead">
-        Just two minutes from Puerta del Sol, Dubliners occupies a historic Madrid premises that still retains part of its original character.
+        Just two minutes from Puerta del Sol, Dubliners occupies a historic Madrid premises that still retains much of its original character.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
@@ -46,18 +46,20 @@ const description =
       <h2>A piece of Madrid history</h2>
       <p>
         Before Dubliners, the premises were home to the historic Barragán tailor shop, established in 1885.
-        Part of the original structure and decoration remains today, including the distinctive painted ceiling.
+        Part of the original structure and decoration remains today, including its distinctive painted ceiling.
       </p>
-      <h2>Dubliners today</h2>
+      <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
       <p>
-        Today, Dubliners brings together that historic setting with the atmosphere of an Irish pub, live sport
-        and an international crowd just off Puerta del Sol — including Erasmus and international students.
+        Today, Dubliners brings together Madrid locals, travellers and international students in the atmosphere of an Irish pub in the heart of the city.
       </p>
     </div>
   </section>
 
   <section class="section band">
     <div class="container prose">
+      <h2>International atmosphere</h2>
+      <p>International atmosphere, English-speaking staff and live sport.</p>
+
       <h2>WEDNESDAY · €1 SHOTS</h2>
       <p>
         €1 shots every Wednesday at Dubliners. Afterwards, Four Corner After Party continues at Calle Victoria 6 until 05:30.
@@ -65,11 +67,7 @@ const description =
       <p>
         <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>More about Wednesday</a>
       </p>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container prose">
       <h2>Location</h2>
       <p>
         Calle de Espoz y Mina 7<br />
@@ -78,18 +76,6 @@ const description =
       <p>
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
       </p>
-
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details>
-          <summary>Where is Dubliners?</summary>
-          <p>Calle de Espoz y Mina 7, 28012 Madrid, around a two-minute walk from Puerta del Sol.</p>
-        </details>
-        <details>
-          <summary>What are the nearest Metro stations?</summary>
-          <p>Sol and Sevilla.</p>
-        </details>
-      </div>
     </div>
   </section>
 </BaseLayout>

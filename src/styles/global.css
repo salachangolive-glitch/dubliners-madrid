@@ -956,3 +956,11 @@ a.card.card-link:hover h3 {
   height: 1px;
   overflow: hidden;
 }
+
+.brand-line{
+  margin:1.25rem 0 0.85rem;
+  font-size:1.15rem;
+  line-height:1.45;
+  color:var(--text);
+}
+.brand-line strong{font-weight:600;color:var(--accent-2,#c9a227);}

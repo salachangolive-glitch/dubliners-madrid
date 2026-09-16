@@ -11,29 +11,17 @@ const hours = lang === 'es' ? HOURS_ES : HOURS;
 const explore =
   lang === 'es'
     ? [
-        { href: '/es/bar-deportivo-madrid/', label: copy.sportsBar },
-        { href: '/es/ver-futbol-madrid/', label: copy.watchFootball },
-        { href: '/es/premier-league-pub-madrid/', label: copy.premierLeague },
-        { href: '/es/champions-league-bar-madrid/', label: copy.champions },
-        { href: '/es/bar-futbol-puerta-del-sol/', label: copy.nearSol },
-        { href: '/es/estudiantes-internacionales/', label: copy.students },
-        { href: '/es/miercoles-chupitos-1-euro/', label: copy.wednesday },
         { href: '/es/partidos/', label: copy.whatsOn },
-        { href: '/es/visitar/', label: copy.visitHours },
-        { href: '/es/contacto/', label: 'Contacto' },
+        { href: '/es/visitar/', label: copy.directions },
+        { href: '/es/contacto/', label: copy.contact },
+        { href: '/es/sobre-dubliners/', label: copy.about },
         { href: '/es/privacidad/', label: copy.privacy },
       ]
     : [
-        { href: '/sports-bar-madrid/', label: copy.sportsBar },
-        { href: '/watch-football-madrid/', label: copy.watchFootball },
-        { href: '/premier-league-pub-madrid/', label: copy.premierLeague },
-        { href: '/champions-league-bar-madrid/', label: copy.champions },
-        { href: '/football-bar-puerta-del-sol/', label: copy.nearSol },
-        { href: '/international-students-pub-madrid/', label: copy.students },
-        { href: '/wednesday-1-euro-shots-madrid/', label: copy.wednesday },
         { href: '/whats-on/', label: copy.whatsOn },
-        { href: '/visit/', label: copy.visitHours },
-        { href: '/contact/', label: 'Contact' },
+        { href: '/visit/', label: copy.directions },
+        { href: '/contact/', label: copy.contact },
+        { href: '/about/', label: copy.about },
         { href: '/privacy/', label: copy.privacy },
       ];
 ---
@@ -43,8 +31,9 @@ const explore =
     <div>
       <h3>{SITE.name}</h3>
       <p>
-        {copy.tagline}.<br />
-        {SITE.address}, {SITE.postal}
+        Dubliners Madrid<br />
+        {SITE.address}<br />
+        {SITE.postal}
       </p>
       <p>
         <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>

@@ -16,6 +16,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/champions-league-bar-madrid/': '/es/champions-league-bar-madrid/',
   '/football-bar-puerta-del-sol/': '/es/bar-futbol-puerta-del-sol/',
   '/international-students-pub-madrid/': '/es/estudiantes-internacionales/',
+  '/about/': '/es/sobre-dubliners/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(
@@ -106,13 +107,13 @@ export function t(lang: Lang) {
       menu: 'Menú',
       explore: 'Explorar',
       hours: 'Horario',
-      fineprint:
-        'Pub irlandés cerca de Sol · deporte en directo · miércoles chupitos a 1 € · Espoz y Mina 7, Madrid',
-      tagline: 'Pub irlandés cerca de Sol',
+      fineprint: 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid',
+      tagline: 'Dubliners Madrid',
       home: 'Inicio',
       whatsOn: 'Partidos',
       wednesday: 'Miércoles chupitos a 1 €',
       privacy: 'Privacidad',
+      about: 'Sobre Dubliners',
       visitHours: 'Visitar / horario',
       sportsBar: 'Bar deportivo Madrid',
       watchFootball: 'Ver fútbol en Madrid',
@@ -130,13 +131,13 @@ export function t(lang: Lang) {
     menu: 'Menu',
     explore: 'Explore',
     hours: 'Hours',
-    fineprint:
-      'Irish pub near Sol · live sport · Wednesday €1 shots · Espoz y Mina 7, Madrid',
-    tagline: 'Irish pub near Sol',
+    fineprint: 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid',
+    tagline: 'Dubliners Madrid',
     home: 'Home',
     whatsOn: "What's on",
     wednesday: 'Wednesday €1 shots',
     privacy: 'Privacy',
+    about: 'About',
     visitHours: 'Visit / hours',
     sportsBar: 'Sports bar Madrid',
     watchFootball: 'Watch football Madrid',

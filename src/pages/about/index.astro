@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../site';
+
+const title = 'The story behind Dubliners | Irish pub near Sol, Madrid';
+const description =
+  'Dubliners occupies a historic premises two minutes from Puerta del Sol — once the Barragán tailor shop (from 1885). Irish pub, live sport and Wednesday €1 shots.';
+---
+
+<BaseLayout title={title} description={description} path="/about/" ogImage="/images/mural-hero.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="About" />
+      <h1>The story behind Dubliners</h1>
+      <p class="lead">
+        Dubliners is an Irish pub two minutes from Puerta del Sol, in a historic Madrid premises that still shows its original character.
+      </p>
+    </div>
+  </section>
+
+  <section class="hero-artwork" aria-label="Painted ceiling">
+    <picture>
+      <source
+        type="image/webp"
+        srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+        sizes="100vw"
+      />
+      <img
+        class="hero-artwork__img"
+        src={withBase('/images/mural-hero.jpg')}
+        alt="Historic painted ceiling at Dubliners Madrid"
+        width="1872"
+        height="1056"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>A piece of Madrid history</h2>
+      <p>
+        Before Dubliners, the premises were home to the historic Barragán tailor shop, established in 1885.
+        Part of the original structure and decoration remains today, including its distinctive painted ceiling.
+      </p>
+      <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
+      <p>
+        Under that same ceiling you’ll now find Madrid locals, travellers and international students —
+        an Irish pub just off Puerta del Sol.
+      </p>
+
+      <h2>Dubliners today</h2>
+      <p>
+        English-speaking staff, live sport on the screens, and a mix of people who live here and people passing through.
+      </p>
+      <p>
+        Every Wednesday: €1 shots, then Four Corner After Party at Calle Victoria 6 until 05:30.
+      </p>
+      <p>
+        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      </p>
+
+      <h2>Find us</h2>
+      <p>
+        Calle de Espoz y Mina 7<br />
+        28012 Madrid
+      </p>
+    </div>
+  </section>
+</BaseLayout>

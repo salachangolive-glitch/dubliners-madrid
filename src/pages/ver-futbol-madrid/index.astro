@@ -11,16 +11,15 @@ const targetRel = withBase(targetPath);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirecting… | Dubliners Madrid</title>
+    <title>Dubliners Madrid</title>
     <meta name="robots" content="noindex,follow" />
     <link rel="canonical" href={targetAbs} />
+    <link rel="alternate" hreflang="es" href={targetAbs} />
+    <link rel="alternate" hreflang="en" href={absUrl('/watch-football-madrid/')} />
     <meta http-equiv="refresh" content={`0;url=${targetRel}`} />
     <script is:inline define:vars={{ targetRel }}>
       location.replace(targetRel);
     </script>
   </head>
-  <body style="font-family:system-ui,sans-serif;background:#0f1410;color:#f3efe6;padding:3rem 1.5rem;text-align:center">
-    <p>This page has moved to <a href={targetRel} style="color:#c9a227">/es/ver-futbol-madrid/</a>.</p>
-    <p><a href={targetRel} style="color:#c9a227">Continue →</a></p>
-  </body>
+  <body></body>
 </html>

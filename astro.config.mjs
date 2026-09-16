@@ -10,7 +10,16 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('404') && !page.includes('/ver-futbol-madrid'),
+      filter: (page) => {
+        if (page.includes('404')) return false;
+        try {
+          const path = new URL(page).pathname;
+          // Legacy Spanish orphan at EN root — never sitemap
+          return path !== '/dubliners-madrid/ver-futbol-madrid/';
+        } catch {
+          return true;
+        }
+      },
     }),
   ],
 });

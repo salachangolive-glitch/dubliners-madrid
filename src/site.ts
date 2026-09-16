@@ -6,8 +6,6 @@ export const SITE = {
   postal: '28012 Madrid',
   city: 'Madrid',
   country: 'ES',
-  phone: '+34 915 32 79 56',
-  phoneHref: 'tel:+34915327956',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Calle+de+Espoz+y+Mina+7,+28012+Madrid',
   mapsEmbed:

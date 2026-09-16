@@ -101,7 +101,6 @@ export function navLinks(lang: Lang): NavLink[] {
 export function t(lang: Lang) {
   if (lang === 'es') {
     return {
-      call: 'Llamar',
       contact: 'Contacto',
       directions: 'Cómo llegar',
       menu: 'Menú',
@@ -126,7 +125,6 @@ export function t(lang: Lang) {
     };
   }
   return {
-    call: 'Call',
     contact: 'Contact',
     directions: 'Directions',
     menu: 'Menu',

@@ -21,3 +21,13 @@ npm run build
 - Hours: Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Do not invent shot start times, fixtures, terrace, live music, or reservations.
 - Photos: original venue images in `public/images/`.
 - Independent of any other venue brands.
+
+## Deploy rule (P2 overwrite protection)
+
+**Always** publish from current `origin/main` tip:
+
+```bash
+./scripts/deploy-gh-pages.sh
+```
+
+What’s On / fixtures updates must `git pull` latest `main`, edit fixtures only, commit to `main`, then run that script — never `gh-pages -d` from an old local checkout or cached `dist`.

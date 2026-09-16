@@ -6,9 +6,9 @@ import { SITE, withBase } from '../../../site';
 import { FIXTURES, PREVIEW_TODAY } from '../../../data/fixtures';
 import { whenLabelEs } from '../../../i18n';
 
-const title = 'Partidos en Dubliners Madrid | Fútbol en directo y noches';
+const title = 'Partidos en Dubliners Madrid | Fútbol en directo';
 const description =
-  'Qué ver hoy en Dubliners Madrid: fútbol en directo en pantallas, miércoles con chupitos a 1 €. Cerca de Puerta del Sol.';
+  'Qué ver hoy en Dubliners: fútbol en pantallas y miércoles con chupitos a 1 €. Cerca de Puerta del Sol.';
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
 const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
@@ -18,10 +18,10 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Partidos" lang="es" />
-      <h1>Qué ver hoy</h1>
+      <h1>Partidos</h1>
       <p class="lead">
-        Fútbol y deporte en nuestras pantallas en el local — y miércoles con chupitos a 1 € si vienes a media semana.
-        Entra, siéntate si hay sitio y pregunta al equipo qué echan.
+        Deporte en pantallas en el local — y miércoles con chupitos a 1 €.
+        Pregunta en barra qué echan esta noche.
       </p>
       <CtaRow lang="es" showWhatsOn={false} />
     </div>
@@ -81,10 +81,10 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>Destacado del miércoles</h2>
+        <h2>MIÉRCOLES · CHUPITOS A 1 €</h2>
         <p>
-          Chupitos a 1 € todos los miércoles — un favorito del público internacional.
-          Four Corner After Party continúa la noche en Calle Victoria 6 (solo miércoles) hasta las 05:30.
+          Todos los miércoles en Dubliners. Four Corner After Party continúa en Calle Victoria 6
+          (solo miércoles) hasta las 05:30.
         </p>
         <a class="btn btn-secondary" href={withBase('/es/miercoles-chupitos-1-euro/')}>Noches de miércoles →</a>
       </div>
@@ -94,7 +94,7 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
           srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img src={withBase('/images/bar-interior.jpg')} alt="Ambiente de miércoles en Dubliners Madrid" class="split-photo landscape" width="1400" height="788" loading="lazy" />
+        <img src={withBase('/images/bar-interior.jpg')} alt="Interior del bar en Dubliners" class="split-photo landscape" width="1400" height="788" loading="lazy" />
       </picture>
     </div>
   </section>

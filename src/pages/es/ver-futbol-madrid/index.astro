@@ -6,7 +6,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'Ver fútbol en Madrid | Pub cerca de Sol — Dubliners';
 const description =
-  'Dónde ver fútbol en Madrid cerca de Puerta del Sol. Pub irlandés con pantallas en el local para Premier, Champions y LaLiga. Espoz y Mina 7.';
+  'Ver fútbol cerca de Puerta del Sol. Pantallas en sala para Premier, Champions y LaLiga cuando se echan. Espoz y Mina 7.';
 ---
 
 <BaseLayout
@@ -20,11 +20,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Ver fútbol Madrid" lang="es" />
-        <h1>Ver fútbol en Madrid — a un paso de Sol</h1>
+        <h1>Ver fútbol cerca de Sol</h1>
         <p class="lead">
-          ¿Fin de semana en la ciudad o hotel ya en la plaza?
-          Dubliners es un pub irlandés con pantallas en el local en Calle de Espoz y Mina 7 —
-          un sitio fácil en el centro para noches de Premier League, Champions League y LaLiga.
+          Pub irlandés en Espoz y Mina 7 — Premier League, Champions League y LaLiga
+          cuando están en pantallas. Unos dos minutos desde la plaza.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -34,7 +33,7 @@ const description =
           srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 45vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Ver fútbol en pantallas grandes en Dubliners cerca de Sol" width="1400" height="788" loading="eager" />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Fútbol en pantallas grandes en Dubliners" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>
@@ -44,15 +43,15 @@ const description =
       <div class="card-grid cols-3">
         <article class="card">
           <h3>Dónde</h3>
-          <p>{SITE.address} — unos dos minutos desde Puerta del Sol. Metro Sol o Sevilla.</p>
+          <p>{SITE.address} — Metro Sol o Sevilla.</p>
         </article>
         <article class="card">
           <h3>Cómo llegar</h3>
-          <p>A pie desde la plaza o en Metro hasta Sol. Sin reserva — solo entra.</p>
+          <p>A pie desde la plaza o Metro hasta Sol. Sin reserva online.</p>
         </article>
         <article class="card">
           <h3>Qué ver hoy</h3>
-          <p>Mira los <a href={withBase('/es/partidos/')}>próximos partidos</a> o pregunta en barra qué echan esta noche.</p>
+          <p>Mira los <a href={withBase('/es/partidos/')}>próximos partidos</a> o pregunta en barra.</p>
         </article>
       </div>
     </div>
@@ -60,14 +59,10 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Fútbol en directo en el centro</h2>
+      <h2>Base en el centro para el partido</h2>
       <p>
-        Sol es el hub natural si recorres Madrid a pie. Si te alojas cerca,
-        entras en Dubliners para el pitido sin un taxi largo al otro lado de la ciudad.
-      </p>
-      <p>
-        Echamos Premier League, Champions League, LaLiga y otros deportes cuando están en nuestras pantallas.
-        En noches grandes, llega un poco antes — la sala se llena.
+        Si ya estás alojado cerca de Sol, lo tienes a mano. Ponemos partidos cuando se echan —
+        en noches grandes, llega un poco antes.
       </p>
       <ul>
         <li><a href={withBase('/es/premier-league-pub-madrid/')}>Pub Premier League Madrid</a></li>
@@ -82,8 +77,8 @@ const description =
     <div class="container prose">
       <h2>Después del Bernabéu</h2>
       <p>
-        Estamos en Sol / centro — no al lado del estadio. Tras un día de partido, Metro de vuelta a Sol
-        y entra a por una cerveza o otro partido si lo están echando.
+        Estamos en Sol / centro — no al lado del estadio. Metro de vuelta a Sol y entra
+        a por una cerveza u otro partido si lo están echando.
       </p>
       <div class="faq">
         <details>
@@ -96,7 +91,7 @@ const description =
         </details>
         <details>
           <summary>¿Hay que reservar?</summary>
-          <p>No. Entrada libre. En partidos grandes, mejor llegar pronto.</p>
+          <p>No. En partidos grandes, mejor llegar pronto.</p>
         </details>
         <details>
           <summary>Dirección</summary>

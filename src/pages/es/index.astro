@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Dubliners Madrid | Pub irlandés cerca de Puerta del Sol';
 const description =
-  'Pub irlandés en Calle de Espoz y Mina 7, a un paso de Puerta del Sol. Fútbol en directo, ambiente internacional y miércoles con chupitos a 1 €.';
+  'Pub irlandés en Espoz y Mina 7, a un paseo de Sol. Deporte en pantallas cuando hay partido y miércoles con chupitos a 1 €.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/mural-hero.jpg">
@@ -19,7 +19,7 @@ const description =
       <img
         class="hero-artwork__img"
         src={withBase('/images/mural-hero.jpg')}
-        alt="Mural clásico del techo en Dubliners Irish Pub Madrid"
+        alt="Mural del techo en Dubliners, Madrid"
         width="1872"
         height="1056"
         loading="eager"
@@ -45,12 +45,11 @@ const description =
 
   <section class="section home-intro">
     <div class="container">
-      <span class="badge">Cerca de Puerta del Sol · Madrid Centro</span>
-      <h1>Tu rincón irlandés en el corazón de Madrid</h1>
+      <span class="badge">Espoz y Mina 7 · cerca de Sol</span>
+      <h1>Deporte en directo y noches largas, a un paseo de Sol</h1>
       <p class="lead">
-        Dubliners está en Calle de Espoz y Mina 7 — a un paseo corto de Puerta del Sol.
-        Madera oscura, pintas de verdad y un público internacional que hace de Sol un segundo hogar.
-        Deporte en pantallas, energía de media semana y miércoles que se alargan.
+        Dubliners es un pub irlandés en Calle de Espoz y Mina 7.
+        Pantallas cuando hay partido, chupitos a 1 € los miércoles y gente de todo tipo en el centro.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -61,14 +60,10 @@ const description =
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>Ambiente para quedarte</h2>
+        <h2>Dentro del pub</h2>
         <p>
-          Madera oscura, pintas de verdad y esa energía fácil de Sol: locales, viajeros y gente de fuera
-          en la misma sala. Un pub irlandés pensado tanto para conversar como para el pitido inicial.
-        </p>
-        <p>
-          Ven a media semana, un miércoles de estudiantes o una noche de fútbol. La sala se llena con el
-          ambiente de Sol — deporte, charla y noches que se alargan.
+          Madera oscura, cerveza de grifo y una sala pensada tanto para charlar como para el pitido.
+          Locales, viajeros y estudiantes en el mismo espacio — entre semana o noche de partido.
         </p>
       </div>
       <picture>
@@ -79,7 +74,7 @@ const description =
         />
         <img
           src={withBase('/images/bar-interior.jpg')}
-          alt="Interior del bar con suelo de damero y mural en Dubliners Madrid"
+          alt="Barra y suelo de damero en Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -92,25 +87,25 @@ const description =
   <section class="section">
     <div class="container split">
       <div>
-        <h2>Deporte en directo en pantallas</h2>
+        <h2>Deporte en las pantallas</h2>
         <p>
           Premier League, Champions League, LaLiga, Seis Naciones, Fórmula 1, NFL y NBA —
-          cuando se echan aquí. Mira <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+          cuando se echan. Mira <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
         </p>
         <div class="card-grid cols-3" style="margin-top:1rem">
           <article class="card">
             <h3>Noches de partido</h3>
-            <p>Pantallas en el centro. Llega un poco antes en los partidos grandes.</p>
+            <p>Pantallas en el centro. Llega un poco antes si el partido es grande.</p>
             <a href={withBase('/es/ver-futbol-madrid/')}>Ver fútbol →</a>
           </article>
           <article class="card">
-            <h3>Bar deportivo cerca de Sol</h3>
-            <p>A un paso del Metro Sol — ideal si tu hotel ya está en el centro.</p>
+            <h3>Bar deportivo</h3>
+            <p>Metro Sol o Sevilla — cómodo si ya estás alojado cerca.</p>
             <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo →</a>
           </article>
           <article class="card">
-            <h3>Partidos de la semana</h3>
-            <p>Hoy y esta semana, cuando tenemos horarios listos para compartir.</p>
+            <h3>Esta semana</h3>
+            <p>Partidos listados cuando tenemos horarios para compartir.</p>
             <a href={withBase('/es/partidos/')}>Partidos →</a>
           </article>
         </div>
@@ -123,7 +118,7 @@ const description =
         />
         <img
           src={withBase('/images/screens-sports.jpg')}
-          alt="Pantalla grande y proyector para deporte en directo en Dubliners Madrid"
+          alt="Televisión y proyector para deporte en Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -137,12 +132,12 @@ const description =
     <div class="container split reverse">
       <div>
         <span class="badge">Todos los miércoles</span>
-        <h2>Miércoles: chupitos a 1 €</h2>
+        <h2>MIÉRCOLES · CHUPITOS A 1 €</h2>
         <p>
-          El clásico de media semana para Erasmus y noches internacionales — chupitos a 1 € en Dubliners
-          y, solo los miércoles, Four Corner After Party en Calle Victoria 6 hasta las 05:30.
+          Chupitos a 1 € en Dubliners. Solo los miércoles, la noche puede seguir en Four Corner After Party,
+          Calle Victoria 6, hasta las 05:30.
         </p>
-        <p>Sala animada, ambiente de media semana. Pregunta al equipo por la promo al llegar.</p>
+        <p>Pregunta en barra por la promo al llegar.</p>
         <a class="btn btn-gold" href={withBase('/es/miercoles-chupitos-1-euro/')}>Noches de miércoles →</a>
       </div>
       <picture>
@@ -153,7 +148,7 @@ const description =
         />
         <img
           src={withBase('/images/interior-vert.jpg')}
-          alt="Entrada a la zona de mesas con neones y pantallas en Dubliners Madrid"
+          alt="Entrada a mesas con neones y pantallas en Dubliners"
           width="900"
           height="1600"
           loading="lazy"
@@ -165,27 +160,26 @@ const description =
 
   <section class="section">
     <div class="container">
-      <h2>¿Viajas por fútbol?</h2>
+      <h2>¿Estás en Madrid por el fútbol?</h2>
       <p>
-        Si llegas desde otra ciudad de España, Europa o más lejos, Sol es una base cómoda —
-        y Dubliners queda a dos minutos de la plaza.
+        Si te mueves por Sol, estamos a unos dos minutos de la plaza.
       </p>
       <div class="card-grid">
         <a class="card card-link" href={withBase('/es/premier-league-pub-madrid/')}>
-          <h3>Pub Premier League</h3>
-          <p>Fútbol inglés los fines de semana cuando la PL está en pantallas.</p>
+          <h3>Premier League</h3>
+          <p>Fútbol inglés cuando la PL está en pantallas.</p>
         </a>
         <a class="card card-link" href={withBase('/es/champions-league-bar-madrid/')}>
-          <h3>Bar Champions League</h3>
-          <p>Noches europeas en el centro de Madrid.</p>
+          <h3>Champions League</h3>
+          <p>Noches europeas en el centro.</p>
         </a>
         <a class="card card-link" href={withBase('/es/bar-futbol-puerta-del-sol/')}>
           <h3>Cerca de Puerta del Sol</h3>
-          <p>Cómo llegar desde la plaza y hoteles del centro.</p>
+          <p>A pie desde la plaza — mapa y cómo llegar.</p>
         </a>
         <a class="card card-link" href={withBase('/es/estudiantes-internacionales/')}>
-          <h3>Ambiente internacional</h3>
-          <p>Punto de encuentro fácil para estudiantes y viajeros.</p>
+          <h3>Público internacional</h3>
+          <p>Punto de encuentro para estudiantes y viajeros.</p>
         </a>
       </div>
     </div>
@@ -196,10 +190,10 @@ const description =
       <h2>Dentro y fuera</h2>
       <div class="photo-grid">
         {[
-          { src: 'facade', alt: 'Fachada de Dubliners con neón verde y banderas irlandesas cerca de Sol', w: 1280, h: 720 },
-          { src: 'bar-interior', alt: 'Barra y suelo de damero en Dubliners Madrid', w: 1400, h: 788 },
-          { src: 'screens-sports', alt: 'Pantallas deportivas y proyector en Dubliners Irish Pub', w: 1400, h: 788 },
-          { src: 'window-display', alt: 'Escaparate vintage delante de Dubliners Irish Pub Madrid', w: 1600, h: 902 },
+          { src: 'facade', alt: 'Fachada de Dubliners con neón verde y banderas irlandesas', w: 1280, h: 720 },
+          { src: 'bar-interior', alt: 'Barra y suelo de damero en Dubliners', w: 1400, h: 788 },
+          { src: 'screens-sports', alt: 'Pantallas deportivas y proyector en Dubliners', w: 1400, h: 788 },
+          { src: 'window-display', alt: 'Escaparate vintage delante de Dubliners', w: 1600, h: 902 },
         ].map(({ src, alt, w, h }) => (
           <picture>
             <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
@@ -213,7 +207,7 @@ const description =
   <section class="section">
     <div class="container split">
       <div>
-        <h2>Encuéntranos</h2>
+        <h2>Dónde estamos</h2>
         <p>
           Calle de Espoz y Mina 7, 28012 Madrid — a un paseo corto de Puerta del Sol.
           Metro: Sol o Sevilla.
@@ -226,7 +220,7 @@ const description =
           />
           <img
             src={withBase('/images/facade.jpg')}
-            alt="Fachada de Dubliners Irish Pub en Calle de Espoz y Mina, Madrid"
+            alt="Fachada de Dubliners en Calle de Espoz y Mina"
             width="1280"
             height="720"
             loading="lazy"

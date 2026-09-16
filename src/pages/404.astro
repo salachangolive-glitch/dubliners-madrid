@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../site';
 
 const title = 'Page not found | Dubliners Madrid';
-const description = 'That page doesn’t exist. Head home to Dubliners Irish pub near Puerta del Sol.';
+const description = 'That page doesn’t exist. Head home to Dubliners near Sol.';
 ---
 
 <BaseLayout title={title} description={description} path="/404/">
@@ -11,7 +11,7 @@ const description = 'That page doesn’t exist. Head home to Dubliners Irish pub
     <div class="container not-found">
       <h1>404 — page not found</h1>
       <p class="lead" style="margin-inline:auto">
-        That URL isn’t on this site. Try the home page or visit info.
+        That URL isn’t on this site. Try home, visit, or what’s on.
       </p>
       <div class="cta-row" style="justify-content:center">
         <a class="btn btn-primary" href={withBase('/')}>Home</a>

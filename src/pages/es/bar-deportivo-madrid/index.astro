@@ -6,7 +6,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'Bar deportivo Madrid cerca de Sol | Dubliners';
 const description =
-  'Bar deportivo en Madrid centro cerca de Puerta del Sol. Pantallas en el local para fútbol y deporte en directo. Pub irlandés, Espoz y Mina 7.';
+  'Bar deportivo cerca de Puerta del Sol. Pantallas en sala para fútbol y deporte cuando se echa. Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -14,11 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar deportivo Madrid" lang="es" />
-        <h1>Bar deportivo Madrid — cerca de Puerta del Sol</h1>
+        <h1>Pantallas deportivas cerca de Sol</h1>
         <p class="lead">
-          Varias pantallas en sala, ambiente de pub irlandés y Sol a la puerta.
-          Entra a ver fútbol y deporte en directo — Premier League, Champions League, LaLiga,
-          Seis Naciones, F1, NFL y NBA cuando se echan.
+          Pub irlandés con varias pantallas en Espoz y Mina 7.
+          Premier League, Champions League, LaLiga, Seis Naciones, F1, NFL y NBA — cuando se echan.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -28,17 +27,16 @@ const description =
           srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 45vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Pantalla DAZN y proyector para deporte en directo en Dubliners Madrid" width="1400" height="788" loading="eager" />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Televisión y proyector para deporte en Dubliners" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose">
-      <h2>Deporte en directo en Madrid centro</h2>
+      <h2>Deporte en el centro de Madrid</h2>
       <p>
-        ¿Buscas un bar deportivo cerca de Puerta del Sol? Estamos en Espoz y Mina 7 —
-        Metro Sol o Sevilla, entrada libre. Para lo de hoy en pantallas, mira
+        Metro Sol o Sevilla. Para lo de hoy en pantallas, mira
         <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
       </p>
       <ul>
@@ -50,7 +48,7 @@ const description =
       <div class="faq">
         <details>
           <summary>¿Reserváis mesa para noches de partido?</summary>
-          <p>No — entrada libre. Llega pronto en los partidos populares.</p>
+          <p>No — pásate cuando puedas. En partidos populares, mejor llegar pronto.</p>
         </details>
         <details>
           <summary>¿Dónde estáis exactamente?</summary>

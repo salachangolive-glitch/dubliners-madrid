@@ -6,7 +6,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'Bar Champions League Madrid | Ver UCL cerca de Sol — Dubliners';
 const description =
-  'Bar Champions League en Madrid cerca de Puerta del Sol. UCL en pantallas en el local. Pub irlandés, Espoz y Mina 7.';
+  'Champions League en pantallas cerca de Sol cuando se echa. Pub irlandés, Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/champions-league-bar-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -14,10 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar Champions League Madrid" lang="es" />
-        <h1>Bar Champions League Madrid — cerca de Sol</h1>
+        <h1>Champions League cerca de Sol</h1>
         <p class="lead">
-          Noches europeas sin salir del centro. Dubliners pone la Champions League en pantallas en el local
-          cuando se echa — pub irlandés en Calle de Espoz y Mina 7.
+          Noches europeas en el centro. Dubliners pone la Champions en pantallas cuando se echa —
+          Espoz y Mina 7.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -27,7 +27,7 @@ const description =
           srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 45vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Champions League en la pantalla grande de Dubliners Madrid" width="1400" height="788" loading="eager" />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Champions League en la pantalla grande de Dubliners" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>
@@ -37,7 +37,7 @@ const description =
       <div class="card-grid cols-3">
         <article class="card">
           <h3>Dónde</h3>
-          <p>Corazón de Madrid, a un paso de Puerta del Sol — no junto al estadio.</p>
+          <p>Sol / centro — no junto al estadio.</p>
         </article>
         <article class="card">
           <h3>Cómo llegar</h3>
@@ -55,8 +55,7 @@ const description =
     <div class="container prose">
       <h2>Después de un día en el Bernabéu</h2>
       <p>
-        Estamos en Sol / centro. Tras el estadio, Metro de vuelta y entra a por una cerveza —
-        u otro partido si está en pantallas.
+        Metro de vuelta a Sol y entra a por una cerveza — u otro partido si está en pantallas.
       </p>
       <p>
         Más: <a href={withBase('/es/ver-futbol-madrid/')}>ver fútbol</a> ·
@@ -69,7 +68,7 @@ const description =
           <p>No — Sol / centro. Metro desde la zona del estadio hasta Sol, y a pie a Espoz y Mina 7.</p>
         </details>
         <details>
-          <summary>Contacto</summary>
+          <summary>Dirección</summary>
           <p>{SITE.address}, {SITE.postal}</p>
         </details>
       </div>

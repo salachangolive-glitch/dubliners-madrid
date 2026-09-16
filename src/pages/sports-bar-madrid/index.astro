@@ -6,7 +6,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Sports Bar Madrid near Sol | Dubliners';
 const description =
-  'Sports bar in Madrid centro near Puerta del Sol. Indoor screens for football and live sport. Walk-in Irish pub, Espoz y Mina 7.';
+  'Sports bar near Puerta del Sol. Indoor screens for football and live sport when it’s on. Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -14,11 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Sports bar Madrid" />
-        <h1>Sports bar Madrid — near Puerta del Sol</h1>
+        <h1>Sports screens near Sol</h1>
         <p class="lead">
-          Multiple indoor screens, an Irish-pub room, and Sol on your doorstep.
-          Walk in for football and live sport — Premier League, Champions League, LaLiga,
-          Six Nations, F1, NFL and NBA when they’re showing.
+          Indoor Irish pub with multiple screens on Espoz y Mina 7.
+          Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA — when they’re showing.
         </p>
         <CtaRow />
       </div>
@@ -28,7 +27,7 @@ const description =
           srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 45vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="DAZN TV and projector screen for live sport at Dubliners Madrid" width="1400" height="788" loading="eager" />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="TV and projector for live sport at Dubliners" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>
@@ -37,8 +36,7 @@ const description =
     <div class="container prose">
       <h2>Live sport in Madrid centro</h2>
       <p>
-        Looking for a sports bar near Puerta del Sol? We’re on Espoz y Mina 7 —
-        Metro Sol or Sevilla, walk-in only. For tonight’s screens, see
+        Metro Sol or Sevilla. For tonight’s screens, see
         <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
       </p>
       <ul>
@@ -50,7 +48,7 @@ const description =
       <div class="faq">
         <details>
           <summary>Do you take reservations for match nights?</summary>
-          <p>No — walk-in. Arrive early for popular fixtures.</p>
+          <p>No — come along when you’re ready. Arrive early for popular fixtures.</p>
         </details>
         <details>
           <summary>Where exactly are you?</summary>

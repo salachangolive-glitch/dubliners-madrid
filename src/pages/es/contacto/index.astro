@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'Contacto Dubliners Madrid | Pub irlandés cerca de Sol';
 const description =
-  'Contacta con Dubliners, pub irlandés cerca de Puerta del Sol. Visítanos, escríbenos por Instagram o usa el formulario cuando el email esté activo — noches de deporte, grupos o consultas generales.';
+  'Contacta con Dubliners cerca de Sol por Instagram o el formulario cuando el email esté activo. Espoz y Mina 7 — partidos, grupos, consultas.';
 const formReady = Boolean(SITE.formspreeId);
 const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
 ---
@@ -14,10 +14,9 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Contacto" lang="es" />
-      <h1>Contacto</h1>
+      <h1>Escríbenos</h1>
       <p class="lead">
-        Dudas sobre una noche de partido, una visita en grupo o cómo encontrarnos cerca de Sol — escríbenos.
-        Entrada libre; no hacemos reservas online de mesa.
+        Partidos, grupos o cómo encontrarnos cerca de Sol — usa el formulario cuando esté activo, o Instagram.
       </p>
     </div>
   </section>
@@ -42,7 +41,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
           </p>
         ) : (
           <p class="contact-note">
-            El contacto directo será por email cuando esté activa la dirección oficial. Mientras tanto, Instagram, una visita o el formulario cuando se active.
+            El email oficial aparecerá aquí cuando esté activo. Mientras tanto, Instagram o pásate.
           </p>
         )}
         <p>
@@ -55,7 +54,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
         <h2>Enviar un mensaje</h2>
         {!formReady && (
           <p class="contact-note" role="status">
-            El formulario se activará cuando esté configurado el email de Dubliners. Mientras tanto, escríbenos por Instagram o pásate — Cómo llegar y Visitar.
+            El formulario se activa cuando esté configurado el email de Dubliners. Mientras, Instagram o Cómo llegar / Visitar.
           </p>
         )}
         <form

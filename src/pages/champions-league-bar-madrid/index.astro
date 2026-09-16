@@ -6,7 +6,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Champions League Bar Madrid | Watch UCL near Sol — Dubliners';
 const description =
-  'Champions League bar in Madrid near Puerta del Sol. Watch UCL on indoor screens. Walk-in Irish pub, Espoz y Mina 7.';
+  'Champions League on indoor screens near Sol when it’s showing. Irish pub, Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/champions-league-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -14,10 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Champions League bar Madrid" />
-        <h1>Champions League bar Madrid — near Sol</h1>
+        <h1>Champions League near Sol</h1>
         <p class="lead">
-          European nights without leaving the centre. Dubliners puts Champions League on the indoor screens
-          when it’s showing — walk-in Irish pub on Calle de Espoz y Mina 7.
+          European nights in centro. Dubliners puts UCL on the indoor screens when it’s showing —
+          Espoz y Mina 7.
         </p>
         <CtaRow />
       </div>
@@ -27,7 +27,7 @@ const description =
           srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 45vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Champions League on the big screen at Dubliners Madrid" width="1400" height="788" loading="eager" />
+        <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Champions League on the big screen at Dubliners" width="1400" height="788" loading="eager" />
       </picture>
     </div>
   </section>
@@ -37,7 +37,7 @@ const description =
       <div class="card-grid cols-3">
         <article class="card">
           <h3>Where</h3>
-          <p>Heart of Madrid, steps from Puerta del Sol — not stadium-adjacent.</p>
+          <p>Sol / centro — not stadium-adjacent.</p>
         </article>
         <article class="card">
           <h3>How to get there</h3>
@@ -55,8 +55,7 @@ const description =
     <div class="container prose">
       <h2>After a Bernabéu day</h2>
       <p>
-        We’re in Sol / centro. After the stadium, Metro back and walk in for a pint —
-        or another fixture when it’s on the screens.
+        Metro back to Sol and walk in for a pint — or another fixture when it’s on the screens.
       </p>
       <p>
         More: <a href={withBase('/watch-football-madrid/')}>watch football</a> ·
@@ -69,7 +68,7 @@ const description =
           <p>No — Sol / centro. Metro from the stadium area to Sol, then walk to Espoz y Mina 7.</p>
         </details>
         <details>
-          <summary>Contact</summary>
+          <summary>Address</summary>
           <p>{SITE.address}, {SITE.postal}</p>
         </details>
       </div>

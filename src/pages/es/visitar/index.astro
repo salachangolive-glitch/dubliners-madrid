@@ -7,7 +7,7 @@ import { HOURS_ES } from '../../../i18n';
 
 const title = 'Visitar Dubliners Madrid | Dirección, horario y mapa';
 const description =
-  'Visita Dubliners, pub irlandés: Calle de Espoz y Mina 7, 28012 Madrid. Horario lun–mié y dom 12:00–02:00; vie–sáb 12:30–02:30. Cerca de Puerta del Sol.';
+  'Espoz y Mina 7, 28012 Madrid. Horario lun–jue y dom 12:00–02:00; vie–sáb 12:30–02:30. A un paseo de Puerta del Sol.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/visitar/" lang="es" ogImage="/images/facade.jpg">
@@ -15,9 +15,9 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Visitar" lang="es" />
-        <h1>Visitar Dubliners</h1>
+        <h1>Cómo llegar</h1>
         <p class="lead">
-          Pub irlandés cerca de Puerta del Sol — entra a por una pinta y fútbol en pantallas en el local.
+          Pub irlandés en Espoz y Mina 7 — pantallas cuando hay partido, cerveza en barra.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -59,12 +59,13 @@ const description =
           ))}
         </tbody>
       </table>
+      <p>Lun–jue y dom 12:00–02:00 · Vie–sáb 12:30–02:30.</p>
 
       <h2>Cómo llegar</h2>
       <ul>
         <li>Metro: Sol o Sevilla</li>
         <li>Unos dos minutos a pie desde Puerta del Sol</li>
-        <li>Pub en sala — entrada libre, sin reserva online de mesa</li>
+        <li>Pub en sala — sin reserva online de mesa</li>
       </ul>
 
       <div class="map-frame">
@@ -82,7 +83,7 @@ const description =
           srcset={`${withBase('/images/window-display-sm.webp')} 800w, ${withBase('/images/window-display.webp')} 1600w`}
           sizes="(max-width: 880px) 100vw, 70vw"
         />
-        <img class="hero-photo landscape" src={withBase('/images/window-display.jpg')} alt="Curiosidades vintage en el escaparate de Dubliners en Espoz y Mina" width="1600" height="902" loading="lazy" />
+        <img class="hero-photo landscape" src={withBase('/images/window-display.jpg')} alt="Curiosidades vintage en el escaparate de Dubliners" width="1600" height="902" loading="lazy" />
       </picture>
       <picture style="margin-top:1rem;display:block">
         <source

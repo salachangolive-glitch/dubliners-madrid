@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'International Students Pub Madrid | English-speaking near Sol';
+const title = 'International Students Pub Madrid | Near Sol — Dubliners';
 const description =
-  'English-speaking Irish pub near Sol for Erasmus and international students. Walk-in meeting point, Wednesday €1 shots. Calle de Espoz y Mina 7, Madrid.';
+  'Irish pub near Sol for Erasmus and international students. Wednesday €1 shots. Espoz y Mina 7, Madrid.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/interior-vert.jpg">
@@ -14,10 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="International students pub" />
-        <h1>Meet people. Speak English. Stay in Sol.</h1>
+        <h1>English-friendly pub near Sol</h1>
         <p class="lead">
-          Dubliners is the easy meeting point for Erasmus and international students —
-          an Irish pub a stone’s throw from Puerta del Sol, where the room already feels like home.
+          Meeting point for Erasmus and international students —
+          Espoz y Mina 7, a short walk from Puerta del Sol.
         </p>
         <CtaRow />
       </div>
@@ -27,7 +27,7 @@ const description =
           srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Seating doorway and neon signs inside Dubliners Madrid" width="900" height="1600" loading="eager" />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Seating doorway and neon signs inside Dubliners" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>
@@ -36,16 +36,16 @@ const description =
     <div class="container">
       <div class="card-grid cols-3">
         <article class="card">
-          <h3>International vibe</h3>
-          <p>English-friendly staff and a mixed crowd of students, travellers and locals.</p>
+          <h3>International crowd</h3>
+          <p>English-friendly staff; students, travellers and locals in the same room.</p>
         </article>
         <article class="card">
           <h3>Right by Sol</h3>
-          <p>Calle de Espoz y Mina 7 — easy to find after class, after sightseeing, or before a night out.</p>
+          <p>Calle de Espoz y Mina 7 — easy after class or before a night out.</p>
         </article>
         <article class="card">
-          <h3>Wednesday €1 shots</h3>
-          <p>The weekly ritual. Walk in, then (Wednesdays only) Four Corner on Victoria 6 until 05:30.</p>
+          <h3>Wednesday · €1 SHOTS</h3>
+          <p>Weekly ritual. Wednesdays only: Four Corner on Victoria 6 until 05:30.</p>
         </article>
       </div>
     </div>
@@ -53,15 +53,14 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Your midweek meeting point</h2>
+      <h2>Midweek meeting point</h2>
       <p>
-        New in Madrid? Bring your group, or come solo and settle in with a pint.
-        Wednesdays are the loudest — €1 shots and the option to continue at Four Corner After Party
+        Bring your group or come solo. Wednesdays are busiest — €1 shots, then optional Four Corner After Party
         (Calle Victoria 6, Wednesdays only, until 05:30).
       </p>
       <p>
-        Other nights, catch live sport when it’s on the screens, or just use us as your centro base.
-        Details: <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> ·
+        Other nights: live sport when it’s on the screens.
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> ·
         <a href={withBase('/whats-on/')}>What’s on</a>.
       </p>
       <CtaRow />
@@ -82,7 +81,7 @@ const description =
         </details>
         <details>
           <summary>Best night for students?</summary>
-          <p>Wednesdays for €1 shots — arrive when it suits you; the room gets busy.</p>
+          <p>Wednesdays for €1 shots — the room gets busy.</p>
         </details>
       </div>
     </div>

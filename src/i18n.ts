@@ -55,6 +55,7 @@ export const HOURS_ES = [
   { day: 'Lunes', hours: '12:00–02:00' },
   { day: 'Martes', hours: '12:00–02:00' },
   { day: 'Miércoles', hours: '12:00–02:00' },
+  { day: 'Jueves', hours: '12:00–02:00' },
   { day: 'Viernes', hours: '12:30–02:30' },
   { day: 'Sábado', hours: '12:30–02:30' },
   { day: 'Domingo', hours: '12:00–02:00' },
@@ -106,8 +107,9 @@ export function t(lang: Lang) {
       menu: 'Menú',
       explore: 'Explorar',
       hours: 'Horario',
-      fineprint: 'Pub irlandés cerca de Puerta del Sol · deporte en directo · miércoles chupitos a 1 € · Espoz y Mina 7, Madrid',
-      tagline: 'Pub irlandés cerca de Puerta del Sol',
+      fineprint:
+        'Pub irlandés cerca de Sol · deporte en directo · miércoles chupitos a 1 € · Espoz y Mina 7, Madrid',
+      tagline: 'Pub irlandés cerca de Sol',
       home: 'Inicio',
       whatsOn: 'Partidos',
       wednesday: 'Miércoles chupitos a 1 €',
@@ -120,7 +122,7 @@ export function t(lang: Lang) {
       nearSol: 'Bar de fútbol cerca de Sol',
       students: 'Estudiantes internacionales',
       jsonLdDescription:
-        'Pub irlandés cerca de Puerta del Sol en Madrid con pantallas deportivas y ambiente internacional. Miércoles chupitos a 1 €.',
+        'Pub irlandés junto a Puerta del Sol. Pantallas para deporte en directo. Miércoles chupitos a 1 €. Espoz y Mina 7, Madrid.',
     };
   }
   return {
@@ -130,8 +132,9 @@ export function t(lang: Lang) {
     menu: 'Menu',
     explore: 'Explore',
     hours: 'Hours',
-    fineprint: 'Irish pub near Puerta del Sol · live sport · Wednesday €1 shots · Espoz y Mina 7, Madrid',
-    tagline: 'Irish pub near Puerta del Sol',
+    fineprint:
+      'Irish pub near Sol · live sport · Wednesday €1 shots · Espoz y Mina 7, Madrid',
+    tagline: 'Irish pub near Sol',
     home: 'Home',
     whatsOn: "What's on",
     wednesday: 'Wednesday €1 shots',
@@ -144,7 +147,7 @@ export function t(lang: Lang) {
     nearSol: 'Football bar near Sol',
     students: 'International students',
     jsonLdDescription:
-      'Irish pub near Puerta del Sol in Madrid with sports screens and an international crowd. Wednesday €1 shots.',
+      'Irish pub near Puerta del Sol. Indoor screens for live sport. Wednesday €1 shots. Espoz y Mina 7, Madrid.',
   };
 }
 

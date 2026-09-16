@@ -7,7 +7,7 @@ import { FIXTURES, PREVIEW_TODAY } from '../../data/fixtures';
 
 const title = "What's On at Dubliners Madrid | Live Sport & Nights";
 const description =
-  "What's on at Dubliners Madrid this week — live sport on screens, Wednesday €1 shots. Walk-in near Puerta del Sol.";
+  "What's on at Dubliners this week — live sport on screens, Wednesday €1 shots. Near Puerta del Sol.";
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
 const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
@@ -19,8 +19,8 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
       <Breadcrumb current="What's on" />
       <h1>What’s on</h1>
       <p class="lead">
-        Live sport on our indoor screens — and Wednesday €1 shots when you’re in for a midweek night.
-        Walk in, grab a seat if one’s free, and ask the team what’s showing.
+        Live sport on indoor screens — plus Wednesday €1 shots midweek.
+        Ask the team what’s showing tonight.
       </p>
       <CtaRow showWhatsOn={false} />
     </div>
@@ -80,10 +80,10 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>Wednesday highlight</h2>
+        <h2>Wednesday · €1 SHOTS</h2>
         <p>
-          €1 shots every Wednesday — a favourite with the international crowd.
-          Four Corner After Party continues the night on Calle Victoria 6 (Wednesdays only) until 05:30.
+          Every Wednesday at Dubliners. Four Corner After Party continues on Calle Victoria 6
+          (Wednesdays only) until 05:30.
         </p>
         <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
       </div>
@@ -93,7 +93,7 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY);
           srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img src={withBase('/images/bar-interior.jpg')} alt="Wednesday night atmosphere at Dubliners Madrid" class="split-photo landscape" width="1400" height="788" loading="lazy" />
+        <img src={withBase('/images/bar-interior.jpg')} alt="Bar interior at Dubliners" class="split-photo landscape" width="1400" height="788" loading="lazy" />
       </picture>
     </div>
   </section>

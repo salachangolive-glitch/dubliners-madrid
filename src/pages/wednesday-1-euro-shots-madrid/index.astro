@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Wednesday €1 Shots Madrid | Dubliners Sol Erasmus Night';
+const title = 'Wednesday €1 Shots Madrid | Dubliners near Sol';
 const description =
-  'Wednesday €1 shots at Dubliners near Puerta del Sol. Walk-in Irish pub on Espoz y Mina 7. Four Corner after-party Wednesday only, Victoria 6 until 05:30.';
+  'Wednesday €1 shots at Dubliners near Sol. Espoz y Mina 7. Four Corner after-party Wednesdays only, Victoria 6 until 05:30.';
 ---
 
 <BaseLayout title={title} description={description} path="/wednesday-1-euro-shots-madrid/" ogImage="/images/interior-vert.jpg">
@@ -15,10 +15,10 @@ const description =
       <div>
         <Breadcrumb current="Wednesday €1 shots" />
         <span class="badge">Every Wednesday</span>
-        <h1>Wednesday €1 shots at Dubliners</h1>
+        <h1>Wednesday · €1 SHOTS</h1>
         <p class="lead">
-          Midweek favourite for Erasmus and international students: €1 shots in an Irish pub
-          a short walk from Puerta del Sol. Walk in, meet your people, stay as late as the night takes you.
+          €1 shots at an Irish pub a short walk from Sol.
+          Popular with Erasmus and international students — ask at the bar when you arrive.
         </p>
         <CtaRow showWednesday={false} />
       </div>
@@ -28,7 +28,7 @@ const description =
           srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Wednesday night room inside Dubliners Madrid" width="900" height="1600" loading="eager" />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Interior room at Dubliners on a Wednesday night" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>
@@ -38,15 +38,15 @@ const description =
       <div class="card-grid cols-3">
         <article class="card">
           <h3>The deal</h3>
-          <p>Shots at €1 on Wednesdays. Ask the bar team for details when you arrive.</p>
+          <p>Shots at €1 on Wednesdays. Ask the bar team for details.</p>
         </article>
         <article class="card">
           <h3>Where</h3>
           <p>{SITE.address}, {SITE.postal} — Metro Sol or Sevilla.</p>
         </article>
         <article class="card">
-          <h3>How</h3>
-          <p>Walk-in only. Expect a busy room — popular nights fill up fast.</p>
+          <h3>Busy nights</h3>
+          <p>The room fills up. Arrive when it suits you.</p>
         </article>
       </div>
     </div>
@@ -59,25 +59,22 @@ const description =
         On <strong>Wednesdays only</strong>, the night can continue at Four Corner After Party,
         <strong>Calle Victoria 6</strong>, until <strong>05:30</strong>.
       </p>
-      <p>
-        Same centro energy, a few minutes from Dubliners — ask on the night if you’re heading over.
-      </p>
+      <p>A few minutes from Dubliners — ask on the night if you’re heading over.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose">
-      <h2>Make it a full evening</h2>
+      <h2>Make a night of it</h2>
       <p>
-        Start with friends at Dubliners, catch whatever’s on the screens, then decide whether Four Corner
-        is next. Looking for other nights?
-        See <a href={withBase('/international-students-pub-madrid/')}>international students pub Madrid</a>
+        Start at Dubliners, catch whatever’s on the screens, then decide on Four Corner.
+        See also <a href={withBase('/international-students-pub-madrid/')}>international students</a>
         or <a href={withBase('/whats-on/')}>What’s on</a>.
       </p>
       <div class="faq">
         <details>
           <summary>Do I need a ticket or guest list?</summary>
-          <p>No for Dubliners — just walk in. For Four Corner, ask on the night.</p>
+          <p>Not for Dubliners. For Four Corner, ask on the night.</p>
         </details>
         <details>
           <summary>Is Four Corner every night?</summary>

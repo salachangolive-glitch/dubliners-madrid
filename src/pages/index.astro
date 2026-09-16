@@ -5,7 +5,7 @@ import { SITE, withBase } from '../site';
 
 const title = 'Dubliners Madrid | Irish Pub near Puerta del Sol';
 const description =
-  'Irish pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Live sport on the screens, international crowd, Wednesday €1 shots.';
+  'Indoor Irish pub on Espoz y Mina 7, a short walk from Sol. Live sport on the screens when it’s on, Wednesday €1 shots.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/mural-hero.jpg">
@@ -19,7 +19,7 @@ const description =
       <img
         class="hero-artwork__img"
         src={withBase('/images/mural-hero.jpg')}
-        alt="Classical ceiling mural inside Dubliners Irish Pub Madrid"
+        alt="Ceiling mural inside Dubliners, Madrid"
         width="1872"
         height="1056"
         loading="eager"
@@ -38,19 +38,18 @@ const description =
       </nav>
       <a class="home-wed" href={withBase('/wednesday-1-euro-shots-madrid/')}>
         <span class="home-wed__day">Wednesday</span>
-        <span class="home-wed__price"><span class="home-wed__euro">€1</span> <span class="home-wed__shots">shots</span></span>
+        <span class="home-wed__price"><span class="home-wed__euro">€1</span> <span class="home-wed__shots">SHOTS</span></span>
       </a>
     </div>
   </div>
 
   <section class="section home-intro">
     <div class="container">
-      <span class="badge">Near Puerta del Sol · Madrid Centro</span>
-      <h1>Your Irish corner in the heart of Madrid</h1>
+      <span class="badge">Espoz y Mina 7 · near Sol</span>
+      <h1>Live sport and late nights, a short walk from Sol</h1>
       <p class="lead">
-        Dubliners sits on Calle de Espoz y Mina 7 — a short walk from Puerta del Sol.
-        Dark wood, proper pints, and an international crowd that makes Sol feel like home.
-        Sport on the screens, midweek energy, and Wednesday nights that run late.
+        Dubliners is an indoor Irish pub on Calle de Espoz y Mina 7.
+        Screens when sport is on, Wednesday €1 shots, and a mixed crowd in the centre.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -61,14 +60,10 @@ const description =
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>Atmosphere you’ll want to stay in</h2>
+        <h2>Inside the pub</h2>
         <p>
-          Dark wood, proper pints, and that easy Sol energy — locals, travellers, and internationals
-          sharing the same room. An Irish pub built for conversation as much as kick-off.
-        </p>
-        <p>
-          Come for a midweek pint, a student Wednesday, or a match night. The room fills with the Sol
-          crowd — sport, chatter, and nights that stretch.
+          Dark wood, pints, and a room built for chat as much as kick-off.
+          Locals, travellers, and students share the same space — midweek or match night.
         </p>
       </div>
       <picture>
@@ -79,7 +74,7 @@ const description =
         />
         <img
           src={withBase('/images/bar-interior.jpg')}
-          alt="Bar interior with checkered floor and ceiling mural at Dubliners Madrid"
+          alt="Bar counter and checkered floor inside Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -94,23 +89,23 @@ const description =
       <div>
         <h2>Live sport on the screens</h2>
         <p>
-          Premier League, Champions League, LaLiga, Six Nations, Formula 1, NFL and NBA —
-          when they’re showing here. Check <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+          Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA —
+          when they’re showing. See <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
         </p>
         <div class="card-grid cols-3" style="margin-top:1rem">
           <article class="card">
             <h3>Match nights</h3>
-            <p>Screens in the heart of centro. Arrive a little early for the big fixtures.</p>
+            <p>Indoor screens in centro. Arrive a little early for big fixtures.</p>
             <a href={withBase('/watch-football-madrid/')}>Watch football →</a>
           </article>
           <article class="card">
-            <h3>Sports bar near Sol</h3>
-            <p>Steps from Metro Sol — ideal if your hotel is already in the centre.</p>
+            <h3>Sports bar</h3>
+            <p>Metro Sol or Sevilla — handy if you’re already staying nearby.</p>
             <a href={withBase('/sports-bar-madrid/')}>Sports bar →</a>
           </article>
           <article class="card">
-            <h3>This week’s fixtures</h3>
-            <p>Today and this week listed when we have kick-offs ready to share.</p>
+            <h3>This week</h3>
+            <p>Listed fixtures when we have kick-offs ready to share.</p>
             <a href={withBase('/whats-on/')}>What’s on →</a>
           </article>
         </div>
@@ -123,7 +118,7 @@ const description =
         />
         <img
           src={withBase('/images/screens-sports.jpg')}
-          alt="Large TV and projector screen for live sport at Dubliners Madrid"
+          alt="TV and projector for live sport at Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -137,12 +132,12 @@ const description =
     <div class="container split reverse">
       <div>
         <span class="badge">Every Wednesday</span>
-        <h2>Wednesday €1 shots</h2>
+        <h2>Wednesday · €1 SHOTS</h2>
         <p>
-          The midweek classic for Erasmus and international nights out — €1 shots at Dubliners,
-          then (Wednesdays only) Four Corner After Party on Calle Victoria 6 until 05:30.
+          €1 shots at Dubliners. Wednesdays only, the night can continue at Four Corner After Party,
+          Calle Victoria 6, until 05:30.
         </p>
-        <p>Busy room, lively midweek crowd. Ask staff about the deal when you arrive.</p>
+        <p>Ask staff about the deal when you arrive.</p>
         <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
       </div>
       <picture>
@@ -153,7 +148,7 @@ const description =
         />
         <img
           src={withBase('/images/interior-vert.jpg')}
-          alt="Doorway into seating with neon signs and TVs at Dubliners Madrid"
+          alt="Seating doorway with neon and TVs at Dubliners"
           width="900"
           height="1600"
           loading="lazy"
@@ -165,23 +160,22 @@ const description =
 
   <section class="section">
     <div class="container">
-      <h2>Planning a football trip?</h2>
+      <h2>In town for football?</h2>
       <p>
-        Whether you’re flying in from the UK, Ireland, elsewhere in Europe or the US,
-        Sol is an easy base — and Dubliners is a two-minute walk from the plaza.
+        If you’re based near Sol, we’re about a two-minute walk from the plaza.
       </p>
       <div class="card-grid">
         <a class="card card-link" href={withBase('/premier-league-pub-madrid/')}>
-          <h3>Premier League pub</h3>
-          <p>English football weekends when PL is on the screens.</p>
+          <h3>Premier League</h3>
+          <p>English football when PL is on the screens.</p>
         </a>
         <a class="card card-link" href={withBase('/champions-league-bar-madrid/')}>
-          <h3>Champions League bar</h3>
-          <p>European nights in the heart of Madrid.</p>
+          <h3>Champions League</h3>
+          <p>European nights in centro.</p>
         </a>
         <a class="card card-link" href={withBase('/football-bar-puerta-del-sol/')}>
           <h3>Near Puerta del Sol</h3>
-          <p>Directions from the plaza and centro hotels.</p>
+          <p>Walk from the plaza — map and directions.</p>
         </a>
         <a class="card card-link" href={withBase('/international-students-pub-madrid/')}>
           <h3>International crowd</h3>
@@ -196,10 +190,10 @@ const description =
       <h2>Inside & outside</h2>
       <div class="photo-grid">
         {[
-          { src: 'facade', alt: 'Dubliners storefront with green neon and Irish flags near Sol', w: 1280, h: 720 },
-          { src: 'bar-interior', alt: 'Bar counter and checkered floor inside Dubliners Madrid', w: 1400, h: 788 },
-          { src: 'screens-sports', alt: 'Sports screens and projector at Dubliners Irish Pub', w: 1400, h: 788 },
-          { src: 'window-display', alt: 'Vintage window display outside Dubliners Irish Pub Madrid', w: 1600, h: 902 },
+          { src: 'facade', alt: 'Dubliners storefront with green neon and Irish flags', w: 1280, h: 720 },
+          { src: 'bar-interior', alt: 'Bar counter and checkered floor inside Dubliners', w: 1400, h: 788 },
+          { src: 'screens-sports', alt: 'Sports screens and projector at Dubliners', w: 1400, h: 788 },
+          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
         ].map(({ src, alt, w, h }) => (
           <picture>
             <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
@@ -226,7 +220,7 @@ const description =
           />
           <img
             src={withBase('/images/facade.jpg')}
-            alt="Dubliners Irish Pub facade on Calle de Espoz y Mina, Madrid"
+            alt="Dubliners facade on Calle de Espoz y Mina"
             width="1280"
             height="720"
             loading="lazy"

@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Contact Dubliners Madrid | Irish Pub near Sol';
 const description =
-  'Contact Dubliners Irish pub near Puerta del Sol. Visit us, message on Instagram, or use the form when email is live — sports nights, groups, or general questions.';
+  'Reach Dubliners near Sol via Instagram or the contact form when email is live. Espoz y Mina 7 — match nights, groups, general questions.';
 const formReady = Boolean(SITE.formspreeId);
 const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
 ---
@@ -14,10 +14,9 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Contact" />
-      <h1>Contact us</h1>
+      <h1>Get in touch</h1>
       <p class="lead">
-        Questions about a match night, a group visit, or finding us near Sol — get in touch.
-        Walk-ins welcome; we don’t take online table bookings.
+        Match nights, groups, or finding us near Sol — message below when the form is live, or use Instagram.
       </p>
     </div>
   </section>
@@ -42,7 +41,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
           </p>
         ) : (
           <p class="contact-note">
-            Direct contact will be by email once our official address is live. Meanwhile, use Instagram, visit us, or leave a note below when the form activates.
+            Official email will appear here once it’s live. Until then, Instagram or drop by.
           </p>
         )}
         <p>
@@ -55,7 +54,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
         <h2>Send a message</h2>
         {!formReady && (
           <p class="contact-note" role="status">
-            The contact form will activate when Dubliners email is configured. Until then, message us on Instagram or drop by — see Directions and Visit.
+            The form activates when Dubliners email is configured. Message us on Instagram or see Directions and Visit.
           </p>
         )}
         <form
@@ -67,7 +66,6 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
         >
           {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — website contact" />}
           {formReady && <input type="hidden" name="_next" value={withBase('/contact/?sent=1')} />}
-          {/* Honeypot — leave empty */}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
             <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />

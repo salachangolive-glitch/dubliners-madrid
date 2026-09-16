@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Dubliners para estudiantes internacionales en Madrid | Sol';
+const title = 'Dubliners para estudiantes internacionales y Erasmus en Madrid | Sol';
 const description =
-  'Pub irlandés junto a Puerta del Sol. Ambiente internacional, deporte en directo y chupitos a 1 € los miércoles. Espoz y Mina 7.';
+  'Pub irlandés a dos minutos de Puerta del Sol. Ambiente internacional, deporte en directo y chupitos a 1 € los miércoles. Ideal para Erasmus y estudiantes.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/estudiantes-internacionales/" lang="es" ogImage="/images/interior-vert.jpg">
@@ -16,10 +15,12 @@ const description =
         <Breadcrumb current="Estudiantes internacionales" lang="es" />
         <h1>Dubliners para estudiantes internacionales en Madrid</h1>
         <p class="lead">
-          Dubliners está a pocos minutos de la Puerta del Sol. Un pub irlandés con ambiente internacional,
+          Dubliners está a dos minutos de la Puerta del Sol. Un pub irlandés con ambiente internacional,
           deporte en directo y chupitos a 1 € todos los miércoles.
         </p>
-        <CtaRow lang="es" showWednesday={false} />
+        <div class="cta-row">
+          <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        </div>
       </div>
       <picture>
         <source
@@ -27,23 +28,22 @@ const description =
           srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Entrada a mesas y neones en Dubliners" width="900" height="1600" loading="eager" />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Interior de Dubliners, pub irlandés cerca de Sol" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="card-grid cols-2">
-        <article class="card">
-          <h3>Ambiente internacional</h3>
-          <p>Ambiente internacional y atención en inglés.</p>
-        </article>
-        <article class="card">
-          <h3>En Sol</h3>
-          <p>{SITE.address}, {SITE.postal}</p>
-        </article>
-      </div>
+    <div class="container prose">
+      <p>Ambiente internacional y atención en inglés.</p>
+      <h2>Ubicación</h2>
+      <p>
+        Calle de Espoz y Mina 7<br />
+        28012 Madrid
+      </p>
+      <p>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      </p>
     </div>
   </section>
 
@@ -51,13 +51,10 @@ const description =
     <div class="container prose">
       <h2>MIÉRCOLES · CHUPITOS A 1 €</h2>
       <p>
-        Todos los miércoles, chupitos a 1 € en Dubliners.
-        La noche puede seguir en Four Corner After Party, Calle Victoria 6, hasta las 05:30 (solo miércoles).
+        Todos los miércoles, chupitos a 1 € en Dubliners. Después, Four Corner After Party en Calle Victoria 6, hasta las 05:30.
       </p>
       <p>
-        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Más sobre el miércoles</a>
-        ·
-        <a href={withBase('/es/visitar/')}>Cómo llegar</a>
+        <a class="btn btn-secondary" href={withBase('/es/miercoles-chupitos-1-euro/')}>Más sobre el miércoles</a>
       </p>
     </div>
   </section>
@@ -67,12 +64,12 @@ const description =
       <h2>Preguntas frecuentes</h2>
       <div class="faq">
         <details>
-          <summary>¿Dónde estáis?</summary>
-          <p>{SITE.address}, {SITE.postal}. Metro Sol o Sevilla.</p>
+          <summary>¿Dónde está Dubliners?</summary>
+          <p>Calle de Espoz y Mina 7, 28012 Madrid, a unos dos minutos a pie de Puerta del Sol.</p>
         </details>
         <details>
-          <summary>¿Cómo llego desde Puerta del Sol?</summary>
-          <p>Unos dos minutos a pie por Calle de Espoz y Mina hasta el número 7.</p>
+          <summary>¿Cuál es el metro más cercano?</summary>
+          <p>Sol y Sevilla son las estaciones más cercanas.</p>
         </details>
       </div>
     </div>

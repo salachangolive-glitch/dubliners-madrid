@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Dubliners for International Students in Madrid | Near Sol';
+const title = 'Dubliners for International Students & Erasmus in Madrid | Near Sol';
 const description =
-  'Irish pub a short walk from Puerta del Sol. International crowd, live sport, and €1 shots on Wednesdays. Espoz y Mina 7.';
+  'Irish pub two minutes from Puerta del Sol. International atmosphere, live sport and €1 shots on Wednesdays — popular with Erasmus and international students.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/interior-vert.jpg">
@@ -16,10 +15,12 @@ const description =
         <Breadcrumb current="International students" />
         <h1>Dubliners for international students in Madrid</h1>
         <p class="lead">
-          An Irish pub a few minutes from Puerta del Sol — international atmosphere, live sport on the screens,
-          and €1 shots every Wednesday.
+          Dubliners is an Irish pub just two minutes from Puerta del Sol, with an international atmosphere,
+          live sport and €1 shots every Wednesday.
         </p>
-        <CtaRow showWednesday={false} />
+        <div class="cta-row">
+          <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        </div>
       </div>
       <picture>
         <source
@@ -27,37 +28,33 @@ const description =
           srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Seating doorway and neon signs inside Dubliners" width="900" height="1600" loading="eager" />
+        <img class="hero-photo portrait" src={withBase('/images/interior-vert.jpg')} alt="Inside Dubliners Irish pub near Sol, Madrid" width="900" height="1600" loading="eager" />
       </picture>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="card-grid cols-2">
-        <article class="card">
-          <h3>English spoken</h3>
-          <p>International atmosphere and English-speaking staff.</p>
-        </article>
-        <article class="card">
-          <h3>Near Sol</h3>
-          <p>{SITE.address}, {SITE.postal}</p>
-        </article>
-      </div>
+    <div class="container prose">
+      <p>International atmosphere, with English-speaking staff.</p>
+      <h2>Location</h2>
+      <p>
+        Calle de Espoz y Mina 7<br />
+        28012 Madrid
+      </p>
+      <p>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      </p>
     </div>
   </section>
 
   <section class="section band">
     <div class="container prose">
-      <h2>Wednesday · €1 SHOTS</h2>
+      <h2>WEDNESDAY · €1 SHOTS</h2>
       <p>
-        Every Wednesday, €1 shots at Dubliners.
-        The night can continue at Four Corner After Party, Calle Victoria 6, until 05:30 (Wednesdays only).
+        €1 shots every Wednesday at Dubliners. Afterwards, Four Corner After Party continues at Calle Victoria 6 until 05:30.
       </p>
       <p>
-        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>More about Wednesday</a>
-        ·
-        <a href={withBase('/visit/')}>How to find us</a>
+        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>More about Wednesday</a>
       </p>
     </div>
   </section>
@@ -67,12 +64,12 @@ const description =
       <h2>FAQ</h2>
       <div class="faq">
         <details>
-          <summary>Where are you?</summary>
-          <p>{SITE.address}, {SITE.postal}. Metro Sol or Sevilla.</p>
+          <summary>Where is Dubliners?</summary>
+          <p>Calle de Espoz y Mina 7, 28012 Madrid, around a two-minute walk from Puerta del Sol.</p>
         </details>
         <details>
-          <summary>How do I get there from Puerta del Sol?</summary>
-          <p>About a two-minute walk along Calle de Espoz y Mina to number 7.</p>
+          <summary>What are the nearest Metro stations?</summary>
+          <p>Sol and Sevilla.</p>
         </details>
       </div>
     </div>

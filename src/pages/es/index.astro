@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Dubliners Madrid | Pub irlandés cerca de Puerta del Sol';
 const description =
-  'Dubliners en Sol, Calle de Espoz y Mina 7. Deporte en directo, buen ambiente y chupitos a 1 € cada miércoles.';
+  'Dubliners en Sol, Calle de Espoz y Mina 7. Deporte en las pantallas y chupitos a 1 € los miércoles.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/mural-hero.jpg">
@@ -34,6 +34,8 @@ const description =
       <nav class="home-rail__links" aria-label="Enlaces rápidos">
         <a href={withBase('/es/partidos/')}>Partidos</a>
         <span class="home-rail__dot" aria-hidden="true">·</span>
+        <a href={withBase('/es/sobre-dubliners/')}>Sobre Dubliners</a>
+        <span class="home-rail__dot" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
       </nav>
       <a class="home-wed" href={withBase('/es/miercoles-chupitos-1-euro/')}>
@@ -48,8 +50,8 @@ const description =
       <span class="badge">Espoz y Mina 7 · cerca de Sol</span>
       <h1>Tu pub irlandés junto a la Puerta del Sol</h1>
       <p class="lead">
-        Dubliners en Sol, Calle de Espoz y Mina 7.
-        Deporte en directo, buen ambiente y chupitos a 1 € cada miércoles.
+        En Espoz y Mina 7, a dos minutos de Sol.
+        Entra a tomar algo, ver el partido o quedarte el miércoles.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -74,9 +76,13 @@ const description =
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>El ambiente de Dubliners</h2>
+        <h2>Dubliners hoy</h2>
         <p>
-          Auténtico ambiente de pub irlandés en el centro: tomar algo, quedar con gente o ver el deporte en pantallas.
+          Entras y te atienden en inglés. Hay madrileños, gente de paso y estudiantes.
+        </p>
+        <p>
+          Premier League, Champions, LaLiga y más deporte en las pantallas. Mira los
+          <a href={withBase('/es/partidos/')}>partidos</a> o pregunta en barra.
         </p>
       </div>
       <picture>
@@ -97,50 +103,6 @@ const description =
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <div>
-        <h2>Deporte en las pantallas</h2>
-        <p>
-          Premier League, Champions League, LaLiga, Seis Naciones, Fórmula 1, NFL y NBA —
-          cuando hay partido. Consulta los <a href={withBase('/es/partidos/')}>partidos de hoy</a> o pregunta en barra.
-        </p>
-        <div class="card-grid cols-3" style="margin-top:1rem">
-          <article class="card">
-            <h3>Noches de partido</h3>
-            <p>Pantallas en el centro. Llega un poco antes si el partido es grande.</p>
-            <a href={withBase('/es/ver-futbol-madrid/')}>Ver fútbol →</a>
-          </article>
-          <article class="card">
-            <h3>Bar deportivo</h3>
-            <p>Metro Sol o Sevilla — cómodo si ya estás por la zona.</p>
-            <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo →</a>
-          </article>
-          <article class="card">
-            <h3>Esta semana</h3>
-            <p>Partidos listados cuando tenemos horarios para compartir.</p>
-            <a href={withBase('/es/partidos/')}>Partidos →</a>
-          </article>
-        </div>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
-          sizes="(max-width: 880px) 100vw, 40vw"
-        />
-        <img
-          src={withBase('/images/screens-sports.jpg')}
-          alt="Televisión y proyector para deporte en Dubliners"
-          width="1400"
-          height="788"
-          loading="lazy"
-          class="split-photo landscape"
-        />
-      </picture>
-    </div>
-  </section>
-
   <section class="section band-gold">
     <div class="container split reverse">
       <div>
@@ -150,8 +112,8 @@ const description =
           Chupitos a 1 € en Dubliners. Solo los miércoles, la noche puede seguir en Four Corner After Party,
           Calle Victoria 6, hasta las 05:30.
         </p>
-        <p>Pregunta en barra por la promo al llegar.</p>
-        <a class="btn btn-gold" href={withBase('/es/miercoles-chupitos-1-euro/')}>Noches de miércoles →</a>
+        <p>Pregunta en barra al llegar.</p>
+        <a class="btn btn-gold" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a>
       </div>
       <picture>
         <source
@@ -173,34 +135,7 @@ const description =
 
   <section class="section">
     <div class="container">
-      <h2>¿Estás en Madrid por el fútbol?</h2>
-      <p>
-        Si te mueves por Sol, estamos a unos dos minutos de la plaza.
-      </p>
-      <div class="card-grid">
-        <a class="card card-link" href={withBase('/es/premier-league-pub-madrid/')}>
-          <h3>Premier League</h3>
-          <p>Fútbol inglés cuando la PL está en pantallas.</p>
-        </a>
-        <a class="card card-link" href={withBase('/es/champions-league-bar-madrid/')}>
-          <h3>Champions League</h3>
-          <p>Noches europeas en el centro.</p>
-        </a>
-        <a class="card card-link" href={withBase('/es/bar-futbol-puerta-del-sol/')}>
-          <h3>Cerca de Puerta del Sol</h3>
-          <p>A pie desde la plaza — mapa y cómo llegar.</p>
-        </a>
-        <a class="card card-link" href={withBase('/es/estudiantes-internacionales/')}>
-          <h3>Público internacional</h3>
-          <p>Punto de encuentro cerca de Sol.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Dentro y fuera</h2>
+      <h2>El local</h2>
       <div class="photo-grid">
         {[
           { src: 'facade', alt: 'Fachada de Dubliners con neón verde y banderas irlandesas', w: 1280, h: 720 },
@@ -222,8 +157,11 @@ const description =
       <div>
         <h2>Dónde estamos</h2>
         <p>
-          Calle de Espoz y Mina 7, 28012 Madrid — a un paseo corto de Puerta del Sol.
+          Calle de Espoz y Mina 7, 28012 Madrid — a dos minutos de Puerta del Sol.
           Metro: Sol o Sevilla.
+        </p>
+        <p>
+          Estudiantes internacionales: <a href={withBase('/es/estudiantes-internacionales/')}>los miércoles cerca de Sol</a>.
         </p>
         <picture>
           <source

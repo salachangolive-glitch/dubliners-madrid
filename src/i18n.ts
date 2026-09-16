@@ -80,8 +80,7 @@ export function navLinks(lang: Lang): NavLink[] {
   if (lang === 'es') {
     return [
       { href: '/es/', label: 'Inicio' },
-      { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo' },
-      { href: '/es/ver-futbol-madrid/', label: 'Ver fútbol' },
+      { href: '/es/sobre-dubliners/', label: 'Sobre Dubliners' },
       { href: '/es/partidos/', label: 'Partidos' },
       { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles' },
       { href: '/es/visitar/', label: 'Visitar' },
@@ -90,8 +89,7 @@ export function navLinks(lang: Lang): NavLink[] {
   }
   return [
     { href: '/', label: 'Home' },
-    { href: '/sports-bar-madrid/', label: 'Sports bar' },
-    { href: '/watch-football-madrid/', label: 'Watch football' },
+    { href: '/about/', label: 'About' },
     { href: '/whats-on/', label: "What's on" },
     { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday' },
     { href: '/visit/', label: 'Visit' },

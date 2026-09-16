@@ -46,6 +46,16 @@ if grep -qiE 'UNESCO|Dubliners desde 1885|Dubliners since 1885' "$HOME_EN" "$HOM
   echo "Forbidden history claim — abort"; exit 1
 fi
 
+
+# Stale Home copy must never republish (auditor phrases + old SEO footer)
+if grep -qE 'Deporte en directo y noches largas|Live sport and late nights|Dentro del pub|Inside the pub|Madera oscura|Dark wood, pints|mixed crowd|gente de todo tipo|cuando se echan|Irish pub near Sol · live sport|Pub irlandés cerca de Sol · deporte' "$HOME_EN" "$HOME_ES"; then
+  echo "Stale Home copy or old SEO footer — abort"; exit 1
+fi
+grep -q 'Discover our story' "$HOME_EN" || { echo "HOME EN About CTA missing — abort"; exit 1; }
+grep -q 'Descubre nuestra historia' "$HOME_ES" || { echo "HOME ES About CTA missing — abort"; exit 1; }
+grep -q 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid' "$HOME_EN" || { echo "HOME EN brand footer missing — abort"; exit 1; }
+grep -q 'Dubliners Madrid · Calle de Espoz y Mina 7 · Madrid' "$HOME_ES" || { echo "HOME ES brand footer missing — abort"; exit 1; }
+
 touch dist/.nojekyll
 MSG="${1:-deploy: Pages from $(git rev-parse --short HEAD)}"
 npx gh-pages -d dist -b gh-pages -m "$MSG"

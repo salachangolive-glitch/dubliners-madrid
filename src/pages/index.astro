@@ -34,6 +34,8 @@ const description =
       <nav class="home-rail__links" aria-label="Quick links">
         <a href={withBase('/whats-on/')}>What's on</a>
         <span class="home-rail__dot" aria-hidden="true">·</span>
+        <a href={withBase('/about/')}>About</a>
+        <span class="home-rail__dot" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
       </nav>
       <a class="home-wed" href={withBase('/wednesday-1-euro-shots-madrid/')}>
@@ -48,8 +50,8 @@ const description =
       <span class="badge">Espoz y Mina 7 · near Sol</span>
       <h1>An Irish pub in the heart of Madrid</h1>
       <p class="lead">
-        Find us just off Puerta del Sol at Espoz y Mina 7.
-        Live sport, a lively international atmosphere, and €1 shots every Wednesday.
+        Two minutes from Puerta del Sol, on Calle de Espoz y Mina 7.
+        Come in for a pint, the match, or a Wednesday night.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -74,9 +76,13 @@ const description =
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>The Dubliners atmosphere</h2>
+        <h2>The pub today</h2>
         <p>
-          An indoor Irish pub in the centre — come for a drink, meet friends, or catch the match on the screens.
+          Walk in. Staff speak English. You’ll find people who live in Madrid and people just passing through.
+        </p>
+        <p>
+          Screens for Premier League, Champions League, LaLiga and other sport — check
+          <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
         </p>
       </div>
       <picture>
@@ -97,50 +103,6 @@ const description =
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <div>
-        <h2>Live sport on the screens</h2>
-        <p>
-          Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA —
-          when they’re on. See <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
-        </p>
-        <div class="card-grid cols-3" style="margin-top:1rem">
-          <article class="card">
-            <h3>Match nights</h3>
-            <p>Indoor screens in centro. Arrive a little early for big fixtures.</p>
-            <a href={withBase('/watch-football-madrid/')}>Watch football →</a>
-          </article>
-          <article class="card">
-            <h3>Sports bar</h3>
-            <p>Metro Sol or Sevilla — handy if you’re staying nearby.</p>
-            <a href={withBase('/sports-bar-madrid/')}>Sports bar →</a>
-          </article>
-          <article class="card">
-            <h3>This week</h3>
-            <p>Listed fixtures when we have kick-offs ready to share.</p>
-            <a href={withBase('/whats-on/')}>What’s on →</a>
-          </article>
-        </div>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
-          sizes="(max-width: 880px) 100vw, 40vw"
-        />
-        <img
-          src={withBase('/images/screens-sports.jpg')}
-          alt="TV and projector for live sport at Dubliners"
-          width="1400"
-          height="788"
-          loading="lazy"
-          class="split-photo landscape"
-        />
-      </picture>
-    </div>
-  </section>
-
   <section class="section band-gold">
     <div class="container split reverse">
       <div>
@@ -150,8 +112,8 @@ const description =
           €1 shots at Dubliners. On Wednesdays only, the night can continue at Four Corner After Party,
           Calle Victoria 6, until 05:30.
         </p>
-        <p>Ask staff about the deal when you arrive.</p>
-        <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday nights →</a>
+        <p>Ask at the bar when you arrive.</p>
+        <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
       </div>
       <picture>
         <source
@@ -173,34 +135,7 @@ const description =
 
   <section class="section">
     <div class="container">
-      <h2>In town for football?</h2>
-      <p>
-        If you’re based near Sol, we’re about a two-minute walk from the plaza.
-      </p>
-      <div class="card-grid">
-        <a class="card card-link" href={withBase('/premier-league-pub-madrid/')}>
-          <h3>Premier League</h3>
-          <p>English football when PL is on the screens.</p>
-        </a>
-        <a class="card card-link" href={withBase('/champions-league-bar-madrid/')}>
-          <h3>Champions League</h3>
-          <p>European nights in centro.</p>
-        </a>
-        <a class="card card-link" href={withBase('/football-bar-puerta-del-sol/')}>
-          <h3>Near Puerta del Sol</h3>
-          <p>Walk from the plaza — map and directions.</p>
-        </a>
-        <a class="card card-link" href={withBase('/international-students-pub-madrid/')}>
-          <h3>International crowd</h3>
-          <p>English-friendly meeting point near Sol.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Inside & outside</h2>
+      <h2>The rooms</h2>
       <div class="photo-grid">
         {[
           { src: 'facade', alt: 'Dubliners storefront with green neon and Irish flags', w: 1280, h: 720 },
@@ -222,8 +157,11 @@ const description =
       <div>
         <h2>Find us</h2>
         <p>
-          Calle de Espoz y Mina 7, 28012 Madrid — short walk from Puerta del Sol.
+          Calle de Espoz y Mina 7, 28012 Madrid — a short walk from Puerta del Sol.
           Metro: Sol or Sevilla.
+        </p>
+        <p>
+          International students: <a href={withBase('/international-students-pub-madrid/')}>Wednesday nights near Sol</a>.
         </p>
         <picture>
           <source

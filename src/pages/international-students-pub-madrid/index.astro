@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'International Students Pub Madrid | Near Sol — Dubliners';
+const title = 'Dubliners for International Students in Madrid | Near Sol';
 const description =
-  'Irish pub on Espoz y Mina 7, just off Sol. English-friendly, Wednesday €1 shots — a solid spot for Erasmus and international students.';
+  'Irish pub a short walk from Puerta del Sol. International crowd, live sport, and €1 shots on Wednesdays. Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/interior-vert.jpg">
@@ -14,12 +14,12 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="International students" />
-        <h1>English-friendly pub near Sol</h1>
+        <h1>Dubliners for international students in Madrid</h1>
         <p class="lead">
-          Find us at Calle de Espoz y Mina 7, a short walk from Puerta del Sol.
-          Live sport on the screens, and €1 shots every Wednesday.
+          An Irish pub a few minutes from Puerta del Sol — international atmosphere, live sport on the screens,
+          and €1 shots every Wednesday.
         </p>
-        <CtaRow />
+        <CtaRow showWednesday={false} />
       </div>
       <picture>
         <source
@@ -34,18 +34,14 @@ const description =
 
   <section class="section">
     <div class="container">
-      <div class="card-grid cols-3">
+      <div class="card-grid cols-2">
         <article class="card">
-          <h3>Easy in English</h3>
-          <p>Staff speak English. Good place to meet people in the centre.</p>
+          <h3>English spoken</h3>
+          <p>International atmosphere and English-speaking staff.</p>
         </article>
         <article class="card">
-          <h3>Steps from Sol</h3>
-          <p>Calle de Espoz y Mina 7, 28012 Madrid.</p>
-        </article>
-        <article class="card">
-          <h3>Wednesday · €1 SHOTS</h3>
-          <p>Wednesdays only. Then Four Corner After Party, Calle Victoria 6, until 05:30.</p>
+          <h3>Near Sol</h3>
+          <p>{SITE.address}, {SITE.postal}</p>
         </article>
       </div>
     </div>
@@ -53,17 +49,16 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Midweek near Sol</h2>
+      <h2>Wednesday · €1 SHOTS</h2>
       <p>
-        Come with friends or on your own. Wednesdays: €1 shots, then optional Four Corner After Party,
-        Calle Victoria 6, Wednesdays only, until 05:30.
+        Every Wednesday, €1 shots at Dubliners.
+        The night can continue at Four Corner After Party, Calle Victoria 6, until 05:30 (Wednesdays only).
       </p>
       <p>
-        Other nights: sport on the screens when fixtures are on.
-        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> ·
-        <a href={withBase('/whats-on/')}>What’s on</a>.
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>More about Wednesday</a>
+        ·
+        <a href={withBase('/visit/')}>How to find us</a>
       </p>
-      <CtaRow />
     </div>
   </section>
 
@@ -72,16 +67,12 @@ const description =
       <h2>FAQ</h2>
       <div class="faq">
         <details>
-          <summary>Is English spoken?</summary>
-          <p>Yes — English-friendly Irish pub.</p>
-        </details>
-        <details>
           <summary>Where are you?</summary>
-          <p>{SITE.address}, {SITE.postal}</p>
+          <p>{SITE.address}, {SITE.postal}. Metro Sol or Sevilla.</p>
         </details>
         <details>
-          <summary>Best night?</summary>
-          <p>Wednesday, for €1 shots.</p>
+          <summary>How do I get there from Puerta del Sol?</summary>
+          <p>About a two-minute walk along Calle de Espoz y Mina to number 7.</p>
         </details>
       </div>
     </div>

@@ -4,22 +4,22 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Pub para Erasmus cerca de Sol | Dubliners Madrid';
+const title = 'Dubliners para estudiantes internacionales en Madrid | Sol';
 const description =
-  'Pub irlandés en Espoz y Mina 7, junto a Sol. Ambiente internacional, chupitos a 1 € los miércoles. Ideal para Erasmus y estudiantes.';
+  'Pub irlandés junto a Puerta del Sol. Ambiente internacional, deporte en directo y chupitos a 1 € los miércoles. Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/estudiantes-internacionales/" lang="es" ogImage="/images/interior-vert.jpg">
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Erasmus y estudiantes" lang="es" />
-        <h1>Pub para Erasmus junto a Sol</h1>
+        <Breadcrumb current="Estudiantes internacionales" lang="es" />
+        <h1>Dubliners para estudiantes internacionales en Madrid</h1>
         <p class="lead">
-          Dubliners está en Calle de Espoz y Mina 7, a un paseo de Puerta del Sol.
-          Ambiente internacional, pantallas cuando hay partido y chupitos a 1 € los miércoles.
+          Dubliners está a pocos minutos de la Puerta del Sol. Un pub irlandés con ambiente internacional,
+          deporte en directo y chupitos a 1 € todos los miércoles.
         </p>
-        <CtaRow lang="es" />
+        <CtaRow lang="es" showWednesday={false} />
       </div>
       <picture>
         <source
@@ -34,18 +34,14 @@ const description =
 
   <section class="section">
     <div class="container">
-      <div class="card-grid cols-3">
+      <div class="card-grid cols-2">
         <article class="card">
           <h3>Ambiente internacional</h3>
-          <p>Se habla inglés. Fácil quedar con estudiantes internacionales y con gente de Madrid.</p>
+          <p>Ambiente internacional y atención en inglés.</p>
         </article>
         <article class="card">
           <h3>En Sol</h3>
-          <p>Calle de Espoz y Mina 7, 28012 Madrid.</p>
-        </article>
-        <article class="card">
-          <h3>MIÉRCOLES · CHUPITOS A 1 €</h3>
-          <p>Solo miércoles. Después, Four Corner After Party, Calle Victoria 6, hasta las 05:30.</p>
+          <p>{SITE.address}, {SITE.postal}</p>
         </article>
       </div>
     </div>
@@ -53,17 +49,16 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Plan entre semana</h2>
+      <h2>MIÉRCOLES · CHUPITOS A 1 €</h2>
       <p>
-        Ven en grupo o solo. Los miércoles: chupitos a 1 € y, si quieres seguir,
-        Four Corner After Party, Calle Victoria 6, solo miércoles, hasta las 05:30.
+        Todos los miércoles, chupitos a 1 € en Dubliners.
+        La noche puede seguir en Four Corner After Party, Calle Victoria 6, hasta las 05:30 (solo miércoles).
       </p>
       <p>
-        El resto de la semana: deporte en pantallas cuando hay partido.
-        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> ·
-        <a href={withBase('/es/partidos/')}>Partidos</a>.
+        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Más sobre el miércoles</a>
+        ·
+        <a href={withBase('/es/visitar/')}>Cómo llegar</a>
       </p>
-      <CtaRow lang="es" />
     </div>
   </section>
 
@@ -72,16 +67,12 @@ const description =
       <h2>Preguntas frecuentes</h2>
       <div class="faq">
         <details>
-          <summary>¿Se habla inglés?</summary>
-          <p>Sí. Pub irlandés con ambiente internacional.</p>
-        </details>
-        <details>
           <summary>¿Dónde estáis?</summary>
-          <p>{SITE.address}, {SITE.postal}</p>
+          <p>{SITE.address}, {SITE.postal}. Metro Sol o Sevilla.</p>
         </details>
         <details>
-          <summary>¿Qué noche conviene más?</summary>
-          <p>Miércoles, por los chupitos a 1 €.</p>
+          <summary>¿Cómo llego desde Puerta del Sol?</summary>
+          <p>Unos dos minutos a pie por Calle de Espoz y Mina hasta el número 7.</p>
         </details>
       </div>
     </div>

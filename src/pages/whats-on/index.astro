@@ -10,7 +10,7 @@ const description =
   "What's on at Dubliners this week — live sport on screens, Wednesday €1 shots. Near Puerta del Sol.";
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
-const week = FIXTURES; // curated week slate (past days kept as history)
+const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= Madrid today
 ---
 
 <BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/screens-sports.jpg">

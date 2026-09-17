@@ -12,8 +12,8 @@ export const SITE = {
     'https://www.google.com/maps?q=Calle+de+Espoz+y+Mina+7,+28012+Madrid&output=embed',
   instagram: 'https://www.instagram.com/dublinersirishpubmadrid/',
   instagramHandle: '@dublinersirishpubmadrid',
-  siteUrl: 'https://salachangolive-glitch.github.io',
-  base: '/dubliners-madrid',
+  siteUrl: 'https://dublinersmadrid.es',
+  base: '',
   /** Public mailbox — only set after domain + mail are live. Never invent @dubliners… */
   publicEmail: '' as string,
   /** Formspree form id (e.g. xyzabc). Empty = form UI only, no submit. Never put Gmail here. */

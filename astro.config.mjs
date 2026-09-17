@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://salachangolive-glitch.github.io',
-  base: '/dubliners-madrid',
+  site: 'https://dublinersmadrid.es',
+  base: '/',
   output: 'static',
   trailingSlash: 'always',
   integrations: [
@@ -15,7 +15,7 @@ export default defineConfig({
         try {
           const path = new URL(page).pathname;
           // Legacy Spanish orphan at EN root — never sitemap
-          return path !== '/dubliners-madrid/ver-futbol-madrid/';
+          return path !== '/ver-futbol-madrid/';
         } catch {
           return true;
         }

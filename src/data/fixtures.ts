@@ -101,5 +101,16 @@ export const FIXTURES: Fixture[] = [
   },
 ];
 
-/** Madrid calendar date string YYYY-MM-DD for "today" at build/runtime preview. */
-export const PREVIEW_TODAY = '2026-09-17';
+/** Today's calendar date YYYY-MM-DD in Europe/Madrid (evaluated at build time for static Pages). */
+export function madridToday(d: Date = new Date()): string {
+  // en-CA yields YYYY-MM-DD
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Madrid',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(d);
+}
+
+/** Madrid calendar date string YYYY-MM-DD for "today" — kept for compatibility. */
+export const PREVIEW_TODAY = madridToday();

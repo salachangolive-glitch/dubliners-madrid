@@ -3,6 +3,9 @@
 Internal only. Preview stays on GitHub Pages (`github.io`) with noindex until this is executed.
 
 Current preview: `https://salachangolive-glitch.github.io/dubliners-madrid/`
+
+**Domain chosen (authorised):** `dublinersmadrid.es` (apex). Code `SITE.siteUrl` / Astro `site` / `public/CNAME` point here for pre-prod.
+Checklist below is **not** fully executed for index yet — keep `noindex,follow` until user GO LIVE.
 GBP website today: Localo (do not switch until this list is done).
 Cost lock: 0 € extra unless user authorises domain/DNS.
 

@@ -11,7 +11,7 @@ const description =
   'Qué ver hoy en Dubliners: fútbol en pantallas y miércoles con chupitos a 1 €. Cerca de Puerta del Sol.';
 
 const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
-const week = FIXTURES; // curated week slate (past days kept as history)
+const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= Madrid today
 ---
 
 <BaseLayout title={title} description={description} path="/es/partidos/" lang="es" ogImage="/images/screens-sports.jpg">

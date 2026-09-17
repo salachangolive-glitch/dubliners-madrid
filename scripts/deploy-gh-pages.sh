@@ -14,6 +14,14 @@ echo "Building from $(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"
 npm ci --omit=dev 2>/dev/null || npm install
 npm run build
 
+# Custom domain (apex) — CNAME must ship with dist for GitHub Pages
+test -f dist/CNAME || { echo "MISSING dist/CNAME"; exit 1; }
+grep -qx 'dublinersmadrid.es' dist/CNAME || { echo "CNAME content mismatch — abort"; exit 1; }
+# Root deploy: built Home must not keep old project-pages base path
+if grep -qE '/dubliners-madrid/' dist/index.html dist/es/index.html; then
+  echo "Stale /dubliners-madrid/ base path in Home — abort"; exit 1
+fi
+
 EN="dist/international-students-pub-madrid/index.html"
 ES="dist/es/estudiantes-internacionales/index.html"
 for f in "$EN" "$ES"; do

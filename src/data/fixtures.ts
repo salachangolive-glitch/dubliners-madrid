@@ -1,4 +1,4 @@
-/** Kick-offs: prefer official competition/club, then a second official source. Atleti–Osasuna 16 Sep = 19:00 Madrid (Atleti club + RM.com). Do not publish 17:00. */
+/** Kick-offs: prefer official competition/club, then a second official source. Thu 17 Sep 2026 = Betis–Getafe 19:00 (Marca 17/09 09:16 CEST), Málaga–Villarreal 21:30 (Transfermarkt), EL MD1 21:00 Madrid. No PL today. */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
   whenLabel: string;
@@ -53,11 +53,53 @@ export const FIXTURES: Fixture[] = [
   {
     dateKey: '2026-09-17',
     whenLabel: 'Thu 17 Sep',
+    competition: 'LaLiga',
+    teams: 'Real Betis vs Getafe',
+    madridTime: '19:00',
+  },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
     competition: 'UEFA Europa League',
     teams: 'Celtic vs Ferencváros',
     madridTime: '21:00',
   },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
+    competition: 'UEFA Europa League',
+    teams: 'Crystal Palace vs Lech Poznań',
+    madridTime: '21:00',
+  },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
+    competition: 'UEFA Europa League',
+    teams: 'Juventus vs NEC',
+    madridTime: '21:00',
+  },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
+    competition: 'UEFA Europa League',
+    teams: 'Real Sociedad vs AFC Bournemouth',
+    madridTime: '21:00',
+  },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
+    competition: 'UEFA Europa League',
+    teams: 'Viktoria Plzeň vs Union Saint-Gilloise',
+    madridTime: '21:00',
+  },
+  {
+    dateKey: '2026-09-17',
+    whenLabel: 'Thu 17 Sep',
+    competition: 'LaLiga',
+    teams: 'Málaga vs Villarreal',
+    madridTime: '21:30',
+  },
 ];
 
 /** Madrid calendar date string YYYY-MM-DD for "today" at build/runtime preview. */
-export const PREVIEW_TODAY = '2026-09-16';
+export const PREVIEW_TODAY = '2026-09-17';

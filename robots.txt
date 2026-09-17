@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: /
 
-# Preview host (github.io) — do not index. Sitemap kept for later domain flip.
-Sitemap: https://salachangolive-glitch.github.io/dubliners-madrid/sitemap-index.xml
+# Pre-prod custom domain — still noindex (meta + Disallow). Do not Allow until GO LIVE.
+Sitemap: https://dublinersmadrid.es/sitemap-index.xml

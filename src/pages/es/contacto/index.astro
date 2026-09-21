@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import { SITE, withBase } from '../../../site';
+import { SITE, withBase, isContactFormReady, getContactFormEndpoint } from '../../../site';
 
 const title = 'Contacto Dubliners Madrid | Pub irlandés cerca de Sol';
 const description =
   'Email comunicacion@dublinersmadrid.es o escríbenos en Instagram. Espoz y Mina 7 — partidos, grupos, consultas.';
-const formReady = Boolean(SITE.formspreeId);
-const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
+const formReady = isContactFormReady();
+const formAction = formReady ? getContactFormEndpoint() : undefined;
 ---
 
 <BaseLayout title={title} description={description} path="/es/contacto/" lang="es" ogImage="/images/facade.jpg">
@@ -16,7 +16,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
       <Breadcrumb current="Contacto" lang="es" />
       <h1>Escríbenos</h1>
       <p class="lead">
-        Partidos, grupos o cómo encontrarnos cerca de Sol — escríbenos por email, o Instagram. El formulario se activa pronto.
+        Partidos, grupos o cómo encontrarnos cerca de Sol — escríbenos por email, usa el formulario, o Instagram.
       </p>
     </div>
   </section>
@@ -52,7 +52,11 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
 
       <div class="contact-form-wrap">
         <h2>Enviar un mensaje</h2>
-        {!formReady && (
+        {formReady ? (
+          <p class="contact-note" role="status">
+            El formulario está activo — envía tu consulta y te responderemos por email.
+          </p>
+        ) : (
           <p class="contact-note" role="status">
             El formulario se activa cuando esté configurado el email de Dubliners. Mientras, Instagram o Cómo llegar / Visitar.
           </p>
@@ -62,13 +66,17 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
           method="POST"
           action={formAction}
           data-form-ready={formReady ? 'true' : 'false'}
+          data-form-endpoint={formAction || ''}
           novalidate
         >
+          {/* FormSubmit: _subject, plantilla table, captcha off para AJAX JSON */}
           {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — contacto web" />}
-          {formReady && <input type="hidden" name="_next" value={withBase('/es/contacto/?sent=1')} />}
+          {formReady && <input type="hidden" name="_template" value="table" />}
+          {formReady && <input type="hidden" name="_captcha" value="false" />}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
-            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+            {/* FormSubmit honeypot: name="_honey"; vacío para humanos */}
+            <input type="text" id="company_website" name="_honey" tabindex="-1" autocomplete="off" />
           </div>
 
           <label for="name">Nombre</label>
@@ -104,20 +112,73 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
 </BaseLayout>
 
 <script>
-  const form = document.querySelector('.contact-form');
+  const form = document.querySelector('.contact-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
   const params = new URLSearchParams(location.search);
   if (params.get('sent') === '1' && status) {
     status.hidden = false;
     status.textContent = 'Gracias — tu mensaje se ha enviado. Te responderemos pronto.';
   }
-  form?.addEventListener('submit', (e) => {
-    if (form.getAttribute('data-form-ready') !== 'true') {
-      e.preventDefault();
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || form.getAttribute('data-form-ready') !== 'true') {
       if (status) {
         status.hidden = false;
         status.textContent = 'El formulario aún no está activo. Usa Instagram o visítanos.';
       }
+      return;
+    }
+
+    const endpoint = form.getAttribute('data-form-endpoint') || form.getAttribute('action');
+    if (!endpoint) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    if (submitBtn) submitBtn.disabled = true;
+    if (status) {
+      status.hidden = false;
+      status.textContent = 'Enviando…';
+    }
+
+    try {
+      const body = new FormData(form);
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body,
+        headers: { Accept: 'application/json' },
+      });
+      let data: { success?: string | boolean; message?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        /* respuesta no JSON */
+      }
+
+      const ok =
+        res.ok && (data.success === 'true' || data.success === true);
+      if (ok) {
+        if (status) {
+          status.textContent = 'Gracias — tu mensaje se ha enviado. Te responderemos pronto.';
+        }
+        form.reset();
+        document.dispatchEvent(
+          new CustomEvent('dubliners:contact_submit', {
+            detail: { language: 'es', page_path: location.pathname },
+          }),
+        );
+      } else {
+        if (status) {
+          status.textContent =
+            data.message || 'Algo ha fallado. Inténtalo de nuevo o escríbenos por email.';
+        }
+        // Conservar valores en error — no reset
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Error de red. Inténtalo de nuevo o escríbenos por email.';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 </script>

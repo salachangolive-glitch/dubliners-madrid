@@ -18,9 +18,30 @@ export const SITE = {
   ga4MeasurementId: 'G-FRDP0849P3',
   /** Public mailbox — only set after domain + mail are live. Never invent @dubliners… */
   publicEmail: 'comunicacion@dublinersmadrid.es' as string,
-  /** Formspree form id (e.g. xyzabc). Empty = form UI only, no submit. */
+  /**
+   * Unused — kept for reference. Forms use FormSubmit (free) via publicEmail / formEndpoint.
+   * Do not re-enable Formspree unless explicitly requested.
+   */
   formspreeId: '' as string,
+  /**
+   * Optional FormSubmit (or other) AJAX endpoint override.
+   * Empty = derive from publicEmail: https://formsubmit.co/ajax/<publicEmail>
+   */
+  formEndpoint: '' as string,
 } as const;
+
+/** True when the contact form can POST (publicEmail or explicit formEndpoint). */
+export function isContactFormReady(): boolean {
+  return Boolean(SITE.formEndpoint.trim() || SITE.publicEmail.trim());
+}
+
+/** AJAX endpoint for the contact form (FormSubmit by default). */
+export function getContactFormEndpoint(): string {
+  const override = SITE.formEndpoint.trim();
+  if (override) return override;
+  const email = SITE.publicEmail.trim();
+  return email ? `https://formsubmit.co/ajax/${email}` : '';
+}
 
 export const HOURS = [
   { day: 'Monday', hours: '12:00–02:00' },

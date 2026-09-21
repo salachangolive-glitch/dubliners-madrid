@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { SITE, withBase } from '../../site';
+import { SITE, withBase, isContactFormReady, getContactFormEndpoint } from '../../site';
 
 const title = 'Contact Dubliners Madrid | Irish Pub near Sol';
 const description =
   'Email comunicacion@dublinersmadrid.es or message Dubliners near Sol on Instagram. Espoz y Mina 7 — match nights, groups, general questions.';
-const formReady = Boolean(SITE.formspreeId);
-const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : undefined;
+const formReady = isContactFormReady();
+const formAction = formReady ? getContactFormEndpoint() : undefined;
 ---
 
 <BaseLayout title={title} description={description} path="/contact/" ogImage="/images/facade.jpg">
@@ -16,7 +16,7 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
       <Breadcrumb current="Contact" />
       <h1>Get in touch</h1>
       <p class="lead">
-        Match nights, groups, or finding us near Sol — email us, or use Instagram. The form activates soon.
+        Match nights, groups, or finding us near Sol — email us, use the form below, or Instagram.
       </p>
     </div>
   </section>
@@ -52,7 +52,11 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
 
       <div class="contact-form-wrap">
         <h2>Send a message</h2>
-        {!formReady && (
+        {formReady ? (
+          <p class="contact-note" role="status">
+            The form is live — send your enquiry and we’ll reply by email.
+          </p>
+        ) : (
           <p class="contact-note" role="status">
             The form activates when Dubliners email is configured. Message us on Instagram or see Directions and Visit.
           </p>
@@ -62,13 +66,17 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
           method="POST"
           action={formAction}
           data-form-ready={formReady ? 'true' : 'false'}
+          data-form-endpoint={formAction || ''}
           novalidate
         >
+          {/* FormSubmit: _subject, table template, disable captcha for AJAX JSON replies */}
           {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — website contact" />}
-          {formReady && <input type="hidden" name="_next" value={withBase('/contact/?sent=1')} />}
+          {formReady && <input type="hidden" name="_template" value="table" />}
+          {formReady && <input type="hidden" name="_captcha" value="false" />}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
-            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+            {/* FormSubmit honeypot field name is _honey; leave empty for humans */}
+            <input type="text" id="company_website" name="_honey" tabindex="-1" autocomplete="off" />
           </div>
 
           <label for="name">Name</label>
@@ -104,20 +112,73 @@ const formAction = formReady ? `https://formspree.io/f/${SITE.formspreeId}` : un
 </BaseLayout>
 
 <script>
-  const form = document.querySelector('.contact-form');
+  const form = document.querySelector('.contact-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
   const params = new URLSearchParams(location.search);
   if (params.get('sent') === '1' && status) {
     status.hidden = false;
     status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
   }
-  form?.addEventListener('submit', (e) => {
-    if (form.getAttribute('data-form-ready') !== 'true') {
-      e.preventDefault();
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || form.getAttribute('data-form-ready') !== 'true') {
       if (status) {
         status.hidden = false;
         status.textContent = 'The form is not active yet. Please use Instagram or visit us.';
       }
+      return;
+    }
+
+    const endpoint = form.getAttribute('data-form-endpoint') || form.getAttribute('action');
+    if (!endpoint) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    if (submitBtn) submitBtn.disabled = true;
+    if (status) {
+      status.hidden = false;
+      status.textContent = 'Sending…';
+    }
+
+    try {
+      const body = new FormData(form);
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body,
+        headers: { Accept: 'application/json' },
+      });
+      let data: { success?: string | boolean; message?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        /* non-JSON reply */
+      }
+
+      const ok =
+        res.ok && (data.success === 'true' || data.success === true);
+      if (ok) {
+        if (status) {
+          status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
+        }
+        form.reset();
+        document.dispatchEvent(
+          new CustomEvent('dubliners:contact_submit', {
+            detail: { language: 'en', page_path: location.pathname },
+          }),
+        );
+      } else {
+        if (status) {
+          status.textContent =
+            data.message || 'Something went wrong. Please try again or email us directly.';
+        }
+        // Keep field values on error — do not reset
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Network error. Please try again or email us directly.';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 </script>

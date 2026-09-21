@@ -32,8 +32,8 @@ const copy = t(lang);
 const canonical = absUrl(pathNorm);
 const ogImageAbs = absUrl(ogImage);
 
-// github.io = preview only — always noindex until domain flip
-const robots = 'noindex,follow';
+// GO LIVE on dublinersmadrid.es — indexable
+const robots = 'index,follow';
 
 const jsonLd = {
   '@context': 'https://schema.org',

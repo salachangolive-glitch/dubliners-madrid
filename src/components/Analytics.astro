@@ -14,7 +14,21 @@ const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
         window.dataLayer.push(arguments);
       };
       window.gtag('js', new Date());
-      window.gtag('config', measurementId);
+
+      // Consent default for this public pub site so GA4 can collect measurement.
+      // A fuller cookie-banner UI can come later; for now analytics is on, ads storage stays off.
+      window.gtag('consent', 'default', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      });
+
+      const debugMode =
+        typeof window !== 'undefined' &&
+        new URLSearchParams(window.location.search).get('debug_mode') === 'true';
+      window.gtag('config', measurementId, debugMode ? { debug_mode: true } : {});
 
       const normalizePath = (path) => {
         const withoutTrailingSlash = path.replace(/\/+$/, '');
@@ -47,9 +61,17 @@ const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
           const language = document.documentElement.lang.startsWith('es') ? 'es' : 'en';
           const location = getLocation(link);
 
-          const isGoogleMaps =
-            (url.hostname === 'google.com' || url.hostname.endsWith('.google.com')) &&
-            url.pathname.startsWith('/maps');
+          const host = url.hostname;
+          const isGoogleHost =
+            host === 'google.com' ||
+            host.endsWith('.google.com') ||
+            host === 'google.es' ||
+            host.endsWith('.google.es');
+          const isMapsPath =
+            url.pathname.includes('/maps') ||
+            url.searchParams.has('maps') ||
+            /(?:^|[?&])maps(?:=|&|$)/.test(url.search);
+          const isGoogleMaps = isGoogleHost && isMapsPath;
           if (isGoogleMaps) {
             track('directions_click', {
               cta_location: location,

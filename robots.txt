@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Pre-prod custom domain — still noindex (meta + Disallow). Do not Allow until GO LIVE.
 Sitemap: https://dublinersmadrid.es/sitemap-index.xml

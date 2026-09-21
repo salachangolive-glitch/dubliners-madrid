@@ -15,8 +15,8 @@ export const SITE = {
   siteUrl: 'https://dublinersmadrid.es',
   base: '',
   /** Public mailbox — only set after domain + mail are live. Never invent @dubliners… */
-  publicEmail: '' as string,
-  /** Formspree form id (e.g. xyzabc). Empty = form UI only, no submit. Never put Gmail here. */
+  publicEmail: 'comunicacion@dublinersmadrid.es' as string,
+  /** Formspree form id (e.g. xyzabc). Empty = form UI only, no submit. */
   formspreeId: '' as string,
 } as const;
 

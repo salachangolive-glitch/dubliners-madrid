@@ -38,6 +38,11 @@ const explore =
       <p>
         <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
       </p>
+      {SITE.publicEmail && (
+        <p>
+          <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
+        </p>
+      )}
     </div>
     <div>
       <h3>{copy.explore}</h3>

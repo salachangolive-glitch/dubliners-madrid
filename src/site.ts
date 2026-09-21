@@ -27,7 +27,7 @@ export const SITE = {
    * Optional FormSubmit (or other) AJAX endpoint override.
    * Empty = derive from publicEmail: https://formsubmit.co/ajax/<publicEmail>
    */
-  formEndpoint: '' as string,
+  formEndpoint: 'https://formsubmit.co/ajax/1d4a0414eaadd9bb8d6875045447816a' as string,
 } as const;
 
 /** True when the contact form can POST (publicEmail or explicit formEndpoint). */

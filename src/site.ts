@@ -25,9 +25,9 @@ export const SITE = {
   formspreeId: '' as string,
   /**
    * Optional FormSubmit (or other) AJAX endpoint override.
-   * Empty = derive from publicEmail: https://formsubmit.co/ajax/<publicEmail>
+   * Empty = derive from publicEmail: https://formsubmit.co/<publicEmail> (classic POST)
    */
-  formEndpoint: 'https://formsubmit.co/ajax/1d4a0414eaadd9bb8d6875045447816a' as string,
+  formEndpoint: 'https://formsubmit.co/1d4a0414eaadd9bb8d6875045447816a' as string,
 } as const;
 
 /** True when the contact form can POST (publicEmail or explicit formEndpoint). */
@@ -40,7 +40,7 @@ export function getContactFormEndpoint(): string {
   const override = SITE.formEndpoint.trim();
   if (override) return override;
   const email = SITE.publicEmail.trim();
-  return email ? `https://formsubmit.co/ajax/${email}` : '';
+  return email ? `https://formsubmit.co/${email}` : '';
 }
 
 export const HOURS = [

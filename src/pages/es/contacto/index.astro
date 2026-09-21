@@ -66,13 +66,13 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
           method="POST"
           action={formAction}
           data-form-ready={formReady ? 'true' : 'false'}
-          data-form-endpoint={formAction || ''}
           novalidate
         >
           {/* FormSubmit: _subject, plantilla table, captcha off para AJAX JSON */}
           {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — contacto web" />}
           {formReady && <input type="hidden" name="_template" value="table" />}
           {formReady && <input type="hidden" name="_captcha" value="false" />}
+          {formReady && <input type="hidden" name="_next" value="https://dublinersmadrid.es/es/contacto/?sent=1" />}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
             {/* FormSubmit honeypot: name="_honey"; vacío para humanos */}
@@ -118,67 +118,28 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
   if (params.get('sent') === '1' && status) {
     status.hidden = false;
     status.textContent = 'Gracias — tu mensaje se ha enviado. Te responderemos pronto.';
+    document.dispatchEvent(
+      new CustomEvent('dubliners:contact_submit', {
+        detail: { language: 'es', page_path: location.pathname },
+      }),
+    );
   }
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  // Native FormSubmit POST — do not intercept with fetch/AJAX
+  form?.addEventListener('submit', (e) => {
     if (!form || form.getAttribute('data-form-ready') !== 'true') {
+      e.preventDefault();
       if (status) {
         status.hidden = false;
         status.textContent = 'El formulario aún no está activo. Usa Instagram o visítanos.';
       }
       return;
     }
-
-    const endpoint = form.getAttribute('data-form-endpoint') || form.getAttribute('action');
-    if (!endpoint) return;
-
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     if (submitBtn) submitBtn.disabled = true;
     if (status) {
       status.hidden = false;
       status.textContent = 'Enviando…';
-    }
-
-    try {
-      const body = new FormData(form);
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        body,
-        headers: { Accept: 'application/json' },
-      });
-      let data: { success?: string | boolean; message?: string } = {};
-      try {
-        data = await res.json();
-      } catch {
-        /* respuesta no JSON */
-      }
-
-      const ok =
-        res.ok && (data.success === 'true' || data.success === true);
-      if (ok) {
-        if (status) {
-          status.textContent = 'Gracias — tu mensaje se ha enviado. Te responderemos pronto.';
-        }
-        form.reset();
-        document.dispatchEvent(
-          new CustomEvent('dubliners:contact_submit', {
-            detail: { language: 'es', page_path: location.pathname },
-          }),
-        );
-      } else {
-        if (status) {
-          status.textContent =
-            data.message || 'Algo ha fallado. Inténtalo de nuevo o escríbenos por email.';
-        }
-        // Conservar valores en error — no reset
-      }
-    } catch {
-      if (status) {
-        status.textContent = 'Error de red. Inténtalo de nuevo o escríbenos por email.';
-      }
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
     }
   });
 </script>

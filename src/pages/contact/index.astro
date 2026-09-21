@@ -66,13 +66,13 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
           method="POST"
           action={formAction}
           data-form-ready={formReady ? 'true' : 'false'}
-          data-form-endpoint={formAction || ''}
           novalidate
         >
           {/* FormSubmit: _subject, table template, disable captcha for AJAX JSON replies */}
           {formReady && <input type="hidden" name="_subject" value="Dubliners Madrid — website contact" />}
           {formReady && <input type="hidden" name="_template" value="table" />}
           {formReady && <input type="hidden" name="_captcha" value="false" />}
+          {formReady && <input type="hidden" name="_next" value="https://dublinersmadrid.es/contact/?sent=1" />}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
             {/* FormSubmit honeypot field name is _honey; leave empty for humans */}
@@ -118,67 +118,28 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
   if (params.get('sent') === '1' && status) {
     status.hidden = false;
     status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
+    document.dispatchEvent(
+      new CustomEvent('dubliners:contact_submit', {
+        detail: { language: 'en', page_path: location.pathname },
+      }),
+    );
   }
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  // Native FormSubmit POST — do not intercept with fetch/AJAX
+  form?.addEventListener('submit', (e) => {
     if (!form || form.getAttribute('data-form-ready') !== 'true') {
+      e.preventDefault();
       if (status) {
         status.hidden = false;
-        status.textContent = 'The form is not active yet. Please use Instagram or visit us.';
+        status.textContent = 'The form is not active yet. Use Instagram or visit us.';
       }
       return;
     }
-
-    const endpoint = form.getAttribute('data-form-endpoint') || form.getAttribute('action');
-    if (!endpoint) return;
-
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     if (submitBtn) submitBtn.disabled = true;
     if (status) {
       status.hidden = false;
       status.textContent = 'Sending…';
-    }
-
-    try {
-      const body = new FormData(form);
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        body,
-        headers: { Accept: 'application/json' },
-      });
-      let data: { success?: string | boolean; message?: string } = {};
-      try {
-        data = await res.json();
-      } catch {
-        /* non-JSON reply */
-      }
-
-      const ok =
-        res.ok && (data.success === 'true' || data.success === true);
-      if (ok) {
-        if (status) {
-          status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
-        }
-        form.reset();
-        document.dispatchEvent(
-          new CustomEvent('dubliners:contact_submit', {
-            detail: { language: 'en', page_path: location.pathname },
-          }),
-        );
-      } else {
-        if (status) {
-          status.textContent =
-            data.message || 'Something went wrong. Please try again or email us directly.';
-        }
-        // Keep field values on error — do not reset
-      }
-    } catch {
-      if (status) {
-        status.textContent = 'Network error. Please try again or email us directly.';
-      }
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
     }
   });
 </script>

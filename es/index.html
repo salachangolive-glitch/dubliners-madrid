@@ -113,4 +113,14 @@ const emailTrackingEnabled = true;
         },
         { capture: true },
       );
+
+      // Contact form success only (no PII). Fired by contact pages after FormSubmit OK.
+      document.addEventListener('dubliners:contact_submit', (event) => {
+        const detail = event instanceof CustomEvent ? event.detail || {} : {};
+        const language =
+          detail.language ||
+          (document.documentElement.lang.startsWith('es') ? 'es' : 'en');
+        const page_path = detail.page_path || window.location.pathname;
+        track('contact_submit', { language, page_path });
+      });
     })();</script></body></html>

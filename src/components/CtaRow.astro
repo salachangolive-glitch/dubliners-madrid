@@ -20,10 +20,10 @@ const wedHref = lang === 'es' ? '/es/miercoles-chupitos-1-euro/' : '/wednesday-1
 const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
 ---
 
-<div class="cta-row">
-  <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
+<div class="cta-row" data-track-location="cta">
+  <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   {showWhatsOn && (
-    <a class="btn btn-secondary" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
+    <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
   )}
   {showContact && (
     <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>

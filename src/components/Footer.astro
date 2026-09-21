@@ -26,7 +26,7 @@ const explore =
       ];
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" data-track-location="footer">
   <div class="container footer-grid">
     <div>
       <h3>{SITE.name}</h3>
@@ -36,11 +36,11 @@ const explore =
         {SITE.postal}
       </p>
       <p>
-        <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
+        <a data-track-event="instagram_click" href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>
       </p>
       {SITE.publicEmail && (
         <p>
-          <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
+          <a data-track-event="email_click" href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
         </p>
       )}
     </div>

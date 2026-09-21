@@ -15,7 +15,7 @@ const esHref = lang === 'es' ? withBase(path) : withBase(alt);
 const logoHref = withBase(lang === 'es' ? '/es/' : '/');
 ---
 
-<header class="site-header">
+<header class="site-header" data-track-location="header">
   <div class="container header-inner">
     <a class="logo" href={logoHref} translate="no">{SITE.name} <span>Madrid</span></a>
     <nav class="nav" aria-label={lang === 'es' ? 'Principal' : 'Primary'}>
@@ -43,7 +43,7 @@ const logoHref = withBase(lang === 'es' ? '/es/' : '/');
     {links.map((l) => (
       <a href={withBase(l.href)}>{l.label}</a>
     ))}
-    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
+    <a data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   </nav>
 </header>
 <script>

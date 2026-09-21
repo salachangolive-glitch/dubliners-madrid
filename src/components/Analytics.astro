@@ -1,0 +1,104 @@
+---
+import { SITE } from '../site';
+
+const measurementId = SITE.ga4MeasurementId.trim();
+const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
+---
+
+{measurementId && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script define:vars={{ measurementId, emailTrackingEnabled }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', measurementId);
+
+      const normalizePath = (path) => {
+        const withoutTrailingSlash = path.replace(/\/+$/, '');
+        return withoutTrailingSlash ? `${withoutTrailingSlash}/` : '/';
+      };
+
+      const track = (eventName, params) => {
+        window.gtag('event', eventName, {
+          ...params,
+          transport_type: 'beacon',
+        });
+      };
+
+      const getLocation = (link) =>
+        link.dataset.trackLocation ||
+        link.closest('[data-track-location]')?.dataset.trackLocation ||
+        'content';
+
+      document.addEventListener(
+        'click',
+        (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+
+          const link = target.closest('a');
+          if (!(link instanceof HTMLAnchorElement)) return;
+
+          const url = new URL(link.href, window.location.href);
+          const pagePath = window.location.pathname;
+          const language = document.documentElement.lang.startsWith('es') ? 'es' : 'en';
+          const location = getLocation(link);
+
+          const isGoogleMaps =
+            (url.hostname === 'google.com' || url.hostname.endsWith('.google.com')) &&
+            url.pathname.startsWith('/maps');
+          if (isGoogleMaps) {
+            track('directions_click', {
+              cta_location: location,
+              language,
+              page_path: pagePath,
+              destination_host: 'google.com',
+            });
+            return;
+          }
+
+          const isInstagram =
+            url.hostname === 'instagram.com' || url.hostname.endsWith('.instagram.com');
+          if (isInstagram) {
+            track('instagram_click', {
+              link_location: location,
+              language,
+              page_path: pagePath,
+              destination_host: 'instagram.com',
+            });
+            return;
+          }
+
+          if (url.protocol === 'mailto:' && emailTrackingEnabled) {
+            track('email_click', {
+              link_location: location,
+              language,
+              page_path: pagePath,
+              destination_type: 'mailto',
+            });
+            return;
+          }
+
+          const whatsOnPaths = ['/whats-on/', '/es/partidos/'];
+          const destinationPath = normalizePath(url.pathname);
+          const currentPath = normalizePath(window.location.pathname);
+          if (
+            url.origin === window.location.origin &&
+            whatsOnPaths.includes(destinationPath) &&
+            destinationPath !== currentPath
+          ) {
+            track('whats_on_cta_click', {
+              language,
+              page_path: pagePath,
+              cta_location: location,
+            });
+          }
+        },
+        { capture: true },
+      );
+    </script>
+  </>
+)}

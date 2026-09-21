@@ -1,0 +1,123 @@
+---
+/**
+ * Client-side fail-closed filter for static What’s On boards.
+ * Re-reads Europe/Madrid date + time at runtime so a stale Pages deploy
+ * cannot keep past kickoffs under “Today” / current week after midnight.
+ * Expects [data-fixture-board] with [data-fixture-slot="today"|"week"],
+ * each <li data-date-key data-madrid-time data-duration-min>, and
+ * sibling [data-fixture-empty] paragraphs.
+ */
+---
+<script is:inline>
+(function () {
+  function madridTodayYmd() {
+    try {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Madrid',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(new Date());
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function madridNowHm() {
+    try {
+      var parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Madrid',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).formatToParts(new Date());
+      var hour = null;
+      var minute = null;
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].type === 'hour') hour = parts[i].value;
+        if (parts[i].type === 'minute') minute = parts[i].value;
+      }
+      if (!hour || !minute) return null;
+      return (hour.length < 2 ? '0' + hour : hour) + ':' + (minute.length < 2 ? '0' + minute : minute);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function hmToMin(hm) {
+    var m = /^(\d{2}):(\d{2})$/.exec(hm || '');
+    if (!m) return null;
+    return Number(m[1]) * 60 + Number(m[2]);
+  }
+
+  function stillCurrent(li, todayYmd, nowHm) {
+    var dateKey = li.getAttribute('data-date-key');
+    var madridTime = li.getAttribute('data-madrid-time');
+    var durAttr = li.getAttribute('data-duration-min');
+    if (!dateKey || !madridTime) return false;
+    if (dateKey > todayYmd) return true;
+    if (dateKey < todayYmd) return false;
+    var startMin = hmToMin(madridTime);
+    var nowMin = hmToMin(nowHm);
+    if (startMin == null || nowMin == null) return false;
+    var dur = parseInt(durAttr || '180', 10);
+    if (!isFinite(dur) || dur < 0) dur = 180;
+    var endMin = Math.min(startMin + dur, 24 * 60 - 1);
+    return nowMin < endMin;
+  }
+
+  function refreshBoard(board) {
+    var todayYmd = madridTodayYmd();
+    var nowHm = madridNowHm();
+    // Fail closed: cannot trust wall clock → strip all listed fixtures
+    var failClosed = !todayYmd || !nowHm;
+
+    var slots = board.querySelectorAll('[data-fixture-slot]');
+    for (var s = 0; s < slots.length; s++) {
+      var slot = slots[s];
+      var kind = slot.getAttribute('data-fixture-slot');
+      var items = slot.querySelectorAll('li[data-date-key]');
+      var kept = 0;
+      for (var i = 0; i < items.length; i++) {
+        var li = items[i];
+        var keep = false;
+        if (!failClosed) {
+          if (kind === 'today') {
+            keep =
+              li.getAttribute('data-date-key') === todayYmd &&
+              stillCurrent(li, todayYmd, nowHm);
+          } else {
+            keep = stillCurrent(li, todayYmd, nowHm);
+          }
+        }
+        if (keep) {
+          li.hidden = false;
+          kept++;
+        } else {
+          li.hidden = true;
+          // Remove from accessibility tree / layout permanently for past
+          li.setAttribute('aria-hidden', 'true');
+        }
+      }
+      var empty = slot.querySelector('[data-fixture-empty]');
+      var list = slot.querySelector('ul.fixture-list');
+      if (kept === 0) {
+        if (list) list.hidden = true;
+        if (empty) empty.hidden = false;
+      } else {
+        if (list) list.hidden = false;
+        if (empty) empty.hidden = true;
+      }
+    }
+  }
+
+  function run() {
+    var boards = document.querySelectorAll('[data-fixture-board]');
+    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b]);
+  }
+
+  run();
+  // Re-check periodically so a tab left open past kickoff/midnight updates
+  setInterval(run, 60 * 1000);
+})();
+</script>

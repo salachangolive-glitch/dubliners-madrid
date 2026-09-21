@@ -1,95 +1,49 @@
-/** Kick-offs Europe/Madrid. Fri 18: Espanyol–Elche 21:00 (Marca + La Vanguardia 18/09); Brentford–Chelsea 21:00 Madrid = 20:00 BST (Sky Sports + PL list). Sat–Sun LaLiga MD7: Football Web Pages + laligatable.co (CET slots). UFC 331 main card ~03:00 Madrid Sun — outside hours, omitted. No UCL this weekend. */
+/**
+ * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
+ * Sources (Tue 22 Sep 2026): no LaLiga/PL/UCL/EL midweek (intl break; LL J8 11 Oct; UCL MD2 13–14 Oct).
+ * Sat 26: F1 Azerbaijan GP 15:00 Baku (UTC+4) = 13:00 Madrid — formula1.com timetable.
+ * Sun 27 NFL Week 3 (ET→Madrid +6 in CEST): Chiefs–Dolphins 13:00 ET=19:00; Ravens–Cowboys (Rio) 16:25 ET=22:25 — Sporting News / CBS / nfl-schedule.com.
+ * Omitted (outside hours or full card past close): TNF Falcons–Packers 02:15 Fri; SNF Rams–Broncos 02:20 Mon; MNF Eagles–Bears 02:15 Tue; UFC Fight Night main ~02:00 Sun.
+ */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
   whenLabel: string;
   competition: string;
   teams: string;
-  madridTime: string;
+  madridTime: string; // HH:mm 24h Europe/Madrid
+  /** Approximate broadcast length for anti-stale “still on” checks (minutes). */
+  approxDurationMin?: number;
 };
 
 export const FIXTURES: Fixture[] = [
   {
-    dateKey: '2026-09-18',
-    whenLabel: 'Fri 18 Sep',
-    competition: 'LaLiga',
-    teams: 'Espanyol vs Elche',
-    madridTime: '21:00',
+    dateKey: '2026-09-26',
+    whenLabel: 'Sat 26 Sep',
+    competition: 'Formula 1',
+    teams: 'Azerbaijan Grand Prix',
+    madridTime: '13:00',
+    approxDurationMin: 150,
   },
   {
-    dateKey: '2026-09-18',
-    whenLabel: 'Fri 18 Sep',
-    competition: 'Premier League',
-    teams: 'Brentford vs Chelsea',
-    madridTime: '21:00',
+    dateKey: '2026-09-27',
+    whenLabel: 'Sun 27 Sep',
+    competition: 'NFL',
+    teams: 'Chiefs vs Dolphins',
+    madridTime: '19:00',
+    approxDurationMin: 210,
   },
   {
-    dateKey: '2026-09-19',
-    whenLabel: 'Sat 19 Sep',
-    competition: 'LaLiga',
-    teams: 'Osasuna vs Rayo Vallecano',
-    madridTime: '14:00',
-  },
-  {
-    dateKey: '2026-09-19',
-    whenLabel: 'Sat 19 Sep',
-    competition: 'LaLiga',
-    teams: 'Athletic Club vs Alavés',
-    madridTime: '16:15',
-  },
-  {
-    dateKey: '2026-09-19',
-    whenLabel: 'Sat 19 Sep',
-    competition: 'LaLiga',
-    teams: 'Celta Vigo vs Racing Santander',
-    madridTime: '18:30',
-  },
-  {
-    dateKey: '2026-09-19',
-    whenLabel: 'Sat 19 Sep',
-    competition: 'LaLiga',
-    teams: 'Sevilla vs Barcelona',
-    madridTime: '21:00',
-  },
-  {
-    dateKey: '2026-09-20',
-    whenLabel: 'Sun 20 Sep',
-    competition: 'LaLiga',
-    teams: 'Getafe vs Málaga',
-    madridTime: '14:00',
-  },
-  {
-    dateKey: '2026-09-20',
-    whenLabel: 'Sun 20 Sep',
-    competition: 'LaLiga',
-    teams: 'Atlético Madrid vs Real Madrid',
-    madridTime: '16:15',
-  },
-  {
-    dateKey: '2026-09-20',
-    whenLabel: 'Sun 20 Sep',
-    competition: 'LaLiga',
-    teams: 'Deportivo vs Real Betis',
-    madridTime: '18:30',
-  },
-  {
-    dateKey: '2026-09-20',
-    whenLabel: 'Sun 20 Sep',
-    competition: 'LaLiga',
-    teams: 'Villarreal vs Levante',
-    madridTime: '18:30',
-  },
-  {
-    dateKey: '2026-09-20',
-    whenLabel: 'Sun 20 Sep',
-    competition: 'LaLiga',
-    teams: 'Valencia vs Real Sociedad',
-    madridTime: '21:00',
+    dateKey: '2026-09-27',
+    whenLabel: 'Sun 27 Sep',
+    competition: 'NFL',
+    teams: 'Ravens vs Cowboys (Rio)',
+    madridTime: '22:25',
+    approxDurationMin: 210,
   },
 ];
 
-/** Today's calendar date YYYY-MM-DD in Europe/Madrid (evaluated at build time for static Pages). */
+/** Today's calendar date YYYY-MM-DD in Europe/Madrid. */
 export function madridToday(d: Date = new Date()): string {
-  // en-CA yields YYYY-MM-DD
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Madrid',
     year: 'numeric',
@@ -98,5 +52,75 @@ export function madridToday(d: Date = new Date()): string {
   }).format(d);
 }
 
-/** Madrid calendar date string YYYY-MM-DD for "today" — kept for compatibility. */
+/** Madrid local wall-clock HH:mm (24h). Returns null if Intl fails (fail closed). */
+export function madridNowHm(d: Date = new Date()): string | null {
+  try {
+    const parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Madrid',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(d);
+    const hour = parts.find((p) => p.type === 'hour')?.value;
+    const minute = parts.find((p) => p.type === 'minute')?.value;
+    if (!hour || !minute) return null;
+    return `${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+  } catch {
+    return null;
+  }
+}
+
+function hmToMinutes(hm: string): number | null {
+  const m = /^(\d{2}):(\d{2})$/.exec(hm);
+  if (!m) return null;
+  return Number(m[1]) * 60 + Number(m[2]);
+}
+
+/**
+ * True if the fixture is still “current” in Europe/Madrid:
+ * - dateKey > today → upcoming week item
+ * - dateKey === today → kickoff+duration not yet passed (Madrid wall clock; overnight end clamped to 23:59 same calendar day for Today slot)
+ * - dateKey < today → past (never current)
+ * Fail closed: missing/invalid time → not current.
+ */
+export function isCurrentFixture(f: Fixture, now: Date = new Date()): boolean {
+  let today: string;
+  try {
+    today = madridToday(now);
+  } catch {
+    return false;
+  }
+  if (f.dateKey > today) return true;
+  if (f.dateKey < today) return false;
+
+  const nowHm = madridNowHm(now);
+  if (!nowHm) return false;
+  const startMin = hmToMinutes(f.madridTime);
+  const nowMin = hmToMinutes(nowHm);
+  if (startMin == null || nowMin == null) return false;
+  const dur = f.approxDurationMin ?? 180;
+  const endMin = Math.min(startMin + dur, 24 * 60 - 1);
+  return nowMin < endMin;
+}
+
+/** Build-time / SSR: today’s still-current fixtures only. */
+export function fixturesForToday(now: Date = new Date()): Fixture[] {
+  const today = madridToday(now);
+  return FIXTURES.filter((f) => f.dateKey === today && isCurrentFixture(f, now));
+}
+
+/** Build-time / SSR: this week = today (current) + future dateKeys. Past days excluded. */
+export function fixturesForWeek(now: Date = new Date()): Fixture[] {
+  const today = madridToday(now);
+  return FIXTURES.filter((f) => {
+    if (f.dateKey > today) return true;
+    if (f.dateKey === today) return isCurrentFixture(f, now);
+    return false;
+  });
+}
+
+/**
+ * @deprecated Build-time snapshot only — do not treat as runtime “today”.
+ * Prefer madridToday() / fixturesForToday() / fixturesForWeek(), plus client anti-stale.
+ */
 export const PREVIEW_TODAY = madridToday();

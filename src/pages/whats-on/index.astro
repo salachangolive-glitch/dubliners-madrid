@@ -2,15 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
-import { FIXTURES, PREVIEW_TODAY } from '../../data/fixtures';
+import { fixturesForToday, fixturesForWeek } from '../../data/fixtures';
 
 const title = "What's On at Dubliners Madrid | Live Sport & Nights";
 const description =
   "What's on at Dubliners this week — live sport on screens, Wednesday €1 shots. Near Puerta del Sol.";
 
-const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
-const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= Madrid today
+const today = fixturesForToday();
+const week = fixturesForWeek();
 ---
 
 <BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/screens-sports.jpg">
@@ -28,45 +29,52 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= M
 
   <section class="section">
     <div class="container">
-      <div class="fixture-board">
-        <div class="fixture-col">
+      <div class="fixture-board" data-fixture-board>
+        <div class="fixture-col" data-fixture-slot="today">
           <h2>Today</h2>
-          {today.length === 0 ? (
-            <p class="empty-slot">Nothing listed for today — ask at the bar what’s on the screens.</p>
-          ) : (
-            <ul class="fixture-list">
-              {today.map((f) => (
-                <li>
-                  <span class="fx-time">{f.madridTime}</span>
-                  <span class="fx-body">
-                    <strong>{f.teams}</strong>
-                    <em>{f.competition}</em>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <p class="empty-slot" data-fixture-empty hidden={today.length > 0}>
+            Nothing listed for today — ask at the bar what’s on the screens.
+          </p>
+          <ul class="fixture-list" hidden={today.length === 0}>
+            {today.map((f) => (
+              <li
+                data-date-key={f.dateKey}
+                data-madrid-time={f.madridTime}
+                data-duration-min={String(f.approxDurationMin ?? 180)}
+              >
+                <span class="fx-time">{f.madridTime}</span>
+                <span class="fx-body">
+                  <strong>{f.teams}</strong>
+                  <em>{f.competition}</em>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="fixture-col">
+        <div class="fixture-col" data-fixture-slot="week">
           <h2>This week</h2>
-          {week.length === 0 ? (
-            <p class="empty-slot">This week’s list will appear here when fixtures are ready.</p>
-          ) : (
-            <ul class="fixture-list">
-              {week.map((f) => (
-                <li>
-                  <span class="fx-day">{f.whenLabel}</span>
-                  <span class="fx-time">{f.madridTime}</span>
-                  <span class="fx-body">
-                    <strong>{f.teams}</strong>
-                    <em>{f.competition}</em>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <p class="empty-slot" data-fixture-empty hidden={week.length > 0}>
+            This week’s list will appear here when fixtures are ready.
+          </p>
+          <ul class="fixture-list" hidden={week.length === 0}>
+            {week.map((f) => (
+              <li
+                data-date-key={f.dateKey}
+                data-madrid-time={f.madridTime}
+                data-duration-min={String(f.approxDurationMin ?? 180)}
+              >
+                <span class="fx-day">{f.whenLabel}</span>
+                <span class="fx-time">{f.madridTime}</span>
+                <span class="fx-body">
+                  <strong>{f.teams}</strong>
+                  <em>{f.competition}</em>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+      <FixtureAntiStale />
       <p class="fx-note">
         Times are Madrid (CEST). Screens and coverage can change — ask staff on the night.
       </p>

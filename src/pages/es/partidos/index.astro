@@ -2,16 +2,17 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../../site';
-import { FIXTURES, PREVIEW_TODAY } from '../../../data/fixtures';
+import { fixturesForToday, fixturesForWeek } from '../../../data/fixtures';
 import { whenLabelEs } from '../../../i18n';
 
 const title = 'Partidos en Dubliners Madrid | Fútbol en directo';
 const description =
   'Qué ver hoy en Dubliners: fútbol en pantallas y miércoles con chupitos a 1 €. Cerca de Puerta del Sol.';
 
-const today = FIXTURES.filter((f) => f.dateKey === PREVIEW_TODAY);
-const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= Madrid today
+const today = fixturesForToday();
+const week = fixturesForWeek();
 ---
 
 <BaseLayout title={title} description={description} path="/es/partidos/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -29,45 +30,52 @@ const week = FIXTURES.filter((f) => f.dateKey >= PREVIEW_TODAY); // dateKey >= M
 
   <section class="section">
     <div class="container">
-      <div class="fixture-board">
-        <div class="fixture-col">
+      <div class="fixture-board" data-fixture-board>
+        <div class="fixture-col" data-fixture-slot="today">
           <h2>Hoy</h2>
-          {today.length === 0 ? (
-            <p class="empty-slot">Nada listado para hoy — pregunta en barra qué hay en pantallas.</p>
-          ) : (
-            <ul class="fixture-list">
-              {today.map((f) => (
-                <li>
-                  <span class="fx-time">{f.madridTime}</span>
-                  <span class="fx-body">
-                    <strong>{f.teams}</strong>
-                    <em>{f.competition}</em>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <p class="empty-slot" data-fixture-empty hidden={today.length > 0}>
+            Nada listado para hoy — pregunta en barra qué hay en pantallas.
+          </p>
+          <ul class="fixture-list" hidden={today.length === 0}>
+            {today.map((f) => (
+              <li
+                data-date-key={f.dateKey}
+                data-madrid-time={f.madridTime}
+                data-duration-min={String(f.approxDurationMin ?? 180)}
+              >
+                <span class="fx-time">{f.madridTime}</span>
+                <span class="fx-body">
+                  <strong>{f.teams}</strong>
+                  <em>{f.competition}</em>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="fixture-col">
+        <div class="fixture-col" data-fixture-slot="week">
           <h2>Próximos partidos</h2>
-          {week.length === 0 ? (
-            <p class="empty-slot">La lista de esta semana aparecerá aquí cuando los partidos estén listos.</p>
-          ) : (
-            <ul class="fixture-list">
-              {week.map((f) => (
-                <li>
-                  <span class="fx-day">{whenLabelEs(f.dateKey)}</span>
-                  <span class="fx-time">{f.madridTime}</span>
-                  <span class="fx-body">
-                    <strong>{f.teams}</strong>
-                    <em>{f.competition}</em>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <p class="empty-slot" data-fixture-empty hidden={week.length > 0}>
+            La lista de esta semana aparecerá aquí cuando los partidos estén listos.
+          </p>
+          <ul class="fixture-list" hidden={week.length === 0}>
+            {week.map((f) => (
+              <li
+                data-date-key={f.dateKey}
+                data-madrid-time={f.madridTime}
+                data-duration-min={String(f.approxDurationMin ?? 180)}
+              >
+                <span class="fx-day">{whenLabelEs(f.dateKey)}</span>
+                <span class="fx-time">{f.madridTime}</span>
+                <span class="fx-body">
+                  <strong>{f.teams}</strong>
+                  <em>{f.competition}</em>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+      <FixtureAntiStale />
       <p class="fx-note">
         Horarios en hora de Madrid (CEST). Las pantallas y la cobertura pueden cambiar — pregunta al equipo esa noche.
       </p>

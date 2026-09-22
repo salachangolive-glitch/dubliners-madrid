@@ -14,8 +14,8 @@ export const SITE = {
   instagramHandle: '@dublinersirishpubmadrid',
   siteUrl: 'https://dublinersmadrid.es',
   base: '',
-  /** Empty until the parent supplies the real GA4 web stream ID. */
-  ga4MeasurementId: 'G-FRDP0849P3',
+  /** GA4 web stream Measurement ID (Dubliners Madrid Website → dublinersmadrid.es). */
+  ga4MeasurementId: 'G-FRDF0849P3',
   /** Public mailbox — only set after domain + mail are live. Never invent @dubliners… */
   publicEmail: 'comunicacion@dublinersmadrid.es' as string,
   /**

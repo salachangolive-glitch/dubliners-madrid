@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import { SITE, withBase, isContactFormReady, getContactFormEndpoint } from '../../../site';
+import { SITE, withBase, isContactFormReady, getContactFormEndpoint, getContactFormAjaxEndpoint } from '../../../site';
 
 const title = 'Contacto Dubliners Madrid | Pub irlandés cerca de Sol';
 const description =
   'Email comunicacion@dublinersmadrid.es o escríbenos en Instagram. Espoz y Mina 7 — partidos, grupos, consultas.';
 const formReady = isContactFormReady();
 const formAction = formReady ? getContactFormEndpoint() : undefined;
+const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
 ---
 
 <BaseLayout title={title} description={description} path="/es/contacto/" lang="es" ogImage="/images/facade.jpg">
@@ -66,6 +67,8 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
           method="POST"
           action={formAction}
           data-form-ready={formReady ? 'true' : 'false'}
+          data-ajax-action={formAjax || undefined}
+          data-success-path={formReady ? '/es/contacto/?sent=1' : undefined}
           novalidate
         >
           {/* FormSubmit: _subject, plantilla table, captcha off para AJAX JSON */}
@@ -112,7 +115,7 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
 </BaseLayout>
 
 <script>
-  const form = document.querySelector('.contact-form') as HTMLFormElement | null;
+  const form = document.querySelector('.contact-form');
   const status = document.getElementById('form-status');
   const params = new URLSearchParams(location.search);
   if (params.get('sent') === '1' && status) {
@@ -125,8 +128,9 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
     );
   }
 
-  // Native FormSubmit POST — do not intercept with fetch/AJAX
-  form?.addEventListener('submit', (e) => {
+  // FormSubmit AJAX → then redirect to ?sent=1 so confirmation + GA4 contact_submit fire.
+  // Classic _next redirects were unreliable (landing on formsubmit.co/hash).
+  form?.addEventListener('submit', async (e) => {
     if (!form || form.getAttribute('data-form-ready') !== 'true') {
       e.preventDefault();
       if (status) {
@@ -135,11 +139,34 @@ const formAction = formReady ? getContactFormEndpoint() : undefined;
       }
       return;
     }
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const ajaxUrl = form.getAttribute('data-ajax-action');
+    const successPath = form.getAttribute('data-success-path') || '/es/contacto/?sent=1';
+    if (!ajaxUrl) return; // fall through to classic POST
+
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
     if (status) {
       status.hidden = false;
       status.textContent = 'Enviando…';
+    }
+    try {
+      const response = await fetch(ajaxUrl, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      const data = await response.json().catch(() => ({}));
+      const ok =
+        response.ok && (data.success === true || data.success === 'true');
+      if (!ok) throw new Error(String(data.message || 'submit_failed'));
+      window.location.assign(successPath);
+    } catch {
+      if (submitBtn) submitBtn.disabled = false;
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'No se pudo enviar el mensaje. Inténtalo de nuevo o escribe a comunicacion@dublinersmadrid.es.';
+      }
     }
   });
 </script>

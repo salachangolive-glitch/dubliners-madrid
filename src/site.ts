@@ -43,6 +43,15 @@ export function getContactFormEndpoint(): string {
   return email ? `https://formsubmit.co/${email}` : '';
 }
 
+/** FormSubmit AJAX endpoint (JSON). Derived from classic formEndpoint hash/email. */
+export function getContactFormAjaxEndpoint(): string {
+  const classic = getContactFormEndpoint();
+  if (!classic) return '';
+  // https://formsubmit.co/<id> → https://formsubmit.co/ajax/<id>
+  return classic.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+}
+
+
 export const HOURS = [
   { day: 'Monday', hours: '12:00–02:00' },
   { day: 'Tuesday', hours: '12:00–02:00' },

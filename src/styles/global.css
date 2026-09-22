@@ -213,78 +213,76 @@ ul {
   }
 }
 
-/* —— Home artwork hero: clean mural, then CTA band, then copy —— */
-.hero-artwork {
+/* —— Home photo hero: bar interior, ZERO overlays on the image —— */
+.hero-photo-band {
   margin: 0;
   padding: 0;
   background: #0a0e0a;
   line-height: 0;
 }
 
-.hero-artwork__img {
+.hero-photo-band__img {
   width: 100%;
   height: auto;
-  max-height: none;
   display: block;
-  margin: 0 auto;
-  object-fit: contain;
+  margin: 0;
+  object-fit: cover;
   object-position: center center;
   border: 0;
   border-radius: 0;
-  aspect-ratio: 1872 / 1056;
+  aspect-ratio: 1400 / 788;
+  max-height: min(52vh, 380px);
   background: #0a0e0a;
 }
 
-/* Prefer full composition on phones — no cover-crop zoom */
-@media (max-width: 899px) {
-  .hero-artwork__img {
-    width: 100%;
-    max-height: min(58vh, 420px);
-    object-fit: contain;
-  }
-}
-
 @media (min-width: 900px) {
-  .hero-artwork__img {
-    max-height: min(72vh, 640px);
-    width: auto;
-    max-width: 100%;
-    margin-inline: auto;
-  }
-  .hero-artwork {
-    display: flex;
-    justify-content: center;
+  .hero-photo-band__img {
+    max-height: min(62vh, 520px);
+    object-fit: cover;
   }
 }
 
-/* Home rail under mural — discreet links + Wednesday promo (not template buttons) */
-.home-rail {
-  border-top: 1px solid rgba(201, 162, 39, 0.22);
+/* Identity band under hero — elegant compact, not SEO boxes */
+.home-identity {
+  border-top: 1px solid rgba(201, 162, 39, 0.28);
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, #141a12 0%, var(--bg) 100%);
-  padding: 0.7rem 1rem 0.85rem;
+  padding: 1.1rem 1rem 1.2rem;
+  text-align: center;
 }
 
-.home-rail__inner {
-  width: min(100%, var(--max));
+.home-identity__inner {
+  width: min(100%, 36rem);
   margin-inline: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem 1.25rem;
 }
 
-.home-rail__links {
+.home-identity__name {
+  margin: 0;
+  font-size: clamp(1.35rem, 4.2vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.home-identity__tag {
+  margin: 0.35rem 0 0.85rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.home-identity__links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem 0.55rem;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   letter-spacing: 0.01em;
 }
 
-.home-rail__links a {
+.home-identity__links a {
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
@@ -293,85 +291,23 @@ ul {
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.home-rail__links a:hover {
+.home-identity__links a:hover {
   color: var(--accent-2);
   border-bottom-color: rgba(201, 162, 39, 0.55);
 }
 
-.home-rail__dot {
+.home-identity__euro {
+  color: var(--accent-2) !important;
+  font-weight: 700 !important;
+}
+
+.home-identity__euro:hover {
+  color: #e6c45a !important;
+}
+
+.home-identity__sep {
   color: rgba(184, 176, 158, 0.45);
   user-select: none;
-}
-
-.home-wed {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-decoration: none;
-  color: inherit;
-  line-height: 1.05;
-  padding-left: 0.85rem;
-  border-left: 2px solid rgba(201, 162, 39, 0.55);
-}
-
-.home-wed:hover .home-wed__euro {
-  color: #e6c45a;
-}
-
-.home-wed__day {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.home-wed__price {
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  margin-top: 0.12rem;
-}
-
-.home-wed__euro {
-  font-size: clamp(1.65rem, 5.5vw, 2.15rem);
-  font-weight: 800;
-  color: var(--accent-2);
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-}
-
-.home-wed__shots {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 520px) {
-  .home-rail {
-    padding: 0.65rem 1rem 0.75rem;
-  }
-  .home-rail__inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.55rem;
-  }
-  .home-rail__links {
-    justify-content: center;
-    font-size: 0.88rem;
-  }
-  .home-wed {
-    align-items: center;
-    border-left: 0;
-    padding-left: 0;
-    padding-top: 0.45rem;
-    border-top: 1px solid rgba(201, 162, 39, 0.2);
-  }
-  .home-wed__day {
-    text-align: center;
-  }
 }
 
 .home-intro {
@@ -379,11 +315,53 @@ ul {
 }
 
 .home-intro h1 {
-  margin-top: 0.35rem;
+  margin-top: 0;
 }
 
 .home-intro .nap-line {
   margin-top: 0.75rem;
+}
+
+/* About / mural section (mural moved from top hero) */
+.home-about .container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.home-about__copy h2 {
+  margin-top: 0;
+}
+
+.home-mural {
+  margin: 0;
+}
+
+.home-mural__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  aspect-ratio: 1872 / 1056;
+  object-fit: cover;
+  background: #0a0e0a;
+}
+
+.home-mural__cap {
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .home-about .container {
+    grid-template-columns: 1fr 1.15fr;
+    align-items: center;
+  }
+  .home-mural__cap {
+    text-align: left;
+  }
 }
 
 .hero-photo.landscape {

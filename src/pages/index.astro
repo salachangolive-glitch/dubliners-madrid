@@ -8,20 +8,21 @@ const description =
   'Irish pub just off Puerta del Sol at Espoz y Mina 7. Live sport on the screens, Wednesday €1 shots.';
 ---
 
-<BaseLayout title={title} description={description} path="/" ogImage="/images/mural-hero.jpg">
-  <section class="hero-artwork" aria-label="Ceiling mural">
+<BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
+  <!-- Hero: real bar photo, no overlays -->
+  <section class="hero-photo-band" aria-label="Bar interior">
     <picture>
       <source
         type="image/webp"
-        srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+        srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
         sizes="100vw"
       />
       <img
-        class="hero-artwork__img"
-        src={withBase('/images/mural-hero.jpg')}
-        alt="Historic painted ceiling at Dubliners Madrid"
-        width="1872"
-        height="1056"
+        class="hero-photo-band__img"
+        src={withBase('/images/bar-interior.jpg')}
+        alt="Bar counter and checkered floor inside Dubliners Madrid"
+        width="1400"
+        height="788"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -29,25 +30,23 @@ const description =
     </picture>
   </section>
 
-  <div class="home-rail">
-    <div class="home-rail__inner">
-      <nav class="home-rail__links" aria-label="Quick links">
-        <a href={withBase('/whats-on/')}>What's on</a>
-        <span class="home-rail__dot" aria-hidden="true">·</span>
-        <a href={withBase('/about/')}>About</a>
-        <span class="home-rail__dot" aria-hidden="true">·</span>
+  <!-- Identity + compact access links -->
+  <div class="home-identity">
+    <div class="home-identity__inner">
+      <p class="home-identity__name">Dubliners Madrid</p>
+      <p class="home-identity__tag">Irish pub · Puerta del Sol</p>
+      <nav class="home-identity__links" aria-label="Quick links">
+        <a href={withBase('/whats-on/')}>What’s On</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a class="home-identity__euro" href={withBase('/wednesday-1-euro-shots-madrid/')}>€1 Wednesdays</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
       </nav>
-      <a class="home-wed" href={withBase('/wednesday-1-euro-shots-madrid/')}>
-        <span class="home-wed__day">Wednesday</span>
-        <span class="home-wed__price"><span class="home-wed__euro">€1</span> <span class="home-wed__shots">SHOTS</span></span>
-      </a>
     </div>
   </div>
 
   <section class="section home-intro">
     <div class="container">
-      <span class="badge">near Sol</span>
       <h1>An Irish pub in the heart of Madrid</h1>
       <p class="lead">
         Two minutes from Puerta del Sol.
@@ -59,17 +58,39 @@ const description =
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container prose">
-      <h2>A place with history</h2>
-      <p>
-        Before Dubliners, these premises were home to the historic Barragán tailor shop, established in 1885.
-        Part of the original structure and decoration remains today, including its distinctive painted ceiling.
-      </p>
-      <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
-      <p>
-        <a href={withBase('/about/')}>Discover our story</a>
-      </p>
+  <!-- About / history with mural -->
+  <section class="section band home-about" id="our-pub">
+    <div class="container">
+      <div class="home-about__copy prose">
+        <h2>Our pub · a place with history</h2>
+        <p>
+          Before Dubliners, these premises were home to the historic Barragán tailor shop, established in 1885.
+          Part of the original structure and decoration remains today, including its distinctive painted ceiling.
+        </p>
+        <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
+        <p>
+          <a href={withBase('/about/')}>Discover our story</a>
+        </p>
+      </div>
+      <figure class="home-mural">
+        <picture>
+          <source
+            type="image/webp"
+            srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+            sizes="(max-width: 880px) 100vw, 70vw"
+          />
+          <img
+            class="home-mural__img"
+            src={withBase('/images/mural-hero.jpg')}
+            alt="Historic painted ceiling at Dubliners Madrid"
+            width="1872"
+            height="1056"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <figcaption class="home-mural__cap">The painted ceiling — a remnant of the old Barragán tailor shop</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -88,12 +109,12 @@ const description =
       <picture>
         <source
           type="image/webp"
-          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
         <img
-          src={withBase('/images/bar-interior.jpg')}
-          alt="Bar counter and checkered floor inside Dubliners"
+          src={withBase('/images/screens-sports.jpg')}
+          alt="Sports screens and projector at Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -138,8 +159,8 @@ const description =
       <h2>Inside Dubliners</h2>
       <div class="photo-grid">
         {[
-          { src: 'screens-sports', alt: 'Sports screens and projector at Dubliners', w: 1400, h: 788 },
           { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
         ].map(({ src, alt, w, h }) => (
           <picture>
             <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />

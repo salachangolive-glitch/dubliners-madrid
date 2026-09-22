@@ -8,20 +8,21 @@ const description =
   'Dubliners en Sol, Calle de Espoz y Mina 7. Deporte en las pantallas y chupitos a 1 € los miércoles.';
 ---
 
-<BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/mural-hero.jpg">
-  <section class="hero-artwork" aria-label="Mural del techo">
+<BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
+  <!-- Hero: foto real de la barra, sin overlays -->
+  <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>
       <source
         type="image/webp"
-        srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+        srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
         sizes="100vw"
       />
       <img
-        class="hero-artwork__img"
-        src={withBase('/images/mural-hero.jpg')}
-        alt="Pintura histórica del techo de Dubliners Madrid"
-        width="1872"
-        height="1056"
+        class="hero-photo-band__img"
+        src={withBase('/images/bar-interior.jpg')}
+        alt="Barra y suelo de damero en Dubliners Madrid"
+        width="1400"
+        height="788"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -29,25 +30,23 @@ const description =
     </picture>
   </section>
 
-  <div class="home-rail">
-    <div class="home-rail__inner">
-      <nav class="home-rail__links" aria-label="Enlaces rápidos">
-        <a href={withBase('/es/partidos/')}>Partidos</a>
-        <span class="home-rail__dot" aria-hidden="true">·</span>
-        <a href={withBase('/es/sobre-dubliners/')}>Sobre Dubliners</a>
-        <span class="home-rail__dot" aria-hidden="true">·</span>
+  <!-- Identidad + enlaces compactos -->
+  <div class="home-identity">
+    <div class="home-identity__inner">
+      <p class="home-identity__name">Dubliners Madrid</p>
+      <p class="home-identity__tag">Pub irlandés · Puerta del Sol</p>
+      <nav class="home-identity__links" aria-label="Enlaces rápidos">
+        <a href={withBase('/es/partidos/')}>Qué hay</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a class="home-identity__euro" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles 1 €</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
       </nav>
-      <a class="home-wed" href={withBase('/es/miercoles-chupitos-1-euro/')}>
-        <span class="home-wed__day">MIÉRCOLES</span>
-        <span class="home-wed__price"><span class="home-wed__euro">€1</span> <span class="home-wed__shots">CHUPITOS</span></span>
-      </a>
     </div>
   </div>
 
   <section class="section home-intro">
     <div class="container">
-      <span class="badge">cerca de Sol</span>
       <h1>Tu pub irlandés junto a la Puerta del Sol</h1>
       <p class="lead">
         A dos minutos de Sol.
@@ -59,17 +58,39 @@ const description =
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container prose">
-      <h2>Un local con historia</h2>
-      <p>
-        Antes de Dubliners, este espacio albergó la histórica sastrería Barragán, cuya actividad comenzó en 1885.
-        Parte de su estructura y decoración original todavía se conserva, incluida la característica pintura del techo.
-      </p>
-      <p class="brand-line"><strong>Donde antes se cosían trajes, hoy se tejen historias.</strong></p>
-      <p>
-        <a href={withBase('/es/sobre-dubliners/')}>Descubre nuestra historia</a>
-      </p>
+  <!-- Sobre / historia con mural -->
+  <section class="section band home-about" id="nuestro-local">
+    <div class="container">
+      <div class="home-about__copy prose">
+        <h2>Nuestro local · un sitio con historia</h2>
+        <p>
+          Antes de Dubliners, este espacio albergó la histórica sastrería Barragán, cuya actividad comenzó en 1885.
+          Parte de su estructura y decoración original todavía se conserva, incluida la característica pintura del techo.
+        </p>
+        <p class="brand-line"><strong>Donde antes se cosían trajes, hoy se tejen historias.</strong></p>
+        <p>
+          <a href={withBase('/es/sobre-dubliners/')}>Descubre nuestra historia</a>
+        </p>
+      </div>
+      <figure class="home-mural">
+        <picture>
+          <source
+            type="image/webp"
+            srcset={`${withBase('/images/mural-hero-sm.webp')} 900w, ${withBase('/images/mural-hero.webp')} 1872w`}
+            sizes="(max-width: 880px) 100vw, 70vw"
+          />
+          <img
+            class="home-mural__img"
+            src={withBase('/images/mural-hero.jpg')}
+            alt="Pintura histórica del techo de Dubliners Madrid"
+            width="1872"
+            height="1056"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <figcaption class="home-mural__cap">El techo pintado — resto de la antigua sastrería Barragán</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -88,12 +109,12 @@ const description =
       <picture>
         <source
           type="image/webp"
-          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
         <img
-          src={withBase('/images/bar-interior.jpg')}
-          alt="Barra y suelo de damero en Dubliners"
+          src={withBase('/images/screens-sports.jpg')}
+          alt="Pantallas deportivas y proyector en Dubliners"
           width="1400"
           height="788"
           loading="lazy"
@@ -138,8 +159,8 @@ const description =
       <h2>El local</h2>
       <div class="photo-grid">
         {[
-          { src: 'screens-sports', alt: 'Pantallas deportivas y proyector en Dubliners', w: 1400, h: 788 },
           { src: 'window-display', alt: 'Escaparate vintage delante de Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Detalle del escaparate en Dubliners', w: 1600, h: 902 },
         ].map(({ src, alt, w, h }) => (
           <picture>
             <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />

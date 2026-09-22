@@ -118,7 +118,12 @@ const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
   const form = document.querySelector('.contact-form');
   const status = document.getElementById('form-status');
   const params = new URLSearchParams(location.search);
-  if (params.get('sent') === '1' && status) {
+  const SENT_FLAG = 'dubliners_contact_sent';
+
+  // Confirmation + GA4 only if FormSubmit just succeeded (flag set before redirect).
+  // Manual visits to ?sent=1 must not fake success or fire contact_submit.
+  if (params.get('sent') === '1' && status && sessionStorage.getItem(SENT_FLAG) === '1') {
+    sessionStorage.removeItem(SENT_FLAG);
     status.hidden = false;
     status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
     document.dispatchEvent(
@@ -128,7 +133,7 @@ const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
     );
   }
 
-  // FormSubmit AJAX → then redirect to ?sent=1 so confirmation + GA4 contact_submit fire.
+  // FormSubmit AJAX → on success set flag + redirect to ?sent=1 for confirmation UI.
   // Classic _next redirects were unreliable (landing on formsubmit.co/hash).
   form?.addEventListener('submit', async (e) => {
     if (!form || form.getAttribute('data-form-ready') !== 'true') {
@@ -160,6 +165,7 @@ const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
       const ok =
         response.ok && (data.success === true || data.success === 'true');
       if (!ok) throw new Error(String(data.message || 'submit_failed'));
+      sessionStorage.setItem(SENT_FLAG, '1');
       window.location.assign(successPath);
     } catch {
       if (submitBtn) submitBtn.disabled = false;

@@ -5,7 +5,7 @@ import { SITE, withBase } from '../site';
 
 const title = 'Dubliners Madrid | Irish Pub near Puerta del Sol';
 const description =
-  'Irish pub just off Puerta del Sol at Espoz y Mina 7. Live sport on the screens, Wednesday €1 shots.';
+  'Irish pub near Puerta del Sol at Espoz y Mina 7. Guinness, live sports on TV and an international crowd.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
@@ -38,7 +38,7 @@ const description =
       <nav class="home-identity__links" aria-label="Quick links">
         <a href={withBase('/whats-on/')}>What’s On</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a class="home-identity__euro" href={withBase('/wednesday-1-euro-shots-madrid/')}>€1 Wednesdays</a>
+        <a href={withBase('/whats-on/')}>Sports</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
       </nav>
@@ -47,10 +47,9 @@ const description =
 
   <section class="section home-intro">
     <div class="container">
-      <h1>An Irish pub in the heart of Madrid</h1>
+      <h1>Your Irish pub in the heart of Madrid</h1>
       <p class="lead">
-        Two minutes from Puerta del Sol.
-        Come in for a pint, catch the match or join us for €1 shots every Wednesday.
+        Just two minutes from Sol. Guinness, live sports on TV and an international atmosphere, every day of the week.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -99,10 +98,11 @@ const description =
       <div>
         <h2>The pub today</h2>
         <p>
-          Walk in. Staff speak English. You’ll find people who live in Madrid and people just passing through.
+          An Irish pub in Madrid for locals, tourists and an international crowd — Erasmus students included.
+          Walk in. Staff speak English. Order a Guinness and settle in.
         </p>
         <p>
-          Screens for Premier League, Champions League, LaLiga and other sport — check
+          Live sports on TV: Premier League, Champions League, LaLiga, football and more — check
           <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
         </p>
       </div>
@@ -124,11 +124,29 @@ const description =
     </div>
   </section>
 
+
+  <section class="section">
+    <div class="container">
+      <h2>Inside Dubliners</h2>
+      <div class="photo-grid">
+        {[
+          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
+        ].map(({ src, alt, w, h }) => (
+          <picture>
+            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
+            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
+          </picture>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
   <section class="section band-gold">
     <div class="container split reverse">
       <div>
-        <span class="badge">Every Wednesday</span>
-        <h2>Wednesday · €1 SHOTS</h2>
+        <h2>Wednesdays at Dubliners — €1 shots</h2>
         <p>
           €1 shots at Dubliners. On Wednesdays only, the night can continue at Four Corner After Party,
           Calle Victoria 6, until 05:30.
@@ -153,24 +171,6 @@ const description =
       </picture>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Inside Dubliners</h2>
-      <div class="photo-grid">
-        {[
-          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
-          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
-        ].map(({ src, alt, w, h }) => (
-          <picture>
-            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
-            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
-          </picture>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container split">
       <div>
@@ -180,7 +180,7 @@ const description =
           Metro: Sol or Sevilla.
         </p>
         <p>
-          International students: <a href={withBase('/international-students-pub-madrid/')}>Wednesday nights near Sol</a>.
+          Near Puerta del Sol — popular with tourists, football fans and international students. <a href={withBase('/international-students-pub-madrid/')}>More for Erasmus nights</a>.
         </p>
         <picture>
           <source

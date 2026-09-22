@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../site';
 
 const title = 'Dubliners Madrid | Pub irlandés cerca de Puerta del Sol';
 const description =
-  'Dubliners en Sol, Calle de Espoz y Mina 7. Deporte en las pantallas y chupitos a 1 € los miércoles.';
+  'Pub irlandés cerca de Puerta del Sol, Calle de Espoz y Mina 7. Guinness, deportes en TV y ambiente internacional.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
@@ -36,9 +36,9 @@ const description =
       <p class="home-identity__name">Dubliners Madrid</p>
       <p class="home-identity__tag">Pub irlandés · Puerta del Sol</p>
       <nav class="home-identity__links" aria-label="Enlaces rápidos">
-        <a href={withBase('/es/partidos/')}>Qué hay</a>
+        <a href={withBase('/whats-on/')}>Qué hay</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a class="home-identity__euro" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles 1 €</a>
+        <a href={withBase('/es/partidos/')}>Deportes</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
       </nav>
@@ -47,10 +47,9 @@ const description =
 
   <section class="section home-intro">
     <div class="container">
-      <h1>Tu pub irlandés junto a la Puerta del Sol</h1>
+      <h1>Tu pub irlandés en el corazón de Madrid</h1>
       <p class="lead">
-        A dos minutos de Sol.
-        Ven a tomar algo, ver el partido o pasar el miércoles con chupitos a 1 €.
+        A solo dos minutos de Sol. Guinness, deportes en directo por TV y ambiente internacional durante toda la semana.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal}
@@ -99,11 +98,13 @@ const description =
       <div>
         <h2>Dubliners hoy</h2>
         <p>
-          Entras y te atienden en inglés. Hay madrileños, gente de paso y estudiantes.
+          Un pub irlandés en Madrid para locales, turistas y público internacional — también Erasmus.
+          Entras y te atienden en inglés. Pide una Guinness y quédate.
         </p>
         <p>
-          Premier League, Champions, LaLiga y más deporte en las pantallas. Mira los
-          <a href={withBase('/es/partidos/')}>partidos</a> o pregunta en barra.
+          Deportes en directo por TV: Premier League, Champions, LaLiga, fútbol y más. Mira
+          <a href={withBase('/whats-on/')}>qué hay</a> o
+          <a href={withBase('/es/partidos/')}>partidos</a>, o pregunta en barra.
         </p>
       </div>
       <picture>
@@ -124,11 +125,29 @@ const description =
     </div>
   </section>
 
+
+  <section class="section">
+    <div class="container">
+      <h2>El local</h2>
+      <div class="photo-grid">
+        {[
+          { src: 'window-display', alt: 'Escaparate vintage delante de Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Detalle del escaparate en Dubliners', w: 1600, h: 902 },
+        ].map(({ src, alt, w, h }) => (
+          <picture>
+            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
+            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
+          </picture>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
   <section class="section band-gold">
     <div class="container split reverse">
       <div>
-        <span class="badge">Todos los miércoles</span>
-        <h2>MIÉRCOLES · CHUPITOS A 1 €</h2>
+        <h2>Los miércoles en Dubliners — chupitos a 1 €</h2>
         <p>
           Chupitos a 1 € en Dubliners. Solo los miércoles, la noche puede seguir en Four Corner After Party,
           Calle Victoria 6, hasta las 05:30.
@@ -153,24 +172,6 @@ const description =
       </picture>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>El local</h2>
-      <div class="photo-grid">
-        {[
-          { src: 'window-display', alt: 'Escaparate vintage delante de Dubliners', w: 1600, h: 902 },
-          { src: 'window-display-2', alt: 'Detalle del escaparate en Dubliners', w: 1600, h: 902 },
-        ].map(({ src, alt, w, h }) => (
-          <picture>
-            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
-            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
-          </picture>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container split">
       <div>
@@ -180,7 +181,7 @@ const description =
           Metro: Sol o Sevilla.
         </p>
         <p>
-          Estudiantes internacionales: <a href={withBase('/es/estudiantes-internacionales/')}>los miércoles cerca de Sol</a>.
+          Junto a Puerta del Sol — turistas, aficionados al fútbol y estudiantes internacionales. <a href={withBase('/es/estudiantes-internacionales/')}>Más para noches Erasmus</a>.
         </p>
         <picture>
           <source

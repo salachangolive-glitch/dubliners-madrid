@@ -44,8 +44,8 @@ ABOUT_ES="dist/es/sobre-dubliners/index.html"
 for f in "$HOME_EN" "$HOME_ES" "$ABOUT_EN" "$ABOUT_ES"; do
   test -f "$f" || { echo "MISSING $f"; exit 1; }
 done
-grep -q 'An Irish pub in the heart of Madrid' "$HOME_EN" || { echo "HOME EN H1 missing — abort"; exit 1; }
-grep -q 'Tu pub irlandés junto a la Puerta del Sol' "$HOME_ES" || { echo "HOME ES H1 missing — abort"; exit 1; }
+grep -q 'Your Irish pub in the heart of Madrid' "$HOME_EN" || { echo "HOME EN H1 missing — abort"; exit 1; }
+grep -q 'Tu pub irlandés en el corazón de Madrid' "$HOME_ES" || { echo "HOME ES H1 missing — abort"; exit 1; }
 grep -q 'Where suits were once made' "$HOME_EN" || { echo "HOME EN brand line missing — abort"; exit 1; }
 grep -q 'Donde antes se cosían trajes' "$HOME_ES" || { echo "HOME ES brand line missing — abort"; exit 1; }
 grep -q 'The story behind Dubliners' "$ABOUT_EN" || { echo "ABOUT EN H1 missing — abort"; exit 1; }

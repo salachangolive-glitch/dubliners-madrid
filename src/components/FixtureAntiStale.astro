@@ -3,6 +3,8 @@
  * Client-side fail-closed filter for static What’s On boards.
  * Re-reads Europe/Madrid date + time at runtime so a stale Pages deploy
  * cannot keep past kickoffs under “Today” / current week after midnight.
+ * Also promotes still-current same-day rows from This week → Today when the
+ * build baked an empty Today column (common between afternoon deploys).
  * Expects [data-fixture-board] with [data-fixture-slot="today"|"week"],
  * each <li data-date-key data-madrid-time data-duration-min>, and
  * sibling [data-fixture-empty] paragraphs.
@@ -91,11 +93,60 @@
     }
   }
 
+  function fixtureIdentity(li) {
+    return (
+      (li.getAttribute('data-date-key') || '') +
+      '|' +
+      (li.getAttribute('data-madrid-time') || '') +
+      '|' +
+      ((li.querySelector('.fx-body strong') || {}).textContent || '').trim()
+    );
+  }
+
+  /**
+   * Static builds bake "Today" at deploy time. Between deploys, same-day fixtures
+   * live only under This week. Promote still-current same-day week rows into Today
+   * so the Today column is never empty while tonight's kickoffs remain upcoming.
+   */
+  function promoteWeekIntoToday(board, todayYmd, nowHm, failClosed) {
+    if (failClosed) return;
+    var todaySlot = board.querySelector('[data-fixture-slot="today"]');
+    var weekSlot = board.querySelector('[data-fixture-slot="week"]');
+    if (!todaySlot || !weekSlot) return;
+    var todayList = todaySlot.querySelector('ul.fixture-list');
+    var weekList = weekSlot.querySelector('ul.fixture-list');
+    if (!todayList || !weekList) return;
+
+    var existing = {};
+    var todayItems = todayList.querySelectorAll('li[data-date-key]');
+    for (var t = 0; t < todayItems.length; t++) {
+      existing[fixtureIdentity(todayItems[t])] = true;
+    }
+
+    var weekItems = weekList.querySelectorAll('li[data-date-key]');
+    for (var i = 0; i < weekItems.length; i++) {
+      var src = weekItems[i];
+      if (src.getAttribute('data-date-key') !== todayYmd) continue;
+      if (!stillCurrent(src, todayYmd, nowHm)) continue;
+      var id = fixtureIdentity(src);
+      if (existing[id]) continue;
+      var clone = src.cloneNode(true);
+      var day = clone.querySelector('.fx-day');
+      if (day && day.parentNode) day.parentNode.removeChild(day);
+      clone.hidden = false;
+      clone.removeAttribute('aria-hidden');
+      todayList.appendChild(clone);
+      existing[id] = true;
+    }
+  }
+
   function refreshBoard(board) {
     var todayYmd = madridTodayYmd();
     var nowHm = madridNowHm();
     // Fail closed: cannot trust wall clock → strip all listed fixtures
     var failClosed = !todayYmd || !nowHm;
+
+    promoteWeekIntoToday(board, todayYmd, nowHm, failClosed);
 
     var slots = board.querySelectorAll('[data-fixture-slot]');
     for (var s = 0; s < slots.length; s++) {

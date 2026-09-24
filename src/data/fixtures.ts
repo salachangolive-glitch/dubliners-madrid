@@ -1,17 +1,18 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Tue 22 Sep 2026 research refresh):
+ * Sources (Thu 24 Sep 2026 ~15:00 Madrid re-verify — all KEEP):
  * - Intl break: no PL (MD6 10–12 Oct) / LaLiga (J8 ~11 Oct) / UCL MD2 13–14 Oct.
- * - UEFA Nations League MD1 (verified): Ned–Ger, Kosovo–IRL Thu 24 18:45 UTC=20:45;
- *   Türkiye–France Fri 25 18:45 UTC=20:45; Eng–Esp Sat 26 19:45 BST=20:45;
- *   Israel–IRL Sun 27 19:45 IST=20:45 — englandfootball.com / Wembley / FotMob /
- *   Sofascore / RTE / Sky Sports / timezone.football.
+ * - UEFA NL MD1: Kosovo–IRL + Ned–Ger Thu 24 19:45 BST/18:45 UTC=20:45 Madrid
+ *   (FAI.ie / Independent / FotMob / BBC); Türkiye–France Fri 25 18:45 UTC=20:45;
+ *   Eng–Esp Sat 26 19:45 BST=20:45 (Wembley / englandfootball); Israel–IRL Sun 27
+ *   19:45 Irish / 18:45 UTC=20:45 (FAI fixture list).
  * - Sat 26: F1 Azerbaijan GP 15:00 Baku (UTC+4) = 13:00 Madrid — formula1.com.
- * - Sun 27 NFL Week 3 (ET→Madrid +6 CEST): Chiefs–Dolphins 13:00 ET=19:00;
- *   Ravens–Cowboys (Rio) 16:25 ET=22:25 — NFL.com / Sporting News / CBS.
- * - Sun 27 Prem Rugby: Leicester–Saracens 15:00 BST=16:00 — Planet Rugby / TNT.
- * Omitted (hours or curation): TNF/SNF/MNF NFL; full Prem/URC/NFL dumps;
- *   other NL ties (e.g. Por–Wal) same slot as higher-demand picks.
+ * - Sun 27 NFL W3: Chiefs–Dolphins 13:00 ET / 12:00 CDT=19:00 Madrid (Chiefs.com);
+ *   Ravens–Cowboys (Rio) 16:25 ET=22:25 — NFL.com.
+ * - Sun 27 Prem Rugby: Leicester–Saracens 15:00 BST=16:00 — Sky Sports / Ultimate Rugby.
+ * Omitted (hours/curation): TNF Falcons–Packers Thu 24 20:15 ET=02:15 Fri Madrid
+ *   (after Thu close 02:00); UFC FN Rosas Jr–Barcelos Sat main 02:00 Madrid (not major);
+ *   SNF/MNF; full Prem/URC/NFL dumps; other NL same-slot ties.
  */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff

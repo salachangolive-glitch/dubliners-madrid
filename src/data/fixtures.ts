@@ -1,18 +1,15 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Thu 24 Sep 2026 ~15:00 Madrid re-verify — all KEEP):
- * - Intl break: no PL (MD6 10–12 Oct) / LaLiga (J8 ~11 Oct) / UCL MD2 13–14 Oct.
- * - UEFA NL MD1: Kosovo–IRL + Ned–Ger Thu 24 19:45 BST/18:45 UTC=20:45 Madrid
- *   (FAI.ie / Independent / FotMob / BBC); Türkiye–France Fri 25 18:45 UTC=20:45;
- *   Eng–Esp Sat 26 19:45 BST=20:45 (Wembley / englandfootball); Israel–IRL Sun 27
- *   19:45 Irish / 18:45 UTC=20:45 (FAI fixture list).
- * - Sat 26: F1 Azerbaijan GP 15:00 Baku (UTC+4) = 13:00 Madrid — formula1.com.
- * - Sun 27 NFL W3: Chiefs–Dolphins 13:00 ET / 12:00 CDT=19:00 Madrid (Chiefs.com);
- *   Ravens–Cowboys (Rio) 16:25 ET=22:25 — NFL.com.
- * - Sun 27 Prem Rugby: Leicester–Saracens 15:00 BST=16:00 — Sky Sports / Ultimate Rugby.
- * Omitted (hours/curation): TNF Falcons–Packers Thu 24 20:15 ET=02:15 Fri Madrid
- *   (after Thu close 02:00); UFC FN Rosas Jr–Barcelos Sat main 02:00 Madrid (not major);
- *   SNF/MNF; full Prem/URC/NFL dumps; other NL same-slot ties.
+ * Sources (Fri 25 Sep 2026 ~14:50 Madrid re-verify):
+ * - RETIRED Thu 24: Kosovo–Ireland + Ned–Germany (finished; removed from data).
+ * - UEFA NL: Türkiye–France Fri 25 18:45 UTC=20:45 Madrid (Al Jazeera / FotMob / Sofascore);
+ *   Eng–Esp Sat 26 19:45 BST=20:45 (Wembley Stadium official); Israel–IRL Sun 27
+ *   18:45 UTC=20:45 / 7.45pm Irish (FotMob / FAI).
+ * - Sat 26: F1 Azerbaijan GP 13:00 Madrid — formula1.com (unchanged from Thu verify).
+ * - Sun 27 Prem Rugby: Leicester–Saracens 16:00 — Sky Sports / Ultimate Rugby (unchanged).
+ * - Sun 27 NFL W3: Chiefs–Dolphins 19:00 Madrid; Ravens–Cowboys (Rio) 22:25 — NFL.com (unchanged).
+ * Hours fit: Fri/Sat close 02:30; Sun close 02:00 — all listed kickoffs OK for full broadcast.
+ * Omitted (hours/curation): UFC FN; SNF/MNF; full Prem/URC/NFL dumps; other NL same-slot ties.
  */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -25,22 +22,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-24',
-    whenLabel: 'Thu 24 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Kosovo vs Ireland',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-09-24',
-    whenLabel: 'Thu 24 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Netherlands vs Germany',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-09-25',
     whenLabel: 'Fri 25 Sep',

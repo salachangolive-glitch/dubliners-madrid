@@ -1,15 +1,17 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Fri 25 Sep 2026 ~14:50 Madrid re-verify):
- * - RETIRED Thu 24: Kosovo–Ireland + Ned–Germany (finished; removed from data).
- * - UEFA NL: Türkiye–France Fri 25 18:45 UTC=20:45 Madrid (Al Jazeera / FotMob / Sofascore);
- *   Eng–Esp Sat 26 19:45 BST=20:45 (Wembley Stadium official); Israel–IRL Sun 27
- *   18:45 UTC=20:45 / 7.45pm Irish (FotMob / FAI).
- * - Sat 26: F1 Azerbaijan GP 13:00 Madrid — formula1.com (unchanged from Thu verify).
+ * Sources (Sat 26 Sep 2026 ~14:50 Madrid re-verify):
+ * - RETIRED Fri 25: Türkiye–France NL (finished yesterday; removed from data).
+ * - UEFA NL: Eng–Esp Sat 26 20:45 Madrid = 18:45 UTC = 19:45 BST Wembley
+ *   (Wembley Stadium official / BBC Sport / FotMob / Al Jazeera);
+ *   Israel–IRL Sun 27 18:45 UTC=20:45 (FotMob / RTE) — kept.
+ * - Sat 26: F1 Azerbaijan GP 13:00 Madrid — formula1.com (still current ~14:50;
+ *   ~150 min from 13:00 → ends ~15:30).
  * - Sun 27 Prem Rugby: Leicester–Saracens 16:00 — Sky Sports / Ultimate Rugby (unchanged).
  * - Sun 27 NFL W3: Chiefs–Dolphins 19:00 Madrid; Ravens–Cowboys (Rio) 22:25 — NFL.com (unchanged).
- * Hours fit: Fri/Sat close 02:30; Sun close 02:00 — all listed kickoffs OK for full broadcast.
+ * Hours fit: Sat close 02:30; Sun close 02:00 — Eng–Esp and Israel–IRL full broadcast OK.
  * Omitted (hours/curation): UFC FN; SNF/MNF; full Prem/URC/NFL dumps; other NL same-slot ties.
+ * No La Liga today. No invented fixtures.
  */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -22,14 +24,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-25',
-    whenLabel: 'Fri 25 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Türkiye vs France',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-09-26',
     whenLabel: 'Sat 26 Sep',

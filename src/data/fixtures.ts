@@ -1,17 +1,19 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Sat 26 Sep 2026 ~14:50 Madrid re-verify):
- * - RETIRED Fri 25: Türkiye–France NL (finished yesterday; removed from data).
- * - UEFA NL: Eng–Esp Sat 26 20:45 Madrid = 18:45 UTC = 19:45 BST Wembley
- *   (Wembley Stadium official / BBC Sport / FotMob / Al Jazeera);
- *   Israel–IRL Sun 27 18:45 UTC=20:45 (FotMob / RTE) — kept.
- * - Sat 26: F1 Azerbaijan GP 13:00 Madrid — formula1.com (still current ~14:50;
- *   ~150 min from 13:00 → ends ~15:30).
- * - Sun 27 Prem Rugby: Leicester–Saracens 16:00 — Sky Sports / Ultimate Rugby (unchanged).
- * - Sun 27 NFL W3: Chiefs–Dolphins 19:00 Madrid; Ravens–Cowboys (Rio) 22:25 — NFL.com (unchanged).
- * Hours fit: Sat close 02:30; Sun close 02:00 — Eng–Esp and Israel–IRL full broadcast OK.
- * Omitted (hours/curation): UFC FN; SNF/MNF; full Prem/URC/NFL dumps; other NL same-slot ties.
- * No La Liga today. No invented fixtures.
+ * Sources (Sun 27 Sep 2026 ~10:10 Madrid — domingo web agenda):
+ * - RETIRED Sat 26: F1 Azerbaijan GP + Eng–Esp NL (finished Sat; removed).
+ * - Sun 27 KEEP (re-verified): Prem Rugby Leicester–Saracens 16:00 (TNT/Sky);
+ *   NFL Chiefs–Dolphins 19:00 Madrid = 1:00pm ET (NFL.com W3);
+ *   NL Israel–Ireland 20:45 = 18:45 UTC (FotMob / RTE / FAI Debrecen);
+ *   NFL Ravens–Cowboys Rio 22:25 = 4:25pm ET (NFL.com international).
+ * - Week Mon 28–Sun 4 Oct: UEFA Nations League intl window (FotMob API + UEFA.com).
+ *   No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
+ * - Wed 30 Sep: no NL scheduled — do not invent sport; Wed €1 stays page copy only.
+ * - Omitted hours: F1 Bahrain@Sepang Sun 4 ~10:00 Madrid (before open);
+ *   NFL MNF Mon 28 / TNF Thu 1 / SNF Sun 27 (start after close).
+ * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump.
+ * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits.
+ * No invented fixtures.
  */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -24,22 +26,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-26',
-    whenLabel: 'Sat 26 Sep',
-    competition: 'Formula 1',
-    teams: 'Azerbaijan Grand Prix',
-    madridTime: '13:00',
-    approxDurationMin: 150,
-  },
-  {
-    dateKey: '2026-09-26',
-    whenLabel: 'Sat 26 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'England vs Spain',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-09-27',
     whenLabel: 'Sun 27 Sep',
@@ -71,6 +57,86 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ravens vs Cowboys (Rio)',
     madridTime: '22:25',
     approxDurationMin: 210,
+  },
+  {
+    dateKey: '2026-09-28',
+    whenLabel: 'Mon 28 Sep',
+    competition: 'UEFA Nations League',
+    teams: 'Northern Ireland vs Hungary',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-09-28',
+    whenLabel: 'Mon 28 Sep',
+    competition: 'UEFA Nations League',
+    teams: 'Belgium vs France',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-09-29',
+    whenLabel: 'Tue 29 Sep',
+    competition: 'UEFA Nations League',
+    teams: 'Spain vs Croatia',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-09-29',
+    whenLabel: 'Tue 29 Sep',
+    competition: 'UEFA Nations League',
+    teams: 'Czechia vs England',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-01',
+    whenLabel: 'Thu 1 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Ireland vs Austria',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-02',
+    whenLabel: 'Fri 2 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'France vs Italy',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-02',
+    whenLabel: 'Fri 2 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Ukraine vs Northern Ireland',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-03',
+    whenLabel: 'Sat 3 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Croatia vs England',
+    madridTime: '18:00',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-03',
+    whenLabel: 'Sat 3 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Spain vs Czechia',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Ireland vs Israel',
+    madridTime: '20:45',
+    approxDurationMin: 120,
   },
 ];
 

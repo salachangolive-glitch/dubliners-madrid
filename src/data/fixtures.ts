@@ -1,16 +1,20 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Sun 27 Sep 2026 ~10:10 Madrid — domingo web agenda):
- * - RETIRED Sat 26: F1 Azerbaijan GP + Eng–Esp NL (finished Sat; removed).
- * - Sun 27 KEEP (re-verified): Prem Rugby Leicester–Saracens 16:00 (TNT/Sky);
- *   NFL Chiefs–Dolphins 19:00 Madrid = 1:00pm ET (NFL.com W3);
- *   NL Israel–Ireland 20:45 = 18:45 UTC (FotMob / RTE / FAI Debrecen);
- *   NFL Ravens–Cowboys Rio 22:25 = 4:25pm ET (NFL.com international).
- * - Week Mon 28–Sun 4 Oct: UEFA Nations League intl window (FotMob API + UEFA.com).
+ * Sources (Mon 28 Sep 2026 ~14:55 Madrid — bloque tarde web):
+ * - RETIRED Sun 27: Prem Rugby Leicester–Saracens, NFL Chiefs–Dolphins,
+ *   NL Israel–Ireland, NFL Ravens–Cowboys Rio (finished; removed from FIXTURES).
+ * - Mon 28 KEEP (re-verified BBC / FootyOnTV / SportScore / VAVEL):
+ *   NL Northern Ireland vs Hungary 20:45 Madrid = 19:45 BST = 18:45 UTC;
+ *   NL Belgium vs France 20:45 Madrid = 19:45 BST (King Baudouin).
+ * - Tue 29 KEEP: Spain vs Croatia + Czechia vs England 20:45 Madrid
+ *   (18:45 UTC / 19:45 BST — Standard / SportScore / Football Finder).
+ * - Week Wed 30–Sun 4 Oct: same NL slate as Sunday agenda (no Wed sport).
  *   No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
  * - Wed 30 Sep: no NL scheduled — do not invent sport; Wed €1 stays page copy only.
+ * - Omitted Mon magnets (curation, not false): Türkiye–Italy, Sweden–Poland,
+ *   Romania–BiH, Georgia–Ukraine 17:00, etc. — keep NI + Bel–Fra double-header.
  * - Omitted hours: F1 Bahrain@Sepang Sun 4 ~10:00 Madrid (before open);
- *   NFL MNF Mon 28 / TNF Thu 1 / SNF Sun 27 (start after close).
+ *   NFL MNF Mon 28 / TNF Thu 1 (start after close).
  * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump.
  * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits.
  * No invented fixtures.
@@ -26,38 +30,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-27',
-    whenLabel: 'Sun 27 Sep',
-    competition: 'Prem Rugby',
-    teams: 'Leicester Tigers vs Saracens',
-    madridTime: '16:00',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-09-27',
-    whenLabel: 'Sun 27 Sep',
-    competition: 'NFL',
-    teams: 'Chiefs vs Dolphins',
-    madridTime: '19:00',
-    approxDurationMin: 210,
-  },
-  {
-    dateKey: '2026-09-27',
-    whenLabel: 'Sun 27 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Israel vs Ireland',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-09-27',
-    whenLabel: 'Sun 27 Sep',
-    competition: 'NFL',
-    teams: 'Ravens vs Cowboys (Rio)',
-    madridTime: '22:25',
-    approxDurationMin: 210,
-  },
   {
     dateKey: '2026-09-28',
     whenLabel: 'Mon 28 Sep',

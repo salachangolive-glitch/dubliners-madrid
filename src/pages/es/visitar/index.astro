@@ -5,9 +5,9 @@ import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 import { HOURS_ES } from '../../../i18n';
 
-const title = 'Visitar Dubliners Madrid | Dirección, horario y mapa';
+const title = 'Visitar Dubliners Madrid | Cerca de Puerta del Sol — Dirección, Metro y mapa';
 const description =
-  'Espoz y Mina 7, 28012 Madrid. Horario lun–jue y dom 12:00–02:00; vie–sáb 12:30–02:30. A un paseo de Puerta del Sol.';
+  'Espoz y Mina 7, junto a Puerta del Sol. Metro Sol (L1, L2, L3) o Sevilla (L2). Horario lun–jue y dom 12:00–02:00; vie–sáb 12:30–02:30. Neón verde en fachada.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/visitar/" lang="es" ogImage="/images/facade.jpg">
@@ -15,9 +15,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Visitar" lang="es" />
-        <h1>Cómo llegar</h1>
+        <h1>Cómo llegar desde Puerta del Sol</h1>
         <p class="lead">
-          Pub irlandés en Espoz y Mina 7 — deporte en pantallas cuando hay partido.
+          Pub irlandés en Espoz y Mina 7 — junto a Puerta del Sol.
+          Metro Sol (L1, L2, L3) o Sevilla (L2); busca el neón verde de Dubliners.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -61,19 +62,20 @@ const description =
       </table>
       <p>Lun–jue y dom 12:00–02:00 · Vie–sáb 12:30–02:30.</p>
 
-      <h2>Cómo llegar</h2>
+      <h2>Cómo llegar desde Sol</h2>
       <ul>
-        <li>Metro: Sol o Sevilla</li>
-        <li>Unos dos minutos a pie desde Puerta del Sol</li>
-        <li>Pub en sala — entra cuando quieras</li>
+        <li><strong>Referencia:</strong> Puerta del Sol — estamos en Calle de Espoz y Mina, saliendo de la plaza hacia Carrera de San Jerónimo / Sevilla</li>
+        <li><strong>A pie:</strong> a un paseo corto del kilómetro cero / Puerta del Sol</li>
+        <li><strong>Metro:</strong> Sol (L1, L2, L3) o Sevilla (L2) — ambos a un paseo corto</li>
+        <li>Pub en sala — entra cuando quieras; sin reserva</li>
       </ul>
+      <p>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Abrir Cómo llegar en Google Maps</a>
+      </p>
 
       <div class="map-frame">
         <iframe title="Mapa de Google — Dubliners Madrid" loading="lazy" src={SITE.mapsEmbed}></iframe>
       </div>
-      <p style="margin-top:1rem">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Abrir en Google Maps</a>
-      </p>
 
       <h2>Reconócenos desde la calle</h2>
       <p>Busca el neón verde de Dubliners y el escaparate vintage en Espoz y Mina.</p>
@@ -96,9 +98,12 @@ const description =
 
       <h2>Enlaces útiles</h2>
       <ul>
-        <li><a href={withBase('/es/partidos/')}>Partidos</a></li>
-        <li><a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a></li>
+        <li><a href={withBase('/es/partidos/')}>Partidos — agenda de hoy</a></li>
+        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Noches de Premier League cerca de Sol</a></li>
+        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Pantallas Champions League</a></li>
         <li><a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a></li>
+        <li><a href={withBase('/es/estudiantes-internacionales/')}>Erasmus y estudiantes internacionales</a></li>
+        <li><a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a></li>
       </ul>
     </div>
   </section>

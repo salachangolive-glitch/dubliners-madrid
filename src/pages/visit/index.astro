@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, HOURS, withBase } from '../../site';
 
-const title = 'Visit Dubliners Madrid | Address, Hours & Map';
+const title = 'Visit Dubliners Madrid | Near Puerta del Sol — Address, Metro & Map';
 const description =
-  'Espoz y Mina 7, 28012 Madrid. Hours Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Short walk from Puerta del Sol.';
+  'Espoz y Mina 7, just off Puerta del Sol. Metro Sol (L1, L2, L3) or Sevilla (L2). Hours Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Green neon facade.';
 ---
 
 <BaseLayout title={title} description={description} path="/visit/" ogImage="/images/facade.jpg">
@@ -14,9 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Visit" />
-        <h1>Find us near Sol</h1>
+        <h1>Find us near Puerta del Sol</h1>
         <p class="lead">
-          Indoor Irish pub on Espoz y Mina 7 — live sport on the screens when it’s on.
+          Indoor Irish pub on Espoz y Mina 7 — just off Puerta del Sol.
+          Metro Sol (L1, L2, L3) or Sevilla (L2); look for the green Dubliners neon.
         </p>
         <CtaRow />
       </div>
@@ -60,19 +61,20 @@ const description =
       </table>
       <p>Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:30–02:30.</p>
 
-      <h2>Getting here</h2>
+      <h2>Getting here from Sol</h2>
       <ul>
-        <li>Metro: Sol or Sevilla</li>
-        <li>About a two-minute walk from Puerta del Sol</li>
-        <li>Indoor pub — just walk in</li>
+        <li><strong>Landmark:</strong> Puerta del Sol — we’re on Calle de Espoz y Mina, just off the plaza toward Carrera de San Jerónimo / Sevilla</li>
+        <li><strong>Walk:</strong> a short walk from Puerta del Sol / kilometre-zero</li>
+        <li><strong>Metro:</strong> Sol (L1, L2, L3) or Sevilla (L2) — both a short street-level walk</li>
+        <li>Indoor pub — just walk in; no booking</li>
       </ul>
+      <p>
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open Directions in Google Maps</a>
+      </p>
 
       <div class="map-frame">
         <iframe title="Google Map — Dubliners Madrid" loading="lazy" src={SITE.mapsEmbed}></iframe>
       </div>
-      <p style="margin-top:1rem">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open in Google Maps</a>
-      </p>
 
       <h2>Spot us from the street</h2>
       <p>Look for the green Dubliners neon and the vintage window display on Espoz y Mina.</p>
@@ -95,9 +97,12 @@ const description =
 
       <h2>Useful links</h2>
       <ul>
-        <li><a href={withBase('/whats-on/')}>What’s on</a></li>
+        <li><a href={withBase('/whats-on/')}>What’s on — tonight’s fixtures</a></li>
+        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League nights near Sol</a></li>
+        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League screens</a></li>
+        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid hub</a></li>
+        <li><a href={withBase('/international-students-pub-madrid/')}>Erasmus &amp; international students</a></li>
         <li><a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a></li>
-        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
       </ul>
     </div>
   </section>

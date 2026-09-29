@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaRow from '../components/CtaRow.astro';
 import { SITE, withBase } from '../site';
 
-const title = 'Dubliners Madrid | Irish Pub near Sol';
+const title = 'Irish Pub near Sol | Live Football — Dubliners Madrid';
 const description =
-  'Irish pub near Sol at Espoz y Mina 7. Guinness, live sports on TV and a welcoming international atmosphere.';
+  'Irish pub just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on screens, no booking — Metro Sol (L1, L2, L3) or Sevilla (L2).';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
@@ -34,26 +34,27 @@ const description =
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Irish pub · Puerta del Sol</p>
+      <p class="home-identity__tag">Irish pub · Puerta del Sol · Live football</p>
       <nav class="home-identity__links" aria-label="Quick links">
+        <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={withBase('/whats-on/')}>What’s On</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={withBase('/whats-on/')}>Sports</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a href={withBase('/sports-bar-madrid/')}>Sports bar</a>
       </nav>
     </div>
   </div>
 
   <section class="section home-intro">
     <div class="container">
-      <h1>Your Irish pub in the heart of Madrid</h1>
+      <h1>Irish pub near Puerta del Sol</h1>
       <p class="lead">
-        Just two minutes from Sol. Guinness, live sports on TV and an international atmosphere, every day of the week.
+        Just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on the screens, and an international crowd — every day of the week.
       </p>
       <p class="nap-line">
-        <strong>{SITE.address}</strong>, {SITE.postal}
+        <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) or Sevilla (L2)
       </p>
+      <CtaRow showWednesday={false} showContact={false} />
     </div>
   </section>
 
@@ -104,6 +105,12 @@ const description =
           Live sports on TV — Premier League, Champions League, LaLiga and more. Check
           <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
         </p>
+        <p>
+          More match-night pages:
+          <a href={withBase('/sports-bar-madrid/')}>Sports bar near Sol</a>,
+          <a href={withBase('/premier-league-pub-madrid/')}>Premier League nights</a>,
+          <a href={withBase('/champions-league-bar-madrid/')}>Champions League screens</a>.
+        </p>
       </div>
       <picture>
         <source
@@ -147,10 +154,8 @@ const description =
       <div>
         <h2>Wednesdays at Dubliners — €1 shots</h2>
         <p>
-          €1 shots at Dubliners. On Wednesdays only, the night can continue at Four Corner After Party,
-          Calle Victoria 6, until 05:30.
+          Dubliners’ own Wednesday promo: €1 shots at the pub. Ask at the bar when you arrive.
         </p>
-        <p>Ask at the bar when you arrive.</p>
         <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
       </div>
       <picture>
@@ -170,6 +175,38 @@ const description =
       </picture>
     </div>
   </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Quick answers</h2>
+      <div class="faq">
+        <details>
+          <summary>What are your opening hours?</summary>
+          <p>Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:30–02:30.</p>
+        </details>
+        <details>
+          <summary>Do you show live football?</summary>
+          <p>
+            Yes — Premier League, Champions League, LaLiga and more on indoor screens when they’re on.
+            See <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+          </p>
+        </details>
+        <details>
+          <summary>Do I need to book a table?</summary>
+          <p>No booking — walk in. Arrive early for popular match nights.</p>
+        </details>
+        <details>
+          <summary>How do I get there from Metro Sol?</summary>
+          <p>
+            A short walk from Puerta del Sol. Metro Sol (L1, L2, L3) or Sevilla (L2).
+            Address: {SITE.address}, {SITE.postal}.
+            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open Directions</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container split">
       <div>

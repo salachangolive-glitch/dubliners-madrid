@@ -3,9 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Dubliners Madrid | Pub irlandés cerca de Sol';
+const title = 'Pub irlandés cerca de Sol | Fútbol en directo — Dubliners Madrid';
 const description =
-  'Pub irlandés cerca de Sol, Calle de Espoz y Mina 7. Guinness, deportes en TV y buen ambiente.';
+  'Pub irlandés junto a Puerta del Sol en Espoz y Mina 7. Guinness, fútbol en pantallas, sin reserva — Metro Sol (L1, L2, L3) o Sevilla (L2).';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
@@ -34,26 +34,27 @@ const description =
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Pub irlandés · Puerta del Sol</p>
+      <p class="home-identity__tag">Pub irlandés · Puerta del Sol · Fútbol en directo</p>
       <nav class="home-identity__links" aria-label="Enlaces rápidos">
-        <a href={withBase('/whats-on/')}>Qué hay</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={withBase('/es/partidos/')}>Deportes</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a href={withBase('/es/partidos/')}>Partidos</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo</a>
       </nav>
     </div>
   </div>
 
   <section class="section home-intro">
     <div class="container">
-      <h1>Tu pub irlandés en el corazón de Madrid</h1>
+      <h1>Pub irlandés cerca de Puerta del Sol</h1>
       <p class="lead">
-        A solo dos minutos de Sol. Guinness, deportes en directo por TV y ambiente internacional durante toda la semana.
+        Junto a Puerta del Sol en Espoz y Mina 7. Guinness, fútbol en directo en pantallas y ambiente internacional — todos los días.
       </p>
       <p class="nap-line">
-        <strong>{SITE.address}</strong>, {SITE.postal}
+        <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
       </p>
+      <CtaRow lang="es" showWednesday={false} showContact={false} />
     </div>
   </section>
 
@@ -102,8 +103,13 @@ const description =
         </p>
         <p>
           Deportes en directo por TV — Premier League, Champions, LaLiga y más. Mira
-          <a href={withBase('/whats-on/')}>qué hay</a> o
-          <a href={withBase('/es/partidos/')}>partidos</a>, o pregunta en barra.
+          <a href={withBase('/es/partidos/')}>partidos</a> o pregunta en barra.
+        </p>
+        <p>
+          Más páginas de partido:
+          <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo cerca de Sol</a>,
+          <a href={withBase('/es/premier-league-pub-madrid/')}>Noches de Premier League</a>,
+          <a href={withBase('/es/champions-league-bar-madrid/')}>Pantallas Champions League</a>.
         </p>
       </div>
       <picture>
@@ -148,10 +154,8 @@ const description =
       <div>
         <h2>Los miércoles en Dubliners — chupitos a 1 €</h2>
         <p>
-          Chupitos a 1 € en Dubliners. Solo los miércoles, la noche puede seguir en Four Corner After Party,
-          Calle Victoria 6, hasta las 05:30.
+          Promo propia de Dubliners: chupitos a 1 € en el pub. Pregunta en barra al llegar.
         </p>
-        <p>Pregunta en barra al llegar.</p>
         <a class="btn btn-gold" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a>
       </div>
       <picture>
@@ -171,6 +175,38 @@ const description =
       </picture>
     </div>
   </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Respuestas rápidas</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Cuál es el horario?</summary>
+          <p>Lun–jue y dom 12:00–02:00 · Vie–sáb 12:30–02:30.</p>
+        </details>
+        <details>
+          <summary>¿Ponéis fútbol en directo?</summary>
+          <p>
+            Sí — Premier League, Champions, LaLiga y más en pantallas cuando hay partido.
+            Consulta <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+          </p>
+        </details>
+        <details>
+          <summary>¿Hay que reservar mesa?</summary>
+          <p>No — entra cuando quieras. En partidos populares, mejor llegar pronto.</p>
+        </details>
+        <details>
+          <summary>¿Cómo llego desde Metro Sol?</summary>
+          <p>
+            A un paseo corto de Puerta del Sol. Metro Sol (L1, L2, L3) o Sevilla (L2).
+            Dirección: {SITE.address}, {SITE.postal}.
+            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Abrir Cómo llegar</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container split">
       <div>

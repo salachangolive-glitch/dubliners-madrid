@@ -27,10 +27,10 @@ ES="dist/es/estudiantes-internacionales/index.html"
 for f in "$EN" "$ES"; do
   test -f "$f" || { echo "MISSING $f"; exit 1; }
 done
-grep -q 'An Irish pub with a story to tell' "$EN" || { echo "EN H1 missing — abort deploy"; exit 1; }
+grep -q 'Erasmus &amp; international students pub near Sol' "$EN" || grep -q 'Erasmus & international students pub near Sol' "$EN" || { echo "EN Erasmus H1 missing — abort deploy"; exit 1; }
 grep -qE 'Barragán|Barragan' "$EN" || { echo "EN Barragán missing — abort"; exit 1; }
 grep -q 'Where suits were once made' "$EN" || { echo "EN brand line missing — abort"; exit 1; }
-grep -q 'Un pub irlandés con historia' "$ES" || { echo "ES H1 missing — abort"; exit 1; }
+grep -q 'Pub Erasmus y estudiantes internacionales cerca de Sol' "$ES" || { echo "ES Erasmus H1 missing — abort"; exit 1; }
 grep -q 'Donde antes se cosían trajes' "$ES" || { echo "ES brand line missing — abort"; exit 1; }
 if grep -qE 'English-friendly pub near Sol|Easy in English|Midweek near Sol' "$EN"; then
   echo "Stale EN copy detected — abort"; exit 1
@@ -44,8 +44,8 @@ ABOUT_ES="dist/es/sobre-dubliners/index.html"
 for f in "$HOME_EN" "$HOME_ES" "$ABOUT_EN" "$ABOUT_ES"; do
   test -f "$f" || { echo "MISSING $f"; exit 1; }
 done
-grep -q 'Your Irish pub in the heart of Madrid' "$HOME_EN" || { echo "HOME EN H1 missing — abort"; exit 1; }
-grep -q 'Tu pub irlandés en el corazón de Madrid' "$HOME_ES" || { echo "HOME ES H1 missing — abort"; exit 1; }
+grep -q 'Irish pub near Puerta del Sol' "$HOME_EN" || { echo "HOME EN H1 missing — abort"; exit 1; }
+grep -q 'Pub irlandés cerca de Puerta del Sol' "$HOME_ES" || { echo "HOME ES H1 missing — abort"; exit 1; }
 grep -q 'Where suits were once made' "$HOME_EN" || { echo "HOME EN brand line missing — abort"; exit 1; }
 grep -q 'Donde antes se cosían trajes' "$HOME_ES" || { echo "HOME ES brand line missing — abort"; exit 1; }
 grep -q 'The story behind Dubliners' "$ABOUT_EN" || { echo "ABOUT EN H1 missing — abort"; exit 1; }

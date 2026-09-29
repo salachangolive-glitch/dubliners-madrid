@@ -4,9 +4,9 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Bar deportivo Madrid cerca de Sol | Dubliners';
+const title = 'Bar deportivo Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
 const description =
-  'Bar deportivo cerca de Puerta del Sol. Pantallas en sala para fútbol y deporte en directo. Espoz y Mina 7.';
+  'Bar deportivo junto a Puerta del Sol. Pantallas para Premier League, Champions, LaLiga y más. Espoz y Mina 7 — sin reserva.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -14,7 +14,7 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar deportivo Madrid" lang="es" />
-        <h1>Pantallas deportivas cerca de Sol</h1>
+        <h1>Bar deportivo cerca de Sol — fútbol en pantallas</h1>
         <p class="lead">
           Pub irlandés con varias pantallas en Espoz y Mina 7.
           Premier League, Champions League, LaLiga, Seis Naciones, F1, NFL y NBA — cuando hay partido.
@@ -33,31 +33,88 @@ const description =
   </section>
 
   <section class="section">
+    <div class="container">
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Partidos de hoy</h3>
+          <p>
+            Consulta <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra qué hay en pantallas.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Dónde</h3>
+          <p>
+            Junto a Puerta del Sol. Metro Sol (L1, L2, L3) o Sevilla (L2) —
+            <a href={withBase('/es/visitar/')}>visitar y cómo llegar</a>.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Cómo funciona</h3>
+          <p>Entra cuando quieras, sin reserva. Llega pronto en partidos grandes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
     <div class="container prose">
       <h2>Deporte en el centro de Madrid</h2>
       <p>
-        Metro Sol o Sevilla. Consulta los partidos de hoy en
-        <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+        Dubliners es un bar deportivo en el centro para ver fútbol sin salir de Sol.
+        Varias pantallas en sala y proyector — Guinness en barra mientras corre el partido.
       </p>
+      <p>
+        Cobertura habitual cuando hay derechos: Premier League, Champions / noches UCL,
+        LaLiga, Seis Naciones, F1, NFL y NBA. El calendario cambia cada semana —
+        el <a href={withBase('/es/partidos/')}>tablero de Partidos</a> es la lista en vivo;
+        si un hueco parece vacío, pregunta al equipo qué está realmente en pantalla.
+      </p>
+
+      <h2>Páginas de partido</h2>
+      <p>Cada competición tiene su ángulo — usa la página que encaje con tu búsqueda:</p>
       <ul>
-        <li><a href={withBase('/es/ver-futbol-madrid/')}>Ver fútbol en Madrid</a></li>
-        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Pub Premier League Madrid</a></li>
-        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Bar Champions League Madrid</a></li>
+        <li><a href={withBase('/es/partidos/')}>Partidos de hoy y agenda de la semana</a></li>
+        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Fútbol inglés / noches de Premier League</a></li>
+        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Pantallas UCL y caña post-Bernabéu en el centro</a></li>
+        <li><a href={withBase('/es/visitar/')}>Dirección, Metro Sol y mapa</a></li>
+        <li><a href={withBase('/es/ver-futbol-madrid/')}>Dónde ver fútbol en Madrid</a></li>
         <li><a href={withBase('/es/bar-futbol-puerta-del-sol/')}>Bar de fútbol cerca de Puerta del Sol</a></li>
       </ul>
+
+      <h2>Consejos para noches de partido</h2>
+      <ul>
+        <li>Los partidos grandes llenan pronto — llega 30–45 minutos antes del pitido si quieres buena mesa.</li>
+        <li>Sin reservas; grupos bienvenidos, pero el sitio es por orden de llegada.</li>
+        <li>Tras un día en el Bernabéu, Sol sigue a un salto de Metro para ver el partido o tomarte una caña en el centro.</li>
+      </ul>
+
       <div class="faq">
         <details>
           <summary>¿Reserváis mesa para noches de partido?</summary>
           <p>No — pásate cuando puedas. En partidos populares, mejor llegar pronto.</p>
         </details>
         <details>
+          <summary>¿Qué ligas ponéis?</summary>
+          <p>
+            Premier League, Champions, LaLiga y más deporte en directo cuando hay partido.
+            Confirma en <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+          </p>
+        </details>
+        <details>
           <summary>¿Dónde estáis exactamente?</summary>
-          <p>{SITE.address}, {SITE.postal}.</p>
+          <p>{SITE.address}, {SITE.postal}. Metro Sol (L1, L2, L3) o Sevilla (L2) — a un paseo corto de Puerta del Sol.</p>
+        </details>
+        <details>
+          <summary>¿Hay comida?</summary>
+          <p>Somos un pub centrado en bebidas y pantallas — pregunta en barra qué hay el día que vengas.</p>
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">
         <iframe title="Mapa a Dubliners bar deportivo" loading="lazy" src={SITE.mapsEmbed}></iframe>
       </div>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

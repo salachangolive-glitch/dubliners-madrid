@@ -3,21 +3,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Irish Pub with History near Sol | Dubliners Madrid';
+const title = 'Erasmus & International Students Pub Madrid near Sol | Dubliners';
 const description =
-  'Dubliners sits two minutes from Puerta del Sol in the historic Barragán tailor-shop premises (from 1885). Irish pub with live sport, international atmosphere and €1 shots on Wednesdays.';
+  'Erasmus and international students pub just off Puerta del Sol. English-friendly Irish bar, live sport, Wednesday €1 shots. Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/mural-hero.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="International students" />
-      <h1>An Irish pub with a story to tell</h1>
+      <h1>Erasmus &amp; international students pub near Sol</h1>
       <p class="lead">
-        Just two minutes from Puerta del Sol, Dubliners occupies a historic Madrid premises that still retains much of its original character.
+        Dubliners welcomes Erasmus and international students just off Puerta del Sol —
+        English-friendly staff, live sport on screens, and Wednesday €1 shots.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
       </div>
     </div>
   </section>
@@ -43,35 +46,41 @@ const description =
 
   <section class="section">
     <div class="container prose">
-      <h2>A piece of Madrid history</h2>
+      <h2>International atmosphere</h2>
       <p>
-        Before Dubliners, the premises were home to the historic Barragán tailor shop, established in 1885.
-        Part of the original structure and decoration remains today, including its distinctive painted ceiling.
+        Locals, travellers and Erasmus students share the same bar — Guinness, live football and an easy English-speaking welcome in Madrid centro.
+        No booking: walk in, grab a seat, ask what’s on the screens.
       </p>
-      <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
       <p>
-        Today, Dubliners brings together Madrid locals, travellers and international students in the atmosphere of an Irish pub in the heart of the city.
+        Useful next steps:
+        <a href={withBase('/whats-on/')}>What’s on tonight</a>,
+        <a href={withBase('/sports-bar-madrid/')}>sports screens near Sol</a>,
+        <a href={withBase('/visit/')}>how to find us</a>.
       </p>
     </div>
   </section>
 
   <section class="section band">
     <div class="container prose">
-      <h2>International atmosphere</h2>
-      <p>International atmosphere, English-speaking staff and live sport.</p>
-
       <h2>WEDNESDAY · €1 SHOTS</h2>
       <p>
-        €1 shots every Wednesday at Dubliners. Afterwards, Four Corner After Party continues at Calle Victoria 6 until 05:30.
+        Dubliners’ own promo: €1 shots every Wednesday at the pub. Ask at the bar for details.
       </p>
       <p>
-        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>More about Wednesday</a>
+        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
       </p>
+
+      <h2>A piece of Madrid history</h2>
+      <p>
+        Before Dubliners, the premises were home to the historic Barragán tailor shop, established in 1885.
+        Part of the original structure and decoration remains today, including its distinctive painted ceiling.
+      </p>
+      <p class="brand-line"><strong>Where suits were once made, stories are now shared.</strong></p>
 
       <h2>Location</h2>
       <p>
         Calle de Espoz y Mina 7<br />
-        28012 Madrid
+        28012 Madrid · Metro Sol or Sevilla
       </p>
       <p>
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>

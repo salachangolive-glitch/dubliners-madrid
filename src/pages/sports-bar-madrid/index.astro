@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Sports Bar Madrid near Sol | Dubliners';
+const title = 'Sports Bar Madrid near Sol | Live Football Screens — Dubliners';
 const description =
-  'Sports bar near Puerta del Sol. Indoor screens for football and live sport when it’s on. Espoz y Mina 7.';
+  'Sports bar just off Puerta del Sol. Indoor screens for Premier League, Champions League, LaLiga and more. Espoz y Mina 7 — no booking.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -14,7 +14,7 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Sports bar Madrid" />
-        <h1>Sports screens near Sol</h1>
+        <h1>Sports bar near Sol — live football on screens</h1>
         <p class="lead">
           Indoor Irish pub with multiple screens on Espoz y Mina 7.
           Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA — when they’re showing.
@@ -33,31 +33,87 @@ const description =
   </section>
 
   <section class="section">
+    <div class="container">
+      <div class="card-grid cols-3">
+        <article class="card">
+          <h3>Tonight’s fixtures</h3>
+          <p>
+            Check <a href={withBase('/whats-on/')}>What’s on</a> for the board, or ask at the bar what’s on the screens.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Where</h3>
+          <p>
+            Just off Puerta del Sol. Metro Sol (L1, L2, L3) or Sevilla (L2) —
+            <a href={withBase('/visit/')}>visit &amp; directions</a>.
+          </p>
+        </article>
+        <article class="card">
+          <h3>How it works</h3>
+          <p>Walk in, no table booking. Arrive early for big kick-offs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
     <div class="container prose">
       <h2>Live sport in Madrid centro</h2>
       <p>
-        Metro Sol or Sevilla. For tonight’s screens, see
-        <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+        Dubliners is a centro sports bar for people who want football without leaving Sol.
+        Multiple indoor screens and a projector — Guinness at the bar while the match runs.
       </p>
+      <p>
+        Typical coverage when rights allow: Premier League, Champions League / UCL nights,
+        LaLiga, Six Nations rugby, F1, NFL and NBA. Schedules change week to week — the
+        <a href={withBase('/whats-on/')}>What’s on board</a> is the live list; if a slot looks empty, ask staff what’s actually on.
+      </p>
+
+      <h2>Match-night pages</h2>
+      <p>Each league has its own angle — use the page that matches your search:</p>
       <ul>
-        <li><a href={withBase('/watch-football-madrid/')}>Watch football in Madrid</a></li>
-        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub Madrid</a></li>
-        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar Madrid</a></li>
+        <li><a href={withBase('/whats-on/')}>Tonight’s fixtures &amp; week agenda</a></li>
+        <li><a href={withBase('/premier-league-pub-madrid/')}>English football / Premier League nights</a></li>
+        <li><a href={withBase('/champions-league-bar-madrid/')}>UCL screens &amp; post-Bernabéu centro pint</a></li>
+        <li><a href={withBase('/visit/')}>Address, Metro Sol walk &amp; map</a></li>
+        <li><a href={withBase('/watch-football-madrid/')}>Where to watch football in Madrid</a></li>
         <li><a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Puerta del Sol</a></li>
       </ul>
+
+      <h2>Match-night tips</h2>
+      <ul>
+        <li>Big games fill early — arrive 30–45 minutes before kick-off if you want a good seat.</li>
+        <li>No reservations; groups are welcome but space is first-come.</li>
+        <li>After a Bernabéu day, Sol is still a short Metro hop for a centro watch or debrief pint.</li>
+      </ul>
+
       <div class="faq">
         <details>
           <summary>Do you take reservations for match nights?</summary>
           <p>No — come along when you’re ready. Arrive early for popular fixtures.</p>
         </details>
         <details>
+          <summary>Which leagues do you show?</summary>
+          <p>
+            Premier League, Champions League, LaLiga and other live sport when it’s on.
+            Confirm on <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+          </p>
+        </details>
+        <details>
           <summary>Where exactly are you?</summary>
-          <p>{SITE.address}, {SITE.postal}.</p>
+          <p>{SITE.address}, {SITE.postal}. Metro Sol (L1, L2, L3) or Sevilla (L2) — a short walk from Puerta del Sol.</p>
+        </details>
+        <details>
+          <summary>Is there food?</summary>
+          <p>We’re a pub focused on drinks and screens — ask at the bar what’s available the day you visit.</p>
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">
         <iframe title="Map to Dubliners sports bar" loading="lazy" src={SITE.mapsEmbed}></iframe>
       </div>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

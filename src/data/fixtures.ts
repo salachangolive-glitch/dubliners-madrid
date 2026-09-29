@@ -1,22 +1,21 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Mon 28 Sep 2026 ~14:55 Madrid — bloque tarde web):
- * - RETIRED Sun 27: Prem Rugby Leicester–Saracens, NFL Chiefs–Dolphins,
- *   NL Israel–Ireland, NFL Ravens–Cowboys Rio (finished; removed from FIXTURES).
- * - Mon 28 KEEP (re-verified BBC / FootyOnTV / SportScore / VAVEL):
- *   NL Northern Ireland vs Hungary 20:45 Madrid = 19:45 BST = 18:45 UTC;
- *   NL Belgium vs France 20:45 Madrid = 19:45 BST (King Baudouin).
- * - Tue 29 KEEP: Spain vs Croatia + Czechia vs England 20:45 Madrid
- *   (18:45 UTC / 19:45 BST — Standard / SportScore / Football Finder).
- * - Week Wed 30–Sun 4 Oct: same NL slate as Sunday agenda (no Wed sport).
+ * Sources (Tue 29 Sep 2026 ~15:05 Madrid — bloque tarde web):
+ * - RETIRED Mon 28: NL Northern Ireland vs Hungary + Belgium vs France
+ *   (finished; removed from FIXTURES).
+ * - Tue 29 TODAY (re-verified England Football + BBC Sport live pages):
+ *   NL Spain vs Croatia 20:45 Madrid = 19:45 BST;
+ *   NL Czechia vs England 20:45 Madrid = 19:45 BST
+ *   (englandfootball.com Matchday 2; BBC Sport Spain–Croatia / Czech–England).
+ * - Week Thu 1–Sun 4 Oct: same NL slate (Ireland–Austria, France–Italy,
+ *   Ukraine–NI, Croatia–England 18:00, Spain–Czechia, Ireland–Israel).
  *   No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
- * - Wed 30 Sep: no NL scheduled — do not invent sport; Wed €1 stays page copy only.
- * - Omitted Mon magnets (curation, not false): Türkiye–Italy, Sweden–Poland,
- *   Romania–BiH, Georgia–Ukraine 17:00, etc. — keep NI + Bel–Fra double-header.
- * - Omitted hours: F1 Bahrain@Sepang Sun 4 ~10:00 Madrid (before open);
- *   NFL MNF Mon 28 / TNF Thu 1 (start after close).
+ * - Wed 30 Sep: no NL scheduled — do not invent sport; Wed €1 stays page
+ *   copy only (Dubliners promo; never fuse Four Corner into Wed €1 landings).
+ * - Omitted hours: F1 / NFL slots outside open or after close.
  * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump.
- * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits.
+ * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits
+ * (20:45 + ~120 min ends ~22:45, well before close).
  * No invented fixtures.
  */
 export type Fixture = {
@@ -30,22 +29,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-28',
-    whenLabel: 'Mon 28 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Northern Ireland vs Hungary',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-09-28',
-    whenLabel: 'Mon 28 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Belgium vs France',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-09-29',
     whenLabel: 'Tue 29 Sep',

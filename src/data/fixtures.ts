@@ -1,19 +1,23 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Tue 29 Sep 2026 ~15:05 Madrid — bloque tarde web):
- * - RETIRED Mon 28: NL Northern Ireland vs Hungary + Belgium vs France
+ * Sources (Wed 30 Sep 2026 ~14:56 Madrid — bloque tarde web):
+ * - RETIRED Tue 29: NL Spain vs Croatia + Czechia vs England
  *   (finished; removed from FIXTURES).
- * - Tue 29 TODAY (re-verified England Football + BBC Sport live pages):
- *   NL Spain vs Croatia 20:45 Madrid = 19:45 BST;
- *   NL Czechia vs England 20:45 Madrid = 19:45 BST
- *   (englandfootball.com Matchday 2; BBC Sport Spain–Croatia / Czech–England).
- * - Week Thu 1–Sun 4 Oct: same NL slate (Ireland–Austria, France–Italy,
- *   Ukraine–NI, Croatia–England 18:00, Spain–Czechia, Ireland–Israel).
- *   No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
- * - Wed 30 Sep: no NL scheduled — do not invent sport; Wed €1 stays page
- *   copy only (Dubliners promo; never fuse Four Corner into Wed €1 landings).
+ * - Wed 30 Sep: no NL / top men's club magnet on board — do not invent sport;
+ *   Wed €1 stays page copy only (Dubliners promo; never fuse Four Corner into
+ *   Wed €1 landings). Women's CL league-stage exists externally — demand-filter
+ *   omit (not forced onto board).
+ * - Week Thu 1–Sun 4 Oct NL (re-verified):
+ *   Ireland vs Austria Thu 1 · Aviva 19:45 IST = 20:45 Madrid (Aviva Stadium /
+ *   RTE / Irish Times); France vs Italy Fri 2 · 20:45 Madrid (UEFA default CET);
+ *   Ukraine vs Northern Ireland Fri 2 · 20:45 Madrid (UEFA list Fri 2 Oct; BBC
+ *   venue Trnava — keep 20:45 CET default unless Sunday re-verify says early KO);
+ *   Croatia vs England Sat 3 · 18:00 Madrid; Spain vs Czechia Sat 3 · 20:45;
+ *   Ireland vs Israel Sun 4 · 20:45 Madrid (Aviva 19:45 IST).
+ * - No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
  * - Omitted hours: F1 / NFL slots outside open or after close.
- * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump.
+ * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump,
+ *   Women's CL (demand filter this pass).
  * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits
  * (20:45 + ~120 min ends ~22:45, well before close).
  * No invented fixtures.
@@ -29,22 +33,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-09-29',
-    whenLabel: 'Tue 29 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Spain vs Croatia',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-09-29',
-    whenLabel: 'Tue 29 Sep',
-    competition: 'UEFA Nations League',
-    teams: 'Czechia vs England',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-10-01',
     whenLabel: 'Thu 1 Oct',

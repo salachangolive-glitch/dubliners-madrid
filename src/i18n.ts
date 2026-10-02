@@ -57,8 +57,8 @@ export const HOURS_ES = [
   { day: 'Martes', hours: '12:00–02:00' },
   { day: 'Miércoles', hours: '12:00–02:00' },
   { day: 'Jueves', hours: '12:00–02:00' },
-  { day: 'Viernes', hours: '12:30–02:30' },
-  { day: 'Sábado', hours: '12:30–02:30' },
+  { day: 'Viernes', hours: '12:00–02:30' },
+  { day: 'Sábado', hours: '12:00–02:30' },
   { day: 'Domingo', hours: '12:00–02:00' },
 ] as const;
 

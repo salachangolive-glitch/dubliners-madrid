@@ -19,7 +19,7 @@ npm run build
 
 ## Notes
 
-- Hours: Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:30–02:30. Do not invent shot start times, fixtures, terrace, live music, or reservations.
+- Hours: Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:00–02:30. Do not invent shot start times, fixtures, terrace, live music, or reservations.
 - Photos: original venue images in `public/images/`.
 - Independent of any other venue brands.
 

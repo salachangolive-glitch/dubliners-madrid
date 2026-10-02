@@ -79,4 +79,4 @@ Cost lock: 0 € extra unless user authorises domain/DNS.
 - [ ] Skip link keyboard
 - [ ] Phone still 0 on web
 - [ ] Students V4 strings still present
-- [ ] Hours unchanged: Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:30–02:30
+- [ ] Hours unchanged: Mon–Thu & Sun 12:00–02:00; Fri–Sat 12:00–02:30

@@ -1,21 +1,25 @@
 /**
- * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Fri 2 Oct 2026 ~13:50 Madrid — weekend anticipation pass):
- * - RETIRED past: Tue 29 NL; Thu 1 Oct Ireland vs Austria (finished; removed).
- * - Fri 2 Oct (show-at-venue CONFIRMED by user): France vs Italy 20:45;
- *   Ukraine vs Northern Ireland 20:45 — UEFA default CET; BBC Fri fixtures.
- * - Sat 3 Oct NL (UEFA.com *All times CET; 20:45 unless stated* + BBC UK):
- *   Croatia vs England 18:00 CET (= Madrid); Spain vs Czechia 20:45;
- *   North Macedonia vs Scotland 20:45 (BBC 19:45 UK). Switzerland–Slovenia
- *   omitted (demand filter).
- * - Sun 4 Oct NL (UEFA default 20:45 CET; BBC all 19:45 UK = 20:45 Madrid):
- *   Portugal vs Norway; Wales vs Denmark; Netherlands vs Serbia;
- *   Ireland vs Israel; Greece vs Germany.
- * - Sun 4 Oct NFL London (nfl.com Week 4): Colts vs Commanders 9:30 AM ET
- *   = 15:30 Madrid — inside Sun hours 12:00–02:00; agenda-only (not screens).
- *   Other NFL Week 4 slots omitted (dump) or end after close (SNF 02:20 Mon).
- * - No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
- * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30. Wed €1 never fused with
+ * Kick-offs Europe/Madrid. Curated commercially important fixtures only.
+ * Sources (Fri 2 Oct 2026 ~15:35 Madrid — week 5–11 pass):
+ * - KEEP current weekend lifecycle until past:
+ *   Fri 2 (show-at-venue CONFIRMED): France vs Italy 20:45; Ukraine vs NI 20:45.
+ *   Sat 3 NL agenda: Croatia–England 18:00; Spain–Czechia 20:45; N.Macedonia–Scotland 20:45.
+ *   Sun 4: NFL London Colts–Commanders 15:30 agenda; NL 20:45 slate (PT–NO, WAL–DEN, NL–SRB, IRL–ISR, GRE–GER).
+ * - Week Mon 5 – Sun 11 Oct 2026:
+ *   CONFIRMED screens Sun 11 ~19:00 NFL (user/DG): Bears–Packers, Giants–Commanders,
+ *     Colts–Steelers — 1:00 PM ET = 19:00 Madrid (media.nfl.com Week 5 final; Bears–Packers
+ *     flexed to 1pm ET Sep 29).
+ *   AGENDA-ONLY (no screen claim): Sun 11 NFL London PHI–JAX 9:30 AM ET = 15:30 Madrid;
+ *     Sat 10 URC Ulster–Munster 17:30 UK = 18:30 Madrid; Leinster–Cardiff 19:45 UK = 20:45
+ *     (ulster.rugby / cardiffrugby.wales / Irish Times).
+ *   High-demand football agenda (premierleague.com + realmadrid.com):
+ *     Sat 10 PL Arsenal–Leeds 12:30 UK = 13:30 Madrid; Man Utd–Spurs 17:30 UK = 18:30;
+ *     Sat 10 LaLiga Real Madrid–Villarreal 21:00 CEST (official RM);
+ *     Sun 11 PL Liverpool–Man City 16:30 UK = 17:30 Madrid.
+ * - OMIT: TB@DAL Fri 9 02:15; Bledisloe; NBA; other NFL 19:00; filler URC
+ *   (Dragons/Ospreys/Glasgow/Connacht/Bulls/Lions etc.); mid-table PL fillers; UCL MD2
+ *   is 13–14 Oct (outside window).
+ * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:30–02:30. Wed €1 never fused with
  * Four Corner. Screen claim ONLY when confirmedOnScreens === true.
  * No invented fixtures / TV channels / reservations.
  */
@@ -121,6 +125,90 @@ export const FIXTURES: Fixture[] = [
     teams: 'Greece vs Germany',
     madridTime: '20:45',
     approxDurationMin: 120,
+  },
+  // --- Week Mon 5 – Sun 11 Oct (THIS WEEK’S LIVE SPORTS from Sun 4 publish / now) ---
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'Premier League',
+    teams: 'Arsenal vs Leeds United',
+    madridTime: '13:30',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'United Rugby Championship',
+    teams: 'Ulster vs Munster',
+    madridTime: '18:30',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'Premier League',
+    teams: 'Manchester United vs Tottenham',
+    madridTime: '18:30',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'United Rugby Championship',
+    teams: 'Leinster vs Cardiff',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'LaLiga',
+    teams: 'Real Madrid vs Villarreal',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'NFL (London)',
+    teams: 'Eagles vs Jaguars',
+    madridTime: '15:30',
+    approxDurationMin: 210,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'Premier League',
+    teams: 'Liverpool vs Manchester City',
+    madridTime: '17:30',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'NFL',
+    teams: 'Bears vs Packers',
+    madridTime: '19:00',
+    approxDurationMin: 210,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'NFL',
+    teams: 'Giants vs Commanders',
+    madridTime: '19:00',
+    approxDurationMin: 210,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'NFL',
+    teams: 'Colts vs Steelers',
+    madridTime: '19:00',
+    approxDurationMin: 210,
+    confirmedOnScreens: true,
   },
 ];
 

@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Sports Bar Madrid near Sol | Live Football Screens — Dubliners';
+const title = 'Sports Bar Madrid near Sol | Watch Football Live — Dubliners';
 const description =
-  'Sports bar just off Puerta del Sol. Indoor screens for Premier League, Champions League, LaLiga and more. Espoz y Mina 7 — no booking.';
+  'Sports bar nearby Puerta del Sol with multiple indoor screens and a projector. Premier League, Champions League, LaLiga and more when on — Espoz y Mina 7, walk in.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -14,9 +14,9 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Sports bar Madrid" />
-        <h1>Sports bar near Sol — live football on screens</h1>
+        <h1>Sports bar Madrid near Sol — live football on screens</h1>
         <p class="lead">
-          Indoor Irish pub with multiple screens on Espoz y Mina 7.
+          Looking for a sports bar nearby Sol? Dubliners is an indoor Irish pub on Espoz y Mina 7 with multiple TVs and a projector.
           Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA — when they’re showing.
         </p>
         <CtaRow />
@@ -67,6 +67,12 @@ const description =
         Typical coverage when rights allow: Premier League, Champions League / UCL nights,
         LaLiga, Six Nations rugby, F1, NFL and NBA. Schedules change week to week — the
         <a href={withBase('/whats-on/')}>What’s on board</a> is the live list; if a slot looks empty, ask staff what’s actually on.
+        We don’t claim every kick-off — only what’s actually listed or confirmed at the bar.
+      </p>
+      <p>
+        Screens face the main room so groups can watch together. Popular fixtures fill early;
+        space is first come, first served. From Metro Sol it’s a short walk into Espoz y Mina —
+        handy if you’re already in Madrid centro and want a sports bar near Sol tonight.
       </p>
 
       <h2>Match-night pages</h2>
@@ -106,6 +112,13 @@ const description =
         <details>
           <summary>Is there food?</summary>
           <p>We’re a pub focused on drinks and screens — ask at the bar what’s available the day you visit.</p>
+        </details>
+        <details>
+          <summary>Is this a good sports bar nearby if I’m at Sol?</summary>
+          <p>
+            Yes — Espoz y Mina 7 is a short walk from Puerta del Sol / Metro Sol.
+            Come for live football on the screens, then continue around centro.
+          </p>
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">

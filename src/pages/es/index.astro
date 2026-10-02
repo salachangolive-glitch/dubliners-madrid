@@ -3,9 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Pub irlandés cerca de Sol | Fútbol en directo — Dubliners Madrid';
+const title = 'Pub irlandés Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
 const description =
-  'Pub irlandés junto a Puerta del Sol en Espoz y Mina 7. Guinness, fútbol en pantallas, sin reserva — Metro Sol (L1, L2, L3) o Sevilla (L2).';
+  'Pub irlandés en Madrid junto a Puerta del Sol (Espoz y Mina 7). Guinness, fútbol en pantallas interiores, ambiente internacional — Metro Sol (L1, L2, L3) o Sevilla (L2). Entra sin reserva.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
@@ -34,11 +34,13 @@ const description =
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Pub irlandés · Puerta del Sol · Fútbol en directo</p>
+      <p class="home-identity__tag">Pub irlandés Madrid · Sol · Fútbol en directo</p>
       <nav class="home-identity__links" aria-label="Enlaces rápidos">
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={withBase('/es/partidos/')}>Partidos</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a href={withBase('/es/contacto/')}>Contacto</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo</a>
       </nav>
@@ -47,14 +49,14 @@ const description =
 
   <section class="section home-intro">
     <div class="container">
-      <h1>Pub irlandés cerca de Puerta del Sol</h1>
+      <h1>Pub irlandés en Madrid cerca de Puerta del Sol</h1>
       <p class="lead">
-        Junto a Puerta del Sol en Espoz y Mina 7. Guinness, fútbol en directo en pantallas y ambiente internacional — todos los días.
+        ¿Buscas un pub irlandés cerca de Sol? Dubliners está junto a Puerta del Sol en Espoz y Mina 7 — Guinness, fútbol en directo en pantallas interiores y ambiente internacional todos los días.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
       </p>
-      <CtaRow lang="es" showWednesday={false} showContact={false} />
+      <CtaRow lang="es" showWednesday={false} />
     </div>
   </section>
 
@@ -185,15 +187,23 @@ const description =
           <p>Lun–jue y dom 12:00–02:00 · Vie–sáb 12:30–02:30.</p>
         </details>
         <details>
+          <summary>¿Dubliners es un pub irlandés cerca de Sol / centro?</summary>
+          <p>
+            Sí — pub irlandés en Calle de Espoz y Mina 7, a un paseo corto de Puerta del Sol.
+            Base cómoda en el centro para madrileños, visitantes y gente de todo el mundo.
+          </p>
+        </details>
+        <details>
           <summary>¿Ponéis fútbol en directo?</summary>
           <p>
             Sí — Premier League, Champions, LaLiga y más en pantallas cuando hay partido.
-            Consulta <a href={withBase('/es/partidos/')}>Partidos</a> o pregunta en barra.
+            Consulta <a href={withBase('/es/partidos/')}>Partidos</a>, nuestra página de
+            <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo cerca de Sol</a> o pregunta en barra.
           </p>
         </details>
         <details>
           <summary>¿Hay que reservar mesa?</summary>
-          <p>No — entra cuando quieras. En partidos populares, mejor llegar pronto.</p>
+          <p>No — entra cuando quieras; por orden de llegada. En partidos populares, mejor llegar pronto.</p>
         </details>
         <details>
           <summary>¿Cómo llego desde Metro Sol?</summary>

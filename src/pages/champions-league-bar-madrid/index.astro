@@ -4,9 +4,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Champions League Bar Madrid | Watch UCL near Sol — Dubliners';
+const title = 'Where to Watch Champions League Madrid | Near Sol — Dubliners';
 const description =
-  'Champions League on indoor screens near Sol when it’s showing. Irish pub, Espoz y Mina 7.';
+  'Watch Champions League near Sol on indoor screens when it’s showing. Irish sports bar Espoz y Mina 7 — handy after a Bernabéu day. Check What’s on.';
 ---
 
 <BaseLayout title={title} description={description} path="/champions-league-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -14,10 +14,10 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Champions League bar Madrid" />
-        <h1>Champions League near Sol</h1>
+        <h1>Watch Champions League near Sol</h1>
         <p class="lead">
-          European nights in centro. Dubliners puts UCL on the indoor screens when it’s showing —
-          Espoz y Mina 7.
+          Looking for where to watch Champions League in Madrid centro? Dubliners puts UCL on indoor screens when it’s showing —
+          Irish sports bar on Espoz y Mina 7, just off Puerta del Sol.
         </p>
         <CtaRow />
       </div>
@@ -53,19 +53,38 @@ const description =
 
   <section class="section band">
     <div class="container prose">
+      <h2>Live football on UCL nights</h2>
+      <p>
+        When Champions League is on the board, we put it on the indoor screens in the main room.
+        Walk in — no table booking; arrive early for big European kick-offs. First come, first served.
+        Confirm the night on <a href={withBase('/whats-on/')}>What’s on</a> before you set out;
+        we only list verified fixtures.
+      </p>
+
       <h2>After a Bernabéu day</h2>
       <p>
-        Metro back to Sol and walk in for a pint — or another fixture when it’s on the screens.
+        Not stadium-adjacent: we’re Sol / centro. After a Bernabéu day, Metro back to Sol and walk to
+        Espoz y Mina 7 for a pint — or another fixture when it’s on the screens. Handy if you want
+        live football without staying around the stadium area.
       </p>
       <p>
-        More: <a href={withBase('/watch-football-madrid/')}>watch football</a> ·
+        More: <a href={withBase('/whats-on/')}>What’s on</a> ·
+        <a href={withBase('/watch-football-madrid/')}>watch football</a> ·
         <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a> ·
-        <a href={withBase('/sports-bar-madrid/')}>sports bar</a>.
+        <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> ·
+        <a href={withBase('/')}>Irish pub Home</a>.
       </p>
       <div class="faq">
         <details>
           <summary>Is this near the Bernabéu?</summary>
           <p>No — Sol / centro. Metro from the stadium area to Sol, then walk to Espoz y Mina 7.</p>
+        </details>
+        <details>
+          <summary>Do you show every Champions League match?</summary>
+          <p>
+            No — only when it’s showing and listed. Check
+            <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+          </p>
         </details>
         <details>
           <summary>Address</summary>

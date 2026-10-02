@@ -7,9 +7,9 @@ import { SITE, withBase } from '../../../site';
 import { fixturesForToday, fixturesForWeek } from '../../../data/fixtures';
 import { whenLabelEs } from '../../../i18n';
 
-const title = 'Partidos en Dubliners Madrid | Sports bar cerca de Sol';
+const title = 'Ver fútbol cerca de Sol | Partidos — Bar deportivo Dubliners';
 const description =
-  'Fútbol en directo cerca de Puerta del Sol — pub irlandés con pantallas, noches de selecciones y miércoles chupitos a 1 €.';
+  'Dónde ver fútbol en Madrid centro: deporte en pantallas de pub irlandés cerca de Puerta del Sol. Solo partidos verificados abajo — bar deportivo Espoz y Mina 7, miércoles chupitos a 1 €.';
 
 const today = fixturesForToday();
 const week = fixturesForWeek();
@@ -19,10 +19,10 @@ const week = fixturesForWeek();
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Partidos" lang="es" />
-      <h1>Partidos</h1>
+      <h1>Ver fútbol cerca de Sol — partidos</h1>
       <p class="lead">
-        Deporte en pantallas en el local — y miércoles con chupitos a 1 €.
-        Pregunta en barra qué hay esta noche.
+        Bar deportivo cerca de Sol con fútbol en pantallas interiores — y miércoles con chupitos a 1 €.
+        El tablero lista solo partidos verificados; pregunta en barra qué hay esta noche.
       </p>
       <CtaRow lang="es" showWhatsOn={false} />
     </div>
@@ -83,6 +83,23 @@ const week = fixturesForWeek();
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <a class="btn btn-primary" href={withBase('/es/contacto/')}>Contacto</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Dónde ver fútbol en Madrid (cerca de Sol)</h2>
+      <p>
+        Dubliners es un pub irlandés / bar deportivo junto a Puerta del Sol — Espoz y Mina 7, Metro Sol o Sevilla.
+        Ponemos fútbol y otro deporte en pantallas cuando hay partido. Usa el tablero de arriba para
+        hoy y esta semana; si un partido no está listado, no lo afirmamos — pregunta en barra.
+      </p>
+      <p>
+        Más contexto:
+        <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo Madrid cerca de Sol</a> ·
+        <a href={withBase('/es/champions-league-bar-madrid/')}>pantallas Champions League</a> ·
+        <a href={withBase('/es/premier-league-pub-madrid/')}>noches de Premier League</a>.
+      </p>
     </div>
   </section>
 

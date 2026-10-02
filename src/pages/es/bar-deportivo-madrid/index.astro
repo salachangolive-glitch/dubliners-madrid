@@ -4,9 +4,9 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Bar deportivo Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
+const title = 'Bar deportivo Madrid cerca de Sol | Ver fútbol en directo — Dubliners';
 const description =
-  'Bar deportivo junto a Puerta del Sol. Pantallas para Premier League, Champions, LaLiga y más. Espoz y Mina 7 — sin reserva.';
+  'Bar deportivo cerca de Puerta del Sol con varias pantallas y proyector. Premier League, Champions, LaLiga y más cuando hay partido — Espoz y Mina 7, sin reserva.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -14,9 +14,9 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar deportivo Madrid" lang="es" />
-        <h1>Bar deportivo cerca de Sol — fútbol en pantallas</h1>
+        <h1>Bar deportivo Madrid cerca de Sol — fútbol en pantallas</h1>
         <p class="lead">
-          Pub irlandés con varias pantallas en Espoz y Mina 7.
+          ¿Buscas un bar deportivo cerca de Sol? Dubliners es un pub irlandés en Espoz y Mina 7 con varias pantallas y proyector.
           Premier League, Champions League, LaLiga, Seis Naciones, F1, NFL y NBA — cuando hay partido.
         </p>
         <CtaRow lang="es" />
@@ -68,6 +68,12 @@ const description =
         LaLiga, Seis Naciones, F1, NFL y NBA. El calendario cambia cada semana —
         el <a href={withBase('/es/partidos/')}>tablero de Partidos</a> es la lista en vivo;
         si un hueco parece vacío, pregunta al equipo qué está realmente en pantalla.
+        No afirmamos cada partido — solo lo listado o confirmado en barra.
+      </p>
+      <p>
+        Las pantallas miran a la sala principal para ver el partido en grupo. Los partidos grandes llenan pronto;
+        el sitio es por orden de llegada. Desde Metro Sol es un paseo corto hasta Espoz y Mina —
+        cómodo si ya estás en el centro y quieres un bar deportivo cerca de Sol esta noche.
       </p>
 
       <h2>Páginas de partido</h2>
@@ -107,6 +113,13 @@ const description =
         <details>
           <summary>¿Hay comida?</summary>
           <p>Somos un pub centrado en bebidas y pantallas — pregunta en barra qué hay el día que vengas.</p>
+        </details>
+        <details>
+          <summary>¿Es un buen bar deportivo si estoy en Sol?</summary>
+          <p>
+            Sí — Espoz y Mina 7 está a un paseo corto de Puerta del Sol / Metro Sol.
+            Ven a ver fútbol en pantallas y sigue por el centro después.
+          </p>
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">

@@ -6,9 +6,9 @@ import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
 import { fixturesForToday, fixturesForWeek } from '../../data/fixtures';
 
-const title = "What's On at Dubliners Madrid | Watch Live Sport Near Sol";
+const title = "Watch Football near Sol | What's On — Dubliners Sports Bar";
 const description =
-  "Live football and sport near Puerta del Sol — Irish pub screens, big match nights, Wednesday €1 shots. Dubliners Madrid.";
+  "Where to watch football in Madrid centro: live sport on Irish pub screens near Puerta del Sol. Verified fixtures below — sports bar Espoz y Mina 7, Wednesday €1 shots.";
 
 const today = fixturesForToday();
 const week = fixturesForWeek();
@@ -18,10 +18,10 @@ const week = fixturesForWeek();
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
-      <h1>What’s on</h1>
+      <h1>Watch football near Sol — what’s on</h1>
       <p class="lead">
-        Live sport on indoor screens — plus Wednesday €1 shots midweek.
-        Ask the team what’s showing tonight.
+        Sports bar near Sol with live football on indoor screens — plus Wednesday €1 shots midweek.
+        The board lists verified fixtures only; ask the team what’s showing tonight.
       </p>
       <CtaRow showWhatsOn={false} />
     </div>
@@ -82,6 +82,23 @@ const week = fixturesForWeek();
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <a class="btn btn-primary" href={withBase('/contact/')}>Contact</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Where to watch football in Madrid (near Sol)</h2>
+      <p>
+        Dubliners is an Irish sports bar just off Puerta del Sol — Espoz y Mina 7, Metro Sol or Sevilla.
+        We put live football and other sport on indoor screens when it’s on. Use the board above for
+        tonight and this week; if a game isn’t listed, we are not claiming it — ask at the bar.
+      </p>
+      <p>
+        More context:
+        <a href={withBase('/sports-bar-madrid/')}>sports bar Madrid near Sol</a> ·
+        <a href={withBase('/champions-league-bar-madrid/')}>Champions League screens</a> ·
+        <a href={withBase('/premier-league-pub-madrid/')}>Premier League nights</a>.
+      </p>
     </div>
   </section>
 

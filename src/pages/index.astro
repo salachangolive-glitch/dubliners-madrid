@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaRow from '../components/CtaRow.astro';
 import { SITE, withBase } from '../site';
 
-const title = 'Irish Pub near Sol | Live Football — Dubliners Madrid';
+const title = 'Irish Pub Madrid near Sol | Live Football Screens — Dubliners';
 const description =
-  'Irish pub just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on screens, no booking — Metro Sol (L1, L2, L3) or Sevilla (L2).';
+  'Irish pub Madrid just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on indoor screens, international crowd — Metro Sol (L1, L2, L3) or Sevilla (L2). Walk in, no booking.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
@@ -34,11 +34,13 @@ const description =
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Irish pub · Puerta del Sol · Live football</p>
+      <p class="home-identity__tag">Irish pub Madrid · Sol · Live football</p>
       <nav class="home-identity__links" aria-label="Quick links">
         <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={withBase('/whats-on/')}>What’s On</a>
+        <span class="home-identity__sep" aria-hidden="true">·</span>
+        <a href={withBase('/contact/')}>Contact</a>
         <span class="home-identity__sep" aria-hidden="true">·</span>
         <a href={withBase('/sports-bar-madrid/')}>Sports bar</a>
       </nav>
@@ -47,14 +49,14 @@ const description =
 
   <section class="section home-intro">
     <div class="container">
-      <h1>Irish pub near Puerta del Sol</h1>
+      <h1>Irish pub Madrid near Puerta del Sol</h1>
       <p class="lead">
-        Just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on the screens, and an international crowd — every day of the week.
+        Looking for an Irish pub near Sol? Dubliners sits just off Puerta del Sol at Espoz y Mina 7 — Guinness, live football on indoor screens, and an international crowd every day of the week.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) or Sevilla (L2)
       </p>
-      <CtaRow showWednesday={false} showContact={false} />
+      <CtaRow showWednesday={false} />
     </div>
   </section>
 
@@ -185,15 +187,23 @@ const description =
           <p>Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:30–02:30.</p>
         </details>
         <details>
+          <summary>Is Dubliners an Irish pub near Sol / Madrid centro?</summary>
+          <p>
+            Yes — an Irish pub on Calle de Espoz y Mina 7, a short walk from Puerta del Sol.
+            Easy centro base for locals, visitors and Madrid’s international crowd.
+          </p>
+        </details>
+        <details>
           <summary>Do you show live football?</summary>
           <p>
             Yes — Premier League, Champions League, LaLiga and more on indoor screens when they’re on.
-            See <a href={withBase('/whats-on/')}>What’s on</a> or ask at the bar.
+            See <a href={withBase('/whats-on/')}>What’s on</a>, our
+            <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page, or ask at the bar.
           </p>
         </details>
         <details>
           <summary>Do I need to book a table?</summary>
-          <p>No booking — walk in. Arrive early for popular match nights.</p>
+          <p>No booking — walk in, first come, first served. Arrive early for popular match nights.</p>
         </details>
         <details>
           <summary>How do I get there from Metro Sol?</summary>

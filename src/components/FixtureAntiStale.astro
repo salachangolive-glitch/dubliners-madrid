@@ -3,7 +3,7 @@
  * Client-side fail-closed filter for static What’s On boards.
  * Re-reads Europe/Madrid date + time at runtime so a stale Pages deploy
  * cannot keep past kickoffs under “Today” / current week after midnight.
- * Also promotes still-current same-day rows from This week → Today when the
+ * Also promotes still-current same-day rows from Upcoming → Today when the
  * build baked an empty Today column (common between afternoon deploys).
  * Expects [data-fixture-board] with [data-fixture-slot="today"|"week"],
  * each <li data-date-key data-madrid-time data-duration-min>, and
@@ -105,7 +105,7 @@
 
   /**
    * Static builds bake "Today" at deploy time. Between deploys, same-day fixtures
-   * live only under This week. Promote still-current same-day week rows into Today
+   * live only under Upcoming. Promote still-current same-day week rows into Today
    * so the Today column is never empty while tonight's kickoffs remain upcoming.
    */
   function promoteWeekIntoToday(board, todayYmd, nowHm, failClosed) {
@@ -163,7 +163,10 @@
               li.getAttribute('data-date-key') === todayYmd &&
               stillCurrent(li, todayYmd, nowHm);
           } else {
-            keep = stillCurrent(li, todayYmd, nowHm);
+            // Upcoming this week: future days only (today lives in Today column)
+            keep =
+              li.getAttribute('data-date-key') > todayYmd &&
+              stillCurrent(li, todayYmd, nowHm);
           }
         }
         if (keep) {

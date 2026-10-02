@@ -225,6 +225,29 @@ export const FIXTURES: Fixture[] = [
   },
 ];
 
+
+/** Human sport label for board rows (presentation only — does not change gates). */
+export function sportLabel(competition: string): string {
+  const c = competition.toLowerCase();
+  if (c.includes('nfl')) return 'NFL';
+  if (c.includes('nba')) return 'NBA';
+  if (c.includes('formula') || c === 'f1') return 'Formula 1';
+  if (c.includes('rugby') || c.includes('urc') || c.includes('six nations')) return 'Rugby';
+  if (c.includes('tennis') || c.includes('atp') || c.includes('wta') || c.includes('masters')) {
+    return 'Tennis';
+  }
+  return 'Football';
+}
+
+/** Spanish sport label for Partidos board. */
+export function sportLabelEs(competition: string): string {
+  const en = sportLabel(competition);
+  if (en === 'Football') return 'Fútbol';
+  if (en === 'Formula 1') return 'Fórmula 1';
+  if (en === 'Tennis') return 'Tenis';
+  return en; // NFL, NBA, Rugby
+}
+
 /** Today's calendar date YYYY-MM-DD in Europe/Madrid. */
 export function madridToday(d: Date = new Date()): string {
   return new Intl.DateTimeFormat('en-CA', {

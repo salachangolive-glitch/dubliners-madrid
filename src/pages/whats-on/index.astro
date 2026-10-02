@@ -4,24 +4,30 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
-import { fixturesForToday, fixturesForWeek } from '../../data/fixtures';
+import {
+  fixturesForToday,
+  fixturesForWeek,
+  madridToday,
+  sportLabel,
+} from '../../data/fixtures';
 
 const title = "Watch Football near Sol | What's On — Dubliners Sports Bar";
 const description =
   "Where to watch football in Madrid centro: live sport on Irish pub screens near Puerta del Sol. Verified fixtures below — sports bar Espoz y Mina 7, Wednesday €1 shots.";
 
+const todayKey = madridToday();
 const today = fixturesForToday();
-const week = fixturesForWeek();
+const upcoming = fixturesForWeek().filter((f) => f.dateKey > todayKey);
 ---
 
 <BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
-      <h1>Watch football near Sol — what’s on</h1>
+      <h1>What’s On at Dubliners Madrid — Live Sports</h1>
       <p class="lead">
-        Sports bar near Sol with live football on indoor screens — plus Wednesday €1 shots midweek.
-        The board lists verified fixtures; rows marked “Confirmed on screens tonight” are confirmed by Dubliners.
+        See this week’s live sport at Dubliners — football, NFL, NBA, rugby, Formula 1, tennis and more.
+        Times are Madrid time. Only screenings marked Confirmed are confirmed to show on our screens.
       </p>
       <CtaRow showWhatsOn={false} />
     </div>
@@ -45,20 +51,20 @@ const week = fixturesForWeek();
                 <span class="fx-time">{f.madridTime}</span>
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
-                  <em>{f.competition}</em>
-                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed on screens tonight</span>}
+                  <em>{sportLabel(f.competition)} · {f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed</span>}
                 </span>
               </li>
             ))}
           </ul>
         </div>
         <div class="fixture-col" data-fixture-slot="week">
-          <h2>This week</h2>
-          <p class="empty-slot" data-fixture-empty hidden={week.length > 0}>
-            This week’s list will appear here when fixtures are ready.
+          <h2>Upcoming this week</h2>
+          <p class="empty-slot" data-fixture-empty hidden={upcoming.length > 0}>
+            This week’s upcoming list will appear here when fixtures are ready.
           </p>
-          <ul class="fixture-list" hidden={week.length === 0}>
-            {week.map((f) => (
+          <ul class="fixture-list" hidden={upcoming.length === 0}>
+            {upcoming.map((f) => (
               <li
                 data-date-key={f.dateKey}
                 data-madrid-time={f.madridTime}
@@ -68,8 +74,8 @@ const week = fixturesForWeek();
                 <span class="fx-time">{f.madridTime}</span>
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
-                  <em>{f.competition}</em>
-                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed on screens tonight</span>}
+                  <em>{sportLabel(f.competition)} · {f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed</span>}
                 </span>
               </li>
             ))}
@@ -78,7 +84,7 @@ const week = fixturesForWeek();
       </div>
       <FixtureAntiStale />
       <p class="fx-note">
-        Times are Madrid (CEST). “Confirmed on screens tonight” means Dubliners has confirmed today’s screening; no other matches are announced as broadcasts.
+        Times are Madrid time. Confirmed = showing on our screens.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
@@ -89,17 +95,25 @@ const week = fixturesForWeek();
 
   <section class="section">
     <div class="container prose">
-      <h2>Where to watch football in Madrid (near Sol)</h2>
+      <h2>Live sports at Dubliners</h2>
       <p>
-        Dubliners is an Irish sports bar just off Puerta del Sol — Espoz y Mina 7, Metro Sol or Sevilla.
-        We put live football and other sport on indoor screens when it’s on. Use the board above for
-        tonight and this week; if a game isn’t listed, we are not claiming it — ask at the bar.
+        Dubliners is an Irish pub just off Puerta del Sol — Espoz y Mina 7, Metro Sol or Sevilla.
+        We put major live sport on our indoor screens when it’s confirmed: football, NFL, NBA, rugby,
+        Formula 1, tennis and more. Check What’s On above for this week’s schedule, or ask at the bar
+        if you’re looking for a specific game.
       </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Explore live sport at Dubliners</h2>
       <p>
-        More context:
-        <a href={withBase('/sports-bar-madrid/')}>sports bar Madrid near Sol</a> ·
-        <a href={withBase('/champions-league-bar-madrid/')}>Champions League screens</a> ·
-        <a href={withBase('/premier-league-pub-madrid/')}>Premier League nights</a>.
+        More about watching sport here:
+        <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>,
+        <a href={withBase('/premier-league-pub-madrid/')}>Premier League nights</a>,
+        <a href={withBase('/champions-league-bar-madrid/')}>Champions League screens</a>,
+        and <a href={withBase('/watch-football-madrid/')}>watch football in Madrid</a>.
       </p>
     </div>
   </section>
@@ -107,9 +121,9 @@ const week = fixturesForWeek();
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>Wednesday · €1 SHOTS</h2>
+        <h2>Wednesday · €1 shots</h2>
         <p>
-          Dubliners’ Wednesday promo: €1 shots at the pub. Ask at the bar for details.
+          Midweek at Dubliners: €1 shots. Ask at the bar for details.
         </p>
         <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots →</a>
       </div>
@@ -126,13 +140,6 @@ const week = fixturesForWeek();
 
   <section class="section">
     <div class="container prose">
-      <h2>More match nights</h2>
-      <ul>
-        <li><a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a></li>
-        <li><a href={withBase('/watch-football-madrid/')}>Watch football Madrid</a></li>
-        <li><a href={withBase('/premier-league-pub-madrid/')}>Premier League pub</a></li>
-        <li><a href={withBase('/champions-league-bar-madrid/')}>Champions League bar</a></li>
-      </ul>
       <h2>Visit</h2>
       <p>{SITE.address}, {SITE.postal} · <a href={withBase('/visit/')}>Hours & map</a></p>
     </div>

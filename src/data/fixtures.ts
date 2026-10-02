@@ -1,26 +1,23 @@
 /**
  * Kick-offs Europe/Madrid. Curated international demand — not a full dump.
- * Sources (Wed 30 Sep 2026 ~14:56 Madrid — bloque tarde web):
- * - RETIRED Tue 29: NL Spain vs Croatia + Czechia vs England
- *   (finished; removed from FIXTURES).
- * - Wed 30 Sep: no NL / top men's club magnet on board — do not invent sport;
- *   Wed €1 stays page copy only (Dubliners promo; never fuse Four Corner into
- *   Wed €1 landings). Women's CL league-stage exists externally — demand-filter
- *   omit (not forced onto board).
- * - Week Thu 1–Sun 4 Oct NL (re-verified; Dubliners screen confirmation applies only to the two Fri 2 rows below):
- *   Ireland vs Austria Thu 1 · Aviva 19:45 IST = 20:45 Madrid (Aviva Stadium /
- *   RTE / Irish Times); France vs Italy Fri 2 · 20:45 Madrid (UEFA default CET);
- *   Ukraine vs Northern Ireland Fri 2 · 20:45 Madrid (UEFA list Fri 2 Oct; BBC
- *   venue Trnava — keep 20:45 CET default unless Sunday re-verify says early KO);
- *   Croatia vs England Sat 3 · 18:00 Madrid; Spain vs Czechia Sat 3 · 20:45;
- *   Ireland vs Israel Sun 4 · 20:45 Madrid (Aviva 19:45 IST).
+ * Sources (Fri 2 Oct 2026 ~13:50 Madrid — weekend anticipation pass):
+ * - RETIRED past: Tue 29 NL; Thu 1 Oct Ireland vs Austria (finished; removed).
+ * - Fri 2 Oct (show-at-venue CONFIRMED by user): France vs Italy 20:45;
+ *   Ukraine vs Northern Ireland 20:45 — UEFA default CET; BBC Fri fixtures.
+ * - Sat 3 Oct NL (UEFA.com *All times CET; 20:45 unless stated* + BBC UK):
+ *   Croatia vs England 18:00 CET (= Madrid); Spain vs Czechia 20:45;
+ *   North Macedonia vs Scotland 20:45 (BBC 19:45 UK). Switzerland–Slovenia
+ *   omitted (demand filter).
+ * - Sun 4 Oct NL (UEFA default 20:45 CET; BBC all 19:45 UK = 20:45 Madrid):
+ *   Portugal vs Norway; Wales vs Denmark; Netherlands vs Serbia;
+ *   Ireland vs Israel; Greece vs Germany.
+ * - Sun 4 Oct NFL London (nfl.com Week 4): Colts vs Commanders 9:30 AM ET
+ *   = 15:30 Madrid — inside Sun hours 12:00–02:00; agenda-only (not screens).
+ *   Other NFL Week 4 slots omitted (dump) or end after close (SNF 02:20 Mon).
  * - No PL / LaLiga / UCL / UEL club matchdays this week (resume ~10–15 Oct).
- * - Omitted hours: F1 / NFL slots outside open or after close.
- * - Omitted curation: League C/D NL, ordinary A/B filler, full Prem Rugby dump,
- *   Women's CL (demand filter this pass).
- * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30 — listed broadcast fits
- * (20:45 + ~120 min ends ~22:45, well before close).
- * No invented fixtures.
+ * Hours: Mon–Thu/Sun close 02:00; Fri–Sat 02:30. Wed €1 never fused with
+ * Four Corner. Screen claim ONLY when confirmedOnScreens === true.
+ * No invented fixtures / TV channels / reservations.
  */
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -35,14 +32,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-01',
-    whenLabel: 'Thu 1 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Ireland vs Austria',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-  },
   {
     dateKey: '2026-10-02',
     whenLabel: 'Fri 2 Oct',
@@ -78,10 +67,58 @@ export const FIXTURES: Fixture[] = [
     approxDurationMin: 120,
   },
   {
+    dateKey: '2026-10-03',
+    whenLabel: 'Sat 3 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'North Macedonia vs Scotland',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'NFL (London)',
+    teams: 'Colts vs Commanders',
+    madridTime: '15:30',
+    approxDurationMin: 210,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Portugal vs Norway',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Wales vs Denmark',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Netherlands vs Serbia',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
     dateKey: '2026-10-04',
     whenLabel: 'Sun 4 Oct',
     competition: 'UEFA Nations League',
     teams: 'Ireland vs Israel',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-04',
+    whenLabel: 'Sun 4 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Greece vs Germany',
     madridTime: '20:45',
     approxDurationMin: 120,
   },

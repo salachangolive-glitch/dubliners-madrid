@@ -16,9 +16,13 @@
  *     Sat 10 PL Arsenal–Leeds 12:30 UK = 13:30 Madrid; Man Utd–Spurs 17:30 UK = 18:30;
  *     Sat 10 LaLiga Real Madrid–Villarreal 21:00 CEST (official RM);
  *     Sun 11 PL Liverpool–Man City 16:30 UK = 17:30 Madrid.
+ * - F1 Singapore GP Race Sun 11 20:00 SGT = 14:00 Madrid (formula1.com / motorsport.com) —
+ *   AGENDA-ONLY. Sprint Sat 11:00 Madrid omitted (before Sat open 12:30). Quali not listed.
+ * - Tennis: Shanghai Masters 5–18 Oct early rounds only in window — skip (no semis/finals /
+ *   star highlight verified for 5–11).
  * - OMIT: TB@DAL Fri 9 02:15; Bledisloe; NBA; other NFL 19:00; filler URC
  *   (Dragons/Ospreys/Glasgow/Connacht/Bulls/Lions etc.); mid-table PL fillers; UCL MD2
- *   is 13–14 Oct (outside window).
+ *   is 13–14 Oct (outside window); F1 Bahrain/Malaysia race Sun 4 09:00 Madrid (before week).
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:30–02:30. Wed €1 never fused with
  * Four Corner. Screen claim ONLY when confirmedOnScreens === true.
  * No invented fixtures / TV channels / reservations.
@@ -165,6 +169,14 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Real Madrid vs Villarreal',
     madridTime: '21:00',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'Formula 1',
+    teams: 'Singapore Grand Prix',
+    madridTime: '14:00',
     approxDurationMin: 120,
   },
   {

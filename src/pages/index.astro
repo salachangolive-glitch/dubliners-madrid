@@ -9,7 +9,7 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
-  <!-- Hero: real bar photo, no overlays -->
+  <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Bar interior">
     <picture>
       <source
@@ -30,7 +30,6 @@ const description =
     </picture>
   </section>
 
-  <!-- Identity + compact access links -->
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
@@ -47,11 +46,12 @@ const description =
     </div>
   </div>
 
+  <!-- 2. Presentación -->
   <section class="section home-intro">
     <div class="container">
-      <h1>Irish pub Madrid near Puerta del Sol</h1>
+      <h1>An Irish pub near Puerta del Sol, in the heart of Madrid</h1>
       <p class="lead">
-        Looking for an Irish pub near Puerta del Sol? Dubliners is right in the centre of Madrid, with cold drinks, live sport on our screens and an international crowd throughout the week.
+        Dubliners is just off Puerta del Sol, with live sport on our screens, cold drinks and an international crowd throughout the week.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) or Sevilla (L2)
@@ -60,7 +60,93 @@ const description =
     </div>
   </section>
 
-  <!-- About / history with mural -->
+  <!-- 3. LIVE SPORTS / What’s On (before history) -->
+  <section class="section band" id="live-sports">
+    <div class="container split">
+      <div>
+        <h2>The pub today</h2>
+        <p>
+          Drop in for a drink, meet friends or catch the game on our screens. Dubliners brings together locals, visitors and Madrid’s international crowd throughout the week.
+        </p>
+        <h2>Live sports</h2>
+        <p>
+          We show major live sport throughout the week —
+          <a href={withBase('/sports-bar-madrid/')}>football</a>, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
+          Check <a href={withBase('/whats-on/')}>What’s On</a> for this week’s schedule.
+        </p>
+        <p>
+          Big
+          <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a>
+          and
+          <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a>
+          nights land here when confirmed — and LaLiga too.
+        </p>
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          sizes="(max-width: 880px) 100vw, 40vw"
+        />
+        <img
+          src={withBase('/images/screens-sports.jpg')}
+          alt="Sports screens and projector at Dubliners"
+          width="1400"
+          height="788"
+          loading="lazy"
+          class="split-photo landscape"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <!-- 4. Inside -->
+  <section class="section">
+    <div class="container">
+      <h2>Inside Dubliners</h2>
+      <div class="photo-grid">
+        {[
+          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
+        ].map(({ src, alt, w, h }) => (
+          <picture>
+            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
+            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
+          </picture>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Miércoles €1 -->
+  <section class="section band-gold">
+    <div class="container split reverse">
+      <div>
+        <h2>Wednesdays at Dubliners — €1 shots</h2>
+        <p>
+          Every Wednesday: €1 shots at the pub. Ask at the bar when you arrive.
+        </p>
+        <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+      </div>
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
+          sizes="(max-width: 880px) 100vw, 35vw"
+        />
+        <img
+          src={withBase('/images/interior-vert.jpg')}
+          alt="Seating doorway with neon and TVs at Dubliners"
+          width="900"
+          height="1600"
+          loading="lazy"
+          class="split-photo tall"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <!-- 6. Historia (lower) -->
   <section class="section band home-about" id="our-pub">
     <div class="container">
       <div class="home-about__copy prose">
@@ -96,86 +182,7 @@ const description =
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container split">
-      <div>
-        <h2>The pub today</h2>
-        <p>
-          Just off Puerta del Sol, Dubliners is an Irish pub for tourists, students, locals and Madrid’s international crowd. Drop in for a drink, meet friends or watch the game on our screens.
-        </p>
-        <p>
-          Live sports on TV covering football —
-          <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a>,
-          <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a>,
-          LaLiga — plus NFL, NBA, rugby, Formula 1, tennis and other major events when confirmed. Looking for a
-          <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>? Check
-          <a href={withBase('/whats-on/')}>What’s On</a> to see what we’re showing this week.
-        </p>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
-          sizes="(max-width: 880px) 100vw, 40vw"
-        />
-        <img
-          src={withBase('/images/screens-sports.jpg')}
-          alt="Sports screens and projector at Dubliners"
-          width="1400"
-          height="788"
-          loading="lazy"
-          class="split-photo landscape"
-        />
-      </picture>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="container">
-      <h2>Inside Dubliners</h2>
-      <div class="photo-grid">
-        {[
-          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
-          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
-        ].map(({ src, alt, w, h }) => (
-          <picture>
-            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
-            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
-          </picture>
-        ))}
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section band-gold">
-    <div class="container split reverse">
-      <div>
-        <h2>Wednesdays at Dubliners — €1 shots</h2>
-        <p>
-          Dubliners’ own Wednesday promo: €1 shots at the pub. Ask at the bar when you arrive.
-        </p>
-        <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/interior-vert-sm.webp')} 506w, ${withBase('/images/interior-vert.webp')} 900w`}
-          sizes="(max-width: 880px) 100vw, 35vw"
-        />
-        <img
-          src={withBase('/images/interior-vert.jpg')}
-          alt="Seating doorway with neon and TVs at Dubliners"
-          width="900"
-          height="1600"
-          loading="lazy"
-          class="split-photo tall"
-        />
-      </picture>
-    </div>
-  </section>
-
+  <!-- 7. FAQ -->
   <section class="section band">
     <div class="container prose">
       <h2>Quick answers</h2>
@@ -185,18 +192,16 @@ const description =
           <p>Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:00–02:30.</p>
         </details>
         <details>
-          <summary>Is Dubliners an Irish pub near Sol / Madrid centro?</summary>
+          <summary>Are you close to Puerta del Sol?</summary>
           <p>
-            Yes — an Irish pub on Calle de Espoz y Mina 7, a short walk from Puerta del Sol.
-            Easy centro base for locals, visitors and Madrid’s international crowd.
+            Yes — we’re at Calle de Espoz y Mina 7, a short walk from Puerta del Sol.
           </p>
         </details>
         <details>
-          <summary>Do you show live football?</summary>
+          <summary>Do you show live sports?</summary>
           <p>
-            Yes — Premier League, Champions League, LaLiga and more on indoor screens when they’re on.
-            See <a href={withBase('/whats-on/')}>What’s on</a>, our
-            <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page, or ask at the bar.
+            Yes — major football, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
+            See <a href={withBase('/whats-on/')}>What’s On</a> for this week’s schedule.
           </p>
         </details>
         <details>
@@ -215,6 +220,7 @@ const description =
     </div>
   </section>
 
+  <!-- 8. Find us -->
   <section class="section">
     <div class="container split">
       <div>
@@ -224,7 +230,8 @@ const description =
           Metro: Sol or Sevilla.
         </p>
         <p>
-          <a href={withBase('/international-students-pub-madrid/')}>International students &amp; Erasmus nights</a>
+          Studying in Madrid? See our
+          <a href={withBase('/international-students-pub-madrid/')}>student &amp; Erasmus nights</a>.
         </p>
         <picture>
           <source

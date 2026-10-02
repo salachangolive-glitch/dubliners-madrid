@@ -34,7 +34,7 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --max: 72rem;
-  --sticky-h: 3.75rem;
+  --sticky-h: 4.25rem; /* sticky CTA row (buttons kept full size) */
 }
 
 *,
@@ -53,7 +53,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  padding-bottom: calc(var(--sticky-h) + 1rem);
+  padding-bottom: calc(var(--sticky-h) + 1.25rem + env(safe-area-inset-bottom, 0px));
 }
 
 img {

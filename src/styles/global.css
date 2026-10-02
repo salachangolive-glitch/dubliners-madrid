@@ -884,6 +884,23 @@ a.card.card-link:hover h3 {
   color: var(--muted);
 }
 
+.fx-status {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 0.25rem;
+  padding: 0.18rem 0.45rem;
+  border-radius: 0.25rem;
+  font-size: 0.74rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.fx-status-confirmed {
+  color: var(--bg);
+  background: var(--accent-2);
+}
+
 .empty-slot {
   margin: 0;
   color: var(--muted);

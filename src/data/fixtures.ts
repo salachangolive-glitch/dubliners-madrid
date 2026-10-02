@@ -7,7 +7,7 @@
  *   Wed €1 stays page copy only (Dubliners promo; never fuse Four Corner into
  *   Wed €1 landings). Women's CL league-stage exists externally — demand-filter
  *   omit (not forced onto board).
- * - Week Thu 1–Sun 4 Oct NL (re-verified):
+ * - Week Thu 1–Sun 4 Oct NL (re-verified; Dubliners screen confirmation applies only to the two Fri 2 rows below):
  *   Ireland vs Austria Thu 1 · Aviva 19:45 IST = 20:45 Madrid (Aviva Stadium /
  *   RTE / Irish Times); France vs Italy Fri 2 · 20:45 Madrid (UEFA default CET);
  *   Ukraine vs Northern Ireland Fri 2 · 20:45 Madrid (UEFA list Fri 2 Oct; BBC
@@ -30,6 +30,8 @@ export type Fixture = {
   madridTime: string; // HH:mm 24h Europe/Madrid
   /** Approximate broadcast length for anti-stale “still on” checks (minutes). */
   approxDurationMin?: number;
+  /** Explicit venue confirmation; only these rows may claim the match is on screens. */
+  confirmedOnScreens?: boolean;
 };
 
 export const FIXTURES: Fixture[] = [
@@ -48,6 +50,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'France vs Italy',
     madridTime: '20:45',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-02',
@@ -56,6 +59,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ukraine vs Northern Ireland',
     madridTime: '20:45',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-03',

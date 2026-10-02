@@ -22,7 +22,7 @@ const week = fixturesForWeek();
       <h1>Ver fútbol cerca de Sol — partidos</h1>
       <p class="lead">
         Bar deportivo cerca de Sol con fútbol en pantallas interiores — y miércoles con chupitos a 1 €.
-        El tablero lista solo partidos verificados; pregunta en barra qué hay esta noche.
+        El tablero lista partidos verificados; las filas marcadas «Confirmado en pantallas esta noche» están confirmadas por Dubliners.
       </p>
       <CtaRow lang="es" showWhatsOn={false} />
     </div>
@@ -47,6 +47,7 @@ const week = fixturesForWeek();
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
                   <em>{f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmado en pantallas esta noche</span>}
                 </span>
               </li>
             ))}
@@ -69,6 +70,7 @@ const week = fixturesForWeek();
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
                   <em>{f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmado en pantallas esta noche</span>}
                 </span>
               </li>
             ))}
@@ -77,7 +79,7 @@ const week = fixturesForWeek();
       </div>
       <FixtureAntiStale />
       <p class="fx-note">
-        Horarios en hora de Madrid (CEST). Las pantallas y la cobertura pueden cambiar — pregunta al equipo esa noche.
+        Horarios en hora de Madrid (CEST). «Confirmado en pantallas esta noche» indica confirmación de Dubliners para hoy; no se anuncian otros partidos como emisiones.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>

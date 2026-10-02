@@ -21,7 +21,7 @@ const week = fixturesForWeek();
       <h1>Watch football near Sol — what’s on</h1>
       <p class="lead">
         Sports bar near Sol with live football on indoor screens — plus Wednesday €1 shots midweek.
-        The board lists verified fixtures only; ask the team what’s showing tonight.
+        The board lists verified fixtures; rows marked “Confirmed on screens tonight” are confirmed by Dubliners.
       </p>
       <CtaRow showWhatsOn={false} />
     </div>
@@ -46,6 +46,7 @@ const week = fixturesForWeek();
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
                   <em>{f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed on screens tonight</span>}
                 </span>
               </li>
             ))}
@@ -68,6 +69,7 @@ const week = fixturesForWeek();
                 <span class="fx-body">
                   <strong>{f.teams}</strong>
                   <em>{f.competition}</em>
+                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed on screens tonight</span>}
                 </span>
               </li>
             ))}
@@ -76,7 +78,7 @@ const week = fixturesForWeek();
       </div>
       <FixtureAntiStale />
       <p class="fx-note">
-        Times are Madrid (CEST). Screens and coverage can change — ask staff on the night.
+        Times are Madrid (CEST). “Confirmed on screens tonight” means Dubliners has confirmed today’s screening; no other matches are announced as broadcasts.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>

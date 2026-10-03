@@ -3,8 +3,8 @@
  * Sources (Fri 2 Oct 2026 ~15:35 Madrid — week 5–11 pass):
  * - KEEP current weekend lifecycle until past:
  *   Fri 2 (show-at-venue CONFIRMED): France vs Italy 20:45; Ukraine vs NI 20:45.
- *   Sat 3 NL agenda: Croatia–England 18:00; Spain–Czechia 20:45; N.Macedonia–Scotland 20:45.
- *   Sun 4: NFL London Colts–Commanders 15:30 agenda; Jets at Bears 19:00 CONFIRMED screens (DG 3 Oct; 13:00 ET); NL 20:45 slate (PT–NO, WAL–DEN, NL–SRB, IRL–ISR, GRE–GER).
+ *   Sat 3 NL CONFIRMED screens (DG 3 Oct): Croatia–England 18:00; Spain–Czechia 20:45; N.Macedonia–Scotland 20:45.
+ *   Sun 4: NFL London Colts–Commanders 15:30 agenda; Jets at Bears 19:00 CONFIRMED screens (DG 3 Oct; 13:00 ET); NL 20:45 slate (PT–NO, WAL–DEN, NL–SRB, GRE–GER agenda; IRL–ISR 20:45 CONFIRMED screens — kickoff ~20:45 Madrid, inside Sun hours).
  * - Week Mon 5 – Sun 11 Oct 2026:
  *   CONFIRMED screens Sun 11 ~19:00 NFL (user/DG): Bears–Packers, Giants–Commanders,
  *     Colts–Steelers — 1:00 PM ET = 19:00 Madrid (media.nfl.com Week 5 final; Bears–Packers
@@ -47,6 +47,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Croatia vs England',
     madridTime: '18:00',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-03',
@@ -55,6 +56,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Spain vs Czechia',
     madridTime: '20:45',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-03',
@@ -63,6 +65,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'North Macedonia vs Scotland',
     madridTime: '20:45',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-04',
@@ -112,6 +115,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ireland vs Israel',
     madridTime: '20:45',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-04',

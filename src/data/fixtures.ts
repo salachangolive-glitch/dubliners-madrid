@@ -41,24 +41,6 @@ export type Fixture = {
 
 export const FIXTURES: Fixture[] = [
   {
-    dateKey: '2026-10-02',
-    whenLabel: 'Fri 2 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'France vs Italy',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-02',
-    whenLabel: 'Fri 2 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Ukraine vs Northern Ireland',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
     dateKey: '2026-10-03',
     whenLabel: 'Sat 3 Oct',
     competition: 'UEFA Nations League',

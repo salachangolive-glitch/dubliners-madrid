@@ -1,6 +1,6 @@
 /**
  * Kick-offs Europe/Madrid. Curated commercially important fixtures only.
- * Sources (Fri 2 Oct 2026 ~15:35 Madrid — week 5–11 pass):
+ * Sources (Sat 3 Oct 2026 ~14:50 Madrid — tarde verify + URC prune):
  * - KEEP current weekend lifecycle until past:
  *   Fri 2 (show-at-venue CONFIRMED): France vs Italy 20:45; Ukraine vs NI 20:45.
  *   Sat 3 NL CONFIRMED screens (DG 3 Oct): Croatia–England 18:00; Spain–Czechia 20:45; N.Macedonia–Scotland 20:45.
@@ -9,9 +9,9 @@
  *   CONFIRMED screens Sun 11 ~19:00 NFL (user/DG): Bears–Packers, Giants–Commanders,
  *     Colts–Steelers — 1:00 PM ET = 19:00 Madrid (media.nfl.com Week 5 final; Bears–Packers
  *     flexed to 1pm ET Sep 29).
- *   AGENDA-ONLY (no screen claim): Sun 11 NFL London PHI–JAX 9:30 AM ET = 15:30 Madrid;
- *     Sat 10 URC Ulster–Munster 17:30 UK = 18:30 Madrid; Leinster–Cardiff 19:45 UK = 20:45
- *     (ulster.rugby / cardiffrugby.wales / Irish Times).
+ *   AGENDA-ONLY (no screen claim): Sun 11 NFL London PHI–JAX 9:30 AM ET = 15:30 Madrid.
+ *   DROP URC Sat 10 Ulster–Munster / Leinster–Cardiff (Sat 3 Oct tarde demand-filter:
+ *     weak tourist/Erasmus pull vs PL/LaLiga same day — SOLO IMPORTANTES).
  *   High-demand football agenda (premierleague.com + realmadrid.com):
  *     Sat 10 PL Arsenal–Leeds 12:30 UK = 13:30 Madrid; Man Utd–Spurs 17:30 UK = 18:30;
  *     Sat 10 LaLiga Real Madrid–Villarreal 21:00 CEST (official RM);
@@ -20,8 +20,8 @@
  *   CONFIRMED screens (user/DG 2 Oct). Sprint Sat 11:00 Madrid omitted (before Sat open 12:00). Quali not listed.
  * - Tennis: Shanghai Masters 5–18 Oct early rounds only in window — skip (no semis/finals /
  *   star highlight verified for 5–11).
- * - OMIT: TB@DAL Fri 9 02:15; Bledisloe; NBA; other NFL 19:00; filler URC
- *   (Dragons/Ospreys/Glasgow/Connacht/Bulls/Lions etc.); mid-table PL fillers; UCL MD2
+ * - OMIT: TB@DAL Fri 9 02:15; Bledisloe; NBA; other NFL 19:00; URC Sat 10
+ *   Ulster–Munster + Leinster–Cardiff (demand) + filler URC; mid-table PL; UCL MD2
  *   is 13–14 Oct (outside window); F1 Bahrain/Malaysia race Sun 4 09:00 Madrid (before week).
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30. Wed €1 never fused with
  * Four Corner. Screen claim ONLY when confirmedOnScreens === true.
@@ -137,25 +137,9 @@ export const FIXTURES: Fixture[] = [
   {
     dateKey: '2026-10-10',
     whenLabel: 'Sat 10 Oct',
-    competition: 'United Rugby Championship',
-    teams: 'Ulster vs Munster',
-    madridTime: '18:30',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-10-10',
-    whenLabel: 'Sat 10 Oct',
     competition: 'Premier League',
     teams: 'Manchester United vs Tottenham',
     madridTime: '18:30',
-    approxDurationMin: 120,
-  },
-  {
-    dateKey: '2026-10-10',
-    whenLabel: 'Sat 10 Oct',
-    competition: 'United Rugby Championship',
-    teams: 'Leinster vs Cardiff',
-    madridTime: '20:45',
     approxDurationMin: 120,
   },
   {

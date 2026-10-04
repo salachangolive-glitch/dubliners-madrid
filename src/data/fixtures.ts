@@ -1,10 +1,11 @@
 /**
  * Kick-offs Europe/Madrid. Curated commercially important fixtures only.
  * Sources re-verified Sun 4 Oct 2026 ~10:10 (domingo web agenda) for week Mon 5 – Sun 11 Oct:
- * - KEPT Sun 4 (today): Colts–Commanders 15:30 agenda; Jets–Bears 19:00 CONFIRMED (staff);
- *   NL 20:45 agenda except Ireland–Israel CONFIRMED.
+ * - Sun 4 ~19:10: Colts–Commanders RETIRED (ESPN final 30–13). Jets–Bears 19:00 and
+ *   Ireland–Israel 20:45 stay (not finished). Other NL 20:45 stay agenda.
  * - ADD Mon 5 NL France–Belgium + Italy–Turkey 20:45 agenda only (UEFA/BBC; in hours; no screen claim).
  * - Tue 6 Croatia–Spain 20:45 CONFIRMED (RTVE window + prior venue confirm).
+ *   England–Czechia 20:45 AGENDA only (UEFA 20:45; FA 19:45 BST; DAZN live for England).
  * - Premier League MW6: premierleague.com/en/news/4688862 (17 Aug 2026).
  *   Sat 10 Arsenal–Leeds 12:30 BST = 13:30; Chelsea–Bournemouth 15:00 BST = 16:00;
  *   Man Utd–Spurs 17:30 BST = 18:30; Sun 11 Liverpool–Man City 16:30 BST = 17:30.
@@ -33,14 +34,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'NFL (London)',
-    teams: 'Colts vs Commanders',
-    madridTime: '15:30',
-    approxDurationMin: 210,
-  },
   {
     dateKey: '2026-10-04',
     whenLabel: 'Sun 4 Oct',
@@ -115,6 +108,14 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     approxDurationMin: 120,
     confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-06',
+    whenLabel: 'Tue 6 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'England vs Czechia',
+    madridTime: '20:45',
+    approxDurationMin: 120,
   },
   {
     dateKey: '2026-10-10',

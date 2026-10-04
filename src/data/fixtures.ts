@@ -1,30 +1,37 @@
 /**
  * Kick-offs Europe/Madrid. Curated commercially important fixtures only.
- * Sources (Sat 3 Oct 2026 ~14:50 Madrid — tarde verify + URC prune):
- * - KEEP current weekend lifecycle until past:
- *   Fri 2 (show-at-venue CONFIRMED): France vs Italy 20:45; Ukraine vs NI 20:45.
- *   Sat 3 NL CONFIRMED screens (DG 3 Oct): Croatia–England 18:00; Spain–Czechia 20:45; N.Macedonia–Scotland 20:45.
- *   Sun 4: NFL London Colts–Commanders 15:30 agenda; Jets at Bears 19:00 CONFIRMED screens (DG 3 Oct; 13:00 ET); NL 20:45 slate (PT–NO, WAL–DEN, NL–SRB, GRE–GER agenda; IRL–ISR 20:45 CONFIRMED screens — kickoff ~20:45 Madrid, inside Sun hours).
- * - Week Mon 5 – Sun 11 Oct 2026:
- *   CONFIRMED screens Sun 11 ~19:00 NFL (user/DG): Bears–Packers, Giants–Commanders,
- *     Colts–Steelers — 1:00 PM ET = 19:00 Madrid (media.nfl.com Week 5 final; Bears–Packers
- *     flexed to 1pm ET Sep 29).
- *   AGENDA-ONLY (no screen claim): Sun 11 NFL London PHI–JAX 9:30 AM ET = 15:30 Madrid.
- *   DROP URC Sat 10 Ulster–Munster / Leinster–Cardiff (Sat 3 Oct tarde demand-filter:
- *     weak tourist/Erasmus pull vs PL/LaLiga same day — SOLO IMPORTANTES).
- *   High-demand football agenda (premierleague.com + realmadrid.com):
- *     Sat 10 PL Arsenal–Leeds 12:30 UK = 13:30 Madrid; Man Utd–Spurs 17:30 UK = 18:30;
- *     Sat 10 LaLiga Real Madrid–Villarreal 21:00 CEST (official RM);
- *     Sun 11 PL Liverpool–Man City 16:30 UK = 17:30 Madrid.
- * - F1 Singapore GP Race Sun 11 20:00 SGT = 14:00 Madrid (formula1.com / motorsport.com) —
- *   CONFIRMED screens (user/DG 2 Oct). Sprint Sat 11:00 Madrid omitted (before Sat open 12:00). Quali not listed.
- * - Tennis: Shanghai Masters 5–18 Oct early rounds only in window — skip (no semis/finals /
- *   star highlight verified for 5–11).
- * - OMIT: TB@DAL Fri 9 02:15; Bledisloe; NBA; other NFL 19:00; URC Sat 10
- *   Ulster–Munster + Leinster–Cardiff (demand) + filler URC; mid-table PL; UCL MD2
- *   is 13–14 Oct (outside window); F1 Bahrain/Malaysia race Sun 4 09:00 Madrid (before week).
- * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30. Wed €1 never fused with
- * Four Corner. Screen claim ONLY when confirmedOnScreens === true.
+ * Sources fetched Sun 4 Oct 2026 morning (week Mon 6 – Sun 12 Oct):
+ * - RETIRED Sat 3 Oct NL (Croatia–England, Spain–Czechia, N.Macedonia–Scotland): kickoffs already past.
+ * - KEPT Sun 4 (today, kickoffs still ahead this morning): Colts–Commanders 15:30 agenda;
+ *   Jets–Bears 19:00 CONFIRMED; NL 20:45 agenda except Ireland–Israel CONFIRMED.
+ * - Premier League MW6 UK times are BST (UTC+1) through 24 Oct; Madrid CEST = UK+1.
+ *   premierleague.com/en/news/4688862 (17 Aug 2026):
+ *   Sat 10 Arsenal–Leeds 12:30 BST = 13:30; Chelsea–Bournemouth 15:00 BST = 16:00;
+ *   Man Utd–Spurs 17:30 BST = 18:30; Sun 11 Liverpool–Man City 16:30 BST = 17:30;
+ *   Mon 12 Coventry–Newcastle 20:00 BST = 21:00.
+ *   Spain broadcast: DAZN all PL matches live, exclusive, through 2031
+ *   (dazngroup.com press 5 Aug 2026).
+ * - LaLiga J8 (LaLiga note 10 Sep 2026 + La Grada quoting LaLiga; RM official 21:00
+ *   Orange TV / Movistar LaLiga; GolDirecto peninsular times):
+ *   Sat 10 Alavés–Atlético 16:15; Barcelona–Getafe 18:30; Real Madrid–Villarreal 21:00.
+ *   Spain broadcast: Movistar Plus all LaLiga matches 2026/27
+ *   (movistarplus.es press, season from 15 Aug 2026).
+ * - F1 Singapore GP race Sun 11 20:00–22:00 SGT (UTC+8) = 14:00–16:00 Madrid
+ *   (formula1.com timetable article; calendar round 17 is 09–11 Oct).
+ *   Spain: DAZN F1 on Movistar Plus 2026, calendar lists Singapore 9–11 Oct
+ *   (movistar.es/tv/donde-ver-f1-en-vivo). Sprint Sat 17:00 SGT = 11:00 Madrid
+ *   is before open — not listed.
+ * - NFL Week 5 final (media.nfl.com 29 Sep 2026). Madrid = ET+6 (EDT):
+ *   Sun 11 Eagles–Jaguars London 9:30 ET = 15:30; Bears–Packers flexed to 1:00 ET = 19:00;
+ *   Giants–Commanders 1:00 ET = 19:00; Colts–Steelers 1:00 ET = 19:00.
+ *   Spain: DAZN NFL Game Pass = every game (dazngroup.com press 29 Aug 2025, multi-year from 2025).
+ * - NOT CONFIRMED (hours): Bucs–Cowboys Thu 8 8:15 ET = Fri 9 02:15 (after Thu close);
+ *   Ravens–Falcons Sun 11 8:20 ET = Mon 12 02:20 (after Sun close);
+ *   Bills–Rams Mon 12 8:15 ET = Tue 13 02:15 (after Mon close).
+ * - OMIT outside window or not this week: UCL MD2 is 13–14 Oct; NBA opening night 20 Oct;
+ *   Shanghai Masters final 18 Oct; no big rugby in window.
+ * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
+ * Screen claim ONLY when confirmedOnScreens === true.
  * No invented fixtures / TV channels / reservations.
  */
 export type Fixture = {
@@ -40,33 +47,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-03',
-    whenLabel: 'Sat 3 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Croatia vs England',
-    madridTime: '18:00',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-03',
-    whenLabel: 'Sat 3 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Spain vs Czechia',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-03',
-    whenLabel: 'Sat 3 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'North Macedonia vs Scotland',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
   {
     dateKey: '2026-10-04',
     whenLabel: 'Sun 4 Oct',
@@ -125,7 +105,6 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     approxDurationMin: 120,
   },
-  // --- Week Mon 5 – Sun 11 Oct (THIS WEEK’S LIVE SPORTS from Sun 4 publish / now) ---
   {
     dateKey: '2026-10-10',
     whenLabel: 'Sat 10 Oct',
@@ -133,6 +112,25 @@ export const FIXTURES: Fixture[] = [
     teams: 'Arsenal vs Leeds United',
     madridTime: '13:30',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'Premier League',
+    teams: 'Chelsea vs Bournemouth',
+    madridTime: '16:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'LaLiga',
+    teams: 'Alavés vs Atlético de Madrid',
+    madridTime: '16:15',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -141,6 +139,16 @@ export const FIXTURES: Fixture[] = [
     teams: 'Manchester United vs Tottenham',
     madridTime: '18:30',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'LaLiga',
+    teams: 'Barcelona vs Getafe',
+    madridTime: '18:30',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -149,6 +157,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Villarreal',
     madridTime: '21:00',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -166,6 +175,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Eagles vs Jaguars',
     madridTime: '15:30',
     approxDurationMin: 210,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -174,6 +184,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Liverpool vs Manchester City',
     madridTime: '17:30',
     approxDurationMin: 120,
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -202,8 +213,16 @@ export const FIXTURES: Fixture[] = [
     approxDurationMin: 210,
     confirmedOnScreens: true,
   },
+  {
+    dateKey: '2026-10-12',
+    whenLabel: 'Mon 12 Oct',
+    competition: 'Premier League',
+    teams: 'Coventry City vs Newcastle',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
 ];
-
 
 /** Human sport label for board rows (presentation only — does not change gates). */
 export function sportLabel(competition: string): string {

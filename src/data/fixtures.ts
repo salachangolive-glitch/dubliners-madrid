@@ -1,41 +1,23 @@
 /**
  * Kick-offs Europe/Madrid. Curated commercially important fixtures only.
- * Sources fetched Sun 4 Oct 2026 morning (week Mon 5 – Sun 11 Oct):
- * - RETIRED Sat 3 Oct NL (Croatia–England, Spain–Czechia, N.Macedonia–Scotland): kickoffs already past.
- * - KEPT Sun 4 (today, kickoffs still ahead this morning): Colts–Commanders 15:30 agenda;
- *   Jets–Bears 19:00 CONFIRMED; NL 20:45 agenda except Ireland–Israel CONFIRMED.
- * - Premier League MW6 UK times are BST (UTC+1) through 24 Oct; Madrid CEST = UK+1.
- *   premierleague.com/en/news/4688862 (17 Aug 2026):
+ * Sources re-verified Sun 4 Oct 2026 ~10:10 (domingo web agenda) for week Mon 5 – Sun 11 Oct:
+ * - KEPT Sun 4 (today): Colts–Commanders 15:30 agenda; Jets–Bears 19:00 CONFIRMED (staff);
+ *   NL 20:45 agenda except Ireland–Israel CONFIRMED.
+ * - ADD Mon 5 NL France–Belgium + Italy–Turkey 20:45 agenda only (UEFA/BBC; in hours; no screen claim).
+ * - Tue 6 Croatia–Spain 20:45 CONFIRMED (RTVE window + prior venue confirm).
+ * - Premier League MW6: premierleague.com/en/news/4688862 (17 Aug 2026).
  *   Sat 10 Arsenal–Leeds 12:30 BST = 13:30; Chelsea–Bournemouth 15:00 BST = 16:00;
  *   Man Utd–Spurs 17:30 BST = 18:30; Sun 11 Liverpool–Man City 16:30 BST = 17:30.
- *   Mon 12 Coventry–Newcastle 20:00 BST = 21:00 verified but NOT on this board (next week).
- *   Spain broadcast: DAZN all PL matches live, exclusive, through 2031
- *   (dazngroup.com press 5 Aug 2026).
- * - LaLiga J8 (LaLiga note 10 Sep 2026 + La Grada quoting LaLiga; RM official 21:00
- *   Orange TV / Movistar LaLiga; GolDirecto peninsular times):
- *   Sat 10 Alavés–Atlético 16:15; Barcelona–Getafe 18:30; Real Madrid–Villarreal 21:00.
- *   Spain broadcast: Movistar Plus all LaLiga matches 2026/27
- *   (movistarplus.es press, season from 15 Aug 2026).
- * - F1 Singapore GP race Sun 11 20:00–22:00 SGT (UTC+8) = 14:00–16:00 Madrid
- *   (formula1.com timetable article; calendar round 17 is 09–11 Oct).
- *   Spain: DAZN F1 on Movistar Plus 2026, calendar lists Singapore 9–11 Oct
- *   (movistar.es/tv/donde-ver-f1-en-vivo). Sprint Sat 17:00 SGT = 11:00 Madrid
- *   is before open — not listed.
- * - NFL Week 5 final (media.nfl.com 29 Sep 2026). Madrid = ET+6 (EDT):
- *   Sun 11 Eagles–Jaguars London 9:30 ET = 15:30; Bears–Packers flexed to 1:00 ET = 19:00;
- *   Giants–Commanders 1:00 ET = 19:00; Colts–Steelers 1:00 ET = 19:00.
- *   Spain: DAZN NFL Game Pass = every game (dazngroup.com press 29 Aug 2025, multi-year from 2025).
- * - Tue 6 Croatia–Spain 20:45 HEC = Madrid (UEFA default; RTVE La 1 / RTVE Play).
- *   Confirmed. Mon 12 Coventry–Newcastle removed from the board (next week).
- * - NOT CONFIRMED (hours): Bucs–Cowboys Thu 8 8:15 ET = Fri 9 02:15 (after Thu close);
- *   Ravens–Falcons Sun 11 8:20 ET = Mon 12 02:20 (after Sun close);
- *   Bills–Rams Mon 12 8:15 ET = Tue 13 02:15 (after Mon close).
- * - Mon 5 NL France–Belgium, Italy–Turkey, NI–Georgia 20:45 HEC: real and in hours;
- *   Spain broadcast not on RTVE’s window list — not Confirmed.
- * - OMIT outside window or not this week: UCL MD2 is 13–14 Oct; NBA opening night 20 Oct;
- *   Shanghai Masters final 18 Oct; no big rugby in window.
+ *   AGENDA ONLY — Spain DAZN rights ≠ Dubliners Confirmed.
+ * - LaLiga J8 (LaLiga / La Grada): Sat 10 Alavés–Atlético 16:15; Barcelona–Getafe 18:30;
+ *   Real Madrid–Villarreal 21:00. AGENDA ONLY.
+ * - F1 Singapore race Sun 11 12:00 UTC = 14:00 Madrid (formula1.com). AGENDA ONLY.
+ * - NFL Week 5 (media.nfl.com / nfl.com): Sun 11 Eagles–Jaguars London 9:30 ET = 15:30 agenda;
+ *   Bears–Packers / Giants–Commanders / Colts–Steelers 1:00 ET = 19:00 CONFIRMED (DG 2 Oct).
+ * - OMIT overnight NFL (Bucs–Cowboys Fri 02:15; Ravens–Falcons Mon 02:20); URC filler
+ *   (Ulster–Munster / Leinster–Cardiff dropped 3 Oct); UCL MD2 13–14 Oct; NBA from 20 Oct.
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
- * Screen claim ONLY when confirmedOnScreens === true.
+ * Screen claim ONLY when confirmedOnScreens === true (venue), never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
  */
 export type Fixture = {
@@ -110,6 +92,22 @@ export const FIXTURES: Fixture[] = [
     approxDurationMin: 120,
   },
   {
+    dateKey: '2026-10-05',
+    whenLabel: 'Mon 5 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'France vs Belgium',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
+    dateKey: '2026-10-05',
+    whenLabel: 'Mon 5 Oct',
+    competition: 'UEFA Nations League',
+    teams: 'Italy vs Turkey',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+  },
+  {
     dateKey: '2026-10-06',
     whenLabel: 'Tue 6 Oct',
     competition: 'UEFA Nations League',
@@ -125,7 +123,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Arsenal vs Leeds United',
     madridTime: '13:30',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -134,7 +131,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Chelsea vs Bournemouth',
     madridTime: '16:00',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -143,7 +139,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Alavés vs Atlético de Madrid',
     madridTime: '16:15',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -152,7 +147,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Manchester United vs Tottenham',
     madridTime: '18:30',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -161,7 +155,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Barcelona vs Getafe',
     madridTime: '18:30',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-10',
@@ -170,7 +163,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Villarreal',
     madridTime: '21:00',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -179,7 +171,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Singapore Grand Prix',
     madridTime: '14:00',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -188,7 +179,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Eagles vs Jaguars',
     madridTime: '15:30',
     approxDurationMin: 210,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',
@@ -197,7 +187,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Liverpool vs Manchester City',
     madridTime: '17:30',
     approxDurationMin: 120,
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-11',

@@ -4,10 +4,8 @@
  * selecciones, Clásicos, F1, NFL, plus Liverpool–City, plus Sat 10 only when a top club
  * is playing: Arsenal, Chelsea, Manchester United, Tottenham, Atlético, Barcelona, Real Madrid).
  * Not a TV-rights inference. No Saturday row on this board lacks a top club.
- * Sources for times (week of Sun 4 – Sun 11 Oct 2026):
- * - Sun 4 ~19:10: Colts–Commanders RETIRED (ESPN final 30–13). Jets–Bears 19:00 stays.
- *   NL 20:45 (Portugal–Norway, Wales–Denmark, Netherlands–Serbia, Ireland–Israel,
- *   Greece–Germany) CONFIRMED — national teams, owner venue order.
+ * Sources for times (week of Mon 5 – Sun 11 Oct 2026):
+ * - Sun 4 Jets–Bears + NL slate RETIRED 5 Oct (past calendar day).
  * - Mon 5 NL France–Belgium + Italy–Turkey 20:45 CONFIRMED (selecciones; in hours).
  * - Tue 6 Croatia–Spain and England–Czechia 20:45 CONFIRMED (selecciones; in hours).
  * - Premier League MW6: premierleague.com/en/news/4688862 (17 Aug 2026).
@@ -38,60 +36,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'NFL',
-    teams: 'Jets vs Bears',
-    madridTime: '19:00',
-    approxDurationMin: 210,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Portugal vs Norway',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Wales vs Denmark',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Netherlands vs Serbia',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Ireland vs Israel',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-04',
-    whenLabel: 'Sun 4 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Greece vs Germany',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
   {
     dateKey: '2026-10-05',
     whenLabel: 'Mon 5 Oct',

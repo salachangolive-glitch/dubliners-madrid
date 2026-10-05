@@ -4,7 +4,7 @@
  * selecciones, Clásicos, F1, NFL, plus Liverpool–City, plus Sat 10 only when a top club
  * is playing: Arsenal, Chelsea, Manchester United, Tottenham, Atlético, Barcelona, Real Madrid).
  * Not a TV-rights inference. No Saturday row on this board lacks a top club.
- * Sources for times (week of Mon 5 – Sun 11 Oct 2026):
+ * Sources for times (week of Mon 5 – Tue 13 Oct 2026):
  * - Sun 4 Jets–Bears + NL slate RETIRED 5 Oct (past calendar day).
  * - Mon 5 NL France–Belgium + Italy–Turkey 20:45 CONFIRMED (selecciones; in hours).
  * - Tue 6 Croatia–Spain and England–Czechia 20:45 CONFIRMED (selecciones; in hours).
@@ -17,8 +17,11 @@
  * - F1 Singapore race Sun 11 14:00 Madrid CONFIRMED (owner venue order; F1).
  * - NFL Week 5: Sun 11 Eagles–Jaguars London 15:30 CONFIRMED; Bears–Packers /
  *   Giants–Commanders / Colts–Steelers 19:00 CONFIRMED (NFL, in hours).
+ * - Tue 13 UCL MD2 Atlético de Madrid vs Manchester United 21:00 CONFIRMED
+ *   (owner 5 Oct 2026 ~10:30 Europe/Madrid: Movistar at home → prior “0 emisión” /
+ *   omit of this UCL MD2 row ANULATED; Metropolitano kick-off).
  * - OMIT overnight NFL; Coventry (next week); Sun 25 Oct Clásico and Austin;
- *   URC filler; UCL MD2 13–14 Oct; NBA from 20 Oct.
+ *   URC filler; other UCL MD2 13–14 Oct (not listed); NBA from 20 Oct.
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -178,6 +181,15 @@ export const FIXTURES: Fixture[] = [
     teams: 'Colts vs Steelers',
     madridTime: '19:00',
     approxDurationMin: 210,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-13',
+    whenLabel: 'Tue 13 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Atlético de Madrid vs Manchester United',
+    madridTime: '21:00',
+    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
 ];

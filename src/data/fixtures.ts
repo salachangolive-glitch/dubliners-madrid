@@ -4,9 +4,9 @@
  * selecciones, Clásicos, F1, NFL, plus Liverpool–City, plus Sat 10 only when a top club
  * is playing: Arsenal, Chelsea, Manchester United, Tottenham, Atlético, Barcelona, Real Madrid).
  * Not a TV-rights inference. No Saturday row on this board lacks a top club.
- * Sources for times (week of Mon 5 – Tue 13 Oct 2026):
+ * Sources for times (week of Tue 6 – Tue 13 Oct 2026):
  * - Sun 4 Jets–Bears + NL slate RETIRED 5 Oct (past calendar day).
- * - Mon 5 NL France–Belgium + Italy–Turkey 20:45 CONFIRMED (selecciones; in hours).
+ * - Mon 5 NL France–Belgium + Italy–Turkey RETIRED 6 Oct (past calendar day).
  * - Tue 6 Croatia–Spain and England–Czechia 20:45 CONFIRMED (selecciones; in hours).
  * - Premier League MW6: premierleague.com/en/news/4688862 (17 Aug 2026).
  *   Sat 10 Arsenal–Leeds 13:30; Chelsea–Bournemouth 16:00; Man Utd–Spurs 18:30
@@ -15,8 +15,8 @@
  * - LaLiga J8: Sat 10 Alavés–Atlético 16:15; Barcelona–Getafe 18:30;
  *   Real Madrid–Villarreal 21:00 CONFIRMED (top club: Atlético, Barcelona, Real Madrid).
  * - F1 Singapore race Sun 11 14:00 Madrid CONFIRMED (owner venue order; F1).
- * - NFL Week 5: Sun 11 Eagles–Jaguars London 15:30 CONFIRMED; Bears–Packers /
- *   Giants–Commanders / Colts–Steelers 19:00 CONFIRMED (NFL, in hours).
+ * - NFL Week 5: Sun 11 Eagles–Jaguars agenda: broadcast unverified (Radar 6 Oct);
+ *   Bears–Packers / Giants–Commanders / Colts–Steelers 19:00 CONFIRMED (NFL, in hours).
  * - Tue 13 UCL MD2 Atlético de Madrid vs Manchester United 21:00 CONFIRMED
  *   (owner 5 Oct 2026 ~10:30 Europe/Madrid: Movistar at home → prior “0 emisión” /
  *   omit of this UCL MD2 row ANULATED; Metropolitano kick-off).
@@ -39,24 +39,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-05',
-    whenLabel: 'Mon 5 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'France vs Belgium',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-05',
-    whenLabel: 'Mon 5 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Italy vs Turkey',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
   {
     dateKey: '2026-10-06',
     whenLabel: 'Tue 6 Oct',
@@ -145,7 +127,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Eagles vs Jaguars',
     madridTime: '15:30',
     approxDurationMin: 210,
-    confirmedOnScreens: true,
+    confirmedOnScreens: false,
   },
   {
     dateKey: '2026-10-11',

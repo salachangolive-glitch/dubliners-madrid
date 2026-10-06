@@ -3,28 +3,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
-import { SITE, withBase } from '../../site';
+import { SITE, withBase, absUrl } from '../../site';
 import {
   fixturesForToday,
   fixturesForWeek,
   madridToday,
   sportLabel,
+  sportsEventsJsonLd,
 } from '../../data/fixtures';
 
-const title = "Watch Football near Sol | What's On — Dubliners Sports Bar";
+const title =
+  'Premier League Pub near Sol | What\'s On — Dubliners Irish Pub Madrid';
 const description =
-  "Where to watch football in Madrid centro: live sport on Irish pub screens near Puerta del Sol. Verified fixtures below — sports bar Espoz y Mina 7, Wednesday €1 shots.";
+  'Irish pub near Sol for Premier League and Champions League nights. Confirmed fixtures on screens at Dubliners, Espoz y Mina 7 — sports bar Madrid centro.';
 
 const todayKey = madridToday();
 const today = fixturesForToday();
-const upcoming = fixturesForWeek().filter((f) => f.dateKey > todayKey);
+const week = fixturesForWeek();
+const upcoming = week.filter((f) => f.dateKey > todayKey);
+const sportsEvents = sportsEventsJsonLd(week, {
+  pageUrl: absUrl('/whats-on/'),
+  lang: 'en',
+});
 ---
 
-<BaseLayout title={title} description={description} path="/whats-on/" ogImage="/images/screens-sports.jpg">
+<BaseLayout
+  title={title}
+  description={description}
+  path="/whats-on/"
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={sportsEvents}
+>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
-      <h1>What’s On at Dubliners Madrid — Live Sports</h1>
+      <h1>What’s On at Dubliners — Irish Pub near Sol for Premier League & Champions</h1>
       <p class="lead">
         See this week’s live sport at Dubliners — football, NFL, NBA, rugby, Formula 1, tennis and more.
         Times are Madrid time. Only screenings marked Confirmed are confirmed to show on our screens.
@@ -37,7 +50,7 @@ const upcoming = fixturesForWeek().filter((f) => f.dateKey > todayKey);
     <div class="container">
       <div class="fixture-board" data-fixture-board>
         <div class="fixture-col" data-fixture-slot="today">
-          <h2>Today</h2>
+          <h2>Today near Sol</h2>
           <p class="empty-slot" data-fixture-empty hidden={today.length > 0}>
             Nothing listed for today — ask at the bar what’s on the screens.
           </p>
@@ -59,7 +72,7 @@ const upcoming = fixturesForWeek().filter((f) => f.dateKey > todayKey);
           </ul>
         </div>
         <div class="fixture-col" data-fixture-slot="week">
-          <h2>Upcoming this week</h2>
+          <h2>Upcoming this week near Sol</h2>
           <p class="empty-slot" data-fixture-empty hidden={upcoming.length > 0}>
             This week’s upcoming list will appear here when fixtures are ready.
           </p>
@@ -137,7 +150,14 @@ const upcoming = fixturesForWeek().filter((f) => f.dateKey > todayKey);
           srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
-        <img src={withBase('/images/bar-interior.jpg')} alt="Bar interior at Dubliners" class="split-photo landscape" width="1400" height="788" loading="lazy" />
+        <img
+          src={withBase('/images/bar-interior.jpg')}
+          alt="Irish pub near Sol — Dubliners Madrid screens for Premier League and Champions League"
+          class="split-photo landscape"
+          width="1400"
+          height="788"
+          loading="lazy"
+        />
       </picture>
     </div>
   </section>

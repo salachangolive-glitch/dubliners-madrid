@@ -16,6 +16,8 @@ interface Props {
   hreflang?: { en?: string; es?: string };
   /** Defaults to index,follow. Error documents pass noindex. */
   robots?: string;
+  /** Extra JSON-LD graph nodes (e.g. SportsEvent) rendered after BarOrPub. */
+  extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -26,7 +28,14 @@ const {
   ogImage = '/images/facade.jpg',
   hreflang: hreflangProp,
   robots: robotsProp,
+  extraJsonLd,
 } = Astro.props;
+
+const extraJsonLdList = extraJsonLd
+  ? Array.isArray(extraJsonLd)
+    ? extraJsonLd
+    : [extraJsonLd]
+  : [];
 
 const pathNorm = normalizePath(path);
 const lang: Lang = langProp || detectLang(pathNorm);
@@ -119,6 +128,9 @@ const jsonLd = {
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0f1410" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {extraJsonLdList.map((node) => (
+      <script type="application/ld+json" set:html={JSON.stringify(node)} />
+    ))}
   </head>
   <body>
     <a class="skip-link" href="#main-content">{copy.skip}</a>

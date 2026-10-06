@@ -306,6 +306,72 @@ export function fixturesForWeek(now: Date = new Date()): Fixture[] {
   );
 }
 
+
+/** Premier League or UEFA Champions League competition (SEO SportsEvent filter). */
+export function isPremierOrChampions(competition: string): boolean {
+  const c = competition.toLowerCase();
+  return c.includes('premier league') || c.includes('champions league');
+}
+
+/**
+ * SportsEvent JSON-LD for Confirmed Premier / Champions fixtures still current this week.
+ * Location = Dubliners Irish Pub, Espoz y Mina 7, Sol, Madrid. Kick-off Europe/Madrid (+02 in Oct).
+ */
+export function sportsEventsJsonLd(
+  fixtures: Fixture[],
+  opts: { pageUrl: string; lang?: 'en' | 'es' },
+): Record<string, unknown>[] {
+  const lang = opts.lang ?? 'en';
+  const venue = {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      addressRegion: 'Community of Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 40.4164,
+      longitude: -3.7025,
+    },
+  };
+  return fixtures
+    .filter((f) => f.confirmedOnScreens && isPremierOrChampions(f.competition))
+    .map((f) => {
+      const parts = f.teams.split(' vs ');
+      const description =
+        lang === 'es'
+          ? `Ver ${f.teams} (${f.competition}) en pantallas en Dubliners, pub irlandés en Sol, Espoz y Mina 7, Madrid.`
+          : `Watch ${f.teams} (${f.competition}) on screens at Dubliners Irish Pub near Sol, Espoz y Mina 7, Madrid.`;
+      const ev: Record<string, unknown> = {
+        '@context': 'https://schema.org',
+        '@type': 'SportsEvent',
+        name: `${f.teams} — ${f.competition}`,
+        description,
+        startDate: `${f.dateKey}T${f.madridTime}:00+02:00`,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: venue,
+        organizer: {
+          '@type': 'BarOrPub',
+          name: 'Dubliners Irish Pub',
+          url: 'https://dublinersmadrid.es/',
+        },
+        url: opts.pageUrl,
+      };
+      if (parts.length === 2) {
+        ev.homeTeam = { '@type': 'SportsTeam', name: parts[0].trim() };
+        ev.awayTeam = { '@type': 'SportsTeam', name: parts[1].trim() };
+      }
+      return ev;
+    });
+}
+
 /**
  * @deprecated Build-time snapshot only — do not treat as runtime “today”.
  * Prefer madridToday() / fixturesForToday() / fixturesForWeek(), plus client anti-stale.

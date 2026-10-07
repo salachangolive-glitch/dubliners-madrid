@@ -7,7 +7,7 @@
  * Sources for times (week of Tue 6 – Tue 13 Oct 2026):
  * - Sun 4 Jets–Bears + NL slate RETIRED 5 Oct (past calendar day).
  * - Mon 5 NL France–Belgium + Italy–Turkey RETIRED 6 Oct (past calendar day).
- * - Tue 6 Croatia–Spain and England–Czechia 20:45 CONFIRMED (selecciones; in hours).
+ * - Tue 6 NL Croatia–Spain + England–Czechia RETIRED 7 Oct (past calendar day).
  * - Premier League MW6: premierleague.com/en/news/4688862 (17 Aug 2026).
  *   Sat 10 Arsenal–Leeds 13:30; Chelsea–Bournemouth 16:00; Man Utd–Spurs 18:30
  *   CONFIRMED (top club playing). Sun 11 Liverpool–Man City 17:30 CONFIRMED
@@ -39,24 +39,6 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-06',
-    whenLabel: 'Tue 6 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'Croatia vs Spain',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-06',
-    whenLabel: 'Tue 6 Oct',
-    competition: 'UEFA Nations League',
-    teams: 'England vs Czechia',
-    madridTime: '20:45',
-    approxDurationMin: 120,
-    confirmedOnScreens: true,
-  },
   {
     dateKey: '2026-10-10',
     whenLabel: 'Sat 10 Oct',

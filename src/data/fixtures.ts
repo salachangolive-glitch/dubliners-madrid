@@ -12,8 +12,10 @@
  *   Sat 10 Arsenal–Leeds 13:30; Chelsea–Bournemouth 16:00; Man Utd–Spurs 18:30
  *   CONFIRMED (top club playing). Sun 11 Liverpool–Man City 17:30 CONFIRMED
  *   (owner order; Sunday hours 12:00–02:00, match finishes inside opening).
- * - LaLiga J8: Sat 10 Alavés–Atlético 16:15; Barcelona–Getafe 18:30;
- *   Real Madrid–Villarreal 21:00 CONFIRMED (top club: Atlético, Barcelona, Real Madrid).
+ * - LaLiga: Fri 9 Málaga–Espanyol 21:00 CONFIRMED (Radar; DAZN — owner permanent
+ *   8 Oct 2026: Dubliners has DAZN + Movistar). Sat 10 Alavés–Atlético 16:15;
+ *   Barcelona–Getafe 18:30; Real Madrid–Villarreal 21:00 CONFIRMED
+ *   (top club: Atlético, Barcelona, Real Madrid).
  * - F1 Singapore race Sun 11 14:00 Madrid CONFIRMED (owner venue order; F1).
  * - NFL Week 5: Sun 11 Eagles–Jaguars agenda: broadcast unverified (Radar 6 Oct);
  *   Bears–Packers / Giants–Commanders / Colts–Steelers 19:00 CONFIRMED (NFL, in hours).
@@ -39,6 +41,15 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
+  {
+    dateKey: '2026-10-09',
+    whenLabel: 'Fri 9 Oct',
+    competition: 'LaLiga',
+    teams: 'Málaga vs Espanyol',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
   {
     dateKey: '2026-10-10',
     whenLabel: 'Sat 10 Oct',

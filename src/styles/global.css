@@ -1071,3 +1071,7 @@ a.card.card-link:hover h3 {
   font-weight: 400;
   font-size: 0.85em;
 }
+
+.map-placeholder .btn {
+  font-family: inherit;
+}

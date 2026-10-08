@@ -12,18 +12,18 @@
  *   Sat 10 Arsenal–Leeds 13:30; Chelsea–Bournemouth 16:00; Man Utd–Spurs 18:30
  *   CONFIRMED (top club playing). Sun 11 Liverpool–Man City 17:30 CONFIRMED
  *   (owner order; Sunday hours 12:00–02:00, match finishes inside opening).
- * - LaLiga: Fri 9 Málaga–Espanyol 21:00 CONFIRMED (Radar; DAZN — owner permanent
- *   8 Oct 2026: Dubliners has DAZN + Movistar). Sat 10 Alavés–Atlético 16:15;
- *   Barcelona–Getafe 18:30; Real Madrid–Villarreal 21:00 CONFIRMED
- *   (top club: Atlético, Barcelona, Real Madrid).
- * - F1 Singapore race Sun 11 14:00 Madrid CONFIRMED (owner venue order; F1).
- * - NFL Week 5: Sun 11 Eagles–Jaguars agenda: broadcast unverified (Radar 6 Oct);
- *   Bears–Packers / Giants–Commanders / Colts–Steelers 19:00 CONFIRMED (NFL, in hours).
- * - Tue 13 UCL MD2 Atlético de Madrid vs Manchester United 21:00 CONFIRMED
- *   (owner 5 Oct 2026 ~10:30 Europe/Madrid: Movistar at home → prior “0 emisión” /
- *   omit of this UCL MD2 row ANULATED; Metropolitano kick-off).
- * - OMIT overnight NFL; Coventry (next week); Sun 25 Oct Clásico and Austin;
- *   URC filler; other UCL MD2 13–14 Oct (not listed); NBA from 20 Oct.
+ * - Owner permanent 8 Oct 2026: Dubliners has DAZN + Movistar.
+ * - Radar 2026-10-08-ligero (Confirmed only; Tentative omitted): LaLiga Fri 9
+ *   Málaga–Espanyol 21:00 DAZN; Sat 10 Rayo–Athletic 14:00 DAZN, Alavés–Atlético
+ *   16:15, Barcelona–Getafe 18:30, Real Madrid–Villarreal 21:00 Movistar Plus+;
+ *   Sun 11 Elche–Celta 14:00, R. Sociedad–Deportivo 16:15, Betis–Osasuna 18:30,
+ *   Racing–Valencia 21:00; Mon 12 Levante–Sevilla 21:00; Sat 17 Espanyol–Atlético
+ *   14:00 DAZN; Mon 19 Getafe–Rayo 21:00 DAZN.
+ * - Conference: Thu 15 Craiova–Getafe 18:45; Thu 22 Getafe–Lugano 18:45 (M+ LDC).
+ * - UCL: Tue 13 Atlético–Man Utd 21:00; Wed 21 Real Madrid–Leipzig 21:00 Movistar Plus+.
+ * - F1 Singapore Sun 11 14:00 CONFIRMED. NFL Sun 11 as prior (Eagles agenda-only).
+ * - OMIT Tentative: URC, NFL London Game Pass, Europa League, other UCL MD2/J3,
+ *   Levante–Athletic (canal no publicado). Coventry; Clásico 25 Oct; NBA.
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -56,6 +56,15 @@ export const FIXTURES: Fixture[] = [
     competition: 'Premier League',
     teams: 'Arsenal vs Leeds United',
     madridTime: '13:30',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'LaLiga',
+    teams: 'Rayo Vallecano vs Athletic Club',
+    madridTime: '14:00',
     approxDurationMin: 120,
     confirmedOnScreens: true,
   },
@@ -116,6 +125,15 @@ export const FIXTURES: Fixture[] = [
   {
     dateKey: '2026-10-11',
     whenLabel: 'Sun 11 Oct',
+    competition: 'LaLiga',
+    teams: 'Elche vs Celta',
+    madridTime: '14:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
     competition: 'NFL (London)',
     teams: 'Eagles vs Jaguars',
     madridTime: '15:30',
@@ -125,9 +143,27 @@ export const FIXTURES: Fixture[] = [
   {
     dateKey: '2026-10-11',
     whenLabel: 'Sun 11 Oct',
+    competition: 'LaLiga',
+    teams: 'Real Sociedad vs Deportivo',
+    madridTime: '16:15',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
     competition: 'Premier League',
     teams: 'Liverpool vs Manchester City',
     madridTime: '17:30',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'LaLiga',
+    teams: 'Betis vs Osasuna',
+    madridTime: '18:30',
     approxDurationMin: 120,
     confirmedOnScreens: true,
   },
@@ -159,11 +195,74 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
+    dateKey: '2026-10-11',
+    whenLabel: 'Sun 11 Oct',
+    competition: 'LaLiga',
+    teams: 'Racing vs Valencia',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-12',
+    whenLabel: 'Mon 12 Oct',
+    competition: 'LaLiga',
+    teams: 'Levante vs Sevilla',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
     dateKey: '2026-10-13',
     whenLabel: 'Tue 13 Oct',
     competition: 'UEFA Champions League',
     teams: 'Atlético de Madrid vs Manchester United',
     madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Conference League',
+    teams: 'Craiova vs Getafe',
+    madridTime: '18:45',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'LaLiga',
+    teams: 'Espanyol vs Atlético de Madrid',
+    madridTime: '14:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-19',
+    whenLabel: 'Mon 19 Oct',
+    competition: 'LaLiga',
+    teams: 'Getafe vs Rayo Vallecano',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Real Madrid vs RB Leipzig',
+    madridTime: '21:00',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Conference League',
+    teams: 'Getafe vs Lugano',
+    madridTime: '18:45',
     approxDurationMin: 120,
     confirmedOnScreens: true,
   },

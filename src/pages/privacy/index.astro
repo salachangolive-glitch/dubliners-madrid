@@ -3,28 +3,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Privacy note | Dubliners Madrid';
-const description = 'How Dubliners Madrid uses contact-form details. Short privacy note for website enquiries.';
+const title = 'Privacy & cookies | Dubliners Madrid';
+const description = 'How Dubliners Madrid handles contact-form details and cookies on dublinersmadrid.es.';
 ---
 
 <BaseLayout title={title} description={description} path="/privacy/" ogImage="/images/facade.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Privacy" />
-      <h1>Privacy note</h1>
-      <p class="lead">How we handle details you send through the website contact form.</p>
+      <h1>Privacy &amp; cookies</h1>
+      <p class="lead">How we handle the details you send us and the cookies used on this website.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose">
-      <h2>Who we are</h2>
+      <h2>Who is responsible</h2>
       <p>
-        This website is for <strong>Dubliners</strong>, an Irish pub at {SITE.address}, {SITE.postal}.
-      </p>
-      <p class="contact-note">
-        Full legal entity name, tax ID (CIF/NIF), and registered office for privacy notices:
-        <strong>PENDING INTERNAL</strong> — not published until confirmed by the owner.
+        This website belongs to <strong>Dubliners Madrid</strong> (Dubliners Irish Pub), {SITE.address}, {SITE.postal}.
+        For any question about your data, write to
+        <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>.
       </p>
 
       <h2>What we collect via the contact form</h2>
@@ -34,37 +32,51 @@ const description = 'How Dubliners Madrid uses contact-form details. Short priva
         <li>Reason for contact</li>
         <li>Message content</li>
       </ul>
-      <p>We do not ask for payment card details on this form.</p>
+      <p>We only ask for what we need to reply. We never ask for payment details, ID documents or other sensitive data on this form.</p>
 
-      <h2>Why we use it</h2>
-      <p>Only to read and reply to your enquiry about Dubliners (information, groups, sports nights, events, or other questions you raise).</p>
-
-      <h2>Where messages go</h2>
+      <h2>Why we use it and on what basis</h2>
       <p>
-        Messages are delivered to the Dubliners operations mailbox configured for this venue.
-        We do not publish that internal address on the website.
+        Only to read and reply to your enquiry about Dubliners (information, groups, sports nights, events, or other questions you raise).
+        The basis is your request: you send the form voluntarily so that we can answer you.
+        We do not use these details for advertising and we do not sell or share them with third parties for their own purposes.
+      </p>
+
+      <h2>How messages reach us</h2>
+      <p>
+        The form is delivered by FormSubmit (formsubmit.co), an email-forwarding service, to the Dubliners mailbox.
+        See <a href="https://formsubmit.co/privacy.pdf" rel="noopener noreferrer" target="_blank">FormSubmit&apos;s privacy policy</a>.
       </p>
 
       <h2>How long we keep it</h2>
-      <p>Enquiry emails are kept only as long as needed to handle your request and ordinary follow-up, then deleted or archived under normal business practice.</p>
+      <p>Enquiry emails are kept only as long as needed to handle your request and ordinary follow-up, then deleted.</p>
 
       <h2>Your rights</h2>
       <p>
-        Under applicable EU/Spanish data rules you may ask to access, correct, or delete personal data in an enquiry,
-        or object to processing, via the <a href={withBase('/contact/')}>contact form</a> when it is active,
-        or through Instagram ({SITE.instagramHandle}).
+        Under the GDPR and Spanish data-protection law you can ask to access, correct or delete your data, object to or restrict its use,
+        or ask for portability, by writing to <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
+        or through the <a href={withBase('/contact/')}>contact form</a>.
       </p>
       <p>
-        You may also lodge a complaint with the Spanish AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).
+        You can also lodge a complaint with the Spanish Data Protection Agency, AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).
       </p>
 
-      <h2>Cookies</h2>
+      <h2 id="cookies">Cookies</h2>
       <p>
-        This site uses Google Analytics 4 to measure page views and click events (directions, email, Instagram, and What&apos;s on).
-        We do not use marketing/advertising cookies for the contact form.
-        Google may process this measurement data; see
-        <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google&apos;s Privacy Policy</a>.
-        A fuller cookie banner can be added later if needed.
+        <strong>Analytics (only with your consent).</strong> If you click “Accept” in the cookie banner, we use Google Analytics 4
+        to count page views and clicks (directions, email, Instagram, What&apos;s on and contact-form submissions).
+        Google sets the cookies <code>_ga</code> and <code>_ga_*</code> (up to 2 years). If you reject or do not choose,
+        Google Analytics is not loaded and these cookies are not set. We do not use advertising cookies.
+        See <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google&apos;s Privacy Policy</a>.
+      </p>
+      <p>
+        <strong>Necessary storage (no consent needed).</strong> Your cookie choice is saved in your browser
+        (<code>dubliners_cookie_consent_v1</code>), and the contact form keeps a temporary flag for the session to show the “message sent” confirmation.
+      </p>
+      <p>
+        <strong>Google Maps.</strong> Some pages show an embedded Google map. When it loads, Google may set its own cookies under its privacy policy.
+      </p>
+      <p>
+        You can change your choice at any time: <button type="button" class="cookie-settings-link" style="display:inline" data-cookie-settings>Cookie settings</button>.
       </p>
 
       <p><a href={withBase('/contact/')}>Back to Contact</a></p>

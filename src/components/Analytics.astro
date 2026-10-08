@@ -7,28 +7,49 @@ const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
 
 {measurementId && (
   <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
     <script define:vars={{ measurementId, emailTrackingEnabled }}>
+      // Consent first (Spain/LSSI): no analytics cookies until the visitor accepts.
+      // gtag.js is only loaded after an explicit "Accept"; default state is denied.
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function () {
         window.dataLayer.push(arguments);
       };
-      window.gtag('js', new Date());
-
-      // Consent default for this public pub site so GA4 can collect measurement.
-      // A fuller cookie-banner UI can come later; for now analytics is on, ads storage stays off.
       window.gtag('consent', 'default', {
-        analytics_storage: 'granted',
+        analytics_storage: 'denied',
         ad_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied',
-        wait_for_update: 500,
       });
 
-      const debugMode =
-        typeof window !== 'undefined' &&
-        new URLSearchParams(window.location.search).get('debug_mode') === 'true';
-      window.gtag('config', measurementId, debugMode ? { debug_mode: true } : {});
+      const CONSENT_KEY = 'dubliners_cookie_consent_v1';
+      const readConsent = () => {
+        try {
+          return window.localStorage.getItem(CONSENT_KEY);
+        } catch {
+          return null;
+        }
+      };
+      let gaLoaded = false;
+      const analyticsAllowed = () => readConsent() === 'granted';
+      const loadGa = () => {
+        if (gaLoaded) return;
+        gaLoaded = true;
+        window.gtag('consent', 'update', { analytics_storage: 'granted' });
+        window.gtag('js', new Date());
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        document.head.appendChild(s);
+        const debugMode =
+          typeof window !== 'undefined' &&
+          new URLSearchParams(window.location.search).get('debug_mode') === 'true';
+        window.gtag('config', measurementId, debugMode ? { debug_mode: true } : {});
+      };
+      if (analyticsAllowed()) loadGa();
+      document.addEventListener('dubliners:consent', (event) => {
+        const value = event instanceof CustomEvent ? event.detail : null;
+        if (value === 'granted') loadGa();
+      });
 
       const normalizePath = (path) => {
         const withoutTrailingSlash = path.replace(/\/+$/, '');
@@ -36,6 +57,7 @@ const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
       };
 
       const track = (eventName, params) => {
+        if (!gaLoaded) return; // no measurement without consent
         window.gtag('event', eventName, {
           ...params,
           transport_type: 'beacon',

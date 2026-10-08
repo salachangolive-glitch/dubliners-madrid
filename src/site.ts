@@ -52,15 +52,7 @@ export function getContactFormAjaxEndpoint(): string {
 }
 
 
-export const HOURS = [
-  { day: 'Monday', hours: '12:00–02:00' },
-  { day: 'Tuesday', hours: '12:00–02:00' },
-  { day: 'Wednesday', hours: '12:00–02:00' },
-  { day: 'Thursday', hours: '12:00–02:00' },
-  { day: 'Friday', hours: '12:00–02:30' },
-  { day: 'Saturday', hours: '12:00–02:30' },
-  { day: 'Sunday', hours: '12:00–02:00' },
-] as const;
+export { HOURS } from './data/hours';
 
 export function absUrl(path: string): string {
   const base = SITE.base.replace(/\/$/, '');

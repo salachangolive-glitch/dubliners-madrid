@@ -1,0 +1,91 @@
+---
+import { type Lang } from '../i18n';
+import { withBase } from '../site';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const privacyHref = withBase(es ? '/es/privacidad/#cookies' : '/privacy/#cookies');
+---
+
+<div
+  class="cookie-banner"
+  role="dialog"
+  aria-live="polite"
+  aria-label={es ? 'Cookies' : 'Cookies'}
+  data-cookie-banner
+  hidden
+>
+  {es ? (
+    <p>
+      Usamos cookies de analítica (Google Analytics) solo si las aceptas, para saber cómo se usa la web.
+      Las cookies técnicas necesarias no requieren consentimiento.
+      Más información en <a href={privacyHref}>Privacidad y cookies</a>.
+    </p>
+  ) : (
+    <p>
+      We use analytics cookies (Google Analytics) only if you accept them, to understand how the site is used.
+      Strictly necessary storage does not need consent.
+      More in <a href={privacyHref}>Privacy &amp; cookies</a>.
+    </p>
+  )}
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" data-cookie-choice="denied">{es ? 'Rechazar' : 'Reject'}</button>
+    <button type="button" class="btn btn-secondary" data-cookie-choice="granted">{es ? 'Aceptar' : 'Accept'}</button>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  var KEY = 'dubliners_cookie_consent_v1';
+  var banner = document.querySelector('[data-cookie-banner]');
+  if (!banner) return;
+  function read() {
+    try { return window.localStorage.getItem(KEY); } catch (e) { return null; }
+  }
+  function write(v) {
+    try { window.localStorage.setItem(KEY, v); } catch (e) {}
+  }
+  function clearGaCookies() {
+    var host = location.hostname;
+    var domains = ['', host, '.' + host, '.' + host.replace(/^www\./, '')];
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (name === '_ga' || name.indexOf('_ga_') === 0 || name === '_gid') {
+        domains.forEach(function (d) {
+          document.cookie = name + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+        });
+      }
+    });
+  }
+  function choose(v) {
+    var prev = read();
+    write(v);
+    banner.hidden = true;
+    if (v === 'granted') {
+      document.dispatchEvent(new CustomEvent('dubliners:consent', { detail: 'granted' }));
+    } else {
+      if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+      clearGaCookies();
+      if (prev === 'granted') location.reload();
+    }
+  }
+  var buttons = banner.querySelectorAll('[data-cookie-choice]');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function (e) {
+      choose(e.currentTarget.getAttribute('data-cookie-choice'));
+    });
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t && t.closest && t.closest('[data-cookie-settings]')) {
+      e.preventDefault();
+      banner.hidden = false;
+    }
+  });
+  var v = read();
+  if (v !== 'granted' && v !== 'denied') banner.hidden = false;
+})();
+</script>

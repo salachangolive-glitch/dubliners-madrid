@@ -49,6 +49,7 @@ const explore =
       {explore.map((l) => (
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
+      <button type="button" class="cookie-settings-link" data-cookie-settings>{lang === 'es' ? 'Configurar cookies' : 'Cookie settings'}</button>
     </div>
     <div id="hours" class="hours-block">
       <h3>{copy.hours}</h3>

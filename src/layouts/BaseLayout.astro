@@ -4,7 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyCta from '../components/StickyCta.astro';
 import Analytics from '../components/Analytics.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import { SITE, absUrl, withBase } from '../site';
+import { openingHoursJsonLd } from '../data/hours';
 import { type Lang, detectLang, hreflangFor, t, normalizePath } from '../i18n';
 
 interface Props {
@@ -74,20 +76,7 @@ const jsonLd = {
   },
   // Google Search Central: hours past midnight = one spec on the opening day
   // with closes earlier than opens (e.g. Sat 18:00–03:00). Same hours as GBP/footer.
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Sunday'],
-      opens: '12:00',
-      closes: '02:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Friday', 'Saturday'],
-      opens: '12:00',
-      closes: '02:30',
-    },
-  ],
+  openingHoursSpecification: openingHoursJsonLd(),
   sameAs: [SITE.instagram],
 };
 ---
@@ -140,6 +129,7 @@ const jsonLd = {
     </main>
     <Footer lang={lang} />
     <StickyCta lang={lang} />
+    <CookieBanner lang={lang} />
     <Analytics />
   </body>
 </html>

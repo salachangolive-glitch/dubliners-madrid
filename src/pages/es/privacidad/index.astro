@@ -3,28 +3,26 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Nota de privacidad | Dubliners Madrid';
-const description = 'Cómo usa Dubliners Madrid los datos del formulario de contacto. Nota breve para consultas web.';
+const title = 'Privacidad y cookies | Dubliners Madrid';
+const description = 'Cómo trata Dubliners Madrid los datos del formulario de contacto y las cookies de dublinersmadrid.es.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/privacidad/" lang="es" ogImage="/images/facade.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Privacidad" lang="es" />
-      <h1>Nota de privacidad</h1>
-      <p class="lead">Cómo tratamos los datos que envías por el formulario de contacto del sitio.</p>
+      <h1>Privacidad y cookies</h1>
+      <p class="lead">Cómo tratamos los datos que nos envías y las cookies que usa este sitio web.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose">
-      <h2>Quiénes somos</h2>
+      <h2>Responsable</h2>
       <p>
-        Este sitio web es de <strong>Dubliners</strong>, un pub irlandés en {SITE.address}, {SITE.postal}.
-      </p>
-      <p class="contact-note">
-        Nombre legal completo, CIF/NIF y domicilio social para avisos de privacidad:
-        <strong>PENDIENTE INTERNO</strong> — no se publica hasta confirmación del titular.
+        Este sitio web es de <strong>Dubliners Madrid</strong> (Dubliners Irish Pub), {SITE.address}, {SITE.postal}.
+        Para cualquier consulta sobre tus datos, escribe a
+        <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>.
       </p>
 
       <h2>Qué recogemos con el formulario de contacto</h2>
@@ -34,38 +32,52 @@ const description = 'Cómo usa Dubliners Madrid los datos del formulario de cont
         <li>Motivo del contacto</li>
         <li>Contenido del mensaje</li>
       </ul>
-      <p>No pedimos datos de tarjeta de pago en este formulario.</p>
+      <p>Solo pedimos lo necesario para responderte. Nunca pedimos datos de pago, documentos de identidad ni otros datos sensibles en este formulario.</p>
 
-      <h2>Para qué lo usamos</h2>
-      <p>Solo para leer y responder a tu consulta sobre Dubliners (información, grupos, noches de deporte, eventos u otras preguntas que plantees).</p>
-
-      <h2>Dónde van los mensajes</h2>
+      <h2>Para qué los usamos y con qué base</h2>
       <p>
-        Los mensajes se entregan al buzón operativo de Dubliners configurado para este local.
-        No publicamos esa dirección interna en el sitio web.
+        Solo para leer y responder a tu consulta sobre Dubliners (información, grupos, noches de deporte, eventos u otras preguntas que plantees).
+        La base es tu propia solicitud: envías el formulario voluntariamente para que te contestemos.
+        No usamos estos datos para publicidad ni los vendemos o cedemos a terceros para sus propios fines.
       </p>
 
-      <h2>Cuánto tiempo lo guardamos</h2>
-      <p>Los emails de consulta se conservan solo el tiempo necesario para gestionar tu petición y el seguimiento habitual; después se eliminan o archivan según la práctica ordinaria del negocio.</p>
+      <h2>Cómo nos llegan los mensajes</h2>
+      <p>
+        El formulario se entrega mediante FormSubmit (formsubmit.co), un servicio de reenvío de email, al buzón de Dubliners.
+        Consulta la <a href="https://formsubmit.co/privacy.pdf" rel="noopener noreferrer" target="_blank">política de privacidad de FormSubmit</a>.
+      </p>
+
+      <h2>Cuánto tiempo los guardamos</h2>
+      <p>Los emails de consulta se conservan solo el tiempo necesario para gestionar tu petición y el seguimiento habitual; después se eliminan.</p>
 
       <h2>Tus derechos</h2>
       <p>
-        Según la normativa europea y española de protección de datos, puedes solicitar acceso, rectificación o
-        supresión de datos personales de una consulta, u oponerte al tratamiento, mediante el
-        <a href={withBase('/es/contacto/')}>formulario de contacto</a> cuando esté activo,
-        o a través de Instagram ({SITE.instagramHandle}).
+        Según el RGPD y la normativa española de protección de datos, puedes solicitar el acceso, la rectificación o la supresión de tus datos,
+        oponerte a su tratamiento o limitarlo, o pedir su portabilidad, escribiendo a
+        <a href={`mailto:${SITE.publicEmail}`}>{SITE.publicEmail}</a>
+        o mediante el <a href={withBase('/es/contacto/')}>formulario de contacto</a>.
       </p>
       <p>
-        También puedes presentar una reclamación ante la AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).
+        También puedes presentar una reclamación ante la Agencia Española de Protección de Datos, AEPD (<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">aepd.es</a>).
       </p>
 
-      <h2>Cookies</h2>
+      <h2 id="cookies">Cookies</h2>
       <p>
-        Este sitio usa Google Analytics 4 para medir visitas de página y clics (cómo llegar, email, Instagram y partidos / What&apos;s on).
-        No usamos cookies de marketing/publicidad para el formulario de contacto.
-        Google puede tratar estos datos de medición; consulta la
-        <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Política de privacidad de Google</a>.
-        Más adelante se puede añadir un banner de cookies más completo si hace falta.
+        <strong>Analítica (solo con tu consentimiento).</strong> Si pulsas «Aceptar» en el aviso de cookies, usamos Google Analytics 4
+        para contar visitas y clics (cómo llegar, email, Instagram, partidos y envíos del formulario de contacto).
+        Google instala las cookies <code>_ga</code> y <code>_ga_*</code> (hasta 2 años). Si las rechazas o no eliges,
+        Google Analytics no se carga y estas cookies no se instalan. No usamos cookies publicitarias.
+        Consulta la <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Política de privacidad de Google</a>.
+      </p>
+      <p>
+        <strong>Almacenamiento necesario (sin consentimiento).</strong> Tu elección sobre cookies se guarda en tu navegador
+        (<code>dubliners_cookie_consent_v1</code>), y el formulario de contacto guarda un indicador temporal durante la sesión para mostrar la confirmación de «mensaje enviado».
+      </p>
+      <p>
+        <strong>Google Maps.</strong> Algunas páginas muestran un mapa de Google integrado. Al cargarse, Google puede instalar sus propias cookies según su política de privacidad.
+      </p>
+      <p>
+        Puedes cambiar tu elección cuando quieras: <button type="button" class="cookie-settings-link" style="display:inline" data-cookie-settings>Configurar cookies</button>.
       </p>
 
       <p><a href={withBase('/es/contacto/')}>Volver a Contacto</a></p>

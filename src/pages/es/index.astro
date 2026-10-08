@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
+import { hoursSummary } from '../../data/hours';
 
 const title = 'Pub irlandés Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
 const description =
@@ -185,7 +186,7 @@ const description =
       <div class="faq">
         <details>
           <summary>¿Cuál es el horario?</summary>
-          <p>Lun–jue y dom 12:00–02:00 · Vie–sáb 12:00–02:30.</p>
+          <p>{hoursSummary('es')}.</p>
         </details>
         <details>
           <summary>¿Estáis cerca de Puerta del Sol?</summary>

@@ -52,15 +52,7 @@ export function hreflangFor(path: string): { en: string; es: string } {
   return { en: p, es };
 }
 
-export const HOURS_ES = [
-  { day: 'Lunes', hours: '12:00–02:00' },
-  { day: 'Martes', hours: '12:00–02:00' },
-  { day: 'Miércoles', hours: '12:00–02:00' },
-  { day: 'Jueves', hours: '12:00–02:00' },
-  { day: 'Viernes', hours: '12:00–02:30' },
-  { day: 'Sábado', hours: '12:00–02:30' },
-  { day: 'Domingo', hours: '12:00–02:00' },
-] as const;
+export { HOURS_ES } from './data/hours';
 
 const WEEKDAY_ES = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'] as const;
 const MONTH_ES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'] as const;

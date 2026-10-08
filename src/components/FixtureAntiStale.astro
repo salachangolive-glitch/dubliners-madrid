@@ -1,208 +1,71 @@
 ---
 /**
- * Client-side fail-closed filter for static What’s On boards.
- * Re-reads Europe/Madrid date + time at runtime so a stale Pages deploy
- * cannot keep past kickoffs under “Today” / current week after midnight.
- * Also promotes still-current same-day rows from Upcoming → Today when the
- * build baked an empty Today column (common between afternoon deploys).
- * Expects [data-fixture-board] with [data-fixture-slot="today"|"week"],
- * each <li data-date-key data-madrid-time data-duration-min>, and
- * sibling [data-fixture-empty] paragraphs.
- * Also re-sorts visible week/today rows soonest-first and refreshes on
- * visibilitychange so a long-lived tab never shows finished as “next”.
+ * Client-side agenda refresh — same rule as agendaAt() in src/data/fixtures.ts:
+ * - finished (now >= data-end-ms) → hidden
+ * - Today: Madrid date of kickoff === today's Madrid date, or started and not finished
+ * - Upcoming: kickoff on a later Madrid date
+ * Rows are moved between the two lists, so a static build never shows
+ * “nothing today” while today’s games sit under Upcoming.
+ * Also hides any [data-show-until="YYYY-MM-DD"] block after that Madrid date.
+ * Without JS, the build-time HTML (same rule at build time) is shown.
  */
 ---
 <script is:inline>
 (function () {
-  function madridTodayYmd() {
+  function madridTodayYmd(now) {
     try {
       return new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Europe/Madrid',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-      }).format(new Date());
-    } catch (e) {
-      return null;
-    }
+        timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(now);
+    } catch (e) { return null; }
   }
-
-  function madridNowHm() {
-    try {
-      var parts = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Madrid',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-      }).formatToParts(new Date());
-      var hour = null;
-      var minute = null;
-      for (var i = 0; i < parts.length; i++) {
-        if (parts[i].type === 'hour') hour = parts[i].value;
-        if (parts[i].type === 'minute') minute = parts[i].value;
-      }
-      if (!hour || !minute) return null;
-      return (hour.length < 2 ? '0' + hour : hour) + ':' + (minute.length < 2 ? '0' + minute : minute);
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function hmToMin(hm) {
-    var m = /^(\d{2}):(\d{2})$/.exec(hm || '');
-    if (!m) return null;
-    return Number(m[1]) * 60 + Number(m[2]);
-  }
-
-  function stillCurrent(li, todayYmd, nowHm) {
-    var dateKey = li.getAttribute('data-date-key');
-    var madridTime = li.getAttribute('data-madrid-time');
-    var durAttr = li.getAttribute('data-duration-min');
-    if (!dateKey || !madridTime) return false;
-    if (dateKey > todayYmd) return true;
-    if (dateKey < todayYmd) return false;
-    var startMin = hmToMin(madridTime);
-    var nowMin = hmToMin(nowHm);
-    if (startMin == null || nowMin == null) return false;
-    var dur = parseInt(durAttr || '180', 10);
-    if (!isFinite(dur) || dur < 0) dur = 180;
-    var endMin = Math.min(startMin + dur, 24 * 60 - 1);
-    return nowMin < endMin;
-  }
-
+  function startOf(li) { return Number(li.getAttribute('data-start-ms')); }
+  function endOf(li) { return Number(li.getAttribute('data-end-ms')); }
   function sortKey(li) {
     return (li.getAttribute('data-date-key') || '') + 'T' + (li.getAttribute('data-madrid-time') || '');
   }
-
-  function reorderVisible(list) {
-    if (!list) return;
-    var items = Array.prototype.slice.call(list.querySelectorAll('li[data-date-key]'));
-    var visible = items.filter(function (li) {
-      return !li.hidden;
-    });
-    if (visible.length < 2) return;
-    visible.sort(function (a, b) {
-      var ka = sortKey(a);
-      var kb = sortKey(b);
-      if (ka < kb) return -1;
-      if (ka > kb) return 1;
-      return 0;
-    });
-    for (var i = 0; i < visible.length; i++) {
-      list.appendChild(visible[i]);
-    }
-  }
-
-  function fixtureIdentity(li) {
-    return (
-      (li.getAttribute('data-date-key') || '') +
-      '|' +
-      (li.getAttribute('data-madrid-time') || '') +
-      '|' +
-      ((li.querySelector('.fx-body strong') || {}).textContent || '').trim()
-    );
-  }
-
-  /**
-   * Static builds bake "Today" at deploy time. Between deploys, same-day fixtures
-   * live only under Upcoming. Promote still-current same-day week rows into Today
-   * so the Today column is never empty while tonight's kickoffs remain upcoming.
-   */
-  function promoteWeekIntoToday(board, todayYmd, nowHm, failClosed) {
-    if (failClosed) return;
-    var todaySlot = board.querySelector('[data-fixture-slot="today"]');
-    var weekSlot = board.querySelector('[data-fixture-slot="week"]');
-    if (!todaySlot || !weekSlot) return;
-    var todayList = todaySlot.querySelector('ul.fixture-list');
-    var weekList = weekSlot.querySelector('ul.fixture-list');
+  function refreshBoard(board, now, todayYmd) {
+    var todayCol = board.querySelector('[data-fixture-slot="today"]');
+    var weekCol = board.querySelector('[data-fixture-slot="week"]');
+    if (!todayCol || !weekCol) return;
+    var todayList = todayCol.querySelector('ul.fixture-list');
+    var weekList = weekCol.querySelector('ul.fixture-list');
     if (!todayList || !weekList) return;
-
-    var existing = {};
-    var todayItems = todayList.querySelectorAll('li[data-date-key]');
-    for (var t = 0; t < todayItems.length; t++) {
-      existing[fixtureIdentity(todayItems[t])] = true;
+    var rows = Array.prototype.slice.call(board.querySelectorAll('li[data-date-key]'));
+    rows.sort(function (a, b) { var x = sortKey(a), y = sortKey(b); return x < y ? -1 : x > y ? 1 : 0; });
+    var t = now.getTime();
+    var nToday = 0, nWeek = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var li = rows[i];
+      var key = li.getAttribute('data-date-key');
+      var s = startOf(li), e = endOf(li);
+      var valid = todayYmd && key && isFinite(s) && isFinite(e);
+      var finished = !valid || t >= e;
+      if (finished) { li.hidden = true; li.setAttribute('aria-hidden', 'true'); continue; }
+      li.hidden = false; li.removeAttribute('aria-hidden');
+      if (key === todayYmd || (key < todayYmd && s <= t)) { todayList.appendChild(li); nToday++; }
+      else { weekList.appendChild(li); nWeek++; }
     }
-
-    var weekItems = weekList.querySelectorAll('li[data-date-key]');
-    for (var i = 0; i < weekItems.length; i++) {
-      var src = weekItems[i];
-      if (src.getAttribute('data-date-key') !== todayYmd) continue;
-      if (!stillCurrent(src, todayYmd, nowHm)) continue;
-      var id = fixtureIdentity(src);
-      if (existing[id]) continue;
-      var clone = src.cloneNode(true);
-      var day = clone.querySelector('.fx-day');
-      if (day && day.parentNode) day.parentNode.removeChild(day);
-      clone.hidden = false;
-      clone.removeAttribute('aria-hidden');
-      todayList.appendChild(clone);
-      existing[id] = true;
-    }
+    todayList.hidden = nToday === 0;
+    weekList.hidden = nWeek === 0;
+    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
+    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
   }
-
-  function refreshBoard(board) {
-    var todayYmd = madridTodayYmd();
-    var nowHm = madridNowHm();
-    // Fail closed: cannot trust wall clock → strip all listed fixtures
-    var failClosed = !todayYmd || !nowHm;
-
-    promoteWeekIntoToday(board, todayYmd, nowHm, failClosed);
-
-    var slots = board.querySelectorAll('[data-fixture-slot]');
-    for (var s = 0; s < slots.length; s++) {
-      var slot = slots[s];
-      var kind = slot.getAttribute('data-fixture-slot');
-      var items = slot.querySelectorAll('li[data-date-key]');
-      var kept = 0;
-      for (var i = 0; i < items.length; i++) {
-        var li = items[i];
-        var keep = false;
-        if (!failClosed) {
-          if (kind === 'today') {
-            keep =
-              li.getAttribute('data-date-key') === todayYmd &&
-              stillCurrent(li, todayYmd, nowHm);
-          } else {
-            // Upcoming this week: future days only (today lives in Today column)
-            keep =
-              li.getAttribute('data-date-key') > todayYmd &&
-              stillCurrent(li, todayYmd, nowHm);
-          }
-        }
-        if (keep) {
-          li.hidden = false;
-          li.removeAttribute('aria-hidden');
-          kept++;
-        } else {
-          li.hidden = true;
-          li.setAttribute('aria-hidden', 'true');
-        }
-      }
-      var empty = slot.querySelector('[data-fixture-empty]');
-      var list = slot.querySelector('ul.fixture-list');
-      if (kept === 0) {
-        if (list) list.hidden = true;
-        if (empty) empty.hidden = false;
-      } else {
-        if (list) {
-          list.hidden = false;
-          reorderVisible(list);
-        }
-        if (empty) empty.hidden = true;
-      }
-    }
-  }
-
   function run() {
+    var now = new Date();
+    var todayYmd = madridTodayYmd(now);
     var boards = document.querySelectorAll('[data-fixture-board]');
-    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b]);
+    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b], now, todayYmd);
+    var timed = document.querySelectorAll('[data-show-until]');
+    for (var k = 0; k < timed.length; k++) {
+      var until = timed[k].getAttribute('data-show-until');
+      timed[k].hidden = !todayYmd || todayYmd > until;
+    }
   }
-
+  window.__dublinersAgendaRefresh = run;
   run();
   setInterval(run, 60 * 1000);
-  document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'visible') run();
-  });
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') run(); });
   window.addEventListener('pageshow', run);
 })();
 </script>

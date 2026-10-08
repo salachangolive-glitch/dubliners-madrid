@@ -26,7 +26,7 @@
  *   Fri 9 Glasgow–Connacht 20:45; Sat 10 Ulster–Munster 18:30; Leinster–Cardiff 20:45.
  * - OMIT Tentative: NFL London Game Pass, Europa League, other UCL MD2/J3,
  *   Levante–Athletic (canal no publicado). Coventry; Clásico 25 Oct; NBA.
- * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
+ * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
  */
@@ -36,7 +36,7 @@ export type Fixture = {
   competition: string;
   teams: string;
   madridTime: string; // HH:mm 24h Europe/Madrid
-  /** Approximate broadcast length for anti-stale “still on” checks (minutes). */
+  /** Optional override of the standard sport duration (minutes). Normally unset. */
   approxDurationMin?: number;
   /** Explicit venue confirmation; only these rows may claim the match is on screens. */
   confirmedOnScreens?: boolean;
@@ -49,7 +49,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'United Rugby Championship',
     teams: 'Glasgow Warriors vs Connacht',
     madridTime: '20:45',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -58,7 +57,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Málaga vs Espanyol',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -67,7 +65,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Premier League',
     teams: 'Arsenal vs Leeds United',
     madridTime: '13:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -76,7 +73,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Rayo Vallecano vs Athletic Club',
     madridTime: '14:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -85,7 +81,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Premier League',
     teams: 'Chelsea vs Bournemouth',
     madridTime: '16:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -94,7 +89,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Alavés vs Atlético de Madrid',
     madridTime: '16:15',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -103,7 +97,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Premier League',
     teams: 'Manchester United vs Tottenham',
     madridTime: '18:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -112,7 +105,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Barcelona vs Getafe',
     madridTime: '18:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -121,7 +113,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'United Rugby Championship',
     teams: 'Ulster vs Munster',
     madridTime: '18:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -130,7 +121,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'United Rugby Championship',
     teams: 'Leinster vs Cardiff',
     madridTime: '20:45',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -139,7 +129,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Real Madrid vs Villarreal',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -148,7 +137,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Formula 1',
     teams: 'Singapore Grand Prix',
     madridTime: '14:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -157,7 +145,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Elche vs Celta',
     madridTime: '14:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -166,7 +153,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL (London)',
     teams: 'Eagles vs Jaguars',
     madridTime: '15:30',
-    approxDurationMin: 210,
     confirmedOnScreens: false,
   },
   {
@@ -175,7 +161,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Real Sociedad vs Deportivo',
     madridTime: '16:15',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -184,7 +169,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Premier League',
     teams: 'Liverpool vs Manchester City',
     madridTime: '17:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -193,7 +177,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Betis vs Osasuna',
     madridTime: '18:30',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -202,7 +185,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Bears vs Packers',
     madridTime: '19:00',
-    approxDurationMin: 210,
     confirmedOnScreens: true,
   },
   {
@@ -211,7 +193,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Giants vs Commanders',
     madridTime: '19:00',
-    approxDurationMin: 210,
     confirmedOnScreens: true,
   },
   {
@@ -220,7 +201,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Colts vs Steelers',
     madridTime: '19:00',
-    approxDurationMin: 210,
     confirmedOnScreens: true,
   },
   {
@@ -229,7 +209,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Racing vs Valencia',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -238,7 +217,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Levante vs Sevilla',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -247,7 +225,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Champions League',
     teams: 'Atlético de Madrid vs Manchester United',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -256,7 +233,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Conference League',
     teams: 'Craiova vs Getafe',
     madridTime: '18:45',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -265,7 +241,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Espanyol vs Atlético de Madrid',
     madridTime: '14:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -274,7 +249,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Getafe vs Rayo Vallecano',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -283,7 +257,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Champions League',
     teams: 'Real Madrid vs RB Leipzig',
     madridTime: '21:00',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
   {
@@ -292,7 +265,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Conference League',
     teams: 'Getafe vs Lugano',
     madridTime: '18:45',
-    approxDurationMin: 120,
     confirmedOnScreens: true,
   },
 ];
@@ -347,10 +319,55 @@ export function madridNowHm(d: Date = new Date()): string | null {
   }
 }
 
-function hmToMinutes(hm: string): number | null {
-  const m = /^(\d{2}):(\d{2})$/.exec(hm);
-  if (!m) return null;
-  return Number(m[1]) * 60 + Number(m[2]);
+/** Standard duration per sport (minutes) used to decide when a fixture has finished. */
+export const SPORT_DURATION_MIN: Record<string, number> = {
+  Football: 120, // 90' + half-time + stoppage
+  Rugby: 120,
+  NFL: 210, // ~3h30
+  'Formula 1': 150, // ~2h30
+  NBA: 150,
+  Tennis: 180, // best-of-3/5 varies; 3h is a conservative default
+};
+/** Any other sport: 3h (documented default). */
+export const DEFAULT_DURATION_MIN = 180;
+
+export function fixtureDurationMin(f: Fixture): number {
+  if (f.approxDurationMin && f.approxDurationMin > 0) return f.approxDurationMin;
+  return SPORT_DURATION_MIN[sportLabel(f.competition)] ?? DEFAULT_DURATION_MIN;
+}
+
+/** Offset (ms) of Europe/Madrid vs UTC at a given instant. */
+function madridOffsetMs(epochMs: number): number {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Madrid',
+    hourCycle: 'h23',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  }).formatToParts(new Date(epochMs));
+  const g = (t: string) => Number(parts.find((p) => p.type === t)?.value);
+  const asUtc = Date.UTC(g('year'), g('month') - 1, g('day'), g('hour'), g('minute'), g('second'));
+  return asUtc - Math.floor(epochMs / 1000) * 1000;
+}
+
+/** Epoch ms of a Madrid wall-clock time (handles CET/CEST). */
+export function madridWallToEpoch(dateKey: string, hm: string): number {
+  const [y, m, d] = dateKey.split('-').map(Number);
+  const [hh, mm] = hm.split(':').map(Number);
+  const naive = Date.UTC(y, m - 1, d, hh, mm);
+  let t = naive - madridOffsetMs(naive);
+  t = naive - madridOffsetMs(t);
+  return t;
+}
+
+export function fixtureStartMs(f: Fixture): number {
+  return madridWallToEpoch(f.dateKey, f.madridTime);
+}
+export function fixtureEndMs(f: Fixture): number {
+  return fixtureStartMs(f) + fixtureDurationMin(f) * 60_000;
 }
 
 /** Soonest first: dateKey then madridTime. Stable for same-slot ties (array order). */
@@ -363,52 +380,43 @@ export function sortFixturesSoonestFirst(list: Fixture[]): Fixture[] {
 }
 
 /**
- * True if the fixture is still “current” in Europe/Madrid:
- * - dateKey > today → upcoming week item
- * - dateKey === today → kickoff+duration not yet passed (Madrid wall clock; overnight end clamped to 23:59 same calendar day for Today slot)
- * - dateKey < today → past (never current)
- * Fail closed: missing/invalid time → not current.
+ * SINGLE agenda rule for EN + ES, Today/Hoy + Upcoming/Próximos (Europe/Madrid).
+ * - finished (now >= start + sport duration) → hidden everywhere
+ * - TODAY: kickoff on today's Madrid date, or already started and not finished
+ *   (covers late games that run past midnight)
+ * - UPCOMING: kickoff on a later Madrid date
+ * The client script (FixtureAntiStale) applies exactly the same rule in the browser.
  */
+export function buildNow(): Date {
+  // Test hook: AGENDA_NOW=2026-10-09T20:50:00+02:00 npm run build (never set in deploy).
+  const v = typeof process !== 'undefined' ? process.env?.AGENDA_NOW : undefined;
+  return v ? new Date(v) : new Date();
+}
+
+export function agendaAt(now: Date = buildNow()): { todayKey: string; today: Fixture[]; upcoming: Fixture[] } {
+  const todayKey = madridToday(now);
+  const t = now.getTime();
+  const live = sortFixturesSoonestFirst(FIXTURES).filter((f) => t < fixtureEndMs(f));
+  const today = live.filter((f) => f.dateKey === todayKey || (f.dateKey < todayKey && fixtureStartMs(f) <= t));
+  const upcoming = live.filter((f) => f.dateKey > todayKey);
+  return { todayKey, today, upcoming };
+}
+
+/** True if the fixture has not finished yet at `now`. */
 export function isCurrentFixture(f: Fixture, now: Date = new Date()): boolean {
-  let today: string;
-  try {
-    today = madridToday(now);
-  } catch {
-    return false;
-  }
-  if (f.dateKey > today) return true;
-  if (f.dateKey < today) return false;
-
-  const nowHm = madridNowHm(now);
-  if (!nowHm) return false;
-  const startMin = hmToMinutes(f.madridTime);
-  const nowMin = hmToMinutes(nowHm);
-  if (startMin == null || nowMin == null) return false;
-  const dur = f.approxDurationMin ?? 180;
-  const endMin = Math.min(startMin + dur, 24 * 60 - 1);
-  return nowMin < endMin;
+  return now.getTime() < fixtureEndMs(f);
 }
 
-/** Build-time / SSR: today’s still-current fixtures only, soonest first. */
+/** Build-time: today’s not-finished fixtures. */
 export function fixturesForToday(now: Date = new Date()): Fixture[] {
-  const today = madridToday(now);
-  return sortFixturesSoonestFirst(
-    FIXTURES.filter((f) => f.dateKey === today && isCurrentFixture(f, now)),
-  );
+  return agendaAt(now).today;
 }
 
-/** Build-time / SSR: this week = today (current) + future dateKeys. Past days excluded. Soonest first. */
+/** Build-time: today (not finished) + upcoming. */
 export function fixturesForWeek(now: Date = new Date()): Fixture[] {
-  const today = madridToday(now);
-  return sortFixturesSoonestFirst(
-    FIXTURES.filter((f) => {
-      if (f.dateKey > today) return true;
-      if (f.dateKey === today) return isCurrentFixture(f, now);
-      return false;
-    }),
-  );
+  const a = agendaAt(now);
+  return [...a.today, ...a.upcoming];
 }
-
 
 /** Premier League or UEFA Champions League competition (SEO SportsEvent filter). */
 export function isPremierOrChampions(competition: string): boolean {

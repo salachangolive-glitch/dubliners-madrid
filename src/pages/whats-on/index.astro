@@ -2,26 +2,18 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
-import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import FixtureBoard from '../../components/FixtureBoard.astro';
 import { SITE, withBase, absUrl } from '../../site';
-import {
-  fixturesForToday,
-  fixturesForWeek,
-  madridToday,
-  sportLabel,
-  sportsEventsJsonLd,
-} from '../../data/fixtures';
+import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
 
 const title =
   'Premier League Pub near Sol | What\'s On — Dubliners Irish Pub Madrid';
 const description =
   'Irish pub near Sol for Premier League and Champions League nights. Confirmed fixtures on screens at Dubliners, Espoz y Mina 7 — sports bar Madrid centro.';
 
-const todayKey = madridToday();
-const today = fixturesForToday();
-const week = fixturesForWeek();
-const upcoming = week.filter((f) => f.dateKey > todayKey);
-const sportsEvents = sportsEventsJsonLd(week, {
+// One agenda for EN + ES (same filter, same range, Europe/Madrid).
+const { todayKey, today, upcoming } = agendaAt();
+const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   pageUrl: absUrl('/whats-on/'),
   lang: 'en',
 });
@@ -48,54 +40,7 @@ const sportsEvents = sportsEventsJsonLd(week, {
 
   <section class="section">
     <div class="container">
-      <div class="fixture-board" data-fixture-board>
-        <div class="fixture-col" data-fixture-slot="today">
-          <h2>Today near Sol</h2>
-          <p class="empty-slot" data-fixture-empty hidden={today.length > 0}>
-            Nothing listed for today — ask at the bar what’s on the screens.
-          </p>
-          <ul class="fixture-list" hidden={today.length === 0}>
-            {today.map((f) => (
-              <li
-                data-date-key={f.dateKey}
-                data-madrid-time={f.madridTime}
-                data-duration-min={String(f.approxDurationMin ?? 180)}
-              >
-                <span class="fx-time">{f.madridTime}</span>
-                <span class="fx-body">
-                  <strong>{f.teams}</strong>
-                  <em>{sportLabel(f.competition)} · {f.competition}</em>
-                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div class="fixture-col" data-fixture-slot="week">
-          <h2>Upcoming this week near Sol</h2>
-          <p class="empty-slot" data-fixture-empty hidden={upcoming.length > 0}>
-            This week’s upcoming list will appear here when fixtures are ready.
-          </p>
-          <ul class="fixture-list" hidden={upcoming.length === 0}>
-            {upcoming.map((f) => (
-              <li
-                data-date-key={f.dateKey}
-                data-madrid-time={f.madridTime}
-                data-duration-min={String(f.approxDurationMin ?? 180)}
-              >
-                <span class="fx-day">{f.whenLabel}</span>
-                <span class="fx-time">{f.madridTime}</span>
-                <span class="fx-body">
-                  <strong>{f.teams}</strong>
-                  <em>{sportLabel(f.competition)} · {f.competition}</em>
-                  {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">Confirmed</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <FixtureAntiStale />
+      <FixtureBoard lang="en" today={today} upcoming={upcoming} />
       <p class="fx-note">
         Times are Madrid time. Confirmed = showing on our screens.
       </p>
@@ -116,7 +61,7 @@ const sportsEvents = sportsEventsJsonLd(week, {
         if you’re looking for a specific game.
       </p>
       {todayKey <= '2026-10-10' && (
-        <p>
+        <p data-show-until="2026-10-10">
           Saturday at Dubliners is packed: Arsenal–Leeds 13:30, Rayo–Athletic 14:00, Alavés–Atlético 16:15, Man Utd–Spurs with Barça–Getafe and Ulster–Munster at 18:30, then Leinster–Cardiff 20:45 and Real Madrid–Villarreal 21:00 — Confirmed on our screens; clashes go on different screens. Walk in near Sol.
         </p>
       )}

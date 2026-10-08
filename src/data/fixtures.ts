@@ -12,7 +12,7 @@
  *   Sat 10 Arsenal–Leeds 13:30; Chelsea–Bournemouth 16:00; Man Utd–Spurs 18:30
  *   CONFIRMED (top club playing). Sun 11 Liverpool–Man City 17:30 CONFIRMED
  *   (owner order; Sunday hours 12:00–02:00, match finishes inside opening).
- * - Owner permanent 8 Oct 2026: Dubliners has DAZN + Movistar.
+ * - Owner permanent 8 Oct 2026: Dubliners has DAZN + Movistar + Premier Sports.
  * - Radar 2026-10-08-ligero (Confirmed only; Tentative omitted): LaLiga Fri 9
  *   Málaga–Espanyol 21:00 DAZN; Sat 10 Rayo–Athletic 14:00 DAZN, Alavés–Atlético
  *   16:15, Barcelona–Getafe 18:30, Real Madrid–Villarreal 21:00 Movistar Plus+;
@@ -22,7 +22,9 @@
  * - Conference: Thu 15 Craiova–Getafe 18:45; Thu 22 Getafe–Lugano 18:45 (M+ LDC).
  * - UCL: Tue 13 Atlético–Man Utd 21:00; Wed 21 Real Madrid–Leipzig 21:00 Movistar Plus+.
  * - F1 Singapore Sun 11 14:00 CONFIRMED. NFL Sun 11 as prior (Eagles agenda-only).
- * - OMIT Tentative: URC, NFL London Game Pass, Europa League, other UCL MD2/J3,
+ * - URC J3 Premier Sports (Planet Rugby how-to-watch + owner Premier Sports):
+ *   Fri 9 Glasgow–Connacht 20:45; Sat 10 Ulster–Munster 18:30; Leinster–Cardiff 20:45.
+ * - OMIT Tentative: NFL London Game Pass, Europa League, other UCL MD2/J3,
  *   Levante–Athletic (canal no publicado). Coventry; Clásico 25 Oct; NBA.
  * Hours: Mon–Thu/Sun 12:00–02:00; Fri–Sat 12:00–02:30.
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
@@ -41,6 +43,15 @@ export type Fixture = {
 };
 
 export const FIXTURES: Fixture[] = [
+  {
+    dateKey: '2026-10-09',
+    whenLabel: 'Fri 9 Oct',
+    competition: 'United Rugby Championship',
+    teams: 'Glasgow Warriors vs Connacht',
+    madridTime: '20:45',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
   {
     dateKey: '2026-10-09',
     whenLabel: 'Fri 9 Oct',
@@ -101,6 +112,24 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Barcelona vs Getafe',
     madridTime: '18:30',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'United Rugby Championship',
+    teams: 'Ulster vs Munster',
+    madridTime: '18:30',
+    approxDurationMin: 120,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-10',
+    whenLabel: 'Sat 10 Oct',
+    competition: 'United Rugby Championship',
+    teams: 'Leinster vs Cardiff',
+    madridTime: '20:45',
     approxDurationMin: 120,
     confirmedOnScreens: true,
   },

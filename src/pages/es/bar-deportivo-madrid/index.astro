@@ -1,4 +1,5 @@
 ---
+import MapEmbed from '../../../components/MapEmbed.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
@@ -123,7 +124,7 @@ const description =
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">
-        <iframe title="Mapa a Dubliners bar deportivo" loading="lazy" src={SITE.mapsEmbed}></iframe>
+        <MapEmbed lang="es" title="Mapa a Dubliners bar deportivo" />
       </div>
       <p style="margin-top:1rem">
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>

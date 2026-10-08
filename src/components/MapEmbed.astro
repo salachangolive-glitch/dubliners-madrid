@@ -1,0 +1,52 @@
+---
+/**
+ * Click-to-load Google map. Nothing is requested from Google Maps / gstatic
+ * until the visitor clicks. Placeholder is exactly the iframe box (280px,
+ * inline-block like the iframe) so layouts do not shift. Place inside .map-frame.
+ */
+import { SITE } from '../site';
+
+interface Props {
+  title: string;
+  lang?: 'en' | 'es';
+  referrerpolicy?: string;
+}
+const { title, lang = 'en', referrerpolicy } = Astro.props;
+const es = lang === 'es';
+const L = es
+  ? { show: 'Mostrar mapa', note: '(Google Maps puede usar cookies)', open: 'Abrir en Google Maps' }
+  : { show: 'Show map', note: '(Google Maps may set cookies)', open: 'Open in Google Maps' };
+---
+
+<div
+  class="map-placeholder"
+  data-map-embed
+  data-map-src={SITE.mapsEmbed}
+  data-map-title={title}
+  data-map-referrer={referrerpolicy || undefined}
+>
+  <div class="map-placeholder-inner">
+    <button type="button" class="btn btn-secondary" data-map-load aria-label={`${L.show} ${L.note}: ${title}`}>
+      {L.show} <span class="map-note">{L.note}</span>
+    </button>
+    <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{L.open}</a>
+  </div>
+</div>
+<script is:inline>
+(function () {
+  if (window.__dublinersMapInit) return;
+  window.__dublinersMapInit = true;
+  document.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest && e.target.closest('[data-map-load]');
+    if (!btn) return;
+    var box = btn.closest('[data-map-embed]');
+    if (!box) return;
+    var f = document.createElement('iframe');
+    f.title = box.getAttribute('data-map-title') || 'Google Maps';
+    var rp = box.getAttribute('data-map-referrer');
+    if (rp) f.setAttribute('referrerpolicy', rp);
+    f.src = box.getAttribute('data-map-src');
+    box.parentNode.replaceChild(f, box);
+  });
+})();
+</script>

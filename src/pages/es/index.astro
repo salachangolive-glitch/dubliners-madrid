@@ -1,4 +1,5 @@
 ---
+import MapEmbed from '../../components/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
@@ -249,7 +250,7 @@ const description =
         <CtaRow lang="es" />
       </div>
       <div class="map-frame">
-        <iframe title="Mapa a Dubliners Madrid" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={SITE.mapsEmbed}></iframe>
+        <MapEmbed lang="es" title="Mapa a Dubliners Madrid" referrerpolicy="no-referrer-when-downgrade" />
       </div>
     </div>
   </section>

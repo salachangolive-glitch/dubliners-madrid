@@ -1,4 +1,6 @@
 ---
+import { hoursFor } from '../../data/hours';
+import MapEmbed from '../../components/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
@@ -46,7 +48,7 @@ const description =
         </article>
         <article class="card">
           <h3>Pub hours</h3>
-          <p>Wednesday 12:00–02:00 at Dubliners.</p>
+          <p>Wednesday {hoursFor('Wednesday')} at Dubliners.</p>
         </article>
       </div>
     </div>
@@ -71,7 +73,7 @@ const description =
         </details>
       </div>
       <div class="map-frame" style="margin-top:1.5rem">
-        <iframe title="Map to Dubliners Wednesday shots" loading="lazy" src={SITE.mapsEmbed}></iframe>
+        <MapEmbed lang="en" title="Map to Dubliners Wednesday shots" />
       </div>
     </div>
   </section>

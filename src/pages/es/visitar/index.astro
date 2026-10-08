@@ -1,4 +1,5 @@
 ---
+import MapEmbed from '../../../components/MapEmbed.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
@@ -75,7 +76,7 @@ const description =
       </p>
 
       <div class="map-frame">
-        <iframe title="Mapa de Google — Dubliners Madrid" loading="lazy" src={SITE.mapsEmbed}></iframe>
+        <MapEmbed lang="es" title="Mapa de Google — Dubliners Madrid" />
       </div>
 
       <h2>Reconócenos desde la calle</h2>

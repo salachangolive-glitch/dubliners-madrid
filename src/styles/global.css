@@ -1041,3 +1041,33 @@ a.card.card-link:hover h3 {
 .cookie-settings-link:hover {
   color: var(--accent-2);
 }
+
+/* Click-to-load map placeholder: same box as .map-frame iframe (inline-level, 280px). */
+.map-placeholder {
+  display: inline-block;
+  vertical-align: baseline;
+  overflow: hidden;
+  width: 100%;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.map-placeholder-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.map-placeholder-inner a {
+  color: var(--accent-2);
+}
+
+.map-placeholder .map-note {
+  font-weight: 400;
+  font-size: 0.85em;
+}

@@ -26,6 +26,19 @@
  *   Fri 9 Glasgow–Connacht 20:45; Sat 10 Ulster–Munster 18:30; Leinster–Cardiff 20:45.
  * - OMIT Tentative: NFL London Game Pass, Europa League, other UCL MD2/J3,
  *   Levante–Athletic (canal no publicado). Coventry; Clásico 25 Oct; NBA.
+ * - Week 12–18 Oct 2026 (DG order 11 Oct 09:10; owner: DAZN + Movistar + Premier Sports):
+ *   Radar 8 Oct Confirmed: UCL J2 Tue 13 Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli
+ *   21:00; Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
+ *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
+ *   LaLiga J9 Fri 16 Deportivo–Levante 21:00 (M+ & DAZN), Sat 17 Betis–Barcelona 18:30 DAZN,
+ *   Valencia–Athletic 21:00 M+, Sun 18 Real Madrid–Sevilla 21:00 M+.
+ *   UEL J2 Thu 15 USG–Real Sociedad 18:45, Celta–Juventus 21:00 (movistarplus.es fichas 11 Oct).
+ *   Premier MW7 times premierleague.com/en/news/4688862 (BST+1); channel DAZN (dazn.com/es-ES:
+ *   all Premier League matches in Spain on DAZN): Mon 12 Coventry–Newcastle 21:00; Sat 17
+ *   Everton–Chelsea 13:30, Brentford–Liverpool 16:00, Man City–Ipswich 16:00, Newcastle–Villa
+ *   18:30; Sun 18 Leeds–Man Utd 15:00, Forest–Arsenal 17:30.
+ *   OMIT: NFL Sun 18 (no per-game channel verified; SNF 02:10 past close), NCAA, URC (no round
+ *   17 Oct), LaLiga J9 rows not in Radar, low-demand Premier rows.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -220,10 +233,82 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
+    dateKey: '2026-10-12',
+    whenLabel: 'Mon 12 Oct',
+    competition: 'Premier League',
+    teams: 'Coventry City vs Newcastle United',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
     dateKey: '2026-10-13',
     whenLabel: 'Tue 13 Oct',
     competition: 'UEFA Champions League',
     teams: 'Atlético de Madrid vs Manchester United',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-13',
+    whenLabel: 'Tue 13 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Galatasaray vs Barcelona',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-13',
+    whenLabel: 'Tue 13 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Arsenal vs Lille',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-13',
+    whenLabel: 'Tue 13 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Villarreal vs Napoli',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'LASK vs Liverpool',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Roma vs Real Madrid',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Manchester City vs Paris Saint-Germain',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Betis vs Porto',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Aston Villa vs Fenerbahçe',
     madridTime: '21:00',
     confirmedOnScreens: true,
   },
@@ -236,11 +321,107 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Union Saint-Gilloise vs Real Sociedad',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Celta vs Juventus',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-16',
+    whenLabel: 'Fri 16 Oct',
+    competition: 'LaLiga',
+    teams: 'Deportivo vs Levante',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'Premier League',
+    teams: 'Everton vs Chelsea',
+    madridTime: '13:30',
+    confirmedOnScreens: true,
+  },
+  {
     dateKey: '2026-10-17',
     whenLabel: 'Sat 17 Oct',
     competition: 'LaLiga',
     teams: 'Espanyol vs Atlético de Madrid',
     madridTime: '14:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'Premier League',
+    teams: 'Brentford vs Liverpool',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'Premier League',
+    teams: 'Manchester City vs Ipswich Town',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'LaLiga',
+    teams: 'Betis vs Barcelona',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'Premier League',
+    teams: 'Newcastle United vs Aston Villa',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'LaLiga',
+    teams: 'Valencia vs Athletic Club',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'Premier League',
+    teams: 'Leeds United vs Manchester United',
+    madridTime: '15:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'Premier League',
+    teams: 'Nottingham Forest vs Arsenal',
+    madridTime: '17:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'LaLiga',
+    teams: 'Real Madrid vs Sevilla',
+    madridTime: '21:00',
     confirmedOnScreens: true,
   },
   {

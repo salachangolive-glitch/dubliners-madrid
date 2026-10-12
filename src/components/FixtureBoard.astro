@@ -59,6 +59,7 @@ const slots = [
               <strong>{f.teams}</strong>
               <em>{sport(f)} · {f.competition}</em>
               {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">{L.confirmed}</span>}
+              {(es ? f.noteEs : f.noteEn) && <span class="fx-note">{es ? f.noteEs : f.noteEn}</span>}
             </span>
           </li>
         ))}

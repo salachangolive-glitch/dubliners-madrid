@@ -53,6 +53,9 @@ export type Fixture = {
   approxDurationMin?: number;
   /** Explicit venue confirmation; only these rows may claim the match is on screens. */
   confirmedOnScreens?: boolean;
+  /** Optional short per-row note (EN / ES). Rendered only on that row. */
+  noteEn?: string;
+  noteEs?: string;
 };
 
 export const FIXTURES: Fixture[] = [
@@ -247,6 +250,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Atlético de Madrid vs Manchester United',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    noteEn: 'Man United fans welcome: pre-match pints from 12:00, steps from Sol. Walk in, first come, first served.',
+    noteEs: 'Aficionados del United bienvenidos: desde las 12:00, a un paso de Sol. Sin reserva, por orden de llegada.',
   },
   {
     dateKey: '2026-10-13',

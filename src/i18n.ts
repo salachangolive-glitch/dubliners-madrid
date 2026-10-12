@@ -17,6 +17,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/football-bar-puerta-del-sol/': '/es/bar-futbol-puerta-del-sol/',
   '/international-students-pub-madrid/': '/es/estudiantes-internacionales/',
   '/about/': '/es/sobre-dubliners/',
+  '/irish-pub-near-plaza-mayor/': '/es/pub-irlandes-plaza-mayor/',
+  '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

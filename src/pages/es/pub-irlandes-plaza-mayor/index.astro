@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../../site';
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿A qué distancia está Dubliners de Plaza Mayor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A pocos pasos: por la Puerta del Sol hasta la calle de Espoz y Mina 7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué horario tiene?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De lunes a jueves y domingo de 12:00 a 02:00; viernes y sábado de 12:00 a 02:30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hace falta reservar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Entra directamente, por orden de llegada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué canales de deporte tenéis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DAZN, Movistar y Premier Sports. Los partidos confirmados y su hora de Madrid están en Partidos."
+      }
+    }
+  ]
+};
+const title = "Pub irlandés cerca de Plaza Mayor y Puerta del Sol, Madrid | Dubliners";
+const description = "Pub irlandés con atención en inglés a pocos pasos de Plaza Mayor, junto a Puerta del Sol: Espoz y Mina 7. Deporte en directo, sin reserva, abierto a diario desde las 12:00.";
+---
+
+<BaseLayout title={title} description={description} path="/es/pub-irlandes-plaza-mayor/" lang="es" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Cerca de Plaza Mayor" lang="es" />
+      <h1>Pub irlandés cerca de Plaza Mayor y Puerta del Sol</h1>
+      <p class="lead">¿De paseo por Plaza Mayor y Sol? Dubliners está a pocos pasos, en la calle de Espoz y Mina 7 — un pub irlandés con atención en inglés y deporte en directo.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Andando desde Plaza Mayor</h2>
+      <ol><li>Sal de Plaza Mayor hacia la calle Mayor y camina hasta la <strong>Puerta del Sol</strong>.</li><li>Desde Sol, entra en la <strong>calle de Espoz y Mina</strong>, hacia Carrera de San Jerónimo / Sevilla.</li><li>Busca el <strong>neón verde de Dubliners</strong> en el número 7 y entra — sin reserva.</li></ol>
+      <h2>En metro</h2>
+      <p>Sol (L1, L2, L3) o Sevilla (L2), ambas a un paseo corto.</p>
+      <h2>Por qué pasar</h2>
+      <p>Deporte en directo en DAZN, Movistar y Premier Sports, el techo pintado histórico de la antigua sastrería Barragán (1885) y chupitos a 1 € todos los miércoles.</p><p><a href={withBase('/es/visitar/')}>Mapa y cómo llegar</a> · <a href={withBase('/es/partidos/')}>Partidos</a> · <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> · <a href={withBase('/es/estudiantes-internacionales/')}>Erasmus y estudiantes internacionales</a></p>
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿A qué distancia está Dubliners de Plaza Mayor?</strong></dt>
+        <dd>A pocos pasos: por la Puerta del Sol hasta la calle de Espoz y Mina 7.</dd>
+        <dt><strong>¿Qué horario tiene?</strong></dt>
+        <dd>De lunes a jueves y domingo de 12:00 a 02:00; viernes y sábado de 12:00 a 02:30.</dd>
+        <dt><strong>¿Hace falta reservar?</strong></dt>
+        <dd>No. Entra directamente, por orden de llegada.</dd>
+        <dt><strong>¿Qué canales de deporte tenéis?</strong></dt>
+        <dd>DAZN, Movistar y Premier Sports. Los partidos confirmados y su hora de Madrid están en Partidos.</dd>
+      </dl>
+      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+    </div>
+  </section>
+</BaseLayout>

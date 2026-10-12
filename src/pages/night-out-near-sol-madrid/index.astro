@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../site';
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What time does Dubliners close?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "02:00 Monday to Thursday and Sunday; 02:30 on Friday and Saturday."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it easy for visitors who speak English?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Dubliners is an English-speaking Irish pub."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Walk in, first come, first served."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s on tonight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Confirmed matches and kick-off times (Madrid time) are listed on What’s On."
+      }
+    }
+  ]
+};
+const title = "Night Out near Sol, Madrid | Late Irish Pub until 02:30 — Dubliners";
+const description = "Things to do at night near Puerta del Sol: an English-speaking Irish pub open until 02:00 (02:30 Fri–Sat), live football, Wednesday €1 shots. Walk in.";
+---
+
+<BaseLayout title={title} description={description} path="/night-out-near-sol-madrid/" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Night out near Sol" />
+      <h1>Night out near Sol: a late Irish pub in the centre</h1>
+      <p class="lead">Looking for somewhere to go tonight around Puerta del Sol? Dubliners on Espoz y Mina 7 stays open late, shows live sport and welcomes visitors in English.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Open late, every day</h2>
+      <p>Monday to Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30. No reservations — just walk in.</p>
+      <h2>Match nights</h2>
+      <p>Live football and more on DAZN, Movistar and Premier Sports. Check <a href={withBase('/whats-on/')}>What’s On</a> for confirmed matches in Madrid time.</p>
+      <h2>Wednesday: €1 shots</h2>
+      <p>Every Wednesday the pub runs its €1 shots promo — see <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>.</p>
+      <h2>Getting here</h2>
+      <p>Metro Sol (L1, L2, L3) or Sevilla (L2); from Puerta del Sol take Calle de Espoz y Mina and look for the green neon at number 7.</p><p><a href={withBase('/visit/')}>Map &amp; directions</a> · <a href={withBase('/whats-on/')}>What’s On</a> · <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> · <a href={withBase('/international-students-pub-madrid/')}>Erasmus &amp; international students</a></p>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What time does Dubliners close?</strong></dt>
+        <dd>02:00 Monday to Thursday and Sunday; 02:30 on Friday and Saturday.</dd>
+        <dt><strong>Is it easy for visitors who speak English?</strong></dt>
+        <dd>Yes, Dubliners is an English-speaking Irish pub.</dd>
+        <dt><strong>Do I need to book?</strong></dt>
+        <dd>No. Walk in, first come, first served.</dd>
+        <dt><strong>What’s on tonight?</strong></dt>
+        <dd>Confirmed matches and kick-off times (Madrid time) are listed on What’s On.</dd>
+      </dl>
+      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+    </div>
+  </section>
+</BaseLayout>

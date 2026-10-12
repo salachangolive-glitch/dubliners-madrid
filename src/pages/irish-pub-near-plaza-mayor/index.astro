@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../site';
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How far is Dubliners from Plaza Mayor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A short walk: via Puerta del Sol to Calle de Espoz y Mina 7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the opening hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monday to Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a reservation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Walk in, first come, first served."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sports channels do you have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DAZN, Movistar and Premier Sports. Confirmed matches and Madrid kick-off times are on What’s On."
+      }
+    }
+  ]
+};
+const title = "Irish Pub near Plaza Mayor & Puerta del Sol, Madrid | Dubliners";
+const description = "English-speaking Irish pub a short walk from Plaza Mayor, just off Puerta del Sol: Espoz y Mina 7. Live sport, walk in, open daily from 12:00.";
+---
+
+<BaseLayout title={title} description={description} path="/irish-pub-near-plaza-mayor/" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Near Plaza Mayor" />
+      <h1>Irish pub near Plaza Mayor and Puerta del Sol</h1>
+      <p class="lead">Sightseeing around Plaza Mayor and Sol? Dubliners is a short walk away on Calle de Espoz y Mina 7 — an English-speaking Irish pub with live sport on the screens.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Walking from Plaza Mayor</h2>
+      <ol><li>Leave Plaza Mayor toward Calle Mayor and walk to <strong>Puerta del Sol</strong>.</li><li>From Sol, take <strong>Calle de Espoz y Mina</strong>, toward Carrera de San Jerónimo / Sevilla.</li><li>Look for the <strong>green Dubliners neon</strong> at number 7 and walk in — no booking.</li></ol>
+      <h2>By metro</h2>
+      <p>Sol (L1, L2, L3) or Sevilla (L2), both a short street-level walk.</p>
+      <h2>Why stop by</h2>
+      <p>Live sport on DAZN, Movistar and Premier Sports, a historic painted ceiling from the old Barragán tailor shop (1885), and €1 shots every Wednesday.</p><p><a href={withBase('/visit/')}>Map &amp; directions</a> · <a href={withBase('/whats-on/')}>What’s On</a> · <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> · <a href={withBase('/international-students-pub-madrid/')}>Erasmus &amp; international students</a></p>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>How far is Dubliners from Plaza Mayor?</strong></dt>
+        <dd>A short walk: via Puerta del Sol to Calle de Espoz y Mina 7.</dd>
+        <dt><strong>What are the opening hours?</strong></dt>
+        <dd>Monday to Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
+        <dt><strong>Do I need a reservation?</strong></dt>
+        <dd>No. Walk in, first come, first served.</dd>
+        <dt><strong>Which sports channels do you have?</strong></dt>
+        <dd>DAZN, Movistar and Premier Sports. Confirmed matches and Madrid kick-off times are on What’s On.</dd>
+      </dl>
+      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+    </div>
+  </section>
+</BaseLayout>

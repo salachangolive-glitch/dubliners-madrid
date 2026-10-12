@@ -49,6 +49,7 @@ const explore =
       {explore.map((l) => (
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
+      <a data-track-event="review_click" href="https://g.page/r/CROjcaLcGtc8EBE/review" rel="noopener" target="_blank">{lang === 'es' ? 'Déjanos tu opinión en Google' : 'Leave us a Google review'}</a>
       <button type="button" class="cookie-settings-link" data-cookie-settings>{lang === 'es' ? 'Configurar cookies' : 'Cookie settings'}</button>
     </div>
     <div id="hours" class="hours-block">

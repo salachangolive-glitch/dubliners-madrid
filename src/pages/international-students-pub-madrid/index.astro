@@ -3,9 +3,55 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Erasmus & International Students Pub Madrid near Sol | Dubliners';
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Dubliners Irish Pub in Madrid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol. Nearest metro: Sol (L1, L2, L3) or Sevilla (L2)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the opening hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monday to Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to book a table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There are no reservations: just walk in, first come, first served."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I watch football in English-friendly company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dubliners is an English-speaking Irish pub with live sport on DAZN, Movistar and Premier Sports. Check What’s On for confirmed matches and kick-off times (Madrid time)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a student night?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Wednesday the pub runs its €1 shots promo. See the Wednesday €1 page for details."
+      }
+    }
+  ]
+};
+const title = 'Erasmus Bar & Irish Pub Madrid near Sol | Football in English | Dubliners';
 const description =
-  'Erasmus and international students pub just off Puerta del Sol. English-friendly Irish bar, live sport, Wednesday €1 shots. Espoz y Mina 7.';
+  'English-speaking Irish pub for Erasmus students and tourists, just off Puerta del Sol. Watch football on DAZN, Movistar & Premier Sports. Walk in, open daily from 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/international-students-pub-madrid/" ogImage="/images/mural-hero.jpg">
@@ -57,6 +103,34 @@ const description =
         <a href={withBase('/sports-bar-madrid/')}>sports screens near Sol</a>,
         <a href={withBase('/visit/')}>how to find us</a>.
       </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Your first night in Madrid: getting here from Sol metro</h2>
+      <ol>
+        <li>Take the metro to <strong>Sol</strong> (L1, L2, L3) and exit to Puerta del Sol, or use <strong>Sevilla</strong> (L2).</li>
+        <li>From Puerta del Sol, walk onto <strong>Calle de Espoz y Mina</strong>, toward Carrera de San Jerónimo / Sevilla — a short walk.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7 and walk in — no booking needed.</li>
+        <li>Ask at the bar what’s on the screens tonight, or check <a href={withBase('/whats-on/')}>What’s On</a> before you go.</li>
+      </ol>
+      <p>More: <a href={withBase('/visit/')}>map &amp; directions</a> · <a href={withBase('/whats-on/')}>What’s On (matches, Madrid time)</a> · <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> · <a href={withBase('/watch-football-madrid/')}>where to watch football in Madrid</a>.</p>
+
+      <h2>FAQ for Erasmus students &amp; visitors</h2>
+      <dl class="faq">
+        <dt><strong>Where is Dubliners Irish Pub in Madrid?</strong></dt>
+        <dd>Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol. Nearest metro: Sol (L1, L2, L3) or Sevilla (L2).</dd>
+        <dt><strong>What are the opening hours?</strong></dt>
+        <dd>Monday to Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
+        <dt><strong>Do I need to book a table?</strong></dt>
+        <dd>No. There are no reservations: just walk in, first come, first served.</dd>
+        <dt><strong>Can I watch football in English-friendly company?</strong></dt>
+        <dd>Yes. Dubliners is an English-speaking Irish pub with live sport on DAZN, Movistar and Premier Sports. Check What’s On for confirmed matches and kick-off times (Madrid time).</dd>
+        <dt><strong>Is there a student night?</strong></dt>
+        <dd>Every Wednesday the pub runs its €1 shots promo. See the Wednesday €1 page for details.</dd>
+      </dl>
+      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
     </div>
   </section>
 

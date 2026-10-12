@@ -3,9 +3,55 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Pub Erasmus y estudiantes internacionales Madrid cerca de Sol | Dubliners';
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Dónde está Dubliners Irish Pub en Madrid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol. Metro más cercano: Sol (L1, L2, L3) o Sevilla (L2)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué horario tiene?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De lunes a jueves y domingo de 12:00 a 02:00; viernes y sábado de 12:00 a 02:30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hace falta reservar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No se hacen reservas: entra directamente, por orden de llegada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede ver fútbol en un ambiente en inglés?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Dubliners es un pub irlandés con atención en inglés y deporte en directo en DAZN, Movistar y Premier Sports. Consulta Partidos para ver los partidos confirmados y su hora (hora de Madrid)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay noche de estudiantes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Todos los miércoles hay chupitos a 1 €. Mira la página del miércoles para los detalles."
+      }
+    }
+  ]
+};
+const title = 'Bar Erasmus y pub irlandés en Madrid junto a Sol | Fútbol | Dubliners';
 const description =
-  'Pub para Erasmus y estudiantes internacionales junto a Puerta del Sol. Ambiente en inglés, deporte en directo y chupitos a 1 € los miércoles. Espoz y Mina 7.';
+  'Pub irlandés con atención en inglés para Erasmus y turistas, junto a Puerta del Sol. Fútbol en DAZN, Movistar y Premier Sports. Sin reserva, abierto a diario desde las 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/estudiantes-internacionales/" lang="es" ogImage="/images/mural-hero.jpg">
@@ -57,6 +103,34 @@ const description =
         <a href={withBase('/es/bar-deportivo-madrid/')}>pantallas deportivas cerca de Sol</a>,
         <a href={withBase('/es/visitar/')}>cómo llegar</a>.
       </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Tu primera noche en Madrid: cómo llegar desde el metro de Sol</h2>
+      <ol>
+        <li>Ve en metro a <strong>Sol</strong> (L1, L2, L3) y sal a la Puerta del Sol, o usa <strong>Sevilla</strong> (L2).</li>
+        <li>Desde la Puerta del Sol, entra en la <strong>calle de Espoz y Mina</strong>, hacia Carrera de San Jerónimo / Sevilla — a pocos pasos.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7 y entra — sin reserva.</li>
+        <li>Pregunta en barra qué hay hoy en pantallas, o mira <a href={withBase('/es/partidos/')}>Partidos</a> antes de ir.</li>
+      </ol>
+      <p>Más: <a href={withBase('/es/visitar/')}>mapa y cómo llegar</a> · <a href={withBase('/es/partidos/')}>Partidos (hora de Madrid)</a> · <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> · <a href={withBase('/es/ver-futbol-madrid/')}>dónde ver fútbol en Madrid</a>.</p>
+
+      <h2>Preguntas frecuentes para Erasmus y visitantes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde está Dubliners Irish Pub en Madrid?</strong></dt>
+        <dd>Calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol. Metro más cercano: Sol (L1, L2, L3) o Sevilla (L2).</dd>
+        <dt><strong>¿Qué horario tiene?</strong></dt>
+        <dd>De lunes a jueves y domingo de 12:00 a 02:00; viernes y sábado de 12:00 a 02:30.</dd>
+        <dt><strong>¿Hace falta reservar?</strong></dt>
+        <dd>No. No se hacen reservas: entra directamente, por orden de llegada.</dd>
+        <dt><strong>¿Se puede ver fútbol en un ambiente en inglés?</strong></dt>
+        <dd>Sí. Dubliners es un pub irlandés con atención en inglés y deporte en directo en DAZN, Movistar y Premier Sports. Consulta Partidos para ver los partidos confirmados y su hora (hora de Madrid).</dd>
+        <dt><strong>¿Hay noche de estudiantes?</strong></dt>
+        <dd>Todos los miércoles hay chupitos a 1 €. Mira la página del miércoles para los detalles.</dd>
+      </dl>
+      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
     </div>
   </section>
 

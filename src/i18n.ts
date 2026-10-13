@@ -19,6 +19,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/about/': '/es/sobre-dubliners/',
   '/irish-pub-near-plaza-mayor/': '/es/pub-irlandes-plaza-mayor/',
   '/nfl-madrid/': '/es/nfl-madrid/',
+  '/menu/': '/es/carta/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
 };
 
@@ -77,6 +78,7 @@ export function navLinks(lang: Lang): NavLink[] {
       { href: '/es/', label: 'Inicio' },
       { href: '/es/sobre-dubliners/', label: 'Historia' },
       { href: '/es/partidos/', label: 'Partidos' },
+      { href: '/es/carta/', label: 'Carta' },
       { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles' },
       { href: '/es/visitar/', label: 'Visitar' },
       { href: '/es/contacto/', label: 'Contacto' },
@@ -86,6 +88,7 @@ export function navLinks(lang: Lang): NavLink[] {
     { href: '/', label: 'Home' },
     { href: '/about/', label: 'About' },
     { href: '/whats-on/', label: "What's on" },
+    { href: '/menu/', label: 'Menu' },
     { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday' },
     { href: '/visit/', label: 'Visit' },
     { href: '/contact/', label: 'Contact' },

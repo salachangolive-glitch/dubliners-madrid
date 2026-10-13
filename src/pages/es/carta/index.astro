@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { withBase } from '../../../site';
+import { MENU } from '../../../data/menu';
+const title = 'Carta de Dubliners: comida cerca de Sol, Madrid | Dubliners';
+const description = 'Carta de Dubliners, pub irlandés en Calle de Espoz y Mina 7 (Sol): arroces, raciones y tapas, ensaladas, hamburguesas, pizza y postres, con precios.';
+const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
+---
+<BaseLayout title={title} description={description} path="/es/carta/" lang="es" hreflang={{ en: '/menu/', es: '/es/carta/' }} ogImage="/images/menu/carta-3-carta-completa.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Carta" />
+    <h1>Carta — comida y bebida en Dubliners, cerca de Sol</h1>
+    <p class="lead">Nuestra carta, tal y como está en el pub. Toca una foto para verla en grande.</p>
+    <div class="cta-row"><a class="btn btn-gold" href={withBase('/es/visitar/')}>Cómo llegar</a><a class="btn btn-secondary" href={withBase('/es/partidos/')}>Ver partidos</a></div>
+  </div></section>
+  <section class="section"><div class="container">
+    <h2>Fotos de la carta</h2>
+    <div class="menu-photos">
+        <figure class="menu-photo"><a href={withBase('/images/menu/carta-1-arroces-platos.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-1-arroces-platos.webp')} /><img src={withBase('/images/menu/carta-1-arroces-platos.jpg')} alt="Carta: arroces y platos" width="1200" height="1600" loading="lazy" /></picture></a><figcaption>Carta: arroces y platos — toca para ampliar</figcaption></figure>
+        <figure class="menu-photo"><a href={withBase('/images/menu/carta-2-raciones-tapas.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-2-raciones-tapas.webp')} /><img src={withBase('/images/menu/carta-2-raciones-tapas.jpg')} alt="Carta: raciones y tapas" width="1200" height="1600" loading="lazy" /></picture></a><figcaption>Carta: raciones y tapas — toca para ampliar</figcaption></figure>
+        <figure class="menu-photo"><a href={withBase('/images/menu/carta-3-carta-completa.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-3-carta-completa.webp')} /><img src={withBase('/images/menu/carta-3-carta-completa.jpg')} alt="Carta completa" width="1600" height="1200" loading="lazy" /></picture></a><figcaption>Carta completa — toca para ampliar</figcaption></figure>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <h2>Carta con precios</h2>
+    {MENU.map((sec) => (
+      <div class="menu-sec">
+        <h3>{sec.es}</h3>
+        <ul class="menu-list">
+          {sec.items.map((it) => (
+            <li><span class="mi-name"><strong>{it.es}</strong>{(it.en ? it.en : null) && <span class="mi-sub"> · {(it.en ? it.en : null)}</span>}{it.descEs && <span class="mi-desc">{it.descEs}</span>}</span><span class="mi-price">{fmt(it.price)}</span></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+    <p class="small">Precios en euros según la carta del local. Para alérgenos, pregunta al personal.</p>
+  </div></section>
+  <style>
+    .menu-photos { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .menu-photo { margin: 0; }
+    .menu-photo img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .menu-photo figcaption { font-size: .85rem; opacity: .8; margin-top: .3rem; }
+    .menu-list { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+    .menu-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .mi-sub { opacity: .8; }
+    .mi-desc { display: block; font-size: .85rem; opacity: .75; }
+    .mi-price { white-space: nowrap; font-weight: 600; }
+  </style>
+</BaseLayout>

@@ -22,7 +22,7 @@
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
- * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone excluded.
+ * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
@@ -695,6 +695,17 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
     channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'NFL',
+    teams: 'NFL RedZone',
+    madridTime: '19:00',
+    approxDurationMin: 390,
+    confirmedOnScreens: true,
+    noteEn: 'NFL RedZone LIVE from 19:00, during opening hours (until 02:00). Walk-ins only, first come first served.',
+    noteEs: 'NFL RedZone EN DIRECTO desde las 19:00, dentro del horario (hasta las 02:00). Sin reserva, por orden de llegada.',
   },
 ];
 

@@ -3,12 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { withBase } from '../../site';
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When and where is the 2026 NFL game in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium."}}, {"@type": "Question", "name": "Can I just walk in?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Walk in, first come, first served."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."}}, {"@type": "Question", "name": "Which NFL games do you show?", "acceptedAnswer": {"@type": "Answer", "text": "We list them on What's On with Madrid kick-off times once confirmed."}}]};
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When and where is the 2026 NFL game in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium."}}, {"@type": "Question", "name": "Can I just walk in?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Walk in, first come, first served."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."}}, {"@type": "Question", "name": "Which NFL games are live on Sunday 8 November?", "acceptedAnswer": {"@type": "Answer", "text": "On Sunday 8 November: Bengals vs Falcons at 15:30 and all Sunday NFL games at 19:00, 22:05 and 22:25, LIVE. Other dates are listed on What's On once confirmed."}}]};
 const eventLd = {"@context": "https://schema.org", "@type": "SportsEvent", "name": "Cincinnati Bengals vs Atlanta Falcons", "startDate": "2026-11-08T15:30:00+01:00", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Estadio Santiago Bernabéu", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}};
 const title = "NFL in Madrid: Where to Watch NFL near Sol | Dubliners";
 const description = "Irish sports pub by Puerta del Sol (Espoz y Mina 7) for NFL fans in Madrid. Bengals vs Falcons, Sun 8 Nov 2026, 15:30 at the Bernabéu. Find us.";
 // POST-GAME block: hidden until NFL programming on our screens is confirmed. Set to true only after DG/owner sign-off.
-const SHOW_POSTGAME = false;
+const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL games live
 ---
 
 <BaseLayout title={title} description={description} path="/nfl-madrid/" lang="en" hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }} ogImage="/images/facade.jpg">
@@ -16,7 +16,7 @@ const SHOW_POSTGAME = false;
     <div class="container">
       <Breadcrumb current="NFL in Madrid" />
       <h1>NFL in Madrid: your meeting point near Puerta del Sol</h1>
-      <p class="lead">Irish sports pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. A place for NFL and American football fans visiting or living in Madrid.</p>
+      <p class="lead">Irish sports pub on Calle de Espoz y Mina 7, steps from Puerta del Sol. Watch Bengals vs Falcons LIVE on Sunday 8 November from 15:30 — and every Sunday NFL game that day LIVE on our screens.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href={withBase('/visit/')}>How to get here</a>
         <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
@@ -27,15 +27,15 @@ const SHOW_POSTGAME = false;
     <div class="container prose">
       <h2>NFL in Madrid</h2><p>On Sunday 8 November 2026 the Cincinnati Bengals and the Atlanta Falcons play at the Santiago Bernabéu Stadium at 15:30 Madrid time (9:30 a.m. ET). It is the NFL's second regular-season game in Madrid.</p>
       <h2>NFL schedule (confirmed only)</h2>
-      <table><tbody><tr><td>Sun 8 Nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Santiago Bernabéu Stadium, Madrid</td></tr></tbody></table>
-      <p class="small">Madrid times. Which games are on our screens is confirmed on What's On. <a href={withBase('/whats-on/')}>See what's on</a></p>
+      <table><tbody><tr><td>Sun 8 Nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Santiago Bernabéu Stadium, Madrid</td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Broncos at Panthers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Cowboys at Colts</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Jets at Chiefs</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Lions at Dolphins</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Browns at Saints</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Giants at Eagles</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Rams at Commanders</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:05</td><td>Texans at Chargers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:05</td><td>Raiders at 49ers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Packers at Patriots</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Cardinals at Seahawks</td><td></td></tr></tbody></table>
+      <p class="small">Madrid times (CET). All games above are LIVE at Dubliners. Source: nfl.com Week 9 schedule. The Sunday night game (02:20 Monday Madrid) is after closing time. <a href={withBase('/whats-on/')}>See what's on</a></p>
       <h2>How to find us</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2).</p><p>Opening hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</p>
       <div class="map-frame"><MapEmbed title="Map of Dubliners Madrid" lang="en" /></div>
       <h3>From the pub to the Bernabéu by metro</h3><p>From Sol, take Line 1 to Tribunal and change to Line 10 to Santiago Bernabéu.</p>
       <h2>Central Madrid</h2><p>We're between Puerta del Sol, Plaza Mayor and the Barrio de las Letras — easy to find before or after exploring the city.</p>
-      <h2>Live NFL when confirmed</h2><p>We have DAZN, Movistar and Premier Sports. NFL games go on What's On only once the broadcast is confirmed.</p>
-      {SHOW_POSTGAME && (<div class="postgame"><h2>The game doesn't end at the Bernabéu — keep your NFL Sunday going in central Madrid.</h2></div>)}
-      <h2>FAQ</h2><dl class="faq"><dt><strong>When and where is the 2026 NFL game in Madrid?</strong></dt><dd>Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium.</dd><dt><strong>Can I just walk in?</strong></dt><dd>Yes. Walk in, first come, first served.</dd><dt><strong>What are your opening hours?</strong></dt><dd>Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd><dt><strong>Which NFL games do you show?</strong></dt><dd>We list them on What's On with Madrid kick-off times once confirmed.</dd></dl>
+      <h2>Watch Bengals vs Falcons LIVE</h2><p>Bengals vs Falcons is live on our screens on Sunday 8 November at 15:30 Madrid time, followed by the Sunday NFL games at 19:00, 22:05 and 22:25.</p>
+      {SHOW_POSTGAME && (<div class="postgame"><h2>The game doesn't end at the Bernabéu — all Sunday NFL games LIVE</h2></div>)}
+      <h2>FAQ</h2><dl class="faq"><dt><strong>When and where is the 2026 NFL game in Madrid?</strong></dt><dd>Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium.</dd><dt><strong>Can I just walk in?</strong></dt><dd>Yes. Walk in, first come, first served.</dd><dt><strong>What are your opening hours?</strong></dt><dd>Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd><dt><strong>Which NFL games are live on Sunday 8 November?</strong></dt><dd>On Sunday 8 November: Bengals vs Falcons at 15:30 and all Sunday NFL games at 19:00, 22:05 and 22:25, LIVE. Other dates are listed on What's On once confirmed.</dd></dl>
       <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
       <script type="application/ld+json" set:html={JSON.stringify(eventLd)} />
     </div>

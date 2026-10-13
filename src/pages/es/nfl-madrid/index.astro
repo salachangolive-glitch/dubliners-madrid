@@ -3,12 +3,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { withBase } from '../../../site';
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Dónde y cuándo es el partido de la NFL en Madrid en 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu."}}, {"@type": "Question", "name": "¿Puedo entrar sin más?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Entra sin más, por orden de llegada."}}, {"@type": "Question", "name": "¿Cuál es el horario?", "acceptedAnswer": {"@type": "Answer", "text": "Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30."}}, {"@type": "Question", "name": "¿Qué partidos de la NFL ponéis?", "acceptedAnswer": {"@type": "Answer", "text": "Los confirmamos en la página de Partidos con su hora en Madrid."}}]};
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Dónde y cuándo es el partido de la NFL en Madrid en 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu."}}, {"@type": "Question", "name": "¿Puedo entrar sin más?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Entra sin más, por orden de llegada."}}, {"@type": "Question", "name": "¿Cuál es el horario?", "acceptedAnswer": {"@type": "Answer", "text": "Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30."}}, {"@type": "Question", "name": "¿Qué partidos NFL ponéis en directo el domingo 8 de noviembre?", "acceptedAnswer": {"@type": "Answer", "text": "El domingo 8 de noviembre: Bengals vs Falcons a las 15:30 y todos los partidos NFL del domingo a las 19:00, 22:05 y 22:25, EN DIRECTO. Otras fechas, en Partidos cuando estén confirmadas."}}]};
 const eventLd = {"@context": "https://schema.org", "@type": "SportsEvent", "name": "Cincinnati Bengals vs Atlanta Falcons", "startDate": "2026-11-08T15:30:00+01:00", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Estadio Santiago Bernabéu", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}};
 const title = "NFL en Madrid: dónde verla en un pub cerca de Sol | Dubliners";
 const description = "Pub irlandés deportivo junto a Puerta del Sol (Espoz y Mina 7) para fans de la NFL en Madrid. Partido Bengals–Falcons el 8 nov a las 15:30 en el Bernabéu.";
 // POST-GAME block: hidden until NFL programming on our screens is confirmed. Set to true only after DG/owner sign-off.
-const SHOW_POSTGAME = false;
+const SHOW_POSTGAME = true; // desbloqueado 13 oct: dueño confirma todos los partidos NFL del domingo
 ---
 
 <BaseLayout title={title} description={description} path="/es/nfl-madrid/" lang="es" hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }} ogImage="/images/facade.jpg">
@@ -16,7 +16,7 @@ const SHOW_POSTGAME = false;
     <div class="container">
       <Breadcrumb current="NFL en Madrid" />
       <h1>NFL en Madrid: tu punto de encuentro cerca de Sol</h1>
-      <p class="lead">Pub irlandés deportivo en Calle de Espoz y Mina 7, a un paso de Puerta del Sol. Un sitio para fans de la NFL y del fútbol americano que vienen o viven en Madrid.</p>
+      <p class="lead">Pub irlandés deportivo en Calle de Espoz y Mina 7, a un paso de Puerta del Sol. Bengals vs Falcons EN DIRECTO el domingo 8 de noviembre desde las 15:30, y todos los partidos NFL del domingo EN DIRECTO en nuestras pantallas.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href={withBase('/es/visitar/')}>Cómo llegar</a>
         <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Ver partidos</a>
@@ -27,15 +27,15 @@ const SHOW_POSTGAME = false;
     <div class="container prose">
       <h2>La NFL en Madrid</h2><p>El domingo 8 de noviembre de 2026 los Cincinnati Bengals y los Atlanta Falcons juegan en el Estadio Santiago Bernabéu a las 15:30 (hora de Madrid). Es el segundo partido de temporada regular de la NFL en Madrid.</p>
       <h2>Calendario NFL (solo confirmado)</h2>
-      <table><tbody><tr><td>Dom 8 nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Estadio Santiago Bernabéu, Madrid</td></tr></tbody></table>
-      <p class="small">Horas en Madrid. Qué partidos se ponen en nuestras pantallas se confirma en Partidos. <a href={withBase('/es/partidos/')}>Ver partidos</a></p>
+      <table><tbody><tr><td>Dom 8 nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Estadio Santiago Bernabéu, Madrid</td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Broncos at Panthers</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Cowboys at Colts</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Jets at Chiefs</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Lions at Dolphins</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Browns at Saints</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Giants at Eagles</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Rams at Commanders</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:05</td><td>Texans at Chargers</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:05</td><td>Raiders at 49ers</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:25</td><td>Packers at Patriots</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:25</td><td>Cardinals at Seahawks</td><td></td></tr></tbody></table>
+      <p class="small">Horas de Madrid (CET). Todos los partidos de la tabla, EN DIRECTO en Dubliners. Fuente: calendario Week 9 de nfl.com. El partido del domingo noche (02:20 del lunes) queda fuera de horario. <a href={withBase('/es/partidos/')}>Ver partidos</a></p>
       <h2>Cómo llegar</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2).</p><p>Horario: lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</p>
       <div class="map-frame"><MapEmbed title="Mapa de Dubliners Madrid" lang="es" /></div>
       <h3>Del pub al Bernabéu en metro</h3><p>Desde Sol, Línea 1 hasta Tribunal y cambio a Línea 10 hasta Santiago Bernabéu.</p>
       <h2>Centro de Madrid</h2><p>Estamos entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras: fácil de encontrar antes o después de visitar la ciudad.</p>
-      <h2>NFL en directo</h2><p>Tenemos DAZN, Movistar y Premier Sports. Publicamos los partidos de la NFL en Partidos solo cuando la emisión está confirmada.</p>
-      {SHOW_POSTGAME && (<div class="postgame"><h2>El partido no acaba en el Bernabéu: sigue tu domingo NFL en el centro de Madrid.</h2></div>)}
-      <h2>FAQ</h2><dl class="faq"><dt><strong>¿Dónde y cuándo es el partido de la NFL en Madrid en 2026?</strong></dt><dd>Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu.</dd><dt><strong>¿Puedo entrar sin más?</strong></dt><dd>Sí. Entra sin más, por orden de llegada.</dd><dt><strong>¿Cuál es el horario?</strong></dt><dd>Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd><dt><strong>¿Qué partidos de la NFL ponéis?</strong></dt><dd>Los confirmamos en la página de Partidos con su hora en Madrid.</dd></dl>
+      <h2>Bengals vs Falcons EN DIRECTO</h2><p>El Bengals vs Falcons se ve en directo el domingo 8 de noviembre a las 15:30, y después los partidos NFL del domingo a las 19:00, 22:05 y 22:25.</p>
+      {SHOW_POSTGAME && (<div class="postgame"><h2>El partido no acaba en el Bernabéu: todos los partidos NFL del domingo EN DIRECTO</h2></div>)}
+      <h2>FAQ</h2><dl class="faq"><dt><strong>¿Dónde y cuándo es el partido de la NFL en Madrid en 2026?</strong></dt><dd>Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu.</dd><dt><strong>¿Puedo entrar sin más?</strong></dt><dd>Sí. Entra sin más, por orden de llegada.</dd><dt><strong>¿Cuál es el horario?</strong></dt><dd>Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd><dt><strong>¿Qué partidos NFL ponéis en directo el domingo 8 de noviembre?</strong></dt><dd>El domingo 8 de noviembre: Bengals vs Falcons a las 15:30 y todos los partidos NFL del domingo a las 19:00, 22:05 y 22:25, EN DIRECTO. Otras fechas, en Partidos cuando estén confirmadas.</dd></dl>
       <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
       <script type="application/ld+json" set:html={JSON.stringify(eventLd)} />
     </div>

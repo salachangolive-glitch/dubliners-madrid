@@ -3,8 +3,7 @@
  * confirmedOnScreens = Radar Confirmed + kick-off inside opening hours (src/data/hours.ts).
  * Not a TV-rights inference on its own. Owner permanent 8 Oct 2026: Dubliners has
  * DAZN + Movistar + Premier Sports.
- * - Rows with dateKey < 2026-10-12 (9–11 Oct, already played) RETIRED 12 Oct (morning block).
- * - Mon 12: LaLiga Levante–Sevilla 21:00 (Movistar); Premier MW7 Coventry–Newcastle 21:00 (DAZN).
+ * - Rows with dateKey < 2026-10-13 (incl. Mon 12 Levante–Sevilla + Coventry–Newcastle) RETIRED 13 Oct (morning block).
  * - UCL J2 Tue 13 Atlético–Man Utd, Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli
  *   21:00; Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
  *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
@@ -46,22 +45,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-12',
-    whenLabel: 'Mon 12 Oct',
-    competition: 'LaLiga',
-    teams: 'Levante vs Sevilla',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-12',
-    whenLabel: 'Mon 12 Oct',
-    competition: 'Premier League',
-    teams: 'Coventry City vs Newcastle United',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
   {
     dateKey: '2026-10-13',
     whenLabel: 'Tue 13 Oct',

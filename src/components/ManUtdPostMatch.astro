@@ -1,0 +1,37 @@
+---
+/** One-night block (owner order via DG, 13 Oct 2026). Auto-hidden from 14 Oct 2026 06:00 Madrid
+ * (build-time + client-side). REMOVE this component and its 4 usages on 14 Oct. */
+import { withBase } from '../site';
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const CUTOFF = Date.parse('2026-10-14T06:00:00+02:00');
+const show = Date.now() < CUTOFF;
+---
+{show && (
+  <section class="section postmatch-alert" data-hide-after={String(CUTOFF)} aria-label={es ? 'Aficionados del Manchester United' : 'Manchester United fans'}>
+    <div class="container postmatch-box">
+      {es ? (
+        <>
+          <p class="postmatch-text"><strong>¿Aficionados del Manchester United en Madrid?</strong> Después del Atlético–Manchester United, sigue la noche cerca de la Puerta del Sol en Dubliners. Sin reserva, por orden de llegada.</p>
+          <a class="btn btn-gold" href={withBase('/es/visitar/')}>CÓMO LLEGAR</a>
+        </>
+      ) : (
+        <>
+          <h2>Manchester United fans in Madrid?</h2>
+          <p>Heading back into central Madrid after Atlético vs Manchester United? Keep the night going near Puerta del Sol at Dubliners Madrid. Irish pub, international atmosphere and a central meeting point for football fans. Walk-ins only · First come, first served.</p>
+          <p class="small">A post-match pub in Madrid for Man United fans: the Irish pub and sports bar at Sol, Calle de Espoz y Mina 7.</p>
+          <a class="btn btn-gold" href={withBase('/visit/')}>HOW TO GET HERE</a>
+        </>
+      )}
+    </div>
+  </section>
+)}
+<script is:inline>
+(function(){var n=document.querySelectorAll('[data-hide-after]');for(var i=0;i<n.length;i++){if(Date.now()>=+n[i].getAttribute('data-hide-after'))n[i].remove();}})();
+</script>
+<style>
+  .postmatch-alert { padding-top: 1rem; padding-bottom: 1rem; }
+  .postmatch-box { border: 2px solid #d4a72c; border-radius: 10px; padding: 1rem 1.25rem; background: rgba(212,167,44,.08); }
+  .postmatch-box h2 { margin-top: 0; }
+</style>

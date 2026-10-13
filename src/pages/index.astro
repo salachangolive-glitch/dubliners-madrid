@@ -8,9 +8,11 @@ import { hoursSummary } from '../data/hours';
 const title = 'Irish Pub Madrid near Sol | Live Football Screens — Dubliners';
 const description =
   'Irish pub Madrid just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on indoor screens, international crowd — Metro Sol (L1, L2, L3) or Sevilla (L2). Walk in, no booking.';
+import ManUtdPostMatch from '../components/ManUtdPostMatch.astro';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
+  <ManUtdPostMatch lang="en" />
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Bar interior">
     <picture>

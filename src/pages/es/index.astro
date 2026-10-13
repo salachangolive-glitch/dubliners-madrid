@@ -8,9 +8,11 @@ import { hoursSummary } from '../../data/hours';
 const title = 'Pub irlandés Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
 const description =
   'Pub irlandés en Madrid junto a Puerta del Sol (Espoz y Mina 7). Guinness, fútbol en pantallas interiores, ambiente internacional — Metro Sol (L1, L2, L3) o Sevilla (L2). Entra sin reserva.';
+import ManUtdPostMatch from '../../components/ManUtdPostMatch.astro';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
+  <ManUtdPostMatch lang="es" />
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>

@@ -15,7 +15,7 @@ export const MENU: MenuSection[] = [
     { es: 'Arroz negro con alioli', en: 'Black rice with aioli', price: 15, src: 'c1' },
   ]},
   { en: 'Raciones & tapas', es: 'Raciones y tapas', items: [
-    { es: 'Aros de cebolla', en: 'Breaded onion rings with ranch sauce', price: 9, src: 'c2' },
+    { es: 'Aros de cebolla empanados con salsa ranchera', en: 'Breaded onion rings with ranch sauce', price: 9, src: 'c2 / carta-2b' },
     { es: 'Quesadillas con guacamole', en: 'Quesadillas with guacamole', price: 9, src: 'c2' },
     { es: 'Gildas 6 uds.', en: 'Basque skewers', price: 15, src: 'c2' },
     { es: 'Pulpo a la gallega', en: 'Galician-style octopus', price: 23, src: 'c2, c3' },
@@ -28,7 +28,7 @@ export const MENU: MenuSection[] = [
     { es: 'Torreznos de Soria', en: 'Torreznos de Soria', price: 17, src: 'c2, c3' },
     { es: 'Chorizo casero', en: 'Homemade chorizo', price: 12, src: 'c2' },
     { es: 'Croquetas caseras 6 uds.', en: 'Homemade croquettes', price: 11, src: 'c2, c3' },
-    { es: 'Huevos estrellados con jamón ibérico', price: 14, src: 'c2, c3 (EN differs)' },
+    { es: 'Huevos estrellados con jamón ibérico', en: 'Fried eggs with Iberian ham', price: 14, src: 'c2, c3 (EN per DG, carta-2b)' },
     { es: 'Nachos con guacamole (carne y queso)', en: 'Nachos with guacamole (meat and cheese)', price: 12, src: 'c2, c3' },
     { es: 'Pimientos de Padrón', en: 'Padron peppers', price: 12, src: 'c2, c3' },
     { es: 'Patatas bravas o alioli', en: 'Bravas potatoes or alioli', price: 9, src: 'c2, c3' },

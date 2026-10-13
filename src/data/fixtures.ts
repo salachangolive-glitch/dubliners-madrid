@@ -69,8 +69,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Atlético de Madrid vs Manchester United',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    noteEn: 'Man United fans welcome: pre-match pints from 12:00, steps from Sol. Walk in, first come, first served.',
-    noteEs: 'Aficionados del United bienvenidos: desde las 12:00, a un paso de Sol. Sin reserva, por orden de llegada.',
+    noteEn: 'Watch Atlético vs Man United LIVE — walk-ins welcome',
+    noteEs: 'Atlético vs Man United EN DIRECTO — sin reserva, por orden de llegada',
   },
   {
     dateKey: '2026-10-13',

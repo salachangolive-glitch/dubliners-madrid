@@ -23,14 +23,14 @@ const L = es
       todayEmpty: 'Nada listado para hoy — pregunta en barra qué hay en pantallas.',
       upcoming: 'Próximos esta semana cerca de Sol',
       upcomingEmpty: 'La agenda de próximos partidos aparecerá aquí cuando estén listos.',
-      confirmed: 'Confirmado',
+      confirmed: 'EN DIRECTO',
     }
   : {
       today: 'Today near Sol',
       todayEmpty: 'Nothing listed for today — ask at the bar what’s on the screens.',
       upcoming: 'Upcoming this week near Sol',
       upcomingEmpty: 'This week’s upcoming list will appear here when fixtures are ready.',
-      confirmed: 'Confirmed',
+      confirmed: 'LIVE',
     };
 const sport = (f: Fixture) => (es ? sportLabelEs(f.competition) : sportLabel(f.competition));
 const day = (f: Fixture) => (es ? whenLabelEs(f.dateKey) : f.whenLabel);
@@ -57,8 +57,8 @@ const slots = [
             <span class="fx-time">{f.madridTime}</span>
             <span class="fx-body">
               <strong>{f.teams}</strong>
-              <em>{sport(f)} · {f.competition}</em>
-              {f.confirmedOnScreens && <span class="fx-status fx-status-confirmed">{L.confirmed}</span>}
+              <em>{f.kind === 'event' ? (es ? 'Evento · Concierto en el Movistar Arena' : f.competition) : `${sport(f)} · ${f.competition}`}</em>
+              {f.confirmedOnScreens && f.kind !== 'event' && <span class="fx-status fx-status-confirmed">{L.confirmed}</span>}
               {(es ? f.noteEs : f.noteEn) && <span class="fx-note">{es ? f.noteEs : f.noteEn}</span>}
             </span>
           </li>

@@ -23,6 +23,8 @@
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
+ * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone excluded.
+ * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -39,6 +41,8 @@
   /** Optional short per-row note (EN / ES). Rendered only on that row. */
   noteEn?: string;
   noteEs?: string;
+  /** 'event' = non-sport city event (e.g. concert elsewhere). Never shown as LIVE on screens. */
+  kind?: 'sport' | 'event';
 };
 
 export const FIXTURES: Fixture[] = [
@@ -396,11 +400,33 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'Concert at Movistar Arena',
+    teams: 'Fontaines D.C.',
+    madridTime: '20:45',
+    kind: 'event',
+    approxDurationMin: 150,
+    noteEn: 'Pre/post-gig at Dubliners — the concert is at the Movistar Arena, not in the pub.',
+    noteEs: 'Antes y después del concierto en Dubliners — el concierto es en el Movistar Arena, no en el pub.',
+  },
+  {
+    dateKey: '2026-11-05',
+    whenLabel: 'Thu 5 Nov',
+    competition: 'UEFA Conference League',
+    teams: 'Getafe vs Brighton',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol. Walk-ins only.',
+    noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol, por orden de llegada.',
+  },
 ];
 
 /** Human sport label for board rows (presentation only — does not change gates). */
 export function sportLabel(competition: string): string {
   const c = competition.toLowerCase();
+  if (c.startsWith('concert')) return 'Event';
   if (c.includes('nfl')) return 'NFL';
   if (c.includes('nba')) return 'NBA';
   if (c.includes('formula') || c === 'f1') return 'Formula 1';
@@ -417,6 +443,7 @@ export function sportLabelEs(competition: string): string {
   if (en === 'Football') return 'Fútbol';
   if (en === 'Formula 1') return 'Fórmula 1';
   if (en === 'Tennis') return 'Tenis';
+  if (en === 'Event') return 'Evento';
   return en; // NFL, NBA, Rugby
 }
 

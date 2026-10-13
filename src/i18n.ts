@@ -18,6 +18,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/international-students-pub-madrid/': '/es/estudiantes-internacionales/',
   '/about/': '/es/sobre-dubliners/',
   '/irish-pub-near-plaza-mayor/': '/es/pub-irlandes-plaza-mayor/',
+  '/nfl-madrid/': '/es/nfl-madrid/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
 };
 

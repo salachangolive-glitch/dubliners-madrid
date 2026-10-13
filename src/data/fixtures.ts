@@ -9,7 +9,7 @@
  *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
  * - UEL J2 Thu 15 USG–Real Sociedad 18:45, Celta–Juventus 21:00 (movistarplus.es fichas 11 Oct).
  * - Conference: Thu 15 Craiova–Getafe 18:45; Thu 22 Getafe–Lugano 18:45 (M+ LDC).
- * - LaLiga J9 Fri 16 Deportivo–Levante 21:00 (M+ & DAZN), Sat 17 Espanyol–Atlético 14:00 DAZN,
+ * - LaLiga J9 Fri 16 Deportivo–Levante 21:00 (LALIGA TV M+ — corrected 13 Oct per movistar.es guide), Sat 17 Espanyol–Atlético 14:00 DAZN,
  *   Betis–Barcelona 18:30 DAZN, Valencia–Athletic 21:00 M+, Sun 18 Real Madrid–Sevilla 21:00 M+,
  *   Mon 19 Getafe–Rayo 21:00 DAZN.
  * - Premier MW7 times premierleague.com/en/news/4688862; channel DAZN (all Premier League in
@@ -24,6 +24,8 @@
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone excluded.
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
+ * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
+ *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -42,6 +44,8 @@
   noteEs?: string;
   /** 'event' = non-sport city event (e.g. concert elsewhere). Never shown as LIVE on screens. */
   kind?: 'sport' | 'event';
+  /** Broadcaster name as published by the operator (no dial numbers). */
+  channel?: string;
 };
 
 export const FIXTURES: Fixture[] = [
@@ -54,6 +58,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Watch Atlético vs Man United LIVE — walk-ins welcome',
     noteEs: 'Atlético vs Man United EN DIRECTO — sin reserva, por orden de llegada',
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-13',
@@ -62,6 +67,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Galatasaray vs Barcelona',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-13',
@@ -70,6 +76,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Arsenal vs Lille',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-13',
@@ -78,6 +85,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Villarreal vs Napoli',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-14',
@@ -86,6 +94,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'LASK vs Liverpool',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-14',
@@ -94,6 +103,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Roma vs Real Madrid',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-14',
@@ -102,6 +112,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Manchester City vs Paris Saint-Germain',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-14',
@@ -110,6 +121,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Betis vs Porto',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-14',
@@ -118,6 +130,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Aston Villa vs Fenerbahçe',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-15',
@@ -126,6 +139,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Craiova vs Getafe',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-15',
@@ -134,6 +148,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Union Saint-Gilloise vs Real Sociedad',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-15',
@@ -142,6 +157,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Celta vs Juventus',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-16',
@@ -150,6 +166,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Deportivo vs Levante',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'LALIGA TV M+',
   },
   {
     dateKey: '2026-10-17',
@@ -158,6 +175,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Everton vs Chelsea',
     madridTime: '13:30',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-17',
@@ -166,6 +184,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Espanyol vs Atlético de Madrid',
     madridTime: '14:00',
     confirmedOnScreens: true,
+    channel: 'DAZN LALIGA',
   },
   {
     dateKey: '2026-10-17',
@@ -174,6 +193,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Brentford vs Liverpool',
     madridTime: '16:00',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-17',
@@ -182,6 +202,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Manchester City vs Ipswich Town',
     madridTime: '16:00',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-17',
@@ -190,6 +211,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Betis vs Barcelona',
     madridTime: '18:30',
     confirmedOnScreens: true,
+    channel: 'DAZN LALIGA',
   },
   {
     dateKey: '2026-10-17',
@@ -198,6 +220,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Newcastle United vs Aston Villa',
     madridTime: '18:30',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-17',
@@ -206,6 +229,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Valencia vs Athletic Club',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'LALIGA TV M+',
   },
   {
     dateKey: '2026-10-18',
@@ -214,6 +238,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Leeds United vs Manchester United',
     madridTime: '15:00',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-18',
@@ -222,6 +247,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Nottingham Forest vs Arsenal',
     madridTime: '17:30',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-18',
@@ -230,6 +256,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Sevilla',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'LALIGA TV M+',
   },
   {
     dateKey: '2026-10-19',
@@ -238,6 +265,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Getafe vs Rayo Vallecano',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'DAZN LALIGA',
   },
   {
     dateKey: '2026-10-19',
@@ -246,6 +274,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Tottenham vs Coventry City',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-21',
@@ -254,6 +283,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs RB Leipzig',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-22',
@@ -262,6 +292,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Getafe vs Lugano',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-11-08',
@@ -403,6 +434,267 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol. Walk-ins only.',
     noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol, por orden de llegada.',
+  },
+  {
+    dateKey: '2026-10-14',
+    whenLabel: 'Wed 14 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Feyenoord vs Como',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Lyon vs Crystal Palace',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Torreense vs Sunderland',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Bournemouth vs Sturm Graz',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Benfica vs Celtic',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Marseille vs Olympiacos',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-17',
+    whenLabel: 'Sat 17 Oct',
+    competition: 'LaLiga',
+    teams: 'Villarreal vs Elche',
+    madridTime: '16:15',
+    confirmedOnScreens: true,
+    channel: 'DAZN LALIGA',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'LaLiga',
+    teams: 'Osasuna vs Racing',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+    channel: 'LALIGA TV M+',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'LaLiga',
+    teams: 'Celta vs Alavés',
+    madridTime: '16:15',
+    confirmedOnScreens: true,
+    channel: 'DAZN LALIGA',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'LaLiga',
+    teams: 'Málaga vs Real Sociedad',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+    channel: 'LALIGA TV M+',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Fenerbahçe vs Slavia Praha',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Sabah vs Borussia Dortmund',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Paris Saint-Germain vs Barcelona',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Stuttgart vs Atlético de Madrid',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Liverpool vs Villarreal',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Manchester City vs AEK Athens',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Napoli vs Bodø/Glimt',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Como vs Manchester United',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Lille vs Galatasaray',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Bayern Munich vs Arsenal',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Aston Villa vs Viking',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Betis vs Feyenoord',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-21',
+    whenLabel: 'Wed 21 Oct',
+    competition: 'UEFA Champions League',
+    teams: 'Inter vs Shakhtar Donetsk',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Lech Poznań vs Sunderland',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Juventus vs Rennes',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Celtic vs Celta',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Lillestrøm vs Real Sociedad',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Bournemouth vs Milan',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
+  },
+  {
+    dateKey: '2026-10-22',
+    whenLabel: 'Thu 22 Oct',
+    competition: 'UEFA Europa League',
+    teams: 'Beşiktaş vs Crystal Palace',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    channel: 'Movistar Liga de Campeones',
   },
 ];
 

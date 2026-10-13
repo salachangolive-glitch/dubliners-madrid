@@ -57,7 +57,7 @@ const slots = [
             <span class="fx-time">{f.madridTime}</span>
             <span class="fx-body">
               <strong>{f.teams}</strong>
-              <em>{f.kind === 'event' ? (es ? 'Evento · Concierto en el Movistar Arena' : f.competition) : `${sport(f)} · ${f.competition}`}</em>
+              <em>{f.kind === 'event' ? (es ? 'Evento · Concierto en el Movistar Arena' : f.competition) : `${sport(f)} · ${f.competition}${f.channel ? ' · ' + f.channel : ''}`}</em>
               {f.confirmedOnScreens && f.kind !== 'event' && <span class="fx-status fx-status-confirmed">{L.confirmed}</span>}
               {(es ? f.noteEs : f.noteEn) && <span class="fx-note">{es ? f.noteEs : f.noteEn}</span>}
             </span>

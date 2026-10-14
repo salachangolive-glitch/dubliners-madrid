@@ -17,7 +17,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   pageUrl: absUrl('/es/partidos/'),
   lang: 'es',
 });
-import ManUtdPostMatch from '../../../components/ManUtdPostMatch.astro';
 ---
 
 <BaseLayout
@@ -28,7 +27,6 @@ import ManUtdPostMatch from '../../../components/ManUtdPostMatch.astro';
   ogImage="/images/screens-sports.jpg"
   extraJsonLd={sportsEvents}
 >
-  <ManUtdPostMatch lang="es" />
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Partidos" lang="es" />

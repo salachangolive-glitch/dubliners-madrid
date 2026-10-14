@@ -4,8 +4,8 @@
  * Not a TV-rights inference on its own. Owner permanent 8 Oct 2026: Dubliners has
  * DAZN + Movistar + Premier Sports.
  * - Rows with dateKey < 2026-10-13 (incl. Mon 12 Levante–Sevilla + Coventry–Newcastle) RETIRED 13 Oct (morning block).
- * - UCL J2 Tue 13 Atlético–Man Utd, Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli
- *   21:00; Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
+ * - Tue 13 UCL J2 rows (Atlético–Man Utd, Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli) RETIRED 14 Oct (morning block).
+ * - UCL J2 Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
  *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
  * - UEL J2 Thu 15 USG–Real Sociedad 18:45, Celta–Juventus 21:00 (movistarplus.es fichas 11 Oct).
  * - Conference: Thu 15 Craiova–Getafe 18:45; Thu 22 Getafe–Lugano 18:45 (M+ LDC).
@@ -49,44 +49,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-13',
-    whenLabel: 'Tue 13 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Atlético de Madrid vs Manchester United',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    noteEn: 'Watch Atlético vs Man United LIVE — walk-ins welcome',
-    noteEs: 'Atlético vs Man United EN DIRECTO — sin reserva, por orden de llegada',
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-13',
-    whenLabel: 'Tue 13 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Galatasaray vs Barcelona',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-13',
-    whenLabel: 'Tue 13 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Arsenal vs Lille',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-13',
-    whenLabel: 'Tue 13 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Villarreal vs Napoli',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
   {
     dateKey: '2026-10-14',
     whenLabel: 'Wed 14 Oct',

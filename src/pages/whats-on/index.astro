@@ -17,7 +17,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   pageUrl: absUrl('/whats-on/'),
   lang: 'en',
 });
-import ManUtdPostMatch from '../../components/ManUtdPostMatch.astro';
 ---
 
 <BaseLayout
@@ -27,7 +26,6 @@ import ManUtdPostMatch from '../../components/ManUtdPostMatch.astro';
   ogImage="/images/screens-sports.jpg"
   extraJsonLd={sportsEvents}
 >
-  <ManUtdPostMatch lang="en" />
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />

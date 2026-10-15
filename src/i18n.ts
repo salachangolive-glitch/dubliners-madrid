@@ -20,6 +20,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/irish-pub-near-plaza-mayor/': '/es/pub-irlandes-plaza-mayor/',
   '/nfl-madrid/': '/es/nfl-madrid/',
   '/menu/': '/es/carta/',
+  '/brighton-fans-madrid/': '/es/aficionados-brighton-madrid/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
 };
 

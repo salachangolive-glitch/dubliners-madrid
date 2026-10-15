@@ -617,6 +617,17 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'NFL RedZone LIVE from 19:00, during opening hours (until 02:00). Walk-ins only, first come first served.',
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00, dentro del horario (hasta las 02:00). Sin reserva, por orden de llegada.',
   },
+  {
+    dateKey: '2026-10-20',
+    whenLabel: 'Tue 20 Oct',
+    competition: 'Concert at Movistar Arena',
+    teams: 'Deep Purple',
+    madridTime: '21:00',
+    kind: 'event',
+    approxDurationMin: 150,
+    noteEn: 'Pre/post-gig at Dubliners — the concert is at the Movistar Arena, not in the pub.',
+    noteEs: 'Antes y después del concierto en Dubliners — el concierto es en el Movistar Arena, no en el pub.',
+  },
 ];
 
 /** Human sport label for board rows (presentation only — does not change gates). */

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { withBase } from '../../site';
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is Getafe vs Brighton?", "acceptedAnswer": {"@type": "Answer", "text": "Thursday 5 November 2026, at the Coliseum in Getafe."}}, {"@type": "Question", "name": "Are you showing it live?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, LIVE on our screens. The kick-off time is on What's On."}}, {"@type": "Question", "name": "Can I just walk in?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — walk-ins only, first come first served."}}]};
+---
+<BaseLayout title="Brighton Fans in Madrid: Getafe vs Brighton, 5 Nov | Dubliners" description="Short guide for Brighton fans in Madrid for Getafe vs Brighton (Conference League, Thu 5 Nov 2026): where to watch it live near Puerta del Sol." path="/brighton-fans-madrid/" lang="en" hreflang={{ en: '/brighton-fans-madrid/', es: '/es/aficionados-brighton-madrid/' }} ogImage="/images/facade.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Brighton fans" />
+    <h1>Brighton fans in Madrid: Getafe vs Brighton</h1>
+    <div class="cta-row"><a class="btn btn-gold" href={withBase('/visit/')}>How to get here</a></div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Getafe vs Brighton in the UEFA Conference League is on Thursday 5 November 2026 at the Coliseum in Getafe (date per UEFA's fixture list).</p><p>Staying in central Madrid? We show it LIVE at Dubliners, an Irish pub on Calle de Espoz y Mina 7, just off Puerta del Sol. Kick-off time is on <a href={withBase('/whats-on/')}>What's On</a>.</p><p>Metro Sol (L1, L2, L3) or Sevilla (L2). Open every day from 12:00. Walk-ins only, first come first served.</p>
+    <h2>FAQ</h2><dl class="faq"><dt><strong>When is Getafe vs Brighton?</strong></dt><dd>Thursday 5 November 2026, at the Coliseum in Getafe.</dd><dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on our screens. The kick-off time is on What's On.</dd><dt><strong>Can I just walk in?</strong></dt><dd>Yes — walk-ins only, first come first served.</dd></dl>
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  </div></section>
+</BaseLayout>

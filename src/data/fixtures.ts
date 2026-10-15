@@ -27,6 +27,7 @@
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
+ * - 15 Oct: Bournemouth–Sturm Graz corrected 18:45 → 21:00 (uefa.com MD2 briefing: 21:00 CET unless stated; SK Sturm site 21:00; BBC 20:00 UK).
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -376,7 +377,7 @@ export const FIXTURES: Fixture[] = [
     whenLabel: 'Thu 15 Oct',
     competition: 'UEFA Europa League',
     teams: 'Bournemouth vs Sturm Graz',
-    madridTime: '18:45',
+    madridTime: '21:00',
     confirmedOnScreens: true,
     channel: 'Movistar Liga de Campeones',
   },

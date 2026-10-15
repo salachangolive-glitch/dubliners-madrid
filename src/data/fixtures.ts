@@ -24,6 +24,7 @@
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
+ * - 15 Oct: Brighton–Kauno Žalgiris 21:00 Madrid (brightonandhovealbion.com: KO 8pm BST; BBC 20:00 BST). TEMP, remove 16 Oct.
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
@@ -59,6 +60,15 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:45',
     confirmedOnScreens: true,
     channel: 'Movistar Liga de Campeones',
+  },
+  {
+    // TEMP: remove 16 Oct together with the Europa League tonight block.
+    dateKey: '2026-10-15',
+    whenLabel: 'Thu 15 Oct',
+    competition: 'UEFA Conference League',
+    teams: 'Brighton vs Kauno Žalgiris',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-15',

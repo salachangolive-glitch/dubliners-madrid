@@ -5,6 +5,7 @@
  * DAZN + Movistar + Premier Sports.
  * - Rows with dateKey < 2026-10-13 (incl. Mon 12 Levante–Sevilla + Coventry–Newcastle) RETIRED 13 Oct (morning block).
  * - Tue 13 UCL J2 rows (Atlético–Man Utd, Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli) RETIRED 14 Oct (morning block).
+ * - Wed 14 UCL J2 rows (LASK–Liverpool, Feyenoord–Como, Roma–Real Madrid, Man City–PSG, Betis–Porto, Aston Villa–Fenerbahçe) RETIRED 15 Oct (morning block).
  * - UCL J2 Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
  *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
  * - UEL J2 Thu 15 USG–Real Sociedad 18:45, Celta–Juventus 21:00 (movistarplus.es fichas 11 Oct).
@@ -49,51 +50,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'LASK vs Liverpool',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Roma vs Real Madrid',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Manchester City vs Paris Saint-Germain',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Betis vs Porto',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Aston Villa vs Fenerbahçe',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
   {
     dateKey: '2026-10-15',
     whenLabel: 'Thu 15 Oct',
@@ -396,15 +352,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol. Walk-ins only.',
     noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol, por orden de llegada.',
-  },
-  {
-    dateKey: '2026-10-14',
-    whenLabel: 'Wed 14 Oct',
-    competition: 'UEFA Champions League',
-    teams: 'Feyenoord vs Como',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-15',

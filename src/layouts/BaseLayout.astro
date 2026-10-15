@@ -16,6 +16,8 @@ interface Props {
   lang?: Lang;
   ogImage?: string;
   hreflang?: { en?: string; es?: string };
+  /** Standalone page in another language (e.g. 'de'): sets html lang, self hreflang + x-default, no en/es alternates. */
+  htmlLang?: string;
   /** Defaults to index,follow. Error documents pass noindex. */
   robots?: string;
   /** Extra JSON-LD graph nodes (e.g. SportsEvent) rendered after BarOrPub. */
@@ -31,6 +33,7 @@ const {
   hreflang: hreflangProp,
   robots: robotsProp,
   extraJsonLd,
+  htmlLang,
 } = Astro.props;
 
 const extraJsonLdList = extraJsonLd
@@ -41,7 +44,7 @@ const extraJsonLdList = extraJsonLd
 
 const pathNorm = normalizePath(path);
 const lang: Lang = langProp || detectLang(pathNorm);
-const hreflang = hreflangProp || hreflangFor(pathNorm);
+const hreflang = htmlLang ? {} : hreflangProp || hreflangFor(pathNorm);
 const copy = t(lang);
 
 const canonical = absUrl(pathNorm);
@@ -82,7 +85,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} translate="no" class="notranslate">
+<html lang={htmlLang || lang} translate="no" class="notranslate">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -96,13 +99,15 @@ const jsonLd = {
     {(hreflang?.en || hreflang?.es) && (
       <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}
+    {htmlLang && <link rel="alternate" hreflang={htmlLang} href={canonical} />}
+    {htmlLang && <link rel="alternate" hreflang="x-default" href={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.fullName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale" content={htmlLang === 'de' ? 'de_DE' : lang === 'es' ? 'es_ES' : 'en_GB'} />
     {lang === 'es' ? (
       <meta property="og:locale:alternate" content="en_GB" />
     ) : (

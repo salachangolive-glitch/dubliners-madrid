@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { withBase } from '../../../site';
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿El Getafe–Brighton es de Champions?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es de la UEFA Conference League, el jueves 5 de noviembre de 2026 a las 21:00, y lo ponemos EN DIRECTO."}}, {"@type": "Question", "name": "¿Puedo ir sin más?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Sin reserva, por orden de llegada."}}, {"@type": "Question", "name": "¿Cuántas pantallas tenéis?", "acceptedAnswer": {"@type": "Answer", "text": "Un proyector grande y 8 pantallas."}}]};
+---
+<BaseLayout title="Champions en un pub irlandés en Sol, Madrid | Dubliners" description="Ver fútbol europeo en un pub irlandés junto a la Puerta del Sol: Real Madrid–Leipzig (21 oct), Atlético–Bayern (3 nov) y Getafe–Brighton (5 nov), EN DIRECTO." path="/es/champions-pub-irlandes-sol/" lang="es" hreflang={{ en: '/champions-league-irish-pub-sol/', es: '/es/champions-pub-irlandes-sol/' }} ogImage="/images/facade.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Champions en un pub irlandés" lang="es" />
+    <h1>Ver la Champions en un pub irlandés en Sol</h1>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Las grandes noches europeas llenan los estadios. Si no estás en el campo, Dubliners es un pub irlandés en la Calle de Espoz y Mina 7, a dos minutos de la Puerta del Sol, con un proyector grande y 8 pantallas. Todos los partidos de Champions y Conference League que anunciamos van EN DIRECTO.</p>
+    <h2>Tres noches de equipos de Madrid</h2><ul>
+      <li><strong>Miércoles 21 de octubre, 21:00</strong> — Real Madrid–RB Leipzig, UEFA Champions League (jornada 3, Bernabéu). EN DIRECTO.</li>
+      <li><strong>Martes 3 de noviembre, 21:00</strong> — Atlético de Madrid–Bayern de Múnich, UEFA Champions League (jornada 4, Metropolitano). EN DIRECTO.</li>
+      <li><strong>Jueves 5 de noviembre, 21:00</strong> — Getafe–Brighton. No es Champions: es la UEFA Conference League, en el Coliseum de Getafe. EN DIRECTO. Para aficionados del Brighton: <a href={withBase('/es/aficionados-brighton-madrid/')}>nuestra guía</a>.</li></ul>
+    <p>Hora de Madrid, según los calendarios de uefa.com (21:00 CET salvo indicación) y las webs de los clubes.</p>
+    <h2>La noche del partido</h2><p>Sin reserva, por orden de llegada; en los partidos grandes, mejor llegar pronto. Abrimos cada día desde las 12:00 (hasta las 02:00 de domingo a jueves). Todos los partidos en <a href={withBase('/es/partidos/')}>Partidos</a> y <a href={withBase('/es/champions-league-bar-madrid/')}>Champions en Madrid</a>.</p>
+    <h2>Preguntas frecuentes</h2><dl class="faq"><dt><strong>¿El Getafe–Brighton es de Champions?</strong></dt><dd>No. Es de la UEFA Conference League, el jueves 5 de noviembre de 2026 a las 21:00, y lo ponemos EN DIRECTO.</dd><dt><strong>¿Puedo ir sin más?</strong></dt><dd>Sí. Sin reserva, por orden de llegada.</dd><dt><strong>¿Cuántas pantallas tenéis?</strong></dt><dd>Un proyector grande y 8 pantallas.</dd></dl>
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  </div></section>
+</BaseLayout>

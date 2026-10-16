@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dublinersmadrid.es/sitemap-index.xml

@@ -6,6 +6,7 @@
  * - Rows with dateKey < 2026-10-13 (incl. Mon 12 Levante–Sevilla + Coventry–Newcastle) RETIRED 13 Oct (morning block).
  * - Tue 13 UCL J2 rows (Atlético–Man Utd, Galatasaray–Barcelona, Arsenal–Lille, Villarreal–Napoli) RETIRED 14 Oct (morning block).
  * - Wed 14 UCL J2 rows (LASK–Liverpool, Feyenoord–Como, Roma–Real Madrid, Man City–PSG, Betis–Porto, Aston Villa–Fenerbahçe) RETIRED 15 Oct (morning block).
+ * - Thu 15 UEL/UECL rows (Craiova–Getafe, Brighton–Žalgiris, USG–Real Sociedad, Celta–Juventus, Lyon–Crystal Palace, Torreense–Sunderland, Bournemouth–Sturm Graz, Benfica–Celtic, Marseille–Olympiacos) RETIRED 16 Oct (morning block).
  * - UCL J2 Wed 14 LASK–Liverpool 18:45, Roma–Real Madrid, Man City–PSG, Betis–Porto,
  *   Aston Villa–Fenerbahçe 21:00 (Movistar Liga de Campeones; Roma–RM movistarplus.es ficha).
  * - UEL J2 Thu 15 USG–Real Sociedad 18:45, Celta–Juventus 21:00 (movistarplus.es fichas 11 Oct).
@@ -24,7 +25,7 @@
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
- * - 15 Oct: Brighton–Kauno Žalgiris 21:00 Madrid (brightonandhovealbion.com: KO 8pm BST; BBC 20:00 BST). TEMP, remove 16 Oct.
+ * - 15 Oct: Brighton–Kauno Žalgiris 21:00 Madrid RETIRED 16 Oct (morning block).
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
@@ -52,42 +53,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Conference League',
-    teams: 'Craiova vs Getafe',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    // TEMP: remove 16 Oct together with the Europa League tonight block.
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Conference League',
-    teams: 'Brighton vs Kauno Žalgiris',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Union Saint-Gilloise vs Real Sociedad',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Celta vs Juventus',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
   {
     dateKey: '2026-10-16',
     whenLabel: 'Fri 16 Oct',
@@ -363,51 +328,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol. Walk-ins only.',
     noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol, por orden de llegada.',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Lyon vs Crystal Palace',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Torreense vs Sunderland',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Bournemouth vs Sturm Graz',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Benfica vs Celtic',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
-  },
-  {
-    dateKey: '2026-10-15',
-    whenLabel: 'Thu 15 Oct',
-    competition: 'UEFA Europa League',
-    teams: 'Marseille vs Olympiacos',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-17',

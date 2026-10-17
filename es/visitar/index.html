@@ -66,6 +66,43 @@
   var v = read();
   if (v !== 'granted' && v !== 'denied') banner.hidden = false;
 })();
+</script><script>
+  (function () {
+    var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+    var STORE = 'dub_attr';
+    var attr = {};
+    try { attr = JSON.parse(sessionStorage.getItem(STORE) || '{}') || {}; } catch (e) { attr = {}; }
+    try {
+      var params = new URLSearchParams(location.search);
+      KEYS.forEach(function (k) {
+        var v = (params.get(k) || '').trim();
+        if (v && !attr[k]) attr[k] = v.slice(0, 200);
+      });
+      if (!attr.landing_page) attr.landing_page = location.pathname.slice(0, 200);
+      if (!('referrer' in attr)) {
+        var ref = '';
+        try {
+          if (document.referrer) {
+            var r = new URL(document.referrer);
+            if (r.hostname !== location.hostname) ref = (r.origin + r.pathname).slice(0, 200);
+          }
+        } catch (e) { ref = ''; }
+        attr.referrer = ref;
+      }
+      sessionStorage.setItem(STORE, JSON.stringify(attr));
+    } catch (e) { /* private mode / quota: still fill from what we have */ }
+    function fill() {
+      var inputs = document.querySelectorAll('form input[data-attr]');
+      for (var i = 0; i < inputs.length; i++) {
+        var el = inputs[i];
+        var v = attr[el.getAttribute('data-attr')] || '';
+        el.value = v;
+        el.disabled = !v;
+      }
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill);
+    else fill();
+  })();
 </script><script>(function(){const measurementId = "G-FRDF0849P3";
 const emailTrackingEnabled = true;
 

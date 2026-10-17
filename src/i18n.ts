@@ -24,6 +24,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/champions-league-irish-pub-sol/': '/es/champions-pub-irlandes-sol/',
   '/brighton-fans-madrid/': '/es/aficionados-brighton-madrid/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
+  '/el-clasico-madrid/': '/es/ver-el-clasico-madrid/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

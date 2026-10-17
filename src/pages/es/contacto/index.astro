@@ -76,6 +76,19 @@ const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
           {formReady && <input type="hidden" name="_template" value="table" />}
           {formReady && <input type="hidden" name="_captcha" value="false" />}
           {formReady && <input type="hidden" name="_next" value="https://dublinersmadrid.es/es/contacto/?sent=1" />}
+          {/* First-touch attribution, filled by AttributionCapture (empty → disabled, not sent) */}
+          {formReady && (
+            <>
+              <input type="hidden" name="utm_source" data-attr="utm_source" value="" disabled />
+              <input type="hidden" name="utm_medium" data-attr="utm_medium" value="" disabled />
+              <input type="hidden" name="utm_campaign" data-attr="utm_campaign" value="" disabled />
+              <input type="hidden" name="utm_term" data-attr="utm_term" value="" disabled />
+              <input type="hidden" name="utm_content" data-attr="utm_content" value="" disabled />
+              <input type="hidden" name="gclid" data-attr="gclid" value="" disabled />
+              <input type="hidden" name="landing_page" data-attr="landing_page" value="" disabled />
+              <input type="hidden" name="referrer" data-attr="referrer" value="" disabled />
+            </>
+          )}
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company</label>
             {/* FormSubmit honeypot: name="_honey"; vacío para humanos */}

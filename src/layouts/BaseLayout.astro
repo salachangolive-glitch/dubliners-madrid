@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyCta from '../components/StickyCta.astro';
 import Analytics from '../components/Analytics.astro';
+import AttributionCapture from '../components/AttributionCapture.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import { SITE, absUrl, withBase } from '../site';
 import { openingHoursJsonLd } from '../data/hours';
@@ -135,6 +136,7 @@ const jsonLd = {
     <Footer lang={lang} />
     <StickyCta lang={lang} />
     <CookieBanner lang={lang} />
+    <AttributionCapture />
     <Analytics />
   </body>
 </html>

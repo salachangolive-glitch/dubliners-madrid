@@ -28,7 +28,8 @@
  * - 17 Oct: NFL Week 7 Sun 25 Oct ADDED — owner confirmed via DG 16 Oct Dubliners shows 14:30, 18:00, 21:05, 21:25 slots.
  *   nfl.com/schedules/2026/by-week/week-7 UTC 13:30Z/17:00Z/20:05Z/20:25Z → CET (UTC+1, Madrid already on winter time).
  *   SNF Chiefs–Seahawks 01:20 Mon and MNF Cowboys–Eagles 01:15 Tue OMITTED (not confirmed; would run past close 02:00).
- * - OMIT (Tentative / not verified):  *   URC 23–24 Oct (Spain emission Tentative), NFL London Game Pass, NFL Sun 18, NCAA, UCL J3
+ * - 17 Oct (DG decision): URC Leinster–Munster Sat 24 Oct 19:00 Madrid (18:00 IST, avivastadium.ie + RTÉ/Sky), NO channel.
+ * - OMIT (Tentative / not verified):  *   URC 23–24 Oct except Leinster–Munster, NFL London Game Pass, NFL Sun 18, NCAA, UCL J3
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
@@ -62,6 +63,14 @@
 };
 
 export const FIXTURES: Fixture[] = [
+  {
+    dateKey: '2026-10-24',
+    whenLabel: 'Sat 24 Oct',
+    competition: 'URC',
+    teams: 'Leinster vs Munster',
+    madridTime: '19:00',
+    confirmedOnScreens: true,
+  },
   {
     dateKey: '2026-10-24',
     whenLabel: 'Sat 24 Oct',

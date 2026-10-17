@@ -157,6 +157,18 @@ const formAjax = formReady ? getContactFormAjaxEndpoint() : '';
       }
       return;
     }
+    // Unique _subject per submission: «Dubliners web — {reason} — {name} — DD/MM HH:MM» (Madrid).
+    // Static value in the HTML stays as fallback if anything here fails.
+    try {
+      const subj = form.querySelector('input[name="_subject"]');
+      const sel = form.querySelector('select[name="reason"]');
+      const clean = (v, max) => String(v || '').replace(/[\u0000-\u001f\u007f<>"`]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max).trim();
+      const reason = clean(sel && sel.selectedIndex > 0 ? sel.options[sel.selectedIndex].text : '', 40) || 'Otro';
+      const name = clean((form.querySelector('input[name="name"]') || {}).value, 40) || 'Sin nombre';
+      const p = new Intl.DateTimeFormat('es-ES', { timeZone: 'Europe/Madrid', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      const g = (t) => (p.find((x) => x.type === t) || {}).value || '';
+      if (subj) subj.value = `Dubliners web — ${reason} — ${name} — ${g('day')}/${g('month')} ${g('hour')}:${g('minute')}`.slice(0, 150);
+    } catch { /* keep static _subject */ }
     const ajaxUrl = form.getAttribute('data-ajax-action');
     const successPath = form.getAttribute('data-success-path') || '/es/contacto/?sent=1';
     if (!ajaxUrl) return; // fall through to classic POST

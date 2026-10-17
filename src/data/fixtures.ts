@@ -26,6 +26,7 @@
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
  * - 15 Oct: Brighton–Kauno Žalgiris 21:00 Madrid RETIRED 16 Oct (morning block).
+ * - Fri 16 LaLiga Deportivo–Levante RETIRED 17 Oct (DG P0). Weekend 17–18 Oct times re-verified 17 Oct: laliga.com broadcast table (J9) + premierleague.com/en/news/4688862 (BST+1 = Madrid).
  * - Getafe–Brighton Thu 5 Nov 21:00 (Getafe CF official site via DG; UEFA fixture list). Fontaines D.C. kind:event.
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
@@ -53,15 +54,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
-    dateKey: '2026-10-16',
-    whenLabel: 'Fri 16 Oct',
-    competition: 'LaLiga',
-    teams: 'Deportivo vs Levante',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'LALIGA TV M+',
-  },
   {
     dateKey: '2026-10-17',
     whenLabel: 'Sat 17 Oct',

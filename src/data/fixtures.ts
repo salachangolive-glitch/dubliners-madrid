@@ -40,6 +40,9 @@
  * - 18 Oct audit 19–25 Oct: + UCL MD3 (4 missing), UEL (12), UECL (17, no channel) from match.uefa.com; + Premier MW8 (4 missing);
  *   + URC R4 (6) + Premiership Rugby R4 (5); + F1 US GP quali/race; + NFL SNF Mon 26 01:20; + MLB World Series G1/G2 (02:00 Fri/Sat night);
  *   + NBA (ESPN API, nba.com cross-check) and NHL (api-web.nhle.com) games starting inside opening hours.
+ * - 18 Oct fixes: movistarplus.es guide confirms M+ Liga de Campeones for the 4 new UCL rows and 11/12 new UEL rows;
+ *   Plzeň–Levski not in the guide -> channel removed. Ospreys–Dragons 19:00 UK (ospreysrugby.com + dragonsrfc.wales) = 20:00 Madrid.
+ *   MLB WS G1/G2 8:00 PM ET confirmed on mlb.com/postseason.
  * - OMIT (Tentative / not verified):  *   URC 23–24 Oct except Leinster–Munster, NFL London Game Pass, NFL Sun 18, NCAA, UCL J3
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
@@ -209,7 +212,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Viktoria Plzeň vs Levski Sofia',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    channel: 'Movistar Liga de Campeones',
   },
   {
     dateKey: '2026-10-22',

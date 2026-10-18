@@ -43,6 +43,9 @@
  * - 18 Oct fixes: movistarplus.es guide confirms M+ Liga de Campeones for the 4 new UCL rows and 11/12 new UEL rows;
  *   Plzeň–Levski not in the guide -> channel removed. Ospreys–Dragons 19:00 UK (ospreysrugby.com + dragonsrfc.wales) = 20:00 Madrid.
  *   MLB WS G1/G2 8:00 PM ET confirmed on mlb.com/postseason.
+ * - 18 Oct (morning block): + Premier Sun 18 Bournemouth–Sunderland + Brighton–Palace 14:00 BST = 15:00 Madrid (premierleague.com/en/news/4688862,
+ *   moved to Sunday for UEL); + MLB ALCS G5 Rays at Guardians 21:08Z = 23:08 (statsapi.mlb.com); + NHL CBJ at MIN 22:00Z = 00:00 Mon
+ *   (Sunday night, inside 01:00 cut-off; api-web.nhle.com). CAR at CGY 02:00 and ALCS G6 02:08 Tue EXCLUDED (cut-off).
  * - 18 Oct DG cut-off rule: a match must start ≥1 h before that night's close (Sun–Thu 02:00, Fri–Sat 02:30; 00:00–05:59
  *   belongs to the previous night) -> removed later starts (incl. MLB WS G1/G2 and NFL SNF Mon 26 01:20).
  *   + M+ Liga de Campeones channels on 6 UECL rows (movistarplus.es guide).
@@ -1926,6 +1929,40 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:30',
     confirmedOnScreens: true,
     channel: 'DAZN',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'Premier League',
+    teams: 'Bournemouth vs Sunderland',
+    madridTime: '15:00',
+    confirmedOnScreens: true,
+    channel: 'DAZN',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'Premier League',
+    teams: 'Brighton vs Crystal Palace',
+    madridTime: '15:00',
+    confirmedOnScreens: true,
+    channel: 'DAZN',
+  },
+  {
+    dateKey: '2026-10-18',
+    whenLabel: 'Sun 18 Oct',
+    competition: 'MLB ALCS — Game 5',
+    teams: 'Tampa Bay Rays vs Cleveland Guardians',
+    madridTime: '23:08',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-19',
+    whenLabel: 'Mon 19 Oct',
+    competition: 'NHL',
+    teams: 'Columbus Blue Jackets vs Minnesota Wild',
+    madridTime: '00:00',
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-18',

@@ -71,6 +71,8 @@
   kind?: 'sport' | 'event';
   /** Broadcaster name as published by the operator (no dial numbers). */
   channel?: string;
+  /** Exact UTC instant (ISO, e.g. 2026-10-25T00:00:00Z) for wall times that are ambiguous at the DST change (25 Oct 02:00–02:59). */
+  startUtc?: string;
 };
 
 export const FIXTURES: Fixture[] = [
@@ -520,6 +522,7 @@ export const FIXTURES: Fixture[] = [
     competition: 'MLB World Series — Game 2',
     teams: 'Rays or Guardians vs Brewers',
     madridTime: '02:00',
+    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
     noteEn: 'AL champion (Rays or Guardians) still to be decided.',
     noteEs: 'El campeón de la Liga Americana (Rays o Guardians) aún está por decidir.',
@@ -882,6 +885,7 @@ export const FIXTURES: Fixture[] = [
     competition: 'NBA',
     teams: 'Washington Wizards vs Chicago Bulls',
     madridTime: '02:00',
+    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
   },
   {
@@ -890,6 +894,7 @@ export const FIXTURES: Fixture[] = [
     competition: 'NBA',
     teams: 'San Antonio Spurs vs Dallas Mavericks',
     madridTime: '02:00',
+    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
   },
   {
@@ -898,6 +903,7 @@ export const FIXTURES: Fixture[] = [
     competition: 'NBA',
     teams: 'New Orleans Pelicans vs Denver Nuggets',
     madridTime: '02:00',
+    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
   },
   {
@@ -906,6 +912,7 @@ export const FIXTURES: Fixture[] = [
     competition: 'NHL',
     teams: 'Tampa Bay Lightning vs Utah Mammoth',
     madridTime: '02:00',
+    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
   },
   {
@@ -2569,6 +2576,7 @@ export function madridIsoWithOffset(dateKey: string, hm: string): string {
 }
 
 export function fixtureStartMs(f: Fixture): number {
+  if (f.startUtc) return Date.parse(f.startUtc);
   return madridWallToEpoch(f.dateKey, f.madridTime);
 }
 export function fixtureEndMs(f: Fixture): number {
@@ -2669,7 +2677,7 @@ export function sportsEventsJsonLd(
         '@type': 'SportsEvent',
         name: `${f.teams} — ${f.competition}`,
         description,
-        startDate: madridIsoWithOffset(f.dateKey, f.madridTime),
+        startDate: f.startUtc ? `${f.dateKey}T${f.madridTime}:00+02:00` : madridIsoWithOffset(f.dateKey, f.madridTime),
         eventStatus: 'https://schema.org/EventScheduled',
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         location: venue,

@@ -2,9 +2,11 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { withBase } from '../../../site';
+import { hoursFor } from '../../../data/hours';
+const sundayHours = hoursFor('Sunday');
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Ponéis NFL RedZone el 8 de noviembre?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, NFL RedZone EN DIRECTO desde las 19:00 hasta el cierre a las 02:00."}}, {"@type": "Question", "name": "¿Ponéis el partido del domingo por la noche?", "acceptedAnswer": {"@type": "Answer", "text": "No. Empieza a las 02:20 del lunes, después de nuestro cierre a las 02:00."}}, {"@type": "Question", "name": "¿Puedo ir sin más?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Sin reserva, por orden de llegada."}}]};
 ---
-<BaseLayout title="Domingo NFL en Madrid, 8 nov: guía hora a hora | Dubliners" description="Planifica el domingo 8 de noviembre de 2026 en Madrid: Bengals–Falcons a las 15:30, la jornada NFL y NFL RedZone EN DIRECTO desde las 19:00 en Dubliners, junto a Sol." path="/es/guia-domingo-nfl-madrid/" lang="es" hreflang={{ en: '/nfl-sunday-madrid-guide/', es: '/es/guia-domingo-nfl-madrid/' }} ogImage="/images/facade.jpg">
+<BaseLayout title="Domingo NFL en Madrid, 8 nov: guía hora a hora | Dubliners" description="Planifica el domingo 8 de noviembre en Madrid: Bengals–Falcons a las 15:30, la jornada NFL y NFL RedZone EN DIRECTO desde las 19:00 en Dubliners, junto a Sol." path="/es/guia-domingo-nfl-madrid/" lang="es" hreflang={{ en: '/nfl-sunday-madrid-guide/', es: '/es/guia-domingo-nfl-madrid/' }} ogImage="/images/facade.jpg">
   <section class="hero hero-compact"><div class="container">
     <Breadcrumb current="Guía del domingo NFL" lang="es" />
     <h1>Domingo NFL en Madrid: guía hora a hora del 8 de noviembre</h1>
@@ -17,6 +19,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <h2>22:05 y 22:25 — los partidos de la tarde americana</h2><p>Dos partidos a las 22:05 y dos a las 22:25, EN DIRECTO, con RedZone en marcha.</p>
     <h2>02:00 — cierre</h2><p>El domingo cerramos a las 02:00. El partido de la noche del domingo empieza a las 02:20 del lunes (hora de Madrid), después del cierre, así que no lo ponemos.</p>
     <p>Un proyector grande y 8 pantallas. Horarios convertidos desde el calendario de la jornada 9 de nfl.com (hora del Este).</p>
+    <h2>Aficionados de los Bengals y los Falcons que llegáis a Madrid</h2><p>¿Venís por el Bengals–Falcons? Se juega en el Santiago Bernabéu el domingo 8 de noviembre a las 15:30, hora de Madrid (9:30 ET; ese día Madrid va seis horas por delante de la hora del Este). Los Falcons son el equipo local designado.</p><p>Ese domingo Dubliners abre de {sundayHours.replace('–', ' a ')}, en la Calle de Espoz y Mina 7, a pocos minutos a pie de la Puerta del Sol. Sin reservas: por orden de llegada. El partido va EN DIRECTO en nuestro proyector grande y 8 pantallas, y NFL RedZone EN DIRECTO desde las 19:00.</p>
     <h2>Preguntas frecuentes</h2><dl class="faq"><dt><strong>¿Ponéis NFL RedZone el 8 de noviembre?</strong></dt><dd>Sí, NFL RedZone EN DIRECTO desde las 19:00 hasta el cierre a las 02:00.</dd><dt><strong>¿Ponéis el partido del domingo por la noche?</strong></dt><dd>No. Empieza a las 02:20 del lunes, después de nuestro cierre a las 02:00.</dd><dt><strong>¿Puedo ir sin más?</strong></dt><dd>Sí. Sin reserva, por orden de llegada.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>

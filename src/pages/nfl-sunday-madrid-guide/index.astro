@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { withBase } from '../../site';
+import { hoursFor } from '../../data/hours';
+const sundayHours = hoursFor('Sunday');
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is NFL RedZone on at Dubliners on 8 November?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, NFL RedZone is LIVE from 19:00 Madrid time until we close at 02:00."}}, {"@type": "Question", "name": "Do you show the Sunday night game?", "acceptedAnswer": {"@type": "Answer", "text": "No. It starts at 02:20 Monday Madrid time, after we close at 02:00."}}, {"@type": "Question", "name": "Can I just walk in?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Walk-ins only, first come first served."}}]};
 ---
 <BaseLayout title="NFL Sunday in Madrid, 8 Nov: Hour-by-Hour Guide | Dubliners" description="Plan Sunday 8 November 2026 in Madrid around the NFL: Bengals vs Falcons at 15:30, the Sunday games and NFL RedZone LIVE from 19:00 at Dubliners near Sol." path="/nfl-sunday-madrid-guide/" lang="en" hreflang={{ en: '/nfl-sunday-madrid-guide/', es: '/es/guia-domingo-nfl-madrid/' }} ogImage="/images/facade.jpg">
@@ -17,6 +19,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <h2>22:05 and 22:25 — the late games</h2><p>Two games at 22:05 and two at 22:25, all LIVE, with RedZone still on.</p>
     <h2>02:00 — closing</h2><p>We close at 02:00 on Sunday night. The Sunday night game starts at 02:20 Monday Madrid time, after closing, so we don't show it.</p>
     <p>A big projector and 8 screens. Kick-off times are converted from nfl.com's Week 9 schedule (Eastern Time).</p>
+    <h2>Bengals and Falcons fans arriving in Madrid</h2><p>Coming over for Bengals at Falcons? The game is at the Santiago Bernabéu on Sunday 8 November, kick-off 15:30 Madrid time (9:30 a.m. ET; Madrid is six hours ahead of ET that day). The Falcons are the designated home team.</p><p>Dubliners is open {sundayHours} that Sunday, at Calle de Espoz y Mina 7, a few minutes on foot from Puerta del Sol. Walk-ins, first come, first served: no reservations. The game is LIVE on our big projector and 8 screens, and NFL RedZone is LIVE from 19:00.</p>
     <h2>FAQ</h2><dl class="faq"><dt><strong>Is NFL RedZone on at Dubliners on 8 November?</strong></dt><dd>Yes, NFL RedZone is LIVE from 19:00 Madrid time until we close at 02:00.</dd><dt><strong>Do you show the Sunday night game?</strong></dt><dd>No. It starts at 02:20 Monday Madrid time, after we close at 02:00.</dd><dt><strong>Can I just walk in?</strong></dt><dd>Yes. Walk-ins only, first come first served.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>

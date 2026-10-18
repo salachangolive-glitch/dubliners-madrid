@@ -31,6 +31,10 @@
  * - 17 Oct (DG decision): URC Leinster–Munster Sat 24 Oct 19:00 Madrid (18:00 IST, avivastadium.ie + RTÉ/Sky), NO channel.
  * - 18 Oct: rows dateKey <= 2026-10-17 RETIRED (morning). NFL Sun 18 Oct (nfl.com 2026 week 6, ET+6 → CEST; Away vs Home like other NFL rows) ADDED,
  *   11 games, no channel; Cowboys at Packers 02:20 Mon EXCLUDED (Sunday close 02:00).
+ * - 18 Oct (DG P1, Radar 2026-10-18-escocia): fans meeting point rows, NO channel: Bulls–Ulster 24/10 13:45, Motherwell–Hearts 25/10 15:00,
+ *   Stormers–Ulster + Rangers–Aberdeen (Premier Sports Cup SF) + Munster–Sharks 31/10, Hearts–Hibernian (SF) + Liverpool–Arsenal 1/11.
+ *   Sources: spfl.co.uk, rangers.co.uk, ulster.rugby, munsterrugby.ie/sharksrugby.co.za, premierleague.com. Celtic–Celta note added.
+ *   Sky-only / no-TV Scottish games NOT listed (Celtic–Hearts, Hibernian–Celtic, Hearts–Rangers, Falkirk–Celtic, Rangers–St Johnstone).
  * - OMIT (Tentative / not verified):  *   URC 23–24 Oct except Leinster–Munster, NFL London Game Pass, NFL Sun 18, NCAA, UCL J3
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
@@ -65,6 +69,76 @@
 };
 
 export const FIXTURES: Fixture[] = [
+  {
+    dateKey: '2026-10-24',
+    whenLabel: 'Sat 24 Oct',
+    competition: 'URC',
+    teams: 'Bulls vs Ulster',
+    madridTime: '13:45',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Ulster rugby fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del Ulster. Sin reserva.',
+  },
+  {
+    dateKey: '2026-10-25',
+    whenLabel: 'Sun 25 Oct',
+    competition: 'Scottish Premiership',
+    teams: 'Motherwell vs Hearts',
+    madridTime: '15:00',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Scottish football fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del fútbol escocés. Sin reserva.',
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'URC',
+    teams: 'Stormers vs Ulster',
+    madridTime: '13:45',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Ulster rugby fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del Ulster. Sin reserva.',
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Premier Sports Cup (semi-final)',
+    teams: 'Rangers vs Aberdeen',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Scottish football fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del fútbol escocés. Sin reserva.',
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'URC',
+    teams: 'Munster vs Sharks',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Munster rugby fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del Munster. Sin reserva.',
+  },
+  {
+    dateKey: '2026-11-01',
+    whenLabel: 'Sun 1 Nov',
+    competition: 'Premier Sports Cup (semi-final)',
+    teams: 'Hearts vs Hibernian',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Scottish football fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del fútbol escocés. Sin reserva.',
+  },
+  {
+    dateKey: '2026-11-01',
+    whenLabel: 'Sun 1 Nov',
+    competition: 'Premier League',
+    teams: 'Liverpool vs Arsenal',
+    madridTime: '17:30',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Liverpool and Arsenal fans. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del Liverpool y del Arsenal. Sin reserva.',
+  },
   {
     dateKey: '2026-10-18',
     whenLabel: 'Sun 18 Oct',
@@ -1301,6 +1375,8 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
     channel: 'Movistar Liga de Campeones',
+    noteEn: 'Fans meeting point for Celtic and Celta supporters: Scottish and Galician fans welcome. Walk-ins only.',
+    noteEs: 'Punto de encuentro de aficionados del Celtic y del Celta: escoceses y gallegos, bienvenidos. Sin reserva.',
   },
   {
     dateKey: '2026-10-22',

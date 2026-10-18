@@ -2358,8 +2358,8 @@ export const FIXTURES: Fixture[] = [
     madridTime: '19:00',
     approxDurationMin: 390,
     confirmedOnScreens: true,
-    noteEn: 'NFL RedZone LIVE from 19:00, during opening hours (until 02:00). Walk-ins only, first come first served.',
-    noteEs: 'NFL RedZone EN DIRECTO desde las 19:00, dentro del horario (hasta las 02:00). Sin reserva, por orden de llegada.',
+    noteEn: 'NFL RedZone LIVE from 19:00 across the 19:00, 22:05 and 22:25 games (we close at 02:00). Walk-ins only, first come first served.',
+    noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00). Sin reserva, por orden de llegada.',
   },
   {
     dateKey: '2026-10-20',

@@ -43,6 +43,9 @@
  * - 18 Oct fixes: movistarplus.es guide confirms M+ Liga de Campeones for the 4 new UCL rows and 11/12 new UEL rows;
  *   Plzeň–Levski not in the guide -> channel removed. Ospreys–Dragons 19:00 UK (ospreysrugby.com + dragonsrfc.wales) = 20:00 Madrid.
  *   MLB WS G1/G2 8:00 PM ET confirmed on mlb.com/postseason.
+ * - 18 Oct DG cut-off rule: a match must start ≥1 h before that night's close (Sun–Thu 02:00, Fri–Sat 02:30; 00:00–05:59
+ *   belongs to the previous night) -> removed later starts (incl. MLB WS G1/G2 and NFL SNF Mon 26 01:20).
+ *   + M+ Liga de Campeones channels on 6 UECL rows (movistarplus.es guide).
  * - OMIT (Tentative / not verified):  *   URC 23–24 Oct except Leinster–Munster, NFL London Game Pass, NFL Sun 18, NCAA, UCL J3
  *   20–21 Oct (except RM–Leipzig), low-demand Premier/LaLiga rows, NBA.
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
@@ -229,6 +232,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Kairat Almaty vs Panathinaikos',
     madridTime: '16:30',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 2',
   },
   {
     dateKey: '2026-10-22',
@@ -253,6 +257,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Inter Escaldes vs Universitatea Craiova',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 12',
   },
   {
     dateKey: '2026-10-22',
@@ -269,6 +274,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Jablonec vs Brighton',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 11',
   },
   {
     dateKey: '2026-10-22',
@@ -341,6 +347,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Monaco vs Freiburg',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 12',
   },
   {
     dateKey: '2026-10-22',
@@ -349,6 +356,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ajax vs Atalanta',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 11',
   },
   {
     dateKey: '2026-10-22',
@@ -357,6 +365,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Braga vs Gent',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'M+ Liga de Campeones 13',
   },
   {
     dateKey: '2026-10-23',
@@ -499,37 +508,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
-    dateKey: '2026-10-26',
-    whenLabel: 'Mon 26 Oct',
-    competition: 'NFL',
-    teams: 'Chiefs vs Seahawks',
-    madridTime: '01:20',
-    confirmedOnScreens: true,
-    noteEn: 'Live at Dubliners. Sunday Night Football.',
-    noteEs: 'En directo en Dubliners. Sunday Night Football.',
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'MLB World Series — Game 1',
-    teams: 'Rays or Guardians vs Brewers',
-    madridTime: '02:00',
-    confirmedOnScreens: true,
-    noteEn: 'AL champion (Rays or Guardians) still to be decided.',
-    noteEs: 'El campeón de la Liga Americana (Rays o Guardians) aún está por decidir.',
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'MLB World Series — Game 2',
-    teams: 'Rays or Guardians vs Brewers',
-    madridTime: '02:00',
-    startUtc: '2026-10-25T00:00:00Z',
-    confirmedOnScreens: true,
-    noteEn: 'AL champion (Rays or Guardians) still to be decided.',
-    noteEs: 'El campeón de la Liga Americana (Rays o Guardians) aún está por decidir.',
-  },
-  {
     dateKey: '2026-10-20',
     whenLabel: 'Tue 20 Oct',
     competition: 'NHL',
@@ -543,14 +521,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NHL',
     teams: 'Colorado Avalanche vs Philadelphia Flyers',
     madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-20',
-    whenLabel: 'Tue 20 Oct',
-    competition: 'NHL',
-    teams: 'San Jose Sharks vs Toronto Maple Leafs',
-    madridTime: '01:30',
     confirmedOnScreens: true,
   },
   {
@@ -626,46 +596,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
-    dateKey: '2026-10-22',
-    whenLabel: 'Thu 22 Oct',
-    competition: 'NBA',
-    teams: 'Minnesota Timberwolves vs Miami Heat',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-22',
-    whenLabel: 'Thu 22 Oct',
-    competition: 'NBA',
-    teams: 'Charlotte Hornets vs Brooklyn Nets',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-22',
-    whenLabel: 'Thu 22 Oct',
-    competition: 'NBA',
-    teams: 'Chicago Bulls vs Toronto Raptors',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-22',
-    whenLabel: 'Thu 22 Oct',
-    competition: 'NHL',
-    teams: 'Philadelphia Flyers vs Buffalo Sabres',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-22',
-    whenLabel: 'Thu 22 Oct',
-    competition: 'NHL',
-    teams: 'Florida Panthers vs Ottawa Senators',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
     dateKey: '2026-10-23',
     whenLabel: 'Fri 23 Oct',
     competition: 'NBA',
@@ -716,14 +646,6 @@ export const FIXTURES: Fixture[] = [
   {
     dateKey: '2026-10-23',
     whenLabel: 'Fri 23 Oct',
-    competition: 'NHL',
-    teams: 'Los Angeles Kings vs New York Islanders',
-    madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
     competition: 'NBA',
     teams: 'Chicago Bulls vs Milwaukee Bucks',
     madridTime: '22:00',
@@ -767,22 +689,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NBA',
     teams: 'Toronto Raptors vs Washington Wizards',
     madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'Detroit Pistons vs Miami Heat',
-    madridTime: '02:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NHL',
-    teams: 'Montréal Canadiens vs Chicago Blackhawks',
-    madridTime: '02:00',
     confirmedOnScreens: true,
   },
   {
@@ -879,42 +785,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'NBA',
     teams: 'Milwaukee Bucks vs Philadelphia 76ers',
     madridTime: '01:30',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'NBA',
-    teams: 'Washington Wizards vs Chicago Bulls',
-    madridTime: '02:00',
-    startUtc: '2026-10-25T00:00:00Z',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'NBA',
-    teams: 'San Antonio Spurs vs Dallas Mavericks',
-    madridTime: '02:00',
-    startUtc: '2026-10-25T00:00:00Z',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'NBA',
-    teams: 'New Orleans Pelicans vs Denver Nuggets',
-    madridTime: '02:00',
-    startUtc: '2026-10-25T00:00:00Z',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'NHL',
-    teams: 'Tampa Bay Lightning vs Utah Mammoth',
-    madridTime: '02:00',
-    startUtc: '2026-10-25T00:00:00Z',
     confirmedOnScreens: true,
   },
   {

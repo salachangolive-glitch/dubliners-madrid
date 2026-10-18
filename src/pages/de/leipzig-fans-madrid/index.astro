@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wann ist Real Madrid gegen RB Leipzig?", "acceptedAnswer": {"@type": "Answer", "text": "Am Mittwoch, 21. Oktober 2026, um 21:00 Uhr Madrider Zeit (Champions League, 3. Spieltag der Ligaphase, im Estadio Santiago Bernabéu). Madrid und Leipzig haben dieselbe Zeitzone."}}, {"@type": "Question", "name": "Zeigt ihr das Spiel live?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, LIVE auf der großen Leinwand und 8 Bildschirmen."}}, {"@type": "Question", "name": "Muss ich reservieren?", "acceptedAnswer": {"@type": "Answer", "text": "Nein, keine Reservierung – wer zuerst kommt, sitzt zuerst."}}, {"@type": "Question", "name": "Wann habt ihr geöffnet?", "acceptedAnswer": {"@type": "Answer", "text": "Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr."}}]};
+---
+<BaseLayout title="RB-Leipzig-Fans in Madrid: Treffpunkt für Fans an der Puerta del Sol | Dubliners" description="Treffpunkt für Fans an der Puerta del Sol: Real Madrid gegen RB Leipzig am Mi., 21. Oktober 2026, 21:00 Uhr, LIVE im Irish Pub Dubliners. Lage, Öffnungszeiten, keine Reservierung." path="/de/leipzig-fans-madrid/" htmlLang="de" ogImage="/images/facade.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <h1>RB-Leipzig-Fans in Madrid: Treffpunkt für Fans an der Puerta del Sol</h1>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Am Mittwoch, 21. Oktober 2026, spielt RB Leipzig in der Champions League (3. Spieltag der Ligaphase) bei Real Madrid – Anstoß 21:00 Uhr Madrider Zeit, im Estadio Santiago Bernabéu. Madrid hat dieselbe Uhrzeit wie Leipzig. Ohne Karte oder schon tagsüber in der Stadt? Dubliners ist ein Irish Pub mitten im Zentrum, direkt an der Puerta del Sol, und zeigt das Spiel LIVE.</p>
+    <h2>Wo wir sind</h2>
+    <p>Calle de Espoz y Mina 7, 28012 Madrid – zwischen Puerta del Sol, Plaza Mayor und dem Barrio de las Letras. Metro: Sol (Linien 1, 2, 3) oder Sevilla (Linie 2). Zum Bernabéu geht es von Sol mit der Linie 10 bis Santiago Bernabéu (Umstieg in Tribunal oder Plaza de España) oder mit Cercanías bis Nuevos Ministerios.</p>
+    <h2>Das Spiel</h2>
+    <p>Real Madrid gegen RB Leipzig LIVE auf der großen Leinwand und 8 Bildschirmen. Walk-ins, keine Reservierung – wer zuerst kommt, sitzt zuerst. Bei großen Spielen lohnt es sich, früher da zu sein.</p>
+    <h2>Öffnungszeiten</h2>
+    <ul>{OPENING_HOURS.map((d) => <li>{DE[d.day]}: {d.opens}–{d.closes} Uhr</li>)}</ul>
+    <h2>Madrid vor dem Spiel</h2>
+    <p>Von hier aus sind Plaza Mayor, der Mercado de San Miguel, die Gran Vía und der Prado gut zu Fuß erreichbar. Danach einfach zurück an die Sol und in Ruhe das Spiel schauen.</p>
+    <h2>Häufige Fragen</h2><dl class="faq"><dt><strong>Wann ist Real Madrid gegen RB Leipzig?</strong></dt><dd>Am Mittwoch, 21. Oktober 2026, um 21:00 Uhr Madrider Zeit (Champions League, 3. Spieltag der Ligaphase, im Estadio Santiago Bernabéu). Madrid und Leipzig haben dieselbe Zeitzone.</dd><dt><strong>Zeigt ihr das Spiel live?</strong></dt><dd>Ja, LIVE auf der großen Leinwand und 8 Bildschirmen.</dd><dt><strong>Muss ich reservieren?</strong></dt><dd>Nein, keine Reservierung – wer zuerst kommt, sitzt zuerst.</dd><dt><strong>Wann habt ihr geöffnet?</strong></dt><dd>Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr.</dd></dl>
+    <p class="small">Dubliners ist ein unabhängiger Pub, ohne Verbindung zur UEFA oder zu den Vereinen.</p>
+    <p class="small">Auf Englisch und Spanisch: <a href={withBase('/champions-league-irish-pub-sol/')} hreflang="en">Champions League in an Irish pub in Sol</a> · <a href={withBase('/es/champions-pub-irlandes-sol/')} hreflang="es">Champions en un pub irlandés en Sol</a> · <a href={withBase('/whats-on/')} hreflang="en">What's On</a> · <a href={withBase('/de/bayern-fans-madrid/')} hreflang="de">Bayern-Fans: Atlético gegen Bayern am 3. November</a></p>
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  </div></section>
+</BaseLayout>

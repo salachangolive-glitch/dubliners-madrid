@@ -12,6 +12,8 @@ export const SITE = {
     'https://www.google.com/maps?q=Calle+de+Espoz+y+Mina+7,+28012+Madrid&output=embed',
   instagram: 'https://www.instagram.com/dublinersirishpubmadrid/',
   instagramHandle: '@dublinersirishpubmadrid',
+  /** Google Business Profile (Maps) of Dubliners — CID 4384002297188950803 (place ChIJLdKNhYAoQg0RE6Nxotwa1zw). */
+  gbpUrl: 'https://maps.google.com/?cid=4384002297188950803',
   siteUrl: 'https://dublinersmadrid.es',
   base: '',
   /** GA4 web stream Measurement ID (Dubliners Madrid Website → dublinersmadrid.es). */

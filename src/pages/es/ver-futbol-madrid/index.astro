@@ -3,8 +3,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
+import { hoursSummary } from '../../../data/hours';
 
-const title = 'Ver fútbol en Madrid | Pub cerca de Sol — Dubliners';
+const title = 'Dónde ver fútbol en Madrid | Pub junto a Sol — Dubliners';
 const description =
   'Ver fútbol cerca de Puerta del Sol. Pantallas en sala para Premier, Champions y LaLiga. Espoz y Mina 7.';
 ---
@@ -19,7 +20,7 @@ const description =
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Ver fútbol Madrid" lang="es" />
+        <Breadcrumb current="Ver fútbol Madrid" lang="es" schema />
         <h1>Ver fútbol cerca de Sol</h1>
         <p class="lead">
           Pub irlandés en Espoz y Mina 7 — Premier League, Champions League y LaLiga
@@ -54,6 +55,33 @@ const description =
           <p>Mira los <a href={withBase('/es/partidos/')}>próximos partidos</a> o pregunta en barra.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Qué fútbol ponemos</h2>
+      <p>
+        Casi todas las semanas hay Premier League, LaLiga, Champions League, Europa League y Conference League,
+        además de eliminatorias de Copa del Rey y los partidos escoceses más grandes. Si coinciden dos partidos,
+        van en pantallas distintas y el principal en el proyector grande. Todas las horas son de Madrid.
+      </p>
+      <h2>Esta semana</h2>
+      <p>
+        La lista en vivo está en <a href={withBase('/es/partidos/')}>Partidos</a>: muestra los próximos días y marca
+        lo que va EN DIRECTO en nuestras pantallas. Si el partido que buscas no aparece, pregunta en barra antes de venir.
+      </p>
+      <h2>Cómo llegar desde Sol</h2>
+      <p>
+        Estamos en {SITE.address}, a un paseo corto de la Puerta del Sol. Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2).
+        Horario: {hoursSummary('es')}. En partidos grandes, llega un poco antes: no hay reserva de mesa.
+      </p>
+      <h2>Aficionados visitantes y grupos</h2>
+      <p>
+        ¿Vienes a Madrid a ver a tu equipo fuera de casa? Estamos en el centro, no junto al Bernabéu ni al Metropolitano,
+        así que encaja antes de ir al estadio o para los demás partidos de la noche. Los grupos son bienvenidos y el sitio
+        es por orden de llegada. La comida y la bebida están en nuestra <a href={withBase('/es/carta/')}>carta</a>.
+      </p>
     </div>
   </section>
 

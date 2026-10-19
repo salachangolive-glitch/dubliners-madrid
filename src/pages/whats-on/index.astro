@@ -7,9 +7,9 @@ import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
 
 const title =
-  'Watch Football in Madrid Tonight | What\'s On near Sol — Dubliners Irish Pub';
+  'What\'s On: Live Sport This Week | Dubliners Madrid';
 const description =
-  'Where to watch football in Madrid tonight: confirmed Premier League, Champions League and LaLiga fixtures in Madrid time at Dubliners Irish Pub, Espoz y Mina 7, near Sol.';
+  'Live sport this week at Dubliners, Espoz y Mina 7: football, NFL, rugby, NBA and more in Madrid time, with what is LIVE on our screens. Walk in.';
 
 // One agenda for EN + ES (same filter, same range, Europe/Madrid).
 const { todayKey, today, upcoming } = agendaAt();
@@ -29,7 +29,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
-      <h1>What’s On at Dubliners — Irish Pub near Sol for Premier League & Champions</h1>
+      <h1>What’s On at Dubliners — live sport this week</h1>
       <p class="lead">
         See this week’s live sport at Dubliners — football, NFL, NBA, rugby, Formula 1, tennis and more.
         Times are Madrid time. Matches marked LIVE are on our screens — a big projector and 8 screens.
@@ -59,6 +59,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         We put major live sport on our indoor screens when it’s confirmed: football, NFL, NBA, rugby,
         Formula 1, tennis and more. Check What’s On above for this week’s schedule, or ask at the bar
         if you’re looking for a specific game.
+      </p>
+      <p>
+        How the screens work and which sports we show: <a href={withBase('/sports-bar-madrid/')}>our sports bar in Madrid</a>.
       </p>
       {todayKey <= '2026-10-10' && (
         <p data-show-until="2026-10-10">

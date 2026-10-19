@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Sports Bar Madrid near Sol | Watch Football Live — Dubliners';
+const title = 'Sports Bar Madrid | Football, NFL & Rugby near Sol — Dubliners';
 const description =
   'Sports bar nearby Puerta del Sol with multiple indoor screens and a projector. Premier League, Champions League, LaLiga and more when on — Espoz y Mina 7, walk in.';
 ---
@@ -14,7 +14,7 @@ const description =
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Sports bar Madrid" />
+        <Breadcrumb current="Sports bar Madrid" schema />
         <h1>Sports bar Madrid near Sol — live football on screens</h1>
         <p class="lead">
           Looking for a sports bar nearby Sol? Dubliners is an indoor Irish pub on Espoz y Mina 7 with multiple TVs and a projector.
@@ -74,6 +74,24 @@ const description =
         Screens face the main room so groups can watch together. Popular fixtures fill early;
         space is first come, first served. From Metro Sol it’s a short walk into Espoz y Mina —
         handy if you’re already in Madrid centro and want a sports bar near Sol tonight.
+      </p>
+
+      <h2>Every sport, not just football</h2>
+      <p>
+        Football is the core, but the screens are busy all week with other sport. We only list what is
+        confirmed on <a href={withBase('/whats-on/')}>What’s On</a>; if it is not there, ask at the bar.
+      </p>
+      <ul>
+        <li><strong>Rugby:</strong> URC, Premiership Rugby and international Tests, Six Nations in spring.</li>
+        <li><strong>Formula 1:</strong> qualifying and races when they fall inside our opening hours.</li>
+        <li><strong>Tennis:</strong> the big finals and late rounds when they are on.</li>
+      </ul>
+      <h2>American sports in Madrid</h2>
+      <p>
+        NFL Sundays are the big one: the early and late afternoon games (US time) land in the Madrid evening,
+        on the projector and screens. See <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a> for the season.
+        We also put NBA and NHL games on when they start before our late cut-off, and MLB at playoff time.
+        A game has to start at least an hour before we close (02:00, or 02:30 on Friday and Saturday nights) to be listed.
       </p>
 
       <h2>Match-night pages</h2>

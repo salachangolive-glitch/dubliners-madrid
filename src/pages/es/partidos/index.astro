@@ -7,9 +7,9 @@ import { SITE, withBase, absUrl } from '../../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../../data/fixtures';
 
 const title =
-  'Pub irlandés en Sol · Premier League y Champions | Partidos — Dubliners';
+  'Partidos: deporte en directo esta semana | Dubliners Madrid';
 const description =
-  'Pub irlandés en Sol para ver la Premier League y la Champions. Partidos Confirmados en pantallas en Dubliners, Espoz y Mina 7 — bar deportivo Madrid centro.';
+  'Deporte en directo esta semana en Dubliners, Espoz y Mina 7: fútbol, NFL, rugby, NBA y más en hora de Madrid, con lo que va EN DIRECTO. Sin reserva.';
 
 // One agenda for EN + ES (same filter, same range, Europe/Madrid).
 const { todayKey, today, upcoming } = agendaAt();
@@ -30,7 +30,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Partidos" lang="es" />
-      <h1>Partidos en Dubliners — Pub irlandés en Sol para Premier League y Champions</h1>
+      <h1>Partidos en Dubliners — deporte en directo esta semana</h1>
       <p class="lead">
         Consulta el deporte en directo esta semana en Dubliners: fútbol, NFL, NBA, rugby, Fórmula 1, tenis y más.
         Horarios en hora de Madrid. Los partidos marcados EN DIRECTO se emiten en nuestras pantallas: un proyector grande y 8 pantallas.
@@ -60,6 +60,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         Ponemos grandes eventos deportivos en nuestras pantallas cuando están confirmados: fútbol, NFL, NBA,
         rugby, Fórmula 1, tenis y más. Consulta Partidos arriba para la agenda de esta semana, o pregunta
         en barra si buscas un partido concreto.
+      </p>
+      <p>
+        Cómo funcionan las pantallas y qué deportes ponemos: <a href={withBase('/es/bar-deportivo-madrid/')}>nuestro bar deportivo en Madrid</a>.
       </p>
       {todayKey <= '2026-10-10' && (
         <p data-show-until="2026-10-10">

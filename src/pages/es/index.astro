@@ -2,15 +2,16 @@
 import MapEmbed from '../../components/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
 const title = 'Pub irlandés Madrid cerca de Sol | Fútbol en pantallas — Dubliners';
 const description =
-  'Pub irlandés en Madrid junto a Puerta del Sol (Espoz y Mina 7). Guinness, fútbol en pantallas interiores, ambiente internacional — Metro Sol (L1, L2, L3) o Sevilla (L2). Entra sin reserva.';
+  'Pub irlandés en Madrid junto a Puerta del Sol, Espoz y Mina 7: Guinness, deporte en directo en pantallas y ambiente internacional. Metro Sol o Sevilla.';
 ---
 
-<BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg">
+<BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg" website>
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>
@@ -72,10 +73,15 @@ const description =
         </p>
         <h2>Deportes en directo</h2>
         <p>
-          Emitimos grandes eventos deportivos en directo durante la semana —
-          <a href={withBase('/es/bar-deportivo-madrid/')}>fútbol</a>, NFL, NBA, rugby, Fórmula 1 y tenis cuando estén confirmados.
+          Emitimos grandes eventos deportivos en directo durante la semana — fútbol, NFL, NBA, rugby, Fórmula 1 y tenis cuando estén confirmados.
           Consulta <a href={withBase('/es/partidos/')}>Partidos</a> para ver la agenda de esta semana.
         </p>
+        <p>
+          Más en nuestro <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo junto a Sol</a>,
+          <a href={withBase('/es/ver-futbol-madrid/')}>dónde ver fútbol en Madrid</a> y
+          <a href={withBase('/es/nfl-madrid/')}>partidos de la NFL en Madrid</a>.
+        </p>
+        <p class="small" data-show-until="2026-11-03">Atlético–Bayern, martes 3 de noviembre, 21:00: <a href={withBase('/de/bayern-fans-madrid/')} hreflang="de" lang="de">Bayern-Fans in Madrid (auf Deutsch)</a></p>
         <p class="small">¿Fan de la NFL en Madrid? → <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>, o planifica el domingo 8 de noviembre con nuestra <a href={withBase('/es/guia-domingo-nfl-madrid/')}>guía hora a hora del domingo NFL</a></p>
         <p class="small">¿Con hambre? → <a href={withBase('/es/carta/')}>Carta de comida y bebida</a></p>
         <p>
@@ -256,4 +262,5 @@ const description =
       </div>
     </div>
   </section>
+  <FixtureAntiStale />
 </BaseLayout>

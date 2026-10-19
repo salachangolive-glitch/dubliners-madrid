@@ -5,7 +5,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Bar deportivo Madrid cerca de Sol | Ver fútbol en directo — Dubliners';
+const title = 'Bar deportivo en Madrid | Fútbol, NFL y rugby junto a Sol — Dubliners';
 const description =
   'Bar deportivo cerca de Puerta del Sol con varias pantallas y proyector. Premier League, Champions, LaLiga y más cuando hay partido — Espoz y Mina 7, sin reserva.';
 ---
@@ -14,7 +14,7 @@ const description =
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Bar deportivo Madrid" lang="es" />
+        <Breadcrumb current="Bar deportivo Madrid" lang="es" schema />
         <h1>Bar deportivo Madrid cerca de Sol — fútbol en pantallas</h1>
         <p class="lead">
           ¿Buscas un bar deportivo cerca de Sol? Dubliners es un pub irlandés en Espoz y Mina 7 con un proyector grande y 8 pantallas.
@@ -75,6 +75,24 @@ const description =
         Las pantallas miran a la sala principal para ver el partido en grupo. Los partidos grandes llenan pronto;
         el sitio es por orden de llegada. Desde Metro Sol es un paseo corto hasta Espoz y Mina —
         cómodo si ya estás en el centro y quieres un bar deportivo cerca de Sol esta noche.
+      </p>
+
+      <h2>Todo el deporte, no solo fútbol</h2>
+      <p>
+        El fútbol es la base, pero las pantallas tienen deporte toda la semana. Solo anunciamos lo que está
+        confirmado en <a href={withBase('/es/partidos/')}>Partidos</a>; si no aparece, pregunta en barra.
+      </p>
+      <ul>
+        <li><strong>Rugby:</strong> URC, Premiership Rugby y test matches internacionales; el Seis Naciones en primavera.</li>
+        <li><strong>Fórmula 1:</strong> clasificación y carrera cuando caen dentro de nuestro horario.</li>
+        <li><strong>Tenis:</strong> las grandes finales y últimas rondas cuando se emiten.</li>
+      </ul>
+      <h2>Deporte americano en Madrid</h2>
+      <p>
+        Los domingos de NFL son lo principal: los partidos de primera y última hora de la tarde (hora de EE. UU.)
+        caen en la tarde-noche de Madrid, en el proyector y las pantallas. Mira <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a> para la temporada.
+        También ponemos NBA y NHL cuando empiezan antes de nuestro corte de la noche, y la MLB en playoffs.
+        Solo anunciamos partidos que empiezan al menos una hora antes del cierre (02:00; viernes y sábado, 02:30).
       </p>
 
       <h2>Páginas de partido</h2>

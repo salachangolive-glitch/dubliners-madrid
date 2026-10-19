@@ -2,15 +2,16 @@
 import MapEmbed from '../components/MapEmbed.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaRow from '../components/CtaRow.astro';
+import FixtureAntiStale from '../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../site';
 import { hoursSummary } from '../data/hours';
 
 const title = 'Irish Pub Madrid near Sol | Live Football Screens — Dubliners';
 const description =
-  'Irish pub Madrid just off Puerta del Sol at Espoz y Mina 7. Guinness, live football on indoor screens, international crowd — Metro Sol (L1, L2, L3) or Sevilla (L2). Walk in, no booking.';
+  'Irish pub Madrid just off Puerta del Sol at Espoz y Mina 7: Guinness, live sport on indoor screens and an international crowd. Metro Sol or Sevilla. Walk in.';
 ---
 
-<BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg">
+<BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg" website>
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Bar interior">
     <picture>
@@ -72,10 +73,15 @@ const description =
         </p>
         <h2>Live sports</h2>
         <p>
-          We show major live sport throughout the week —
-          <a href={withBase('/sports-bar-madrid/')}>football</a>, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
+          We show major live sport throughout the week — football, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
           Check <a href={withBase('/whats-on/')}>What’s On</a> for this week’s schedule.
         </p>
+        <p>
+          More on our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>,
+          <a href={withBase('/watch-football-madrid/')}>where to watch football in Madrid</a> and
+          <a href={withBase('/nfl-madrid/')}>NFL games in Madrid</a>.
+        </p>
+        <p class="small" data-show-until="2026-11-03">Atlético vs Bayern, Tuesday 3 November, 21:00: <a href={withBase('/de/bayern-fans-madrid/')} hreflang="de" lang="de">Bayern-Fans in Madrid (auf Deutsch)</a></p>
         <p class="small">NFL fans in Madrid? → <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a>, or plan Sunday 8 November with our <a href={withBase('/nfl-sunday-madrid-guide/')}>hour-by-hour NFL Sunday guide</a></p>
         <p class="small">Hungry? → <a href={withBase('/menu/')}>Food &amp; drinks menu</a></p>
         <p>
@@ -256,4 +262,5 @@ const description =
       </div>
     </div>
   </section>
+  <FixtureAntiStale />
 </BaseLayout>

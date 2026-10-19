@@ -21,6 +21,8 @@ interface Props {
   htmlLang?: string;
   /** Defaults to index,follow. Error documents pass noindex. */
   robots?: string;
+  /** Emit the WebSite JSON-LD node (home pages only). */
+  website?: boolean;
   /** Extra JSON-LD graph nodes (e.g. SportsEvent) rendered after BarOrPub. */
   extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -35,6 +37,7 @@ const {
   robots: robotsProp,
   extraJsonLd,
   htmlLang,
+  website = false,
 } = Astro.props;
 
 const extraJsonLdList = extraJsonLd
@@ -48,6 +51,11 @@ const lang: Lang = langProp || detectLang(pathNorm);
 const hreflang = htmlLang ? {} : hreflangProp || hreflangFor(pathNorm);
 const copy = t(lang);
 
+const FROZEN_PATHS = [
+  '/premier-league-pub-madrid/', '/es/premier-league-pub-madrid/',
+  '/champions-league-bar-madrid/', '/es/champions-league-bar-madrid/',
+  '/champions-league-irish-pub-sol/', '/es/champions-pub-irlandes-sol/',
+];
 const canonical = absUrl(pathNorm);
 const ogImageAbs = absUrl(ogImage);
 
@@ -81,7 +89,17 @@ const jsonLd = {
   // Google Search Central: hours past midnight = one spec on the opening day
   // with closes earlier than opens (e.g. Sat 18:00–03:00). Same hours as GBP/footer.
   openingHoursSpecification: openingHoursJsonLd(),
-  sameAs: [SITE.instagram],
+  // Google Business Profile of Dubliners (CID from the Maps place data, evidence 12 Oct). No telephone until the owner decides.
+  // Premier League / Champions pages are frozen (DG 19 Oct): they keep the previous BarOrPub node.
+  ...(FROZEN_PATHS.includes(pathNorm) ? { sameAs: [SITE.instagram] } : { hasMap: SITE.gbpUrl, sameAs: [SITE.instagram, SITE.gbpUrl] }),
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.fullName,
+  url: absUrl('/'),
+  inLanguage: ['en', 'es'],
 };
 ---
 
@@ -101,7 +119,6 @@ const jsonLd = {
       <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}
     {htmlLang && <link rel="alternate" hreflang={htmlLang} href={canonical} />}
-    {htmlLang && <link rel="alternate" hreflang="x-default" href={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.fullName} />
     <meta property="og:title" content={title} />
@@ -123,6 +140,7 @@ const jsonLd = {
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0f1410" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {website && <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />}
     {extraJsonLdList.map((node) => (
       <script type="application/ld+json" set:html={JSON.stringify(node)} />
     ))}

@@ -1,16 +1,27 @@
 ---
-import { withBase } from '../site';
+import { withBase, absUrl } from '../site';
 import { type Lang, t } from '../i18n';
 
 interface Props {
   current: string;
   lang?: Lang;
+  /** Emit BreadcrumbList JSON-LD (opt-in, keyword pages only). */
+  schema?: boolean;
 }
-const { current, lang = 'en' } = Astro.props;
+const { current, lang = 'en', schema = false } = Astro.props;
 const copy = t(lang);
 const home = lang === 'es' ? '/es/' : '/';
+const crumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: copy.home, item: absUrl(home) },
+    { '@type': 'ListItem', position: 2, name: current, item: absUrl(Astro.url.pathname) },
+  ],
+};
 ---
 
 <nav class="breadcrumb" aria-label={lang === 'es' ? 'Migas de pan' : 'Breadcrumb'}>
   <a href={withBase(home)}>{copy.home}</a> · <span>{current}</span>
 </nav>
+{schema && <script type="application/ld+json" set:html={JSON.stringify(crumbLd)} />}

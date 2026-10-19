@@ -72,6 +72,8 @@
  * - 19 Oct (DG 14:21): + LaLiga J12 6–8 Nov (laliga.com resultados/2026-27/jornada-12); + Top 14 J8/J9 31 Oct–8 Nov (top14.lnr.fr, French time = Madrid);
  *   + WXV USA–England 30 Oct 22:15 and South Africa–Ireland 31 Oct 14:00, + Nations Cup Spain–Uruguay 7 Nov 16:00 (World Rugby match API, UTC+1).
  *   NZ–France 07:10 and Japan–Wales 08:00 (31 Oct) EXCLUDED (before 12:00 opening). NO channel.
+ * - 19 Oct (DG 14:35): + Sat 31 Oct Saracens–Newcastle 16:00, Northampton–Gloucester 18:30 (Premiership), Benetton–Edinburgh 16:00 (URC):
+ *   World Rugby match API (15:00Z / 17:30Z / 15:00Z → +1). NO channel.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -3375,6 +3377,30 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Played in Madrid, at the Estadio Nacional Universidad Complutense.',
     noteEs: 'Se juega en Madrid, en el Estadio Nacional de la Universidad Complutense.',
   },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Premiership Rugby',
+    teams: 'Saracens vs Newcastle Red Bulls',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Premiership Rugby',
+    teams: 'Northampton Saints vs Gloucester',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'URC',
+    teams: 'Benetton vs Edinburgh',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+  },
 ];
 
 /** Human sport label for board rows (presentation only — does not change gates). */
@@ -3572,8 +3598,8 @@ export function sportsEventsJsonLd(
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 40.4164,
-      longitude: -3.7025,
+      latitude: 40.4158342,
+      longitude: -3.7022626,
     },
   };
   return fixtures

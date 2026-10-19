@@ -13,7 +13,7 @@ export const SITE = {
   instagram: 'https://www.instagram.com/dublinersirishpubmadrid/',
   instagramHandle: '@dublinersirishpubmadrid',
   /** Google Business Profile (Maps) of Dubliners — CID 4384002297188950803 (place ChIJLdKNhYAoQg0RE6Nxotwa1zw). */
-  gbpUrl: 'https://maps.google.com/?cid=4384002297188950803',
+  gbpUrl: 'https://www.google.com/maps?cid=4384002297188950803',
   siteUrl: 'https://dublinersmadrid.es',
   base: '',
   /** GA4 web stream Measurement ID (Dubliners Madrid Website → dublinersmadrid.es). */

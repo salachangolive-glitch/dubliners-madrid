@@ -60,6 +60,10 @@
  * - 13 Oct Radar ligero (movistar.es official guides): UCL J2–J3 + UEL J2–J3 = «Movistar Liga de Campeones»
  *   (no dial); LaLiga J9 channels LALIGA TV M+ / DAZN LALIGA; added missing rows. LaLiga J10 channel PENDING.
  * - 15 Oct: Bournemouth–Sturm Graz corrected 18:45 → 21:00 (uefa.com MD2 briefing: 21:00 CET unless stated; SK Sturm site 21:00; BBC 20:00 UK).
+ * - 19 Oct (DG 12:32): UCL MD4 3–4 Nov ADDED from match.uefa.com (competitionId=1, seasonYear=2027; UTC → CET, Madrid UTC+1):
+ *   18 matches, NO channel (movistarplus.es guide for 3–4 Nov not published yet). Atlético–Bayern (Estadio Metropolitano)
+ *   = fans meeting point + link /de/bayern-fans-madrid/. + Mon 2 Nov Premier MW9 Newcastle–Everton 20:00 GMT
+ *   (premierleague.com API) and LaLiga J11 Deportivo–Osasuna 20:00 UTC (laliga.com resultados/2026-27/jornada-11), both 21:00, NO channel.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -82,6 +86,8 @@
   channel?: string;
   /** Exact UTC instant (ISO, e.g. 2026-10-25T00:00:00Z) for wall times that are ambiguous at the DST change (25 Oct 02:00–02:59). */
   startUtc?: string;
+  /** Optional per-row internal link (site path, e.g. a fans page). Rendered after the note. */
+  link?: { href: string; labelEn: string; labelEs: string; hreflang?: string };
 };
 
 export const FIXTURES: Fixture[] = [
@@ -2371,6 +2377,169 @@ export const FIXTURES: Fixture[] = [
     approxDurationMin: 150,
     noteEn: 'Pre/post-gig at Dubliners — the concert is at the Movistar Arena, not in the pub.',
     noteEs: 'Antes y después del concierto en Dubliners — el concierto es en el Movistar Arena, no en el pub.',
+  },
+  {
+    dateKey: '2026-11-02',
+    whenLabel: 'Mon 2 Nov',
+    competition: 'Premier League',
+    teams: 'Newcastle United vs Everton',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-02',
+    whenLabel: 'Mon 2 Nov',
+    competition: 'LaLiga',
+    teams: 'Deportivo vs Osasuna',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Shakhtar Donetsk vs Sporting CP',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Galatasaray vs Stuttgart',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Barcelona vs Aston Villa',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Atlético de Madrid vs Bayern Munich',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Bayern fans in Madrid, by Puerta del Sol. Walk-ins only, first come first served.',
+    noteEs: 'Punto de encuentro de aficionados del Bayern en Madrid, junto a la Puerta del Sol. Sin reserva, por orden de llegada.',
+    link: { href: '/de/bayern-fans-madrid/', labelEn: 'Bayern fans: info in German', labelEs: 'Aficionados del Bayern: info en alemán', hreflang: 'de' },
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Manchester United vs Roma',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Feyenoord vs Inter',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Bodø/Glimt vs Lille',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Villarreal vs Paris Saint-Germain',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-03',
+    whenLabel: 'Tue 3 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'LASK vs Slovan Bratislava',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Fenerbahçe vs Liverpool',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'AEK Athens vs Real Madrid',
+    madridTime: '18:45',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Borussia Dortmund vs Betis',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Porto vs Napoli',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'PSV vs Club Brugge',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'RB Leipzig vs Manchester City',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Slavia Praha vs Arsenal',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Lens vs Como',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Viking vs Sabah',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
   },
 ];
 

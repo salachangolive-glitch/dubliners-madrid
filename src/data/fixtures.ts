@@ -1073,6 +1073,9 @@ export const FIXTURES: Fixture[] = [
     teams: 'Leinster vs Munster',
     madridTime: '19:00',
     confirmedOnScreens: true,
+    noteEn: 'Fans meeting point for Irish rugby fans. Walk-ins, first come, first served.',
+    noteEs: 'Punto de encuentro de aficionados irlandeses al rugby. Sin reserva, por orden de llegada.',
+    link: { href: '/watch-leinster-munster-madrid/', labelEn: 'Leinster v Munster in Madrid: match guide', labelEs: 'Leinster–Munster en Madrid: guía (en inglés)', hreflang: 'en' },
   },
   {
     dateKey: '2026-10-24',

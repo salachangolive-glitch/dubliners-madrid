@@ -69,6 +69,9 @@
  *   + URC R5 (glasgowwarriors.org, cardiffrugby.wales, scarlets.wales, dragonsrfc.wales, connachtrugby.ie + BBC), Premiership R5
  *   (leicestertigers.com, exeterchiefs.co.uk, salesharks.com), Nations Championship R4 (nationschampionshiprugby.com, scottishrugby.org,
  *   englandrugby.com). NO channel (Movistar Plus+ guide published only to 25 Oct; DAZN guide not verified).
+ * - 19 Oct (DG 14:21): + LaLiga J12 6–8 Nov (laliga.com resultados/2026-27/jornada-12); + Top 14 J8/J9 31 Oct–8 Nov (top14.lnr.fr, French time = Madrid);
+ *   + WXV USA–England 30 Oct 22:15 and South Africa–Ireland 31 Oct 14:00, + Nations Cup Spain–Uruguay 7 Nov 16:00 (World Rugby match API, UTC+1).
+ *   NZ–France 07:10 and Japan–Wales 08:00 (31 Oct) EXCLUDED (before 12:00 opening). NO channel.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -3154,6 +3157,224 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:10',
     confirmedOnScreens: true,
   },
+  {
+    dateKey: '2026-11-06',
+    whenLabel: 'Fri 6 Nov',
+    competition: 'LaLiga',
+    teams: 'Sevilla vs Alavés',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'LaLiga',
+    teams: 'Málaga vs Racing',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'LaLiga',
+    teams: 'Espanyol vs Deportivo',
+    madridTime: '16:15',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'LaLiga',
+    teams: 'Osasuna vs Athletic Club',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'LaLiga',
+    teams: 'Valencia vs Real Madrid',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'LaLiga',
+    teams: 'Elche vs Betis',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'LaLiga',
+    teams: 'Real Sociedad vs Rayo Vallecano',
+    madridTime: '16:15',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'LaLiga',
+    teams: 'Celta vs Levante',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'LaLiga',
+    teams: 'Villarreal vs Getafe',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'LaLiga',
+    teams: 'Atlético de Madrid vs Barcelona',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Clermont vs Racing 92',
+    madridTime: '14:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Bordeaux-Bègles vs Bayonne',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Lyon vs Vannes',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Montpellier vs Castres',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Stade Français vs La Rochelle',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Top 14',
+    teams: 'Perpignan vs Toulon',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-01',
+    whenLabel: 'Sun 1 Nov',
+    competition: 'Top 14',
+    teams: 'Pau vs Toulouse',
+    madridTime: '21:05',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Vannes vs Bordeaux-Bègles',
+    madridTime: '14:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Castres vs Racing 92',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Montpellier vs Lyon',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Pau vs Perpignan',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Toulon vs Stade Français',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Top 14',
+    teams: 'Toulouse vs Clermont',
+    madridTime: '16:35',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'Top 14',
+    teams: 'La Rochelle vs Bayonne',
+    madridTime: '21:05',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-30',
+    whenLabel: 'Fri 30 Oct',
+    competition: 'WXV Global Series (women)',
+    teams: 'USA vs England',
+    madridTime: '22:15',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'WXV Global Series (women)',
+    teams: 'South Africa vs Ireland',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'World Rugby Nations Cup',
+    teams: 'Spain vs Uruguay',
+    madridTime: '16:00',
+    confirmedOnScreens: true,
+    noteEn: 'Played in Madrid, at the Estadio Nacional Universidad Complutense.',
+    noteEs: 'Se juega en Madrid, en el Estadio Nacional de la Universidad Complutense.',
+  },
 ];
 
 /** Human sport label for board rows (presentation only — does not change gates). */
@@ -3165,7 +3386,7 @@ export function sportLabel(competition: string): string {
   if (c.includes('nhl')) return 'NHL';
   if (c.includes('mlb')) return 'MLB';
   if (c.includes('formula') || c === 'f1') return 'Formula 1';
-  if (c.includes('rugby') || c.includes('urc') || c.includes('six nations')) return 'Rugby';
+  if (c.includes('rugby') || c.includes('urc') || c.includes('six nations') || c.includes('top 14') || c.includes('wxv')) return 'Rugby';
   if (c.includes('tennis') || c.includes('atp') || c.includes('wta') || c.includes('masters')) {
     return 'Tennis';
   }

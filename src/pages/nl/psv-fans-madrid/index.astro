@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+
+// Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
+// Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
+// No Metro route to the stadium: not verified on crtm.es.
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Real Madrid–PSV — UEFA Champions League (live in Dubliners Madrid)',
+  description: 'Real Madrid–PSV (UEFA Champions League, Santiago Bernabéu) live op de schermen van Dubliners Irish Pub, Espoz y Mina 7, bij de Puerta del Sol in Madrid.',
+  inLanguage: 'nl',
+  startDate: '2026-11-24T21:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Real Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'PSV Eindhoven' },
+  url: absUrl('/nl/psv-fans-madrid/'),
+};
+---
+
+<BaseLayout title={'PSV-fans in Madrid: Real Madrid–PSV, 24 nov | Dubliners'} description={'Real Madrid–PSV (Champions League), dinsdag 24 november, 21.00 uur. Ontmoetingsplek voor fans van PSV in Dubliners, bij de Puerta del Sol. Open vanaf 12.00 uur.'} path="/nl/psv-fans-madrid/" lang="en" htmlLang="nl" hreflang={{ en: '/psv-fans-madrid/', es: '/es/aficionados-psv-madrid/', nl: '/nl/psv-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={eventLd}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'PSV-fans in Madrid'} schema />
+      <h1>PSV-fans in Madrid: Real Madrid–PSV</h1>
+      <p class="lead">Dinsdag 24 november 2026, aftrap 21.00 uur. Madrid heeft dezelfde tijd als Eindhoven. UEFA Champions League, competitiefase speelronde 5, in het Estadio Santiago Bernabéu. Dubliners is de ontmoetingsplek voor fans van PSV in het centrum van Madrid, bij de Puerta del Sol.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Route</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>Programma (Engels)</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>De wedstrijd</h2>
+<p>PSV speelt in Madrid tegen Real Madrid in het Bernabéu. Met of zonder kaartje: bij ons zie je de wedstrijd LIVE op de grote projector en onze 8 schermen.</p>
+<h2>Ontmoetingsplek voor fans van PSV</h2>
+<p>We zijn dinsdag open vanaf 12.00 uur (12.00–02.00 uur). Zo heb je de hele dag om in het centrum af te spreken voordat je naar het stadion gaat, of om hier samen de wedstrijd te kijken.</p>
+<h2>Hoe kom je hier?</h2>
+<p>Calle de Espoz y Mina 7, 28012 Madrid, bij de Puerta del Sol. Metro Sol (lijn 1, 2 en 3) of Sevilla (lijn 2).</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Voetbalwedstrijd op het grote scherm en een tv in Dubliners, met fans aan tafels en staand achter in de zaal" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container split reverse">
+      <div class="prose">
+<h2>Veelgestelde vragen</h2>
+<dl class="faq">
+  <dt><strong>Hoe laat begint Real Madrid–PSV?</strong></dt><dd>Om 21.00 uur op dinsdag 24 november 2026. Madrid en Eindhoven liggen in dezelfde tijdzone.</dd>
+  <dt><strong>Zenden jullie de wedstrijd live uit?</strong></dt><dd>Ja, LIVE op de projector en de schermen.</dd>
+  <dt><strong>Hoe laat gaan jullie open?</strong></dt><dd>Vanaf 12.00 uur. Op dinsdag zijn we open van 12.00 tot 02.00 uur.</dd>
+  <dt><strong>Waar zitten jullie?</strong></dt><dd>Calle de Espoz y Mina 7, 28012 Madrid, bij de Puerta del Sol. Metro Sol of Sevilla.</dd>
+</dl>
+<p>In het Engels: <a href={withBase('/psv-fans-madrid/')} hreflang="en">PSV fans in Madrid</a> · In het Spaans: <a href={withBase('/es/aficionados-psv-madrid/')} hreflang="es">Aficionados del PSV en Madrid</a></p>
+<p>Al het voetbal dat we uitzenden staat op <a href={withBase('/whats-on/')} hreflang="en">What’s On</a> (Engels) en op <a href={withBase('/watch-football-madrid/')} hreflang="en">watch football in Madrid</a>.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Grote projector en schermen in de grote zaal van Dubliners, bij Sol" /></picture>
+    </div>
+  </section>
+</BaseLayout>

@@ -16,7 +16,7 @@ interface Props {
   path: string;
   lang?: Lang;
   ogImage?: string;
-  hreflang?: { en?: string; es?: string };
+  hreflang?: { en?: string; es?: string; nl?: string };
   /** Standalone page in another language (e.g. 'de'): sets html lang, self hreflang + x-default, no en/es alternates. */
   htmlLang?: string;
   /** Defaults to index,follow. Error documents pass noindex. */
@@ -48,7 +48,7 @@ const extraJsonLdList = extraJsonLd
 
 const pathNorm = normalizePath(path);
 const lang: Lang = langProp || detectLang(pathNorm);
-const hreflang = htmlLang ? {} : hreflangProp || hreflangFor(pathNorm);
+const hreflang = htmlLang && !hreflangProp ? {} : hreflangProp || hreflangFor(pathNorm);
 const copy = t(lang);
 
 const FROZEN_PATHS = [
@@ -115,17 +115,18 @@ const websiteJsonLd = {
     <meta name="google" content="notranslate" />
     {hreflang?.en && <link rel="alternate" hreflang="en" href={absUrl(hreflang.en)} />}
     {hreflang?.es && <link rel="alternate" hreflang="es" href={absUrl(hreflang.es)} />}
+    {hreflang?.nl && <link rel="alternate" hreflang="nl" href={absUrl(hreflang.nl)} />}
     {(hreflang?.en || hreflang?.es) && (
       <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}
-    {htmlLang && <link rel="alternate" hreflang={htmlLang} href={canonical} />}
+    {htmlLang && !hreflangProp && <link rel="alternate" hreflang={htmlLang} href={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.fullName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:locale" content={htmlLang === 'de' ? 'de_DE' : lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale" content={htmlLang === 'de' ? 'de_DE' : htmlLang === 'nl' ? 'nl_NL' : lang === 'es' ? 'es_ES' : 'en_GB'} />
     {lang === 'es' ? (
       <meta property="og:locale:alternate" content="en_GB" />
     ) : (

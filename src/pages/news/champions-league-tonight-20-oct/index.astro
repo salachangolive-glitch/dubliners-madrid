@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { withBase, absUrl } from '../../../site';
+
+// Source for all kick-offs: uefa.com match API (match.uefa.com/v5/matches, competitionId=1), checked 20 Oct 2026 09:50 CEST.
+const path = '/news/champions-league-tonight-20-oct/';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: 'Champions League tonight in Madrid: PSG vs Barcelona, Stuttgart vs Atlético, Liverpool vs Villarreal',
+  description: 'PSG vs Barcelona, Stuttgart vs Atlético and Liverpool vs Villarreal at 21:00, LIVE at Dubliners by Sol. Fans meeting point, open from 12:00.',
+  inLanguage: 'en',
+  datePublished: '2026-10-20T10:30:00+02:00',
+  dateModified: '2026-10-20T10:30:00+02:00',
+  image: [absUrl('/images/dubliners-champions-night-screens-1200.webp')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+---
+
+<BaseLayout title={'Champions League Tonight, Tue 20 Oct: PSG–Barça | Dubliners'} description={'PSG vs Barcelona, Stuttgart vs Atlético and Liverpool vs Villarreal at 21:00, LIVE at Dubliners by Sol. Fans meeting point, open from 12:00.'} path={path} lang="en" hreflang={{ en: '/news/champions-league-tonight-20-oct/', es: '/es/noticias/champions-hoy-20-oct/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={articleLd}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Champions League, 20 Oct'} schema />
+      <h1>Champions League tonight: PSG vs Barcelona, Stuttgart vs Atlético, Liverpool vs Villarreal</h1>
+      <p class="small"><time datetime="2026-10-20T10:30:00+02:00">Published 20 October 2026</time></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <p>Champions League night in Madrid. Tonight, Tuesday 20 October, matchday 3 of the league phase brings three big games at 21:00 Madrid time, and we show them LIVE on the big projector and our 8 screens.</p>
+        <h2>The headline games at 21:00</h2>
+        <ul>
+          <li><strong>PSG vs Barcelona</strong>, at the Parc des Princes.</li>
+          <li><strong>Stuttgart vs Atlético de Madrid</strong>: Atleti away in Germany.</li>
+          <li><strong>Liverpool vs Villarreal</strong>, at Anfield.</li>
+        </ul>
+        <h2>The rest of tonight’s Champions League (Madrid time)</h2>
+        <ul>
+          <li><strong>18:45</strong>: Fenerbahçe vs Slavia Praha · Sabah vs Borussia Dortmund</li>
+          <li><strong>21:00</strong>: Manchester City vs AEK Athens · Roma vs Slovan Bratislava · Porto vs PSV Eindhoven · Napoli vs Bodø/Glimt</li>
+        </ul>
+        <p>All kick-off times are taken from UEFA’s fixture list and given in Madrid time.</p>
+        <h2>A fans meeting point in the centre</h2>
+        <p>Barça fans, Atleti fans, Liverpool supporters or just in town for the night: Dubliners is a fans meeting point at Calle de Espoz y Mina 7, by Puerta del Sol. We open from 12:00, so you can come in for lunch, settle in during the afternoon and stay for the late games. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</p>
+        <p>Tomorrow it continues with Real Madrid vs RB Leipzig and Bayern vs Arsenal: see <a href={withBase('/news/champions-league-tomorrow-21-oct/')}>Champions League on Wednesday 21 October</a>.</p>
+        <p>The full week, with every match we show, is on <a href={withBase('/whats-on/')}>What’s On</a>. For more on how we show football, see our <a href={withBase('/watch-football-madrid/')}>watch football in Madrid</a> page.</p>
+      </div>
+      <picture>
+        <img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Football match on the big screen and a TV at Dubliners, with fans watching from the tables and standing at the back of the room" />
+      </picture>
+    </div>
+  </section>
+</BaseLayout>

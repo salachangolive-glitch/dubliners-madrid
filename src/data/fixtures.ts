@@ -2894,6 +2894,23 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:10',
     confirmedOnScreens: true,
   },
+  // 20 Oct: Ireland men Nov 2026 (irishrugby.ie fixtures 20:10 / 16:40 Irish time + World Rugby API) = Madrid +1 h.
+  {
+    dateKey: '2026-11-14',
+    whenLabel: 'Sat 14 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'Ireland vs Fiji',
+    madridTime: '21:10',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-21',
+    whenLabel: 'Sat 21 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'Ireland vs South Africa',
+    madridTime: '17:40',
+    confirmedOnScreens: true,
+  },
   {
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',

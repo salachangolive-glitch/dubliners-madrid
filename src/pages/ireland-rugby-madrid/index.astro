@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../site';
+
+// Ireland men, November 2026 (Rugby Nations Championship). Rows already in src/data/fixtures.ts (confirmedOnScreens):
+// Fri 6 Nov Ireland v Argentina 21:10, Sat 14 Nov Ireland v Fiji 21:10, Sat 21 Nov Ireland v South Africa 17:40 (Madrid, CET).
+// Source per fixtures.ts: irishrugby.ie fixtures (20:10 / 16:40 Irish time) + World Rugby API, checked 20 Oct. Venue not stated (not in repo).
+// Created 20 Oct (DG): Radar had checked this URL (404). Review after 21 Nov (PENDIENTES.md).
+const path = '/ireland-rugby-madrid/';
+const games = [
+  { name: 'Ireland v Argentina', start: '2026-11-06T21:10:00+01:00', away: 'Argentina' },
+  { name: 'Ireland v Fiji', start: '2026-11-14T21:10:00+01:00', away: 'Fiji' },
+  { name: 'Ireland v South Africa', start: '2026-11-21T17:40:00+01:00', away: 'South Africa' },
+];
+const eventsLd = games.map((g) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: `${g.name} — Rugby Nations Championship (screening at Dubliners Madrid)`,
+  description: `${g.name} (rugby) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.`,
+  startDate: g.start,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Ireland' },
+  awayTeam: { '@type': 'SportsTeam', name: g.away },
+  url: absUrl(path),
+}));
+---
+
+<BaseLayout title={'Ireland Rugby in Madrid: Argentina, Fiji & South Africa, Nov 2026 | Dubliners'} description={'Watch Ireland in Madrid: v Argentina (Fri 6 Nov, 21:10), v Fiji (Sat 14 Nov, 21:10) and v South Africa (Sat 21 Nov, 17:40). LIVE at Dubliners Irish pub, by Puerta del Sol.'} path={path} lang="en" ogImage="/images/dubliners-projector-screens-sol-1200.webp" extraJsonLd={eventsLd}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Ireland rugby in Madrid'} schema />
+      <h1>Ireland rugby in Madrid: the November games</h1>
+      <p class="lead">Three Ireland games in November, all LIVE on the big projector and 8 screens at Dubliners, an Irish pub in the centre of Madrid, by Puerta del Sol. Madrid is one hour ahead of Ireland.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>Kick-off times (Madrid time)</h2>
+<ul>
+  <li><strong>Friday 6 November:</strong> Ireland v Argentina, 21:10 (20:10 in Ireland).</li>
+  <li><strong>Saturday 14 November:</strong> Ireland v Fiji, 21:10 (20:10 in Ireland).</li>
+  <li><strong>Saturday 21 November:</strong> Ireland v South Africa, 17:40 (16:40 in Ireland).</li>
+</ul>
+<h2>Fans meeting point for Irish fans</h2>
+<p>Living in Madrid, on Erasmus or here for a weekend? Dubliners is a fans meeting point for Irish fans and anyone who follows rugby: beer at the bar, the match on every screen and a mixed crowd from Ireland, Spain and beyond. Groups are welcome; questions before you come go through our <a href={withBase('/contact/')}>contact page</a>.</p>
+<h2>Opening hours and address</h2>
+<p>Monday to Thursday and Sunday 12:00–02:00. Friday and Saturday 12:00–02:30.<br />{SITE.address}, {SITE.postal}, by Puerta del Sol. <a href={withBase('/visit/')}>Hours &amp; map</a></p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Big projector and screens in the main room at Dubliners, near Sol" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+<h2>FAQ</h2>
+<dl class="faq">
+  <dt><strong>Are you showing all three Ireland games?</strong></dt><dd>Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE.</dd>
+  <dt><strong>What time do you open?</strong></dt><dd>From 12:00 every day. Friday and Saturday until 02:30.</dd>
+  <dt><strong>Where are you?</strong></dt><dd>{SITE.address}, {SITE.postal}, by Puerta del Sol.</dd>
+</dl>
+<p>En español: <a href={withBase('/es/rugby-irlanda-madrid/')} hreflang="es">Rugby de Irlanda en Madrid</a> · All the sport we show: <a href={withBase('/whats-on/')}>What’s On</a></p>
+    </div>
+  </section>
+</BaseLayout>

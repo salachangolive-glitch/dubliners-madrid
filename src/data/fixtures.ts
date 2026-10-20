@@ -1847,6 +1847,9 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
     channel: 'Movistar Liga de Campeones',
+    noteEn: 'RB Leipzig fans welcome: fans meeting point by Puerta del Sol, open from 12:00. Willkommen, Leipzig-Fans!',
+    noteEs: 'Bienvenidos, aficionados del RB Leipzig: punto de encuentro de aficionados junto a Sol, abrimos desde las 12:00. Willkommen, Leipzig-Fans!',
+    link: { href: '/de/leipzig-fans-madrid/', labelEn: 'Leipzig fans: info in German', labelEs: 'Aficionados del Leipzig: info en alemán', hreflang: 'de' },
   },
   {
     dateKey: '2026-10-22',

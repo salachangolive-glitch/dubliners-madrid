@@ -3183,6 +3183,17 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Se juega en Madrid, en el Estadio Nacional de la Universidad Complutense.',
   },
   {
+    dateKey: '2026-11-15',
+    whenLabel: 'Sun 15 Nov',
+    competition: 'UEFA Nations League',
+    teams: 'Spain vs England',
+    madridTime: '20:45',
+    confirmedOnScreens: true,
+    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Fans meeting point for England fans.',
+    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Punto de encuentro de aficionados ingleses.',
+    link: { href: '/england-fans-madrid/', labelEn: 'England fans in Madrid: match guide', labelEs: 'Aficionados ingleses en Madrid: guía (en inglés)', hreflang: 'en' },
+  },
+  {
     dateKey: '2026-10-31',
     whenLabel: 'Sat 31 Oct',
     competition: 'Premiership Rugby',

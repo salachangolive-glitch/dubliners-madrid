@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { hoursFor } from '../../data/hours';
+
+// Spain v England, UEFA Nations League 2026/27 (League A, Group A3, MD6), Riyadh Air Metropolitano, Sun 15 Nov 2026, 20:45 Madrid (CET).
+// Sources (20 Oct 2026): rfef.es/es/calendario («15 Noviembre 20:45 España - Inglaterra, Jornada 6, Grupo A3, Estadio Metropolitano, Madrid, horario peninsular español»)
+// and englandfootball.com fixtures («Riyadh Air Metropolitano, Sun 15 November 2026, Spain v England, 19:45» UK time = 20:45 Madrid).
+// Metro route Sol → stadium NOT included: crtm.es line pages could not be verified without a browser (20 Oct).
+const path = '/england-fans-madrid/';
+const title = 'England Fans in Madrid: Spain v England, 15 Nov | Dubliners';
+const description =
+  'Spain v England (Nations League), Sunday 15 November, 20:45 Madrid time. England fans meeting point at Dubliners, by Puerta del Sol, open from 12:00.';
+const sunday = hoursFor('Sunday');
+
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Spain v England — UEFA Nations League (screening at Dubliners Madrid)',
+  description:
+    'Spain v England (UEFA Nations League, Riyadh Air Metropolitano) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, near Puerta del Sol, Madrid.',
+  startDate: '2026-11-15T20:45:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Spain' },
+  awayTeam: { '@type': 'SportsTeam', name: 'England' },
+  url: absUrl(path),
+};
+---
+
+<BaseLayout title={title} description={description} path={path} lang="en" hreflang={{ en: path }} ogImage="/images/screens-sports.jpg" extraJsonLd={eventLd}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="England fans in Madrid" schema />
+      <h1>England fans in Madrid: Spain v England</h1>
+      <p class="lead">
+        Sunday 15 November 2026, kick-off 20:45 Madrid time (19:45 UK time). UEFA Nations League at the Riyadh Air Metropolitano.
+        Dubliners is the fans meeting point for England fans in the centre, just off Puerta del Sol.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>The match</h2>
+        <p>
+          Spain host England on the last matchday of the Nations League group stage, at the Riyadh Air Metropolitano in Madrid.
+          Without a ticket, or meeting up before you head to the stadium? We show it LIVE on the big projector and our 8 screens.
+          Madrid is one hour ahead of the UK.
+        </p>
+        <h2>Fans meeting point for England fans</h2>
+        <p>
+          We open at 12:00 on Sunday ({sunday}), so there is the whole day to meet up in the centre before kick-off,
+          and the evening to watch it together.
+        </p>
+        <h2>Getting here</h2>
+        <p>
+          {SITE.address}, {SITE.postal}, a short walk from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).
+        </p>
+      </div>
+      <picture>
+        <img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Big projector and screens in the main room at Dubliners, near Sol" />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container split reverse">
+      <div class="prose">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt><strong>What time is Spain v England in Madrid?</strong></dt>
+          <dd>20:45 Madrid time on Sunday 15 November 2026 (19:45 UK time).</dd>
+          <dt><strong>Are you showing it live?</strong></dt>
+          <dd>Yes, LIVE on the projector and screens.</dd>
+          <dt><strong>What time do you open on Sunday?</strong></dt>
+          <dd>From 12:00 ({sunday}).</dd>
+          <dt><strong>Where are you?</strong></dt>
+          <dd>{SITE.address}, {SITE.postal}, by Puerta del Sol. Metro Sol or Sevilla.</dd>
+        </dl>
+        <p>Other football this week is on <a href={withBase('/whats-on/')}>What’s On</a> and our <a href={withBase('/watch-football-madrid/')}>watch football in Madrid</a> page.</p>
+      </div>
+      <picture>
+        <img class="split-photo tall" src={withBase('/images/dubliners-projector-main-room-madrid-v2-1200.webp')} srcset={`${withBase('/images/dubliners-projector-main-room-madrid-v2-800.webp')} 800w, ${withBase('/images/dubliners-projector-main-room-madrid-v2-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Main room with the projector and TVs at Dubliners Madrid" />
+      </picture>
+    </div>
+  </section>
+</BaseLayout>

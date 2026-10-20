@@ -29,6 +29,7 @@
  *   nfl.com/schedules/2026/by-week/week-7 UTC 13:30Z/17:00Z/20:05Z/20:25Z → CET (UTC+1, Madrid already on winter time).
  *   SNF Chiefs–Seahawks 01:20 Mon and MNF Cowboys–Eagles 01:15 Tue OMITTED (not confirmed; would run past close 02:00).
  * - 17 Oct (DG decision): URC Leinster–Munster Sat 24 Oct 19:00 Madrid (18:00 IST, avivastadium.ie + RTÉ/Sky), NO channel.
+ * - 20 Oct (morning): Mon 19 Getafe–Rayo, Tottenham–Coventry + NHL 01:00 Tue 20 (Ducks–Rangers, Avalanche–Flyers) RETIRED.
  * - 18 Oct: rows dateKey <= 2026-10-17 RETIRED (morning). NFL Sun 18 Oct (nfl.com 2026 week 6, ET+6 → CEST; Away vs Home like other NFL rows) ADDED,
  *   11 games, no channel; Cowboys at Packers 02:20 Mon EXCLUDED (Sunday close 02:00).
  * - 18 Oct (DG P1, Radar 2026-10-18-escocia): fans meeting point rows, NO channel: Bulls–Ulster 24/10 13:45, Motherwell–Hearts 25/10 15:00,
@@ -524,22 +525,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Formula 1',
     teams: 'United States Grand Prix (Austin) — Race',
     madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-20',
-    whenLabel: 'Tue 20 Oct',
-    competition: 'NHL',
-    teams: 'Anaheim Ducks vs New York Rangers',
-    madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-20',
-    whenLabel: 'Tue 20 Oct',
-    competition: 'NHL',
-    teams: 'Colorado Avalanche vs Philadelphia Flyers',
-    madridTime: '01:00',
     confirmedOnScreens: true,
   },
   {
@@ -1820,24 +1805,6 @@ export const FIXTURES: Fixture[] = [
     teams: 'Auriense vs Deportivo',
     madridTime: '21:00',
     confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-19',
-    whenLabel: 'Mon 19 Oct',
-    competition: 'LaLiga',
-    teams: 'Getafe vs Rayo Vallecano',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'DAZN LALIGA',
-  },
-  {
-    dateKey: '2026-10-19',
-    whenLabel: 'Mon 19 Oct',
-    competition: 'Premier League',
-    teams: 'Tottenham vs Coventry City',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-21',

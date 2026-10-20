@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+
+// Oktoberfest Madrid 2026 = evento EXTERNO (jue 22 oct – dom 15 nov 2026, Westfield Parquesur, Leganés). Orden del dueño vía DG 20 oct 11:33.
+// Dubliners NO organiza, patrocina ni colabora. Sin schema Event: solo Article.
+// Partidos: solo filas confirmedOnScreens ya en src/data/fixtures.ts (revisado 20 oct). Sin rutas de transporte a Parquesur.
+// Retirar referencias a Oktoberfest como evento futuro después del 15 nov (PENDIENTES.md).
+const path = '/es/oktoberfest-madrid-2026/';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Madrid en temporada de Oktoberfest: un pub internacional junto a Sol, cerveza y deporte en directo',
+  inLanguage: 'es',
+  datePublished: '2026-10-20T12:00:00+02:00',
+  dateModified: '2026-10-20T12:00:00+02:00',
+  image: [absUrl('/images/bar-interior.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+---
+
+<BaseLayout title={'Temporada de Oktoberfest en Madrid: pub junto a Sol, cerveza y deporte | Dubliners'} description={'¿En Madrid durante Oktoberfest Madrid 2026 (22 oct–15 nov, Parquesur, Leganés)? Dubliners es un pub irlandés internacional junto a la Puerta del Sol: cerveza, deporte de jueves a domingo, grupos y Erasmus.'} path={path} lang="es" hreflang={{ en: '/oktoberfest-madrid-2026/', es: path, de: '/de/oktoberfest-madrid-2026/' }} ogImage="/images/bar-interior.jpg" extraJsonLd={articleLd}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Temporada de Oktoberfest en Madrid'} lang="es" schema />
+      <h1>Madrid en temporada de Oktoberfest</h1>
+      <p class="lead">Un pub internacional en el centro, junto a la Puerta del Sol: cerveza, deporte en directo y gente de medio mundo, de jueves a domingo y el resto de la semana.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase('/es/contacto/')}>Contacto</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>Oktoberfest Madrid 2026: fechas</h2>
+<p>Oktoberfest Madrid 2026 se celebra del jueves 22 de octubre al domingo 15 de noviembre en Westfield Parquesur, en Leganés, al sur de la ciudad. Es un evento externo: Dubliners no lo organiza ni tiene relación con él. Para entradas, horarios y cómo llegar, consulta los canales de la organización.</p>
+<p>Si esas semanas te traen a Madrid, o ya vives aquí, esta página va del resto del plan en el centro: dónde quedar, tomar una cerveza y ver el partido.</p>
+<h2>Dubliners: un pub internacional junto a Sol</h2>
+<p>Dubliners es un pub irlandés en la calle de Espoz y Mina 7, en pleno centro de Madrid, entre la Puerta del Sol y la Plaza Mayor. Aquí coinciden madrileños, visitantes, estudiantes Erasmus y aficionados de muchos países: Guinness y cerveza en la barra, el proyector grande y 8 pantallas para el deporte, y conversaciones en español, inglés y muchos idiomas más.</p>
+<h2>De jueves a domingo: deporte en directo confirmado</h2>
+<p>Estos son los cuatro tramos de jueves a domingo de las semanas de Oktoberfest y algunos de los partidos ya confirmados en nuestras pantallas (hora de Madrid). La lista completa, actualizada cada semana, está en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
+<h3>Jue 22 – dom 25 de octubre</h3>
+<ul>
+  <li>Jue 22: Europa League con equipos alemanes: OFI Creta–Bayer Leverkusen (18:45), Hoffenheim–Lyon (21:00); Conference League Mónaco–Friburgo (21:00).</li>
+  <li>Sáb 24: Arsenal–Everton (16:00), Chelsea–Tottenham (18:30), Leinster–Munster (19:00), Atlético de Madrid–Deportivo (21:00).</li>
+  <li>Dom 25: NFL desde las 14:30, Liverpool–Brighton (15:00) y El Clásico, Barcelona–Real Madrid (21:00). Esa madrugada se atrasa la hora.</li>
+</ul>
+<h3>Jue 29 de octubre – dom 1 de noviembre</h3>
+<ul>
+  <li>Jue 29: primera ronda de la Copa del Rey, entre otros Sporting Hortaleza–Sevilla (21:00).</li>
+  <li>Vie 30: Connacht–Leinster (20:45).</li>
+  <li>Sáb 31: Chelsea–Manchester United (13:30), Levante–Atlético de Madrid (14:00), Munster–Sharks (18:30), Barcelona–Alavés (21:00).</li>
+  <li>Dom 1: Racing–Real Madrid (16:15), Liverpool–Arsenal (17:30), NFL desde las 19:00.</li>
+</ul>
+<h3>Jue 5 – dom 8 de noviembre</h3>
+<ul>
+  <li>Jue 5: Crystal Palace–Hoffenheim y Trabzonspor–Friburgo (18:45), Bayer Leverkusen–Marsella (21:00).</li>
+  <li>Vie 6: Irlanda–Argentina, rugby (21:10).</li>
+  <li>Sáb 7: Arsenal–Hull City (16:00), España–Uruguay, rugby (16:00), Valencia–Real Madrid (21:00).</li>
+  <li>Dom 8: Crystal Palace–Liverpool (15:00), NFL desde las 15:30 con NFL RedZone desde las 19:00, Atlético de Madrid–Barcelona (21:00). Más en <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>.</li>
+</ul>
+<h3>Jue 12 – dom 15 de noviembre</h3>
+<ul>
+  <li>Jue 12: Nations League, Chequia–España e Inglaterra–Croacia (20:45).</li>
+  <li>Vie 13: Escocia–Macedonia del Norte (20:45).</li>
+  <li>Sáb 14: Austria–República de Irlanda (20:45), Irlanda–Fiyi, rugby (21:10).</li>
+  <li>Dom 15: España–Inglaterra (20:45), el último día de Oktoberfest Madrid.</li>
+</ul>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Proyector grande y pantallas en la sala principal de Dubliners, junto a Sol" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+<h2>Grupos y Erasmus</h2>
+<p>¿Venís en grupo de amigos, con el equipo o con la gente del Erasmus? Los grupos son bienvenidos. Si tienes alguna pregunta antes de venir, escríbenos desde la <a href={withBase('/es/contacto/')}>página de contacto</a>. Más para estudiantes en <a href={withBase('/es/estudiantes-internacionales/')}>Erasmus y estudiantes internacionales</a>.</p>
+<h2>Punto de encuentro de aficionados en el centro</h2>
+<p>Sigas al equipo o al país que sigas, Dubliners es un punto de encuentro de aficionados en pleno Madrid: fácil de encontrar, abierto desde mediodía y con deporte casi todo el fin de semana.</p>
+<h2>Horario y dirección</h2>
+<p>Lunes a jueves y domingo de 12:00 a 02:00. Viernes y sábado de 12:00 a 02:30.<br />{SITE.address}, {SITE.postal}, junto a la Puerta del Sol. <a href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Abrir en Google Maps</a> · <a href={withBase('/es/visitar/')}>Horario y mapa</a></p>
+<h2>Preguntas frecuentes</h2>
+<dl class="faq">
+  <dt><strong>¿Cuándo y dónde es Oktoberfest Madrid 2026?</strong></dt><dd>Del jueves 22 de octubre al domingo 15 de noviembre de 2026, en Westfield Parquesur (Leganés). Es un evento externo, no organizado por Dubliners.</dd>
+  <dt><strong>¿Dubliners forma parte de Oktoberfest Madrid?</strong></dt><dd>No. Dubliners es un pub irlandés independiente en el centro de Madrid, junto a la Puerta del Sol.</dd>
+  <dt><strong>¿Ponéis deporte de jueves a domingo?</strong></dt><dd>Sí. Los partidos confirmados están en Partidos, con la hora de Madrid.</dd>
+  <dt><strong>¿Qué horario tenéis?</strong></dt><dd>Lunes a jueves y domingo de 12:00 a 02:00; viernes y sábado de 12:00 a 02:30.</dd>
+</dl>
+<p>In English: <a href={withBase('/oktoberfest-madrid-2026/')} hreflang="en">Oktoberfest season in Madrid</a> · Auf Deutsch: <a href={withBase('/de/oktoberfest-madrid-2026/')} hreflang="de">Oktoberfest-Zeit in Madrid</a></p>
+    </div>
+  </section>
+</BaseLayout>

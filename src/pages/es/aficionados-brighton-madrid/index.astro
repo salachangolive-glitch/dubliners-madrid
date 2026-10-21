@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { withBase } from '../../../site';
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuándo es el Getafe–Brighton?", "acceptedAnswer": {"@type": "Answer", "text": "El jueves 5 de noviembre de 2026, en el Coliseum de Getafe."}}, {"@type": "Question", "name": "¿Lo ponéis en directo?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, en directo en nuestras pantallas. La hora está en Partidos."}}, {"@type": "Question", "name": "¿Puedo entrar sin más?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, sin reserva, por orden de llegada."}}]};
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuándo es el Getafe–Brighton?", "acceptedAnswer": {"@type": "Answer", "text": "El jueves 5 de noviembre de 2026, en el Coliseum de Getafe."}}, {"@type": "Question", "name": "¿Lo ponéis en directo?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, en directo en nuestras pantallas. La hora está en Partidos."}}]};
 ---
 <BaseLayout title="Aficionados del Brighton en Madrid: Getafe–Brighton, 5 nov | Dubliners" description="Guía breve para aficionados del Brighton en Madrid por el Getafe–Brighton (Conference League, jue 5 nov 2026): dónde verlo en directo cerca de Sol." path="/es/aficionados-brighton-madrid/" lang="es" hreflang={{ en: '/brighton-fans-madrid/', es: '/es/aficionados-brighton-madrid/' }} ogImage="/images/facade.jpg">
   <section class="hero hero-compact"><div class="container">
@@ -11,8 +11,8 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <div class="cta-row"><a class="btn btn-gold" href={withBase('/es/visitar/')}>Cómo llegar</a></div>
   </div></section>
   <section class="section"><div class="container prose">
-    <p>El Getafe–Brighton de la UEFA Conference League se juega el jueves 5 de noviembre de 2026 en el Coliseum de Getafe (fecha según el calendario de la UEFA).</p><p>Si te quedas en el centro, lo ponemos EN DIRECTO en Dubliners, pub irlandés en Calle de Espoz y Mina 7, junto a Puerta del Sol. La hora del partido, en <a href={withBase('/es/partidos/')}>Partidos</a>.</p><p>Metro Sol (L1, L2, L3) o Sevilla (L2). Abierto cada día desde las 12:00. Sin reserva, por orden de llegada.</p>
-    <h2>FAQ</h2><dl class="faq"><dt><strong>¿Cuándo es el Getafe–Brighton?</strong></dt><dd>El jueves 5 de noviembre de 2026, en el Coliseum de Getafe.</dd><dt><strong>¿Lo ponéis en directo?</strong></dt><dd>Sí, en directo en nuestras pantallas. La hora está en Partidos.</dd><dt><strong>¿Puedo entrar sin más?</strong></dt><dd>Sí, sin reserva, por orden de llegada.</dd></dl>
+    <p>El Getafe–Brighton de la UEFA Conference League se juega el jueves 5 de noviembre de 2026 en el Coliseum de Getafe (fecha según el calendario de la UEFA).</p><p>Si te quedas en el centro, lo ponemos EN DIRECTO en Dubliners, pub irlandés en Calle de Espoz y Mina 7, junto a Puerta del Sol. La hora del partido, en <a href={withBase('/es/partidos/')}>Partidos</a>.</p><p>Metro Sol (L1, L2, L3) o Sevilla (L2). Abierto cada día desde las 12:00.</p>
+    <h2>FAQ</h2><dl class="faq"><dt><strong>¿Cuándo es el Getafe–Brighton?</strong></dt><dd>El jueves 5 de noviembre de 2026, en el Coliseum de Getafe.</dd><dt><strong>¿Lo ponéis en directo?</strong></dt><dd>Sí, en directo en nuestras pantallas. La hora está en Partidos.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>
 </BaseLayout>

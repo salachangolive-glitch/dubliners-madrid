@@ -15,19 +15,19 @@ const description =
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg" website>
   <!-- 1. Hero -->
-  <section class="hero-photo-band" aria-label="Bar interior">
+  <section class="hero-photo-band" aria-label="Dubliners Madrid">
     <picture>
       <source
         type="image/webp"
-        srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+        srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`}
         sizes="100vw"
       />
       <img
         class="hero-photo-band__img"
-        src={withBase('/images/bar-interior.jpg')}
-        alt="Bar counter and checkered floor inside Dubliners Madrid"
-        width="1400"
-        height="788"
+        src={withBase('/images/facade-queue.jpg')}
+        alt="People queuing at the door of Dubliners at night, Espoz y Mina 7, off Puerta del Sol"
+        width="1320"
+        height="986"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -138,7 +138,7 @@ const description =
 
   <!-- 6. What’s new (promotions and temporary events) -->
   <section class="section band-gold" id="whats-new">
-    <div class="container split reverse">
+    <div class="container">
       <div>
         <h2>What’s new</h2>
         <h3>Wednesdays — €1 shots</h3>
@@ -162,21 +162,6 @@ const description =
           ]}
         />
       </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`}
-          sizes="(max-width: 880px) 100vw, 35vw"
-        />
-        <img
-          src={withBase('/images/facade-queue.jpg')}
-          alt="People queuing at the door of Dubliners at night, Espoz y Mina 7"
-          width="1320"
-          height="986"
-          loading="lazy"
-          class="split-photo"
-        />
-      </picture>
     </div>
   </section>
 

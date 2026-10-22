@@ -19,15 +19,15 @@ const description =
     <picture>
       <source
         type="image/webp"
-        srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
+        srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`}
         sizes="100vw"
       />
       <img
         class="hero-photo-band__img"
-        src={withBase('/images/bar-interior.jpg')}
-        alt="Barra y suelo de damero en Dubliners Madrid"
-        width="1400"
-        height="788"
+        src={withBase('/images/facade-queue.jpg')}
+        alt="Gente haciendo cola en la puerta de Dubliners por la noche, Espoz y Mina 7, junto a Puerta del Sol"
+        width="1320"
+        height="986"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -139,7 +139,7 @@ const description =
 
   <!-- 6. Novedades (promociones y eventos temporales) -->
   <section class="section band-gold" id="novedades">
-    <div class="container split reverse">
+    <div class="container">
       <div>
         <h2>Novedades</h2>
         <h3>Los miércoles, chupitos a 1 €</h3>
@@ -163,21 +163,6 @@ const description =
           ]}
         />
       </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`}
-          sizes="(max-width: 880px) 100vw, 35vw"
-        />
-        <img
-          src={withBase('/images/facade-queue.jpg')}
-          alt="Gente haciendo cola en la puerta de Dubliners por la noche, Espoz y Mina 7"
-          width="1320"
-          height="986"
-          loading="lazy"
-          class="split-photo"
-        />
-      </picture>
     </div>
   </section>
 

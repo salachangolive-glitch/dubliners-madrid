@@ -17,7 +17,8 @@ const {
 const copy = t(lang);
 const whatsOnHref = lang === 'es' ? '/es/partidos/' : '/whats-on/';
 const wedHref = lang === 'es' ? '/es/miercoles-chupitos-1-euro/' : '/wednesday-1-euro-shots-madrid/';
-const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
+const contactHref = lang === 'es' ? '/es/contacto/#request-information' : '/contact/#request-information';
+const requestInfo = lang === 'es' ? 'Pedir información' : 'Request information';
 ---
 
 <div class="cta-row" data-track-location="cta">
@@ -26,7 +27,7 @@ const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
     <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
   )}
   {showContact && (
-    <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>
+    <a class="btn btn-primary" data-track-event="request_info_click" href={withBase(contactHref)}>{requestInfo}</a>
   )}
   {showWednesday && (
     <a class="btn btn-secondary" href={withBase(wedHref)}>{copy.wednesday}</a>

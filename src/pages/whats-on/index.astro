@@ -9,7 +9,7 @@ import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
 const title =
   'What\'s On: Live Sport This Week | Dubliners Madrid';
 const description =
-  'Live sport this week at Dubliners, Espoz y Mina 7: football, NFL, rugby, NBA and more in Madrid time, with what is LIVE on our screens. Walk in.';
+  'Live sport this week at Dubliners, Espoz y Mina 7: football, NFL, rugby, NBA and more in Madrid time, with what is LIVE on our screens.';
 
 // One agenda for EN + ES (same filter, same range, Europe/Madrid).
 const { todayKey, today, upcoming } = agendaAt();
@@ -66,7 +66,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       </p>
       {todayKey <= '2026-10-10' && (
         <p data-show-until="2026-10-10">
-          Saturday at Dubliners is packed: Arsenal–Leeds 13:30, Rayo–Athletic 14:00, Alavés–Atlético 16:15, Man Utd–Spurs with Barça–Getafe and Ulster–Munster at 18:30, then Leinster–Cardiff 20:45 and Real Madrid–Villarreal 21:00 — Confirmed on our screens; clashes go on different screens. Walk in near Sol.
+          Saturday at Dubliners is packed: Arsenal–Leeds 13:30, Rayo–Athletic 14:00, Alavés–Atlético 16:15, Man Utd–Spurs with Barça–Getafe and Ulster–Munster at 18:30, then Leinster–Cardiff 20:45 and Real Madrid–Villarreal 21:00 — Confirmed on our screens; clashes go on different screens.
         </p>
       )}
     </div>

@@ -1082,3 +1082,122 @@ a.card.card-link:hover h3 {
 .map-placeholder .btn {
   font-family: inherit;
 }
+
+/* ---------- Organised link sections (owner order 22 Oct 2026) ---------- */
+.link-hub {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 1rem 0 0.5rem;
+}
+@media (min-width: 760px) {
+  .link-hub { grid-template-columns: repeat(2, 1fr); }
+  .link-hub--single { grid-template-columns: 1fr; max-width: 40rem; }
+}
+@media (min-width: 1080px) {
+  .link-hub:not(.link-hub--single):not(.link-hub--two) { grid-template-columns: repeat(3, 1fr); }
+}
+.link-group {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 0.6rem;
+}
+.band .link-group { background: var(--bg-soft); }
+.link-group__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+h2.link-group__title { font-size: clamp(1.2rem, 3vw, 1.4rem); }
+.link-group__intro { margin: 0 0 0.5rem; font-size: 1rem; }
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.link-list li + li { border-top: 1px solid var(--border); }
+.link-list a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.6rem 1.6rem 0.6rem 0;
+  position: relative;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.link-list a::after {
+  content: '→';
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-2);
+}
+.link-list a:hover .link-list__label,
+.link-list a:focus-visible .link-list__label { color: var(--accent-2); }
+.link-list__note {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.link-hub--compact .link-group { padding-bottom: 0.4rem; }
+
+/* Home: upcoming match cards */
+.fx-cards {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .fx-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .fx-cards { grid-template-columns: repeat(4, 1fr); } }
+.fx-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-2);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+}
+.fx-card__comp {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.fx-card__teams { display: block; color: var(--text); font-weight: 700; font-size: 1.05rem; margin: 0.2rem 0; }
+.fx-card__when { display: block; color: var(--muted); font-size: 1rem; }
+.fx-card__live {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+.home-intro__text { max-width: 40rem; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; }
+.section-head h2 { margin-bottom: 0.25rem; }
+.section-head a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+.news-list { margin-top: 1rem; }
+
+/* Mobile tap targets ≥44px (owner order 22 Oct 2026) */
+.logo { display: inline-flex; align-items: center; min-height: 44px; }
+.lang-sel a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 0.25rem; }
+.menu-toggle { min-height: 44px; }
+.faq details { padding: 0.3rem 1rem; }
+.faq details[open] { padding-bottom: 0.85rem; }
+.faq summary { padding: 0.6rem 0; min-height: 44px; }
+.home-identity__tag { font-size: 1rem; margin-bottom: 0; }
+.map-placeholder a, .map-frame a { display: inline-flex; align-items: center; min-height: 44px; }
+.breadcrumb a { display: inline-flex; align-items: center; min-height: 44px; }
+.fx-link { display: inline-flex; align-items: center; min-height: 44px; }

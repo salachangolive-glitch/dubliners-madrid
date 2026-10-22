@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../site';
 
@@ -86,14 +87,8 @@ const description =
     <div class="container prose">
       <h2>International atmosphere</h2>
       <p>
-        Locals, travellers and Erasmus students share the same bar — Guinness, live football and an easy English-speaking welcome in Madrid centro.
+        Locals, travellers and Erasmus students share the same bar: drinks, live football and an easy English-speaking welcome in the centre of Madrid.
         Grab a seat and ask what’s on the screens.
-      </p>
-      <p>
-        Useful next steps:
-        <a href={withBase('/whats-on/')}>What’s on tonight</a>,
-        <a href={withBase('/sports-bar-madrid/')}>sports screens near Sol</a>,
-        <a href={withBase('/visit/')}>how to find us</a>.
       </p>
     </div>
   </section>
@@ -107,7 +102,23 @@ const description =
         <li>Look for the <strong>green Dubliners neon</strong> at number 7 and come in.</li>
         <li>Ask at the bar what’s on the screens tonight, or check <a href={withBase('/whats-on/')}>What’s On</a> before you go.</li>
       </ol>
-      <p>More: <a href={withBase('/visit/')}>map &amp; directions</a> · <a href={withBase('/whats-on/')}>What’s On (matches, Madrid time)</a> · <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> · <a href={withBase('/watch-football-madrid/')}>where to watch football in Madrid</a> · <a href={withBase('/night-out-near-sol-madrid/')}>night out near Sol</a> · <a href={withBase('/irish-pub-near-plaza-mayor/')}>from Plaza Mayor</a>.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Plan your night',
+            items: [
+              { href: '/visit/', label: 'Map & directions' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Matches in Madrid time' },
+              { href: '/sports-bar-madrid/', label: 'Sports screens near Sol' },
+              { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots' },
+              { href: '/watch-football-madrid/', label: 'Where to watch football in Madrid' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Coming from Plaza Mayor' },
+            ],
+          },
+        ]}
+      />
 
       <h2>FAQ for Erasmus students &amp; visitors</h2>
       <dl class="faq">

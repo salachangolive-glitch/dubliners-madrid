@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../../site';
 
@@ -56,7 +57,21 @@ const description = "Pub irlandés con atención en inglés a pocos pasos de Pla
       <h2>En metro</h2>
       <p>Sol (L1, L2, L3) o Sevilla (L2), ambas a un paseo corto.</p>
       <h2>Por qué pasar</h2>
-      <p>Deporte en directo en DAZN, Movistar y Premier Sports, el techo pintado histórico de la antigua sastrería Barragán (1885) y chupitos a 1 € todos los miércoles.</p><p><a href={withBase('/es/visitar/')}>Mapa y cómo llegar</a> · <a href={withBase('/es/partidos/')}>Partidos</a> · <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> · <a href={withBase('/es/estudiantes-internacionales/')}>Erasmus y estudiantes internacionales</a></p>
+      <p>Deporte en directo en DAZN, Movistar y Premier Sports, el techo pintado histórico de la antigua sastrería Barragán (1885) y chupitos a 1 € todos los miércoles.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Planea tu visita',
+            items: [
+              { href: '/es/visitar/', label: 'Mapa y cómo llegar' },
+              { href: '/es/partidos/', label: 'Partidos' },
+              { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €' },
+              { href: '/es/estudiantes-internacionales/', label: 'Erasmus y estudiantes internacionales' },
+            ],
+          },
+        ]}
+      />
       <h2>Preguntas frecuentes</h2>
       <dl class="faq">
         <dt><strong>¿A qué distancia está Dubliners de Plaza Mayor?</strong></dt>

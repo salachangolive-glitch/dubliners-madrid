@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { withBase } from '../../../site';
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuándo es el Clásico Barcelona–Real Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "El domingo 25 de octubre de 2026 a las 21:00 (hora de Madrid), en el Spotify Camp Nou de Barcelona (jornada 10 de LaLiga)."}}, {"@type": "Question", "name": "¿Ponéis el Clásico en Dubliners?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, en directo en nuestras pantallas, en la calle Espoz y Mina 7, junto a la Puerta del Sol. En España se emite en DAZN."}}, {"@type": "Question", "name": "¿Cambia la hora ese día?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. A las 03:00 del domingo 25 de octubre España pasa al horario de invierno. El partido empieza a las 21:00 con la nueva hora de Madrid."}}]};
@@ -18,7 +19,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <p>España pasa al horario de invierno a las 03:00 del domingo 25 de octubre (a las 3 serán las 2). El partido empieza a las <strong>21:00 con la nueva hora de Madrid</strong> (20:00 UTC). Si tu móvil está en otra zona horaria, compruébalo antes de salir.</p>
     <h2>Cómo funciona en Dubliners</h2>
     <ul>
-      <li>En un partido así, lo mejor para ver bien una pantalla es llegar con tiempo.</li>
+      <li>En un partido así, llega con tiempo si quieres ver bien una pantalla.</li>
       <li>Los domingos abrimos de 12:00 a 02:00.</li>
       <li>Metro Sol (L1, L2, L3) o Sevilla (L2).</li>
       <li>Se atiende en español y en inglés.</li>
@@ -27,7 +28,19 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <p>Ese mismo fin de semana, también en directo: Atlético de Madrid–Deportivo (sábado 24, 21:00), Premier League el sábado y el domingo, y un domingo NFL completo el 25 de octubre (desde las 14:30, con los partidos de la tarde a las 21:05 y 21:25). Horarios y lista completa en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
     <h2>¿Estás en Madrid por un congreso esa semana?</h2>
     <p>A finales de octubre hay muchos visitantes internacionales en la ciudad; por ejemplo, el Congreso ESMO 2026 se celebra en IFEMA Madrid del 23 al 27 de octubre. Si te alojas en el centro y buscas un sitio tranquilo para ver el partido, estamos junto a Sol. Dubliners es un pub independiente, sin vínculo con LaLiga, los clubes ni ningún congreso.</p>
-    <p class="small">Más: <a href={withBase('/es/ver-futbol-madrid/')}>Ver fútbol en Madrid</a> · <a href={withBase('/es/bar-futbol-puerta-del-sol/')}>Bar de fútbol en la Puerta del Sol</a> · <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>Pub irlandés cerca de Plaza Mayor</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Más fútbol cerca de Sol',
+          items: [
+            { href: '/es/ver-futbol-madrid/', label: 'Ver fútbol en Madrid' },
+            { href: '/es/bar-futbol-puerta-del-sol/', label: 'Bar de fútbol en la Puerta del Sol' },
+            { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés cerca de Plaza Mayor' },
+          ],
+        },
+      ]}
+    />
     <h2>Preguntas frecuentes</h2><dl class="faq"><dt><strong>¿Cuándo es el Clásico Barcelona–Real Madrid?</strong></dt><dd>El domingo 25 de octubre de 2026 a las 21:00 (hora de Madrid), en el Spotify Camp Nou de Barcelona (jornada 10 de LaLiga).</dd><dt><strong>¿Ponéis el Clásico en Dubliners?</strong></dt><dd>Sí, en directo en nuestras pantallas, en la calle Espoz y Mina 7, junto a la Puerta del Sol. En España se emite en DAZN.</dd><dt><strong>¿Cambia la hora ese día?</strong></dt><dd>Sí. A las 03:00 del domingo 25 de octubre España pasa al horario de invierno. El partido empieza a las 21:00 con la nueva hora de Madrid.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>

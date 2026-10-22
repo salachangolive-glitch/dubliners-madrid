@@ -2,6 +2,7 @@
 import { hoursFor } from '../../../data/hours';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import { SITE, withBase } from '../../../site';
@@ -59,8 +60,6 @@ const description =
       <h2>Toda la noche</h2>
       <p>
         Ven por los chupitos a 1 € de Dubliners y lo que haya en pantallas.
-        También: <a href={withBase('/es/estudiantes-internacionales/')}>estudiantes internacionales</a>
-        o <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
       <div class="faq">
         <details>
@@ -75,7 +74,20 @@ const description =
   </section>
   <section class="section">
     <div class="container prose">
-      <p class="small">¿Recién llegado? <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>Pub irlandés cerca de Plaza Mayor</a> · <a href={withBase('/es/noche-cerca-de-sol/')}>Salir de noche cerca de Sol</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Alarga la noche',
+            items: [
+              { href: '/es/partidos/', label: 'Partidos', note: 'Los partidos de hoy en hora de Madrid' },
+              { href: '/es/estudiantes-internacionales/', label: 'Estudiantes internacionales' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés cerca de Plaza Mayor' },
+              { href: '/es/noche-cerca-de-sol/', label: 'Salir de noche cerca de Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

@@ -3,6 +3,7 @@ import MapEmbed from '../../../components/MapEmbed.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase } from '../../../site';
 
 const title = 'Bar deportivo en Madrid | Fútbol, NFL y rugby junto a Sol — Dubliners';
@@ -59,52 +60,56 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Deporte en el centro de Madrid</h2>
+      <h2>Deporte en directo</h2>
       <p>
-        Dubliners es un bar deportivo en el centro para ver fútbol sin salir de Sol.
-        Varias pantallas en sala y proyector — Guinness en barra mientras corre el partido.
+        Dubliners es un pub irlandés a un paso de Sol con un proyector grande y 8 pantallas orientadas a la sala principal, para ver el partido en grupo.
+        Los partidos grandes se llenan pronto.
       </p>
       <p>
-        Cobertura habitual cuando hay derechos: Premier League, Champions / noches UCL,
-        LaLiga, Seis Naciones, F1, NFL y NBA. El calendario cambia cada semana —
-        el <a href={withBase('/es/partidos/')}>tablero de Partidos</a> es la lista en vivo;
-        si un hueco parece vacío, pregunta al equipo qué está realmente en pantalla.
-        No afirmamos cada partido — solo lo listado o confirmado en barra.
-      </p>
-      <p>
-        Las pantallas miran a la sala principal para ver el partido en grupo. Los partidos grandes llenan pronto.
-        Desde Metro Sol es un paseo corto hasta Espoz y Mina —
-        cómodo si ya estás en el centro y quieres un bar deportivo cerca de Sol esta noche.
+        El calendario cambia cada semana, así que <a href={withBase('/es/partidos/')}>Partidos</a> es nuestra lista al día.
+        Solo anunciamos lo confirmado; si un hueco parece vacío, pregunta en barra qué se emite.
       </p>
 
-      <h2>Todo el deporte, no solo fútbol</h2>
+      <h2>Fútbol y rugby</h2>
       <p>
-        El fútbol es la base, pero las pantallas tienen deporte toda la semana. Solo anunciamos lo que está
-        confirmado en <a href={withBase('/es/partidos/')}>Partidos</a>; si no aparece, pregunta en barra.
+        El fútbol es la base: Premier League, Champions League, LaLiga y más cuando hay derechos.
+        El rugby completa el fin de semana.
       </p>
       <ul>
         <li><strong>Rugby:</strong> URC, Premiership Rugby y test matches internacionales; el Seis Naciones en primavera.</li>
         <li><strong>Fórmula 1:</strong> clasificación y carrera cuando caen dentro de nuestro horario.</li>
         <li><strong>Tenis:</strong> las grandes finales y últimas rondas cuando se emiten.</li>
       </ul>
-      <h2>Deporte americano en Madrid</h2>
+
+      <h2>NFL y deportes americanos</h2>
       <p>
         Los domingos de NFL son lo principal: los partidos de primera y última hora de la tarde (hora de EE. UU.)
-        caen en la tarde-noche de Madrid, en el proyector y las pantallas. Mira <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a> para la temporada.
-        También ponemos NBA y NHL cuando empiezan antes de nuestro corte de la noche, y la MLB en playoffs.
+        caen en la tarde-noche de Madrid, en el proyector y las pantallas. También ponemos NBA y NHL cuando empiezan antes de nuestro corte de la noche, y la MLB en playoffs.
         Solo anunciamos partidos que empiezan al menos una hora antes del cierre (02:00; viernes y sábado, 02:30).
       </p>
 
-      <h2>Páginas de partido</h2>
-      <p>Cada competición tiene su ángulo — usa la página que encaje con tu búsqueda:</p>
-      <ul>
-        <li><a href={withBase('/es/partidos/')}>Partidos de hoy y agenda de la semana</a></li>
-        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Fútbol inglés / noches de Premier League</a></li>
-        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Pantallas UCL y caña post-Bernabéu en el centro</a></li>
-        <li><a href={withBase('/es/visitar/')}>Dirección, Metro Sol y mapa</a></li>
-        <li><a href={withBase('/es/ver-futbol-madrid/')}>Dónde ver fútbol en Madrid</a></li>
-        <li><a href={withBase('/es/bar-futbol-puerta-del-sol/')}>Bar de fútbol cerca de Puerta del Sol</a></li>
-      </ul>
+      <h2>Comida y bebida</h2>
+      <p>
+        Comida de pub y bebidas en barra mientras ves el partido. Los precios están en nuestra <a href={withBase('/es/carta/')}>carta</a>.
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Guías para noches de partido',
+            items: [
+              { href: '/es/partidos/', label: 'Partidos', note: 'Partidos de hoy y agenda de la semana' },
+              { href: '/es/premier-league-pub-madrid/', label: 'Noches de Premier League' },
+              { href: '/es/champions-league-bar-madrid/', label: 'Noches de Champions League' },
+              { href: '/es/ver-futbol-madrid/', label: 'Dónde ver fútbol en Madrid' },
+              { href: '/es/bar-futbol-puerta-del-sol/', label: 'Bar de fútbol cerca de Puerta del Sol' },
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'La temporada en Dubliners' },
+              { href: '/es/visitar/', label: 'Visitar', note: 'Dirección, Metro Sol y mapa' },
+            ],
+          },
+        ]}
+      />
 
       <h2>Consejos para noches de partido</h2>
       <ul>
@@ -130,7 +135,7 @@ const description =
           <p>Sí — mira nuestra <a href={withBase('/es/carta/')}>carta</a> con precios.</p>
         </details>
         <details>
-          <summary>¿Es un buen bar deportivo si estoy en Sol?</summary>
+          <summary>¿Es fácil llegar desde Sol?</summary>
           <p>
             Sí — Espoz y Mina 7 está a un paseo corto de Puerta del Sol / Metro Sol.
             Ven a ver fútbol en pantallas y sigue por el centro después.
@@ -145,5 +150,4 @@ const description =
       </p>
     </div>
   </section>
-  <section class="section"><div class="container"><p class="small">Fútbol americano: <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a></p></div></section>
 </BaseLayout>

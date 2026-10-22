@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FixtureBoard from '../../components/FixtureBoard.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
 
@@ -40,7 +41,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
 
   <section class="section">
     <div class="container">
-      <p class="small"><strong>News:</strong> <a href={withBase('/news/champions-league-tonight-20-oct/')}>Champions League tonight, Tue 20 Oct</a> · <a href={withBase('/news/champions-league-tomorrow-21-oct/')}>Champions League Wed 21 Oct: Real Madrid vs RB Leipzig</a></p>
       <FixtureBoard lang="en" today={today} upcoming={upcoming} />
       <p class="fx-note">
         Times are Madrid time. LIVE = showing on our screens.
@@ -72,55 +72,74 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
+  <section class="section band" id="sport-guides">
+    <div class="container">
       <h2>Explore live sport at Dubliners</h2>
-      <p>
-        Looking for a particular competition? See more about the
-        <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a>,
-        <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a>
-        and watching <a href={withBase('/watch-football-madrid/')}>live football in Madrid</a>,
-        or check <a href={withBase('/whats-on/')}>What’s On</a> for this week’s confirmed screenings.
-      </p>
+      <LinkHub
+        heading="h3"
+        groups={[
+          {
+            title: 'Football & rugby',
+            id: 'football-rugby',
+            items: [
+              { href: '/premier-league-pub-madrid/', label: 'Premier League' },
+              { href: '/champions-league-bar-madrid/', label: 'Champions League' },
+              { href: '/champions-league-irish-pub-sol/', label: 'Champions League in an Irish pub' },
+              { href: '/watch-football-madrid/', label: 'Live football in Madrid' },
+              { href: '/el-clasico-madrid/', label: 'El Clásico in Madrid', note: 'Sunday 25 October', until: '2026-10-25' },
+              { href: '/brighton-fans-madrid/', label: 'Brighton fans in Madrid' },
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: '6, 14 & 21 November' },
+            ],
+          },
+          {
+            title: 'NFL & American sports',
+            id: 'nfl-american-sports',
+            items: [
+              { href: '/nfl-madrid/', label: 'NFL in Madrid' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour, Sunday 8 November' },
+            ],
+          },
+          {
+            title: 'Food & drinks',
+            id: 'food-drinks',
+            items: [{ href: '/menu/', label: 'Food & drinks menu' }],
+          },
+        ]}
+      />
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container split">
-      <div>
-        <h2>Wednesday · €1 shots</h2>
-        <p>
-          Midweek at Dubliners: €1 shots. Ask at the bar for details.
-        </p>
-        <a class="btn btn-secondary" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots →</a>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
-          sizes="(max-width: 880px) 100vw, 40vw"
-        />
-        <img
-          src={withBase('/images/bar-interior.jpg')}
-          alt="Irish pub near Sol — Dubliners Madrid screens for Premier League and Champions League"
-          class="split-photo landscape"
-          width="1400"
-          height="788"
-          loading="lazy"
-        />
-      </picture>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container prose">
-      <h2>Visit</h2>
-      <p>{SITE.address}, {SITE.postal} · <a href={withBase('/visit/')}>Hours & map</a></p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container prose">
-      <p class="small">New in town? <a href={withBase('/irish-pub-near-plaza-mayor/')}>Irish pub near Plaza Mayor</a> · <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid (6, 14 &amp; 21 Nov)</a> · <a href={withBase('/oktoberfest-madrid-2026/')}>Oktoberfest season in Madrid (22 Oct–15 Nov)</a> · <a href={withBase('/de/oktoberfest-madrid-2026/')} hreflang="de" lang="de">Oktoberfest-Zeit in Madrid</a> · <a href={withBase('/night-out-near-sol-madrid/')}>Night out near Sol</a> · <a href={withBase('/brighton-fans-madrid/')}>Brighton fans</a> · <a href={withBase('/el-clasico-madrid/')}>El Clásico in Madrid (25 Oct)</a> · <a href={withBase('/nfl-sunday-madrid-guide/')}>NFL Sunday guide</a> · <a href={withBase('/champions-league-irish-pub-sol/')}>Champions League in an Irish pub</a> · <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a></p>
+  <section class="section" id="whats-new">
+    <div class="container">
+      <h2>What’s new</h2>
+      <LinkHub
+        heading="h3"
+        groups={[
+          {
+            title: 'Offers & events',
+            items: [
+              { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots', note: 'Every Wednesday · ask at the bar' },
+              { href: '/oktoberfest-madrid-2026/', label: 'Oktoberfest season in Madrid', note: '22 Oct–15 Nov', until: '2026-11-15' },
+              { href: '/de/oktoberfest-madrid-2026/', label: 'Oktoberfest-Zeit in Madrid', note: 'Auf Deutsch', hreflang: 'de', lang: 'de', until: '2026-11-15' },
+            ],
+          },
+          {
+            title: 'News',
+            items: [
+              { href: '/news/champions-league-tonight-20-oct/', label: 'Champions League, Tuesday 20 October' },
+              { href: '/news/champions-league-tomorrow-21-oct/', label: 'Champions League, Wednesday 21 October', note: 'Real Madrid vs RB Leipzig' },
+            ],
+          },
+          {
+            title: 'Visit',
+            items: [
+              { href: '/visit/', label: 'Hours & map', note: `${SITE.address}, ${SITE.postal}` },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub near Plaza Mayor' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

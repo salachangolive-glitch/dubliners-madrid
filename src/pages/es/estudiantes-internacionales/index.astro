@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../../site';
 
@@ -86,14 +87,8 @@ const description =
     <div class="container prose">
       <h2>Ambiente internacional</h2>
       <p>
-        Madrileños, viajeros y estudiantes Erasmus comparten la misma barra — Guinness, fútbol en directo y un ambiente fácil en inglés en el centro de Madrid.
+        Madrileños, viajeros y estudiantes Erasmus comparten la misma barra: bebidas, fútbol en directo y un ambiente fácil en inglés en el centro de Madrid.
         Entra, siéntate y pregunta qué hay en pantallas.
-      </p>
-      <p>
-        Siguientes pasos útiles:
-        <a href={withBase('/es/partidos/')}>Partidos de hoy</a>,
-        <a href={withBase('/es/bar-deportivo-madrid/')}>pantallas deportivas cerca de Sol</a>,
-        <a href={withBase('/es/visitar/')}>cómo llegar</a>.
       </p>
     </div>
   </section>
@@ -107,7 +102,23 @@ const description =
         <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7 y entra.</li>
         <li>Pregunta en barra qué hay hoy en pantallas, o mira <a href={withBase('/es/partidos/')}>Partidos</a> antes de ir.</li>
       </ol>
-      <p>Más: <a href={withBase('/es/visitar/')}>mapa y cómo llegar</a> · <a href={withBase('/es/partidos/')}>Partidos (hora de Madrid)</a> · <a href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a> · <a href={withBase('/es/ver-futbol-madrid/')}>dónde ver fútbol en Madrid</a> · <a href={withBase('/es/noche-cerca-de-sol/')}>salir de noche cerca de Sol</a> · <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>desde Plaza Mayor</a>.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Planea tu noche',
+            items: [
+              { href: '/es/visitar/', label: 'Mapa y cómo llegar' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'En hora de Madrid' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Pantallas deportivas cerca de Sol' },
+              { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €' },
+              { href: '/es/ver-futbol-madrid/', label: 'Dónde ver fútbol en Madrid' },
+              { href: '/es/noche-cerca-de-sol/', label: 'Salir de noche cerca de Sol' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Si vienes desde Plaza Mayor' },
+            ],
+          },
+        ]}
+      />
 
       <h2>Preguntas frecuentes para Erasmus y visitantes</h2>
       <dl class="faq">

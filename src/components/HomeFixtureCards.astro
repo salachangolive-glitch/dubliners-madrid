@@ -1,0 +1,75 @@
+---
+/**
+ * Home “Upcoming matches”: next confirmed screenings from src/data/fixtures.ts
+ * (same agenda as What’s On / Partidos — nothing unconfirmed is shown).
+ * Build-time selection; the inline script hides finished games and keeps
+ * at most `show` cards visible, so a static build never shows old matches.
+ */
+import { agendaAt, fixtureStartMs, fixtureEndMs, sportLabel, sportLabelEs, type Fixture } from '../data/fixtures';
+import { whenLabelEs } from '../i18n';
+import { withBase } from '../site';
+
+interface Props { lang?: 'en' | 'es'; show?: number }
+const { lang = 'en', show = 4 } = Astro.props;
+const es = lang === 'es';
+const FEATURED = [
+  'UEFA Champions League', 'Premier League', 'LaLiga', 'NFL', 'UEFA Europa League',
+  'URC', 'Rugby Nations Championship', 'Premiership Rugby', 'Formula 1', 'NBA',
+];
+const { today, upcoming } = agendaAt();
+const perComp: Record<string, number> = {};
+const picks: Fixture[] = [];
+for (const f of [...today, ...upcoming]) {
+  if (!f.confirmedOnScreens || f.kind === 'event' || !FEATURED.includes(f.competition)) continue;
+  if ((perComp[f.competition] = (perComp[f.competition] || 0) + 1) > 6) continue;
+  picks.push(f);
+  if (picks.length >= 36) break;
+}
+const firstShown = new Set<Fixture>();
+const seenC = new Set<string>();
+for (const f of picks) { if (firstShown.size < show && !seenC.has(f.competition)) { seenC.add(f.competition); firstShown.add(f); } }
+for (const f of picks) { if (firstShown.size < show) firstShown.add(f); }
+const label = (f: Fixture) => { const sp = es ? sportLabelEs(f.competition) : sportLabel(f.competition); return sp === f.competition ? sp : `${sp} · ${f.competition}`; };
+const scheduleHref = withBase(es ? '/es/partidos/' : '/whats-on/');
+const L = es
+  ? { live: 'En pantallas', empty: 'Consulta la agenda completa de esta semana.', time: '' }
+  : { live: 'On our screens', empty: 'See this week’s full schedule.', time: '' };
+---
+
+<ul class="fx-cards" data-fx-cards data-fx-show={String(show)}>
+  {picks.map((f) => (
+    <li class="fx-card" data-comp={f.competition} data-start-ms={String(fixtureStartMs(f))} data-end-ms={String(fixtureEndMs(f))} hidden={!firstShown.has(f)}>
+      <span class="fx-card__comp">{label(f)}</span>
+      <span class="fx-card__teams">{f.teams}</span>
+      <span class="fx-card__when">{es ? whenLabelEs(f.dateKey) : f.whenLabel} · {f.madridTime}{L.time}</span>
+      <span class="fx-card__live">{L.live}</span>
+    </li>
+  ))}
+</ul>
+<p class="fx-cards__empty" data-fx-empty hidden={picks.length > 0}><a href={scheduleHref}>{L.empty}</a></p>
+<script is:inline>
+(function () {
+  function run() {
+    var t = Date.now();
+    var lists = document.querySelectorAll('[data-fx-cards]');
+    for (var l = 0; l < lists.length; l++) {
+      var max = Number(lists[l].getAttribute('data-fx-show')) || 4, n = 0, seen = {}, i;
+      var cards = Array.prototype.slice.call(lists[l].querySelectorAll('li[data-end-ms]'));
+      var live = cards.filter(function (c) { return t < Number(c.getAttribute('data-end-ms')); });
+      var on = [];
+      // one card per competition first (variety), then fill in date order
+      for (i = 0; i < live.length && on.length < max; i++) {
+        var k = live[i].getAttribute('data-comp');
+        if (!seen[k]) { seen[k] = 1; on.push(live[i]); }
+      }
+      for (i = 0; i < live.length && on.length < max; i++) if (on.indexOf(live[i]) < 0) on.push(live[i]);
+      for (i = 0; i < cards.length; i++) cards[i].hidden = on.indexOf(cards[i]) < 0;
+      n = on.length;
+      var empty = lists[l].parentNode.querySelector('[data-fx-empty]');
+      if (empty) empty.hidden = n > 0;
+    }
+  }
+  run();
+  setInterval(run, 60 * 1000);
+})();
+</script>

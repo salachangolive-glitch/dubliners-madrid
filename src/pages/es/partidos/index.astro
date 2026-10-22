@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import FixtureBoard from '../../../components/FixtureBoard.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../../data/fixtures';
 
@@ -41,7 +42,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
 
   <section class="section">
     <div class="container">
-      <p class="small"><strong>Noticias:</strong> <a href={withBase('/es/noticias/champions-hoy-20-oct/')}>Champions hoy, mar 20 oct</a> · <a href={withBase('/es/noticias/champions-manana-21-oct/')}>Champions mié 21 oct: Real Madrid–RB Leipzig</a></p>
       <FixtureBoard lang="es" today={today} upcoming={upcoming} />
       <p class="fx-note">
         Horarios en hora de Madrid. EN DIRECTO = se emite en nuestras pantallas.
@@ -73,55 +73,74 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
+  <section class="section band" id="guias-deporte">
+    <div class="container">
       <h2>Explora el deporte en directo en Dubliners</h2>
-      <p>
-        ¿Buscas una competición en concreto? Más sobre la
-        <a href={withBase('/es/premier-league-pub-madrid/')}>Premier League</a>,
-        la <a href={withBase('/es/champions-league-bar-madrid/')}>Champions League</a>
-        y <a href={withBase('/es/ver-futbol-madrid/')}>ver fútbol en directo en Madrid</a>,
-        o consulta <a href={withBase('/es/partidos/')}>Partidos</a> para las emisiones confirmadas de esta semana.
-      </p>
+      <LinkHub
+        heading="h3"
+        groups={[
+          {
+            title: 'Fútbol y rugby',
+            id: 'futbol-rugby',
+            items: [
+              { href: '/es/premier-league-pub-madrid/', label: 'Premier League' },
+              { href: '/es/champions-league-bar-madrid/', label: 'Champions League' },
+              { href: '/es/champions-pub-irlandes-sol/', label: 'La Champions en un pub irlandés' },
+              { href: '/es/ver-futbol-madrid/', label: 'Ver fútbol en directo en Madrid' },
+              { href: '/es/ver-el-clasico-madrid/', label: 'El Clásico en Madrid', note: 'Domingo 25 de octubre', until: '2026-10-25' },
+              { href: '/es/aficionados-brighton-madrid/', label: 'Aficionados del Brighton en Madrid' },
+              { href: '/es/rugby-irlanda-madrid/', label: 'Rugby de Irlanda en Madrid', note: '6, 14 y 21 de noviembre' },
+            ],
+          },
+          {
+            title: 'NFL y deportes americanos',
+            id: 'nfl-deportes-americanos',
+            items: [
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid' },
+              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
+            ],
+          },
+          {
+            title: 'Comida y bebida',
+            id: 'comida-bebida',
+            items: [{ href: '/es/carta/', label: 'Carta de comida y bebida' }],
+          },
+        ]}
+      />
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container split">
-      <div>
-        <h2>Miércoles · chupitos a 1 €</h2>
-        <p>
-          Entre semana en Dubliners: chupitos a 1 €. Pregunta en barra los detalles.
-        </p>
-        <a class="btn btn-secondary" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 € →</a>
-      </div>
-      <picture>
-        <source
-          type="image/webp"
-          srcset={`${withBase('/images/bar-interior-sm.webp')} 800w, ${withBase('/images/bar-interior.webp')} 1400w`}
-          sizes="(max-width: 880px) 100vw, 40vw"
-        />
-        <img
-          src={withBase('/images/bar-interior.jpg')}
-          alt="Pub irlandés en Sol — pantallas de Dubliners Madrid para Premier League y Champions"
-          class="split-photo landscape"
-          width="1400"
-          height="788"
-          loading="lazy"
-        />
-      </picture>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container prose">
-      <h2>Visitar</h2>
-      <p>{SITE.address}, {SITE.postal} · <a href={withBase('/es/visitar/')}>Horario y mapa</a></p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container prose">
-      <p class="small">¿Recién llegado? <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>Pub irlandés cerca de Plaza Mayor</a> · <a href={withBase('/es/rugby-irlanda-madrid/')}>Rugby de Irlanda en Madrid (6, 14 y 21 nov)</a> · <a href={withBase('/es/oktoberfest-madrid-2026/')}>Temporada de Oktoberfest en Madrid (22 oct–15 nov)</a> · <a href={withBase('/de/oktoberfest-madrid-2026/')} hreflang="de" lang="de">Oktoberfest-Zeit in Madrid</a> · <a href={withBase('/es/noche-cerca-de-sol/')}>Salir de noche cerca de Sol</a> · <a href={withBase('/es/aficionados-brighton-madrid/')}>Aficionados del Brighton</a> · <a href={withBase('/es/ver-el-clasico-madrid/')}>El Clásico en Madrid (25 oct)</a> · <a href={withBase('/es/guia-domingo-nfl-madrid/')}>Guía domingo NFL</a> · <a href={withBase('/es/champions-pub-irlandes-sol/')}>Champions en un pub irlandés</a> · <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a></p>
+  <section class="section" id="novedades">
+    <div class="container">
+      <h2>Novedades</h2>
+      <LinkHub
+        heading="h3"
+        groups={[
+          {
+            title: 'Promociones y eventos',
+            items: [
+              { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €', note: 'Todos los miércoles · pregunta en barra' },
+              { href: '/es/oktoberfest-madrid-2026/', label: 'Temporada de Oktoberfest en Madrid', note: '22 oct–15 nov', until: '2026-11-15' },
+              { href: '/de/oktoberfest-madrid-2026/', label: 'Oktoberfest-Zeit in Madrid', note: 'En alemán', hreflang: 'de', lang: 'de', until: '2026-11-15' },
+            ],
+          },
+          {
+            title: 'Noticias',
+            items: [
+              { href: '/es/noticias/champions-hoy-20-oct/', label: 'Champions, martes 20 de octubre' },
+              { href: '/es/noticias/champions-manana-21-oct/', label: 'Champions, miércoles 21 de octubre', note: 'Real Madrid–RB Leipzig' },
+            ],
+          },
+          {
+            title: 'Visitar',
+            items: [
+              { href: '/es/visitar/', label: 'Horario y mapa', note: `${SITE.address}, ${SITE.postal}` },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés cerca de Plaza Mayor' },
+              { href: '/es/noche-cerca-de-sol/', label: 'Salir de noche cerca de Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

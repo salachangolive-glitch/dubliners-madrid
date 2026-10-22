@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { withBase } from '../../site';
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is El Clásico, Barcelona vs Real Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Sunday 25 October 2026 at 21:00 Madrid time, at the Spotify Camp Nou in Barcelona (LaLiga matchday 10)."}}, {"@type": "Question", "name": "Is Dubliners showing El Clásico?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, LIVE on our screens at Calle de Espoz y Mina 7, near Puerta del Sol. In Spain the match is on DAZN."}}, {"@type": "Question", "name": "Do the clocks change that day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Spain goes back to winter time at 03:00 on Sunday 25 October. Kick-off is 21:00 on the new (winter) Madrid time."}}]};
@@ -18,7 +19,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <p>Spain switches to winter time at 03:00 on Sunday 25 October (clocks go back one hour). Kick-off is <strong>21:00 on the new Madrid time</strong> (20:00 UTC). If your phone is set to another time zone, double-check before heading out.</p>
     <h2>How it works at Dubliners</h2>
     <ul>
-      <li>For a match this big, coming early is your best bet for a view of a screen.</li>
+      <li>For a match this big, come early if you want a good view of a screen.</li>
       <li>Open on Sundays from 12:00 until 02:00.</li>
       <li>Metro Sol (L1, L2, L3) or Sevilla (L2).</li>
       <li>English and Spanish spoken at the bar.</li>
@@ -27,7 +28,19 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <p>Same weekend, also LIVE: Atlético de Madrid vs Deportivo (Saturday 24, 21:00), Premier League on Saturday and Sunday, and a full NFL Sunday on 25 October (from 14:30, with the late games at 21:05 and 21:25). Times and the full list are on <a href={withBase('/whats-on/')}>What's On</a>.</p>
     <h2>In Madrid for a congress that week?</h2>
     <p>Lots of international visitors are in town in late October — for example, the ESMO Congress 2026 runs at IFEMA Madrid from 23 to 27 October. If you're staying in the centre and want somewhere relaxed to watch the game in English-friendly company, we're right by Sol. Dubliners is an independent pub, not linked to LaLiga, the clubs or any congress.</p>
-    <p class="small">More: <a href={withBase('/watch-football-madrid/')}>Watch football in Madrid</a> · <a href={withBase('/football-bar-puerta-del-sol/')}>Football bar by Puerta del Sol</a> · <a href={withBase('/irish-pub-near-plaza-mayor/')}>Irish pub near Plaza Mayor</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'More football near Sol',
+          items: [
+            { href: '/watch-football-madrid/', label: 'Watch football in Madrid' },
+            { href: '/football-bar-puerta-del-sol/', label: 'Football bar by Puerta del Sol' },
+            { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub near Plaza Mayor' },
+          ],
+        },
+      ]}
+    />
     <h2>FAQ</h2><dl class="faq"><dt><strong>When is El Clásico, Barcelona vs Real Madrid?</strong></dt><dd>Sunday 25 October 2026 at 21:00 Madrid time, at the Spotify Camp Nou in Barcelona (LaLiga matchday 10).</dd><dt><strong>Is Dubliners showing El Clásico?</strong></dt><dd>Yes, LIVE on our screens at Calle de Espoz y Mina 7, near Puerta del Sol. In Spain the match is on DAZN.</dd><dt><strong>Do the clocks change that day?</strong></dt><dd>Yes. Spain goes back to winter time at 03:00 on Sunday 25 October. Kick-off is 21:00 on the new (winter) Madrid time.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>

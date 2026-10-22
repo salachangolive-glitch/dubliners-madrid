@@ -2,6 +2,8 @@
 import MapEmbed from '../components/MapEmbed.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaRow from '../components/CtaRow.astro';
+import LinkHub from '../components/LinkHub.astro';
+import HomeFixtureCards from '../components/HomeFixtureCards.astro';
 import FixtureAntiStale from '../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../site';
 import { hoursSummary } from '../data/hours';
@@ -36,25 +38,19 @@ const description =
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Irish pub Madrid · Sol · Live sports</p>
-      <nav class="home-identity__links" aria-label="Quick links">
-        <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={withBase('/whats-on/')}>What’s On</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={withBase('/contact/')}>Contact</a>
-        <span class="home-identity__sep" aria-hidden="true">·</span>
-        <a href={withBase('/sports-bar-madrid/')}>Sports bar</a>
-      </nav>
+      <p class="home-identity__tag">Your Irish pub in the heart of Madrid</p>
     </div>
   </div>
 
-  <!-- 2. Presentación -->
+  <!-- 2. Presentation (short and natural; guides live in the sections below) -->
   <section class="section home-intro">
     <div class="container">
       <h1>An Irish pub near Puerta del Sol, in the heart of Madrid</h1>
       <p class="lead">
         Dubliners is just off Puerta del Sol, with live sport on our screens, cold drinks and an international crowd throughout the week.
+      </p>
+      <p class="home-intro__text">
+        Drop in for a drink, meet friends or catch the game. Locals, visitors and Madrid’s international crowd all end up here, in a room that still keeps the painted ceiling of a 19th-century tailor shop.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) or Sevilla (L2)
@@ -63,77 +59,108 @@ const description =
     </div>
   </section>
 
-  <!-- 3. LIVE SPORTS / What’s On (before history) -->
+  <!-- 3. Live sports -->
   <section class="section band" id="live-sports">
     <div class="container split">
       <div>
-        <h2>The pub today</h2>
-        <p>
-          Drop in for a drink, meet friends or catch the game on our screens. Dubliners brings together locals, visitors and Madrid’s international crowd throughout the week.
-        </p>
         <h2>Live sports</h2>
         <p>
-          We show major live sport throughout the week — football, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
-          Check <a href={withBase('/whats-on/')}>What’s On</a> for this week’s schedule.
+          Football, NFL, rugby, NBA and more on a big projector and 8 screens. We only list what is confirmed, always in Madrid time, and the staff can tell you what is on tonight.
         </p>
-        <p>
-          More on our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>,
-          <a href={withBase('/watch-football-madrid/')}>where to watch football in Madrid</a> and
-          <a href={withBase('/nfl-madrid/')}>NFL games in Madrid</a>.
-        </p>
-        <p class="small" data-show-until="2026-11-03">Atlético vs Bayern, Tuesday 3 November, 21:00: <a href={withBase('/de/bayern-fans-madrid/')} hreflang="de" lang="de">Bayern-Fans in Madrid (auf Deutsch)</a></p>
-        <p class="small" data-show-until="2026-11-15">In Madrid during Oktoberfest season (22 Oct–15 Nov)? <a href={withBase('/oktoberfest-madrid-2026/')}>Pub by Sol, beer and live sport, Thursday to Sunday</a> · <a href={withBase('/de/oktoberfest-madrid-2026/')} hreflang="de" lang="de">auf Deutsch</a></p>
-        <p class="small">NFL fans in Madrid? → <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a>, or plan Sunday 8 November with our <a href={withBase('/nfl-sunday-madrid-guide/')}>hour-by-hour NFL Sunday guide</a></p>
-        <p class="small">Hungry? → <a href={withBase('/menu/')}>Food &amp; drinks menu</a></p>
-        <p>
-          For football, see our <a href={withBase('/premier-league-pub-madrid/')}>Premier League</a> and <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a> pages.
-        </p>
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="whats_on_cta_click" href={withBase('/whats-on/')}>What’s On this week</a>
+          <a class="btn btn-secondary" href={withBase('/sports-bar-madrid/')}>Our sports bar</a>
+        </div>
       </div>
       <picture>
         <source
           type="image/webp"
-          srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`}
+          srcset={`${withBase('/images/dubliners-match-screens-room-800.webp')} 800w, ${withBase('/images/dubliners-match-screens-room-1200.webp')} 1200w`}
           sizes="(max-width: 880px) 100vw, 40vw"
         />
         <img
-          src={withBase('/images/screens-sports.jpg')}
-          alt="Sports screens and projector at Dubliners"
-          width="1400"
-          height="788"
+          src={withBase('/images/dubliners-match-screens-room-800.webp')}
+          alt="Football on the projector and screens in the main room at Dubliners Madrid"
+          width="1200"
+          height="1600"
           loading="lazy"
-          class="split-photo landscape"
+          class="split-photo"
         />
       </picture>
     </div>
   </section>
 
-  <!-- 4. Inside -->
-  <section class="section">
+  <!-- 4. Upcoming matches (confirmed agenda only) -->
+  <section class="section" id="upcoming-matches">
     <div class="container">
-      <h2>Inside Dubliners</h2>
-      <div class="photo-grid">
-        {[
-          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
-          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
-        ].map(({ src, alt, w, h }) => (
-          <picture>
-            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
-            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
-          </picture>
-        ))}
+      <div class="section-head">
+        <h2>Upcoming matches</h2>
+        <a href={withBase('/whats-on/')} data-track-event="whats_on_cta_click">Full schedule →</a>
       </div>
+      <HomeFixtureCards lang="en" />
     </div>
   </section>
 
-  <!-- 5. Miércoles €1 -->
-  <section class="section band-gold">
+  <!-- 5. Sport guides & food (organised links) -->
+  <section class="section band" id="sport-guides">
+    <div class="container">
+      <LinkHub
+        label="Sport guides and menu"
+        groups={[
+          {
+            title: 'Football & rugby',
+            id: 'football-rugby',
+            items: [
+              { href: '/premier-league-pub-madrid/', label: 'Premier League', note: 'English football weekends' },
+              { href: '/champions-league-bar-madrid/', label: 'Champions League', note: 'European nights on the big screen' },
+              { href: '/watch-football-madrid/', label: 'Where to watch football in Madrid' },
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: 'November Tests' },
+            ],
+          },
+          {
+            title: 'NFL & American sports',
+            id: 'nfl-american-sports',
+            items: [
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday games on the projector' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour, Sunday 8 November' },
+            ],
+          },
+          {
+            title: 'Food & drinks',
+            id: 'food-drinks',
+            intro: 'Pub food to go with the match, and drinks at the bar.',
+            items: [{ href: '/menu/', label: 'Food & drinks menu' }],
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- 6. What’s new (promotions and temporary events) -->
+  <section class="section band-gold" id="whats-new">
     <div class="container split reverse">
       <div>
-        <h2>Wednesdays at Dubliners — €1 shots</h2>
+        <h2>What’s new</h2>
+        <h3>Wednesdays — €1 shots</h3>
         <p>
           Every Wednesday: €1 shots at the pub. Ask at the bar when you arrive.
         </p>
         <a class="btn btn-gold" href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>
+        <LinkHub
+          heading="h3"
+          compact
+          groups={[
+            {
+              title: 'Coming up',
+              until: '2026-11-15',
+              items: [
+                { href: '/oktoberfest-madrid-2026/', label: 'Oktoberfest season in Madrid', note: '22 Oct–15 Nov · beer and live sport, Thursday to Sunday', until: '2026-11-15' },
+                { href: '/de/oktoberfest-madrid-2026/', label: 'Oktoberfest-Zeit in Madrid', note: 'Auf Deutsch', hreflang: 'de', lang: 'de', until: '2026-11-15' },
+                { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Atlético vs Bayern · Tuesday 3 November, 21:00 · auf Deutsch', hreflang: 'de', lang: 'de', until: '2026-11-03' },
+              ],
+            },
+          ]}
+        />
       </div>
       <picture>
         <source
@@ -150,6 +177,24 @@ const description =
           class="split-photo"
         />
       </picture>
+    </div>
+  </section>
+
+  <!-- 7. Inside -->
+  <section class="section">
+    <div class="container">
+      <h2>Inside Dubliners</h2>
+      <div class="photo-grid">
+        {[
+          { src: 'window-display', alt: 'Vintage window display outside Dubliners', w: 1600, h: 902 },
+          { src: 'window-display-2', alt: 'Window display detail at Dubliners', w: 1600, h: 902 },
+        ].map(({ src, alt, w, h }) => (
+          <picture>
+            <source srcset={withBase(`/images/${src}.webp`)} type="image/webp" />
+            <img src={withBase(`/images/${src}.jpg`)} alt={alt} width={w} height={h} loading="lazy" />
+          </picture>
+        ))}
+      </div>
     </div>
   </section>
 

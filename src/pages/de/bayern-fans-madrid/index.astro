@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import { withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
@@ -20,7 +21,19 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <h2>Madrid vor dem Spiel</h2>
     <p>Von hier aus sind Plaza Mayor, der Mercado de San Miguel, die Gran Vía und der Prado gut zu Fuß erreichbar. Danach einfach zurück an die Sol und in Ruhe das Spiel schauen.</p>
     <h2>Häufige Fragen</h2><dl class="faq"><dt><strong>Wann ist Atlético gegen Bayern?</strong></dt><dd>Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano).</dd><dt><strong>Zeigt ihr das Spiel live?</strong></dt><dd>Ja, LIVE auf der großen Leinwand und 8 Bildschirmen.</dd><dt><strong>Wann habt ihr geöffnet?</strong></dt><dd>Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr.</dd></dl>
-    <p class="small">Auf Englisch und Spanisch: <a href={withBase('/champions-league-irish-pub-sol/')} hreflang="en">Champions League in an Irish pub in Sol</a> · <a href={withBase('/es/champions-pub-irlandes-sol/')} hreflang="es">Champions en un pub irlandés en Sol</a> · <a href={withBase('/whats-on/')} hreflang="en">What's On</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Mehr Fußball bei Dubliners',
+          items: [
+            { href: '/champions-league-irish-pub-sol/', label: 'Champions League in an Irish pub in Sol', note: 'Auf Englisch', hreflang: 'en', lang: 'en' },
+            { href: '/es/champions-pub-irlandes-sol/', label: 'Champions en un pub irlandés en Sol', note: 'Auf Spanisch', hreflang: 'es', lang: 'es' },
+            { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
+          ],
+        },
+      ]}
+    />
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase } from '../../site';
 
@@ -56,7 +57,21 @@ const description = "English-speaking Irish pub a short walk from Plaza Mayor, j
       <h2>By metro</h2>
       <p>Sol (L1, L2, L3) or Sevilla (L2), both a short street-level walk.</p>
       <h2>Why stop by</h2>
-      <p>Live sport on DAZN, Movistar and Premier Sports, a historic painted ceiling from the old Barragán tailor shop (1885), and €1 shots every Wednesday.</p><p><a href={withBase('/visit/')}>Map &amp; directions</a> · <a href={withBase('/whats-on/')}>What’s On</a> · <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a> · <a href={withBase('/international-students-pub-madrid/')}>Erasmus &amp; international students</a></p>
+      <p>Live sport on DAZN, Movistar and Premier Sports, a historic painted ceiling from the old Barragán tailor shop (1885), and €1 shots every Wednesday.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Plan your visit',
+            items: [
+              { href: '/visit/', label: 'Map & directions' },
+              { href: '/whats-on/', label: 'What’s On' },
+              { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots' },
+              { href: '/international-students-pub-madrid/', label: 'Erasmus & international students' },
+            ],
+          },
+        ]}
+      />
       <h2>FAQ</h2>
       <dl class="faq">
         <dt><strong>How far is Dubliners from Plaza Mayor?</strong></dt>

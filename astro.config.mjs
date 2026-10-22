@@ -8,6 +8,8 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
+  // Keep source whitespace: compressHTML dropped the space between text and links ("See our<a>", "</a>or").
+  compressHTML: false,
   integrations: [
     sitemap({
       filter: (page) => {

@@ -3,11 +3,12 @@ import MapEmbed from '../../components/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase } from '../../site';
 
 const title = 'Sports Bar Madrid | Football, NFL & Rugby near Sol — Dubliners';
 const description =
-  'Sports bar nearby Puerta del Sol with multiple indoor screens and a projector. Premier League, Champions League, LaLiga and more when on — Espoz y Mina 7.';
+  'Sports bar near Puerta del Sol with multiple indoor screens and a projector. Premier League, Champions League, LaLiga and more when on — Espoz y Mina 7.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -17,7 +18,7 @@ const description =
         <Breadcrumb current="Sports bar Madrid" schema />
         <h1>Sports bar Madrid near Sol — live football on screens</h1>
         <p class="lead">
-          Looking for a sports bar nearby Sol? Dubliners is an indoor Irish pub on Espoz y Mina 7 with multiple TVs and a projector.
+          Looking for a sports bar near Sol? Dubliners is an Irish pub on Espoz y Mina 7 with a big projector and 8 screens.
           Premier League, Champions League, LaLiga, Six Nations, F1, NFL and NBA — when they’re showing.
         </p>
         <CtaRow />
@@ -59,51 +60,57 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Live sport in Madrid centro</h2>
+      <h2>Live sports</h2>
       <p>
-        Dubliners is a centro sports bar for people who want football without leaving Sol.
-        A big projector and 8 screens — Guinness at the bar while the match runs.
+        Dubliners is an Irish pub just off Sol with a big projector and 8 screens facing the main room, so groups can watch together.
+        Big games fill early.
       </p>
       <p>
-        Typical coverage when rights allow: Premier League, Champions League / UCL nights,
-        LaLiga, Six Nations rugby, F1, NFL and NBA. Schedules change week to week — the
-        <a href={withBase('/whats-on/')}>What’s on board</a> is the live list; if a slot looks empty, ask staff what’s actually on.
-        We don’t claim every kick-off — only what’s actually listed or confirmed at the bar.
-      </p>
-      <p>
-        Screens face the main room so groups can watch together. Popular fixtures fill early.
-        From Metro Sol it’s a short walk to Espoz y Mina —
-        handy if you’re already in Madrid centro and want a sports bar near Sol tonight.
+        Schedules change every week, so <a href={withBase('/whats-on/')}>What’s On</a> is our live list.
+        We only list what is confirmed; if a slot looks empty, ask at the bar what is actually on.
       </p>
 
-      <h2>Every sport, not just football</h2>
+      <h2>Football &amp; rugby</h2>
       <p>
-        Football is the core, but the screens are busy all week with other sport. We only list what is
-        confirmed on <a href={withBase('/whats-on/')}>What’s On</a>; if it is not there, ask at the bar.
+        Football is the core: Premier League, Champions League, LaLiga and more when the rights allow.
+        Rugby fills the rest of the weekend.
       </p>
       <ul>
-        <li><strong>Rugby:</strong> URC, Premiership Rugby and international Tests, Six Nations in spring. Next big one: <a href={withBase('/watch-leinster-munster-madrid/')}>Leinster v Munster in Madrid</a> (Saturday 24 October).</li>
+        <li><strong>Rugby:</strong> URC, Premiership Rugby and international Tests, with the Six Nations in spring.</li>
         <li><strong>Formula 1:</strong> qualifying and races when they fall inside our opening hours.</li>
         <li><strong>Tennis:</strong> the big finals and late rounds when they are on.</li>
       </ul>
-      <h2>American sports in Madrid</h2>
+
+      <h2>NFL &amp; American sports</h2>
       <p>
         NFL Sundays are the big one: the early and late afternoon games (US time) land in the Madrid evening,
-        on the projector and screens. See <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a> for the season.
-        We also put NBA and NHL games on when they start before our late cut-off, and MLB at playoff time.
+        on the projector and screens. We also put NBA and NHL games on when they start before our late cut-off, and MLB at playoff time.
         A game has to start at least an hour before we close (02:00, or 02:30 on Friday and Saturday nights) to be listed.
       </p>
 
-      <h2>Match-night pages</h2>
-      <p>Each league has its own angle — use the page that matches your search:</p>
-      <ul>
-        <li><a href={withBase('/whats-on/')}>Tonight’s fixtures &amp; week agenda</a></li>
-        <li><a href={withBase('/premier-league-pub-madrid/')}>English football / Premier League nights</a></li>
-        <li><a href={withBase('/champions-league-bar-madrid/')}>UCL screens &amp; post-Bernabéu centro pint</a></li>
-        <li><a href={withBase('/visit/')}>Address, Metro Sol walk &amp; map</a></li>
-        <li><a href={withBase('/watch-football-madrid/')}>Where to watch football in Madrid</a></li>
-        <li><a href={withBase('/football-bar-puerta-del-sol/')}>Football bar near Puerta del Sol</a></li>
-      </ul>
+      <h2>Food &amp; drinks</h2>
+      <p>
+        Pub food and drinks at the bar while the match is on. Prices are on our <a href={withBase('/menu/')}>food &amp; drinks menu</a>.
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Match-night guides',
+            items: [
+              { href: '/whats-on/', label: 'What’s On', note: 'Tonight’s fixtures and the week ahead' },
+              { href: '/premier-league-pub-madrid/', label: 'Premier League nights' },
+              { href: '/champions-league-bar-madrid/', label: 'Champions League nights' },
+              { href: '/watch-football-madrid/', label: 'Where to watch football in Madrid' },
+              { href: '/football-bar-puerta-del-sol/', label: 'Football bar near Puerta del Sol' },
+              { href: '/watch-leinster-munster-madrid/', label: 'Leinster v Munster in Madrid', note: 'Saturday 24 October', until: '2026-10-24' },
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'The season at Dubliners' },
+              { href: '/visit/', label: 'Visit', note: 'Address, Metro Sol walk and map' },
+            ],
+          },
+        ]}
+      />
 
       <h2>Match-night tips</h2>
       <ul>
@@ -129,7 +136,7 @@ const description =
           <p>Yes — see our <a href={withBase('/menu/')}>food &amp; drinks menu</a> with prices.</p>
         </details>
         <details>
-          <summary>Is this a good sports bar nearby if I’m at Sol?</summary>
+          <summary>Is it easy to reach from Sol?</summary>
           <p>
             Yes — Espoz y Mina 7 is a short walk from Puerta del Sol / Metro Sol.
             Come for live football on the screens, then continue around centro.
@@ -144,5 +151,4 @@ const description =
       </p>
     </div>
   </section>
-  <section class="section"><div class="container"><p class="small">American football fans: <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a></p></div></section>
 </BaseLayout>

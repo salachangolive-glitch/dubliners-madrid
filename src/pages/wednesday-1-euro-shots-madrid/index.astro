@@ -2,6 +2,7 @@
 import { hoursFor } from '../../data/hours';
 import MapEmbed from '../../components/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import { SITE, withBase } from '../../site';
@@ -56,11 +57,9 @@ const description =
 
   <section class="section">
     <div class="container prose">
-      <h2>Make a night of it</h2>
+      <h2>Wednesday night at Dubliners</h2>
       <p>
         Come for Dubliners’ €1 shots and whatever’s on the screens.
-        See also <a href={withBase('/international-students-pub-madrid/')}>international students</a>
-        or <a href={withBase('/whats-on/')}>What’s on</a>.
       </p>
       <div class="faq">
         <details>
@@ -75,7 +74,20 @@ const description =
   </section>
   <section class="section">
     <div class="container prose">
-      <p class="small">New in town? <a href={withBase('/irish-pub-near-plaza-mayor/')}>Irish pub near Plaza Mayor</a> · <a href={withBase('/night-out-near-sol-madrid/')}>Night out near Sol</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Make a night of it',
+            items: [
+              { href: '/whats-on/', label: 'What’s On', note: 'Tonight’s matches in Madrid time' },
+              { href: '/international-students-pub-madrid/', label: 'International students' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub near Plaza Mayor' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

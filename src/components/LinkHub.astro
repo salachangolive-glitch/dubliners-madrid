@@ -1,0 +1,54 @@
+---
+/**
+ * Organised link sections (owner order 22 Oct 2026): internal guides are linked
+ * from clean, labelled lists — never piled into commercial paragraphs.
+ * Each item keeps its keyword anchor; `until` (YYYY-MM-DD, Madrid) hides
+ * temporary items client-side via FixtureAntiStale's [data-show-until].
+ */
+import { withBase } from '../site';
+
+export interface HubItem {
+  href: string;
+  label: string;
+  note?: string;
+  hreflang?: string;
+  lang?: string;
+  until?: string;
+  track?: string;
+}
+export interface HubGroup {
+  title: string;
+  id?: string;
+  intro?: string;
+  until?: string;
+  items: HubItem[];
+}
+interface Props {
+  groups: HubGroup[];
+  heading?: 'h2' | 'h3';
+  label?: string;
+  compact?: boolean;
+}
+const { groups, heading = 'h2', label, compact = false } = Astro.props;
+const H = heading;
+const href = (h: string) => (h.startsWith('http') ? h : withBase(h));
+---
+
+<div class:list={['link-hub', { 'link-hub--single': groups.length === 1, 'link-hub--compact': compact }]} aria-label={label}>
+  {groups.map((g) => (
+    <nav class="link-group" id={g.id} aria-label={g.title} data-show-until={g.until}>
+      <H class="link-group__title">{g.title}</H>
+      {g.intro && <p class="link-group__intro">{g.intro}</p>}
+      <ul class="link-list">
+        {g.items.map((it) => (
+          <li data-show-until={it.until}>
+            <a href={href(it.href)} hreflang={it.hreflang} lang={it.lang} data-track-event={it.track}>
+              <span class="link-list__label">{it.label}</span>
+              {it.note && <span class="link-list__note">{it.note}</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  ))}
+</div>

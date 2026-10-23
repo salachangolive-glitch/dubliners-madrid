@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+// DU1 (Radar eventos-madrid-2026-10-24): Halloween party at Dubliners, Sat 31 Oct 2026 from 19:00,
+// costumes, decorations and music. Source: owner via DG 23 Oct (fixtures.ts kind:'event' row) + DG 24 Oct 01:06.
+// English only. No prices, bookings, contests or promos; no "walk-in" (banned on the site).
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When is the Halloween party at Dubliners?', acceptedAnswer: { '@type': 'Answer', text: `Saturday 31 October 2026, from 19:00 Madrid time. On Saturdays we are open ${sat.opens}–${sat.closes}.` } },
+    { '@type': 'Question', name: 'Where is it?', acceptedAnswer: { '@type': 'Answer', text: 'At Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid, a short walk from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).' } },
+    { '@type': 'Question', name: 'Is it in English?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Dubliners is an English-speaking Irish pub, so tourists, Erasmus and international students will feel at home.' } },
+    { '@type': 'Question', name: 'Do I need a costume?', acceptedAnswer: { '@type': 'Answer', text: 'Costumes are very welcome, but come as you are if you prefer. There will be Halloween decorations and music all night.' } },
+  ],
+};
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Halloween party at Dubliners Madrid',
+  description: 'Halloween party in English at Dubliners Irish Pub by Puerta del Sol, Madrid: costumes, decorations and music from 19:00.',
+  inLanguage: 'en',
+  startDate: '2026-10-31T19:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  image: absUrl('/images/facade-queue.jpg'),
+  url: absUrl('/halloween-madrid-2026/'),
+};
+---
+
+<BaseLayout title={'Halloween Party in Madrid 2026 in English, by Sol | Dubliners'} description={'Halloween in Madrid in English at Dubliners by Puerta del Sol: Sat 31 Oct from 19:00, costumes, decorations and music. Tourists, Erasmus and groups welcome.'} path="/halloween-madrid-2026/" lang="en" hreflang={{ en: '/halloween-madrid-2026/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Halloween in Madrid'} schema />
+      <h1>Halloween party in Madrid, in English, by Puerta del Sol</h1>
+      <p class="lead">Spending Halloween in Madrid? Join us at Dubliners on Saturday 31 October from 19:00: costumes, spooky decorations and music, in an English-speaking Irish pub right in the centre. Tourists, Erasmus students and groups of friends are all welcome.</p>
+      <p class="small">Saturday 31 October 2026 · from 19:00 Madrid time · Calle de Espoz y Mina 7 · Updated 24 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>A Halloween night out in English</h2>
+      <p>New in town, here on holiday or studying abroad? Halloween is the perfect night to meet people. At Dubliners the staff speak English, the music is on and the whole pub dresses up for the night, so you can enjoy Halloween in Madrid without worrying about the language.</p>
+      <picture><source type="image/webp" srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/facade-queue.jpg')} width="1320" height="986" loading="lazy" decoding="async" alt="People queuing at the door of Dubliners at night, Espoz y Mina 7, off Puerta del Sol" /></picture>
+      <h2>What to expect</h2>
+      <ul>
+        <li><strong>Costumes:</strong> come dressed up — witches, zombies, vampires or whatever you like.</li>
+        <li><strong>Decorations:</strong> the pub is decorated for Halloween.</li>
+        <li><strong>Music:</strong> a party atmosphere from 19:00 until late.</li>
+      </ul>
+      <h2>For tourists, Erasmus and groups</h2>
+      <p>Whether you are visiting Madrid for the weekend, on an Erasmus year or organising a night out with your flatmates, classmates or colleagues, Dubliners is an easy meeting point: a few steps from Puerta del Sol, close to Plaza Mayor and the Barrio de las Letras. Coming with a big group? Send us a message through <a href={withBase('/contact/#request-information')}>Request information</a>.</p>
+      <h2>When and where</h2>
+      <p><strong>Saturday 31 October 2026, from 19:00.</strong> On Saturdays we are open {sat.opens}–{sat.closes}.</p>
+      <p>Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). Come early and start the night in the heart of Madrid.</p>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is the Halloween party at Dubliners?</strong></dt><dd>Saturday 31 October 2026, from 19:00 Madrid time. On Saturdays we are open {sat.opens}–{sat.closes}.</dd>
+        <dt><strong>Where is it?</strong></dt><dd>At Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid, a short walk from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</dd>
+        <dt><strong>Is it in English?</strong></dt><dd>Yes. Dubliners is an English-speaking Irish pub, so tourists, Erasmus and international students will feel at home.</dd>
+        <dt><strong>Do I need a costume?</strong></dt><dd>Costumes are very welcome, but come as you are if you prefer. There will be Halloween decorations and music all night.</dd>
+      </dl>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More at Dubliners',
+            items: [
+              { href: '/whats-on/', label: "What's On", note: 'Events and live sport' },
+              { href: '/international-students-pub-madrid/', label: 'Erasmus & international students' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol' },
+              { href: '/menu/', label: 'Food menu' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

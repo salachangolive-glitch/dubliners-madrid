@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+// Atlético de Madrid v Bayern München, UEFA Champions League league phase MD4, Estadio Metropolitano,
+// Tue 3 Nov 2026 21:00 Madrid (CET). Fixture: src/data/fixtures.ts (match.uefa.com, DG 19 Oct; DG re-checked atleticodemadrid.com 24 Oct),
+// row confirmedOnScreens: true (owner permanent 13 Oct via DG: all UCL live).
+// Getting to the stadium: ONLY rows marked CONFIRMADO in /workspace/radar/bayern-3nov.md (esmadrid.com event page; LaLiga stadium PDF). Exact Metro route from Sol is NOT verified: refer to the Metro app / crtm.es. DG 24 Oct 01:06.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When is Atlético v Bayern?', acceptedAnswer: { '@type': 'Answer', text: 'Tuesday 3 November 2026, kick-off 21:00 Madrid time (UEFA Champions League, matchday 4, at the Metropolitano). Madrid and Munich are in the same time zone.' } },
+    { '@type': 'Question', name: 'Where can Bayern fans meet in central Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'At Dubliners, Calle de Espoz y Mina 7, a short walk from Puerta del Sol. O’Connell St is at the same address and O’Reilly’s is 200 m from Puerta del Sol.' } },
+    { '@type': 'Question', name: 'Are you showing the match live?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, LIVE on the big screen and 8 screens.' } },
+    { '@type': 'Question', name: 'What time do you open on Tuesday?', acceptedAnswer: { '@type': 'Answer', text: 'From 12:00. On Tuesday we are open 12:00–02:00.' } },
+  ],
+};
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Atlético de Madrid v Bayern München — UEFA Champions League (screening at Dubliners Madrid)',
+  description: 'Atlético de Madrid v Bayern München (UEFA Champions League, Estadio Metropolitano) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  inLanguage: 'en',
+  startDate: '2026-11-03T21:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Atlético de Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'FC Bayern München' },
+  url: absUrl('/bayern-fans-madrid/'),
+};
+const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
+---
+
+<BaseLayout title={'Bayern Fans in Madrid: Meeting Point & Where to Watch | Dubliners'} description={'Bayern fans in Madrid for Atlético v Bayern (Tue 3 Nov, 21:00)? Meet at Dubliners, an Irish pub by Puerta del Sol, and watch it LIVE. Come early.'} path="/bayern-fans-madrid/" lang="en" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Bayern fans in Madrid'} schema />
+      <h1>Bayern fans in Madrid: your meeting point by Puerta del Sol</h1>
+      <p class="lead">In Madrid for Atlético v Bayern? Come and join us. Dubliners is your meeting point right in the centre, a few steps from Puerta del Sol: meet other Bayern fans, raise a glass to the night ahead and stay in the heart of the city.</p>
+      <p class="small">Tuesday 3 November 2026 · kick-off 21:00 Madrid time · UEFA Champions League at the Metropolitano · Updated 24 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Your meeting point in the heart of Madrid</h2>
+      <p>Screens, a cold drink at the bar, pub food and a room full of fans counting down to kick-off: that is how a Champions League night in Madrid should start. Whether you are meeting up before heading to the stadium or staying with us all evening without a ticket, you are very welcome at Dubliners.</p>
+      <picture><source type="image/webp" srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/facade-queue.jpg')} width="1320" height="986" loading="lazy" decoding="async" alt="People queuing at the door of Dubliners at night, Espoz y Mina 7, off Puerta del Sol" /></picture>
+      <h2>Come early</h2>
+      <p>For big matches it pays to arrive early. On Tuesday we open from {tue.opens}, so there is plenty of time to meet up.</p>
+      <h2>Where to watch Atlético v Bayern in Madrid</h2>
+      <p>Atlético de Madrid host FC Bayern München in the UEFA Champions League (matchday 4) on Tuesday 3 November 2026, kick-off 21:00 Madrid time, at the Metropolitano. With a ticket or without one, you can follow it here: we show the match LIVE on the big screen and 8 screens. In Spain it is broadcast on Movistar Plus+.</p>
+      <h2>Three pubs, one meeting point</h2>
+      <ul>
+        <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, by Puerta del Sol.</li>
+        <li><strong>O'Connell St</strong>: right next door, also at Calle de Espoz y Mina 7 (<a href="https://oconnellsmadrid.es/" rel="noopener" hreflang="es">oconnellsmadrid.es</a>).</li>
+        <li><strong>O'Reilly's</strong>: 200 m from Puerta del Sol.</li>
+      </ul>
+      <h2>Getting here</h2>
+      <p>Calle de Espoz y Mina 7, 28012 Madrid, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</p>
+      <h2>From the centre to the Metropolitano</h2>
+      <p>The match is at the Riyadh Air Metropolitano. The stadium has its own Metro station, <strong>Estadio Metropolitano (line 7)</strong>. EMT buses 28, 38, 48, 140, 153, 167, E2 and SE721 also serve the area, with night buses N5 and N6, and the nearest Cercanías station is Coslada. To plan your route from Sol on the day, check the Metro de Madrid app or <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</p>
+      <p>Going to the stadium? Its rules forbid bringing in alcohol, flares or pyrotechnics, and objects over 500 g, among other items. Check the latest rules before you set off.</p>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Atlético v Bayern?</strong></dt><dd>Tuesday 3 November 2026, kick-off 21:00 Madrid time (UEFA Champions League, matchday 4, at the Metropolitano). Madrid and Munich are in the same time zone.</dd>
+        <dt><strong>Where can Bayern fans meet in central Madrid?</strong></dt><dd>At Dubliners, Calle de Espoz y Mina 7, a short walk from Puerta del Sol. O’Connell St is at the same address and O’Reilly’s is 200 m from Puerta del Sol.</dd>
+        <dt><strong>Are you showing the match live?</strong></dt><dd>Yes, LIVE on the big screen and 8 screens.</dd>
+        <dt><strong>What time do you open on Tuesday?</strong></dt><dd>From 12:00. On Tuesday we are open 12:00–02:00.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/')} hreflang="de" lang="de">Bayern-Fans in Madrid</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More football at Dubliners',
+            items: [
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+              { href: '/watch-football-madrid/', label: 'Where to watch football in Madrid' },
+              { href: '/menu/', label: 'Food menu' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

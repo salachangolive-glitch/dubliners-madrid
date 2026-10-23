@@ -76,6 +76,8 @@
  *   NZ–France 07:10 and Japan–Wales 08:00 (31 Oct) EXCLUDED (before 12:00 opening). NO channel.
  * - 19 Oct (DG 14:35): + Sat 31 Oct Saracens–Newcastle 16:00, Northampton–Gloucester 18:30 (Premiership), Benetton–Edinburgh 16:00 (URC):
  *   World Rugby match API (15:00Z / 17:30Z / 15:00Z → +1). NO channel.
+ * - 23 Oct (owner via DG 09:42): Halloween party at Dubliners Sat 31 Oct from 19:00 (costumes, decorations, music) ADDED as kind:'event'.
+ *   Not in SportsEvent JSON-LD (filter = confirmed Premier/Champions only). approxDurationMin only keeps the row visible on the board.
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -94,6 +96,9 @@
   noteEs?: string;
   /** 'event' = non-sport city event (e.g. concert elsewhere). Never shown as LIVE on screens. */
   kind?: 'sport' | 'event';
+  /** Optional Spanish title / subtitle for kind:'event' rows (ES board). */
+  teamsEs?: string;
+  competitionEs?: string;
   /** Broadcaster name as published by the operator (no dial numbers). */
   channel?: string;
   /** Exact UTC instant (ISO, e.g. 2026-10-25T00:00:00Z) for wall times that are ambiguous at the DST change (25 Oct 02:00–02:59). */
@@ -2494,6 +2499,19 @@ export const FIXTURES: Fixture[] = [
     teams: 'Aston Villa vs Fulham',
     madridTime: '21:00',
     confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Event at Dubliners',
+    competitionEs: 'Evento en Dubliners',
+    teams: 'Halloween party at Dubliners',
+    teamsEs: 'Fiesta de Halloween en Dubliners',
+    madridTime: '19:00',
+    kind: 'event',
+    approxDurationMin: 360,
+    noteEn: 'From 19:00: costumes, decorations and music.',
+    noteEs: 'Desde las 19:00: disfraces, decoración y música.',
   },
   {
     dateKey: '2026-11-06',

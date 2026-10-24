@@ -29,6 +29,7 @@
  *   nfl.com/schedules/2026/by-week/week-7 UTC 13:30Z/17:00Z/20:05Z/20:25Z → CET (UTC+1, Madrid already on winter time).
  *   SNF Chiefs–Seahawks 01:20 Mon and MNF Cowboys–Eagles 01:15 Tue OMITTED (not confirmed; would run past close 02:00).
  * - 17 Oct (DG decision): URC Leinster–Munster Sat 24 Oct 19:00 Madrid (18:00 IST, avivastadium.ie + RTÉ/Sky), NO channel.
+ * - 24 Oct (morning): Fri 23 rows (Ipswich–Forest, Alavés–Málaga, 4 URC/Premiership, Bulls–Bucks) + 01:00 Sat 24 NBA (5) RETIRED.
  * - 21 Oct (morning): Tue 20 rows (UCL J3 Tue, NBA, Deep Purple) + 01:00 Wed 21 NBA/NHL RETIRED.
  * - 20 Oct (morning): Mon 19 Getafe–Rayo, Tottenham–Coventry + NHL 01:00 Tue 20 (Ducks–Rangers, Avalanche–Flyers) RETIRED.
  * - 18 Oct: rows dateKey <= 2026-10-17 RETIRED (morning). NFL Sun 18 Oct (nfl.com 2026 week 6, ET+6 → CEST; Away vs Home like other NFL rows) ADDED,
@@ -110,15 +111,6 @@
 
 export const FIXTURES: Fixture[] = [
   {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'Premier League',
-    teams: 'Ipswich Town vs Nottingham Forest',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'DAZN',
-  },
-  {
     dateKey: '2026-10-24',
     whenLabel: 'Sat 24 Oct',
     competition: 'Premier League',
@@ -146,30 +138,6 @@ export const FIXTURES: Fixture[] = [
     channel: 'DAZN',
   },
   {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'URC',
-    teams: 'Cardiff vs Sharks',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'URC',
-    teams: 'Connacht vs Zebre Parma',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'URC',
-    teams: 'Edinburgh vs Lions',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-  },
-  {
     dateKey: '2026-10-24',
     whenLabel: 'Sat 24 Oct',
     competition: 'URC',
@@ -191,22 +159,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'URC',
     teams: 'Ospreys vs Dragons',
     madridTime: '20:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'Premiership Rugby',
-    teams: 'Gloucester vs Bath',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'Premiership Rugby',
-    teams: 'Newcastle Red Bulls vs Sale Sharks',
-    madridTime: '20:45',
     confirmedOnScreens: true,
   },
   {
@@ -247,54 +199,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Formula 1',
     teams: 'United States Grand Prix (Austin) — Race',
     madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'NBA',
-    teams: 'Chicago Bulls vs Milwaukee Bucks',
-    madridTime: '22:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'New York Knicks vs Boston Celtics',
-    madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'Atlanta Hawks vs Charlotte Hornets',
-    madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'Dallas Mavericks vs Indiana Pacers',
-    madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'Minnesota Timberwolves vs Orlando Magic',
-    madridTime: '01:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-10-24',
-    whenLabel: 'Sat 24 Oct',
-    competition: 'NBA',
-    teams: 'Toronto Raptors vs Washington Wizards',
-    madridTime: '01:00',
     confirmedOnScreens: true,
   },
   {
@@ -827,15 +731,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
-  },
-  {
-    dateKey: '2026-10-23',
-    whenLabel: 'Fri 23 Oct',
-    competition: 'LaLiga',
-    teams: 'Alavés vs Málaga',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    channel: 'DAZN',
   },
   {
     dateKey: '2026-10-24',

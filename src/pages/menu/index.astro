@@ -4,32 +4,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { withBase } from '../../site';
 import { MENU } from '../../data/menu';
 const title = 'Food & Drinks Menu near Sol, Madrid | Dubliners Irish Pub';
-const description = 'Pub food near Sol: the Dubliners menu with prices — rice dishes, raciones & tapas, salads, burgers, pizza and desserts. Calle de Espoz y Mina 7, Madrid.';
-const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
+const description = 'Pub food near Sol: the Dubliners menu — rice dishes, raciones & tapas, salads, burgers, pizza and desserts. Calle de Espoz y Mina 7, Madrid.';
 ---
-<BaseLayout title={title} description={description} path="/menu/" lang="en" hreflang={{ en: '/menu/', es: '/es/carta/' }} ogImage="/images/menu/carta-3-carta-completa.jpg">
+<BaseLayout title={title} description={description} path="/menu/" lang="en" hreflang={{ en: '/menu/', es: '/es/carta/' }} ogImage="/images/bar-interior.jpg">
   <section class="hero hero-compact"><div class="container">
     <Breadcrumb current="Menu" />
     <h1>Food & drinks menu — pub food near Sol</h1>
-    <p class="lead">Our menu as it appears in the pub. Tap a photo to open it full size.</p>
+    <p class="lead">Our food menu at the pub, from rice dishes and tapas to burgers and desserts. Ask the staff for today’s options.</p>
     <div class="cta-row"><a class="btn btn-gold" href={withBase('/visit/')}>How to get here</a><a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a></div>
   </div></section>
-  <section class="section"><div class="container">
-    <h2>Menu photos</h2>
-    <div class="menu-photos">
-        <figure class="menu-photo"><a href={withBase('/images/menu/carta-1-arroces-platos.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-1-arroces-platos.webp')} /><img src={withBase('/images/menu/carta-1-arroces-platos.jpg')} alt="Menu: rice dishes and plates" width="1200" height="1600" loading="lazy" /></picture></a><figcaption>Menu: rice dishes and plates — tap to enlarge</figcaption></figure>
-        <figure class="menu-photo"><a href={withBase('/images/menu/carta-2-raciones-tapas.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-2-raciones-tapas.webp')} /><img src={withBase('/images/menu/carta-2-raciones-tapas.jpg')} alt="Menu: raciones & tapas" width="1200" height="1600" loading="lazy" /></picture></a><figcaption>Menu: raciones & tapas — tap to enlarge</figcaption></figure>
-        <figure class="menu-photo"><a href={withBase('/images/menu/carta-3-carta-completa.jpg')} target="_blank" rel="noopener"><picture><source type="image/webp" srcset={withBase('/images/menu/carta-3-carta-completa.webp')} /><img src={withBase('/images/menu/carta-3-carta-completa.jpg')} alt="Full menu" width="1600" height="1200" loading="lazy" /></picture></a><figcaption>Full menu — tap to enlarge</figcaption></figure>
-    </div>
-  </div></section>
   <section class="section"><div class="container prose">
-    <h2>Menu with prices</h2>
+    <h2>Menu</h2>
     {MENU.map((sec) => (
       <div class="menu-sec">
         <h3>{sec.en}</h3>
         <ul class="menu-list">
           {sec.items.map((it) => (
-            <li><span class="mi-name"><strong>{(it.en ?? it.es)}</strong>{(it.en ? it.es : null) && <span class="mi-sub"> · {(it.en ? it.es : null)}</span>}{(it.descEn ?? it.descEs) && <span class="mi-desc">{(it.descEn ?? it.descEs)}</span>}</span><span class="mi-price">{fmt(it.price)}</span></li>
+            <li><span class="mi-name"><strong>{(it.en ?? it.es)}</strong>{(it.en ? it.es : null) && <span class="mi-sub"> · {(it.en ? it.es : null)}</span>}{(it.descEn ?? it.descEs) && <span class="mi-desc">{(it.descEn ?? it.descEs)}</span>}</span></li>
           ))}
         </ul>
       </div>
@@ -45,6 +36,5 @@ const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
     .menu-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.12); }
     .mi-sub { opacity: .8; }
     .mi-desc { display: block; font-size: .85rem; opacity: .75; }
-    .mi-price { white-space: nowrap; font-weight: 600; }
   </style>
 </BaseLayout>

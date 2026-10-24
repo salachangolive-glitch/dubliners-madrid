@@ -7,7 +7,7 @@ import { OPENING_HOURS } from '../../data/hours';
 
 // DU1 (Radar eventos-madrid-2026-10-24): Halloween party at Dubliners, Sat 31 Oct 2026 from 19:00,
 // costumes, decorations and music. Source: owner via DG 23 Oct (fixtures.ts kind:'event' row) + DG 24 Oct 01:06.
-// English only. No prices, bookings, contests or promos; no "walk-in" (banned on the site).
+// EN main page; ES pair /es/halloween-madrid-2026/ added 24 Oct (DG HALLOWEEN). No prices, bookings, contests or promos; no "walk-in" (banned on the site).
 const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
 const faqLd = {
   '@context': 'https://schema.org',
@@ -42,13 +42,14 @@ const eventLd = {
 };
 ---
 
-<BaseLayout title={'Halloween Party in Madrid 2026 in English, by Sol | Dubliners'} description={'Halloween in Madrid in English at Dubliners by Puerta del Sol: Sat 31 Oct from 19:00, costumes, decorations and music. Tourists, Erasmus and groups welcome.'} path="/halloween-madrid-2026/" lang="en" hreflang={{ en: '/halloween-madrid-2026/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
+<BaseLayout title={'Halloween in Madrid near Sol 2026: Irish pub party in English | Dubliners'} description={'Halloween in Madrid near Puerta del Sol: party at Dubliners, an international Irish pub at Espoz y Mina 7. Sat 31 Oct from 19:00, costumes, decorations and music. Erasmus and internationals welcome.'} path="/halloween-madrid-2026/" lang="en" hreflang={{ en: '/halloween-madrid-2026/', es: '/es/halloween-madrid-2026/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Halloween in Madrid'} schema />
-      <h1>Halloween party in Madrid, in English, by Puerta del Sol</h1>
-      <p class="lead">Spending Halloween in Madrid? Join us at Dubliners on Saturday 31 October from 19:00: costumes, spooky decorations and music, in an English-speaking Irish pub right in the centre. Tourists, Erasmus students and groups of friends are all welcome.</p>
+      <h1>Halloween in Madrid near Sol: party in English at Dubliners</h1>
+      <p class="lead">Spending Halloween in Madrid? Join us at Dubliners on Saturday 31 October from 19:00: costumes, spooky decorations and music, in an international, English-speaking Irish pub at Espoz y Mina 7, a short walk from Puerta del Sol. Erasmus students, internationals, tourists and groups of friends are all welcome.</p>
       <p class="small">Saturday 31 October 2026 · from 19:00 Madrid time · Calle de Espoz y Mina 7 · Updated 24 October 2026</p>
+      <p class="small">En español: <a href={withBase('/es/halloween-madrid-2026/')} hreflang="es" lang="es">Halloween en Madrid junto a Sol</a></p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
@@ -88,8 +89,9 @@ const eventLd = {
             items: [
               { href: '/whats-on/', label: "What's On", note: 'Events and live sport' },
               { href: '/international-students-pub-madrid/', label: 'Erasmus & international students' },
+              { href: '/es/halloween-madrid-2026/', label: 'Halloween en Madrid junto a Sol', note: 'En español', hreflang: 'es', lang: 'es' },
               { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol' },
-              { href: '/menu/', label: 'Food menu' },
+              { href: '/visit/', label: 'Opening hours & map' },
             ],
           },
         ]}

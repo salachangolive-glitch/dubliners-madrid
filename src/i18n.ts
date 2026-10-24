@@ -14,14 +14,12 @@ export const PATH_PAIRS: Record<string, string> = {
   '/privacy/': '/es/privacidad/',
   '/premier-league-pub-madrid/': '/es/premier-league-pub-madrid/',
   '/champions-league-bar-madrid/': '/es/champions-league-bar-madrid/',
-  '/football-bar-puerta-del-sol/': '/es/bar-futbol-puerta-del-sol/',
   '/international-students-pub-madrid/': '/es/estudiantes-internacionales/',
   '/about/': '/es/sobre-dubliners/',
   '/irish-pub-near-plaza-mayor/': '/es/pub-irlandes-plaza-mayor/',
   '/nfl-madrid/': '/es/nfl-madrid/',
   '/menu/': '/es/carta/',
   '/nfl-sunday-madrid-guide/': '/es/guia-domingo-nfl-madrid/',
-  '/champions-league-irish-pub-sol/': '/es/champions-pub-irlandes-sol/',
   '/brighton-fans-madrid/': '/es/aficionados-brighton-madrid/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
   '/el-clasico-madrid/': '/es/ver-el-clasico-madrid/',
@@ -126,7 +124,8 @@ export function t(lang: Lang) {
       nearSol: 'Bar de fútbol cerca de Sol',
       students: 'Estudiantes internacionales',
       jsonLdDescription:
-        'Pub irlandés junto a Puerta del Sol. Pantallas para deporte en directo. Miércoles chupitos a 1 €. Espoz y Mina 7, Madrid.',
+        'Pub irlandés de Madrid en la antigua sastrería Barragán (1885), junto a la Puerta del Sol, que conserva su techo pintado original. NFL y deporte americano, rugby y fútbol en un proyector y 8 pantallas, abierto cada día desde las 12:00 y con público internacional y personal que habla inglés. Calle de Espoz y Mina 7, Madrid.',
+      jsonLdSlogan: 'Donde antes se cosían trajes, hoy se tejen historias.',
     };
   }
   return {
@@ -152,7 +151,8 @@ export function t(lang: Lang) {
     nearSol: 'Football bar near Sol',
     students: 'International students',
     jsonLdDescription:
-      'Irish pub near Puerta del Sol. Indoor screens for live sport. Wednesday €1 shots. Espoz y Mina 7, Madrid.',
+      'Irish pub in Madrid in the former Barragán tailor shop (1885), just off Puerta del Sol, keeping its original painted ceiling. NFL and American sports, rugby and football on a projector and 8 screens, open daily from 12:00, with an international crowd and English-speaking staff. Calle de Espoz y Mina 7, Madrid.',
+    jsonLdSlogan: 'Where suits were once made, stories are now shared.',
   };
 }
 

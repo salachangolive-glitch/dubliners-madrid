@@ -23,6 +23,8 @@ interface Props {
   robots?: string;
   /** Emit the WebSite JSON-LD node (home pages only). */
   website?: boolean;
+  /** Consolidated page: canonical points to this path and hreflang alternates are omitted (DG 24 Oct 2026). */
+  canonicalPath?: string;
   /** Extra JSON-LD graph nodes (e.g. SportsEvent) rendered after BarOrPub. */
   extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -38,6 +40,7 @@ const {
   extraJsonLd,
   htmlLang,
   website = false,
+  canonicalPath,
 } = Astro.props;
 
 const extraJsonLdList = extraJsonLd
@@ -48,15 +51,10 @@ const extraJsonLdList = extraJsonLd
 
 const pathNorm = normalizePath(path);
 const lang: Lang = langProp || detectLang(pathNorm);
-const hreflang = htmlLang && !hreflangProp ? {} : hreflangProp || hreflangFor(pathNorm);
+const hreflang = canonicalPath ? {} : htmlLang && !hreflangProp ? {} : hreflangProp || hreflangFor(pathNorm);
 const copy = t(lang);
 
-const FROZEN_PATHS = [
-  '/premier-league-pub-madrid/', '/es/premier-league-pub-madrid/',
-  '/champions-league-bar-madrid/', '/es/champions-league-bar-madrid/',
-  '/champions-league-irish-pub-sol/', '/es/champions-pub-irlandes-sol/',
-];
-const canonical = absUrl(pathNorm);
+const canonical = absUrl(canonicalPath ? normalizePath(canonicalPath) : pathNorm);
 const ogImageAbs = absUrl(ogImage);
 
 // GO LIVE on dublinersmadrid.es — indexable. 404 passes noindex.
@@ -65,10 +63,14 @@ const robots = robotsProp ?? 'index,follow';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BarOrPub',
+  '@id': absUrl('/#pub'),
   name: SITE.name,
-  alternateName: SITE.fullName,
+  alternateName: [SITE.fullName, 'Dubliners Irish Pub Madrid'],
   description: copy.jsonLdDescription,
+  slogan: copy.jsonLdSlogan,
   url: absUrl(lang === 'es' ? '/es/' : '/'),
+  hasMenu: absUrl(lang === 'es' ? '/es/carta/' : '/menu/'),
+  knowsLanguage: ['en', 'es'],
   image: [
     absUrl('/images/facade.jpg'),
     absUrl('/images/mural-hero.jpg'),
@@ -90,8 +92,9 @@ const jsonLd = {
   // with closes earlier than opens (e.g. Sat 18:00–03:00). Same hours as GBP/footer.
   openingHoursSpecification: openingHoursJsonLd(),
   // Google Business Profile of Dubliners (CID from the Maps place data, evidence 12 Oct). No telephone until the owner decides.
-  // Premier League / Champions pages are frozen (DG 19 Oct): they keep the previous BarOrPub node.
-  ...(FROZEN_PATHS.includes(pathNorm) ? { sameAs: [SITE.instagram] } : { hasMap: SITE.gbpUrl, sameAs: [SITE.instagram, SITE.gbpUrl] }),
+  // DG 24 Oct 2026: the former Premier/Champions freeze is lifted — one BarOrPub node on every page.
+  hasMap: SITE.gbpUrl,
+  sameAs: [SITE.instagram, SITE.gbpUrl],
 };
 
 const websiteJsonLd = {

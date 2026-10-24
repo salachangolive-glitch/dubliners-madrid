@@ -1,25 +1,5 @@
 ---
-import { withBase, absUrl } from '../../site';
-
-const targetPath = '/es/ver-futbol-madrid/';
-const targetAbs = absUrl(targetPath);
-const targetRel = withBase(targetPath);
+import RedirectStub from '../../components/RedirectStub.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dubliners Madrid</title>
-    <meta name="robots" content="noindex,follow" />
-    <link rel="canonical" href={targetAbs} />
-    <link rel="alternate" hreflang="es" href={targetAbs} />
-    <link rel="alternate" hreflang="en" href={absUrl('/watch-football-madrid/')} />
-    <meta http-equiv="refresh" content={`0;url=${targetRel}`} />
-    <script is:inline define:vars={{ targetRel }}>
-      location.replace(targetRel);
-    </script>
-  </head>
-  <body></body>
-</html>
+<RedirectStub to="/es/bar-deportivo-madrid/" lang="es" />

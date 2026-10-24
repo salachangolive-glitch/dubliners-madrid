@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../site';
 
 const title = 'La historia detrás de Dubliners | Pub irlandés junto a Sol';
 const description =
-  'Dubliners ocupa un local histórico junto a Puerta del Sol, antigua sastrería Barragán (desde 1885). Pub irlandés, deporte en directo y chupitos a 1 € los miércoles.';
+  'Dubliners ocupa la antigua sastrería Barragán (desde 1885) junto a Puerta del Sol, con su techo pintado original. Pub irlandés con NFL, rugby, deporte en directo y ambiente internacional.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/sobre-dubliners/" lang="es" ogImage="/images/mural-hero.jpg">
@@ -51,9 +51,17 @@ const description =
         un pub irlandés en pleno centro de Madrid.
       </p>
 
+      <h2>El local</h2>
+      <p>
+        Desde la calle se ve el neón verde de Dubliners en la Calle de Espoz y Mina, a dos minutos de la Puerta del Sol.
+        Dentro, la sala mantiene la estructura de la antigua sastrería: el techo pintado es el mismo que veían los clientes de Barragán.
+        Ha cambiado lo que pasa debajo, no el techo.
+      </p>
+
       <h2>Dubliners hoy</h2>
       <p>
         Atención en inglés, deporte en directo y un ambiente que reúne a madrileños y visitantes.
+        Muchas noches se oye inglés, español y varios idiomas más en la misma mesa.
         ¿Estudias aquí o acabas de llegar? Mira nuestra página de <a href={withBase('/es/estudiantes-internacionales/')}>pub internacional en Madrid</a>.
       </p>
       <p>
@@ -64,11 +72,37 @@ const description =
         <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
       </p>
 
+      <h2>Deporte a la manera de un pub irlandés</h2>
+      <p>
+        Un proyector grande y 8 pantallas para el deporte que reúne a nuestro público. Los domingos de NFL,
+        <a href={withBase('/es/nfl-madrid/')}>la NFL en Madrid</a>, partido a partido cuando están confirmados.
+        En noviembre, <a href={withBase('/es/rugby-irlanda-madrid/')}>los test matches de rugby de Irlanda</a>, y durante todo el año fútbol, NBA, F1 y más.
+        Los horarios, siempre en hora de Madrid, en <a href={withBase('/es/partidos/')}>Partidos</a>; y cómo funcionan las pantallas, en
+        <a href={withBase('/es/bar-deportivo-madrid/')}>nuestro bar deportivo</a>.
+      </p>
+
+      <h2>Abierto desde mediodía</h2>
+      <p>
+        Abrimos todos los días desde las 12:00, hasta las 02:00 de domingo a jueves y hasta las 02:30 viernes y sábado: pronto para tomar algo
+        de día cerca de Sol y tarde para los partidos de la noche. Horario y mapa: <a href={withBase('/es/visitar/')}>Visitar</a>.
+      </p>
+
+      <h2>Datos rápidos</h2>
+      <ul>
+        <li><strong>Qué:</strong> un pub irlandés con deporte en directo, en la antigua sastrería Barragán (fundada en 1885).</li>
+        <li><strong>Dónde:</strong> Calle de Espoz y Mina 7, a dos minutos de la Puerta del Sol.</li>
+        <li><strong>Pantallas:</strong> un proyector grande y 8 pantallas — NFL, rugby, fútbol, NBA, F1 y más.</li>
+        <li><strong>Idiomas:</strong> personal que habla inglés; en la barra se habla inglés y español.</li>
+        <li><strong>Horario:</strong> todos los días desde las 12:00; hasta las 02:00 de domingo a jueves y hasta las 02:30 viernes y sábado.</li>
+        <li><strong>Entre semana:</strong> chupitos a 1 € todos los miércoles.</li>
+      </ul>
+
       <h2>Ubicación</h2>
       <p>
         Calle de Espoz y Mina 7<br />
         28012 Madrid
       </p>
+      <p>Metro Sol (L1, L2, L3) o Sevilla (L2). Síguenos en Instagram: <a href={SITE.instagram} rel="noopener noreferrer" target="_blank">@dublinersirishpubmadrid</a>.</p>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,36 @@
+---
+/**
+ * Permanent redirect stub (DG 24 Oct 2026, posicionamiento).
+ * GitHub Pages cannot send HTTP 301, so this is the static equivalent:
+ * meta refresh 0 + JS replace + canonical to the target + noindex,follow.
+ * The page is excluded from the sitemap (astro.config.mjs → RETIRED_PATHS).
+ */
+import { absUrl, withBase } from '../site';
+
+interface Props {
+  to: string;
+  lang?: 'en' | 'es';
+}
+const { to, lang = 'en' } = Astro.props;
+const targetAbs = absUrl(to);
+const targetRel = withBase(to);
+const label = lang === 'es' ? 'Esta página se ha trasladado a' : 'This page has moved to';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dubliners Madrid</title>
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href={targetAbs} />
+    <meta http-equiv="refresh" content={`0;url=${targetRel}`} />
+    <script is:inline define:vars={{ targetRel }}>
+      location.replace(targetRel);
+    </script>
+  </head>
+  <body>
+    <p>{label} <a href={targetRel}>{targetAbs}</a>.</p>
+  </body>
+</html>

@@ -6,11 +6,11 @@ import { hoursFor } from '../../data/hours';
 
 // Leinster v Munster, URC, Aviva Stadium (Dublin), Sat 24 Oct 2026, 18:00 Irish time = 19:00 Madrid (CEST).
 // Source: munsterrugby.ie fixture 447 (data-start-time 1793466000 = 2026-10-24T17:00Z) + avivastadium.ie event page («Kick Off: 18:00»), 19 Oct 2026.
-// Page stays indexed after the match; review on 25 Oct (PENDIENTES.md).
+// 24 Oct 23:xx: archived after the match (past tense, SportsEvent JSON-LD removed). URL kept; retirement planned Mon 26 (posicionamiento-14d).
 const path = '/watch-leinster-munster-madrid/';
-const title = 'Watch Leinster v Munster in Madrid, Sat 24 Oct | Dubliners';
+const title = 'Leinster v Munster in Madrid (played 24 Oct) | Irish rugby at Dubliners';
 const description =
-  'Leinster v Munster (URC), Saturday 24 October, 19:00 Madrid time: Irish fans meeting point at Dubliners, by Puerta del Sol. LIVE on our screens.';
+  'Leinster v Munster (URC) was played on Saturday 24 October 2026. Next Irish rugby LIVE at Dubliners, by Puerta del Sol: Ireland in November and the URC on What’s On.';
 const saturday = hoursFor('Saturday');
 
 const eventLd = {
@@ -43,18 +43,18 @@ const eventLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} path={path} lang="en" hreflang={{ en: path }} ogImage="/images/screens-sports.jpg" extraJsonLd={eventLd}>
+<BaseLayout title={title} description={description} path={path} lang="en" hreflang={{ en: path }} ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Leinster v Munster in Madrid" schema />
       <h1>Watch Leinster v Munster in Madrid</h1>
       <p class="lead">
-        Saturday 24 October 2026, kick-off 19:00 Madrid time (18:00 in Ireland). United Rugby Championship, Aviva Stadium, Dublin.
-        In Madrid for the weekend? Dubliners is the fans meeting point for Irish rugby fans, just off Puerta del Sol.
+        <strong>This match has been played</strong> (Saturday 24 October 2026, URC, Aviva Stadium, Dublin). For the next Irish rugby on our screens,
+        see <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a> (the November games) and <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+        <a class="btn btn-primary" href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a>
       </div>
     </div>
   </section>
@@ -64,13 +64,13 @@ const eventLd = {
       <div class="prose">
         <h2>The match</h2>
         <p>
-          Leinster host Munster in the URC at the Aviva Stadium. It is the interprovincial derby, and we show it LIVE on the big projector
-          and our 8 screens. Times on this page are Madrid time: Madrid is one hour ahead of Dublin.
+          Leinster hosted Munster in the URC at the Aviva Stadium on Saturday 24 October, the interprovincial derby, LIVE on the big projector
+          and our 8 screens. Madrid is one hour ahead of Dublin.
         </p>
         <h2>Fans meeting point for Irish rugby fans</h2>
         <p>
-          Leinster or Munster, living in Madrid or here for a city break: come and watch it with other Irish fans.
-          For a derby like this, arrive a little before kick-off.
+          Leinster or Munster, living in Madrid or here for a city break: the next Irish games are a good excuse to meet other Irish fans
+          just off Puerta del Sol.
         </p>
         <h2>Getting here</h2>
         <p>
@@ -95,10 +95,10 @@ const eventLd = {
         </p>
         <h2>FAQ</h2>
         <dl class="faq">
-          <dt><strong>What time is Leinster v Munster in Madrid?</strong></dt>
-          <dd>19:00 Madrid time on Saturday 24 October 2026 (18:00 Irish time).</dd>
-          <dt><strong>Are you showing it live?</strong></dt>
-          <dd>Yes, LIVE on the projector and screens.</dd>
+          <dt><strong>When was Leinster v Munster?</strong></dt>
+          <dd>Saturday 24 October 2026, 19:00 Madrid time (18:00 Irish time). The match has been played.</dd>
+          <dt><strong>What Irish rugby is next?</strong></dt>
+          <dd>Ireland’s November games and more URC: see <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a> and <a href={withBase('/whats-on/')}>What’s On</a>.</dd>
           <dt><strong>Where are you?</strong></dt>
           <dd>{SITE.address}, {SITE.postal}, by Puerta del Sol. Metro Sol or Sevilla.</dd>
         </dl>

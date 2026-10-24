@@ -5,7 +5,8 @@ import { SITE, withBase, absUrl } from '../../site';
 
 // Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
 // Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
-// No Metro route to the stadium: not verified on crtm.es.
+// Stadium access (Radar ficha 5 bis 2026-11-24, CRTM 24 Oct 23:35, CONFIRMED): Metro L10 closed Cuzco–Nuevos Ministerios until end of year
+// (Santiago Bernabéu station closed); EMT replacement bus S10, free for Metro travellers. Exact route from Sol: NOT given (refer to Metro app / crtm.es).
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
@@ -51,6 +52,9 @@ const eventLd = {
 <p>We open from 12:00 on Tuesday (12:00–02:00), so there is the whole day to meet up in the centre before heading to the stadium, or to stay and watch the game together. Welkom in Madrid!</p>
 <h2>Getting here</h2>
 <p>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</p>
+<h2>Getting to the Bernabéu: Metro line 10 is closed</h2>
+<p>Metro line 10 is closed between Cuzco and Nuevos Ministerios until the end of the year, so the Santiago Bernabéu station is closed. The replacement bus is the EMT S10 (Plaza de Castilla – Cuzco – Santiago Bernabéu – Nuevos Ministerios), free for Metro travellers.</p>
+<p>For the exact route from Sol on the day, check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>, and allow extra time: there are usually road closures around the stadium on match days.</p>
       </div>
       <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Football match on the big screen and a TV at Dubliners, with fans watching from the tables and standing at the back of the room" /></picture>
     </div>
@@ -64,6 +68,7 @@ const eventLd = {
   <dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on the projector and screens.</dd>
   <dt><strong>What time do you open?</strong></dt><dd>From 12:00. On Tuesday we are open 12:00–02:00.</dd>
   <dt><strong>Where are you?</strong></dt><dd>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol or Sevilla.</dd>
+  <dt><strong>Is the Bernabéu Metro station open?</strong></dt><dd>No. Line 10 is closed between Cuzco and Nuevos Ministerios until the end of the year. Use the EMT S10 replacement bus and check the Metro de Madrid app or crtm.es for your route.</dd>
 </dl>
 <p>In Dutch: <a href={withBase('/nl/psv-fans-madrid/')} hreflang="nl">PSV-fans in Madrid</a> · En español: <a href={withBase('/es/aficionados-psv-madrid/')} hreflang="es">Aficionados del PSV en Madrid</a></p>
 <p>All the football we show is on <a href={withBase('/whats-on/')}>What’s On</a> and our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page.</p>

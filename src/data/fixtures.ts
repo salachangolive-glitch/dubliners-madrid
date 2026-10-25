@@ -88,6 +88,8 @@
  *   Sat 31 = Halloween from 19:00 is the main event (DG 25 Oct 08:39): that day's matches are listed as screenings only, no separate promotion.
  * - 25 Oct (THANKSGIVING-DUB, Radar R-21 club websites): + Thu 26 Nov NFL Bears–Lions 19:00, Eagles–Cowboys 22:30 → /thanksgiving-madrid/.
  *   Chiefs–Bills Fri 27 02:20 EXCLUDED (Thu close 02:00).
+ * - 25 Oct (DG, AGENDA-26OCT-DUB-RUGBY): 24 rugby/Premier Sports Cup rows 30 Oct–1 Nov re-verified on competition/club sites (log in
+ *   /workspace/dubliners-agenda-2026-10-26/QA-2026-10-25.md), all unchanged. Harlequins–Saracens 25 Oct REMOVED (kick-off time not on a primary source).
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
  * No invented fixtures / TV channels / reservations.
@@ -135,14 +137,6 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:30',
     confirmedOnScreens: true,
     channel: 'DAZN',
-  },
-  {
-    dateKey: '2026-10-25',
-    whenLabel: 'Sun 25 Oct',
-    competition: 'Premiership Rugby',
-    teams: 'Harlequins vs Saracens',
-    madridTime: '16:00',
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-10-25',

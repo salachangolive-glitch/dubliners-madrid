@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+
+// Bayern Tag 2 (DG 25 Oct 2026, task BAYERN-D2-DUB). Angle: Ankunft in Madrid → Sol als Startpunkt → Spieltag-Plan.
+// Distinct from O'Connell (Sol zu Fuß entdecken) and from Tag 1 (Treffpunkt).
+// Match/stadium/transport facts ONLY from rows marked CONFIRMADO in /workspace/radar/bayern-3nov.md (rows 1, 8, 9, 12, 15).
+// No invented routes: Flughafen/Bahnhof → Sol and Sol → Stadion refer to the Metro de Madrid app / crtm.es.
+const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Wie komme ich vom Flughafen oder Bahnhof zur Sol?', acceptedAnswer: { '@type': 'Answer', text: 'Prüft eure Verbindung vor der Fahrt in der App von Metro de Madrid oder auf crtm.es. Die nächsten Metro-Stationen bei uns sind Sol (Linien 1, 2, 3) und Sevilla (Linie 2).' } },
+    { '@type': 'Question', name: 'Hat Madrid dieselbe Uhrzeit wie München?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Anstoß am Dienstag, 3. November, ist um 21:00 Uhr in Madrid und um 21:00 Uhr in München.' } },
+    { '@type': 'Question', name: 'Welche Metro-Station liegt am Stadion?', acceptedAnswer: { '@type': 'Answer', text: 'Estadio Metropolitano (Linie 7). Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf crtm.es.' } },
+    { '@type': 'Question', name: 'Wann öffnet Dubliners?', acceptedAnswer: { '@type': 'Answer', text: 'Jeden Tag ab 12:00 Uhr. Montag bis Donnerstag und Sonntag bis 02:00 Uhr, Freitag und Samstag bis 02:30 Uhr.' } },
+  ],
+};
+---
+<BaseLayout title="Ankunft in Madrid: Bayern-Fans, euer Startpunkt an der Sol | Dubliners" description="Gerade in Madrid gelandet für Atlético–Bayern (Di., 3. Nov., 21:00 Uhr)? Startet an der Sol: Anreise planen, Öffnungszeiten ab 12:00 Uhr, Plan für den Spieltag. Dubliners, Espoz y Mina 7." path="/de/bayern-fans-madrid/ankunft-in-madrid/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/arriving-in-madrid/', de: '/de/bayern-fans-madrid/ankunft-in-madrid/' }} ogImage="/images/facade.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact"><div class="container">
+    <h1>Gerade in Madrid gelandet? Erst mal an die Sol</h1>
+    <p class="lead">Ihr seid für Atlético gegen Bayern angereist? Dann geht als Erstes zur Puerta del Sol. Sie ist das Zentrum von Madrid, und Dubliners liegt nur ein paar Schritte entfernt: ankommen, orientieren und die Tage bis zum Anstoß planen.</p>
+    <p class="small">Atlético – Bayern · Dienstag, 3. November 2026 · Anstoß 21:00 Uhr Madrider Zeit · Stand: 25. Oktober 2026</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route zu uns</a>
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Treffpunkt und Spiel LIVE findet ihr hier: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>.</p>
+    <h2>Schritt 1: zur Sol</h2>
+    <p>Egal ob ihr am Flughafen, in Atocha oder in Chamartín ankommt: Prüft eure Verbindung vor der Fahrt in der <strong>App von Metro de Madrid</strong> oder auf <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>. Konkrete Routen nennen wir hier bewusst nicht, weil sich Verbindungen ändern können. Die nächsten Metro-Stationen bei uns sind <strong>Sol (Linien 1, 2, 3)</strong> und <strong>Sevilla (Linie 2)</strong>.</p>
+    <p>Von der Sol sind es nur ein paar Schritte bis zu uns: Calle de Espoz y Mina 7, 28012 Madrid.</p>
+    <h2>Schritt 2: gleiche Uhrzeit wie in München</h2>
+    <p>Die Uhr müsst ihr nicht umstellen: Madrid und München liegen in derselben Zeitzone. Anstoß am Dienstag, 3. November, ist um 21:00 Uhr hier wie zu Hause.</p>
+    <h2>Schritt 3: eure Tage vor dem Spiel</h2>
+    <p>Früher angereist? Wir haben jeden Tag ab 12:00 Uhr geöffnet – schaut an jedem Tag eurer Reise vorbei.</p>
+    <ul>{OPENING_HOURS.map((d) => <li>{DE[d.day]}: {d.opens}–{d.closes} Uhr</li>)}</ul>
+    <h2>Schritt 4: der Spieltag, von der Sol bis zum Anstoß</h2>
+    <ul>
+      <li><strong>12:00 Uhr</strong>: Dubliners öffnet. Kommt früh und trefft andere Fans mitten im Zentrum.</li>
+      <li><strong>Vor der Fahrt ins Stadion</strong>: Gespielt wird im Riyadh Air Metropolitano. Die Metro-Station ist <strong>Estadio Metropolitano (Linie 7)</strong>; außerdem fahren die EMT-Busse 28, 38, 48, 140, 153, 167, E2 und SE721 in die Gegend, der nächste Cercanías-Bahnhof ist Coslada. Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf crtm.es.</li>
+      <li><strong>Leicht packen</strong>: Laut Stadionordnung sind unter anderem Alkohol, Bengalos bzw. Pyrotechnik und Gegenstände über 500 g verboten. Prüft vorher die aktuellen Regeln.</li>
+      <li><strong>21:00 Uhr</strong>: Anstoß. Ohne Karte? Schaut Atlético gegen Bayern LIVE bei uns. In Spanien überträgt Movistar Plus+.</li>
+      <li><strong>Nach dem Spiel</strong>: Auch die Nachtbusse N5 und N6 fahren in die Gegend des Stadions. Dienstags haben wir bis 02:00 Uhr geöffnet.</li>
+    </ul>
+    <h2>Wo wir sind</h2>
+    <p>Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid – zwischen Puerta del Sol, Plaza Mayor und dem Barrio de las Letras.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+    <h2>Häufige Fragen</h2>
+    <dl class="faq">
+      <dt><strong>Wie komme ich vom Flughafen oder Bahnhof zur Sol?</strong></dt><dd>Prüft eure Verbindung vor der Fahrt in der App von Metro de Madrid oder auf crtm.es. Die nächsten Metro-Stationen bei uns sind Sol (Linien 1, 2, 3) und Sevilla (Linie 2).</dd>
+      <dt><strong>Hat Madrid dieselbe Uhrzeit wie München?</strong></dt><dd>Ja. Anstoß am Dienstag, 3. November, ist um 21:00 Uhr in Madrid und um 21:00 Uhr in München.</dd>
+      <dt><strong>Welche Metro-Station liegt am Stadion?</strong></dt><dd>Estadio Metropolitano (Linie 7). Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf crtm.es.</dd>
+      <dt><strong>Wann öffnet Dubliners?</strong></dt><dd>Jeden Tag ab 12:00 Uhr. Montag bis Donnerstag und Sonntag bis 02:00 Uhr, Freitag und Samstag bis 02:30 Uhr.</dd>
+    </dl>
+    <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners ist ein unabhängiger Pub, ohne Verbindung zur UEFA oder zu den Vereinen.</p>
+    <p>Auf Englisch: <a href={withBase('/bayern-fans-madrid/arriving-in-madrid/')} hreflang="en" lang="en">Arriving in Madrid: start at Sol</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Mehr für Bayern-Fans',
+          items: [
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Treffpunkt und Spiel LIVE' },
+            { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
+            { href: '/menu/', label: 'Food menu', note: 'Speisekarte (Englisch)', hreflang: 'en', lang: 'en' },
+          ],
+        },
+      ]}
+    />
+  </div></section>
+</BaseLayout>

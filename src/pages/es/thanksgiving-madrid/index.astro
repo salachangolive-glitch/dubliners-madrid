@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+import { TG } from '../../../data/thanksgiving';
+
+// THANKSGIVING-DUB (DG 25 Oct): página permanente y reutilizable. Actualizar src/data/thanksgiving.ts cada año (solo datos verificados por Radar).
+const thu = OPENING_HOURS.find((d) => d.day === 'Thursday')!;
+const ex = TG.excluded[0];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: `¿A qué hora es la NFL de Thanksgiving en Madrid en ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `El ${TG.dateEs}: ${TG.games.map((g) => `${g.away} at ${g.home} a las ${g.madridTime}`).join(' y ')} (hora de Madrid), EN DIRECTO en Dubliners.` } },
+    { '@type': 'Question', name: '¿Ponéis el partido de la noche de Thanksgiving?', acceptedAnswer: { '@type': 'Answer', text: ex ? `No. ${ex.away} at ${ex.home} empieza a las ${ex.madridTime} (hora de Madrid), después de nuestro cierre del jueves a las ${thu.closes}.` : 'Solo los partidos que empiezan dentro de nuestro horario.' } },
+    { '@type': 'Question', name: '¿Dónde está Dubliners?', acceptedAnswer: { '@type': 'Answer', text: `Calle de Espoz y Mina 7, 28012 Madrid, a un paso de Puerta del Sol. Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2). Jueves ${thu.opens}–${thu.closes}.` } },
+  ],
+};
+---
+
+<BaseLayout title={`NFL de Thanksgiving en Madrid ${TG.year}: en directo cerca de Sol | Dubliners`} description={`Thanksgiving en Madrid: los partidos NFL de Acción de Gracias EN DIRECTO en Dubliners, junto a Puerta del Sol, a las ${TG.games.map((g) => g.madridTime).join(' y ')} (hora de Madrid).`} path="/es/thanksgiving-madrid/" lang="es" hreflang={{ en: '/thanksgiving-madrid/', es: '/es/thanksgiving-madrid/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Thanksgiving en Madrid" lang="es" schema />
+      <h1>Thanksgiving en Madrid: la NFL EN DIRECTO cerca de Sol</h1>
+      <p class="lead">Cada año la NFL juega el jueves de Acción de Gracias (Thanksgiving), y en Dubliners ponemos los partidos EN DIRECTO en un proyector grande y 8 pantallas, en un pub irlandés a un paso de Puerta del Sol.</p>
+      <p class="small">{TG.dateEs} · hora de Madrid · Actualizado el {TG.updatedEs}</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Pedir información</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Thanksgiving {TG.year}: partidos NFL (hora de Madrid)</h2>
+      <ul>
+        {TG.games.map((g) => (<li><strong>{g.madridTime}</strong> — {g.away} at {g.home} <span class="small">(TV en EE. UU.: {g.usTv})</span></li>))}
+      </ul>
+      {ex && (<p>{ex.away} at {ex.home} empieza a las {ex.madridTime} del viernes (hora de Madrid), después de nuestro cierre del jueves a las {thu.closes}, así que no se emite.</p>)}
+      <p class="small">Horarios de los calendarios de los clubes ({TG.games.concat(TG.excluded).map((g, i) => (<>{i > 0 && ' · '}<a href={g.source} rel="noopener noreferrer" target="_blank">{g.home}</a></>))}). Todo lo que emitimos está en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
+      <picture><source type="image/webp" srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/screens-sports.jpg')} width="1400" height="788" loading="lazy" decoding="async" alt="Deporte en las pantallas de Dubliners Madrid" /></picture>
+      <h2>El jueves de Thanksgiving, cada año</h2>
+      <p>Thanksgiving es el cuarto jueves de noviembre. En Madrid es un día laborable normal, así que el primer partido suele empezar al final de la tarde y el segundo ya por la noche: un buen plan después del trabajo. Actualizamos esta página cada año en cuanto se confirman los horarios.</p>
+      <h2>Dónde estamos</h2>
+      <p>Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid, entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2). Los jueves abrimos de {thu.opens} a {thu.closes}. ¿Venís en grupo? Escríbenos en <a href={withBase('/contact/#request-information')}>Pedir información</a>.</p>
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        {faqLd.mainEntity.map((q) => (<><dt><strong>{q.name}</strong></dt><dd>{q.acceptedAnswer.text}</dd></>))}
+      </dl>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Más NFL en Dubliners',
+            items: [
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Partidos NFL EN DIRECTO cerca de Sol' },
+              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Todo lo que emitimos' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

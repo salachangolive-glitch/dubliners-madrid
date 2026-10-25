@@ -65,6 +65,11 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       <p>
         Cómo funcionan las pantallas y qué deportes ponemos: <a href={withBase('/es/bar-deportivo-madrid/')}>nuestro bar deportivo en Madrid</a>.
       </p>
+      {todayKey <= '2026-11-01' && (
+        <p data-show-until="2026-11-01">
+          Deporte en directo esta semana (26 oct–1 nov, hora de Madrid): lunes Sevilla–Osasuna 21:00 · jueves 29 Real Madrid–Fenerbahçe (EuroLeague) 20:45 y la Copa del Rey Sporting Hortaleza–Sevilla 21:00 · viernes Villarreal–Espanyol 21:00 · el sábado 31 es Halloween en Dubliners desde las 19:00, con los partidos del día también en pantalla, entre ellos el Barça–Alavés 21:00 · domingo 1, víspera del festivo del lunes: Racing–Real Madrid 16:15, Liverpool–Arsenal 17:30, NFL desde las 19:00, GP de México de F1 21:00 y Athletic–Real Sociedad 21:00. Confirmados en pantallas; si coinciden, pantallas distintas.
+        </p>
+      )}
       {todayKey <= '2026-10-10' && (
         <p data-show-until="2026-10-10">
           El sábado en Dubliners viene cargado: Arsenal–Leeds 13:30, Rayo–Athletic 14:00, Alavés–Atlético 16:15, Man Utd–Spurs con Barça–Getafe y Ulster–Munster a las 18:30, luego Leinster–Cardiff 20:45 y Real Madrid–Villarreal 21:00 — Confirmados en pantallas; si coinciden, pantallas distintas. Entra cerca de Sol.

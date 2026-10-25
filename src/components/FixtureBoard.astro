@@ -61,7 +61,7 @@ const slots = [
               <em>{f.kind === 'event' ? (es ? (f.competitionEs ?? 'Evento · Concierto en el Movistar Arena') : f.competition) : `${sport(f)} · ${f.competition}${f.channel ? ' · ' + f.channel : ''}`}</em>
               {f.confirmedOnScreens && f.kind !== 'event' && <span class="fx-status fx-status-confirmed">{L.confirmed}</span>}
               {(es ? f.noteEs : f.noteEn) && <span class="fx-note">{es ? f.noteEs : f.noteEn}</span>}
-              {f.link && <a class="fx-link" href={withBase(f.link.href)} hreflang={f.link.hreflang}>{es ? f.link.labelEs : f.link.labelEn}</a>}
+              {f.link && <a class="fx-link" href={withBase(es && f.link.hrefEs ? f.link.hrefEs : f.link.href)} hreflang={es && f.link.hrefEs ? undefined : f.link.hreflang}>{es ? f.link.labelEs : f.link.labelEn}</a>}
             </span>
           </li>
         ))}

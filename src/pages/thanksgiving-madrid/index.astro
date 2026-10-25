@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+import { TG } from '../../data/thanksgiving';
+
+// THANKSGIVING-DUB (DG 25 Oct): permanent, reusable page. Update src/data/thanksgiving.ts each year (Radar-verified only).
+const thu = OPENING_HOURS.find((d) => d.day === 'Thursday')!;
+const ex = TG.excluded[0];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: `What time is the Thanksgiving NFL in Madrid in ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `On ${TG.dateEn}: ${TG.games.map((g) => `${g.away} at ${g.home} ${g.madridTime}`).join(', ')} (Madrid time), LIVE at Dubliners.` } },
+    { '@type': 'Question', name: 'Do you show the Thanksgiving night game?', acceptedAnswer: { '@type': 'Answer', text: ex ? `No. ${ex.away} at ${ex.home} starts at ${ex.madridTime} Madrid time, after we close at ${thu.closes} on Thursday.` : 'Only games that start within our opening hours.' } },
+    { '@type': 'Question', name: 'Where is Dubliners?', acceptedAnswer: { '@type': 'Answer', text: `Calle de Espoz y Mina 7, 28012 Madrid, a few steps from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). Thursday ${thu.opens}–${thu.closes}.` } },
+  ],
+};
+---
+
+<BaseLayout title={`Thanksgiving NFL in Madrid ${TG.year}: Live near Sol | Dubliners`} description={`Thanksgiving in Madrid: the NFL Thanksgiving games LIVE at Dubliners by Puerta del Sol, ${TG.games.map((g) => g.madridTime).join(' and ')} Madrid time. Irish pub, English spoken.`} path="/thanksgiving-madrid/" lang="en" hreflang={{ en: '/thanksgiving-madrid/', es: '/es/thanksgiving-madrid/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Thanksgiving in Madrid" schema />
+      <h1>Thanksgiving in Madrid: the NFL games LIVE near Sol</h1>
+      <p class="lead">Far from home on Thanksgiving? Every year the NFL plays on Thanksgiving Thursday, and Dubliners puts the games LIVE on a big projector and 8 screens, in an English-speaking Irish pub a few steps from Puerta del Sol.</p>
+      <p class="small">{TG.dateEn} · Madrid time · Updated {TG.updatedEn}</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>Thanksgiving {TG.year}: NFL games (Madrid time)</h2>
+      <ul>
+        {TG.games.map((g) => (<li><strong>{g.madridTime}</strong> — {g.away} at {g.home} <span class="small">(US TV: {g.usTv})</span></li>))}
+      </ul>
+      {ex && (<p>{ex.away} at {ex.home} starts at {ex.madridTime} Madrid time on Friday, after we close at {thu.closes} on Thursday, so it is not shown.</p>)}
+      <p class="small">Times from the clubs’ schedules ({TG.games.concat(TG.excluded).map((g, i) => (<>{i > 0 && ' · '}<a href={g.source} rel="noopener noreferrer" target="_blank">{g.home}</a></>))}). Every game we show is on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <picture><source type="image/webp" srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/screens-sports.jpg')} width="1400" height="788" loading="lazy" decoding="async" alt="Sports on the screens inside Dubliners Madrid" /></picture>
+      <h2>Thanksgiving Thursday, every year</h2>
+      <p>Thanksgiving is the fourth Thursday of November. In Madrid it is a normal working day, so the first game usually starts in the early evening and the second one later at night, a good plan after work with friends from home. We update this page each year as soon as the times are confirmed.</p>
+      <h2>Where we are</h2>
+      <p>Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). On Thursday we are open {thu.opens}–{thu.closes}. Coming with a group? Send us a message through <a href={withBase('/contact/#request-information')}>Request information</a>.</p>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        {faqLd.mainEntity.map((q) => (<><dt><strong>{q.name}</strong></dt><dd>{q.acceptedAnswer.text}</dd></>))}
+      </dl>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More NFL at Dubliners',
+            items: [
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'NFL games LIVE near Sol' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Every game we show' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

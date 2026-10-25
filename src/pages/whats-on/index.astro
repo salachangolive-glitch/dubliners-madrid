@@ -64,6 +64,11 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       <p>
         How the screens work and which sports we show: <a href={withBase('/sports-bar-madrid/')}>our sports bar in Madrid</a>.
       </p>
+      {todayKey <= '2026-11-01' && (
+        <p data-show-until="2026-11-01">
+          This week’s live sports (26 Oct–1 Nov, Madrid time): Monday Sevilla–Osasuna 21:00 · Thursday 29 Real Madrid–Fenerbahçe (EuroLeague) 20:45 and the Copa del Rey tie Sporting Hortaleza–Sevilla 21:00 · Friday Villarreal–Espanyol 21:00 · Saturday 31 is Halloween at Dubliners from 19:00, with the day’s games on screen too, Barça–Alavés 21:00 among them · Sunday 1, the night before Monday’s bank holiday: Racing–Real Madrid 16:15, Liverpool–Arsenal 17:30, NFL from 19:00, the F1 Mexico City Grand Prix 21:00 and Athletic–Real Sociedad 21:00. Confirmed on our screens; clashes go on different screens.
+        </p>
+      )}
       {todayKey <= '2026-10-10' && (
         <p data-show-until="2026-10-10">
           Saturday at Dubliners is packed: Arsenal–Leeds 13:30, Rayo–Athletic 14:00, Alavés–Atlético 16:15, Man Utd–Spurs with Barça–Getafe and Ulster–Munster at 18:30, then Leinster–Cardiff 20:45 and Real Madrid–Villarreal 21:00 — Confirmed on our screens; clashes go on different screens.

@@ -1,6 +1,6 @@
 ---
 import { SITE, withBase } from '../site';
-import { type Lang, navLinks, t, alternatePath } from '../i18n';
+import { type Lang, navLinks, t, alternatePath, normalizePath } from '../i18n';
 
 interface Props {
   lang?: Lang;
@@ -10,8 +10,11 @@ const { lang = 'en', path = '/' } = Astro.props;
 const links = navLinks(lang);
 const copy = t(lang);
 const alt = alternatePath(path);
-const enHref = lang === 'en' ? withBase(path) : withBase(alt);
-const esHref = lang === 'es' ? withBase(path) : withBase(alt);
+// Error page (404.html): there is no /404/ or /es/404/ URL, so the language
+// switch always goes to the home of each language (EN → /, ES → /es/).
+const isErrorPage = ['/404/', '/es/404/'].includes(normalizePath(path));
+const enHref = isErrorPage ? withBase('/') : lang === 'en' ? withBase(path) : withBase(alt);
+const esHref = isErrorPage ? withBase('/es/') : lang === 'es' ? withBase(path) : withBase(alt);
 const logoHref = withBase(lang === 'es' ? '/es/' : '/');
 ---
 

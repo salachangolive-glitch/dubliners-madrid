@@ -2090,8 +2090,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Spain vs Chile',
     madridTime: '17:00',
     confirmedOnScreens: true,
-    noteEn: 'Played in Leganés, at the Estadio Municipal de Butarque. Ireland vs Fiji follows at 21:10.',
-    noteEs: 'Se juega en Leganés, en el Estadio Municipal de Butarque. Después, Irlanda–Fiyi a las 21:10.',
+    noteEn: 'Venue pending confirmation (expected: Estadio Municipal de Butarque, Leganés). Ireland vs Fiji follows at 21:10.',
+    noteEs: 'Sede pendiente de confirmación (prevista: Estadio Municipal de Butarque, Leganés). Después, Irlanda–Fiyi a las 21:10.',
   },
   {
     dateKey: '2026-11-25',

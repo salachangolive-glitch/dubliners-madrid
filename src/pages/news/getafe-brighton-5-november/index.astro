@@ -1,0 +1,41 @@
+---
+/**
+ * News DU-01 (DG LUNES-26, 26 Oct 2026, BRIGHTON-NOTICIA-DUB). Source: Radar ficha 5 bis 2026-11-05-getafe-brighton
+ * (UEFA match API, UECL MD3, id 2050352: Thu 5 Nov 2026 21:00 Madrid, Coliseum Getafe — CONFIRMED). TV channel SIN VERIFICAR → not named.
+ * Retire after 6 Nov 2026 (stub → /brighton-fans-madrid/ + RETIRED_PATHS).
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: 'Getafe vs Brighton on Thursday 5 November: watch it live near Puerta del Sol',
+  datePublished: '2026-10-26',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl('/news/getafe-brighton-5-november/'),
+};
+---
+<BaseLayout title="Getafe vs Brighton, Thu 5 Nov 21:00: Brighton Fans Near Sol | Dubliners" description="Getafe vs Brighton (Conference League) on Thursday 5 November, 21:00 Madrid time (20:00 UK). Fans meeting point for Brighton fans at Dubliners, by Puerta del Sol. Open from 12:00." path="/news/getafe-brighton-5-november/" lang="en" hreflang={{ en: '/news/getafe-brighton-5-november/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={articleLd}>
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Getafe vs Brighton, 5 Nov" />
+    <h1>Getafe vs Brighton on Thursday 5 November: watch it live near Puerta del Sol</h1>
+    <p class="small">News · 26 October 2026</p>
+    <div class="cta-row"><a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a> <a class="btn btn-secondary" href={withBase('/contact/#request-information')}>Request information</a></div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Brighton play Getafe in the UEFA Conference League (league phase, matchday 3) on <strong>Thursday 5 November 2026, kick-off 21:00 Madrid time (20:00 in the UK)</strong>, at the Coliseum in Getafe, south of Madrid.</p>
+    <p>Staying in central Madrid, or heading out to Getafe later? Dubliners, an Irish pub on Calle de Espoz y Mina 7, just off Puerta del Sol, is a fans meeting point for Brighton fans. We show the match LIVE on the big projector and our 8 screens.</p>
+    <h2>On the day</h2>
+    <ul>
+      <li>We are open from 12:00 on Thursday (12:00–02:00).</li>
+      <li>Metro Sol (L1, L2, L3) or Sevilla (L2) for the pub.</li>
+      <li>For the route to the Coliseum in Getafe, check <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> or the Metro de Madrid app on the day.</li>
+      <li>We speak English and Spanish.</li>
+    </ul>
+    <p>More for travelling fans in our <a href={withBase('/brighton-fans-madrid/')}>Brighton fans in Madrid</a> guide, and every match we show on <a href={withBase('/whats-on/')}>What's On</a>.</p>
+    <p class="small">Dubliners is an independent pub, not affiliated with UEFA, Getafe CF or Brighton &amp; Hove Albion.</p>
+  </div></section>
+</BaseLayout>

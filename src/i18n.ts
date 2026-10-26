@@ -22,7 +22,6 @@ export const PATH_PAIRS: Record<string, string> = {
   '/nfl-sunday-madrid-guide/': '/es/guia-domingo-nfl-madrid/',
   '/brighton-fans-madrid/': '/es/aficionados-brighton-madrid/',
   '/night-out-near-sol-madrid/': '/es/noche-cerca-de-sol/',
-  '/el-clasico-madrid/': '/es/ver-el-clasico-madrid/',
   '/oktoberfest-madrid-2026/': '/es/oktoberfest-madrid-2026/',
   '/ireland-rugby-madrid/': '/es/rugby-irlanda-madrid/',
   '/halloween-madrid-2026/': '/es/halloween-madrid-2026/',

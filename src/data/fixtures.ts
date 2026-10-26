@@ -92,6 +92,10 @@
  *   /workspace/dubliners-agenda-2026-10-26/QA-2026-10-25.md), all unchanged. Harlequins–Saracens 25 Oct REMOVED (kick-off time not on a primary source).
  * Opening hours: see src/data/hours.ts (master source).
  * Screen claim ONLY when confirmedOnScreens === true. Never from TV-rights alone.
+ * - 26 Oct (DG LUNES-26, visiting fans; Radar fichas 5 bis): + EuroLeague RM–Panathinaikos Wed 4 Nov 20:45, RM–Crvena Zvezda Thu 12 Nov 21:00,
+ *   RM–Žalgiris Kaunas Wed 25 Nov 20:45 (movistararena.es); + Spain–Chile World Rugby Nations Cup Sat 14 Nov 17:00 (ferugby.es, Butarque);
+ *   + UCL MD5 Atlético–Viking FK Wed 25 Nov 21:00 (UEFA API) → /viking-fans-madrid/. NO channel on new rows. Getafe–Brighton row linked to
+ *   /brighton-fans-madrid/. Note: Radar's agenda said Crvena Zvezda and Panathinaikos were already listed — they were not (added now).
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -719,6 +723,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol.',
     noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol.',
+    link: { href: '/brighton-fans-madrid/', labelEn: 'Brighton fans in Madrid: match guide', labelEs: 'Aficionados del Brighton en Madrid', hreflang: 'en', hrefEs: '/es/aficionados-brighton-madrid/' },
   },
   {
     dateKey: '2026-11-08',
@@ -2056,6 +2061,58 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Thanksgiving Thursday. Live at Dubliners.',
     noteEs: 'Jueves de Thanksgiving. En directo en Dubliners.',
     link: { href: '/thanksgiving-madrid/', labelEn: 'Thanksgiving NFL in Madrid', labelEs: 'NFL de Thanksgiving en Madrid', hrefEs: '/es/thanksgiving-madrid/' },
+  },
+  // 26 Oct (DG LUNES-26): visiting-fan rows from Radar fichas 5 bis. NO channel.
+  {
+    dateKey: '2026-11-04',
+    whenLabel: 'Wed 4 Nov',
+    competition: 'EuroLeague',
+    teams: 'Real Madrid vs Panathinaikos',
+    madridTime: '20:45',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+  },
+  {
+    dateKey: '2026-11-12',
+    whenLabel: 'Thu 12 Nov',
+    competition: 'EuroLeague',
+    teams: 'Real Madrid vs Crvena Zvezda',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+  },
+  {
+    dateKey: '2026-11-14',
+    whenLabel: 'Sat 14 Nov',
+    competition: 'World Rugby Nations Cup',
+    teams: 'Spain vs Chile',
+    madridTime: '17:00',
+    confirmedOnScreens: true,
+    noteEn: 'Played in Leganés, at the Estadio Municipal de Butarque. Ireland vs Fiji follows at 21:10.',
+    noteEs: 'Se juega en Leganés, en el Estadio Municipal de Butarque. Después, Irlanda–Fiyi a las 21:10.',
+  },
+  {
+    dateKey: '2026-11-25',
+    whenLabel: 'Wed 25 Nov',
+    competition: 'EuroLeague',
+    teams: 'Real Madrid vs Žalgiris Kaunas',
+    madridTime: '20:45',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+  },
+  {
+    dateKey: '2026-11-25',
+    whenLabel: 'Wed 25 Nov',
+    competition: 'UEFA Champions League',
+    teams: 'Atlético de Madrid vs Viking',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Fans meeting point for Viking fans.',
+    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Punto de encuentro de aficionados del Viking.',
+    link: { href: '/viking-fans-madrid/', labelEn: 'Viking fans in Madrid: match guide (EN · NO)', labelEs: 'Aficionados del Viking en Madrid: guía (en inglés y noruego)', hreflang: 'en' },
   },
 ];
 

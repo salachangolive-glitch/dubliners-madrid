@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+
+// Norwegian (bokmål) pair of /viking-fans-madrid/ (DG LUNES-26, 26 Oct 2026, VIKING-DUB). Same verified data as EN.
+// Native-speaker review recommended.
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Atlético de Madrid – Viking FK — UEFA Champions League (vises på Dubliners Madrid)',
+  description: 'Atlético de Madrid – Viking FK (UEFA Champions League, Riyadh Air Metropolitano) vises DIREKTE på skjermene på Dubliners Irish Pub, Espoz y Mina 7, ved Puerta del Sol i Madrid.',
+  inLanguage: 'no',
+  startDate: '2026-11-25T21:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Atlético de Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Viking FK' },
+  url: absUrl('/no/viking-fans-madrid/'),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'no',
+  mainEntity: [
+    { '@type': 'Question', name: 'Når spilles Atlético de Madrid – Viking?', acceptedAnswer: { '@type': 'Answer', text: 'Onsdag 25. november 2026 kl. 21.00 Madrid-tid. Madrid og Stavanger har samme tidssone, så det er også kl. 21.00 i Norge.' } },
+    { '@type': 'Question', name: 'Viser dere kampen direkte?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, DIREKTE på den store projektoren og våre 8 skjermer på Dubliners, Calle de Espoz y Mina 7, ved Puerta del Sol.' } },
+    { '@type': 'Question', name: 'Når åpner dere på onsdag?', acceptedAnswer: { '@type': 'Answer', text: 'Fra kl. 12.00. På onsdag har vi åpent 12.00–02.00.' } },
+    { '@type': 'Question', name: 'Hvordan kommer jeg meg til stadion?', acceptedAnswer: { '@type': 'Answer', text: 'Riyadh Air Metropolitano ligger ved metrolinje 7, stasjon Estadio Metropolitano. Sjekk Metro de Madrid-appen eller crtm.es for nøyaktig rute fra Sol på kampdagen.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Viking-supportere i Madrid: Atlético–Viking, 25. nov | Dubliners'} description={'Atlético de Madrid – Viking FK (Champions League), onsdag 25. november kl. 21.00. Møteplass for Viking-supportere på Dubliners, ved Puerta del Sol. Åpent fra kl. 12.00.'} path="/no/viking-fans-madrid/" lang="en" htmlLang="no" hreflang={{ en: '/viking-fans-madrid/', no: '/no/viking-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Viking-supportere i Madrid'} schema />
+      <h1>Viking-supportere i Madrid: Atlético de Madrid – Viking</h1>
+      <p class="lead">Onsdag 25. november 2026, avspark kl. 21.00 Madrid-tid, samme tid som i Stavanger. UEFA Champions League, ligafasen, 5. runde, på Riyadh Air Metropolitano. Dubliners er en møteplass for Viking-supportere i sentrum av Madrid, ved Puerta del Sol.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Veibeskrivelse</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Be om informasjon</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>Kampen</h2>
+<p>Viking reiser til Madrid for å møte Atlético de Madrid. Med eller uten billett kan du følge kampen her: vi viser den DIREKTE på den store projektoren og våre 8 skjermer.</p>
+<h2>Møteplass for Viking-supportere</h2>
+<p>Vi åpner kl. 12.00 på onsdag (12.00–02.00), så det er hele dagen til å møtes i sentrum før dere drar til stadion, eller til å bli og se kampen sammen.</p>
+<h2>Slik finner du oss</h2>
+<p>Calle de Espoz y Mina 7, 28012 Madrid, ved Puerta del Sol. Metro Sol (linje 1, 2 og 3) eller Sevilla (linje 2).</p>
+<h2>Til Riyadh Air Metropolitano</h2>
+<p>Stadion ligger ved metrolinje 7, stasjon Estadio Metropolitano. Sjekk Metro de Madrid-appen eller <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> for nøyaktig rute fra Sol på kampdagen, og beregn god tid: det er vanligvis veisperringer rundt stadion på kampdager.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Fotballkamp på storskjerm og TV på Dubliners, med supportere ved bordene" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+<h2>Ofte stilte spørsmål</h2>
+<dl class="faq">
+  <dt><strong>Når spilles Atlético de Madrid – Viking?</strong></dt><dd>Onsdag 25. november 2026 kl. 21.00 Madrid-tid. Madrid og Stavanger har samme tidssone, så det er også kl. 21.00 i Norge.</dd>
+  <dt><strong>Viser dere kampen direkte?</strong></dt><dd>Ja, DIREKTE på den store projektoren og våre 8 skjermer.</dd>
+  <dt><strong>Når åpner dere på onsdag?</strong></dt><dd>Fra kl. 12.00. På onsdag har vi åpent 12.00–02.00.</dd>
+  <dt><strong>Hvordan kommer jeg meg til stadion?</strong></dt><dd>Metrolinje 7, stasjon Estadio Metropolitano. Sjekk Metro de Madrid-appen eller crtm.es for nøyaktig rute fra Sol på kampdagen.</dd>
+</dl>
+<p>In English: <a href={withBase('/viking-fans-madrid/')} hreflang="en">Viking fans in Madrid</a></p>
+<p class="small">Dubliners er en uavhengig pub, uten tilknytning til UEFA, Atlético de Madrid eller Viking FK.</p>
+    </div>
+  </section>
+</BaseLayout>

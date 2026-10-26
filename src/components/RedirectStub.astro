@@ -9,12 +9,13 @@ import { absUrl, withBase } from '../site';
 
 interface Props {
   to: string;
-  lang?: 'en' | 'es';
+  lang?: 'en' | 'es' | 'de';
 }
 const { to, lang = 'en' } = Astro.props;
 const targetAbs = absUrl(to);
 const targetRel = withBase(to);
-const label = lang === 'es' ? 'Esta página se ha trasladado a' : 'This page has moved to';
+const label =
+  lang === 'es' ? 'Esta página se ha trasladado a' : lang === 'de' ? 'Diese Seite ist umgezogen nach' : 'This page has moved to';
 ---
 
 <!doctype html>

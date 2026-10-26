@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+
+// Bayern Tag 3 (DG LUNES-26, 26 Oct 2026, task BAYERN-D3-DUB). Angle: Leinwand + Essen am Spieltag.
+// Distinct from O'Connell (Sol zu Fuß), Tag 1 (Treffpunkt) and Tag 2 (Ankunft).
+// Match facts ONLY from CONFIRMADO rows in /workspace/radar/bayern-3nov.md. Dish names ONLY from src/data/menu.ts. No prices.
+const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Zeigt ihr Atlético gegen Bayern LIVE?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Dienstag, 3. November 2026, Anstoß 21:00 Uhr Madrider Zeit (wie in München), LIVE auf unserer großen Leinwand und 8 Bildschirmen. In Spanien überträgt Movistar Plus+.' } },
+    { '@type': 'Question', name: 'Kann man am Spieltag bei Dubliners essen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Auf unserer Karte stehen unter anderem Irish Breakfast, Black-Angus-Burger, Chicken Wings, Nachos mit Guacamole, Patatas bravas, hausgemachte Croquetas, Tortilla, Pizzen und Desserts. Die ganze Speisekarte steht auf unserer Website.' } },
+    { '@type': 'Question', name: 'Wann habt ihr am Dienstag geöffnet?', acceptedAnswer: { '@type': 'Answer', text: 'Von 12:00 bis 02:00 Uhr. Wir öffnen jeden Tag um 12:00 Uhr; freitags und samstags bis 02:30 Uhr.' } },
+    { '@type': 'Question', name: 'Welche Metro-Station liegt am Stadion?', acceptedAnswer: { '@type': 'Answer', text: 'Estadio Metropolitano (Linie 7). Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf crtm.es.' } },
+  ],
+};
+---
+<BaseLayout title="Atlético–Bayern auf der Leinwand + Essen an der Sol | Dubliners" description="Atlético–Bayern, Di., 3. Nov., 21:00 Uhr: LIVE auf großer Leinwand und 8 Bildschirmen, dazu Burger, Wings, Nachos, Tapas und Irish Breakfast. Dubliners, Espoz y Mina 7, ab 12:00 Uhr." path="/de/bayern-fans-madrid/leinwand-und-essen/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/screens-and-food/', de: '/de/bayern-fans-madrid/leinwand-und-essen/' }} ogImage="/images/dubliners-projector-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact"><div class="container">
+    <h1>Atlético gegen Bayern auf der großen Leinwand, Essen ab 12:00 Uhr</h1>
+    <p class="lead">Keine Karte fürs Metropolitano oder vorher noch treffen? Schaut Atlético gegen Bayern LIVE auf unserer großen Leinwand und 8 Bildschirmen und esst vor oder während des Spiels bei uns.</p>
+    <p class="small">Atlético – Bayern · Dienstag, 3. November 2026 · Anstoß 21:00 Uhr Madrider Zeit · Stand: 26. Oktober 2026</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route zu uns</a>
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Treffpunkt und das Wichtigste zum Spieltag: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>; gerade angekommen? Lest <a href={withBase('/de/bayern-fans-madrid/ankunft-in-madrid/')}>Ankunft in Madrid: euer Startpunkt an der Sol</a>.</p>
+    <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Große Leinwand im Hauptraum von Dubliners, nahe der Sol" width="1400" height="788" loading="lazy" decoding="async" />
+    <h2>Die Bildschirme</h2>
+    <p>Das Spiel läuft auf unserer <strong>großen Leinwand</strong> im Hauptraum und auf <strong>8 Bildschirmen</strong> im ganzen Pub – ihr seht es von der Bar wie vom Tisch aus. Anstoß ist um <strong>21:00 Uhr Madrider Zeit</strong>, genau wie in München. In Spanien überträgt Movistar Plus+.</p>
+    <h2>Das Essen</h2>
+    <p>Früh da oder das ganze Spiel im Zentrum? Ein paar Sachen von unserer Karte:</p>
+    <ul>
+      <li><strong>Irish Breakfast</strong>: irische Würstchen, Bacon, Blutwurst, Bohnen und Eier.</li>
+      <li><strong>Black-Angus-Burger</strong>.</li>
+      <li>Zum Teilen: <strong>Chicken Wings</strong>, <strong>Nachos mit Guacamole</strong>, <strong>Patatas bravas</strong>, <strong>hausgemachte Croquetas</strong>, <strong>Torreznos de Soria</strong> und <strong>Tortilla de patatas</strong>.</li>
+      <li><strong>Pizzen</strong>: drei Käse, Schinken &amp; Käse, vier Jahreszeiten.</li>
+      <li>Desserts: <strong>Käsekuchen</strong> (tarta de queso) und <strong>Schokoladen-Brownie</strong>.</li>
+    </ul>
+    <p>Die ganze Liste steht auf unserer <a href={withBase('/menu/')} hreflang="en" lang="en">Speisekarte (Food menu, Englisch)</a>.</p>
+    <h2>Spieltag bei Dubliners</h2>
+    <ul>
+      <li><strong>12:00 Uhr</strong>: Wir öffnen. Mittagessen, ein Bier und andere Fans mitten in Madrid.</li>
+      <li><strong>Ins Stadion?</strong> Das Riyadh Air Metropolitano liegt an der Metro-<strong>Linie 7 (Estadio Metropolitano)</strong>. Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</li>
+      <li><strong>21:00 Uhr</strong>: Anstoß, LIVE auf Leinwand und Bildschirmen.</li>
+      <li><strong>Nach dem Spiel</strong>: Dienstags haben wir bis 02:00 Uhr geöffnet.</li>
+    </ul>
+    <h2>Öffnungszeiten</h2>
+    <ul>{OPENING_HOURS.map((d) => <li>{DE[d.day]}: {d.opens}–{d.closes} Uhr</li>)}</ul>
+    <div class="cta-row">
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+    <h2>Häufige Fragen</h2>
+    <dl class="faq">
+      <dt><strong>Zeigt ihr Atlético gegen Bayern LIVE?</strong></dt><dd>Ja. Dienstag, 3. November 2026, Anstoß 21:00 Uhr Madrider Zeit (wie in München), LIVE auf unserer großen Leinwand und 8 Bildschirmen. In Spanien überträgt Movistar Plus+.</dd>
+      <dt><strong>Kann man am Spieltag bei Dubliners essen?</strong></dt><dd>Ja. Auf unserer Karte stehen unter anderem Irish Breakfast, Black-Angus-Burger, Chicken Wings, Nachos mit Guacamole, Patatas bravas, hausgemachte Croquetas, Tortilla, Pizzen und Desserts. Die ganze Speisekarte steht auf unserer Website.</dd>
+      <dt><strong>Wann habt ihr am Dienstag geöffnet?</strong></dt><dd>Von 12:00 bis 02:00 Uhr. Wir öffnen jeden Tag um 12:00 Uhr; freitags und samstags bis 02:30 Uhr.</dd>
+      <dt><strong>Welche Metro-Station liegt am Stadion?</strong></dt><dd>Estadio Metropolitano (Linie 7). Eure Route ab Sol findet ihr in der App von Metro de Madrid oder auf crtm.es.</dd>
+    </dl>
+    <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners ist ein unabhängiger Pub, ohne Verbindung zur UEFA oder zu den Vereinen.</p>
+    <p>Auf Englisch: <a href={withBase('/bayern-fans-madrid/screens-and-food/')} hreflang="en" lang="en">Atlético v Bayern on the big screen, with food</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Mehr für Bayern-Fans',
+          items: [
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Treffpunkt und Spiel LIVE' },
+            { href: '/de/bayern-fans-madrid/ankunft-in-madrid/', label: 'Ankunft in Madrid', note: 'Startpunkt an der Sol' },
+            { href: '/menu/', label: 'Food menu', note: 'Speisekarte (Englisch)', hreflang: 'en', lang: 'en' },
+            { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
+          ],
+        },
+      ]}
+    />
+  </div></section>
+</BaseLayout>

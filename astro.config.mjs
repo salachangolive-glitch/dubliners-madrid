@@ -16,6 +16,13 @@ const RETIRED_PATHS = [
   '/es/noticias/champions-manana-21-oct/',
   '/watch-football-madrid/',
   '/es/ver-futbol-madrid/',
+  // DG LUNES-26 (26 Oct 2026, PUENTES-26-DUB)
+  '/de/leipzig-fans-madrid/',
+  '/rb-leipzig/',
+  '/el-clasico-madrid/',
+  '/el-clasico/',
+  '/watch-leinster-munster-madrid/',
+  '/leinster-munster/',
 ];
 
 export default defineConfig({

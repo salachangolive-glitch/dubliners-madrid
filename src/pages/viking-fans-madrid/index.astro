@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../site';
+
+// Atlético de Madrid v Viking FK, UEFA Champions League league phase MD5, Riyadh Air Metropolitano, Wed 25 Nov 2026 21:00 Madrid (CET).
+// Source: Radar ficha 5 bis 2026-11-25-atletico-viking (UEFA API 2026-11-25T20:00:00Z, atleticodemadrid.com) — CONFIRMED.
+// Access: Metro L7 Estadio Metropolitano CONFIRMED; EMT special service for 25 Nov PENDING, so not named. Exact route from Sol: refer to Metro app / crtm.es.
+// Fan numbers (3,000–3,500) only PROBABLE → not published. TV channel PROBABLE → not published.
+// DG LUNES-26 (26 Oct 2026, VIKING-DUB): new EN + NO pair (supersedes R-16 25 Oct «sin URL nueva»).
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Atlético de Madrid v Viking FK — UEFA Champions League (screening at Dubliners Madrid)',
+  description: 'Atlético de Madrid v Viking FK (UEFA Champions League, Riyadh Air Metropolitano) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  inLanguage: 'en',
+  startDate: '2026-11-25T21:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Atlético de Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Viking FK' },
+  url: absUrl('/viking-fans-madrid/'),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What time is Atlético de Madrid v Viking?', acceptedAnswer: { '@type': 'Answer', text: '21:00 Madrid time on Wednesday 25 November 2026. Madrid and Stavanger are in the same time zone, so it is 21:00 in Norway too.' } },
+    { '@type': 'Question', name: 'Are you showing it live?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, LIVE on the big projector and our 8 screens at Dubliners, Calle de Espoz y Mina 7, by Puerta del Sol.' } },
+    { '@type': 'Question', name: 'What time do you open on Wednesday?', acceptedAnswer: { '@type': 'Answer', text: 'From 12:00. On Wednesday we are open 12:00–02:00.' } },
+    { '@type': 'Question', name: 'How do I get to the stadium?', acceptedAnswer: { '@type': 'Answer', text: 'The Riyadh Air Metropolitano is on Metro line 7, station Estadio Metropolitano. Check the Metro de Madrid app or crtm.es for the exact route from Sol on the day.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Viking Fans in Madrid: Atlético v Viking, 25 Nov | Dubliners'} description={'Atlético de Madrid v Viking FK (Champions League), Wednesday 25 November, 21:00 Madrid time. Fans meeting point for Viking fans at Dubliners, by Puerta del Sol. Open from 12:00.'} path="/viking-fans-madrid/" lang="en" hreflang={{ en: '/viking-fans-madrid/', no: '/no/viking-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Viking fans in Madrid'} schema />
+      <h1>Viking fans in Madrid: Atlético de Madrid v Viking</h1>
+      <p class="lead">Wednesday 25 November 2026, kick-off 21:00 Madrid time, the same time as in Stavanger. UEFA Champions League, league phase matchday 5, at the Riyadh Air Metropolitano. Dubliners is a fans meeting point for Viking fans in the centre of Madrid, by Puerta del Sol.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>The match</h2>
+<p>Viking travel to Madrid to face Atlético de Madrid. With a ticket or without one, you can follow it here: we show the match LIVE on the big projector and our 8 screens.</p>
+<h2>Fans meeting point for Viking fans</h2>
+<p>We open from 12:00 on Wednesday (12:00–02:00), so there is the whole day to meet up in the centre before heading to the stadium, or to stay and watch the game together. Velkommen til Madrid!</p>
+<h2>Getting here</h2>
+<p>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</p>
+<h2>Getting to the Riyadh Air Metropolitano</h2>
+<p>The stadium is on Metro line 7, station Estadio Metropolitano. For the exact route from Sol on the day, check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>, and allow extra time: there are usually road closures around the stadium on match days.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Football match on the big screen and a TV at Dubliners, with fans watching from the tables and standing at the back of the room" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+<h2>FAQ</h2>
+<dl class="faq">
+  <dt><strong>What time is Atlético de Madrid v Viking?</strong></dt><dd>21:00 Madrid time on Wednesday 25 November 2026. Madrid and Stavanger are in the same time zone, so it is 21:00 in Norway too.</dd>
+  <dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on the big projector and our 8 screens.</dd>
+  <dt><strong>What time do you open on Wednesday?</strong></dt><dd>From 12:00. On Wednesday we are open 12:00–02:00.</dd>
+  <dt><strong>How do I get to the stadium?</strong></dt><dd>Metro line 7, station Estadio Metropolitano. Check the Metro de Madrid app or crtm.es for the exact route from Sol on the day.</dd>
+</dl>
+<p>På norsk: <a href={withBase('/no/viking-fans-madrid/')} hreflang="no">Viking-supportere i Madrid</a></p>
+<p>All the football we show is on <a href={withBase('/whats-on/')}>What’s On</a> and our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page.</p>
+<p class="small">Dubliners is an independent pub, not affiliated with UEFA, Atlético de Madrid or Viking FK.</p>
+    </div>
+  </section>
+</BaseLayout>

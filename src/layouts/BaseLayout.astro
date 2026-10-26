@@ -16,7 +16,7 @@ interface Props {
   path: string;
   lang?: Lang;
   ogImage?: string;
-  hreflang?: { en?: string; es?: string; nl?: string; de?: string };
+  hreflang?: { en?: string; es?: string; nl?: string; de?: string; no?: string };
   /** Standalone page in another language (e.g. 'de'): sets html lang, self hreflang + x-default, no en/es alternates. */
   htmlLang?: string;
   /** Defaults to index,follow. Error documents pass noindex. */
@@ -91,10 +91,12 @@ const jsonLd = {
   // Google Search Central: hours past midnight = one spec on the opening day
   // with closes earlier than opens (e.g. Sat 18:00–03:00). Same hours as GBP/footer.
   openingHoursSpecification: openingHoursJsonLd(),
-  // Google Business Profile of Dubliners (CID from the Maps place data, evidence 12 Oct). No telephone until the owner decides.
+  // Google Business Profile of Dubliners (CID from the Maps place data, evidence 12 Oct).
   // DG 24 Oct 2026: the former Premier/Champions freeze is lifted — one BarOrPub node on every page.
   hasMap: SITE.gbpUrl,
   sameAs: [SITE.instagram, SITE.gbpUrl],
+  // Telephone: schema only, never in visible text (DG VERDE, LUNES-26 item 4, 26 Oct 2026; SCHEMA-TEL-DUB)
+  telephone: '+34 915 32 79 56',
 };
 
 const websiteJsonLd = {
@@ -120,6 +122,7 @@ const websiteJsonLd = {
     {hreflang?.es && <link rel="alternate" hreflang="es" href={absUrl(hreflang.es)} />}
     {hreflang?.nl && <link rel="alternate" hreflang="nl" href={absUrl(hreflang.nl)} />}
     {hreflang?.de && <link rel="alternate" hreflang="de" href={absUrl(hreflang.de)} />}
+    {hreflang?.no && <link rel="alternate" hreflang="no" href={absUrl(hreflang.no)} />}
     {(hreflang?.en || hreflang?.es) && (
       <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}
@@ -130,7 +133,7 @@ const websiteJsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:locale" content={htmlLang === 'de' ? 'de_DE' : htmlLang === 'nl' ? 'nl_NL' : lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale" content={htmlLang === 'de' ? 'de_DE' : htmlLang === 'nl' ? 'nl_NL' : htmlLang === 'no' ? 'nb_NO' : lang === 'es' ? 'es_ES' : 'en_GB'} />
     {lang === 'es' ? (
       <meta property="og:locale:alternate" content="en_GB" />
     ) : (

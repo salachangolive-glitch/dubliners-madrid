@@ -6,9 +6,9 @@ import CtaRow from '../../../components/CtaRow.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase } from '../../../site';
 
-const title = 'Bar deportivo en Madrid | Fútbol, NFL y rugby junto a Sol — Dubliners';
+const title = 'Bar deportivo Madrid cerca de Sol | Premier League, Champions y LaLiga — Dubliners';
 const description =
-  'Bar deportivo junto a Puerta del Sol: NFL, NBA, rugby, F1 y fútbol EN DIRECTO en proyector grande y 8 pantallas. Espoz y Mina 7, desde las 12:00.';
+  'Bar deportivo junto a Sol para ver fútbol: Premier League, Champions League y LaLiga en proyector grande y 8 pantallas, también NFL y rugby. Espoz y Mina 7, desde las 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -16,10 +16,11 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar deportivo Madrid" lang="es" schema />
-        <h1>Bar deportivo Madrid cerca de Sol — NFL, rugby y deporte en directo</h1>
+        <h1>Bar deportivo cerca de Sol — Premier League, Champions League y LaLiga en pantallas</h1>
         <p class="lead">
-          ¿Buscas un bar deportivo cerca de Sol? Dubliners es un pub irlandés en Espoz y Mina 7 con un proyector grande y 8 pantallas.
-          NFL, NBA, rugby, F1, Premier League, Champions League y LaLiga — cuando hay partido.
+          ¿Buscas un bar deportivo cerca de Sol o un pub de Premier League en Madrid? Dubliners es un pub irlandés en Espoz y Mina 7 con un proyector grande y 8 pantallas,
+          y el fútbol va primero: fines de semana de Premier League, noches de Champions League y LaLiga, con público internacional de estudiantes, visitantes y aficionados de fuera.
+          También hay NFL y rugby.
         </p>
         <CtaRow lang="es" />
       </div>
@@ -70,21 +71,23 @@ const description =
         Solo anunciamos lo confirmado; si un hueco parece vacío, pregunta en barra qué se emite.
       </p>
 
-      <h2>Fútbol y rugby</h2>
+      <h2>Fútbol: Premier League, Champions League y LaLiga</h2>
       <p>
-        El fútbol es la base: Premier League, Champions League, LaLiga y más cuando hay derechos.
-        El rugby completa el fin de semana.
+        El fútbol es la base. Casi todas las semanas hay Premier League, LaLiga, Champions League, Europa League y Conference League,
+        además de eliminatorias de Copa del Rey y los partidos escoceses más grandes. Si coinciden dos partidos, van en pantallas distintas
+        y el principal en el proyector grande. Todas las horas son de Madrid.
       </p>
+      <p>
+        Mira nuestras guías de <a href={withBase('/es/premier-league-pub-madrid/')}>Premier League en Madrid</a> y
+        <a href={withBase('/es/champions-league-bar-madrid/')}>noches de Champions League</a> para saber cómo funcionan esos días de partido.
+      </p>
+
+      <h2>Rugby, F1 y tenis</h2>
       <ul>
         <li><strong>Rugby:</strong> URC, Premiership Rugby y test matches internacionales; el Seis Naciones en primavera.</li>
         <li><strong>Fórmula 1:</strong> clasificación y carrera cuando caen dentro de nuestro horario.</li>
         <li><strong>Tenis:</strong> las grandes finales y últimas rondas cuando se emiten.</li>
       </ul>
-      <p>
-        En fútbol, casi todas las semanas hay Premier League, LaLiga, Champions League, Europa League y Conference League,
-        además de eliminatorias de Copa del Rey y los partidos escoceses más grandes. Si coinciden dos partidos, van en pantallas distintas
-        y el principal en el proyector grande. Todas las horas son de Madrid.
-      </p>
 
       <h2>NFL y deportes americanos</h2>
       <p>

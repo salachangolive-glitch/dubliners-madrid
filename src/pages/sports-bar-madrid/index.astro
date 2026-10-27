@@ -6,9 +6,9 @@ import CtaRow from '../../components/CtaRow.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase } from '../../site';
 
-const title = 'Sports Bar Madrid | Football, NFL & Rugby near Sol — Dubliners';
+const title = 'Sports Bar Madrid near Sol | Premier League, Champions & LaLiga — Dubliners';
 const description =
-  'Sports bar near Puerta del Sol: NFL, NBA, rugby, F1 and football LIVE on a big projector and 8 screens. Espoz y Mina 7, open daily from 12:00.';
+  'Sports bar near Sol for football: Premier League, Champions League and LaLiga on a big projector and 8 screens, with NFL and rugby too. Espoz y Mina 7, open daily from 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -16,10 +16,11 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Sports bar Madrid" schema />
-        <h1>Sports bar Madrid near Sol — NFL, rugby and live sport on screens</h1>
+        <h1>Sports bar near Sol — Premier League, Champions League and LaLiga on screens</h1>
         <p class="lead">
-          Looking for a sports bar near Sol? Dubliners is an Irish pub on Espoz y Mina 7 with a big projector and 8 screens.
-          NFL, NBA, rugby, F1, Premier League, Champions League and LaLiga — when they’re showing.
+          Looking for a sports bar near Sol or a Premier League pub in Madrid? Dubliners is an Irish pub on Espoz y Mina 7 with a big projector and 8 screens,
+          and football comes first: Premier League weekends, Champions League nights and LaLiga, watched with an international crowd of students, visitors and fans from abroad.
+          NFL and rugby are on too.
         </p>
         <CtaRow />
       </div>
@@ -70,21 +71,23 @@ const description =
         We only list what is confirmed; if a slot looks empty, ask at the bar what is actually on.
       </p>
 
-      <h2>Football &amp; rugby</h2>
+      <h2>Football: Premier League, Champions League and LaLiga</h2>
       <p>
-        Football is the core: Premier League, Champions League, LaLiga and more when the rights allow.
-        Rugby fills the rest of the weekend.
+        Football is the core. Most weeks the screens carry the Premier League, LaLiga, the Champions League, the Europa League and the
+        Conference League, plus Copa del Rey ties and the bigger Scottish games. Two matches at the same time go on different screens,
+        with the main one on the big projector. Every listed kick-off is in Madrid time.
       </p>
+      <p>
+        See our <a href={withBase('/premier-league-pub-madrid/')}>Premier League pub in Madrid</a> and
+        <a href={withBase('/champions-league-bar-madrid/')}>Champions League nights</a> guides for how those match days work here.
+      </p>
+
+      <h2>Rugby, F1 and tennis</h2>
       <ul>
         <li><strong>Rugby:</strong> URC, Premiership Rugby and international Tests, with the Six Nations in spring.</li>
         <li><strong>Formula 1:</strong> qualifying and races when they fall inside our opening hours.</li>
         <li><strong>Tennis:</strong> the big finals and late rounds when they are on.</li>
       </ul>
-      <p>
-        On the football side, most weeks the screens carry the Premier League, LaLiga, the Champions League, the Europa League and the
-        Conference League, plus Copa del Rey ties and the bigger Scottish games. Two matches at the same time go on different screens,
-        with the main one on the big projector. Every listed kick-off is in Madrid time.
-      </p>
 
       <h2>NFL &amp; American sports</h2>
       <p>

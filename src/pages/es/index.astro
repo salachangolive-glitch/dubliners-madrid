@@ -8,9 +8,9 @@ import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
-const title = 'Pub irlandés Madrid cerca de Sol | NFL, rugby y deporte en directo — Dubliners';
+const title = 'Pub irlandés Madrid cerca de Sol | Fútbol, NFL y rugby — Dubliners';
 const description =
-  'Pub irlandés en la antigua sastrería Barragán (1885), junto a Puerta del Sol: NFL, rugby y deporte en directo en 8 pantallas, ambiente internacional, desde las 12:00.';
+  'Pub irlandés en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en 8 pantallas, ambiente internacional, desde las 12:00.';
 import { madridToday } from '../../data/fixtures';
 const todayKey = madridToday();
 ---
@@ -49,7 +49,7 @@ const todayKey = madridToday();
     <div class="container">
       <h1>Un pub irlandés cerca de Puerta del Sol, en el corazón de Madrid</h1>
       <p class="lead">
-        Dubliners es un pub irlandés a un paso de Puerta del Sol, en la antigua sastrería Barragán (1885): NFL los domingos, test matches de rugby y deporte en directo en un proyector grande y 8 pantallas, personal que habla inglés y ambiente internacional, abierto cada día desde las 12:00.
+        Dubliners es un pub irlandés a un paso de Puerta del Sol, en la antigua sastrería Barragán (1885): fútbol de Premier League, Champions League y LaLiga, NFL los domingos y test matches de rugby en un proyector grande y 8 pantallas, personal que habla inglés y ambiente internacional, abierto cada día desde las 12:00.
       </p>
       <p class="home-intro__text">
         Pasa a tomar algo, queda con amigos o ven a ver el partido. Aquí se juntan madrileños, visitantes y la gente internacional de la ciudad, en un local que aún conserva el techo pintado de una sastrería del siglo XIX.
@@ -58,6 +58,23 @@ const todayKey = madridToday();
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
       </p>
       <CtaRow lang="es" showWednesday={false} />
+    </div>
+  </section>
+
+  <!-- 2b. Fútbol (DG 27 oct: fútbol + público internacional) -->
+  <section class="section" id="futbol">
+    <div class="container prose">
+      <h2>Fútbol cerca de Sol: Premier League, Champions League y LaLiga</h2>
+      <p>
+        El fútbol es lo que más llena el local casi todas las semanas. Los fines de semana de Premier League, las noches de Champions League y los grandes partidos de LaLiga
+        van en el proyector y las pantallas, con el público internacional de Madrid viéndolos juntos: estudiantes Erasmus e internacionales, visitantes alojados cerca de Sol
+        y aficionados de fuera que siguen a su equipo. Todos los partidos que anunciamos están confirmados y en hora de Madrid.
+      </p>
+      <ul>
+        <li><a href={withBase('/es/premier-league-pub-madrid/')}>Pub de Premier League en Madrid</a> — fútbol inglés, sábado y domingo</li>
+        <li><a href={withBase('/es/champions-league-bar-madrid/')}>Champions League en Madrid</a> — noches europeas junto a Sol</li>
+        <li>LaLiga — los partidos principales de cada jornada; consulta <a href={withBase('/es/partidos/')} data-track-event="whats_on_cta_click">Partidos</a> para esta semana</li>
+      </ul>
     </div>
   </section>
 

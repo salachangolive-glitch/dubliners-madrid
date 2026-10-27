@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Bayern day 4 (DG 27 Oct 2026, P1). Angle: one week to go, the match-day plan (times, Sol, how to reach the Metropolitano via the Metro app / crtm.es).
+// DG decision 26 Oct 12:48: NO meeting-point angle, NO "centre on foot". Distinct from day 1 (hub), day 2 (arriving) and day 3 (screens and food).
+// Facts ONLY from CONFIRMADO rows in /workspace/radar/bayern-3nov.md: rows 1, 8, 9, 10 (club norm, 3 Nov notice pending), 12, 15. No prices, no bookings.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When is Atlético v Bayern?', acceptedAnswer: { '@type': 'Answer', text: 'Tuesday 3 November 2026, kick-off 21:00 Madrid time (the same time as in Munich), at the Riyadh Air Metropolitano. In Spain the match is broadcast on Movistar Plus+.' } },
+    { '@type': 'Question', name: 'How do I get from Sol to the Metropolitano?', acceptedAnswer: { '@type': 'Answer', text: 'The stadium has its own Metro station, Estadio Metropolitano, on line 7. Plan your exact route from Sol in the Metro de Madrid app or on crtm.es.' } },
+    { '@type': 'Question', name: 'Are you showing the match if I have no ticket?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Atlético v Bayern is LIVE at Dubliners on our big projector and 8 screens.' } },
+    { '@type': 'Question', name: 'What time is Dubliners open on Tuesday 3 November?', acceptedAnswer: { '@type': 'Answer', text: 'From 12:00 until 02:00.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Atlético v Bayern: One Week to Go, Your Match-Day Plan | Dubliners'} description={'Atlético v Bayern, Tue 3 Nov, 21:00 Madrid time: one week to go. Match-day times, Metro line 7 to the Metropolitano, and the match LIVE at Dubliners near Sol from 12:00.'} path="/bayern-fans-madrid/match-day-plan/" lang="en" hreflang={{ en: '/bayern-fans-madrid/match-day-plan/', de: '/de/bayern-fans-madrid/spieltag-plan/' }} ogImage="/images/dubliners-projector-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>One week to go: your Atlético v Bayern match-day plan</h1>
+      <p class="lead">Next Tuesday, 3 November, Atlético play Bayern at 21:00 Madrid time. Here is how the day works from Sol: when we open, how to reach the Metropolitano, and where to watch the match LIVE if you have no ticket.</p>
+      <p class="small">Atlético v Bayern · Tuesday 3 November 2026 · kick-off 21:00 Madrid time · Updated 27 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>This is part of our guide for Bayern fans in Madrid; start with <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>. Just landed? Read <a href={withBase('/bayern-fans-madrid/arriving-in-madrid/')}>Arriving in Madrid</a>. Watching with us? See <a href={withBase('/bayern-fans-madrid/screens-and-food/')}>the screens and the food</a>.</p>
+      <h2>The match</h2>
+      <p>Atlético de Madrid v FC Bayern München, UEFA Champions League (league phase), <strong>Tuesday 3 November 2026, 21:00 Madrid time</strong>, the same time as in Munich. The match is at the Riyadh Air Metropolitano. In Spain it is broadcast on Movistar Plus+.</p>
+      <h2>Match day, hour by hour</h2>
+      <ul>
+        <li><strong>12:00</strong>: Dubliners opens, a few steps from Puerta del Sol. Lunch from our <a href={withBase('/menu/')}>food menu</a> and a pint in the centre of Madrid.</li>
+        <li><strong>Afternoon</strong>: going to the stadium? Leave with plenty of time. The Metropolitano has its own Metro station, <strong>Estadio Metropolitano (line 7)</strong>. Check your exact route from Sol in the Metro de Madrid app or on <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</li>
+        <li><strong>From 19:00</strong>: on Atlético home match days, the club says EMT runs a special bus service between Canillejas and Plaza de Grecia from two hours before kick-off until 1 h 30 after the match. The specific notice for 3 November is not out yet: check <a href="https://www.emtmadrid.es/" target="_blank" rel="noopener">emtmadrid.es</a> on the day.</li>
+        <li><strong>21:00</strong>: kick-off. No ticket? Atlético v Bayern is LIVE at Dubliners on our big projector and 8 screens.</li>
+        <li><strong>After the match</strong>: on Tuesday we are open until 02:00.</li>
+      </ul>
+      <h2>Getting to the Metropolitano</h2>
+      <ul>
+        <li><strong>Metro</strong>: line 7, Estadio Metropolitano station.</li>
+        <li><strong>EMT buses</strong>: 28, 38, 48, 140, 153, 167, E2 and SE721; night buses N5 and N6.</li>
+        <li><strong>Cercanías</strong>: the nearest station listed for the stadium is Coslada.</li>
+        <li><strong>BiciMAD</strong>: stations at Av. de Arcentales and Av. de Niza 67.</li>
+      </ul>
+      <p>For the exact connection from Sol on the day, use the Metro de Madrid app or <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</p>
+      <h2>Before you set off for the stadium</h2>
+      <p>The stadium rules forbid bringing in alcohol, flares or pyrotechnics, and objects over 500 g, among other items. UEFA may add its own rules, so check the current ones before you go. Gate opening times for 3 November have not been published yet.</p>
+      <h2>Where we are</h2>
+      <p>Calle de Espoz y Mina 7, 28012 Madrid, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Metro Sol (lines 1, 2 and 3).</p>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Atlético v Bayern?</strong></dt><dd>Tuesday 3 November 2026, kick-off 21:00 Madrid time (the same time as in Munich), at the Riyadh Air Metropolitano. In Spain the match is broadcast on Movistar Plus+.</dd>
+        <dt><strong>How do I get from Sol to the Metropolitano?</strong></dt><dd>The stadium has its own Metro station, Estadio Metropolitano, on line 7. Plan your exact route from Sol in the Metro de Madrid app or on crtm.es.</dd>
+        <dt><strong>Are you showing the match if I have no ticket?</strong></dt><dd>Yes. Atlético v Bayern is LIVE at Dubliners on our big projector and 8 screens.</dd>
+        <dt><strong>What time is Dubliners open on Tuesday 3 November?</strong></dt><dd>From 12:00 until 02:00.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/spieltag-plan/')} hreflang="de" lang="de">Noch eine Woche: euer Spieltag-Plan für Atlético–Bayern</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More for Bayern fans',
+            items: [
+              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'The match LIVE near Sol' },
+              { href: '/bayern-fans-madrid/arriving-in-madrid/', label: 'Arriving in Madrid', note: 'Start at Sol' },
+              { href: '/bayern-fans-madrid/screens-and-food/', label: 'Big screen and food', note: 'Projector, 8 screens and our menu' },
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

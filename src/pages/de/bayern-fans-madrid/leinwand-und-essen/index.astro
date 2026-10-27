@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../../site';
 import { OPENING_HOURS } from '../../../../data/hours';
 
 // Bayern Tag 3 (DG LUNES-26, 26 Oct 2026, task BAYERN-D3-DUB). Angle: Leinwand + Essen am Spieltag.
-// Distinct from O'Connell (Sol zu Fuß), Tag 1 (Treffpunkt) and Tag 2 (Ankunft).
+// Distinct from O'Connell (Sol zu Fuß), Tag 1 (Hub) and Tag 2 (Ankunft).
 // Match facts ONLY from CONFIRMADO rows in /workspace/radar/bayern-3nov.md. Dish names ONLY from src/data/menu.ts. No prices.
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
 const faqLd = {
@@ -30,7 +30,7 @@ const faqLd = {
     </div>
   </div></section>
   <section class="section"><div class="container prose">
-    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Treffpunkt und das Wichtigste zum Spieltag: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>; gerade angekommen? Lest <a href={withBase('/de/bayern-fans-madrid/ankunft-in-madrid/')}>Ankunft in Madrid: euer Startpunkt an der Sol</a>.</p>
+    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Das Spiel mit anderen Bayern-Fans schauen und das Wichtigste zum Spieltag: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>; gerade angekommen? Lest <a href={withBase('/de/bayern-fans-madrid/ankunft-in-madrid/')}>Ankunft in Madrid: euer Startpunkt an der Sol</a>.</p>
     <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Große Leinwand im Hauptraum von Dubliners, nahe der Sol" width="1400" height="788" loading="lazy" decoding="async" />
     <h2>Die Bildschirme</h2>
     <p>Das Spiel läuft auf unserer <strong>großen Leinwand</strong> im Hauptraum und auf <strong>8 Bildschirmen</strong> im ganzen Pub – ihr seht es von der Bar wie vom Tisch aus. Anstoß ist um <strong>21:00 Uhr Madrider Zeit</strong>, genau wie in München. In Spanien überträgt Movistar Plus+.</p>
@@ -71,7 +71,7 @@ const faqLd = {
         {
           title: 'Mehr für Bayern-Fans',
           items: [
-            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Treffpunkt und Spiel LIVE' },
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Das Spiel LIVE mit anderen Fans' },
             { href: '/de/bayern-fans-madrid/ankunft-in-madrid/', label: 'Ankunft in Madrid', note: 'Startpunkt an der Sol' },
             { href: '/menu/', label: 'Food menu', note: 'Speisekarte (Englisch)', hreflang: 'en', lang: 'en' },
             { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },

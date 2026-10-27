@@ -6,10 +6,10 @@ import { OPENING_HOURS } from '../../../data/hours';
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wann ist Atlético gegen Bayern?", "acceptedAnswer": {"@type": "Answer", "text": "Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano)."}}, {"@type": "Question", "name": "Zeigt ihr das Spiel live?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, LIVE auf der großen Leinwand und 8 Bildschirmen."}}, {"@type": "Question", "name": "Wann habt ihr geöffnet?", "acceptedAnswer": {"@type": "Answer", "text": "Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr."}}]};
 ---
-<BaseLayout title="Bayern-Fans in Madrid: Treffpunkt für Fans an der Puerta del Sol | Dubliners" description="Bayern-Fans in Madrid: euer Treffpunkt an der Puerta del Sol vor Atlético–Bayern (Di., 3. Nov., 21:00 Uhr). Irish Pub Dubliners, Spiel LIVE. Kommt früh!" path="/de/bayern-fans-madrid/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade.jpg">
+<BaseLayout title="Bayern-Fans in Madrid: Atlético–Bayern LIVE an der Puerta del Sol | Dubliners" description="Bayern-Fans in Madrid: das Spiel mit anderen Bayern-Fans an der Puerta del Sol schauen – Atlético–Bayern (Di., 3. Nov., 21:00 Uhr). Irish Pub Dubliners, Spiel LIVE. Kommt früh!" path="/de/bayern-fans-madrid/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade.jpg">
   <section class="hero hero-compact"><div class="container">
-    <h1>Bayern-Fans in Madrid: Treffpunkt für Fans an der Puerta del Sol</h1>
-    <p class="lead">Ihr seid für Atlético gegen Bayern in Madrid? Dann kommt zu uns: Dubliners ist euer Treffpunkt mitten im Zentrum, nur ein paar Schritte von der Puerta del Sol. Hier trefft ihr andere Bayern-Fans, stoßt gemeinsam auf den Abend an und seid trotzdem mitten in der Stadt.</p>
+    <h1>Bayern-Fans in Madrid: Atlético–Bayern LIVE an der Puerta del Sol</h1>
+    <p class="lead">Ihr seid für Atlético gegen Bayern in Madrid? Dann kommt zu uns: Dubliners liegt mitten im Zentrum, nur ein paar Schritte von der Puerta del Sol. Hier schaut ihr das Spiel mit anderen Bayern-Fans, stoßt gemeinsam auf den Abend an und seid trotzdem mitten in der Stadt.</p>
     <p class="small">Dienstag, 3. November 2026 · Anstoß 21:00 Uhr Madrider Zeit · Champions League im Metropolitano · Stand: 24. Oktober 2026</p>
     <div class="cta-row">
       <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route zu uns</a>
@@ -18,14 +18,14 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
   </div></section>
   <section class="section"><div class="container prose">
     <p>Am Dienstag, 3. November 2026, spielt Atlético de Madrid in der Champions League (4. Spieltag) gegen den FC Bayern München – Anstoß 21:00 Uhr Madrider Zeit, im Metropolitano. Ohne Karte oder schon tagsüber in der Stadt? Dubliners ist ein Irish Pub mitten im Zentrum, direkt an der Puerta del Sol, und zeigt das Spiel LIVE.</p>
-    <h2>Euer Treffpunkt im Herzen von Madrid</h2>
+    <h2>Mitten im Herzen von Madrid</h2>
     <p>Bildschirme, ein kühles Bier an der Bar, Pub-Essen und jede Menge Vorfreude mit anderen Fans: So fängt ein Champions-League-Abend in Madrid richtig an. Ob ihr euch vor der Fahrt ins Stadion trefft oder ohne Karte den ganzen Abend bei uns bleibt – bei Dubliners seid ihr herzlich willkommen.</p>
     <picture><source type="image/webp" srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/facade-queue.jpg')} width="1320" height="986" loading="lazy" decoding="async" alt="Gäste vor dem Eingang von Dubliners am Abend, Calle de Espoz y Mina 7, nahe der Puerta del Sol" /></picture>
     <h2>Kommt früh</h2>
     <p>Bei großen Spielen lohnt es sich, früher da zu sein. Am Dienstag haben wir ab 12:00 Uhr geöffnet – genug Zeit, um sich in Ruhe zu treffen.</p>
     <h2>Das Spiel</h2>
     <p>Atlético gegen Bayern LIVE auf der großen Leinwand und 8 Bildschirmen. In Spanien überträgt Movistar Plus+.</p>
-    <h2>Drei Pubs, ein Treffpunkt</h2>
+    <h2>Drei Pubs an der Puerta del Sol</h2>
     <ul>
       <li><strong>Dubliners</strong> – Calle de Espoz y Mina 7, an der Puerta del Sol.</li>
       <li><strong>O'Connell St</strong> – gleich nebenan, ebenfalls Calle de Espoz y Mina 7 (<a href="https://oconnellsmadrid.es/" rel="noopener" hreflang="es">oconnellsmadrid.es</a>).</li>

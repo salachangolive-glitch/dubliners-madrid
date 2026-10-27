@@ -5,8 +5,8 @@ import { SITE, withBase } from '../../../../site';
 import { OPENING_HOURS } from '../../../../data/hours';
 
 // Bayern Tag 4 (DG 27 Oct 2026, P1). Angle: noch eine Woche, der Spieltag-Plan (Zeiten, Sol, Anreise zum Metropolitano via Metro-App / crtm.es).
-// DG-Entscheidung 26 Oct 12:48: KEIN Treffpunkt-Winkel, KEIN «Zentrum zu Fuß». Abgegrenzt von Tag 1 (Hub), Tag 2 (Ankunft), Tag 3 (Leinwand + Essen).
-// Fakten NUR aus CONFIRMADO-Zeilen in /workspace/radar/bayern-3nov.md: 1, 8, 9, 10 (Vereinsnorm, Hinweis für 3. Nov offen), 12, 15. Keine Preise, keine Reservierungen.
+// DG-Entscheidung 26 Oct 12:48: KEIN Sammelort-Winkel, KEIN «Zentrum zu Fuß». Abgegrenzt von Tag 1 (Hub), Tag 2 (Ankunft), Tag 3 (Leinwand + Essen).
+// Fakten NUR aus CONFIRMADO-Zeilen in /workspace/radar/bayern-3nov.md: 1, 8, 9, 12, 15 (EMT am Spieltag: nur Verweis auf emtmadrid.es, DG 27 Oct). Keine Preise, keine Reservierungen.
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
 const faqLd = {
   '@context': 'https://schema.org',
@@ -37,7 +37,7 @@ const faqLd = {
     <ul>
       <li><strong>12:00 Uhr</strong>: Dubliners öffnet, ein paar Schritte von der Puerta del Sol. Mittagessen von unserer <a href={withBase('/menu/')} hreflang="en" lang="en">Speisekarte (Englisch)</a> und ein Bier mitten in Madrid.</li>
       <li><strong>Nachmittags</strong>: Ihr geht ins Stadion? Plant genug Zeit ein. Das Metropolitano hat eine eigene Metro-Station: <strong>Estadio Metropolitano (Linie 7)</strong>. Eure genaue Route ab Sol findet ihr in der App von Metro de Madrid oder auf <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</li>
-      <li><strong>Ab 19:00 Uhr</strong>: Laut Atlético fährt EMT an Heimspieltagen einen Sonderbus zwischen Canillejas und Plaza de Grecia, von zwei Stunden vor dem Anstoß bis 1 Std. 30 Min. nach dem Spiel. Der konkrete Hinweis für den 3. November ist noch nicht veröffentlicht: Schaut am Spieltag auf <a href="https://www.emtmadrid.es/" target="_blank" rel="noopener">emtmadrid.es</a>.</li>
+      <li><strong>Busse</strong>: Infos zu den EMT-Bussen am Spieltag findet ihr am Tag selbst auf <a href="https://www.emtmadrid.es/" target="_blank" rel="noopener">emtmadrid.es</a>.</li>
       <li><strong>21:00 Uhr</strong>: Anstoß. Keine Karte? Atlético gegen Bayern läuft LIVE bei Dubliners auf unserer großen Leinwand und 8 Bildschirmen.</li>
       <li><strong>Nach dem Spiel</strong>: Dienstags haben wir bis 02:00 Uhr geöffnet.</li>
     </ul>

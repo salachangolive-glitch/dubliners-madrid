@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../../site';
 import { OPENING_HOURS } from '../../../../data/hours';
 
 // Bayern Tag 2 (DG 25 Oct 2026, task BAYERN-D2-DUB). Angle: Ankunft in Madrid → Sol als Startpunkt → Spieltag-Plan.
-// Distinct from O'Connell (Sol zu Fuß entdecken) and from Tag 1 (Treffpunkt).
+// Distinct from O'Connell (Sol zu Fuß entdecken) and from Tag 1 (Hub).
 // Match/stadium/transport facts ONLY from rows marked CONFIRMADO in /workspace/radar/bayern-3nov.md (rows 1, 8, 9, 12, 15).
 // No invented routes: Flughafen/Bahnhof → Sol and Sol → Stadion refer to the Metro de Madrid app / crtm.es.
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
@@ -31,7 +31,7 @@ const faqLd = {
     </div>
   </div></section>
   <section class="section"><div class="container prose">
-    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Treffpunkt und Spiel LIVE findet ihr hier: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>.</p>
+    <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans. Das Spiel LIVE mit anderen Bayern-Fans schauen: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>.</p>
     <h2>Schritt 1: zur Sol</h2>
     <p>Egal ob ihr am Flughafen, in Atocha oder in Chamartín ankommt: Prüft eure Verbindung vor der Fahrt in der <strong>App von Metro de Madrid</strong> oder auf <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>. Konkrete Routen nennen wir hier bewusst nicht, weil sich Verbindungen ändern können. Die nächsten Metro-Stationen bei uns sind <strong>Sol (Linien 1, 2, 3)</strong> und <strong>Sevilla (Linie 2)</strong>.</p>
     <p>Von der Sol sind es nur ein paar Schritte bis zu uns: Calle de Espoz y Mina 7, 28012 Madrid.</p>
@@ -68,7 +68,7 @@ const faqLd = {
         {
           title: 'Mehr für Bayern-Fans',
           items: [
-            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Treffpunkt und Spiel LIVE' },
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Das Spiel LIVE mit anderen Fans' },
             { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
             { href: '/menu/', label: 'Food menu', note: 'Speisekarte (Englisch)', hreflang: 'en', lang: 'en' },
           ],

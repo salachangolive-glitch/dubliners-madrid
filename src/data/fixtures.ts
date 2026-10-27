@@ -34,7 +34,7 @@
  * - 20 Oct (morning): Mon 19 Getafe–Rayo, Tottenham–Coventry + NHL 01:00 Tue 20 (Ducks–Rangers, Avalanche–Flyers) RETIRED.
  * - 18 Oct: rows dateKey <= 2026-10-17 RETIRED (morning). NFL Sun 18 Oct (nfl.com 2026 week 6, ET+6 → CEST; Away vs Home like other NFL rows) ADDED,
  *   11 games, no channel; Cowboys at Packers 02:20 Mon EXCLUDED (Sunday close 02:00).
- * - 18 Oct (DG P1, Radar 2026-10-18-escocia): fans meeting point rows, NO channel: Bulls–Ulster 24/10 13:45, Motherwell–Hearts 25/10 15:00,
+ * - 18 Oct (DG P1, Radar 2026-10-18-escocia): watch-with-other-fans rows, NO channel: Bulls–Ulster 24/10 13:45, Motherwell–Hearts 25/10 15:00,
  *   Stormers–Ulster + Rangers–Aberdeen (Premier Sports Cup SF) + Munster–Sharks 31/10, Hearts–Hibernian (SF) + Liverpool–Arsenal 1/11.
  *   Sources: spfl.co.uk, rangers.co.uk, ulster.rugby, munsterrugby.ie/sharksrugby.co.za, premierleague.com. Celtic–Celta note added.
  *   Sky-only / no-TV Scottish games NOT listed (Celtic–Hearts, Hibernian–Celtic, Hearts–Rangers, Falkirk–Celtic, Rangers–St Johnstone).
@@ -65,7 +65,7 @@
  * - 15 Oct: Bournemouth–Sturm Graz corrected 18:45 → 21:00 (uefa.com MD2 briefing: 21:00 CET unless stated; SK Sturm site 21:00; BBC 20:00 UK).
  * - 19 Oct (DG 12:32): UCL MD4 3–4 Nov ADDED from match.uefa.com (competitionId=1, seasonYear=2027; UTC → CET, Madrid UTC+1):
  *   18 matches, NO channel (movistarplus.es guide for 3–4 Nov not published yet). Atlético–Bayern (Estadio Metropolitano)
- *   = fans meeting point + link /de/bayern-fans-madrid/. + Mon 2 Nov Premier MW9 Newcastle–Everton 20:00 GMT
+ *   = watch with other fans + link /de/bayern-fans-madrid/. + Mon 2 Nov Premier MW9 Newcastle–Everton 20:00 GMT
  *   (premierleague.com API) and LaLiga J11 Deportivo–Osasuna 20:00 UTC (laliga.com resultados/2026-27/jornada-11), both 21:00, NO channel.
  * - 19 Oct (DG): + LaLiga J11 30 Oct–1 Nov (laliga.com resultados/2026-27/jornada-11, UTC → CET); + UEL (18) and UECL (17) Thu 5 Nov
  *   (match.uefa.com competitionId 14 / 2019); + Premier MW9 31 Oct and MW10 6–8 Nov (premierleague.com API, GMT+1);
@@ -353,8 +353,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Motherwell vs Hearts',
     madridTime: '15:00',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Scottish football fans.',
-    noteEs: 'Punto de encuentro de aficionados del fútbol escocés.',
+    noteEn: 'Watch the match with other Scottish football fans.',
+    noteEs: 'Para ver el partido con otros aficionados del fútbol escocés.',
   },
   {
     dateKey: '2026-10-31',
@@ -363,8 +363,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Stormers vs Ulster',
     madridTime: '13:45',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Ulster rugby fans.',
-    noteEs: 'Punto de encuentro de aficionados del Ulster.',
+    noteEn: 'Watch the match with other Ulster rugby fans.',
+    noteEs: 'Para ver el partido con otros aficionados del Ulster.',
   },
   {
     dateKey: '2026-10-31',
@@ -373,8 +373,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Rangers vs Aberdeen',
     madridTime: '18:30',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Scottish football fans.',
-    noteEs: 'Punto de encuentro de aficionados del fútbol escocés.',
+    noteEn: 'Watch the match with other Scottish football fans.',
+    noteEs: 'Para ver el partido con otros aficionados del fútbol escocés.',
   },
   {
     dateKey: '2026-10-31',
@@ -383,8 +383,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Munster vs Sharks',
     madridTime: '18:30',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Munster rugby fans.',
-    noteEs: 'Punto de encuentro de aficionados del Munster.',
+    noteEn: 'Watch the match with other Munster rugby fans.',
+    noteEs: 'Para ver el partido con otros aficionados del Munster.',
   },
   {
     dateKey: '2026-11-01',
@@ -393,8 +393,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Hearts vs Hibernian',
     madridTime: '16:00',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Scottish football fans.',
-    noteEs: 'Punto de encuentro de aficionados del fútbol escocés.',
+    noteEn: 'Watch the match with other Scottish football fans.',
+    noteEs: 'Para ver el partido con otros aficionados del fútbol escocés.',
   },
   {
     dateKey: '2026-11-01',
@@ -404,8 +404,8 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:30',
     confirmedOnScreens: true,
     channel: 'DAZN',
-    noteEn: 'Fans meeting point for Liverpool and Arsenal fans.',
-    noteEs: 'Punto de encuentro de aficionados del Liverpool y del Arsenal.',
+    noteEn: 'Watch the match with other Liverpool and Arsenal fans.',
+    noteEs: 'Para ver el partido con otros aficionados del Liverpool y del Arsenal.',
   },
   {
     dateKey: '2026-10-25',
@@ -789,8 +789,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Atlético de Madrid vs Bayern Munich',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    noteEn: 'Fans meeting point for Bayern fans in Madrid, by Puerta del Sol.',
-    noteEs: 'Punto de encuentro de aficionados del Bayern en Madrid, junto a la Puerta del Sol.',
+    noteEn: 'Watch the match with other Bayern fans in Madrid, by Puerta del Sol.',
+    noteEs: 'Para ver el partido con otros aficionados del Bayern en Madrid, junto a la Puerta del Sol.',
     link: { href: '/de/bayern-fans-madrid/', labelEn: 'Bayern fans: info in German', labelEs: 'Aficionados del Bayern: info en alemán', hreflang: 'de' },
   },
   {
@@ -1789,8 +1789,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Spain vs England',
     madridTime: '20:45',
     confirmedOnScreens: true,
-    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Fans meeting point for England fans.',
-    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Punto de encuentro de aficionados ingleses.',
+    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Watch the match with other England fans.',
+    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Para ver el partido con otros aficionados ingleses.',
     link: { href: '/england-fans-madrid/', labelEn: 'England fans in Madrid: match guide', labelEs: 'Aficionados ingleses en Madrid: guía (en inglés)', hreflang: 'en' },
   },
   {
@@ -1914,8 +1914,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs PSV Eindhoven',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    noteEn: 'PSV fans welcome: fans meeting point by Puerta del Sol, open from 12:00. Welkom in Madrid!',
-    noteEs: 'Bienvenidos, aficionados del PSV: punto de encuentro de aficionados junto a Sol, abrimos desde las 12:00. Welkom in Madrid!',
+    noteEn: 'PSV fans welcome: watch the match with other fans by Puerta del Sol, open from 12:00. Welkom in Madrid!',
+    noteEs: 'Bienvenidos, aficionados del PSV: para ver el partido con otros aficionados junto a Sol, abrimos desde las 12:00. Welkom in Madrid!',
     link: { href: '/psv-fans-madrid/', labelEn: 'PSV fans in Madrid: match guide (EN · NL)', labelEs: 'Aficionados del PSV en Madrid: guía (en inglés y neerlandés)', hreflang: 'en' },
   },
   {
@@ -2076,8 +2076,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Panathinaikos',
     madridTime: '20:45',
     confirmedOnScreens: true,
-    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
-    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
   },
   {
     dateKey: '2026-11-12',
@@ -2086,8 +2086,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Crvena Zvezda',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
-    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
   },
   {
     dateKey: '2026-11-14',
@@ -2106,8 +2106,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Žalgiris Kaunas',
     madridTime: '20:45',
     confirmedOnScreens: true,
-    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Fans meeting point near Sol.',
-    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Punto de encuentro de aficionados junto a Sol.',
+    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
+    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
   },
   {
     dateKey: '2026-11-25',
@@ -2116,8 +2116,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Atlético de Madrid vs Viking',
     madridTime: '21:00',
     confirmedOnScreens: true,
-    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Fans meeting point for Viking fans.',
-    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Punto de encuentro de aficionados del Viking.',
+    noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Watch the match with other Viking fans.',
+    noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Para ver el partido con otros aficionados del Viking.',
     link: { href: '/viking-fans-madrid/', labelEn: 'Viking fans in Madrid: match guide (EN · NO)', labelEs: 'Aficionados del Viking en Madrid: guía (en inglés y noruego)', hreflang: 'en' },
   },
   // 26 Oct (DG follow-up 16:11): Tue 27 / Wed 28 Oct + 9–23 Nov reinforcement. Sources per row in

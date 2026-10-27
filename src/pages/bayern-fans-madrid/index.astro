@@ -44,12 +44,12 @@ const eventLd = {
 const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
 ---
 
-<BaseLayout title={'Bayern Fans in Madrid: Meeting Point & Where to Watch | Dubliners'} description={'Bayern fans in Madrid for Atlético v Bayern (Tue 3 Nov, 21:00)? Meet at Dubliners, an Irish pub by Puerta del Sol, and watch it LIVE. Come early.'} path="/bayern-fans-madrid/" lang="en" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
+<BaseLayout title={'Bayern Fans in Madrid: Where to Watch Atlético v Bayern | Dubliners'} description={'Bayern fans in Madrid for Atlético v Bayern (Tue 3 Nov, 21:00)? Watch it LIVE with other fans at Dubliners, an Irish pub by Puerta del Sol. Come early.'} path="/bayern-fans-madrid/" lang="en" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[eventLd, faqLd]}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Bayern fans in Madrid'} schema />
-      <h1>Bayern fans in Madrid: your meeting point by Puerta del Sol</h1>
-      <p class="lead">In Madrid for Atlético v Bayern? Come and join us. Dubliners is your meeting point right in the centre, a few steps from Puerta del Sol: meet other Bayern fans, raise a glass to the night ahead and stay in the heart of the city.</p>
+      <h1>Bayern fans in Madrid: watch the match by Puerta del Sol</h1>
+      <p class="lead">In Madrid for Atlético v Bayern? Come and join us. Dubliners is right in the centre, a few steps from Puerta del Sol: watch the match with other Bayern fans, raise a glass to the night ahead and stay in the heart of the city.</p>
       <p class="small">Tuesday 3 November 2026 · kick-off 21:00 Madrid time · UEFA Champions League at the Metropolitano · Updated 24 October 2026</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
@@ -59,14 +59,14 @@ const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
   </section>
   <section class="section">
     <div class="container prose">
-      <h2>Your meeting point in the heart of Madrid</h2>
+      <h2>In the heart of Madrid</h2>
       <p>Screens, a cold drink at the bar, pub food and a room full of fans counting down to kick-off: that is how a Champions League night in Madrid should start. Whether you are meeting up before heading to the stadium or staying with us all evening without a ticket, you are very welcome at Dubliners.</p>
       <picture><source type="image/webp" srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/facade-queue.jpg')} width="1320" height="986" loading="lazy" decoding="async" alt="People queuing at the door of Dubliners at night, Espoz y Mina 7, off Puerta del Sol" /></picture>
       <h2>Come early</h2>
       <p>For big matches it pays to arrive early. On Tuesday we open from {tue.opens}, so there is plenty of time to meet up.</p>
       <h2>Where to watch Atlético v Bayern in Madrid</h2>
       <p>Atlético de Madrid host FC Bayern München in the UEFA Champions League (matchday 4) on Tuesday 3 November 2026, kick-off 21:00 Madrid time, at the Metropolitano. With a ticket or without one, you can follow it here: we show the match LIVE on the big screen and 8 screens. In Spain it is broadcast on Movistar Plus+.</p>
-      <h2>Three pubs, one meeting point</h2>
+      <h2>Three pubs by Puerta del Sol</h2>
       <ul>
         <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, by Puerta del Sol.</li>
         <li><strong>O'Connell St</strong>: right next door, also at Calle de Espoz y Mina 7 (<a href="https://oconnellsmadrid.es/" rel="noopener" hreflang="es">oconnellsmadrid.es</a>).</li>

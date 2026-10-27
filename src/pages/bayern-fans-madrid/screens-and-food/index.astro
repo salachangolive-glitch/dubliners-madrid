@@ -5,7 +5,7 @@ import { SITE, withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 
 // Bayern day 3 (DG LUNES-26, 26 Oct 2026, task BAYERN-D3-DUB). Angle: the screens and the food on match day.
-// Distinct from O'Connell (Sol on foot), day 1 (meeting point) and day 2 (arriving in Madrid).
+// Distinct from O'Connell (Sol on foot), day 1 (hub) and day 2 (arriving in Madrid).
 // Match facts ONLY from CONFIRMADO rows in /workspace/radar/bayern-3nov.md (Tue 3 Nov 21:00, Riyadh Air Metropolitano, L7, Movistar Plus+).
 // Dish names ONLY from src/data/menu.ts (owner photos 13 Oct). No prices (DG rule): link to /menu/.
 const faqLd = {
@@ -34,7 +34,7 @@ const faqLd = {
   </section>
   <section class="section">
     <div class="container prose">
-      <p>This is part of our guide for Bayern fans. For the meeting point and the match-day basics, see <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>; just arrived? Read <a href={withBase('/bayern-fans-madrid/arriving-in-madrid/')}>Arriving in Madrid: start at Sol</a>.</p>
+      <p>This is part of our guide for Bayern fans. For where to watch with other fans and the match-day basics, see <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>; just arrived? Read <a href={withBase('/bayern-fans-madrid/arriving-in-madrid/')}>Arriving in Madrid: start at Sol</a>.</p>
       <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Big projector in the main room at Dubliners, near Sol" width="1400" height="788" loading="lazy" decoding="async" />
       <h2>The screens</h2>
       <p>The match is on our <strong>big projector</strong> in the main room and on <strong>8 screens</strong> around the pub, so you can follow it from the bar or from a table. Kick-off is <strong>21:00 Madrid time</strong>, the same as in Munich. In Spain the match is broadcast on Movistar Plus+.</p>
@@ -75,7 +75,7 @@ const faqLd = {
           {
             title: 'More for Bayern fans',
             items: [
-              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'Meeting point and where to watch' },
+              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'Where to watch with other fans' },
               { href: '/bayern-fans-madrid/arriving-in-madrid/', label: 'Arriving in Madrid', note: 'Start at Sol' },
               { href: '/menu/', label: 'Food menu' },
               { href: '/whats-on/', label: "What's On", note: 'Everything we show' },

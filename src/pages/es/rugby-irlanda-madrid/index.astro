@@ -36,12 +36,12 @@ const eventsLd = games.map((g) => ({
 }));
 ---
 
-<BaseLayout title={'Rugby de Irlanda en Madrid: Argentina, Fiyi y Sudáfrica, nov 2026 | Dubliners'} description={'Ver a Irlanda en Madrid: contra Argentina (vie 6 nov, 21:10), Fiyi (sáb 14 nov, 21:10) y Sudáfrica (sáb 21 nov, 17:40). En directo en Dubliners, pub irlandés junto a la Puerta del Sol.'} path={path} lang="es" ogImage="/images/dubliners-projector-screens-sol-1200.webp" extraJsonLd={eventsLd}>
+<BaseLayout title={'Rugby de Irlanda en Madrid: Argentina, Fiyi y Sudáfrica, nov 2026 | Dubliners'} description={'Ver a Irlanda en Madrid: contra Argentina (vie 6 nov, 21:10), Fiyi (sáb 14 nov, 21:10) y Sudáfrica (sáb 21 nov, 17:40). En directo en Dubliners, pub irlandés junto a la Puerta del Sol.'} path={path} lang="es" ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={eventsLd}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Rugby de Irlanda en Madrid'} lang="es" schema />
       <h1>Rugby de Irlanda en Madrid: los partidos de noviembre</h1>
-      <p class="lead">Tres partidos de Irlanda en noviembre, todos en directo en el proyector grande y las 8 pantallas de Dubliners, un pub irlandés en el centro de Madrid, junto a la Puerta del Sol. Madrid va una hora por delante de Irlanda.</p>
+      <p class="lead">Tres partidos de Irlanda en noviembre, todos en directo en las 8 pantallas de Dubliners, un pub irlandés en el centro de Madrid, junto a la Puerta del Sol. Madrid va una hora por delante de Irlanda.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <a class="btn btn-primary" href={withBase('/es/partidos/')}>Partidos</a>
@@ -62,7 +62,7 @@ const eventsLd = games.map((g) => ({
 <h2>Horario y dirección</h2>
 <p>Lunes a jueves y domingo de 12:00 a 02:00. Viernes y sábado de 12:00 a 02:30.<br />{SITE.address}, {SITE.postal}, junto a la Puerta del Sol. <a href={withBase('/es/visitar/')}>Horario y mapa</a></p>
       </div>
-      <picture><img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Proyector grande y pantallas en la sala principal de Dubliners, junto a Sol" /></picture>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Pantallas en la sala principal de Dubliners, junto a Sol" /></picture>
     </div>
   </section>
   <section class="section band">
@@ -72,10 +72,10 @@ const eventsLd = games.map((g) => ({
   <dt><strong>¿Ponéis los tres partidos de Irlanda?</strong></dt><dd>Sí: Irlanda–Argentina (6 nov), Irlanda–Fiyi (14 nov) e Irlanda–Sudáfrica (21 nov), en directo.</dd>
   <dt><strong>¿A qué hora abrís?</strong></dt><dd>Todos los días desde las 12:00. Viernes y sábado hasta las 02:30.</dd>
   <dt><strong>¿Dónde estáis?</strong></dt><dd>{SITE.address}, {SITE.postal}, junto a la Puerta del Sol.</dd>
-  <dt><strong>¿Cuántas pantallas tenéis?</strong></dt><dd>Un proyector grande y 8 pantallas.</dd>
+  <dt><strong>¿Cuántas pantallas tenéis?</strong></dt><dd>8 pantallas.</dd>
   <dt><strong>¿Cómo llego?</strong></dt><dd>Metro Sol (L1, L2, L3) o Sevilla (L2) y un paseo corto hasta la Calle de Espoz y Mina 7.</dd>
 </dl>
-<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Ponéis los tres partidos de Irlanda?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: Irlanda–Argentina (6 nov), Irlanda–Fiyi (14 nov) e Irlanda–Sudáfrica (21 nov), en directo."}}, {"@type": "Question", "name": "¿A qué hora abrís?", "acceptedAnswer": {"@type": "Answer", "text": "Todos los días desde las 12:00. Viernes y sábado hasta las 02:30."}}, {"@type": "Question", "name": "¿Dónde estáis?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, junto a la Puerta del Sol."}}, {"@type": "Question", "name": "¿Cuántas pantallas tenéis?", "acceptedAnswer": {"@type": "Answer", "text": "Un proyector grande y 8 pantallas."}}, {"@type": "Question", "name": "¿Cómo llego?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) o Sevilla (L2) y un paseo corto hasta la Calle de Espoz y Mina 7."}}]})} />
+<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Ponéis los tres partidos de Irlanda?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: Irlanda–Argentina (6 nov), Irlanda–Fiyi (14 nov) e Irlanda–Sudáfrica (21 nov), en directo."}}, {"@type": "Question", "name": "¿A qué hora abrís?", "acceptedAnswer": {"@type": "Answer", "text": "Todos los días desde las 12:00. Viernes y sábado hasta las 02:30."}}, {"@type": "Question", "name": "¿Dónde estáis?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, junto a la Puerta del Sol."}}, {"@type": "Question", "name": "¿Cuántas pantallas tenéis?", "acceptedAnswer": {"@type": "Answer", "text": "8 pantallas."}}, {"@type": "Question", "name": "¿Cómo llego?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) o Sevilla (L2) y un paseo corto hasta la Calle de Espoz y Mina 7."}}]})} />
 <p>In English: <a href={withBase('/ireland-rugby-madrid/')} hreflang="en">Ireland rugby in Madrid</a> · Todo el deporte que ponemos: <a href={withBase('/es/partidos/')}>Partidos</a></p>
     </div>
   </section>

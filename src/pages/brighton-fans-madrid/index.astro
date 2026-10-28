@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { withBase } from '../../site';
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is Getafe vs Brighton?", "acceptedAnswer": {"@type": "Answer", "text": "Thursday 5 November 2026, 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe."}}, {"@type": "Question", "name": "Are you showing it live?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, LIVE on the big projector and our 8 screens."}}]};
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is Getafe vs Brighton?", "acceptedAnswer": {"@type": "Answer", "text": "Thursday 5 November 2026, 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe."}}, {"@type": "Question", "name": "Are you showing it live?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, LIVE on our 8 screens."}}]};
 ---
 <BaseLayout title="Brighton Fans in Madrid: Getafe vs Brighton, 5 Nov | Dubliners" description="Short guide for Brighton fans in Madrid for Getafe vs Brighton (Conference League, Thu 5 Nov 2026): where to watch it live near Puerta del Sol." path="/brighton-fans-madrid/" lang="en" hreflang={{ en: '/brighton-fans-madrid/', es: '/es/aficionados-brighton-madrid/' }} ogImage="/images/facade.jpg">
   <section class="hero hero-compact"><div class="container">
@@ -11,8 +11,8 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <div class="cta-row"><a class="btn btn-gold" href={withBase('/visit/')}>How to get here</a> <a class="btn btn-secondary" href={withBase('/contact/#request-information')}>Request information</a></div>
   </div></section>
   <section class="section"><div class="container prose">
-    <p>Getafe vs Brighton in the UEFA Conference League is on Thursday 5 November 2026, kick-off 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe (UEFA fixture list).</p><p>Staying in central Madrid? Dubliners, an Irish pub on Calle de Espoz y Mina 7, just off Puerta del Sol, is a place where Brighton fans watch the match together: we show it LIVE on the big projector and our 8 screens. More in our <a href={withBase('/news/getafe-brighton-5-november/')}>match-day news</a> and on <a href={withBase('/whats-on/')}>What's On</a>.</p><p>Metro Sol (L1, L2, L3) or Sevilla (L2). Open every day from 12:00.</p>
-    <h2>FAQ</h2><dl class="faq"><dt><strong>When is Getafe vs Brighton?</strong></dt><dd>Thursday 5 November 2026, 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe.</dd><dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on the big projector and our 8 screens.</dd></dl>
+    <p>Getafe vs Brighton in the UEFA Conference League is on Thursday 5 November 2026, kick-off 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe (UEFA fixture list).</p><p>Staying in central Madrid? Dubliners, an Irish pub on Calle de Espoz y Mina 7, just off Puerta del Sol, is a place where Brighton fans watch the match together: we show it LIVE on our 8 screens. More in our <a href={withBase('/news/getafe-brighton-5-november/')}>match-day news</a> and on <a href={withBase('/whats-on/')}>What's On</a>.</p><p>Metro Sol (L1, L2, L3) or Sevilla (L2). Open every day from 12:00.</p>
+    <h2>FAQ</h2><dl class="faq"><dt><strong>When is Getafe vs Brighton?</strong></dt><dd>Thursday 5 November 2026, 21:00 Madrid time (20:00 UK), at the Coliseum in Getafe.</dd><dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on our 8 screens.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>
 </BaseLayout>

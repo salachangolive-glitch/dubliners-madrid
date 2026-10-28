@@ -36,12 +36,12 @@ const eventsLd = games.map((g) => ({
 }));
 ---
 
-<BaseLayout title={'Ireland Rugby in Madrid: Argentina, Fiji & South Africa, Nov 2026 | Dubliners'} description={'Watch Ireland in Madrid: v Argentina (Fri 6 Nov, 21:10), v Fiji (Sat 14 Nov, 21:10) and v South Africa (Sat 21 Nov, 17:40). LIVE at Dubliners Irish pub, by Puerta del Sol.'} path={path} lang="en" ogImage="/images/dubliners-projector-screens-sol-1200.webp" extraJsonLd={eventsLd}>
+<BaseLayout title={'Ireland Rugby in Madrid: Argentina, Fiji & South Africa, Nov 2026 | Dubliners'} description={'Watch Ireland in Madrid: v Argentina (Fri 6 Nov, 21:10), v Fiji (Sat 14 Nov, 21:10) and v South Africa (Sat 21 Nov, 17:40). LIVE at Dubliners Irish pub, by Puerta del Sol.'} path={path} lang="en" ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={eventsLd}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Ireland rugby in Madrid'} schema />
       <h1>Ireland rugby in Madrid: the November games</h1>
-      <p class="lead">Three Ireland games in November, all LIVE on the big projector and 8 screens at Dubliners, an Irish pub in the centre of Madrid, by Puerta del Sol. Madrid is one hour ahead of Ireland.</p>
+      <p class="lead">Three Ireland games in November, all LIVE on 8 screens at Dubliners, an Irish pub in the centre of Madrid, by Puerta del Sol. Madrid is one hour ahead of Ireland.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
@@ -62,7 +62,7 @@ const eventsLd = games.map((g) => ({
 <h2>Opening hours and address</h2>
 <p>Monday to Thursday and Sunday 12:00–02:00. Friday and Saturday 12:00–02:30.<br />{SITE.address}, {SITE.postal}, by Puerta del Sol. <a href={withBase('/visit/')}>Hours &amp; map</a></p>
       </div>
-      <picture><img class="split-photo tall" src={withBase('/images/dubliners-projector-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-projector-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-projector-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Big projector and screens in the main room at Dubliners, near Sol" /></picture>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Screens in the main room at Dubliners, near Sol" /></picture>
     </div>
   </section>
   <section class="section band">
@@ -72,10 +72,10 @@ const eventsLd = games.map((g) => ({
   <dt><strong>Are you showing all three Ireland games?</strong></dt><dd>Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE.</dd>
   <dt><strong>What time do you open?</strong></dt><dd>From 12:00 every day. Friday and Saturday until 02:30.</dd>
   <dt><strong>Where are you?</strong></dt><dd>{SITE.address}, {SITE.postal}, by Puerta del Sol.</dd>
-  <dt><strong>How many screens do you have?</strong></dt><dd>A big projector and 8 screens.</dd>
+  <dt><strong>How many screens do you have?</strong></dt><dd>8 screens.</dd>
   <dt><strong>How do I get there?</strong></dt><dd>Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7.</dd>
 </dl>
-<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are you showing all three Ireland games?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE."}}, {"@type": "Question", "name": "What time do you open?", "acceptedAnswer": {"@type": "Answer", "text": "From 12:00 every day. Friday and Saturday until 02:30."}}, {"@type": "Question", "name": "Where are you?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol."}}, {"@type": "Question", "name": "How many screens do you have?", "acceptedAnswer": {"@type": "Answer", "text": "A big projector and 8 screens."}}, {"@type": "Question", "name": "How do I get there?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7."}}]})} />
+<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are you showing all three Ireland games?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE."}}, {"@type": "Question", "name": "What time do you open?", "acceptedAnswer": {"@type": "Answer", "text": "From 12:00 every day. Friday and Saturday until 02:30."}}, {"@type": "Question", "name": "Where are you?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol."}}, {"@type": "Question", "name": "How many screens do you have?", "acceptedAnswer": {"@type": "Answer", "text": "8 screens."}}, {"@type": "Question", "name": "How do I get there?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7."}}]})} />
 <p>En español: <a href={withBase('/es/rugby-irlanda-madrid/')} hreflang="es">Rugby de Irlanda en Madrid</a> · All the sport we show: <a href={withBase('/whats-on/')}>What’s On</a></p>
     </div>
   </section>

@@ -125,7 +125,7 @@ export function t(lang: Lang) {
       nearSol: 'Bar de fútbol cerca de Sol',
       students: 'Estudiantes internacionales',
       jsonLdDescription:
-        'Pub irlandés de Madrid en la antigua sastrería Barragán (1885), junto a la Puerta del Sol, que conserva su techo pintado original. NFL y deporte americano, rugby y fútbol en un proyector y 8 pantallas, abierto cada día desde las 12:00 y con público internacional y personal que habla inglés. Calle de Espoz y Mina 7, Madrid.',
+        'Pub irlandés de Madrid en la antigua sastrería Barragán (1885), junto a la Puerta del Sol, que conserva su techo pintado original. NFL y deporte americano, rugby y fútbol en 8 pantallas, abierto cada día desde las 12:00 y con público internacional y personal que habla inglés. Calle de Espoz y Mina 7, Madrid.',
       jsonLdSlogan: 'Donde antes se cosían trajes, hoy se tejen historias.',
     };
   }
@@ -152,7 +152,7 @@ export function t(lang: Lang) {
     nearSol: 'Football bar near Sol',
     students: 'International students',
     jsonLdDescription:
-      'Irish pub in Madrid in the former Barragán tailor shop (1885), just off Puerta del Sol, keeping its original painted ceiling. NFL and American sports, rugby and football on a projector and 8 screens, open daily from 12:00, with an international crowd and English-speaking staff. Calle de Espoz y Mina 7, Madrid.',
+      'Irish pub in Madrid in the former Barragán tailor shop (1885), just off Puerta del Sol, keeping its original painted ceiling. NFL and American sports, rugby and football on 8 screens, open daily from 12:00, with an international crowd and English-speaking staff. Calle de Espoz y Mina 7, Madrid.',
     jsonLdSlogan: 'Where suits were once made, stories are now shared.',
   };
 }

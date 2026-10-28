@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Bayern day 5 (PLAN.md, 28 Oct 2026). Angle: the history of the tie (1974 final + replay, 2016 semi-final), a question to the fans.
+// History facts ONLY from UEFA.com previews (uefa.com/uefachampionsleague/news/0253-...atletico-and-bayern-finally-renew-acquaintances and
+// 022c-...bayern-in-need-of-atletico-turnaround) + UEFA match page 2015787. Match facts from CONFIRMADO row 1 of /workspace/radar/bayern-3nov.md.
+// No gathering-spot angle, no prices, no bookings, no "official".
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When did Atlético and Bayern first meet?', acceptedAnswer: { '@type': 'Answer', text: 'In the 1974 European Cup final at the Heysel Stadium in Brussels. The first match on 15 May 1974 ended 1-1 after extra time; Bayern won the replay two days later 4-0.' } },
+    { '@type': 'Question', name: 'Who won the 2016 Champions League semi-final?', acceptedAnswer: { '@type': 'Answer', text: 'Atlético. They won 1-0 in Madrid, Bayern won 2-1 in Munich, and Atlético went through on away goals after a 2-2 aggregate.' } },
+    { '@type': 'Question', name: 'When is the next Atlético v Bayern?', acceptedAnswer: { '@type': 'Answer', text: 'Tuesday 3 November 2026, kick-off 21:00 Madrid time, at the Riyadh Air Metropolitano, Champions League league phase. It is LIVE at Dubliners near Puerta del Sol.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Atlético v Bayern: 1974, 2016 and Now 3 November | Dubliners'} description={'From the 1974 European Cup final replay to the 2016 semi-final: the story of Atlético v Bayern before Tue 3 Nov, 21:00. Watch it LIVE at Dubliners near Sol.'} path="/bayern-fans-madrid/rivalry-history/" lang="en" hreflang={{ en: '/bayern-fans-madrid/rivalry-history/', de: '/de/bayern-fans-madrid/duell-geschichte/' }} ogImage="/images/dubliners-projector-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>Remember 1974 and 2016? The story of Atlético v Bayern</h1>
+      <p class="lead">Before next Tuesday's match, a look back at the nights that made this tie: the only replayed final in European Cup history, and the 2016 semi-final decided on away goals. Which one do you remember?</p>
+      <p class="small">Atlético v Bayern · Tuesday 3 November 2026 · kick-off 21:00 Madrid time · Updated 28 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>This is part of our guide for Bayern fans in Madrid; start with <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>. Planning the day? Read <a href={withBase('/bayern-fans-madrid/match-day-plan/')}>your match-day plan</a>.</p>
+      <h2>1974: the final that needed a replay</h2>
+      <p>The first time these two clubs met was the 1974 European Cup final, the first final for both, at the Heysel Stadium in Brussels. On <strong>15 May 1974</strong> Luis Aragonés put Atlético ahead in the 114th minute, and the trophy was seconds away when Hans-Georg Schwarzenbeck equalised in the 120th minute: 1-1.</p>
+      <p>Two days later, on <strong>17 May 1974</strong>, the teams went back to the Heysel for the only replayed final in European Cup history. Bayern won 4-0 with two goals each from Uli Hoeness and Gerd Müller. It was the first of Bayern's three European Cups in a row.</p>
+      <h2>2016: the semi-final on away goals</h2>
+      <p>The clubs did not meet again for 42 years. In the 2015/16 Champions League semi-final, Atlético won the first leg 1-0 in Madrid on 27 April 2016. In Munich, Bayern won the second leg 2-1, but the aggregate finished 2-2 and Atlético went through to the final on away goals.</p>
+      <h2>3 November 2026: the next chapter</h2>
+      <p>Atlético de Madrid v FC Bayern München, UEFA Champions League (league phase), <strong>Tuesday 3 November 2026, 21:00 Madrid time</strong>, at the Riyadh Air Metropolitano. In Spain it is broadcast on Movistar Plus+. No ticket? The match is LIVE at Dubliners on our big projector and 8 screens. Come early: we open at 12:00.</p>
+      <p><strong>Your turn:</strong> were you in Brussels in 1974, or watching in 2016? Tell us your memories when you come in.</p>
+      <h2>Three pubs near Sol</h2>
+      <ul>
+        <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, a few steps from Puerta del Sol.</li>
+        <li><strong>O'Connell St</strong>: right next door, also at Calle de Espoz y Mina 7.</li>
+        <li><strong>O'Reilly's</strong>: 200 m from Puerta del Sol.</li>
+      </ul>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When did Atlético and Bayern first meet?</strong></dt><dd>In the 1974 European Cup final at the Heysel Stadium in Brussels. The first match on 15 May 1974 ended 1-1 after extra time; Bayern won the replay two days later 4-0.</dd>
+        <dt><strong>Who won the 2016 Champions League semi-final?</strong></dt><dd>Atlético. They won 1-0 in Madrid, Bayern won 2-1 in Munich, and Atlético went through on away goals after a 2-2 aggregate.</dd>
+        <dt><strong>When is the next Atlético v Bayern?</strong></dt><dd>Tuesday 3 November 2026, kick-off 21:00 Madrid time, at the Riyadh Air Metropolitano, Champions League league phase. It is LIVE at Dubliners near Puerta del Sol.</dd>
+      </dl>
+      <p class="small">Sources for the history: UEFA.com match previews and match pages. Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/duell-geschichte/')} hreflang="de" lang="de">Erinnerungen an 1974 und 2016? Die Geschichte von Atlético–Bayern</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More for Bayern fans',
+            items: [
+              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'The match LIVE near Sol' },
+              { href: '/bayern-fans-madrid/match-day-plan/', label: 'Your match-day plan', note: 'Times and how to reach the Metropolitano' },
+              { href: '/bayern-fans-madrid/screens-and-food/', label: 'Big screen and food', note: 'Projector, 8 screens and our menu' },
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

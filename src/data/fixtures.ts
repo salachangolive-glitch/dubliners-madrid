@@ -103,6 +103,7 @@
  *   (nfl.com by-week + ESPN; Patriots–Lions in Munich); Premier League 21–23 Nov (premierleague.com news 4725574, GMT+1); LaLiga J13 20–23 Nov
  *   (laliga.com horarios J13, UTC+1). EXCLUDED: NBA/NHL ≥01:00, SNF/TNF/MNF 02:15–02:20, other Copa ties (not selected), MLB (no season).
  * - 27 Oct (morning block): rows dateKey <= 2026-10-26 RETIRED (33 rows: Sun 25 + Mon 26 Oct, all played).
+ * - 28 Oct (morning block): rows dateKey <= 2026-10-27 RETIRED (3 rows: Tue 27 Oct, all played).
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -1825,36 +1826,6 @@ export const FIXTURES: Fixture[] = [
   },
   // 26 Oct (DG follow-up 16:11): Tue 27 / Wed 28 Oct + 9–23 Nov reinforcement. Sources per row in
   // /workspace/dubliners-agenda-2026-10-26/FUENTES.md. NO channel. NFL without RedZone (owner-confirmed only 1 + 8 Nov).
-  {
-    dateKey: '2026-10-27',
-    whenLabel: 'Tue 27 Oct',
-    competition: 'EFL Cup',
-    teams: 'Fleetwood Town vs Arsenal',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    noteEn: 'Live at Dubliners.',
-    noteEs: 'En directo en Dubliners.',
-  },
-  {
-    dateKey: '2026-10-27',
-    whenLabel: 'Tue 27 Oct',
-    competition: 'DFB-Pokal',
-    teams: 'Borussia Dortmund vs Werder Bremen',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-    noteEn: 'Live at Dubliners.',
-    noteEs: 'En directo en Dubliners.',
-  },
-  {
-    dateKey: '2026-10-27',
-    whenLabel: 'Tue 27 Oct',
-    competition: 'Copa del Rey',
-    teams: 'Recreativo de Huelva vs Rayo Vallecano',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    noteEn: 'Live at Dubliners.',
-    noteEs: 'En directo en Dubliners.',
-  },
   {
     dateKey: '2026-10-28',
     whenLabel: 'Wed 28 Oct',

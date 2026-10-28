@@ -104,6 +104,9 @@
  *   (laliga.com horarios J13, UTC+1). EXCLUDED: NBA/NHL ≥01:00, SNF/TNF/MNF 02:15–02:20, other Copa ties (not selected), MLB (no season).
  * - 27 Oct (morning block): rows dateKey <= 2026-10-26 RETIRED (33 rows: Sun 25 + Mon 26 Oct, all played).
  * - 28 Oct (morning block): rows dateKey <= 2026-10-27 RETIRED (3 rows: Tue 27 Oct, all played).
+ * - 28 Oct (DG, owner order, AUDITORIA agenda 29 Oct–8 Nov): + EFL Cup R16 Everton–Newcastle Thu 29 20:45 (evertonfc.com / newcastleunited.com 19:45 GMT);
+ *   + F1 Mexico FP1 Fri 30 19:30 / FP2 23:00 (formula1.com timetable 12:30/16:00 local, UTC-6); + F1 São Paulo quali Sat 7 Nov 19:00 / race Sun 8 18:00
+ *   (formula1.com 15:00/14:00 local, UTC-3); + Bundesliga MD8 Bayern–Dortmund Sat 31 18:30 CET (bundesliga.com, datencenter.dfb.de). NO channel.
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -1705,6 +1708,58 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Sunday before the Monday bank holiday. Live at Dubliners.',
     noteEs: 'Domingo víspera del festivo del lunes. En directo en Dubliners.',
+  },
+  {
+    dateKey: '2026-10-29',
+    whenLabel: 'Thu 29 Oct',
+    competition: 'EFL Cup',
+    teams: 'Everton vs Newcastle United',
+    madridTime: '20:45',
+    confirmedOnScreens: true,
+    noteEn: 'Live at Dubliners.',
+    noteEs: 'En directo en Dubliners.',
+  },
+  {
+    dateKey: '2026-10-30',
+    whenLabel: 'Fri 30 Oct',
+    competition: 'Formula 1',
+    teams: 'Mexico City Grand Prix — Practice 1',
+    madridTime: '19:30',
+    approxDurationMin: 60,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-30',
+    whenLabel: 'Fri 30 Oct',
+    competition: 'Formula 1',
+    teams: 'Mexico City Grand Prix — Practice 2',
+    madridTime: '23:00',
+    approxDurationMin: 60,
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-10-31',
+    whenLabel: 'Sat 31 Oct',
+    competition: 'Bundesliga',
+    teams: 'Bayern Munich vs Borussia Dortmund',
+    madridTime: '18:30',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-07',
+    whenLabel: 'Sat 7 Nov',
+    competition: 'Formula 1',
+    teams: 'São Paulo Grand Prix — Qualifying',
+    madridTime: '19:00',
+    confirmedOnScreens: true,
+  },
+  {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'Formula 1',
+    teams: 'São Paulo Grand Prix — Race',
+    madridTime: '18:00',
+    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-11-01',

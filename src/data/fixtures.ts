@@ -74,6 +74,7 @@
  *   englandrugby.com). NO channel (Movistar Plus+ guide published only to 25 Oct; DAZN guide not verified).
  * - 19 Oct (DG 14:21): + LaLiga J12 6–8 Nov (laliga.com resultados/2026-27/jornada-12); + Top 14 J8/J9 31 Oct–8 Nov (top14.lnr.fr, French time = Madrid);
  *   + WXV USA–England 30 Oct 22:15 and South Africa–Ireland 31 Oct 14:00, + Nations Cup Spain–Uruguay 7 Nov 16:00 (World Rugby match API, UTC+1).
+ * 29 Oct (DG, Radar DU4): Ireland–Argentina 6 Nov 21:10 note «Irish rugby Friday night» (irishrugby.ie 20:10 Irish time).
  *   NZ–France 07:10 and Japan–Wales 08:00 (31 Oct) EXCLUDED (before 12:00 opening). NO channel.
  * - 19 Oct (DG 14:35): + Sat 31 Oct Saracens–Newcastle 16:00, Northampton–Gloucester 18:30 (Premiership), Benetton–Edinburgh 16:00 (URC):
  *   World Rugby match API (15:00Z / 17:30Z / 15:00Z → +1). NO channel.
@@ -1213,6 +1214,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ireland vs Argentina',
     madridTime: '21:10',
     confirmedOnScreens: true,
+    noteEn: 'Irish rugby Friday night: Ireland at the Aviva Stadium, Dublin. Live at Dubliners.',
+    noteEs: 'Viernes de rugby irlandés: Irlanda en el Aviva Stadium, Dublín. En directo en Dubliners.',
   },
   // 20 Oct: Ireland men Nov 2026 (irishrugby.ie fixtures 20:10 / 16:40 Irish time + World Rugby API) = Madrid +1 h.
   {

@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS, hoursFor } from '../../../data/hours';
+
+// Bayern day 6 (PLAN.md, 29 Oct 2026). Angle: 5 practical tips for the trip (time zone, getting around via Metro app / crtm.es,
+// pub hours, stadium rules, come early). Facts ONLY from CONFIRMADO rows 1, 8 and 15 of /workspace/radar/bayern-3nov.md.
+// No sightseeing / walking angle, no exact Metro route, no prices, no bookings, no "official".
+const tue = hoursFor('Tuesday');
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is Madrid in the same time zone as Munich?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Madrid and Munich both use Central European Time, so the 21:00 kick-off on Tuesday 3 November is 21:00 in Munich too.' } },
+    { '@type': 'Question', name: 'What can I not take into the stadium?', acceptedAnswer: { '@type': 'Answer', text: 'The stadium rules forbid alcohol, flares or pyrotechnics and objects over 500 g, among other items. Check the latest rules before you set off.' } },
+    { '@type': 'Question', name: 'When is Dubliners open on match day?', acceptedAnswer: { '@type': 'Answer', text: `On Tuesday 3 November Dubliners is open ${tue}. The match is LIVE on our 8 screens.` } },
+  ],
+};
+---
+
+<BaseLayout title={'5 Tips for Your Madrid Trip: Atlético v Bayern, 3 Nov | Dubliners'} description={'Time zone, getting around, pub hours, stadium rules and when to arrive: 5 quick tips for Bayern fans before Atlético v Bayern, Tue 3 Nov, 21:00.'} path="/bayern-fans-madrid/practical-tips/" lang="en" hreflang={{ en: '/bayern-fans-madrid/practical-tips/', de: '/de/bayern-fans-madrid/praktische-tipps/' }} ogImage="/images/dubliners-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>5 tips for your Madrid trip</h1>
+      <p class="lead">Coming to Madrid for Atlético v Bayern? Five quick things to know before you pack, from the clock to the stadium gate.</p>
+      <p class="small">Atlético v Bayern · Tuesday 3 November 2026 · kick-off 21:00 Madrid time · Updated 29 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>This is part of our guide for Bayern fans in Madrid; start with <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>.</p>
+      <ol>
+        <li><strong>No need to change your watch.</strong> Madrid and Munich share the same time zone. Kick-off is 21:00 in Madrid, and 21:00 at home.</li>
+        <li><strong>Plan your journeys in the app.</strong> For routes, tickets and travel cards, use the Metro de Madrid app or <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>. The stadium has its own Metro station: Estadio Metropolitano (line 7).</li>
+        <li><strong>Know our hours.</strong> Dubliners opens at 12:00 every day. On Tuesday 3 November we are open {tue}.</li>
+        <li><strong>Travel light to the stadium.</strong> The stadium rules forbid alcohol, flares or pyrotechnics, and objects over 500 g, among other items. Check the latest rules before you set off.</li>
+        <li><strong>Come early.</strong> No ticket? The match is LIVE at Dubliners on our 8 screens, broadcast in Spain on Movistar Plus+.</li>
+      </ol>
+      <h2>The match</h2>
+      <p>Atlético de Madrid v FC Bayern München, UEFA Champions League (league phase), <strong>Tuesday 3 November 2026, 21:00 Madrid time</strong>, at the Riyadh Air Metropolitano.</p>
+      <h2>Three pubs near Sol</h2>
+      <ul>
+        <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, a few steps from Puerta del Sol.</li>
+        <li><strong>O'Connell St</strong>: right next door, also at Calle de Espoz y Mina 7.</li>
+        <li><strong>O'Reilly's</strong>: 200 m from Puerta del Sol.</li>
+      </ul>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Come early: directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Is Madrid in the same time zone as Munich?</strong></dt><dd>Yes. Madrid and Munich both use Central European Time, so the 21:00 kick-off on Tuesday 3 November is 21:00 in Munich too.</dd>
+        <dt><strong>What can I not take into the stadium?</strong></dt><dd>The stadium rules forbid alcohol, flares or pyrotechnics and objects over 500 g, among other items. Check the latest rules before you set off.</dd>
+        <dt><strong>When is Dubliners open on match day?</strong></dt><dd>On Tuesday 3 November Dubliners is open {tue}. The match is LIVE on our 8 screens.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/praktische-tipps/')} hreflang="de" lang="de">5 Tipps für euren Madrid-Trip</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More for Bayern fans',
+            items: [
+              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'The match LIVE near Sol' },
+              { href: '/bayern-fans-madrid/match-day-plan/', label: 'Your match-day plan', note: 'Times and how to reach the Metropolitano' },
+              { href: '/bayern-fans-madrid/rivalry-history/', label: 'The story of Atlético v Bayern', note: '1974, 2016 and now 3 November' },
+              { href: '/bayern-fans-madrid/screens-and-food/', label: 'Screens and food', note: '8 screens and our menu' },
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

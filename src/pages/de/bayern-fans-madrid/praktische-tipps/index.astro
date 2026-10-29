@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../../site';
+import { OPENING_HOURS, hoursFor } from '../../../../data/hours';
+
+// Bayern Tag 6 (PLAN.md, 29 Oct 2026). Angle: 5 praktische Tipps (Zeitzone, Anreise via Metro-App / crtm.es, Öffnungszeiten,
+// Stadionordnung, früh kommen). Nur CONFIRMADO-Zeilen 1, 8 und 15 aus /workspace/radar/bayern-3nov.md.
+// Kein "offiziell", kein Treffpunkt, keine genaue Metro-Route, keine Preise, keine Reservierungen.
+const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
+const tue = hoursFor('Tuesday');
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Hat Madrid dieselbe Zeitzone wie München?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Madrid und München haben beide Mitteleuropäische Zeit. Anstoß am Dienstag, 3. November, ist um 21:00 Uhr – in Madrid wie in München.' } },
+    { '@type': 'Question', name: 'Was darf nicht mit ins Stadion?', acceptedAnswer: { '@type': 'Answer', text: 'Laut Stadionordnung sind unter anderem Alkohol, Bengalos bzw. Pyrotechnik und Gegenstände über 500 g verboten. Prüft vor dem Spiel die aktuellen Regeln.' } },
+    { '@type': 'Question', name: 'Wann hat Dubliners am Spieltag geöffnet?', acceptedAnswer: { '@type': 'Answer', text: `Am Dienstag, 3. November, hat Dubliners von ${tue} Uhr geöffnet. Das Spiel läuft LIVE auf unseren 8 Bildschirmen.` } },
+  ],
+};
+---
+
+<BaseLayout title="5 Tipps für euren Madrid-Trip: Atlético–Bayern, 3. Nov. | Dubliners" description="Zeitzone, Anreise, Öffnungszeiten, Stadionordnung und wann ihr kommen solltet: 5 kurze Tipps für Bayern-Fans vor Atlético–Bayern, Di., 3. Nov., 21:00 Uhr." path="/de/bayern-fans-madrid/praktische-tipps/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/practical-tips/', de: '/de/bayern-fans-madrid/praktische-tipps/' }} ogImage="/images/dubliners-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact"><div class="container">
+    <h1>5 Tipps für euren Madrid-Trip</h1>
+    <p class="lead">Ihr kommt zu Atlético–Bayern nach Madrid? Fünf Dinge, die ihr vor dem Kofferpacken wissen solltet – von der Uhrzeit bis zum Stadiontor.</p>
+    <p class="small">Atlético–Bayern · Dienstag, 3. November 2026 · Anstoß 21:00 Uhr Madrider Zeit · Aktualisiert am 29. Oktober 2026</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route planen</a>
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Dieser Beitrag gehört zu unserem Guide für Bayern-Fans in Madrid; los geht’s hier: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>.</p>
+    <ol>
+      <li><strong>Uhr nicht umstellen.</strong> Madrid und München liegen in derselben Zeitzone. Anstoß ist um 21:00 Uhr – in Madrid wie daheim.</li>
+      <li><strong>Wege in der App planen.</strong> Verbindungen, Tickets und Abos findet ihr in der App von Metro de Madrid oder auf <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>. Das Stadion hat eine eigene Metro-Station: Estadio Metropolitano (Linie 7).</li>
+      <li><strong>Unsere Zeiten kennen.</strong> Dubliners öffnet jeden Tag um 12:00 Uhr. Am Dienstag, 3. November, haben wir von {tue} Uhr geöffnet.</li>
+      <li><strong>Leicht ins Stadion.</strong> Laut Stadionordnung sind unter anderem Alkohol, Bengalos bzw. Pyrotechnik und Gegenstände über 500 g verboten. Prüft vor dem Spiel die aktuellen Regeln.</li>
+      <li><strong>Kommt früh.</strong> Kein Ticket? Das Spiel läuft LIVE bei Dubliners auf unseren 8 Bildschirmen, in Spanien übertragen von Movistar Plus+.</li>
+    </ol>
+    <h2>Das Spiel</h2>
+    <p>Atlético de Madrid – FC Bayern München, UEFA Champions League (Ligaphase), <strong>Dienstag, 3. November 2026, 21:00 Uhr Madrider Zeit</strong>, im Riyadh Air Metropolitano.</p>
+    <h2>Drei Pubs an der Sol</h2>
+    <ul>
+      <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, wenige Schritte von der Puerta del Sol.</li>
+      <li><strong>O'Connell St</strong>: direkt nebenan, ebenfalls Calle de Espoz y Mina 7.</li>
+      <li><strong>O'Reilly's</strong>: 200 m von der Puerta del Sol.</li>
+    </ul>
+    <h2>Öffnungszeiten</h2>
+    <ul>{OPENING_HOURS.map((d) => <li>{DE[d.day]}: {d.opens}–{d.closes} Uhr</li>)}</ul>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Kommt früh: Route planen</a>
+      <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Informationen anfordern</a>
+    </div>
+    <h2>Häufige Fragen</h2>
+    <dl class="faq">
+      <dt><strong>Hat Madrid dieselbe Zeitzone wie München?</strong></dt><dd>Ja. Madrid und München haben beide Mitteleuropäische Zeit. Anstoß am Dienstag, 3. November, ist um 21:00 Uhr – in Madrid wie in München.</dd>
+      <dt><strong>Was darf nicht mit ins Stadion?</strong></dt><dd>Laut Stadionordnung sind unter anderem Alkohol, Bengalos bzw. Pyrotechnik und Gegenstände über 500 g verboten. Prüft vor dem Spiel die aktuellen Regeln.</dd>
+      <dt><strong>Wann hat Dubliners am Spieltag geöffnet?</strong></dt><dd>Am Dienstag, 3. November, hat Dubliners von {tue} Uhr geöffnet. Das Spiel läuft LIVE auf unseren 8 Bildschirmen.</dd>
+    </dl>
+    <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners ist ein unabhängiger Pub, ohne Verbindung zur UEFA oder zu den Vereinen.</p>
+    <p>Auf Englisch: <a href={withBase('/bayern-fans-madrid/practical-tips/')} hreflang="en" lang="en">5 tips for your Madrid trip</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Mehr für Bayern-Fans',
+          items: [
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Das Spiel LIVE an der Sol' },
+            { href: '/de/bayern-fans-madrid/spieltag-plan/', label: 'Euer Spieltag-Plan', note: 'Zeiten und Anreise zum Metropolitano' },
+            { href: '/de/bayern-fans-madrid/duell-geschichte/', label: 'Die Geschichte von Atlético–Bayern', note: '1974, 2016 und jetzt der 3. November' },
+            { href: '/de/bayern-fans-madrid/leinwand-und-essen/', label: 'Bildschirme und Essen', note: '8 Bildschirme, Speisekarte' },
+            { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
+          ],
+        },
+      ]}
+    />
+  </div></section>
+</BaseLayout>

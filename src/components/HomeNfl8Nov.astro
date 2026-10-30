@@ -1,0 +1,58 @@
+---
+/**
+ * TEMPORARY home block — NFL Sunday 8 Nov 2026 (owner order 30 Oct 01:22/01:23 via DG: 3rd block of the home page EN/ES,
+ * "hasta que termine" the Sunday). Data comes from FIXTURES (same rows as What's On / Partidos).
+ * Auto-hide: build-time (todayKey <= SHOW_UNTIL in the pages) + client data-show-until (FixtureAntiStale).
+ * REMOVE on Mon 9 Nov: delete the two `<HomeNfl8Nov ... />` lines + imports in src/pages/index.astro and
+ * src/pages/es/index.astro (or `git revert` the commit that added this file).
+ */
+import { FIXTURES } from '../data/fixtures';
+import { withBase } from '../site';
+
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const SHOW_UNTIL = '2026-11-08';
+
+const rows = FIXTURES.filter(
+  (f) => f.dateKey === '2026-11-08' && f.competition === 'NFL' && f.teams !== 'NFL RedZone' && f.confirmedOnScreens,
+);
+const byTime = new Map<string, string[]>();
+for (const r of [...rows].sort((a, b) => a.madridTime.localeCompare(b.madridTime))) {
+  if (!byTime.has(r.madridTime)) byTime.set(r.madridTime, []);
+  byTime.get(r.madridTime)!.push(r.teams);
+}
+const hasRedZone = FIXTURES.some((f) => f.dateKey === '2026-11-08' && f.teams === 'NFL RedZone');
+const guideHref = es ? '/es/guia-domingo-nfl-madrid/' : '/nfl-sunday-madrid-guide/';
+const agendaHref = es ? '/es/partidos/' : '/whats-on/';
+---
+
+<section class="section band-gold home-nfl8" id={es ? 'nfl-domingo-8-noviembre' : 'nfl-sunday-8-november'} data-show-until={SHOW_UNTIL} data-home-block="nfl-8nov">
+  <div class="container">
+    <h2>{es ? 'Domingo NFL en Madrid · domingo 8 de noviembre' : 'NFL Sunday in Madrid · Sunday 8 November'}</h2>
+    <p>
+      {es
+        ? 'Bengals vs Falcons se juega en el Estadio Santiago Bernabéu, y en Dubliners la NFL sigue todo el domingo: estos partidos van EN DIRECTO en nuestras pantallas (hora de Madrid).'
+        : 'Bengals vs Falcons is played at the Santiago Bernabéu, and at Dubliners the NFL stays on all Sunday: these games are LIVE on our screens (Madrid time).'}
+    </p>
+    <ul class="home-nfl8__list">
+      {[...byTime.entries()].map(([time, games]) => (
+        <li><strong>{time}</strong> — {games.join(' · ')}{time === '15:30' && (es ? ' (Estadio Santiago Bernabéu, Madrid)' : ' (Santiago Bernabéu, Madrid)')}</li>
+      ))}
+      {hasRedZone && (
+        <li><strong>{es ? '19:00 en adelante' : 'From 19:00'}</strong> — {es ? 'NFL RedZone EN DIRECTO' : 'NFL RedZone LIVE'}</li>
+      )}
+    </ul>
+    <p class="small">{es ? 'Domingo abierto de 12:00 a 02:00.' : 'Open Sunday 12:00–02:00.'}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href={withBase(guideHref)}>{es ? 'Guía del domingo NFL' : 'NFL Sunday guide'}</a>
+      <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(agendaHref)}>{es ? 'Agenda completa' : 'Full What’s On'}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-nfl8__list { list-style: none; padding: 0; margin: 1rem 0; }
+  .home-nfl8__list li { padding: 0.45rem 0; border-bottom: 1px solid var(--border); line-height: 1.45; }
+  .home-nfl8__list li:last-child { border-bottom: 0; }
+</style>

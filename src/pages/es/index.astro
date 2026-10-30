@@ -5,6 +5,7 @@ import CtaRow from '../../components/CtaRow.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import HomeFixtureCards from '../../components/HomeFixtureCards.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import HomeNfl8Nov from '../../components/HomeNfl8Nov.astro'; // TEMP NFL 8 Nov — remove Mon 9 Nov
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
@@ -60,6 +61,9 @@ const todayKey = madridToday();
       <CtaRow lang="es" showWednesday={false} />
     </div>
   </section>
+
+  <!-- 3rd block (owner 30 Oct 01:23): NFL Sunday 8 Nov — TEMP, remove Mon 9 Nov -->
+  {todayKey <= '2026-11-08' && <HomeNfl8Nov lang="es" />}
 
   <!-- 2b. Fútbol (DG 27 oct: fútbol + público internacional) -->
   <section class="section" id="futbol">

@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Bayern day 7 (PLAN.md, 30 Oct 2026). Angle: the sports weekend LIVE (Sat 31 Oct – Mon 2 Nov, Madrid bank holiday) for fans who arrive early.
+// Matches ONLY from src/data/fixtures.ts (Radar-verified agenda). Match facts ONLY from CONFIRMADO row 1 of /workspace/radar/bayern-3nov.md.
+// No prices, no bookings, no "official", no exact Metro route.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Can I watch Bayern v Dortmund in Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Bayern Munich v Borussia Dortmund (Bundesliga) is LIVE at Dubliners on Saturday 31 October at 18:30 Madrid time.' } },
+    { '@type': 'Question', name: 'Is Monday 2 November a holiday in Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Monday 2 November is a bank holiday in the Madrid region, so many fans arrive for a long weekend before Atlético v Bayern on Tuesday 3 November.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Arrived Early? Bayern v Dortmund & the Weekend LIVE near Sol | Dubliners'} description={'In Madrid before Atlético v Bayern? Watch Bayern v Dortmund (Sat 31 Oct, 18:30) and the whole long weekend LIVE at Dubliners, a few steps from Puerta del Sol.'} path="/bayern-fans-madrid/football-weekend/" lang="en" hreflang={{ en: '/bayern-fans-madrid/football-weekend/', de: '/de/bayern-fans-madrid/fussball-wochenende/' }} ogImage="/images/dubliners-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>Arrived early? The weekend LIVE, starting with Der Klassiker</h1>
+      <p class="lead">Landed in Madrid days before Atlético v Bayern? Watch Bayern v Dortmund on Saturday and the rest of the long weekend with other fans, a few steps from Puerta del Sol.</p>
+      <p class="small">Saturday 31 October – Monday 2 November 2026 · Madrid time · Updated 30 October 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>This is part of our guide for Bayern fans in Madrid; start with <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a>.</p>
+      <h2>Saturday 31 October</h2>
+      <ul>
+        <li><strong>18:30 · Bayern Munich v Borussia Dortmund</strong> (Bundesliga): the warm-up for Tuesday.</li>
+        <li>14:00 · Levante v Atlético de Madrid (LaLiga): see your next opponent first.</li>
+        <li>13:30 · Chelsea v Manchester United (Premier League).</li>
+        <li>From 19:00 · Halloween at Dubliners, with costumes, decorations and music.</li>
+        <li>21:00 · Barcelona v Alavés (LaLiga) · 22:00 · Mexico City Grand Prix qualifying (F1).</li>
+      </ul>
+      <h2>Sunday 1 November</h2>
+      <ul>
+        <li>16:15 · Racing v Real Madrid (LaLiga) · 17:30 · Liverpool v Arsenal (Premier League).</li>
+        <li>From 19:00 · NFL Sunday, with RedZone · 21:00 · Mexico City Grand Prix (F1).</li>
+      </ul>
+      <h2>Monday 2 November (bank holiday in Madrid)</h2>
+      <ul>
+        <li>21:00 · Newcastle United v Everton (Premier League) and Deportivo v Osasuna (LaLiga).</li>
+      </ul>
+      <p>The full list, including rugby and NHL, is on <a href={withBase('/whats-on/')}>What's On</a>.</p>
+      <h2>Then Tuesday: Atlético v Bayern</h2>
+      <p>Atlético de Madrid v FC Bayern München, UEFA Champions League (league phase), <strong>Tuesday 3 November 2026, 21:00 Madrid time</strong>, at the Riyadh Air Metropolitano. No ticket? It's LIVE at Dubliners on our 8 screens, broadcast in Spain on Movistar Plus+. Come early.</p>
+      <h2>Three pubs near Sol</h2>
+      <ul>
+        <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, a few steps from Puerta del Sol.</li>
+        <li><strong>O'Connell St</strong>: right next door, also at Calle de Espoz y Mina 7.</li>
+        <li><strong>O'Reilly's</strong>: 200 m from Puerta del Sol.</li>
+      </ul>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Come early: directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Can I watch Bayern v Dortmund in Madrid?</strong></dt><dd>Yes. Bayern Munich v Borussia Dortmund (Bundesliga) is LIVE at Dubliners on Saturday 31 October at 18:30 Madrid time.</dd>
+        <dt><strong>Is Monday 2 November a holiday in Madrid?</strong></dt><dd>Yes, Monday 2 November is a bank holiday in the Madrid region, so many fans arrive for a long weekend before Atlético v Bayern on Tuesday 3 November.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA, the Bundesliga or the clubs.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/fussball-wochenende/')} hreflang="de" lang="de">Früh angereist? Das Wochenende LIVE</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More for Bayern fans',
+            items: [
+              { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'The match LIVE near Sol' },
+              { href: '/bayern-fans-madrid/practical-tips/', label: '5 tips for your Madrid trip', note: 'Time zone, travel, hours, stadium rules' },
+              { href: '/bayern-fans-madrid/match-day-plan/', label: 'Your match-day plan', note: 'Times and how to reach the Metropolitano' },
+              { href: '/bayern-fans-madrid/rivalry-history/', label: 'The story of Atlético v Bayern', note: '1974, 2016 and now 3 November' },
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

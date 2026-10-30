@@ -404,7 +404,7 @@ export const FIXTURES: Fixture[] = [
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
     teams: 'Raiders vs 49ers',
-    madridTime: '22:05',
+    madridTime: '22:25', // nfl.com week-9 + ESPN: 21:25Z (4:25 PM ET); fixed 30 Oct (was 22:05)
     confirmedOnScreens: true,
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',

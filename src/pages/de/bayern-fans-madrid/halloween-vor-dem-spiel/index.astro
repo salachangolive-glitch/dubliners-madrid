@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+
+// Bayern Tag 8 (PLAN.md, 31.10.2026). DE-Version von /bayern-fans-madrid/halloween-before-the-match/.
+const dayDe: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'de',
+  mainEntity: [
+    { '@type': 'Question', name: 'Gibt es im Dubliners in Madrid eine Halloween-Party?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Am Samstag, 31. Oktober 2026, feiert das Dubliners ab 19:00 Uhr Halloween – mit Kostümen, Deko und Musik, in der Calle de Espoz y Mina 7, ein paar Schritte von der Puerta del Sol.' } },
+    { '@type': 'Question', name: 'Kann ich vor Halloween noch Bayern gegen Dortmund schauen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. FC Bayern München gegen Borussia Dortmund läuft am Samstag, 31. Oktober, um 18:30 Uhr LIVE im Dubliners, kurz bevor um 19:00 Uhr die Halloween-Party beginnt.' } },
+  ],
+};
+---
+
+<BaseLayout title="Halloween in Madrid mit Bayern-Fans: erst der Klassiker, dann Kostüme | Dubliners" description="Bayern-Fans schon in Madrid? Erst Bayern–Dortmund um 18:30 Uhr, dann Halloween im Dubliners ab 19:00 Uhr mit Kostümen, Deko und Musik, nahe der Puerta del Sol." path="/de/bayern-fans-madrid/halloween-vor-dem-spiel/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/halloween-before-the-match/', de: '/de/bayern-fans-madrid/halloween-vor-dem-spiel/' }} ogImage="/images/dubliners-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>Halloween in Madrid mit Bayern-Fans</h1>
+      <p class="lead">Drei Tage vor Atlético–Bayern ist in Madrid Halloween. Erst schaut ihr um 18:30 Uhr den Klassiker, dann bleibt ihr einfach: Kostüme, Deko und Musik im Dubliners ab 19:00 Uhr, ein paar Schritte von der Puerta del Sol.</p>
+      <p class="small">Samstag, 31. Oktober 2026 · Madrider Zeit · Aktualisiert am 31. Oktober 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route planen</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>Dieser Artikel gehört zu unserem Guide für Bayern-Fans in Madrid; fangt hier an: <a href={withBase('/de/bayern-fans-madrid/')}>Bayern-Fans in Madrid</a>.</p>
+      <h2>Der Abend im Überblick</h2>
+      <ul>
+        <li><strong>18:30 Uhr · FC Bayern München – Borussia Dortmund</strong> (Bundesliga), LIVE bei uns.</li>
+        <li><strong>Ab 19:00 Uhr · Halloween im Dubliners</strong>: Kostüme, Deko und Musik. Alle Infos (auf Englisch): <a href={withBase('/halloween-madrid-2026/')} hreflang="en" lang="en">Halloween in Madrid near Sol</a>.</li>
+        <li>21:00 Uhr · FC Barcelona – Alavés (LaLiga), danach das Qualifying zum Großen Preis von Mexiko (F1), ebenfalls LIVE.</li>
+      </ul>
+      <h2>Kostüm-Ideen in Rot und Weiß</h2>
+      <p>Rot-Weiß passt auch zu Halloween: der Schal über dem Kostüm, Vereinsfarben im Gesicht oder einfach das Trikot unter dem Umhang. Kostüme sind willkommen, aber kein Muss.</p>
+      <h2>Und am Dienstag: Atlético–Bayern</h2>
+      <p>Atlético de Madrid – FC Bayern München, UEFA Champions League (Ligaphase), <strong>Dienstag, 3. November 2026, 21:00 Uhr Madrider Zeit</strong>, im Riyadh Air Metropolitano. Keine Karte? Das Spiel läuft LIVE im Dubliners, in Spanien übertragen von Movistar Plus+. Kommt früh.</p>
+      <h2>Drei Pubs an der Sol</h2>
+      <ul>
+        <li><strong>Dubliners</strong>: Calle de Espoz y Mina 7, ein paar Schritte von der Puerta del Sol.</li>
+        <li><strong>O'Connell St</strong>: direkt nebenan, ebenfalls Calle de Espoz y Mina 7.</li>
+        <li><strong>O'Reilly's</strong>: 200 m von der Puerta del Sol.</li>
+      </ul>
+      <h2>Öffnungszeiten</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{dayDe[d.day] ?? d.day}: {d.opens}–{d.closes} Uhr</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Kommt früh: Route planen</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Gibt es im Dubliners in Madrid eine Halloween-Party?</strong></dt><dd>Ja. Am Samstag, 31. Oktober 2026, feiert das Dubliners ab 19:00 Uhr Halloween – mit Kostümen, Deko und Musik, in der Calle de Espoz y Mina 7, ein paar Schritte von der Puerta del Sol.</dd>
+        <dt><strong>Kann ich vor Halloween noch Bayern gegen Dortmund schauen?</strong></dt><dd>Ja. FC Bayern München gegen Borussia Dortmund läuft am Samstag, 31. Oktober, um 18:30 Uhr LIVE im Dubliners, kurz bevor um 19:00 Uhr die Halloween-Party beginnt.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Das Dubliners ist ein unabhängiger Pub und steht in keiner Verbindung zur UEFA, zur Bundesliga oder zu den Vereinen.</p>
+      <p>In English: <a href={withBase('/bayern-fans-madrid/halloween-before-the-match/')} hreflang="en" lang="en">Halloween in Madrid with Bayern fans</a></p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Mehr für Bayern-Fans',
+            items: [
+              { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'Das Spiel LIVE an der Sol' },
+              { href: '/de/bayern-fans-madrid/fussball-wochenende/', label: 'Früh angereist? Das Wochenende LIVE', note: 'Bayern–Dortmund und mehr' },
+              { href: '/de/bayern-fans-madrid/praktische-tipps/', label: '5 Tipps für euren Madrid-Trip', note: 'Zeitzone, Anreise, Öffnungszeiten, Stadionordnung' },
+              { href: '/de/bayern-fans-madrid/spieltag-plan/', label: 'Euer Spieltag-Plan', note: 'Zeiten und Anreise zum Metropolitano' },
+              { href: '/whats-on/', label: "What's On", note: 'Alle Übertragungen (Englisch)', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

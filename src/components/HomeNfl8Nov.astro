@@ -23,6 +23,16 @@ for (const r of [...rows].sort((a, b) => a.madridTime.localeCompare(b.madridTime
   byTime.get(r.madridTime)!.push(r.teams);
 }
 const hasRedZone = FIXTURES.some((f) => f.dateKey === '2026-11-08' && f.teams === 'NFL RedZone');
+// Week schedule on nfl.com (Sun 8 Nov = REG9). Times/slots per /workspace/radar/2026-11-02-nfl.md (15:30 Madrid game; 19:00 and 22:05/22:25 with RedZone).
+const NFL_SCHEDULE_URL = 'https://www.nfl.com/schedules/2026/REG9/';
+const slotDefs = [
+  { label: '15:30', times: ['15:30'], kind: 'madrid' },
+  { label: '19:00', times: ['19:00'], kind: 'redzone' },
+  { label: '22:05 / 22:25', times: ['22:05', '22:25'], kind: 'redzone' },
+] as const;
+const slots = slotDefs
+  .map((d) => ({ ...d, games: d.times.flatMap((t) => byTime.get(t) ?? []) }))
+  .filter((d) => d.games.length > 0);
 const guideHref = es ? '/es/guia-domingo-nfl-madrid/' : '/nfl-sunday-madrid-guide/';
 const agendaHref = es ? '/es/partidos/' : '/whats-on/';
 ---
@@ -35,14 +45,23 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
         ? 'Bengals vs Falcons se juega en el Estadio Santiago Bernabéu, y en Dubliners la NFL sigue todo el domingo: estos partidos van EN DIRECTO en nuestras pantallas (hora de Madrid).'
         : 'Bengals vs Falcons is played at the Santiago Bernabéu, and at Dubliners the NFL stays on all Sunday: these games are LIVE on our screens (Madrid time).'}
     </p>
-    <ul class="home-nfl8__list">
-      {[...byTime.entries()].map(([time, games]) => (
-        <li><strong>{time}</strong> — {games.join(' · ')}{time === '15:30' && (es ? ' (Estadio Santiago Bernabéu, Madrid)' : ' (Santiago Bernabéu, Madrid)')}</li>
+    <h3 class="home-nfl8__h3">
+      <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Calendario de la semana NFL (nfl.com)' : 'NFL week schedule (nfl.com)'}</a>
+    </h3>
+    <ul class="home-nfl8__list" data-nfl-calendar="2026-11-08">
+      {slots.map((slot) => (
+        <li>
+          <strong>{slot.label}</strong> — {slot.games.join(' · ')}
+          {slot.kind === 'madrid'
+            ? (es ? ' — EN DIRECTO cerca de Sol (se juega en el Estadio Santiago Bernabéu)' : ' — LIVE near Sol (played at the Santiago Bernabéu)')
+            : hasRedZone && (es ? ' — con NFL RedZone' : ' — with NFL RedZone')}
+        </li>
       ))}
-      {hasRedZone && (
-        <li><strong>{es ? '19:00 en adelante' : 'From 19:00'}</strong> — {es ? 'NFL RedZone EN DIRECTO' : 'NFL RedZone LIVE'}</li>
-      )}
     </ul>
+    <p class="small">
+      {es ? 'Canal de TV en España: pendiente de confirmar. ' : 'TV channel in Spain: to be confirmed. '}
+      <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Ver el calendario completo en nfl.com' : 'Full schedule on nfl.com'}</a>
+    </p>
     <p class="small">{es ? 'Domingo abierto de 12:00 a 02:00.' : 'Open Sunday 12:00–02:00.'}</p>
     <div class="cta-row">
       <a class="btn btn-primary" href={withBase(guideHref)}>{es ? 'Guía del domingo NFL' : 'NFL Sunday guide'}</a>
@@ -52,6 +71,7 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
 </section>
 
 <style>
+  .home-nfl8__h3 { margin: 1rem 0 0.25rem; font-size: 1.05rem; }
   .home-nfl8__list { list-style: none; padding: 0; margin: 1rem 0; }
   .home-nfl8__list li { padding: 0.45rem 0; border-bottom: 1px solid var(--border); line-height: 1.45; }
   .home-nfl8__list li:last-child { border-bottom: 0; }

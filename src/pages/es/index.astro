@@ -6,6 +6,7 @@ import LinkHub from '../../components/LinkHub.astro';
 import HomeFixtureCards from '../../components/HomeFixtureCards.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import HomeNfl8Nov from '../../components/HomeNfl8Nov.astro'; // TEMP NFL 8 Nov — remove Mon 9 Nov
+import HomeBayern3Nov from '../../components/HomeBayern3Nov.astro'; // TEMP Bayern 3 Nov — remove Wed 4 Nov
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
@@ -63,6 +64,9 @@ const todayKey = madridToday();
   </section>
 
   <!-- 3rd block (owner 30 Oct 01:23): NFL Sunday 8 Nov — TEMP, remove Mon 9 Nov -->
+  <!-- 2nd content block (owner via DG 2 Nov 09:44): Bayern fans, Atlético v Bayern Tue 3 Nov — TEMP, remove Wed 4 Nov -->
+  {todayKey <= '2026-11-03' && <HomeBayern3Nov lang="es" />}
+
   {todayKey <= '2026-11-08' && <HomeNfl8Nov lang="es" />}
 
   <!-- 2b. Fútbol (DG 27 oct: fútbol + público internacional) -->

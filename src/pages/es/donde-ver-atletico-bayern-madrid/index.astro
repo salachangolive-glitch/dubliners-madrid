@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Campaña Bayern (dueño vía DG, lun 2 nov 2026 09:44/09:45). Versión ES del artículo principal DE /de/bayern-fans-madrid/atletico-bayern-wo-schauen/.
+// DG 2 nov 09:45: SOLO en esta campaña del Bayern, Dubliners se presenta como «punto de encuentro».
+// Datos: Radar /workspace/radar/bayern-3nov.md filas CONFIRMADO 1, 8, 10; crtm.es líneas 2 y 7 (leído 2 nov); crtm.es horario general de Metro 6:00–1:30.
+// SIN tiempos de trayecto, SIN cifras de aficionados.
+const PATH = '/es/donde-ver-atletico-bayern-madrid/';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Dónde ver el Atlético–Bayern en Madrid: punto de encuentro junto a Sol',
+  inLanguage: 'es',
+  datePublished: '2026-11-02',
+  dateModified: '2026-11-02',
+  image: absUrl('/images/facade-queue.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  about: 'Atlético de Madrid – FC Bayern München, UEFA Champions League, 3 de noviembre de 2026, 21:00, Riyadh Air Metropolitano',
+};
+const crumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: absUrl('/es/') },
+    { '@type': 'ListItem', position: 2, name: 'Dónde ver el Atlético–Bayern', item: absUrl(PATH) },
+  ],
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '¿Dónde ver el Atlético–Bayern en el centro de Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'En Dubliners, Calle de Espoz y Mina 7, a 2 minutos a pie de la Puerta del Sol. El partido va EN DIRECTO en nuestras pantallas y en pantalla grande.' } },
+    { '@type': 'Question', name: '¿A qué hora empieza?', acceptedAnswer: { '@type': 'Answer', text: 'El martes 3 de noviembre de 2026 a las 21:00, hora de Madrid, en el Riyadh Air Metropolitano. Lo emite Movistar Plus+.' } },
+    { '@type': 'Question', name: '¿Cómo llego en metro de Sol al estadio?', acceptedAnswer: { '@type': 'Answer', text: 'Línea 2 desde Sol dirección Cuatro Caminos hasta Canal y allí línea 7 dirección Hospital del Henares hasta Estadio Metropolitano. O línea 2 desde Sol hasta la cabecera, Las Rosas, y desde allí a pie (unos 15 minutos, según el Atlético de Madrid).' } },
+    { '@type': 'Question', name: '¿Hasta qué hora funciona el metro después del partido?', acceptedAnswer: { '@type': 'Answer', text: 'Según el Consorcio de Transportes (crtm.es), el horario general del Metro es de 6:00 a 1:30. Consulta la información del día en la app de Metro de Madrid o en crtm.es.' } },
+  ],
+};
+---
+<BaseLayout title="Dónde ver el Atlético–Bayern en Madrid: junto a Sol | Dubliners" description="Atlético–Bayern, mar 3 nov, 21:00: EN DIRECTO en pantalla grande en Dubliners, punto de encuentro junto a la Puerta del Sol. Cerveza, comida y metro al estadio y de vuelta." path={PATH} lang="es" hreflang={{ en: '/bayern-fans-madrid/where-to-watch-atletico-bayern/', de: '/de/bayern-fans-madrid/atletico-bayern-wo-schauen/', es: PATH }} ogImage="/images/facade-queue.jpg" extraJsonLd={[articleLd, crumbLd, faqLd]}>
+  <section class="hero hero-compact"><div class="container">
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href={withBase('/es/')}>Inicio</a> · <span>Dónde ver el Atlético–Bayern</span></nav>
+    <h1>Dónde ver el Atlético–Bayern en Madrid: punto de encuentro junto a Sol</h1>
+    <p class="lead">El Atlético recibe al Bayern el martes por la noche. Con entrada o sin ella, Dubliners, a 2 minutos a pie de la Puerta del Sol, es el punto de encuentro en el centro de Madrid: el partido EN DIRECTO en pantalla grande, cerveza fría, comida de pub y ambiente de partido.</p>
+    <p class="small">Atlético de Madrid – FC Bayern München · martes 3 de noviembre de 2026 · 21:00, hora de Madrid · Riyadh Air Metropolitano · Movistar Plus+ · Actualizado el 2 de noviembre de 2026</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      <a class="btn btn-primary" href={withBase('/es/partidos/')}>Agenda de partidos</a>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <h2>El partido</h2>
+    <p>UEFA Champions League, fase liga: <strong>Atlético de Madrid – FC Bayern München, martes 3 de noviembre de 2026, a las 21:00</strong>, hora de Madrid. Se juega en el Riyadh Air Metropolitano y lo emite Movistar Plus+.</p>
+
+    <h2>Dónde verlo en el centro: Dubliners, junto a Sol</h2>
+    <p>¿Sin entrada o prefieres quedarte en el centro? En Dubliners el Atlético–Bayern va EN DIRECTO en nuestras pantallas y en pantalla grande. Somos un pub irlandés en la Calle de Espoz y Mina 7, 28012 Madrid, a 2 minutos a pie de la Puerta del Sol (Metro Sol, líneas 1, 2 y 3). El martes abrimos de 12:00 a 02:00.</p>
+
+    <h2>Cerveza, comida y ambiente</h2>
+    <p>Cerveza fría en la barra, comida de pub de nuestra <a href={withBase('/es/carta/')}>carta</a> y una sala llena de aficionados esperando el pitido inicial: así empieza una noche de Champions en Madrid. En los partidos grandes conviene llegar pronto.</p>
+
+    <h2>Punto de encuentro antes del partido</h2>
+    <p>¿Vas al estadio? Queda antes con los tuyos en Sol, come algo y brindad juntos, y deja tiempo de sobra para el trayecto al Metropolitano.</p>
+
+    <h2>En metro de Sol al estadio</h2>
+    <ul>
+      <li><strong>Estación del estadio:</strong> Estadio Metropolitano, <strong>línea 7</strong>.</li>
+      <li><strong>Desde Sol con un transbordo:</strong> línea 2 dirección Cuatro Caminos hasta <strong>Canal</strong> y allí línea 7 dirección Hospital del Henares hasta <strong>Estadio Metropolitano</strong> (recorridos según <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>).</li>
+      <li><strong>Desde Sol sin transbordo:</strong> línea 2 dirección Las Rosas hasta la cabecera, <strong>Las Rosas</strong>. Según el Atlético de Madrid, los días de partido Metro refuerza la línea 7 y las alternativas Las Rosas (L2) y Canillejas (L5), a unos 15 minutos a pie del estadio.</li>
+      <li><strong>Autobús:</strong> según el Atlético, los días de partido la EMT pone un servicio especial Canillejas ↔ Plaza de Grecia. Consulta los detalles del 3 de noviembre ese mismo día en <a href="https://www.emtmadrid.es/" target="_blank" rel="noopener">emtmadrid.es</a>.</li>
+    </ul>
+    <p>Para tu ruta exacta y los avisos del día, usa la app de Metro de Madrid o <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</p>
+
+    <h2>Volver al centro después del partido</h2>
+    <p>La vuelta a Sol es al revés: línea 7 dirección Pitis hasta Canal y allí línea 2 dirección Las Rosas hasta Sol, o línea 2 directa desde Las Rosas hasta Sol. Según el Consorcio de Transportes (crtm.es), el horario general del Metro es de 6:00 a 1:30. Por la zona del estadio pasan también los autobuses nocturnos N5 y N6 de la EMT. Y en Sol, el martes, abrimos hasta las 02:00.</p>
+
+    <h2>Antes de ir al estadio</h2>
+    <p>Las normas del estadio prohíben introducir alcohol, bengalas o pirotecnia y objetos de más de 500 g, entre otros. Revisa las normas vigentes antes de salir.</p>
+
+    <h2>Horario</h2>
+    <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
+
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt><strong>¿Dónde ver el Atlético–Bayern en el centro de Madrid?</strong></dt><dd>En Dubliners, Calle de Espoz y Mina 7, a 2 minutos a pie de la Puerta del Sol. El partido va EN DIRECTO en nuestras pantallas y en pantalla grande.</dd>
+      <dt><strong>¿A qué hora empieza?</strong></dt><dd>El martes 3 de noviembre de 2026 a las 21:00, hora de Madrid, en el Riyadh Air Metropolitano. Lo emite Movistar Plus+.</dd>
+      <dt><strong>¿Cómo llego en metro de Sol al estadio?</strong></dt><dd>Línea 2 desde Sol dirección Cuatro Caminos hasta Canal y allí línea 7 dirección Hospital del Henares hasta Estadio Metropolitano. O línea 2 desde Sol hasta la cabecera, Las Rosas, y desde allí a pie (unos 15 minutos, según el Atlético de Madrid).</dd>
+      <dt><strong>¿Hasta qué hora funciona el metro después del partido?</strong></dt><dd>Según el Consorcio de Transportes (crtm.es), el horario general del Metro es de 6:00 a 1:30. Consulta la información del día en la app de Metro de Madrid o en crtm.es.</dd>
+    </dl>
+    <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners es un pub independiente, sin relación con la UEFA ni con los clubes.</p>
+    <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/atletico-bayern-wo-schauen/')} hreflang="de" lang="de">Atlético–Bayern: Wo schauen in Madrid?</a> · In English: <a href={withBase('/bayern-fans-madrid/where-to-watch-atletico-bayern/')} hreflang="en" lang="en">Where to watch Atlético v Bayern in Madrid</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'Más fútbol en Dubliners',
+          items: [
+            { href: '/es/champions-league-bar-madrid/', label: 'Champions League cerca de Sol', note: 'Noches europeas en nuestras pantallas' },
+            { href: '/es/partidos/', label: 'Agenda de partidos', note: 'Todo lo que emitimos' },
+            { href: '/es/carta/', label: 'Carta', note: 'Comida de pub' },
+            { href: '/de/bayern-fans-madrid/', label: 'Bayern-Fans in Madrid', note: 'En alemán', hreflang: 'de', lang: 'de' },
+          ],
+        },
+      ]}
+    />
+  </div></section>
+</BaseLayout>

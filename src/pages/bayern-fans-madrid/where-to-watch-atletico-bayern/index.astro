@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Bayern campaign (owner via DG, Mon 2 Nov 2026 09:44/09:45). EN version of the DE main article /de/bayern-fans-madrid/atletico-bayern-wo-schauen/.
+// DG 2 Nov 09:45: ONLY in this Bayern campaign Dubliners may be presented as the «meeting point».
+// Facts: Radar /workspace/radar/bayern-3nov.md CONFIRMADO rows 1, 8, 10; crtm.es lines 2 and 7 (read 2 Nov); crtm.es Metro general hours 6:00–1:30.
+// NO journey times, NO fan numbers.
+const PATH = '/bayern-fans-madrid/where-to-watch-atletico-bayern/';
+const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Where to watch Atlético v Bayern in Madrid: your meeting point by Puerta del Sol',
+  inLanguage: 'en',
+  datePublished: '2026-11-02',
+  dateModified: '2026-11-02',
+  image: absUrl('/images/facade-queue.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  about: 'Atlético de Madrid v FC Bayern München, UEFA Champions League, 3 November 2026, 21:00, Riyadh Air Metropolitano',
+};
+const crumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'Bayern fans in Madrid', item: absUrl('/bayern-fans-madrid/') },
+    { '@type': 'ListItem', position: 3, name: 'Where to watch Atlético v Bayern', item: absUrl(PATH) },
+  ],
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Where can I watch Atlético v Bayern in central Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'At Dubliners, Calle de Espoz y Mina 7, a 2-minute walk from Puerta del Sol. The match is LIVE on our screens and the big screen.' } },
+    { '@type': 'Question', name: 'What time is kick-off?', acceptedAnswer: { '@type': 'Answer', text: 'Tuesday 3 November 2026, 21:00 Madrid time, at the Riyadh Air Metropolitano. In Spain it is broadcast on Movistar Plus+.' } },
+    { '@type': 'Question', name: 'How do I get from Sol to the stadium?', acceptedAnswer: { '@type': 'Answer', text: 'By Metro: line 2 from Sol towards Cuatro Caminos to Canal, then line 7 towards Hospital del Henares to Estadio Metropolitano. Or line 2 from Sol to the end of the line, Las Rosas, and walk from there (about 15 minutes, according to Atlético de Madrid).' } },
+    { '@type': 'Question', name: 'Until when does the Metro run after the match?', acceptedAnswer: { '@type': 'Answer', text: 'According to the Consorcio de Transportes (crtm.es), general Metro service runs from 6:00 to 1:30. Check the latest information on the day in the Metro de Madrid app or on crtm.es.' } },
+  ],
+};
+---
+<BaseLayout title="Where to Watch Atlético v Bayern in Madrid: Meeting Point by Sol | Dubliners" description="Atlético v Bayern, Tue 3 Nov, 21:00: LIVE on the big screen at Dubliners, your meeting point by Puerta del Sol. Beer, food, and the Metro to the stadium and back." path={PATH} lang="en" hreflang={{ en: PATH, de: '/de/bayern-fans-madrid/atletico-bayern-wo-schauen/', es: '/es/donde-ver-atletico-bayern-madrid/' }} ogImage="/images/facade-queue.jpg" extraJsonLd={[articleLd, crumbLd, faqLd]}>
+  <section class="hero hero-compact"><div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href={withBase('/')}>Home</a> · <a href={withBase('/bayern-fans-madrid/')}>Bayern fans in Madrid</a> · <span>Where to watch Atlético v Bayern</span></nav>
+    <h1>Where to watch Atlético v Bayern in Madrid: your meeting point by Puerta del Sol</h1>
+    <p class="lead">Atlético play Bayern on Tuesday night. With a ticket or without one, Dubliners, a 2-minute walk from Puerta del Sol, is your meeting point in central Madrid: the match LIVE on the big screen, cold beer, pub food and a real match-day atmosphere.</p>
+    <p class="small">Atlético de Madrid v FC Bayern München · Tuesday 3 November 2026 · kick-off 21:00 Madrid time · Riyadh Air Metropolitano · Movistar Plus+ · Updated 2 November 2026</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+      <a class="btn btn-primary" href={withBase('/bayern-fans-madrid/')}>Everything for Bayern fans</a>
+    </div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <h2>The match</h2>
+    <p>UEFA Champions League, league phase: <strong>Atlético de Madrid v FC Bayern München, Tuesday 3 November 2026, 21:00</strong> Madrid time, the same time as in Munich. It is played at the Riyadh Air Metropolitano. In Spain it is broadcast on Movistar Plus+.</p>
+
+    <h2>Where to watch in the centre: Dubliners by Sol</h2>
+    <p>No ticket, or would you rather stay in the heart of the city? At Dubliners, Atlético v Bayern is LIVE on our screens and the big screen. We are an Irish pub at Calle de Espoz y Mina 7, 28012 Madrid, a 2-minute walk from Puerta del Sol (Metro Sol, lines 1, 2 and 3). On Tuesday we are open {tue.opens}–{tue.closes}, so there is plenty of time to meet up during the day.</p>
+
+    <h2>Beer, food and atmosphere</h2>
+    <p>Cold beer at the bar, pub food from our <a href={withBase('/menu/')}>food menu</a> and a room full of fans counting down to kick-off: that is how a Champions League night in Madrid starts. For big matches it pays to come early.</p>
+
+    <h2>Your meeting point before the match</h2>
+    <p>Going to the stadium? Meet up with us at Sol first, have something to eat and raise a glass together, then leave plenty of time for the trip to the Metropolitano.</p>
+
+    <h2>By Metro from Sol to the stadium</h2>
+    <ul>
+      <li><strong>Stadium station:</strong> Estadio Metropolitano, <strong>line 7</strong>.</li>
+      <li><strong>From Sol with one change:</strong> line 2 towards Cuatro Caminos to <strong>Canal</strong>, then line 7 towards Hospital del Henares to <strong>Estadio Metropolitano</strong> (line routes as published on <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>).</li>
+      <li><strong>From Sol with no change:</strong> line 2 towards Las Rosas to the end of the line, <strong>Las Rosas</strong>. According to Atlético de Madrid, on match days the Metro reinforces line 7 and the alternatives Las Rosas (L2) and Canillejas (L5), which are about a 15-minute walk from the stadium.</li>
+      <li><strong>Buses:</strong> according to Atlético, on match days EMT runs a special service Canillejas ↔ Plaza de Grecia. Check the details for 3 November on the day at <a href="https://www.emtmadrid.es/" target="_blank" rel="noopener">emtmadrid.es</a>.</li>
+    </ul>
+    <p>For your exact route and the latest notices on the day, use the Metro de Madrid app or <a href="https://www.crtm.es/" target="_blank" rel="noopener">crtm.es</a>.</p>
+
+    <h2>Getting back to the centre after the match</h2>
+    <p>Back to Sol it is the other way round: line 7 towards Pitis to Canal, then line 2 towards Las Rosas to Sol, or line 2 straight from Las Rosas to Sol. According to the Consorcio de Transportes (crtm.es), general Metro service runs from 6:00 to 1:30. EMT night buses N5 and N6 also serve the stadium area. And at Sol we are open until 02:00 on Tuesday.</p>
+
+    <h2>Before you go to the stadium</h2>
+    <p>The stadium rules forbid bringing in alcohol, flares or pyrotechnics, and objects over 500 g, among other items. Check the latest rules before you set off.</p>
+
+    <h2>Opening hours</h2>
+    <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+
+    <h2>FAQ</h2>
+    <dl class="faq">
+      <dt><strong>Where can I watch Atlético v Bayern in central Madrid?</strong></dt><dd>At Dubliners, Calle de Espoz y Mina 7, a 2-minute walk from Puerta del Sol. The match is LIVE on our screens and the big screen.</dd>
+      <dt><strong>What time is kick-off?</strong></dt><dd>Tuesday 3 November 2026, 21:00 Madrid time, at the Riyadh Air Metropolitano. In Spain it is broadcast on Movistar Plus+.</dd>
+      <dt><strong>How do I get from Sol to the stadium?</strong></dt><dd>By Metro: line 2 from Sol towards Cuatro Caminos to Canal, then line 7 towards Hospital del Henares to Estadio Metropolitano. Or line 2 from Sol to the end of the line, Las Rosas, and walk from there (about 15 minutes, according to Atlético de Madrid).</dd>
+      <dt><strong>Until when does the Metro run after the match?</strong></dt><dd>According to the Consorcio de Transportes (crtm.es), general Metro service runs from 6:00 to 1:30. Check the latest information on the day in the Metro de Madrid app or on crtm.es.</dd>
+    </dl>
+    <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+    <p>Auf Deutsch: <a href={withBase('/de/bayern-fans-madrid/atletico-bayern-wo-schauen/')} hreflang="de" lang="de">Atlético–Bayern: Wo schauen in Madrid?</a> · En español: <a href={withBase('/es/donde-ver-atletico-bayern-madrid/')} hreflang="es" lang="es">Dónde ver el Atlético–Bayern en Madrid</a></p>
+    <LinkHub
+      heading="h2"
+      groups={[
+        {
+          title: 'More for Bayern fans',
+          items: [
+            { href: '/bayern-fans-madrid/', label: 'Bayern fans in Madrid', note: 'The match LIVE by Sol' },
+            { href: '/bayern-fans-madrid/match-day-plan/', label: 'Your match-day plan', note: 'Times and how to reach the Metropolitano' },
+            { href: '/bayern-fans-madrid/screens-and-food/', label: 'Screens and food on match day', note: '8 screens and our menu' },
+            { href: '/bayern-fans-madrid/practical-tips/', label: '5 tips for your Madrid trip', note: 'Time zone, travel, hours, stadium rules' },
+            { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+          ],
+        },
+      ]}
+    />
+  </div></section>
+</BaseLayout>

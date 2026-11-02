@@ -1,0 +1,44 @@
+---
+/**
+ * TEMPORARY home block — Bayern fans campaign, Atlético v Bayern Tue 3 Nov 2026 21:00 (owner order via DG, Mon 2 Nov 09:44).
+ * DG 2 Nov 09:45: ONLY for this Bayern campaign, Dubliners is presented as the meeting point / Treffpunkt / punto de encuentro.
+ * Fixture: src/data/fixtures.ts (Radar CONFIRMADO row 1: atleticodemadrid.com; Movistar Plus+).
+ * Auto-hide: build-time (todayKey <= '2026-11-03' in the pages) + client data-show-until (FixtureAntiStale).
+ * REMOVE on Wed 4 Nov: delete the `<HomeBayern3Nov ... />` lines + imports in src/pages/index.astro and src/pages/es/index.astro.
+ */
+import { withBase } from '../site';
+
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const SHOW_UNTIL = '2026-11-03';
+const enArticle = '/bayern-fans-madrid/where-to-watch-atletico-bayern/';
+const deArticle = '/de/bayern-fans-madrid/atletico-bayern-wo-schauen/';
+const esArticle = '/es/donde-ver-atletico-bayern-madrid/';
+---
+
+<section class="section band-gold home-bayern3" id={es ? 'aficionados-bayern-3-noviembre' : 'bayern-fans-3-november'} data-show-until={SHOW_UNTIL} data-home-block="bayern-3nov">
+  <div class="container">
+    {es ? (
+      <>
+        <h2>Atlético–Bayern en pantalla grande junto a Sol · martes 3 de noviembre, 21:00</h2>
+        <p>Dubliners es el punto de encuentro de los aficionados del Bayern en el centro de Madrid: el partido EN DIRECTO en nuestras pantallas, cerveza, comida y buen ambiente en Calle de Espoz y Mina 7, a 2 minutos a pie de la Puerta del Sol. El martes abrimos de 12:00 a 02:00.</p>
+      </>
+    ) : (
+      <>
+        <h2>Atlético v Bayern on the big screen by Sol · Tuesday 3 November, 21:00</h2>
+        <p>Dubliners is the meeting point for Bayern fans in central Madrid: the match LIVE on our screens, cold beer, pub food and a great match-night atmosphere at Calle de Espoz y Mina 7, a 2-minute walk from Puerta del Sol. Open Tuesday 12:00–02:00.</p>
+      </>
+    )}
+    <p lang="de"><strong>Bayern-Fans in Madrid:</strong> Atlético–Bayern am Dienstag, 3. November, um 21:00 Uhr LIVE auf der Großbildleinwand. Euer Treffpunkt an der Puerta del Sol: Bier, Essen und Stimmung bei Dubliners, Calle de Espoz y Mina 7, 2 Minuten zu Fuß von der Sol. Dienstag geöffnet von 12:00 bis 02:00 Uhr.</p>
+    {es && (
+      <p lang="en" class="small">Bayern fans: Atlético v Bayern LIVE on the big screen, Tuesday 3 November, 21:00 · Calle de Espoz y Mina 7, by Puerta del Sol · open 12:00–02:00.</p>
+    )}
+    <div class="cta-row">
+      <a class="btn btn-primary" href={withBase(deArticle)} hreflang="de" lang="de">Atlético–Bayern: wo schauen?</a>
+      <a class="btn btn-gold" href={withBase(es ? esArticle : enArticle)}>{es ? 'Dónde ver el Atlético–Bayern' : 'Where to watch Atlético v Bayern'}</a>
+      <a class="btn btn-secondary" href={withBase('/de/bayern-fans-madrid/')} hreflang="de" lang="de">Bayern-Fans in Madrid</a>
+      <a class="btn btn-secondary" href={withBase('/bayern-fans-madrid/')} hreflang={es ? 'en' : undefined} lang={es ? 'en' : undefined}>Bayern fans in Madrid{es ? ' (EN)' : ''}</a>
+    </div>
+  </div>
+</section>

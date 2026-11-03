@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+// 3a Madrid events article (DU12, Radar eventos-madrid-2026-11-03 + ficha 5 bis 2026-11-12-real-madrid-crvena-zvezda.md).
+// Facts ONLY from CONFIRMADO rows (movistararena.es): EuroLeague, Thu 12 Nov 2026, 21:00 Madrid, Movistar Arena, tickets sold out.
+// Thu 5 Nov Conference League row from src/data/fixtures.ts. TV channel NOT stated (ficha: internal source only). No prices, no bookings.
+const thu = OPENING_HOURS.find((d) => d.day === 'Thursday')!;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When is Real Madrid v Crvena Zvezda in Madrid?', acceptedAnswer: { '@type': 'Answer', text: 'Real Madrid v Crvena Zvezda (EuroLeague basketball) is on Thursday 12 November 2026 at 21:00 Madrid time at the Movistar Arena. The Movistar Arena lists the game as sold out.' } },
+    { '@type': 'Question', name: 'No ticket? Where can I watch it near Puerta del Sol?', acceptedAnswer: { '@type': 'Answer', text: 'The game is LIVE on the screens at Dubliners, Calle de Espoz y Mina 7, a few steps from Puerta del Sol.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Red Star Fans in Madrid: Real Madrid v Crvena Zvezda LIVE near Sol | Dubliners'} description={'Crvena Zvezda fans in Madrid for the EuroLeague? Real Madrid v Crvena Zvezda is on Thursday 12 November at 21:00. No ticket? Watch it LIVE at Dubliners, by Puerta del Sol.'} path="/red-star-fans-madrid/" lang="en" ogImage="/images/dubliners-main-room-madrid-v2-1200.webp" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>Red Star fans in Madrid: EuroLeague night near Sol</h1>
+      <p class="lead">Coming from Belgrade for Real Madrid v Crvena Zvezda? The Movistar Arena is sold out, but the game is LIVE on our screens, a few steps from Puerta del Sol.</p>
+      <p class="small">Thursday 12 November 2026 · 21:00 Madrid time · Updated 3 November 2026</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <h2>The game</h2>
+      <p><strong>Real Madrid v Crvena Zvezda</strong>, EuroLeague basketball, <strong>Thursday 12 November 2026 at 21:00</strong> Madrid time, at the Movistar Arena. The arena lists it as sold out, so if you don't have a ticket, come and watch it with other fans in the centre.</p>
+      <h2>Watch it at Dubliners</h2>
+      <p>Dubliners is an Irish pub at Calle de Espoz y Mina 7, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). On Thursday we're open from {thu.opens} to {thu.closes}, so there's time for dinner before tip-off and a drink after the final buzzer. Big games fill the bar, so come early.</p>
+      <h2>In Madrid a week early?</h2>
+      <p>Crvena Zvezda's footballers play too: <strong>Crvena Zvezda v Inter Escaldes</strong> (UEFA Conference League) is on Thursday 5 November at 18:45 Madrid time, LIVE at Dubliners. Everything else we show is on <a href={withBase('/whats-on/')}>What's On</a>.</p>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Come early: directions</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Real Madrid v Crvena Zvezda in Madrid?</strong></dt><dd>Real Madrid v Crvena Zvezda (EuroLeague basketball) is on Thursday 12 November 2026 at 21:00 Madrid time at the Movistar Arena. The Movistar Arena lists the game as sold out.</dd>
+        <dt><strong>No ticket? Where can I watch it near Puerta del Sol?</strong></dt><dd>The game is LIVE on the screens at Dubliners, Calle de Espoz y Mina 7, a few steps from Puerta del Sol.</dd>
+      </dl>
+      <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners is an independent pub, not affiliated with the EuroLeague or the clubs.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More live sport near Sol',
+            items: [
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/menu/', label: 'Food menu' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

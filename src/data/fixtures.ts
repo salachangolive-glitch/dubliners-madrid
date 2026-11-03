@@ -57,6 +57,7 @@
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
+ * - 3 Nov (morning): Mon 2 rows (Newcastle–Everton, Deportivo–Osasuna) RETIRED. Wed 4 UCL (9) + Thu 5 Getafe–Brighton 21:00 re-checked vs Radar horarios-oficiales-2026-11-04-05 (UEFA API): OK.
  * - 2 Nov (morning): FA Cup R1 (7 rows, 6–8 Nov, thefa.com TV picks via Radar agenda-semana-2026-11-02, CONFIRMADA) ADDED, no channel.
  * - 2 Nov (morning): 63 played rows Sat 31 Oct / Sun 1 Nov (incl. NFL week 8, Liverpool–Arsenal, Hearts–Hibernian) RETIRED.
  * - 15 Oct: Brighton–Kauno Žalgiris 21:00 Madrid RETIRED 16 Oct (morning block).
@@ -357,22 +358,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'NFL RedZone LIVE from 19:00 across the 19:00, 22:05 and 22:25 games (we close at 02:00).',
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
-  },
-  {
-    dateKey: '2026-11-02',
-    whenLabel: 'Mon 2 Nov',
-    competition: 'Premier League',
-    teams: 'Newcastle United vs Everton',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-02',
-    whenLabel: 'Mon 2 Nov',
-    competition: 'LaLiga',
-    teams: 'Deportivo vs Osasuna',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
   },
   {
     dateKey: '2026-11-03',
@@ -1264,6 +1249,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
+    link: { href: '/red-star-fans-madrid/', labelEn: 'Red Star fans in Madrid: EuroLeague night', labelEs: 'Aficionados del Estrella Roja (info en inglés)', hreflang: 'en' },
   },
   {
     dateKey: '2026-11-14',

@@ -7,7 +7,7 @@ import { hoursFor } from '../../data/hours';
 // Spain v England, UEFA Nations League 2026/27 (League A, Group A3, MD6), Riyadh Air Metropolitano, Sun 15 Nov 2026, 20:45 Madrid (CET).
 // Sources (20 Oct 2026): rfef.es/es/calendario («15 Noviembre 20:45 España - Inglaterra, Jornada 6, Grupo A3, Estadio Metropolitano, Madrid, horario peninsular español»)
 // and englandfootball.com fixtures («Riyadh Air Metropolitano, Sun 15 November 2026, Spain v England, 19:45» UK time = 20:45 Madrid).
-// Metro route Sol → stadium NOT included: crtm.es line pages could not be verified without a browser (20 Oct).
+// Stadium access: Metro L7 Estadio Metropolitano (Radar ficha 5 bis, CRTM 24 Oct, CONFIRMED). Exact route from Sol not given (Metro app / crtm.es). Block published 3 Nov.
 const path = '/england-fans-madrid/';
 const title = 'England Fans in Madrid: Spain v England, 15 Nov | Dubliners';
 const description =
@@ -78,6 +78,18 @@ const eventLd = {
         <p>
           {SITE.address}, {SITE.postal}, a short walk from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).
         </p>
+        <h2>Getting to the Metropolitano</h2>
+        <p>
+          The Riyadh Air Metropolitano is on Metro line 7, at Estadio Metropolitano station. For the exact route from Sol on the day,
+          check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>,
+          and leave the centre with plenty of time before the 20:45 kick-off (19:45 UK time).
+        </p>
+        <h2>No ticket? Watch it with us</h2>
+        <p>
+          The England allocation for this game is limited, so many fans travel to Madrid without a ticket.
+          We show Spain v England LIVE on the big screen and our 8 screens, a short walk from Puerta del Sol.
+          Questions for a group? <a href={withBase('/contact/#request-information')}>Request information</a>.
+        </p>
       </div>
       <picture>
         <img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Screens in the main room at Dubliners, near Sol" />
@@ -98,6 +110,8 @@ const eventLd = {
           <dd>From 12:00 ({sunday}).</dd>
           <dt><strong>Where are you?</strong></dt>
           <dd>{SITE.address}, {SITE.postal}, by Puerta del Sol. Metro Sol or Sevilla.</dd>
+          <dt><strong>How do I get to the Metropolitano?</strong></dt>
+          <dd>Metro line 7, Estadio Metropolitano station. Check the Metro de Madrid app or crtm.es for the exact route from Sol.</dd>
         </dl>
         <p>Other football this week is on <a href={withBase('/whats-on/')}>What’s On</a> and our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page.</p>
       </div>

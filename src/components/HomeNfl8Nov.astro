@@ -26,7 +26,7 @@ const hasRedZone = FIXTURES.some((f) => f.dateKey === '2026-11-08' && f.teams ==
 // Week schedule on nfl.com (Sun 8 Nov = REG9). Times/slots per /workspace/radar/2026-11-02-nfl.md (15:30 Madrid game; 19:00 and 22:05/22:25 with RedZone).
 const NFL_SCHEDULE_URL = 'https://www.nfl.com/schedules/2026/REG9/';
 // DG 4 Nov: TV channels are NOT named. Post-game 19:00 hook per DG 4 Nov (pub opens 12:00).
-// NFL House Madrid: Casa de las Alhajas, Fri 6 + Sat 7 Nov 12:00–20:00 — per /workspace/radar/2026-11-03-nfl.md (nfl.com page names it; hours from Marca/AS press release).
+// NFL House Madrid: Casa de las Alhajas only (as on nfl.com). DG 4 Nov: no days, hours, price or OnePass.
 const NFL_HOUSE_URL = 'https://www.nfl.com/news/madrid-la-nfl-ya-esta-aqui';
 const slotDefs = [
   { label: '15:30', times: ['15:30'], kind: 'madrid' },
@@ -51,8 +51,8 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
     </p>
     <p class="home-nfl8__house" data-nfl-house="2026-11-06">
       {es ? 'Dubliners está a pocos minutos a pie de la ' : 'Dubliners is a few minutes’ walk from the '}<a href={NFL_HOUSE_URL} target="_blank" rel="noopener">NFL House</a>{es
-        ? ' (Casa de las Alhajas, Plaza de San Martín · vie 6 y sáb 7 nov, de 12:00 a 20:00): el viernes, después de la NFL House, sigue la tarde y la noche en Dubliners.'
-        : ' (Casa de las Alhajas, Plaza de San Martín · Fri 6 & Sat 7 Nov, 12:00–20:00): on Friday, after the NFL House, carry on into the evening and the night at Dubliners.'}
+        ? ' (Casa de las Alhajas): después de la NFL House, sigue la tarde y la noche en Dubliners.'
+        : ' (Casa de las Alhajas): after the NFL House, carry on into the evening and the night at Dubliners.'}
     </p>
     <h3 class="home-nfl8__h3">
       <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Calendario de la semana NFL (nfl.com)' : 'NFL week schedule (nfl.com)'}</a>

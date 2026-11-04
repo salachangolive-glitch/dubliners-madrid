@@ -1,0 +1,43 @@
+---
+/**
+ * News «tonight» for Brighton fans (norma aficiones visitantes, día D = Thu 5 Nov 2026).
+ * Source: UEFA match API id 2050352 (match.uefa.com/v5/matches/2050352): 2026-11-05T20:00:00Z = 21:00 Madrid,
+ * UEFA Conference League, league phase, Coliseum (Getafe). Checked 4 Nov 2026. No TV channel named.
+ * Route to the Coliseum: no official route source → defer to crtm.es. Retire after 6 Nov 2026 (stub → /brighton-fans-madrid/).
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: 'Getafe vs Brighton tonight, 21:00: Brighton fans at Dubliners, by Puerta del Sol',
+  datePublished: '2026-11-05',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl('/news/getafe-brighton-tonight/'),
+};
+---
+<BaseLayout title="Getafe vs Brighton Tonight, 21:00 | Brighton Fans Near Sol | Dubliners" description="Getafe vs Brighton tonight, Thursday 5 November, 21:00 Madrid time (20:00 UK), UEFA Conference League. Big screen, cold beer and food at Dubliners, by Puerta del Sol. Open from 12:00." path="/news/getafe-brighton-tonight/" lang="en" hreflang={{ en: '/news/getafe-brighton-tonight/', es: '/es/noticias/getafe-brighton-hoy/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={articleLd}>
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Getafe vs Brighton tonight" />
+    <h1>Getafe vs Brighton tonight, 21:00: Brighton fans at Dubliners, by Puerta del Sol</h1>
+    <p class="small">News · Thursday 5 November 2026</p>
+    <div class="cta-row"><a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a> <a class="btn btn-secondary" href={withBase('/brighton-fans-madrid/')}>Brighton fans in Madrid</a></div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>It's match day. <strong>Getafe vs Brighton kicks off tonight at 21:00 Madrid time (20:00 in the UK)</strong> at the Coliseum in Getafe, in the UEFA Conference League league phase.</p>
+    <p>In Madrid for the day? Dubliners, an Irish pub on Calle de Espoz y Mina 7, just off Puerta del Sol, is open from 12:00: big screen, cold beer and food all day, and the match LIVE tonight with other Brighton fans.</p>
+    <h2>Tonight</h2>
+    <ul>
+      <li>Open today 12:00–02:00.</li>
+      <li>Getafe vs Brighton LIVE from 21:00.</li>
+      <li>Metro Sol (L1, L2, L3) or Sevilla (L2) for the pub.</li>
+      <li>Going to the Coliseum? Check the route on <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> or the Metro de Madrid app.</li>
+      <li>We speak English and Spanish.</li>
+    </ul>
+    <p>More in our <a href={withBase('/brighton-fans-madrid/')}>Brighton fans in Madrid</a> guide and on <a href={withBase('/menu/')}>the menu</a>.</p>
+    <p class="small">Dubliners is an independent pub, not affiliated with UEFA, Getafe CF or Brighton &amp; Hove Albion.</p>
+  </div></section>
+</BaseLayout>

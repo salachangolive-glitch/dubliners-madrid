@@ -1,0 +1,19 @@
+---
+/** Noticia «hoy» Getafe–Brighton (jue 5 nov 2026, 21:00, UEFA match API id 2050352). Retirar después del 6 nov 2026. */
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import { SITE, withBase } from '../../../../site';
+---
+<BaseLayout title="Getafe–Brighton hoy, 21:00: en Dubliners, junto a Sol" description="Getafe–Brighton hoy, jueves 5 de noviembre, a las 21:00 (UEFA Conference League). Big screen, cerveza fría y comida en Dubliners, junto a la Puerta del Sol. Abrimos a las 12:00." path="/es/noticias/getafe-brighton-hoy/" lang="es" hreflang={{ en: '/news/getafe-brighton-tonight/', es: '/es/noticias/getafe-brighton-hoy/' }} ogImage="/images/screens-sports.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Getafe–Brighton hoy" />
+    <h1>Getafe–Brighton hoy a las 21:00, en Dubliners junto a Sol</h1>
+    <p class="small">Noticias · jueves 5 de noviembre de 2026</p>
+    <div class="cta-row"><a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a> <a class="btn btn-secondary" href={withBase('/es/aficionados-brighton-madrid/')}>Aficionados del Brighton</a></div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Hoy, jueves 5 de noviembre, <strong>Getafe–Brighton a las 21:00</strong> en el Coliseum (UEFA Conference League, fase liga). En Dubliners, calle de Espoz y Mina 7, junto a la Puerta del Sol, abrimos de 12:00 a 02:00: big screen, cerveza fría, comida y el partido EN DIRECTO.</p>
+    <p>Metro Sol (L1, L2, L3) o Sevilla (L2). Para ir al Coliseum, consulta <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
+    <p class="small">Dubliners es un pub independiente, sin vínculo con la UEFA, el Getafe CF ni el Brighton &amp; Hove Albion.</p>
+  </div></section>
+</BaseLayout>

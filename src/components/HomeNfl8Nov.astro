@@ -25,7 +25,7 @@ for (const r of [...rows].sort((a, b) => a.madridTime.localeCompare(b.madridTime
 const hasRedZone = FIXTURES.some((f) => f.dateKey === '2026-11-08' && f.teams === 'NFL RedZone');
 // Week schedule on nfl.com (Sun 8 Nov = REG9). Times/slots per /workspace/radar/2026-11-02-nfl.md (15:30 Madrid game; 19:00 and 22:05/22:25 with RedZone).
 const NFL_SCHEDULE_URL = 'https://www.nfl.com/schedules/2026/REG9/';
-// TV (DAZN free + Cuatro free to air) for the Madrid game only: nfl.com/news/donde-ver-el-2026-nfl-madrid-game-en-espana (curl 200, 3 Nov 10:45).
+// DG 4 Nov: TV channels are NOT named. Post-game 19:00 hook per DG 4 Nov (pub opens 12:00).
 // NFL House Madrid: Casa de las Alhajas, Fri 6 + Sat 7 Nov 12:00–20:00 — per /workspace/radar/2026-11-03-nfl.md (nfl.com page names it; hours from Marca/AS press release).
 const NFL_HOUSE_URL = 'https://www.nfl.com/news/madrid-la-nfl-ya-esta-aqui';
 const slotDefs = [
@@ -43,7 +43,7 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
 <section class="section band-gold home-nfl8" id={es ? 'nfl-domingo-8-noviembre' : 'nfl-sunday-8-november'} data-show-until={SHOW_UNTIL} data-home-block="nfl-8nov">
   <div class="container">
     <h2>{es ? 'Domingo NFL en Madrid · domingo 8 de noviembre' : 'NFL Sunday in Madrid · Sunday 8 November'}</h2>
-    <p class="home-nfl8__hook" data-nfl-hook="2026-11-08"><strong>{es ? 'Domingo 8 nov: el ambiente y la big screen desde las 15:30.' : 'Sunday 8 Nov: the atmosphere and the big screen from 15:30.'}</strong></p>
+    <p class="home-nfl8__hook" data-nfl-hook="2026-11-08"><strong>{es ? 'Domingo 8 nov: el ambiente y la big screen desde las 15:30, y desde las 19:00, el pub para cuando volváis del estadio.' : 'Sunday 8 Nov: the atmosphere and the big screen from 15:30, and from 19:00, the pub to head back to after the stadium.'}</strong></p>
     <p>
       {es
         ? 'Bengals vs Falcons se juega en el Estadio Santiago Bernabéu, y en Dubliners la NFL sigue todo el domingo: estos partidos van EN DIRECTO en nuestras pantallas (hora de Madrid).'
@@ -68,7 +68,6 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
       ))}
     </ul>
     <p class="small">
-      {es ? 'Bengals vs Falcons (15:30) en TV en España: DAZN y Cuatro (en abierto). ' : 'Bengals vs Falcons (15:30) on TV in Spain: DAZN and Cuatro (free to air). '}
       <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Ver el calendario completo en nfl.com' : 'Full schedule on nfl.com'}</a>
     </p>
     <p class="small">{es ? 'Domingo abierto de 12:00 a 02:00.' : 'Open Sunday 12:00–02:00.'}</p>

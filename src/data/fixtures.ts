@@ -57,6 +57,8 @@
  * - NFL Week 9 Sun 8 Nov (nfl.com/schedules/2026/by-week/week-9, ET+6h): owner confirmed via DG 13 Oct
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
+ * - 4 Nov (morning): Rennes–Olympiacos (was Thu 5 18:45) REMOVED: Radar UEFA JSON (evidencia-2026-11-02/profunda/uefa-14.json) gives Wed 4 16:30 → mismatch, flagged to DG.
+ * - 4 Nov (morning): Tue 3 rows (9 UCL MD4 incl. Atlético–Bayern) RETIRED. Wed 4 (9 UCL) + Thu 5 Getafe–Brighton 21:00 re-checked vs Radar horarios-oficiales-2026-11-04-05 (UEFA API): OK.
  * - 3 Nov (morning): Mon 2 rows (Newcastle–Everton, Deportivo–Osasuna) RETIRED. Wed 4 UCL (9) + Thu 5 Getafe–Brighton 21:00 re-checked vs Radar horarios-oficiales-2026-11-04-05 (UEFA API): OK.
  * - 2 Nov (morning): FA Cup R1 (7 rows, 6–8 Nov, thefa.com TV picks via Radar agenda-semana-2026-11-02, CONFIRMADA) ADDED, no channel.
  * - 2 Nov (morning): 63 played rows Sat 31 Oct / Sun 1 Nov (incl. NFL week 8, Liverpool–Arsenal, Hearts–Hibernian) RETIRED.
@@ -360,81 +362,6 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
   },
   {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Shakhtar Donetsk vs Sporting CP',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Galatasaray vs Stuttgart',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Barcelona vs Aston Villa',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Atlético de Madrid vs Bayern Munich',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    noteEn: 'Watch the match with other Bayern fans in Madrid, by Puerta del Sol.',
-    noteEs: 'Para ver el partido con otros aficionados del Bayern en Madrid, junto a la Puerta del Sol.',
-    link: { href: '/de/bayern-fans-madrid/', labelEn: 'Bayern fans: info in German', labelEs: 'Aficionados del Bayern: info en alemán', hreflang: 'de' },
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Manchester United vs Roma',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Feyenoord vs Inter',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Bodø/Glimt vs Lille',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Villarreal vs Paris Saint-Germain',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-03',
-    whenLabel: 'Tue 3 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'LASK vs Slovan Bratislava',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
     dateKey: '2026-11-04',
     whenLabel: 'Wed 4 Nov',
     competition: 'UEFA Champions League',
@@ -527,14 +454,6 @@ export const FIXTURES: Fixture[] = [
     whenLabel: 'Thu 5 Nov',
     competition: 'UEFA Europa League',
     teams: 'Sparta Praha vs Bournemouth',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Rennes vs Olympiacos',
     madridTime: '18:45',
     confirmedOnScreens: true,
   },

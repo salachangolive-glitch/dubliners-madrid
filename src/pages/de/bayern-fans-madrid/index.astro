@@ -4,7 +4,7 @@ import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 const DE: Record<string, string> = { Monday: 'Montag', Tuesday: 'Dienstag', Wednesday: 'Mittwoch', Thursday: 'Donnerstag', Friday: 'Freitag', Saturday: 'Samstag', Sunday: 'Sonntag' };
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wann ist Atlético gegen Bayern?", "acceptedAnswer": {"@type": "Answer", "text": "Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano)."}}, {"@type": "Question", "name": "Zeigt ihr das Spiel live?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, LIVE auf unseren 8 Bildschirmen."}}, {"@type": "Question", "name": "Wann habt ihr geöffnet?", "acceptedAnswer": {"@type": "Answer", "text": "Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr."}}]};
+const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wann ist Atlético gegen Bayern?", "acceptedAnswer": {"@type": "Answer", "text": "Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano)."}}, {"@type": "Question", "name": "Zeigt ihr das Spiel live?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, LIVE auf unseren Bildschirmen."}}, {"@type": "Question", "name": "Wann habt ihr geöffnet?", "acceptedAnswer": {"@type": "Answer", "text": "Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr."}}]};
 ---
 <BaseLayout title="Bayern-Fans in Madrid: Atlético–Bayern LIVE an der Puerta del Sol | Dubliners" description="Bayern-Fans in Madrid: das Spiel mit anderen Bayern-Fans an der Puerta del Sol schauen – Atlético–Bayern (Di., 3. Nov., 21:00 Uhr). Irish Pub Dubliners, Spiel LIVE. Kommt früh!" path="/de/bayern-fans-madrid/" htmlLang="de" hreflang={{ en: '/bayern-fans-madrid/', de: '/de/bayern-fans-madrid/' }} ogImage="/images/facade.jpg">
   <section class="hero hero-compact"><div class="container">
@@ -25,7 +25,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <h2>Kommt früh</h2>
     <p>Bei großen Spielen lohnt es sich, früher da zu sein. Am Dienstag haben wir ab 12:00 Uhr geöffnet – genug Zeit, um sich in Ruhe zu treffen.</p>
     <h2>Das Spiel</h2>
-    <p>Atlético gegen Bayern LIVE auf unseren 8 Bildschirmen. In Spanien überträgt Movistar Plus+.</p>
+    <p>Atlético gegen Bayern LIVE auf unseren Bildschirmen. In Spanien überträgt Movistar Plus+.</p>
     <h2>Drei Pubs an der Puerta del Sol</h2>
     <ul>
       <li><strong>Dubliners</strong> – Calle de Espoz y Mina 7, an der Puerta del Sol.</li>
@@ -41,7 +41,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <ul>{OPENING_HOURS.map((d) => <li>{DE[d.day]}: {d.opens}–{d.closes} Uhr</li>)}</ul>
     <h2>Madrid vor dem Spiel</h2>
     <p>Von hier aus sind Plaza Mayor, der Mercado de San Miguel, die Gran Vía und der Prado gut zu Fuß erreichbar. Danach einfach zurück an die Sol und in Ruhe das Spiel schauen.</p>
-    <h2>Häufige Fragen</h2><dl class="faq"><dt><strong>Wann ist Atlético gegen Bayern?</strong></dt><dd>Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano).</dd><dt><strong>Zeigt ihr das Spiel live?</strong></dt><dd>Ja, LIVE auf unseren 8 Bildschirmen.</dd><dt><strong>Wann habt ihr geöffnet?</strong></dt><dd>Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr.</dd></dl>
+    <h2>Häufige Fragen</h2><dl class="faq"><dt><strong>Wann ist Atlético gegen Bayern?</strong></dt><dd>Am Dienstag, 3. November 2026, um 21:00 Uhr Madrider Zeit (Champions League, 4. Spieltag, im Metropolitano).</dd><dt><strong>Zeigt ihr das Spiel live?</strong></dt><dd>Ja, LIVE auf unseren Bildschirmen.</dd><dt><strong>Wann habt ihr geöffnet?</strong></dt><dd>Montag bis Donnerstag und Sonntag 12:00–02:00 Uhr, Freitag und Samstag 12:00–02:30 Uhr.</dd></dl>
     <p class="small">Dubliners Irish Pub · Calle de Espoz y Mina 7, 28012 Madrid · Dubliners ist ein unabhängiger Pub, ohne Verbindung zur UEFA oder zu den Vereinen.</p>
     <p>Auf Englisch: <a href={withBase('/bayern-fans-madrid/')} hreflang="en" lang="en">Bayern fans in Madrid</a></p>
     <LinkHub
@@ -52,7 +52,7 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
           items: [
             { href: '/de/bayern-fans-madrid/atletico-bayern-wo-schauen/', label: 'Atlético–Bayern: Wo schauen in Madrid?', note: 'Di. 3. Nov., 21:00 Uhr · Metro zum Stadion und zurück' },
             { href: '/de/bayern-fans-madrid/ankunft-in-madrid/', label: 'Ankunft in Madrid: euer Startpunkt an der Sol', note: 'Von der Ankunft bis zum Anstoß' },
-            { href: '/de/bayern-fans-madrid/leinwand-und-essen/', label: 'Bildschirme und Essen am Spieltag', note: '8 Bildschirme, Speisekarte' },
+            { href: '/de/bayern-fans-madrid/leinwand-und-essen/', label: 'Bildschirme und Essen am Spieltag', note: 'Bildschirme, Speisekarte' },
             { href: '/de/bayern-fans-madrid/spieltag-plan/', label: 'Euer Spieltag-Plan', note: 'Zeiten und Anreise zum Metropolitano' },
             { href: '/de/bayern-fans-madrid/duell-geschichte/', label: 'Die Geschichte von Atlético–Bayern', note: '1974, 2016 und jetzt der 3. November' },
             { href: '/de/bayern-fans-madrid/praktische-tipps/', label: '5 Tipps für euren Madrid-Trip', note: 'Zeitzone, Anreise, Öffnungszeiten, Stadionordnung' },

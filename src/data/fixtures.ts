@@ -361,7 +361,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'NFL RedZone LIVE from 19:00 across the 19:00, 22:05 and 22:25 games (we close at 02:00).',
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
-  }
+  },
   {
     dateKey: '2026-11-05',
     whenLabel: 'Thu 5 Nov',

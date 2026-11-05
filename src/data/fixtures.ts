@@ -58,6 +58,7 @@
  *   all Sunday NFL games live. Bucs–Bears 02:20 Mon OMITTED (after Sunday close 02:00).
  * - Owner permanent 13 Oct (via DG): ALL sport is live (UCL, UEL, UECL incl.); RedZone confirmed by owner via DG 13 Oct for Sun 8 Nov (from 19:00, within hours).
  * - 4 Nov (morning): Rennes–Olympiacos (was Thu 5 18:45) REMOVED: Radar UEFA JSON (evidencia-2026-11-02/profunda/uefa-14.json) gives Wed 4 16:30 → mismatch, flagged to DG.
+ * - 5 Nov (morning): Wed 4 rows RETIRED (9 UCL MD4 + EuroLeague RM–Panathinaikos).
  * - 4 Nov (morning): Tue 3 rows (9 UCL MD4 incl. Atlético–Bayern) RETIRED. Wed 4 (9 UCL) + Thu 5 Getafe–Brighton 21:00 re-checked vs Radar horarios-oficiales-2026-11-04-05 (UEFA API): OK.
  * - 3 Nov (morning): Mon 2 rows (Newcastle–Everton, Deportivo–Osasuna) RETIRED. Wed 4 UCL (9) + Thu 5 Getafe–Brighton 21:00 re-checked vs Radar horarios-oficiales-2026-11-04-05 (UEFA API): OK.
  * - 2 Nov (morning): FA Cup R1 (7 rows, 6–8 Nov, thefa.com TV picks via Radar agenda-semana-2026-11-02, CONFIRMADA) ADDED, no channel.
@@ -360,79 +361,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'NFL RedZone LIVE from 19:00 across the 19:00, 22:05 and 22:25 games (we close at 02:00).',
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Fenerbahçe vs Liverpool',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'AEK Athens vs Real Madrid',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Borussia Dortmund vs Betis',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Porto vs Napoli',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'PSV vs Club Brugge',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'RB Leipzig vs Manchester City',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Slavia Praha vs Arsenal',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Lens vs Como',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'UEFA Champions League',
-    teams: 'Viking vs Sabah',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
+  }
   {
     dateKey: '2026-11-05',
     whenLabel: 'Thu 5 Nov',
@@ -1149,16 +1078,6 @@ export const FIXTURES: Fixture[] = [
     link: { href: '/thanksgiving-madrid/', labelEn: 'Thanksgiving NFL in Madrid', labelEs: 'NFL de Thanksgiving en Madrid', hrefEs: '/es/thanksgiving-madrid/' },
   },
   // 26 Oct (DG LUNES-26): visiting-fan rows from Radar fichas 5 bis. NO channel.
-  {
-    dateKey: '2026-11-04',
-    whenLabel: 'Wed 4 Nov',
-    competition: 'EuroLeague',
-    teams: 'Real Madrid vs Panathinaikos',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-    noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
-    noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
-  },
   {
     dateKey: '2026-11-12',
     whenLabel: 'Thu 12 Nov',

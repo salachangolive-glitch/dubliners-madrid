@@ -1,43 +1,33 @@
 ---
-/**
- * Archive page (DG LUNES-26, 26 Oct 2026, PUENTES-26-DUB). The match was played on 25 Oct.
- * The EN page /el-clasico-madrid/ is now a redirect stub, so hreflang is es-only.
- * URL kept because it ranks; retire/keep is pending DG decision. Original backed up in
- * /workspace/dubliners-lunes-2026-10-26/backup/ver-el-clasico-madrid.astro.
- */
+// Página permanente de El Clásico (auditoría SEO 5 nov 2026). URL con tráfico: 16 clics / 297 impr. GSC 28 d (2 nov). Sin fechas de partido a propósito.
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { withBase } from '../../../site';
+const title = 'Ver El Clásico en Madrid junto a Sol | Dubliners';
+const description = 'Dónde ver el Real Madrid–Barcelona en Madrid: El Clásico en directo en pantalla grande en un pub irlandés junto a Sol. Espoz y Mina 7, desde las 12:00.';
 ---
-<BaseLayout title="El Clásico en Madrid (25 oct, ya jugado) y próximos partidos junto a Sol | Dubliners" description="El Clásico Barcelona–Real Madrid se jugó el domingo 25 de octubre de 2026. Consulta los próximos partidos en directo en Dubliners Irish Pub, junto a la Puerta del Sol." path="/es/ver-el-clasico-madrid/" lang="es" hreflang={{ es: '/es/ver-el-clasico-madrid/' }} ogImage="/images/screens-sports.jpg">
+<BaseLayout title={title} description={description} path="/es/ver-el-clasico-madrid/" lang="es" hreflang={{ en: '/el-clasico-madrid/', es: '/es/ver-el-clasico-madrid/' }} ogImage="/images/screens-sports.jpg">
   <section class="hero hero-compact"><div class="container">
-    <Breadcrumb current="El Clásico en Madrid" />
-    <h1>El Clásico en Madrid: Barcelona–Real Madrid (ya jugado)</h1>
-    <div class="cta-row"><a class="btn btn-gold" href={withBase('/es/partidos/')}>Próximos partidos</a> <a class="btn btn-secondary" href={withBase('/contact/#request-information')}>Pedir información</a></div>
+    <Breadcrumb current="Ver El Clásico en Madrid" lang="es" />
+    <h1>Ver El Clásico en Madrid, junto a la Puerta del Sol</h1>
+    <div class="cta-row"><a class="btn btn-gold" href={withBase('/es/partidos/')}>Partidos</a> <a class="btn btn-secondary" href={withBase('/es/contacto/')}>Pregúntanos</a></div>
   </div></section>
   <section class="section"><div class="container prose">
-    <p>El Clásico Barcelona–Real Madrid de la jornada 10 de LaLiga se jugó el <strong>domingo 25 de octubre de 2026</strong> a las 21:00 (hora de Madrid) en el Spotify Camp Nou de Barcelona, y lo pusimos en directo en Dubliners, en la calle Espoz y Mina 7, junto a la Puerta del Sol.</p>
+    <p>El Real Madrid–Barcelona es el partido más grande del fútbol español. Cuando hay Clásico, lo ponemos en directo en Dubliners, en la calle Espoz y Mina 7, a dos minutos de la Puerta del Sol, en pantalla grande y en nuestras pantallas.</p>
     <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Pantallas para ver fútbol en directo en Dubliners Irish Pub, junto a Sol" width="1400" height="788" loading="lazy" />
-    <h2>Próximos partidos en directo</h2>
-    <p>Seguimos poniendo fútbol, Champions League, Premier League, NFL y rugby con pantallas para el deporte. Horarios verificados y lista completa en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
+    <h2>¿Cuándo es el próximo Clásico?</h2>
+    <p>LaLiga confirma los horarios unas semanas antes de cada partido. En cuanto se confirma el próximo Clásico, lo publicamos en <a href={withBase('/es/partidos/')}>Partidos</a> con la hora de Madrid.</p>
+    <h2>Cómo llegar</h2>
     <ul>
       <li>Abrimos todos los días a las 12:00; cerramos a las 02:00 de domingo a jueves y a las 02:30 viernes y sábado.</li>
       <li>Metro Sol (L1, L2, L3) o Sevilla (L2).</li>
       <li>Se atiende en español y en inglés.</li>
     </ul>
     <p class="small">Dubliners es un pub independiente, sin vínculo con LaLiga ni con los clubes.</p>
-    <LinkHub
-      heading="h2"
-      groups={[
-        {
-          title: 'Más fútbol cerca de Sol',
-          items: [
-            { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo cerca de Sol' },
-            { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés cerca de Plaza Mayor' },
-          ],
-        },
-      ]}
-    />
+    <LinkHub heading="h2" groups={[{ title: 'Más fútbol cerca de Sol', items: [
+      { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo cerca de Sol' },
+      { href: '/es/partidos/', label: 'Partidos de esta semana' },
+    ] }]} />
   </div></section>
 </BaseLayout>

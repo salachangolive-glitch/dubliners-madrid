@@ -19,7 +19,6 @@ const RETIRED_PATHS = [
   // DG LUNES-26 (26 Oct 2026, PUENTES-26-DUB)
   '/de/leipzig-fans-madrid/',
   '/rb-leipzig/',
-  '/el-clasico-madrid/',
   '/el-clasico/',
   '/watch-leinster-munster-madrid/',
   '/leinster-munster/',

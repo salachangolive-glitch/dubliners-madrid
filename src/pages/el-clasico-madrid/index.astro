@@ -1,6 +1,33 @@
 ---
-// Retired {/el-clasico-madrid/} → /sports-bar-madrid/ (DG LUNES-26, 26 Oct 2026, PUENTES-26-DUB). Original backed up in /workspace/dubliners-lunes-2026-10-26/backup/.
-import RedirectStub from '../../components/RedirectStub.astro';
+// Evergreen El Clásico page (SEO audit 5 Nov 2026). URL kept: 12 clicks / 258 impr. in GSC 28d (2 Nov). No match dates on purpose.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { withBase } from '../../site';
+const title = 'Watch El Clásico in Madrid near Sol | Dubliners';
+const description = 'Where to watch Real Madrid vs Barcelona in Madrid: El Clásico live on the big screen at an Irish pub by Puerta del Sol. Espoz y Mina 7, open from 12:00.';
 ---
-
-<RedirectStub to="/sports-bar-madrid/" lang="en" />
+<BaseLayout title={title} description={description} path="/el-clasico-madrid/" lang="en" hreflang={{ en: '/el-clasico-madrid/', es: '/es/ver-el-clasico-madrid/' }} ogImage="/images/screens-sports.jpg">
+  <section class="hero hero-compact"><div class="container">
+    <Breadcrumb current="Watch El Clásico in Madrid" />
+    <h1>Watch El Clásico in Madrid, near Puerta del Sol</h1>
+    <div class="cta-row"><a class="btn btn-gold" href={withBase('/whats-on/')}>What’s On</a> <a class="btn btn-secondary" href={withBase('/contact/#request-information')}>Ask us</a></div>
+  </div></section>
+  <section class="section"><div class="container prose">
+    <p>Real Madrid vs Barcelona is the biggest game in Spanish football. When El Clásico is on, we show it live at Dubliners, Espoz y Mina 7, a two-minute walk from Puerta del Sol, on the big screen and our screens around the pub.</p>
+    <img class="hero-photo landscape" src={withBase('/images/screens-sports.jpg')} alt="Screens for live football at Dubliners Irish Pub near Sol" width="1400" height="788" loading="lazy" />
+    <h2>When is the next Clásico?</h2>
+    <p>Kick-off times are confirmed by LaLiga a few weeks before each game. As soon as the next Clásico is confirmed, it goes on our <a href={withBase('/whats-on/')}>What’s On</a> page with the Madrid time.</p>
+    <h2>Getting here</h2>
+    <ul>
+      <li>Open every day from 12:00; until 02:00 Sunday to Thursday and 02:30 Friday and Saturday.</li>
+      <li>Metro Sol (L1, L2, L3) or Sevilla (L2).</li>
+      <li>Staff speak English and Spanish.</li>
+    </ul>
+    <p class="small">Dubliners is an independent pub with no link to LaLiga or the clubs.</p>
+    <LinkHub heading="h2" groups={[{ title: 'More football near Sol', items: [
+      { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+      { href: '/whats-on/', label: 'What’s On this week' },
+    ] }]} />
+  </div></section>
+</BaseLayout>

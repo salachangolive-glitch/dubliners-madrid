@@ -81,10 +81,70 @@
     <div class="postgame"><h2>After the game: NFL RedZone and every Sunday NFL game LIVE</h2><p>After the final whistle at the Bernabéu, Dubliners keeps the NFL on for fans for the rest of the Sunday. NFL RedZone is LIVE from 19:00 (1:00 p.m. ET) across the 19:00, 22:05 and 22:25 games, jumping between the scoring chances, and every game below is LIVE on our screens (Madrid time):</p><ul class="postgame-list"><li><strong>19:00</strong> — Broncos at Panthers · Cowboys at Colts · Jets at Chiefs · Lions at Dolphins · Browns at Saints · Giants at Eagles · Rams at Commanders</li><li><strong>22:05</strong> — Texans at Chargers</li><li><strong>22:25</strong> — Packers at Patriots · Raiders at 49ers · Cardinals at Seahawks</li></ul></div>
     <h2>02:00 — closing</h2><p>We close at 02:00 on Sunday night. The Sunday night game starts at 02:20 Monday Madrid time, after closing, so we don't show it.</p>
     <p>A big screen and more screens around the pub. Kick-off times are converted from nfl.com's Week 9 schedule (Eastern Time).</p>
+    <p data-show-until="2026-11-08">Sunday 8 Nov, 21:00 (Madrid time): Atlético de Madrid vs FC Barcelona (LaLiga), live on our screens.</p>
     <h2>Bengals and Falcons fans arriving in Madrid</h2><p>Coming over for Bengals at Falcons? The game is at the Santiago Bernabéu on Sunday 8 November, kick-off 15:30 Madrid time (9:30 a.m. ET; Madrid is six hours ahead of ET that day). The Falcons are the designated home team.</p><p>Dubliners is open 12:00–02:00 that Sunday, at Calle de Espoz y Mina 7, a few minutes on foot from Puerta del Sol. The game is LIVE on our big screen and our other screens, and NFL RedZone is LIVE from 19:00.</p><img class="split-photo tall" src="/images/dubliners-bar-counter-screen-madrid-1152.webp" srcset="/images/dubliners-bar-counter-screen-madrid-800.webp 800w, /images/dubliners-bar-counter-screen-madrid-1152.webp 1152w" sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Bar counter and a TV screen inside Dubliners Madrid">
     <h2>At the Bernabéu: practical info</h2><p>From Real Madrid's NFL page (<a href="https://bernabeu.realmadrid.com/nfl/" rel="noopener">bernabeu.realmadrid.com/nfl</a>): kick-off is at 15:30 and the stadium perimeter opens at 12:30. There is no parking at the stadium, so plan on public transport; the accessible metro station is Nuevos Ministerios (L6, L8, L10), about 15 minutes on foot from the accessible entrance. The NFL clear-bag policy applies: clear bags up to 30.5 × 15.25 × 30.5 cm or small clutch bags up to 11.5 × 16.5 cm. You can bring an empty, clear reusable bottle (up to 1 litre).</p>
     <h2>FAQ</h2><dl class="faq"><dt><strong>Is NFL RedZone on at Dubliners on 8 November?</strong></dt><dd>Yes. NFL RedZone is LIVE from 19:00 Madrid time, across the 19:00, 22:05 and 22:25 games (we close at 02:00).</dd><dt><strong>Do you show the Sunday night game?</strong></dt><dd>No. It starts at 02:20 Monday Madrid time, after we close at 02:00.</dd></dl>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is NFL RedZone on at Dubliners on 8 November?","acceptedAnswer":{"@type":"Answer","text":"Yes. NFL RedZone is LIVE from 19:00 Madrid time, across the 19:00, 22:05 and 22:25 games (we close at 02:00)."}},{"@type":"Question","name":"Do you show the Sunday night game?","acceptedAnswer":{"@type":"Answer","text":"No. It starts at 02:20 Monday Madrid time, after we close at 02:00."}}]}</script></div></section>
+  <script>
+(function () {
+  function madridTodayYmd(now) {
+    try {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(now);
+    } catch (e) { return null; }
+  }
+  function startOf(li) { return Number(li.getAttribute('data-start-ms')); }
+  function endOf(li) { return Number(li.getAttribute('data-end-ms')); }
+  function sortKey(li) {
+    return (li.getAttribute('data-date-key') || '') + 'T' + (li.getAttribute('data-madrid-time') || '');
+  }
+  function refreshBoard(board, now, todayYmd) {
+    var todayCol = board.querySelector('[data-fixture-slot="today"]');
+    var weekCol = board.querySelector('[data-fixture-slot="week"]');
+    if (!todayCol || !weekCol) return;
+    var todayList = todayCol.querySelector('ul.fixture-list');
+    var weekList = weekCol.querySelector('ul.fixture-list');
+    if (!todayList || !weekList) return;
+    var rows = Array.prototype.slice.call(board.querySelectorAll('li[data-date-key]'));
+    rows.sort(function (a, b) { var x = sortKey(a), y = sortKey(b); return x < y ? -1 : x > y ? 1 : 0; });
+    var t = now.getTime();
+    var nToday = 0, nWeek = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var li = rows[i];
+      var key = li.getAttribute('data-date-key');
+      var s = startOf(li), e = endOf(li);
+      var valid = todayYmd && key && isFinite(s) && isFinite(e);
+      var finished = !valid || t >= e;
+      if (finished) { li.hidden = true; li.setAttribute('aria-hidden', 'true'); continue; }
+      li.hidden = false; li.removeAttribute('aria-hidden');
+      if (key === todayYmd || (key < todayYmd && s <= t)) { todayList.appendChild(li); nToday++; }
+      else { weekList.appendChild(li); nWeek++; }
+    }
+    todayList.hidden = nToday === 0;
+    weekList.hidden = nWeek === 0;
+    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
+    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+  }
+  function run() {
+    var now = new Date();
+    var todayYmd = madridTodayYmd(now);
+    var boards = document.querySelectorAll('[data-fixture-board]');
+    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b], now, todayYmd);
+    var timed = document.querySelectorAll('[data-show-until]');
+    for (var k = 0; k < timed.length; k++) {
+      var until = timed[k].getAttribute('data-show-until');
+      timed[k].hidden = !todayYmd || todayYmd > until;
+    }
+  }
+  window.__dublinersAgendaRefresh = run;
+  run();
+  setInterval(run, 60 * 1000);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') run(); });
+  window.addEventListener('pageshow', run);
+})();
+</script>
 
     </main>
     <footer class="site-footer" data-track-location="footer">

@@ -81,10 +81,70 @@
     <div class="postgame"><h2>Después del partido: NFL RedZone y todos los partidos NFL del domingo EN DIRECTO</h2><p>Tras el pitido final en el Bernabéu, Dubliners sigue con la NFL el resto del domingo. NFL RedZone EN DIRECTO desde las 19:00 (13:00 ET) durante los partidos de las 19:00, 22:05 y 22:25, saltando entre las jugadas de anotación, y todos estos partidos EN DIRECTO en nuestras pantallas (hora de Madrid):</p><ul class="postgame-list"><li><strong>19:00</strong> — Broncos at Panthers · Cowboys at Colts · Jets at Chiefs · Lions at Dolphins · Browns at Saints · Giants at Eagles · Rams at Commanders</li><li><strong>22:05</strong> — Texans at Chargers</li><li><strong>22:25</strong> — Packers at Patriots · Raiders at 49ers · Cardinals at Seahawks</li></ul></div>
     <h2>02:00 — cierre</h2><p>El domingo cerramos a las 02:00. El partido de la noche del domingo empieza a las 02:20 del lunes (hora de Madrid), después del cierre, así que no lo ponemos.</p>
     <p>Una pantalla grande y más pantallas por todo el pub. Horarios convertidos desde el calendario de la jornada 9 de nfl.com (hora del Este).</p>
+    <p data-show-until="2026-11-08">Domingo 8 nov, 21:00 (hora de Madrid): Atlético de Madrid–FC Barcelona (LaLiga), en directo en nuestras pantallas.</p>
     <h2>Aficionados de los Bengals y los Falcons que llegáis a Madrid</h2><p>¿Venís por el Bengals–Falcons? Se juega en el Santiago Bernabéu el domingo 8 de noviembre a las 15:30, hora de Madrid (9:30 ET; ese día Madrid va seis horas por delante de la hora del Este). Los Falcons son el equipo local designado.</p><p>Ese domingo Dubliners abre de 12:00 a 02:00, en la Calle de Espoz y Mina 7, a pocos minutos a pie de la Puerta del Sol. El partido va EN DIRECTO en nuestra pantalla grande y el resto de pantallas, y NFL RedZone EN DIRECTO desde las 19:00.</p><img class="split-photo tall" src="/images/dubliners-bar-counter-screen-madrid-1152.webp" srcset="/images/dubliners-bar-counter-screen-madrid-800.webp 800w, /images/dubliners-bar-counter-screen-madrid-1152.webp 1152w" sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Barra y pantalla de televisión dentro de Dubliners Madrid">
     <h2>En el Bernabéu: información práctica</h2><p>Según la página NFL del Real Madrid (<a href="https://bernabeu.realmadrid.com/nfl/" rel="noopener">bernabeu.realmadrid.com/nfl</a>): el partido empieza a las 15:30 y el perímetro del estadio abre a las 12:30. No hay parking en el estadio, así que conviene ir en transporte público; la estación de metro accesible es Nuevos Ministerios (L6, L8, L10), a unos 15 minutos andando de la entrada accesible. Rige la política de bolsas transparentes de la NFL: bolsas transparentes de hasta 30,5 × 15,25 × 30,5 cm o bolsos de mano de hasta 11,5 × 16,5 cm. Se puede llevar una botella reutilizable vacía y transparente (hasta 1 litro).</p>
     <h2>Preguntas frecuentes</h2><dl class="faq"><dt><strong>¿Ponéis NFL RedZone el 8 de noviembre?</strong></dt><dd>Sí. NFL RedZone EN DIRECTO desde las 19:00, durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).</dd><dt><strong>¿Ponéis el partido del domingo por la noche?</strong></dt><dd>No. Empieza a las 02:20 del lunes, después de nuestro cierre a las 02:00.</dd></dl>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Ponéis NFL RedZone el 8 de noviembre?","acceptedAnswer":{"@type":"Answer","text":"Sí. NFL RedZone EN DIRECTO desde las 19:00, durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00)."}},{"@type":"Question","name":"¿Ponéis el partido del domingo por la noche?","acceptedAnswer":{"@type":"Answer","text":"No. Empieza a las 02:20 del lunes, después de nuestro cierre a las 02:00."}}]}</script></div></section>
+  <script>
+(function () {
+  function madridTodayYmd(now) {
+    try {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(now);
+    } catch (e) { return null; }
+  }
+  function startOf(li) { return Number(li.getAttribute('data-start-ms')); }
+  function endOf(li) { return Number(li.getAttribute('data-end-ms')); }
+  function sortKey(li) {
+    return (li.getAttribute('data-date-key') || '') + 'T' + (li.getAttribute('data-madrid-time') || '');
+  }
+  function refreshBoard(board, now, todayYmd) {
+    var todayCol = board.querySelector('[data-fixture-slot="today"]');
+    var weekCol = board.querySelector('[data-fixture-slot="week"]');
+    if (!todayCol || !weekCol) return;
+    var todayList = todayCol.querySelector('ul.fixture-list');
+    var weekList = weekCol.querySelector('ul.fixture-list');
+    if (!todayList || !weekList) return;
+    var rows = Array.prototype.slice.call(board.querySelectorAll('li[data-date-key]'));
+    rows.sort(function (a, b) { var x = sortKey(a), y = sortKey(b); return x < y ? -1 : x > y ? 1 : 0; });
+    var t = now.getTime();
+    var nToday = 0, nWeek = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var li = rows[i];
+      var key = li.getAttribute('data-date-key');
+      var s = startOf(li), e = endOf(li);
+      var valid = todayYmd && key && isFinite(s) && isFinite(e);
+      var finished = !valid || t >= e;
+      if (finished) { li.hidden = true; li.setAttribute('aria-hidden', 'true'); continue; }
+      li.hidden = false; li.removeAttribute('aria-hidden');
+      if (key === todayYmd || (key < todayYmd && s <= t)) { todayList.appendChild(li); nToday++; }
+      else { weekList.appendChild(li); nWeek++; }
+    }
+    todayList.hidden = nToday === 0;
+    weekList.hidden = nWeek === 0;
+    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
+    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+  }
+  function run() {
+    var now = new Date();
+    var todayYmd = madridTodayYmd(now);
+    var boards = document.querySelectorAll('[data-fixture-board]');
+    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b], now, todayYmd);
+    var timed = document.querySelectorAll('[data-show-until]');
+    for (var k = 0; k < timed.length; k++) {
+      var until = timed[k].getAttribute('data-show-until');
+      timed[k].hidden = !todayYmd || todayYmd > until;
+    }
+  }
+  window.__dublinersAgendaRefresh = run;
+  run();
+  setInterval(run, 60 * 1000);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') run(); });
+  window.addEventListener('pageshow', run);
+})();
+</script>
 
     </main>
     <footer class="site-footer" data-track-location="footer">

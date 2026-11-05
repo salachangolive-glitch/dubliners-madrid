@@ -67,6 +67,11 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
         </li>
       ))}
     </ul>
+    <p>
+      {es
+        ? 'Domingo 8 nov, 21:00 (hora de Madrid): Atlético de Madrid–FC Barcelona (LaLiga), en directo en nuestras pantallas. Abierto desde las 12:00.'
+        : 'Sunday 8 Nov, 21:00 (Madrid time): Atlético de Madrid vs FC Barcelona (LaLiga), live on our screens. Open from 12:00.'}
+    </p>
     <p class="small">
       <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Ver el calendario completo en nfl.com' : 'Full schedule on nfl.com'}</a>
     </p>

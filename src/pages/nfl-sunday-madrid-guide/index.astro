@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { withBase } from '../../site';
 import { hoursFor } from '../../data/hours';
+import { madridToday } from '../../data/fixtures';
 const sundayHours = hoursFor('Sunday');
+const todayKey = madridToday();
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is NFL RedZone on at Dubliners on 8 November?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. NFL RedZone is LIVE from 19:00 Madrid time, across the 19:00, 22:05 and 22:25 games (we close at 02:00)."}}, {"@type": "Question", "name": "Do you show the Sunday night game?", "acceptedAnswer": {"@type": "Answer", "text": "No. It starts at 02:20 Monday Madrid time, after we close at 02:00."}}]};
 ---
 <BaseLayout title="NFL Sunday in Madrid, 8 Nov: Hour-by-Hour Guide | Dubliners" description="Plan Sunday 8 November 2026 in Madrid around the NFL: Bengals vs Falcons at 15:30, the Sunday games and NFL RedZone LIVE from 19:00 at Dubliners near Sol." path="/nfl-sunday-madrid-guide/" lang="en" hreflang={{ en: '/nfl-sunday-madrid-guide/', es: '/es/guia-domingo-nfl-madrid/' }} ogImage="/images/facade.jpg">
@@ -18,9 +21,13 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
     <div class="postgame"><h2>After the game: NFL RedZone and every Sunday NFL game LIVE</h2><p>After the final whistle at the Bernabéu, Dubliners keeps the NFL on for fans for the rest of the Sunday. NFL RedZone is LIVE from 19:00 (1:00 p.m. ET) across the 19:00, 22:05 and 22:25 games, jumping between the scoring chances, and every game below is LIVE on our screens (Madrid time):</p><ul class="postgame-list"><li><strong>19:00</strong> — Broncos at Panthers · Cowboys at Colts · Jets at Chiefs · Lions at Dolphins · Browns at Saints · Giants at Eagles · Rams at Commanders</li><li><strong>22:05</strong> — Texans at Chargers</li><li><strong>22:25</strong> — Packers at Patriots · Raiders at 49ers · Cardinals at Seahawks</li></ul></div>
     <h2>02:00 — closing</h2><p>We close at 02:00 on Sunday night. The Sunday night game starts at 02:20 Monday Madrid time, after closing, so we don't show it.</p>
     <p>A big screen and more screens around the pub. Kick-off times are converted from nfl.com's Week 9 schedule (Eastern Time).</p>
+    {todayKey <= '2026-11-08' && (
+      <p data-show-until="2026-11-08">Sunday 8 Nov, 21:00 (Madrid time): Atlético de Madrid vs FC Barcelona (LaLiga), live on our screens.</p>
+    )}
     <h2>Bengals and Falcons fans arriving in Madrid</h2><p>Coming over for Bengals at Falcons? The game is at the Santiago Bernabéu on Sunday 8 November, kick-off 15:30 Madrid time (9:30 a.m. ET; Madrid is six hours ahead of ET that day). The Falcons are the designated home team.</p><p>Dubliners is open {sundayHours} that Sunday, at Calle de Espoz y Mina 7, a few minutes on foot from Puerta del Sol. The game is LIVE on our big screen and our other screens, and NFL RedZone is LIVE from 19:00.</p><img class="split-photo tall" src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`} sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Bar counter and a TV screen inside Dubliners Madrid" />
     <h2>At the Bernabéu: practical info</h2><p>From Real Madrid's NFL page (<a href="https://bernabeu.realmadrid.com/nfl/" rel="noopener">bernabeu.realmadrid.com/nfl</a>): kick-off is at 15:30 and the stadium perimeter opens at 12:30. There is no parking at the stadium, so plan on public transport; the accessible metro station is Nuevos Ministerios (L6, L8, L10), about 15 minutes on foot from the accessible entrance. The NFL clear-bag policy applies: clear bags up to 30.5 × 15.25 × 30.5 cm or small clutch bags up to 11.5 × 16.5 cm. You can bring an empty, clear reusable bottle (up to 1 litre).</p>
     <h2>FAQ</h2><dl class="faq"><dt><strong>Is NFL RedZone on at Dubliners on 8 November?</strong></dt><dd>Yes. NFL RedZone is LIVE from 19:00 Madrid time, across the 19:00, 22:05 and 22:25 games (we close at 02:00).</dd><dt><strong>Do you show the Sunday night game?</strong></dt><dd>No. It starts at 02:20 Monday Madrid time, after we close at 02:00.</dd></dl>
     <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </div></section>
+  <FixtureAntiStale />
 </BaseLayout>

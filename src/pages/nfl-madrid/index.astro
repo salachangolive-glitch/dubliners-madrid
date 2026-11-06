@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { withBase } from '../../site';
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When and where is the 2026 NFL game in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."}}, {"@type": "Question", "name": "Which NFL games are live on Sunday 8 November?", "acceptedAnswer": {"@type": "Answer", "text": "On Sunday 8 November: Bengals vs Falcons at 15:30 and all Sunday NFL games at 19:00, 22:05 and 22:25, LIVE. Other dates are listed on What's On once confirmed."}}]};
@@ -30,6 +31,8 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
       <table><tbody><tr><td>Sun 8 Nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Santiago Bernabéu Stadium, Madrid</td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Broncos at Panthers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Cowboys at Colts</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Jets at Chiefs</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Lions at Dolphins</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Browns at Saints</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Giants at Eagles</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Rams at Commanders</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:05</td><td>Texans at Chargers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Raiders at 49ers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Packers at Patriots</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Cardinals at Seahawks</td><td></td></tr></tbody></table>
       <p class="small">Madrid times (CET). All games above are LIVE at Dubliners. Source: nfl.com Week 9 schedule. The Sunday night game (02:20 Monday Madrid) is after closing time. <a href={withBase('/whats-on/')}>See what's on</a></p>
       <p class="small">Planning the whole day? <a href={withBase('/nfl-sunday-madrid-guide/')}>NFL Sunday hour-by-hour guide</a></p>
+      <p class="small">Where to watch NFL near Puerta del Sol: <a href={withBase('/where-to-watch-nfl-madrid/')}>Where to watch NFL in Madrid</a></p>
+      <p class="small" data-show-until="2026-11-08">Sunday 8 Nov in Sol: NFL 15:30, 19:00, 22:05/22:25 and Atlético–Barcelona 21:00 — <a href={withBase('/sunday-sports-sol/')}>Sunday sports in Sol</a></p>
       <p class="small">Fan weekend near Sol: <a href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend</a> — Dubliners, O&apos;Reilly&apos;s and O&apos;Connell St</p>
       <p class="small">Thanksgiving Thursday: <a href={withBase('/thanksgiving-madrid/')}>Thanksgiving NFL in Madrid</a> (26 November: 19:00 and 22:30)</p>
       <p class="small">The Sunday before: <a href={withBase('/nfl-sunday-madrid-1-november/')}>NFL Sunday, 1 November</a> (19:00, 22:05 and 22:25, bank holiday Monday)</p>
@@ -47,4 +50,5 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
       <script type="application/ld+json" set:html={JSON.stringify(eventLd)} />
     </div>
   </section>
+  <FixtureAntiStale />
 </BaseLayout>

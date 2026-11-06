@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
@@ -170,6 +171,8 @@ const faqLd = {
             title: 'NFL at Dubliners',
             items: [
               { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday schedule LIVE' },
+              { href: '/where-to-watch-nfl-madrid/', label: 'Where to watch NFL in Madrid', note: 'Near Puerta del Sol' },
+              { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'NFL + Atlético–Barça, 8 Nov', until: SHOW_UNTIL },
               { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday hour-by-hour guide' },
               { href: '/whats-on/', label: "What's On", note: 'Confirmed fixtures' },
               { href: '/visit/', label: 'Hours & map' },
@@ -180,4 +183,5 @@ const faqLd = {
       />
     </div>
   </section>
+  <FixtureAntiStale />
 </BaseLayout>

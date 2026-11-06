@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
@@ -169,6 +170,8 @@ const faqLd = {
             title: 'NFL en Dubliners',
             items: [
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },
+              { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Junto a Puerta del Sol' },
+              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
               { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
               { href: '/es/visitar/', label: 'Horario y mapa' },
@@ -179,4 +182,5 @@ const faqLd = {
       />
     </div>
   </section>
+  <FixtureAntiStale />
 </BaseLayout>

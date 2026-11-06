@@ -27,6 +27,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/halloween-madrid-2026/': '/es/halloween-madrid-2026/',
   '/thanksgiving-madrid/': '/es/thanksgiving-madrid/',
   '/4-bars-one-fan-weekend/': '/es/cuatro-bares-fin-de-semana/',
+  '/where-to-watch-nfl-madrid/': '/es/donde-ver-nfl-madrid/',
+  '/sunday-sports-sol/': '/es/deportes-domingo-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

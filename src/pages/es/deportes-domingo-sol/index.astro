@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS, hoursSummary } from '../../../data/hours';
+import { madridToday } from '../../../data/fixtures';
+
+// Par ES de /sunday-sports-sol/. Adaptado de sunday-football-sol.md a Dubliners.
+// Agenda: ventanas NFL verificadas en RADAR-AGENDA.md + Atlético–Barcelona 21:00.
+// Sin canal salvo Bengals–Falcons (DAZN, Cuatro). Kick-offs tardíos: solo la hora, sin aviso de cierre.
+const PATH = '/es/deportes-domingo-sol/';
+const PATH_EN = '/sunday-sports-sol/';
+const SHOW_UNTIL = '2026-11-08';
+const todayKey = madridToday();
+const showWeekend = todayKey <= SHOW_UNTIL;
+const hoursLine = hoursSummary('es');
+const title = 'Deportes domingo Sol: NFL y Atlético–Barça | Dubliners';
+const description =
+  'Domingo 8 nov junto a Sol: NFL 15:30, 19:00, 22:05/22:25 y Atlético–Barça 21:00 en Dubliners, Espoz y Mina 7. Pregunta qué echan.';
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Fútbol desde mediodía el domingo junto a Sol: NFL y luego Atlético–Barça',
+  inLanguage: 'es',
+  datePublished: '2026-11-06',
+  dateModified: '2026-11-06',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  about: 'Domingo 8 de noviembre de 2026 en Dubliners junto a Sol: NFL y Atlético de Madrid vs FC Barcelona',
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué hay en Dubliners el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bengals–Falcons a las 15:30, siete partidos NFL a las 19:00, Atlético de Madrid–FC Barcelona a las 21:00, Texans–Chargers a las 22:05 y tres partidos NFL a las 22:25 (hora de Madrid). Pregunta en barra qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora abre Dubliners el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Desde las 12:00. Horario habitual: ${hoursLine}.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Está cada partido en cada pantalla?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los kick-offs se pisan. Pregunta en barra qué echan. No está cada partido en cada pantalla.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Deportes el domingo en Sol" lang="es" schema />
+      <h1>Fútbol desde mediodía el domingo junto a Sol: NFL y luego Atlético–Barça</h1>
+      <p class="lead">
+        El domingo 8 de noviembre de 2026 en Madrid son varios relojes en un día, no una sola sesión. Organízalo por
+        kick-off en <strong>Dubliners</strong>, Calle de Espoz y Mina 7, junto a Puerta del Sol. Pregunta en barra qué
+        echan: no está cada partido en cada pantalla.
+      </p>
+      <p class="small">Domingo 8 de noviembre de 2026 · hora de Madrid · desde las 12:00 · {hoursLine}</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      {showWeekend && (
+        <div data-show-until={SHOW_UNTIL}>
+          <h2>Domingo 8 de noviembre — kick-offs (hora de Madrid)</h2>
+          <table>
+            <thead>
+              <tr><th>Hora Madrid</th><th>Qué</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>15:30</td><td>Bengals–Falcons en el Santiago Bernabéu (DAZN y Cuatro; en <strong>pantalla grande</strong> en Dubliners)</td></tr>
+              <tr><td>19:00</td><td>Siete partidos NFL (Broncos at Panthers, Cowboys at Colts, Jets at Chiefs, Lions at Dolphins, Browns at Saints, Giants at Eagles, Rams at Commanders)</td></tr>
+              <tr><td>21:00</td><td>Atlético de Madrid–FC Barcelona, LaLiga, Riyadh Air Metropolitano</td></tr>
+              <tr><td>22:05</td><td>Texans at Chargers</td></tr>
+              <tr><td>22:25</td><td>Tres partidos NFL (Raiders at 49ers, Packers at Patriots, Cardinals at Seahawks)</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Esas capas se pisan. Un pub no es un centro de emisiones. Una pantalla puede quedarse en el partido NFL de Madrid,
+            otra pasar al lote de las 19:00, otra estar ya en las 21:00. <strong>Pregunta en barra.</strong> No está cada
+            partido en cada pantalla.
+          </p>
+          <p class="small">
+            Horarios NFL: <a href="https://www.nfl.com/schedules/2026/REG9/" rel="noopener" target="_blank">calendario Week 9 de NFL.com</a>.
+            Bengals–Falcons en España: DAZN y Cuatro (<a href="https://www.nfl.com/news/donde-ver-el-2026-nfl-madrid-game-en-espana" rel="noopener" target="_blank">nfl.com</a>).
+          </p>
+        </div>
+      )}
+
+      <h2>Desde mediodía en Dubliners</h2>
+      <p>
+        Dubliners abre desde las <strong>12:00</strong> el domingo (hasta las 02:00). Pub irlandés de interior en Calle de
+        Espoz y Mina 7, 28012 Madrid — Metro Sol (L1, L2, L3) o Sevilla (L2). Punto de encuentro tras dejar el hotel, para
+        reunir al grupo hasta el kick-off de las 15:30.
+      </p>
+      <img
+        class="split-photo tall"
+        src={withBase('/images/dubliners-screens-sol-1200.webp')}
+        srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`}
+        sizes="(max-width: 800px) 100vw, 720px"
+        width="1200"
+        height="1600"
+        loading="lazy"
+        decoding="async"
+        alt="Pantalla grande y más pantallas en Dubliners, junto a Sol"
+      />
+
+      {showWeekend && (
+        <div data-show-until={SHOW_UNTIL}>
+          <h2>Cómo plantear la noche apilada</h2>
+          <p>Una ruta realista, no una promesa de parrilla:</p>
+          <ol>
+            <li><strong>12:00–15:30</strong> — el grupo en Dubliners; a las 15:30, Bengals–Falcons en pantalla grande si no estás en el Bernabéu.</li>
+            <li><strong>19:00</strong> — entra más NFL. Aquí se parten las pantallas. Di el equipo que te importa y pregunta. Siete partidos de las 19:00 más un derbi a las 21:00 no salen todos en cada pantalla.</li>
+            <li><strong>21:00</strong> — Atlético–Barcelona. Dubliners abre hasta las 02:00, así que el tiempo reglamentario cabe en el horario. Confirma en barra antes de sentarte.</li>
+            <li><strong>22:05 / 22:25</strong> — Texans at Chargers y, después, Raiders at 49ers, Packers at Patriots y Cardinals at Seahawks. La misma pauta: pregunta qué echan.</li>
+          </ol>
+          <p>
+            Sábado 7 de noviembre, 21:00: Valencia vs Real Madrid (Orange TV y DAZN) es la noche de fútbol anterior a este domingo.
+          </p>
+        </div>
+      )}
+
+      <h2>Horario</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
+      <p>
+        Otros pubs del mismo tramo están en <a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran fin de semana deportivo</a>.
+        Lista NFL: <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>.
+      </p>
+      <p class="small">
+        Dubliners es un pub irlandés independiente y un punto de encuentro local para aficionados. No formamos parte de
+        los actos de la liga ni de la organización del estadio.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Sunday sports in Sol: NFL 15:30, 19:00, 22:05/22:25 and Atlético–Barcelona 21:00</a></p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué hay en Dubliners el domingo 8 de noviembre?</strong></dt>
+        <dd>Bengals–Falcons a las 15:30, siete partidos NFL a las 19:00, Atlético de Madrid–FC Barcelona a las 21:00, Texans–Chargers a las 22:05 y tres partidos NFL a las 22:25 (hora de Madrid). Pregunta en barra qué echan.</dd>
+        <dt><strong>¿A qué hora abre Dubliners el domingo 8 de noviembre?</strong></dt>
+        <dd>Desde las 12:00. Horario habitual: {hoursLine}.</dd>
+        <dt><strong>¿Está cada partido en cada pantalla?</strong></dt>
+        <dd>No. Los kick-offs se pisan. Pregunta en barra qué echan. No está cada partido en cada pantalla.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Más este fin de semana',
+            items: [
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo' },
+              { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Junto a Puerta del Sol' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares · fin de semana', note: 'Junto a Sol este finde' },
+              { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
+              { href: PATH_EN, label: 'Sunday sports in Sol', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { SITE, withBase } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+// Par ES de /4-bars-one-fan-weekend/. Orden dueño 6 nov 2026 vía DG.
+// Four Corner omitido hasta confirmación Localo (nombre + horario).
+const path = '/es/cuatro-bares-fin-de-semana/';
+const SHOW_UNTIL = '2026-11-08';
+const MAPS = {
+  dubliners: 'https://www.google.com/maps?cid=4384002297188950803',
+  oconnell: 'https://www.google.com/maps?cid=10697659365903665225',
+  oreillys: 'https://maps.google.com/maps?cid=9285869778750479445',
+} as const;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué es Cuatro bares. Un gran fin de semana deportivo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Un punto de encuentro cerca de la Puerta del Sol en tres pubs irlandeses muy próximos: O\'Reilly\'s (Pasaje de Matheu 4), Dubliners y O\'Connell St (ambos en Espoz y Mina 7). El sábado, tras la NFL Experience y la NFL House; el domingo desde las 12:00 para la NFL y el fútbol en pantallas.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora abre Dubliners el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde las 12:00. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué partidos van EN DIRECTO en Dubliners este fin de semana?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sábado 7: España–Uruguay (rugby) a las 16:00 y Valencia–Real Madrid a las 21:00. Domingo 8: Bengals–Falcons a las 15:30, jornada NFL desde las 19:00 y Atlético–Barcelona a las 21:00. Hora de Madrid. Lista completa en Partidos y eventos.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Cuatro bares. Un gran fin de semana deportivo · NFL Madrid | Dubliners"
+  description="Punto de encuentro cerca de Sol para el fin de semana NFL Madrid: O'Reilly's, Dubliners y O'Connell St. Sábado tras la NFL House; domingo desde las 12:00."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/4-bars-one-fan-weekend/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Cuatro bares · fin de semana" lang="es" schema />
+      <h1>Cuatro bares. Un gran fin de semana deportivo</h1>
+      <p class="lead">
+        <strong>NFL Madrid 2026 — 7 y 8 de noviembre.</strong> Tres pubs irlandeses a pocos minutos de la Puerta del Sol —
+        un <strong>punto de encuentro</strong> antes del partido, después del partido y durante toda la jornada NFL.
+      </p>
+      <p class="small">Viernes 6 · sábado 7 · domingo 8 de noviembre de 2026 · Junto a Sol</p>
+      <p class="small">In English: <a href={withBase('/4-bars-one-fan-weekend/')} hreflang="en" lang="en">4 Bars. One Fan Weekend</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Dubliners</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Antes del partido, después del partido y toda la jornada NFL</h2>
+      <p>
+        Quienes llegan a Madrid por la NFL no tienen que esperar al pitido del domingo. El sábado, tras la NFL Experience en Plaza de España
+        y la NFL House en la Casa de las Alhajas (calle San Martín 1), podéis seguir la jornada a pocos minutos de Sol.
+        El domingo abrimos desde las <strong>12:00</strong>: ambiente de punto de encuentro desde el mediodía, Bengals–Falcons EN DIRECTO desde las 15:30,
+        más NFL desde las 19:00 y Atlético–Barcelona a las 21:00 en nuestras pantallas.
+      </p>
+      <p class="small">
+        La NFL Experience y la NFL House las organiza la NFL en otras sedes, no en nuestros pubs.
+        Detalles: <a href="https://www.nfl.com/news/fan-events-in-madrid" rel="noopener" target="_blank">nfl.com/news/fan-events-in-madrid</a>
+        y <a href="https://www.nfl.com/news/madrid-la-nfl-ya-esta-aqui" rel="noopener" target="_blank">NFL House</a>.
+      </p>
+
+      <h2>Tres pubs cerca de Sol</h2>
+      <p>Cada uno con su estilo. Todos a pocos minutos de la Puerta del Sol.</p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Pub irlandés · Calle de Espoz y Mina 7, 28012 Madrid.<br />
+        Horario: lun–jue y dom 12:00–02:00 · vie–sáb 12:00–02:30. Domingo 8 de noviembre: abrimos desde las 12:00.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+        · <a href={withBase('/es/partidos/')}>Partidos y eventos</a>
+        · <a href="https://dublinersmadrid.es/es/">dublinersmadrid.es</a>
+      </p>
+      <p>
+        <strong>Confirmados EN DIRECTO este fin de semana (pantallas de Dubliners):</strong>
+      </p>
+      <ul>
+        <li><strong>Sáb 7 nov, 16:00</strong> — España–Uruguay (rugby, Nations Cup, Complutense)</li>
+        <li><strong>Sáb 7 nov, 21:00</strong> — Valencia–Real Madrid</li>
+        <li><strong>Dom 8 nov, 15:30</strong> — Bengals–Falcons (Madrid Game) en <strong>pantalla grande</strong></li>
+        <li><strong>Dom 8 nov, desde 19:00</strong> — jornada NFL del domingo EN DIRECTO (dentro del horario; cerramos a las 02:00)</li>
+        <li><strong>Dom 8 nov, 21:00</strong> — Atlético de Madrid–FC Barcelona</li>
+      </ul>
+      <p class="small">Lista completa: <a href={withBase('/es/partidos/')}>Partidos y eventos</a>. Guía del domingo: <a href={withBase('/es/guia-domingo-nfl-madrid/')}>guía hora a hora</a>.</p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Restaurante-bar con terraza · Pasaje de Matheu 4, 28012 Madrid.<br />
+        Horario: todos los días 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href="https://oreillys-restaurant-bar.localo.site/" rel="noopener" target="_blank">Web de O'Reilly's</a>
+      </p>
+      <p>
+        Deporte en pantallas en un restaurante-bar a un corto paseo de Sol — útil si queréis comer, quedar y seguir el fin de semana.
+        Consultad su web y su ficha de Maps para el horario actualizado.
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Pub irlandés deportivo · Calle de Espoz y Mina 7, 28012 Madrid (misma calle que Dubliners).<br />
+        Horario habitual: lun–jue 18:00–03:00 · vie 16:00–03:30 · sáb 15:00–03:30 · dom 14:00–03:00.
+        <strong>Excepción domingo 8 nov: abren desde las 12:00.</strong><br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href="https://oconnellsmadrid.es/es/nfl-madrid" rel="noopener" target="_blank">NFL en O'Connell St</a>
+        · <a href="https://oconnellsmadrid.es/es" rel="noopener" target="_blank">oconnellsmadrid.es</a>
+      </p>
+      <p>
+        Otro punto de encuentro en Espoz y Mina para la NFL y el fútbol. El domingo 8 abren desde las 12:00 por el Madrid Game.
+      </p>
+
+      <h2>Sábado 7 de noviembre</h2>
+      <p>
+        La NFL Experience (Plaza de España) y la NFL House (Casa de las Alhajas / Palacio de las Alhajas, calle San Martín 1)
+        ocupan la tarde. Cuando terminen, Sol está a pocos minutos: seguid con otros aficionados en Dubliners, O'Reilly's u O'Connell St
+        (España–Uruguay a las 16:00 y Valencia–Real Madrid a las 21:00 EN DIRECTO en Dubliners).
+      </p>
+
+      <h2>Domingo 8 de noviembre — desde las 12:00</h2>
+      <p>
+        El día empieza al mediodía, no después del Bernabéu. Dubliners abre a las 12:00; O'Connell St también abre desde las 12:00 ese día.
+        Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
+      </p>
+
+      <h2>Horario de Dubliners</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué es Cuatro bares. Un gran fin de semana deportivo?</strong></dt>
+        <dd>Un punto de encuentro cerca de Sol en tres pubs irlandeses muy próximos: O'Reilly's, Dubliners y O'Connell St. Sábado tras la NFL Experience y la NFL House; domingo desde las 12:00.</dd>
+        <dt><strong>¿A qué hora abre Dubliners el domingo 8 de noviembre?</strong></dt>
+        <dd>Desde las 12:00. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd>
+        <dt><strong>¿Qué partidos van EN DIRECTO en Dubliners este fin de semana?</strong></dt>
+        <dd>Sábado: España–Uruguay (16:00) y Valencia–Real Madrid (21:00). Domingo: Bengals–Falcons (15:30), jornada NFL desde las 19:00 y Atlético–Barcelona (21:00). Ver <a href={withBase('/es/partidos/')}>Partidos y eventos</a>.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'NFL en Dubliners',
+            items: [
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },
+              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
+              { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
+              { href: '/es/visitar/', label: 'Horario y mapa' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

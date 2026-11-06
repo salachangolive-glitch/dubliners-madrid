@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+// Campaign landing: 4 BARS. ONE FAN WEEKEND. Owner order 6 Nov 2026 via DG.
+// Central page for Dubliners Ads landing. Four Corner omitted until Localo confirms name + hours.
+// Confirmed sources: FUENTES-PARTIDOS-COMPARTIDAS.md, fixtures.ts, nfl.com fan-events, FOUR-CORNER.md (omit).
+const path = '/4-bars-one-fan-weekend/';
+const SHOW_UNTIL = '2026-11-08';
+const MAPS = {
+  dubliners: 'https://www.google.com/maps?cid=4384002297188950803',
+  oconnell: 'https://www.google.com/maps?cid=10697659365903665225',
+  oreillys: 'https://maps.google.com/maps?cid=9285869778750479445',
+} as const;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is 4 Bars. One Fan Weekend?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A weekend meeting point near Puerta del Sol across three Irish sports pubs a short walk apart: O\'Reilly\'s (Pasaje de Matheu 4), Dubliners and O\'Connell St (both at Espoz y Mina 7). Saturday after NFL Experience and NFL House, and Sunday from 12:00 for NFL and football on the screens.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When does Dubliners open on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From 12:00. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which games are LIVE at Dubliners this weekend?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Saturday 7: Spain vs Uruguay rugby at 16:00 and Valencia vs Real Madrid at 21:00. Sunday 8: Bengals vs Falcons at 15:30, Sunday NFL games from 19:00, and Atlético vs Barcelona at 21:00. All times Madrid. Full list on What\'s On.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="4 Bars. One Fan Weekend · NFL Madrid near Sol | Dubliners"
+  description="Meeting point near Puerta del Sol for NFL Madrid weekend: O'Reilly's, Dubliners and O'Connell St. Saturday after NFL House; Sunday from 12:00 for Bengals–Falcons and more."
+  path={path}
+  lang="en"
+  hreflang={{ en: path, es: '/es/cuatro-bares-fin-de-semana/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="4 Bars. One Fan Weekend" schema />
+      <h1>4 Bars. One Fan Weekend</h1>
+      <p class="lead">
+        <strong>NFL Madrid 2026 — 7 &amp; 8 November.</strong> Three Irish sports pubs a short walk from Puerta del Sol —
+        a <strong>fans meeting point</strong> before the game, after the game, and all Sunday football.
+      </p>
+      <p class="small">Friday 6 · Saturday 7 · Sunday 8 November 2026 · Near Puerta del Sol</p>
+      <p class="small">En español: <a href={withBase('/es/cuatro-bares-fin-de-semana/')} hreflang="es" lang="es">Cuatro bares. Un gran fin de semana deportivo</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL at Dubliners</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Before the game. After the game. All Sunday football.</h2>
+      <p>
+        Fans arriving for NFL Madrid do not need to wait until kick-off on Sunday. On Saturday, after the NFL Experience at Plaza de España
+        and the NFL House at Casa de las Alhajas (Calle San Martín 1), you can keep the day going a few minutes’ walk away near Sol.
+        On Sunday we open from <strong>12:00</strong> — meeting point atmosphere from midday, then Bengals vs Falcons LIVE from 15:30,
+        more NFL from 19:00, and Atlético vs Barcelona at 21:00 on our screens.
+      </p>
+      <p class="small">
+        Fan events (NFL Experience and NFL House) are run by the NFL at other venues, not at our pubs.
+        Details: <a href="https://www.nfl.com/news/fan-events-in-madrid" rel="noopener" target="_blank">nfl.com/news/fan-events-in-madrid</a>
+        and <a href="https://www.nfl.com/news/madrid-la-nfl-ya-esta-aqui" rel="noopener" target="_blank">NFL House</a>.
+      </p>
+
+      <h2>Three pubs near Sol</h2>
+      <p>Each has its own character. All sit within a few minutes of Puerta del Sol.</p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Irish pub · Calle de Espoz y Mina 7, 28012 Madrid.<br />
+        Hours: Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:00–02:30. Sunday 8 November: open from 12:00.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
+        · <a href={withBase('/whats-on/')}>What's On</a>
+        · <a href="https://dublinersmadrid.es/">dublinersmadrid.es</a>
+      </p>
+      <p>
+        <strong>Confirmed LIVE this weekend (Dubliners screens):</strong>
+      </p>
+      <ul>
+        <li><strong>Sat 7 Nov, 16:00</strong> — Spain vs Uruguay (rugby, Nations Cup, Complutense)</li>
+        <li><strong>Sat 7 Nov, 21:00</strong> — Valencia vs Real Madrid</li>
+        <li><strong>Sun 8 Nov, 15:30</strong> — Bengals vs Falcons (Madrid Game) on the <strong>big screen</strong></li>
+        <li><strong>Sun 8 Nov, from 19:00</strong> — Sunday NFL games LIVE (within opening hours; we close at 02:00)</li>
+        <li><strong>Sun 8 Nov, 21:00</strong> — Atlético de Madrid vs FC Barcelona</li>
+      </ul>
+      <p class="small">Full fixture list: <a href={withBase('/whats-on/')}>What's On</a>. Hour-by-hour Sunday: <a href={withBase('/nfl-sunday-madrid-guide/')}>NFL Sunday guide</a>.</p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Restaurant-bar with terrace · Pasaje de Matheu 4, 28012 Madrid.<br />
+        Hours: open daily 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href="https://oreillys-restaurant-bar.localo.site/" rel="noopener" target="_blank">O'Reilly's site</a>
+      </p>
+      <p>
+        Sports on screens in a restaurant-bar setting a short walk from Sol — useful if you want to eat, meet up and follow the weekend.
+        Check their site and Maps listing for the latest hours.
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Irish sports pub · Calle de Espoz y Mina 7, 28012 Madrid (same street as Dubliners).<br />
+        Usual hours: Mon–Thu 18:00–03:00 · Fri 16:00–03:30 · Sat 15:00–03:30 · Sun 14:00–03:00.
+        <strong>Exception Sunday 8 Nov: open from 12:00.</strong><br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href="https://oconnellsmadrid.es/nfl-madrid" rel="noopener" target="_blank">NFL at O'Connell St</a>
+        · <a href="https://oconnellsmadrid.es/" rel="noopener" target="_blank">oconnellsmadrid.es</a>
+      </p>
+      <p>
+        Another meeting point on Espoz y Mina for NFL and football. On Sunday 8 they open from 12:00 for the Madrid Game day.
+      </p>
+
+      <h2>Saturday 7 November</h2>
+      <p>
+        NFL Experience (Plaza de España) and NFL House (Casa de las Alhajas / Palacio de las Alhajas, Calle San Martín 1)
+        run through the afternoon. When those wrap up, Sol is a few minutes away — join fellow fans at Dubliners, O'Reilly's or O'Connell St
+        and keep the sports day going into the evening (Spain–Uruguay at 16:00 and Valencia–Real Madrid at 21:00 LIVE at Dubliners).
+      </p>
+
+      <h2>Sunday 8 November — from 12:00</h2>
+      <p>
+        The day starts at midday, not after the Bernabéu whistle. Dubliners opens at 12:00; O'Connell St also opens from 12:00 that day.
+        Bengals vs Falcons at 15:30, more NFL from 19:00, Atlético–Barcelona at 21:00.
+      </p>
+
+      <h2>Opening hours at Dubliners</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What is 4 Bars. One Fan Weekend?</strong></dt>
+        <dd>A weekend meeting point near Puerta del Sol across three Irish sports pubs a short walk apart: O'Reilly's, Dubliners and O'Connell St. Saturday after NFL Experience and NFL House; Sunday from 12:00.</dd>
+        <dt><strong>When does Dubliners open on Sunday 8 November?</strong></dt>
+        <dd>From 12:00. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
+        <dt><strong>Which games are LIVE at Dubliners this weekend?</strong></dt>
+        <dd>Saturday: Spain vs Uruguay (16:00) and Valencia vs Real Madrid (21:00). Sunday: Bengals vs Falcons (15:30), Sunday NFL from 19:00, and Atlético vs Barcelona (21:00). See <a href={withBase('/whats-on/')}>What's On</a>.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'NFL at Dubliners',
+            items: [
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday schedule LIVE' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday hour-by-hour guide' },
+              { href: '/whats-on/', label: "What's On", note: 'Confirmed fixtures' },
+              { href: '/visit/', label: 'Hours & map' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares · fin de semana', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

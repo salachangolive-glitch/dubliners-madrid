@@ -116,6 +116,7 @@
  *   (formula1.com 15:00/14:00 local, UTC-3); + Bundesliga MD8 Bayern–Dortmund Sat 31 18:30 CET (bundesliga.com, datencenter.dfb.de). NO channel.
  * - 29 Oct (morning block): rows dateKey <= 2026-10-28 + Wed-night rows 00:00–00:30 Thu 29 (NBA/NHL) RETIRED (19 rows, all played).
  * - 6 Nov (morning): Thu 5 rows RETIRED (35: Getafe–Brighton + UEL/UECL J3).
+ * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -833,8 +834,8 @@ export const FIXTURES: Fixture[] = [
     teams: 'Spain vs Chile',
     madridTime: '17:00',
     confirmedOnScreens: true,
-    noteEn: 'Venue pending confirmation (expected: Estadio Municipal de Butarque, Leganés). Ireland vs Fiji follows at 21:10.',
-    noteEs: 'Sede pendiente de confirmación (prevista: Estadio Municipal de Butarque, Leganés). Después, Irlanda–Fiyi a las 21:10.',
+    noteEn: 'Played in Leganés, at Estadio Ontime Butarque. Ireland vs Fiji follows at 21:10.',
+    noteEs: 'Se juega en Leganés, en el Estadio Ontime Butarque. Después, Irlanda–Fiyi a las 21:10.',
   },
 {
     dateKey: '2026-11-25',

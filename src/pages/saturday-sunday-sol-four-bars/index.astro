@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+// New article (owner 6 Nov 2026): Saturday after NFL House / Experience; Sunday from 12:00 at Dubliners.
+const path = '/saturday-sunday-sol-four-bars/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Saturday and Sunday in Sol: a fan’s route through four bars',
+  inLanguage: 'en',
+  datePublished: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-06T16:00:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What can I do in Sol on Saturday after the NFL House?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area: O\'Reilly\'s, Dubliners, O\'Connell St and Four Corner. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When does Sunday start at Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From 12:00 on Sunday 8 November. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this route part of the league’s events?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The four bars are independent of NFL Experience and NFL House. They are a separate meeting point near Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Saturday and Sunday in Sol: a fan’s route through four bars | Dubliners"
+  description="A fan’s route through four sister bars near Puerta del Sol: Saturday after NFL House at Casa de las Alhajas; Sunday from 12:00 at Dubliners. Name, address and Maps."
+  path={path}
+  lang="en"
+  hreflang={{ en: path, es: '/es/sabado-domingo-sol-cuatro-bares/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Saturday and Sunday in Sol" schema />
+      <h1>Saturday and Sunday in Sol: a fan’s route through four bars</h1>
+      <p class="lead">
+        Two days, one area. After the league’s Saturday programme, walk towards Puerta del Sol.
+        Four sister bars share the same streets — <strong>one meeting point</strong> for Saturday evening and Sunday from midday.
+      </p>
+      <p class="small">En español: <a href={withBase('/es/sabado-domingo-sol-cuatro-bares/')} hreflang="es" lang="es">Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>The four bars on the route</h2>
+      <p>
+        Keep this cluster in your pocket. All four sit a short walk from Puerta del Sol:
+      </p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurant-bar with terrace.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Sunday from 12:00; Friday and Saturday 12:00–02:30; Monday–Thursday and Sunday 12:00–02:00.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Same street as Dubliners.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>Four Corner</h3>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. Sister bar in the same area. Hours to be confirmed.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h2 data-show-until={SHOW_UNTIL}>Saturday 7 November — after the Experience and the House</h2>
+      <div data-show-until={SHOW_UNTIL}>
+        <p>
+          The league’s Saturday programme is elsewhere: NFL Experience at Plaza de España (10:00–19:00) and NFL House at
+          Casa de las Alhajas / Palacio de las Alhajas, Calle de San Martín 1 (12:00–20:00). Those events are independent of the four bars.
+        </p>
+        <p>
+          When you leave Plaza de España or Casa de las Alhajas, Sol is a short walk. From there the four sister bars sit
+          just south and east of the square: Four Corner on Calle de la Victoria, O'Reilly's on Pasaje de Matheu,
+          Dubliners and O'Connell St on Calle de Espoz y Mina. Treat them as one meeting point, not a scavenger hunt.
+        </p>
+        <p>
+          Saturday evening in Spain: <strong>Valencia vs Real Madrid at 21:00</strong> (Orange TV and DAZN). At Dubliners that match is LIVE.
+        </p>
+      </div>
+
+      <h2 data-show-until={SHOW_UNTIL}>Sunday 8 November — from 12:00 at Dubliners</h2>
+      <div data-show-until={SHOW_UNTIL}>
+        <p>
+          Sunday does not start at kick-off. Dubliners opens from <strong>12:00</strong>, so the same Sol cluster works as a meeting point
+          from midday. Four Corner: hours to be confirmed.
+        </p>
+        <p>
+          From 15:30, Cincinnati Bengals vs Atlanta Falcons (Madrid Game) is LIVE at Dubliners on the <strong>big screen</strong>.
+          In Spain that match is on DAZN and Cuatro. The rest of the NFL Sunday, Madrid time:
+        </p>
+        <ul>
+          <li><strong>19:00</strong> — seven NFL games.</li>
+          <li><strong>21:00</strong> — Atlético de Madrid vs FC Barcelona.</li>
+          <li><strong>22:05</strong> — Houston Texans vs Los Angeles Chargers.</li>
+          <li><strong>22:25</strong> — three NFL games.</li>
+        </ul>
+        <p>
+          Dubliners keeps Sunday NFL on from 19:00 within opening hours (we close at 02:00).
+        </p>
+      </div>
+
+      <h2>Opening hours at Dubliners</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What can I do in Sol on Saturday after the NFL House?</strong></dt>
+        <dd>After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.</dd>
+        <dt><strong>When does Sunday start at Dubliners?</strong></dt>
+        <dd>From 12:00 on Sunday 8 November. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
+        <dt><strong>Is this route part of the league’s events?</strong></dt>
+        <dd>No. The four bars are independent of NFL Experience and NFL House. They are a separate meeting point near Sol.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More for this weekend',
+            items: [
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend', note: 'Central hub with all four bars' },
+              { href: '/nfl-madrid-four-sister-bars/', label: 'Four sister bars near Sol', note: 'The collective meeting point', until: SHOW_UNTIL },
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday schedule LIVE' },
+              { href: '/whats-on/', label: "What's On" },
+              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -3,18 +3,16 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
-import { SITE, withBase } from '../../../site';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
 
-// Par ES de /4-bars-one-fan-weekend/. Orden dueño 6 nov 2026 vía DG.
-// Four Corner omitido hasta confirmación Localo (nombre + horario).
+// Par ES de /4-bars-one-fan-weekend/. Corrección dueño 6 nov 2026 15:48.
+// Un punto de encuentro colectivo: cuatro bares hermanos junto a Sol, incluido Four Corner.
 const path = '/es/cuatro-bares-fin-de-semana/';
-const SHOW_UNTIL = '2026-11-08';
-const MAPS = {
-  dubliners: 'https://www.google.com/maps?cid=4384002297188950803',
-  oconnell: 'https://www.google.com/maps?cid=10697659365903665225',
-  oreillys: 'https://maps.google.com/maps?cid=9285869778750479445',
-} as const;
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -24,7 +22,7 @@ const faqLd = {
       name: '¿Qué es Cuatro bares. Un gran fin de semana deportivo?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un punto de encuentro cerca de la Puerta del Sol en tres pubs irlandeses muy próximos: O\'Reilly\'s (Pasaje de Matheu 4), Dubliners y O\'Connell St (ambos en Espoz y Mina 7). El sábado, tras la NFL Experience y la NFL House; el domingo desde las 12:00 para la NFL y el fútbol en pantallas.',
+        text: 'Un punto de encuentro colectivo cerca de la Puerta del Sol en cuatro bares hermanos muy próximos: O\'Reilly\'s Restaurant Bar (Pasaje de Matheu 4), Dubliners y O\'Connell St (ambos en Espoz y Mina 7) y Four Corner (Calle de la Victoria 6). El sábado, tras la NFL Experience y la NFL House; el domingo desde las 12:00 en Dubliners.',
       },
     },
     {
@@ -49,7 +47,7 @@ const faqLd = {
 
 <BaseLayout
   title="Cuatro bares. Un gran fin de semana deportivo · NFL Madrid | Dubliners"
-  description="Punto de encuentro cerca de Sol para el fin de semana NFL Madrid: O'Reilly's, Dubliners y O'Connell St. Sábado tras la NFL House; domingo desde las 12:00."
+  description="Cuatro bares hermanos, un punto de encuentro cerca de Sol para el fin de semana NFL Madrid: O'Reilly's, Dubliners, O'Connell St y Four Corner. Domingo desde las 12:00 en Dubliners."
   path={path}
   lang="es"
   hreflang={{ en: '/4-bars-one-fan-weekend/', es: path }}
@@ -61,8 +59,8 @@ const faqLd = {
       <Breadcrumb current="Cuatro bares · fin de semana" lang="es" schema />
       <h1>Cuatro bares. Un gran fin de semana deportivo</h1>
       <p class="lead">
-        <strong>NFL Madrid 2026 — 7 y 8 de noviembre.</strong> Tres pubs irlandeses a pocos minutos de la Puerta del Sol —
-        un <strong>punto de encuentro</strong> antes del partido, después del partido y durante toda la jornada NFL.
+        <strong>NFL Madrid 2026 — 7 y 8 de noviembre.</strong> Cuatro bares hermanos a pocos minutos de la Puerta del Sol —
+        un <strong>punto de encuentro</strong> para el fin de semana, no cuatro noches sueltas.
       </p>
       <p class="small">Viernes 6 · sábado 7 · domingo 8 de noviembre de 2026 · Junto a Sol</p>
       <p class="small">In English: <a href={withBase('/4-bars-one-fan-weekend/')} hreflang="en" lang="en">4 Bars. One Fan Weekend</a></p>
@@ -75,21 +73,40 @@ const faqLd = {
 
   <section class="section">
     <div class="container prose">
+      <h2>Cuatro bares, un punto de encuentro junto a Sol</h2>
+      <p>
+        La idea es colectiva: cuatro bares hermanos en las mismas calles alrededor de la Puerta del Sol, para que la afición quede en una sola zona
+        antes del partido, después del partido y durante el domingo. O'Reilly's Restaurant Bar, Dubliners, O'Connell St y Four Corner
+        están a pocos minutos unos de otros — un punto de encuentro, no cuatro campañas sueltas.
+      </p>
+
       <h2>Antes del partido, después del partido y toda la jornada NFL</h2>
       <p>
         Quienes llegan a Madrid por la NFL no tienen que esperar al pitido del domingo. El sábado, tras la NFL Experience en Plaza de España
         y la NFL House en la Casa de las Alhajas (calle San Martín 1), podéis seguir la jornada a pocos minutos de Sol.
-        El domingo abrimos desde las <strong>12:00</strong>: ambiente de punto de encuentro desde el mediodía, Bengals–Falcons EN DIRECTO desde las 15:30,
+        El domingo Dubliners abre desde las <strong>12:00</strong>: ambiente de punto de encuentro desde el mediodía, Bengals–Falcons EN DIRECTO desde las 15:30,
         más NFL desde las 19:00 y Atlético–Barcelona a las 21:00 en nuestras pantallas.
       </p>
       <p class="small">
-        La NFL Experience y la NFL House las organiza la NFL en otras sedes, no en nuestros pubs.
+        La NFL Experience y la NFL House las organiza la NFL en otras sedes, no en nuestros pubs. Los cuatro bares son independientes de esos actos.
         Detalles: <a href="https://www.nfl.com/news/fan-events-in-madrid" rel="noopener" target="_blank">nfl.com/news/fan-events-in-madrid</a>
         y <a href="https://www.nfl.com/news/madrid-la-nfl-ya-esta-aqui" rel="noopener" target="_blank">NFL House</a>.
       </p>
 
-      <h2>Tres pubs cerca de Sol</h2>
+      <h2>Los cuatro bares hermanos</h2>
       <p>Cada uno con su estilo. Todos a pocos minutos de la Puerta del Sol.</p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Restaurante-bar con terraza · Pasaje de Matheu 4, 28012 Madrid.<br />
+        Horario: todos los días 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
+        · <a href="https://oreillys-restaurant-bar.localo.site/" rel="noopener" target="_blank">Web de O'Reilly's</a>
+      </p>
+      <p>
+        Deporte en pantallas en un restaurante-bar a un corto paseo de Sol — útil si queréis comer, quedar y seguir el fin de semana.
+        Consultad su web y su ficha de Maps para el horario actualizado.
+      </p>
 
       <h3>Dubliners</h3>
       <p>
@@ -103,7 +120,7 @@ const faqLd = {
       <p>
         <strong>Confirmados EN DIRECTO este fin de semana (pantallas de Dubliners):</strong>
       </p>
-      <ul>
+      <ul data-show-until={SHOW_UNTIL}>
         <li><strong>Sáb 7 nov, 16:00</strong> — España–Uruguay (rugby, Nations Cup, Complutense)</li>
         <li><strong>Sáb 7 nov, 21:00</strong> — Valencia–Real Madrid</li>
         <li><strong>Dom 8 nov, 15:30</strong> — Bengals–Falcons (Madrid Game) en <strong>pantalla grande</strong></li>
@@ -111,18 +128,6 @@ const faqLd = {
         <li><strong>Dom 8 nov, 21:00</strong> — Atlético de Madrid–FC Barcelona</li>
       </ul>
       <p class="small">Lista completa: <a href={withBase('/es/partidos/')}>Partidos y eventos</a>. Guía del domingo: <a href={withBase('/es/guia-domingo-nfl-madrid/')}>guía hora a hora</a>.</p>
-
-      <h3>O'Reilly's Restaurant Bar</h3>
-      <p>
-        Restaurante-bar con terraza · Pasaje de Matheu 4, 28012 Madrid.<br />
-        Horario: todos los días 11:30–01:30.<br />
-        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
-        · <a href="https://oreillys-restaurant-bar.localo.site/" rel="noopener" target="_blank">Web de O'Reilly's</a>
-      </p>
-      <p>
-        Deporte en pantallas en un restaurante-bar a un corto paseo de Sol — útil si queréis comer, quedar y seguir el fin de semana.
-        Consultad su web y su ficha de Maps para el horario actualizado.
-      </p>
 
       <h3>O'Connell St</h3>
       <p>
@@ -137,17 +142,27 @@ const faqLd = {
         Otro punto de encuentro en Espoz y Mina para la NFL y el fútbol. El domingo 8 abren desde las 12:00 por el Madrid Game.
       </p>
 
-      <h2>Sábado 7 de noviembre</h2>
+      <h3>Four Corner</h3>
       <p>
+        Bar hermano en la misma zona · Calle de la Victoria 6, 28012 Madrid.<br />
+        Horario por confirmar.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+      <p>
+        Four Corner entra en el mismo punto de encuentro alrededor de Sol — un bar hermano a un corto paseo de los otros tres.
+      </p>
+
+      <h2>Sábado 7 de noviembre</h2>
+      <p data-show-until={SHOW_UNTIL}>
         La NFL Experience (Plaza de España) y la NFL House (Casa de las Alhajas / Palacio de las Alhajas, calle San Martín 1)
-        ocupan la tarde. Cuando terminen, Sol está a pocos minutos: seguid con otros aficionados en Dubliners, O'Reilly's u O'Connell St
+        ocupan la tarde. Cuando terminen, Sol está a pocos minutos: seguid con otros aficionados en los cuatro bares hermanos
         (España–Uruguay a las 16:00 y Valencia–Real Madrid a las 21:00 EN DIRECTO en Dubliners).
       </p>
 
       <h2>Domingo 8 de noviembre — desde las 12:00</h2>
-      <p>
+      <p data-show-until={SHOW_UNTIL}>
         El día empieza al mediodía, no después del Bernabéu. Dubliners abre a las 12:00; O'Connell St también abre desde las 12:00 ese día.
-        Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
+        Four Corner: horario por confirmar. Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
       </p>
 
       <h2>Horario de Dubliners</h2>
@@ -156,7 +171,7 @@ const faqLd = {
       <h2>Preguntas frecuentes</h2>
       <dl class="faq">
         <dt><strong>¿Qué es Cuatro bares. Un gran fin de semana deportivo?</strong></dt>
-        <dd>Un punto de encuentro cerca de Sol en tres pubs irlandeses muy próximos: O'Reilly's, Dubliners y O'Connell St. Sábado tras la NFL Experience y la NFL House; domingo desde las 12:00.</dd>
+        <dd>Un punto de encuentro colectivo cerca de Sol en cuatro bares hermanos muy próximos: O'Reilly's, Dubliners, O'Connell St y Four Corner. Sábado tras la NFL Experience y la NFL House; domingo desde las 12:00 en Dubliners.</dd>
         <dt><strong>¿A qué hora abre Dubliners el domingo 8 de noviembre?</strong></dt>
         <dd>Desde las 12:00. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd>
         <dt><strong>¿Qué partidos van EN DIRECTO en Dubliners este fin de semana?</strong></dt>
@@ -172,6 +187,8 @@ const faqLd = {
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },
               { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Junto a Puerta del Sol' },
               { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
+              { href: '/es/nfl-madrid-cuatro-bares-hermanos/', label: 'Cuatro bares hermanos junto a Sol', note: 'El punto de encuentro colectivo', until: SHOW_UNTIL },
+              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'Una ruta de aficionado por cuatro bares', until: SHOW_UNTIL },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
               { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
               { href: '/es/visitar/', label: 'Horario y mapa' },

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+// Artículo ES (dueño 6 nov 2026): sábado tras NFL House / Experience; domingo desde las 12:00 en Dubliners.
+const path = '/es/sabado-domingo-sol-cuatro-bares/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Sábado y domingo en Sol: una ruta de aficionado por cuatro bares',
+  inLanguage: 'es',
+  datePublished: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-06T16:00:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué hacer en Sol el sábado después de la NFL House?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona: O\'Reilly\'s, Dubliners, O\'Connell St y Four Corner. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora empieza el domingo en Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde las 12:00 el domingo 8 de noviembre. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Esta ruta forma parte de los actos de la liga?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los cuatro bares son independientes de la NFL Experience y de la NFL House. Son un punto de encuentro aparte, junto a Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Sábado y domingo en Sol: una ruta de aficionado por cuatro bares | Dubliners"
+  description="Una ruta de aficionado por cuatro bares hermanos junto a la Puerta del Sol: sábado tras la NFL House en la Casa de las Alhajas; domingo desde las 12:00 en Dubliners. Nombre, dirección y Maps."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/saturday-sunday-sol-four-bars/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sábado y domingo en Sol" lang="es" schema />
+      <h1>Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</h1>
+      <p class="lead">
+        Dos días, una zona. Tras el programa del sábado de la liga, caminad hacia la Puerta del Sol.
+        Cuatro bares hermanos comparten las mismas calles — <strong>un punto de encuentro</strong> para el sábado por la tarde y el domingo desde el mediodía.
+      </p>
+      <p class="small">In English: <a href={withBase('/saturday-sunday-sol-four-bars/')} hreflang="en" lang="en">Saturday and Sunday in Sol: a fan’s route through four bars</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran fin de semana</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Los cuatro bares de la ruta</h2>
+      <p>
+        Guardad este grupo de calles. Los cuatro están a un corto paseo de la Puerta del Sol:
+      </p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurante-bar con terraza.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Domingo desde las 12:00; viernes y sábado 12:00–02:30; lunes–jueves y domingo 12:00–02:00.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Misma calle que Dubliners.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h3>Four Corner</h3>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. Bar hermano en la misma zona. Horario por confirmar.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
+      </p>
+
+      <h2 data-show-until={SHOW_UNTIL}>Sábado 7 de noviembre — después de la Experience y la House</h2>
+      <div data-show-until={SHOW_UNTIL}>
+        <p>
+          El programa del sábado de la liga está en otras sedes: NFL Experience en Plaza de España (10:00–19:00) y NFL House en
+          la Casa de las Alhajas / Palacio de las Alhajas, calle de San Martín 1 (12:00–20:00). Esos actos son independientes de los cuatro bares.
+        </p>
+        <p>
+          Al salir de Plaza de España o de la Casa de las Alhajas, Sol queda a un corto paseo. Desde ahí los cuatro bares hermanos están
+          justo al sur y al este de la plaza: Four Corner en la calle de la Victoria, O'Reilly's en el Pasaje de Matheu,
+          Dubliners y O'Connell St en la calle de Espoz y Mina. Tomadlos como un solo punto de encuentro, no como cuatro paradas sueltas.
+        </p>
+        <p>
+          El sábado por la noche en España: <strong>Valencia vs Real Madrid a las 21:00</strong> (Orange TV y DAZN). En Dubliners ese partido va EN DIRECTO.
+        </p>
+      </div>
+
+      <h2 data-show-until={SHOW_UNTIL}>Domingo 8 de noviembre — desde las 12:00 en Dubliners</h2>
+      <div data-show-until={SHOW_UNTIL}>
+        <p>
+          El domingo no empieza con el pitido. Dubliners abre desde las <strong>12:00</strong>, así que el mismo grupo de calles junto a Sol
+          funciona como punto de encuentro desde el mediodía. Four Corner: horario por confirmar.
+        </p>
+        <p>
+          Desde las 15:30, Cincinnati Bengals vs Atlanta Falcons (Madrid Game) va EN DIRECTO en Dubliners en <strong>pantalla grande</strong>.
+          En España ese partido se ve en DAZN y Cuatro. El resto de la jornada NFL, hora de Madrid:
+        </p>
+        <ul>
+          <li><strong>19:00</strong> — siete partidos NFL.</li>
+          <li><strong>21:00</strong> — Atlético de Madrid vs FC Barcelona.</li>
+          <li><strong>22:05</strong> — Houston Texans vs Los Angeles Chargers.</li>
+          <li><strong>22:25</strong> — tres partidos NFL.</li>
+        </ul>
+        <p>
+          Dubliners mantiene la NFL del domingo desde las 19:00 dentro del horario (cerramos a las 02:00).
+        </p>
+      </div>
+
+      <h2>Horario de Dubliners</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué hacer en Sol el sábado después de la NFL House?</strong></dt>
+        <dd>Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.</dd>
+        <dt><strong>¿A qué hora empieza el domingo en Dubliners?</strong></dt>
+        <dd>Desde las 12:00 el domingo 8 de noviembre. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd>
+        <dt><strong>¿Esta ruta forma parte de los actos de la liga?</strong></dt>
+        <dd>No. Los cuatro bares son independientes de la NFL Experience y de la NFL House. Son un punto de encuentro aparte, junto a Sol.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Más de este fin de semana',
+            items: [
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana deportivo', note: 'Página central con los cuatro bares' },
+              { href: '/es/nfl-madrid-cuatro-bares-hermanos/', label: 'Cuatro bares hermanos junto a Sol', note: 'El punto de encuentro colectivo', until: SHOW_UNTIL },
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },
+              { href: '/es/partidos/', label: 'Partidos y eventos' },
+              { href: '/saturday-sunday-sol-four-bars/', label: 'Saturday and Sunday in Sol', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

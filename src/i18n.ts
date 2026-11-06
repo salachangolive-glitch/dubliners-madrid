@@ -29,6 +29,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/4-bars-one-fan-weekend/': '/es/cuatro-bares-fin-de-semana/',
   '/where-to-watch-nfl-madrid/': '/es/donde-ver-nfl-madrid/',
   '/sunday-sports-sol/': '/es/deportes-domingo-sol/',
+  '/nfl-madrid-four-sister-bars/': '/es/nfl-madrid-cuatro-bares-hermanos/',
+  '/saturday-sunday-sol-four-bars/': '/es/sabado-domingo-sol-cuatro-bares/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

@@ -1,7 +1,8 @@
 /**
  * Four sister bars — NFL Madrid 2026 fan meeting point near Puerta del Sol.
  * Owner correction 6 Nov 2026: one collective campaign, not four isolated pages.
- * Four Corner: include as a sister bar; do not claim hours or that it shows NFL/sport.
+ * Four Corner: include as a sister bar. Sunday 8 November from 14:00 until late.
+ * Do not claim Saturday hours or that it shows NFL/sport.
  */
 export const FOUR_BARS_MAPS = {
   oreillys: 'https://maps.google.com/maps?cid=9285869778750479445',

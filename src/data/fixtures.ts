@@ -115,6 +115,7 @@
  *   + F1 Mexico FP1 Fri 30 19:30 / FP2 23:00 (formula1.com timetable 12:30/16:00 local, UTC-6); + F1 São Paulo quali Sat 7 Nov 19:00 / race Sun 8 18:00
  *   (formula1.com 15:00/14:00 local, UTC-3); + Bundesliga MD8 Bayern–Dortmund Sat 31 18:30 CET (bundesliga.com, datencenter.dfb.de). NO channel.
  * - 29 Oct (morning block): rows dateKey <= 2026-10-28 + Wed-night rows 00:00–00:30 Thu 29 (NBA/NHL) RETIRED (19 rows, all played).
+ * - 6 Nov (morning): Thu 5 rows RETIRED (35: Getafe–Brighton + UEL/UECL J3).
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -143,7 +144,7 @@
 };
 
 export const FIXTURES: Fixture[] = [
-  {
+{
     dateKey: '2026-11-06',
     whenLabel: 'Fri 6 Nov',
     competition: 'FA Cup',
@@ -154,7 +155,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'FA Cup',
@@ -165,7 +166,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'FA Cup',
@@ -176,7 +177,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'FA Cup',
@@ -187,7 +188,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'FA Cup',
@@ -198,7 +199,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'FA Cup',
@@ -209,7 +210,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'FA Cup',
@@ -220,7 +221,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'FA Cup first round: watch the English cup with other fans.',
     noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -230,7 +231,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners. Played at the Santiago Bernabéu, Madrid.',
     noteEs: 'En directo en Dubliners. Se juega en el Estadio Santiago Bernabéu, Madrid.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -240,7 +241,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -250,7 +251,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -260,7 +261,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -270,7 +271,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -280,7 +281,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -290,7 +291,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -300,7 +301,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -310,7 +311,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -320,7 +321,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -330,7 +331,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -340,18 +341,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Getafe vs Brighton',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-    noteEn: 'Brighton fans in Madrid? Watch it live near Puerta del Sol.',
-    noteEs: '¿Aficionados del Brighton en Madrid? En directo junto a Puerta del Sol.',
-    link: { href: '/brighton-fans-madrid/', labelEn: 'Brighton fans in Madrid: match guide', labelEs: 'Aficionados del Brighton en Madrid', hreflang: 'en', hrefEs: '/es/aficionados-brighton-madrid/' },
-  },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'NFL',
@@ -362,279 +352,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'NFL RedZone LIVE from 19:00 across the 19:00, 22:05 and 22:25 games (we close at 02:00).',
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
   },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'AC Milan vs Ferencváros',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Real Sociedad vs Lyon',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Sparta Praha vs Bournemouth',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Anderlecht vs Salzburg',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Crystal Palace vs Hoffenheim',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'NEC Nijmegen vs Omonia',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Lillestrøm vs Viktoria Plzeň',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Levski Sofia vs Jagiellonia',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Bayer Leverkusen vs Marseille',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Benfica vs Lech Poznań',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'AZ Alkmaar vs Juventus',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Celtic vs Beşiktaş',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Sturm Graz vs Celje',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Sunderland vs Dinamo Zagreb',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Celta vs Union Saint-Gilloise',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Torreense vs Ararat-Armenia',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Europa League',
-    teams: 'Hapoel Beer-Sheva vs OFI Crete',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Atalanta vs Kairat Almaty',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Midtjylland vs Ajax',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Crvena Zvezda vs Inter Escaldes',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'KuPS Kuopio vs Gent',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Lincoln Red Imps vs Hajduk Split',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Trabzonspor vs Freiburg',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'AGF Aarhus vs Braga',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Thun vs Hearts',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Mjällby vs Borac Banja Luka',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Monaco vs Nordsjælland',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Copenhagen vs Iberia 1999 Tbilisi',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Panathinaikos vs CSKA Sofia',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Lugano vs Kauno Žalgiris',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Twente vs Pafos',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Sint-Truiden vs Brann',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Universitatea Craiova vs Egnatia',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
-    dateKey: '2026-11-05',
-    whenLabel: 'Thu 5 Nov',
-    competition: 'UEFA Conference League',
-    teams: 'Riga FC vs Jablonec',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-  {
+{
     dateKey: '2026-11-06',
     whenLabel: 'Fri 6 Nov',
     competition: 'Premier League',
@@ -642,7 +360,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Premier League',
@@ -650,7 +368,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '13:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Premier League',
@@ -658,7 +376,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Premier League',
@@ -666,7 +384,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Premier League',
@@ -674,7 +392,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Premier League',
@@ -682,7 +400,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '15:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Premier League',
@@ -690,7 +408,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '15:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Premier League',
@@ -698,7 +416,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '15:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Premier League',
@@ -706,7 +424,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '15:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Premier League',
@@ -714,7 +432,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-06',
     whenLabel: 'Fri 6 Nov',
     competition: 'Rugby Nations Championship',
@@ -724,8 +442,8 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Irish rugby Friday night: Ireland at the Aviva Stadium, Dublin. Live at Dubliners.',
     noteEs: 'Viernes de rugby irlandés: Irlanda en el Aviva Stadium, Dublín. En directo en Dubliners.',
   },
-  // 20 Oct: Ireland men Nov 2026 (irishrugby.ie fixtures 20:10 / 16:40 Irish time + World Rugby API) = Madrid +1 h.
-  {
+// 20 Oct: Ireland men Nov 2026 (irishrugby.ie fixtures 20:10 / 16:40 Irish time + World Rugby API) = Madrid +1 h.
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'Rugby Nations Championship',
@@ -733,7 +451,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:10',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -741,7 +459,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:40',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Rugby Nations Championship',
@@ -749,7 +467,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '12:40',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Rugby Nations Championship',
@@ -757,7 +475,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '15:10',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Rugby Nations Championship',
@@ -765,7 +483,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:40',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Rugby Nations Championship',
@@ -773,7 +491,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:10',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Rugby Nations Championship',
@@ -781,7 +499,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:10',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-06',
     whenLabel: 'Fri 6 Nov',
     competition: 'LaLiga',
@@ -789,7 +507,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'LaLiga',
@@ -797,7 +515,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '14:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'LaLiga',
@@ -805,7 +523,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:15',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'LaLiga',
@@ -813,7 +531,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'LaLiga',
@@ -821,7 +539,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'LaLiga',
@@ -829,7 +547,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '14:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'LaLiga',
@@ -837,7 +555,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:15',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'LaLiga',
@@ -845,7 +563,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'LaLiga',
@@ -853,15 +571,17 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'LaLiga',
     teams: 'Atlético de Madrid vs Barcelona',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    noteEn: 'Open from 12:00. Live on our big screens.',
+    noteEs: 'Abrimos desde las 12:00. En directo en pantallas grandes.',
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -869,7 +589,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '14:30',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -877,7 +597,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:35',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -885,7 +605,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:35',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -893,7 +613,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:35',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -901,7 +621,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:35',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Top 14',
@@ -909,7 +629,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '16:35',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Top 14',
@@ -917,7 +637,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '21:05',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'World Rugby Nations Cup',
@@ -927,7 +647,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Played in Madrid, at the Estadio Nacional Universidad Complutense.',
     noteEs: 'Se juega en Madrid, en el Estadio Nacional de la Universidad Complutense.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'UEFA Nations League',
@@ -938,8 +658,8 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Para ver el partido con otros aficionados ingleses.',
     link: { href: '/england-fans-madrid/', labelEn: 'England fans in Madrid: match guide', labelEs: 'Aficionados ingleses en Madrid: guía (en inglés)', hreflang: 'en' },
   },
-  // 20 Oct: UEFA Nations League 12–17 Nov (uefa.com match API, competitionId 2014; times CET = Madrid). Spain vs England 15 Nov already above.
-  {
+// 20 Oct: UEFA Nations League 12–17 Nov (uefa.com match API, competitionId 2014; times CET = Madrid). Spain vs England 15 Nov already above.
+{
     dateKey: '2026-11-12',
     whenLabel: 'Thu 12 Nov',
     competition: 'UEFA Nations League',
@@ -947,7 +667,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-12',
     whenLabel: 'Thu 12 Nov',
     competition: 'UEFA Nations League',
@@ -955,7 +675,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-13',
     whenLabel: 'Fri 13 Nov',
     competition: 'UEFA Nations League',
@@ -963,7 +683,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'UEFA Nations League',
@@ -971,7 +691,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '18:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'UEFA Nations League',
@@ -979,7 +699,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'UEFA Nations League',
@@ -987,7 +707,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-16',
     whenLabel: 'Mon 16 Nov',
     competition: 'UEFA Nations League',
@@ -995,7 +715,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-16',
     whenLabel: 'Mon 16 Nov',
     competition: 'UEFA Nations League',
@@ -1003,7 +723,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-17',
     whenLabel: 'Tue 17 Nov',
     competition: 'UEFA Nations League',
@@ -1011,7 +731,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-17',
     whenLabel: 'Tue 17 Nov',
     competition: 'UEFA Nations League',
@@ -1019,7 +739,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-17',
     whenLabel: 'Tue 17 Nov',
     competition: 'UEFA Nations League',
@@ -1027,8 +747,8 @@ export const FIXTURES: Fixture[] = [
     madridTime: '20:45',
     confirmedOnScreens: true,
   },
-  // 20 Oct: Real Madrid vs PSV, UCL league phase MD5 (uefa.com match 2049625, 2026-11-24T20:00Z = 21:00 CET).
-  {
+// 20 Oct: Real Madrid vs PSV, UCL league phase MD5 (uefa.com match 2049625, 2026-11-24T20:00Z = 21:00 CET).
+{
     dateKey: '2026-11-24',
     whenLabel: 'Tue 24 Nov',
     competition: 'UEFA Champions League',
@@ -1040,6 +760,14 @@ export const FIXTURES: Fixture[] = [
     link: { href: '/psv-fans-madrid/', labelEn: 'PSV fans in Madrid: match guide (EN · NL)', labelEs: 'Aficionados del PSV en Madrid: guía (en inglés y neerlandés)', hreflang: 'en' },
   },
   {
+    dateKey: '2026-11-06',
+    whenLabel: 'Fri 6 Nov',
+    competition: 'Formula 1',
+    teams: 'São Paulo Grand Prix — Free Practice 2',
+    madridTime: '20:00',
+    confirmedOnScreens: true,
+  },
+{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Formula 1',
@@ -1047,7 +775,7 @@ export const FIXTURES: Fixture[] = [
     madridTime: '19:00',
     confirmedOnScreens: true,
   },
-  {
+{
     dateKey: '2026-11-08',
     whenLabel: 'Sun 8 Nov',
     competition: 'Formula 1',
@@ -1056,6 +784,15 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
   },
   {
+    dateKey: '2026-11-08',
+    whenLabel: 'Sun 8 Nov',
+    competition: 'MotoGP',
+    teams: 'Qatar Grand Prix — Race',
+    madridTime: '17:00',
+    confirmedOnScreens: true,
+  },
+
+{
     dateKey: '2026-11-26',
     whenLabel: 'Thu 26 Nov',
     competition: 'NFL',
@@ -1066,7 +803,7 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Jueves de Thanksgiving. En directo en Dubliners.',
     link: { href: '/thanksgiving-madrid/', labelEn: 'Thanksgiving NFL in Madrid', labelEs: 'NFL de Thanksgiving en Madrid', hrefEs: '/es/thanksgiving-madrid/' },
   },
-  {
+{
     dateKey: '2026-11-26',
     whenLabel: 'Thu 26 Nov',
     competition: 'NFL',
@@ -1077,8 +814,8 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Jueves de Thanksgiving. En directo en Dubliners.',
     link: { href: '/thanksgiving-madrid/', labelEn: 'Thanksgiving NFL in Madrid', labelEs: 'NFL de Thanksgiving en Madrid', hrefEs: '/es/thanksgiving-madrid/' },
   },
-  // 26 Oct (DG LUNES-26): visiting-fan rows from Radar fichas 5 bis. NO channel.
-  {
+// 26 Oct (DG LUNES-26): visiting-fan rows from Radar fichas 5 bis. NO channel.
+{
     dateKey: '2026-11-12',
     whenLabel: 'Thu 12 Nov',
     competition: 'EuroLeague',
@@ -1089,7 +826,7 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
     link: { href: '/red-star-fans-madrid/', labelEn: 'Red Star fans in Madrid: EuroLeague night', labelEs: 'Aficionados del Estrella Roja (info en inglés)', hreflang: 'en' },
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'World Rugby Nations Cup',
@@ -1099,7 +836,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Venue pending confirmation (expected: Estadio Municipal de Butarque, Leganés). Ireland vs Fiji follows at 21:10.',
     noteEs: 'Sede pendiente de confirmación (prevista: Estadio Municipal de Butarque, Leganés). Después, Irlanda–Fiyi a las 21:10.',
   },
-  {
+{
     dateKey: '2026-11-25',
     whenLabel: 'Wed 25 Nov',
     competition: 'EuroLeague',
@@ -1109,7 +846,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
   },
-  {
+{
     dateKey: '2026-11-25',
     whenLabel: 'Wed 25 Nov',
     competition: 'UEFA Champions League',
@@ -1120,9 +857,9 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Para ver el partido con otros aficionados del Viking.',
     link: { href: '/viking-fans-madrid/', labelEn: 'Viking fans in Madrid: match guide (EN · NO)', labelEs: 'Aficionados del Viking en Madrid: guía (en inglés y noruego)', hreflang: 'en' },
   },
-  // 26 Oct (DG follow-up 16:11): Tue 27 / Wed 28 Oct + 9–23 Nov reinforcement. Sources per row in
-  // /workspace/dubliners-agenda-2026-10-26/FUENTES.md. NO channel. NFL without RedZone (owner-confirmed only 1 + 8 Nov).
-  {
+// 26 Oct (DG follow-up 16:11): Tue 27 / Wed 28 Oct + 9–23 Nov reinforcement. Sources per row in
+// /workspace/dubliners-agenda-2026-10-26/FUENTES.md. NO channel. NFL without RedZone (owner-confirmed only 1 + 8 Nov).
+{
     dateKey: '2026-11-10',
     whenLabel: 'Tue 10 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1132,7 +869,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-10',
     whenLabel: 'Tue 10 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1142,7 +879,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-12',
     whenLabel: 'Thu 12 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1152,7 +889,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-18',
     whenLabel: 'Wed 18 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1162,7 +899,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-18',
     whenLabel: 'Wed 18 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1172,7 +909,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-19',
     whenLabel: 'Thu 19 Nov',
     competition: 'UEFA Women\'s Champions League',
@@ -1182,7 +919,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-13',
     whenLabel: 'Fri 13 Nov',
     competition: 'Rugby Nations Championship',
@@ -1192,7 +929,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'Rugby Nations Championship',
@@ -1202,7 +939,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'Rugby Nations Championship',
@@ -1212,7 +949,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-14',
     whenLabel: 'Sat 14 Nov',
     competition: 'Rugby Nations Championship',
@@ -1222,7 +959,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'Rugby Nations Championship',
@@ -1232,7 +969,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -1242,7 +979,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -1252,7 +989,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -1262,7 +999,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -1272,7 +1009,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Rugby Nations Championship',
@@ -1282,7 +1019,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'World Rugby Nations Cup',
@@ -1292,7 +1029,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1302,7 +1039,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners. Played in Munich.',
     noteEs: 'En directo en Dubliners. Se juega en Múnich.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1312,7 +1049,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1322,7 +1059,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1332,7 +1069,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1342,7 +1079,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1352,7 +1089,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1362,7 +1099,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1372,7 +1109,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1382,7 +1119,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1392,7 +1129,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-15',
     whenLabel: 'Sun 15 Nov',
     competition: 'NFL',
@@ -1402,7 +1139,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1412,7 +1149,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1422,7 +1159,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1432,7 +1169,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1442,7 +1179,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1452,7 +1189,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1462,7 +1199,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1472,7 +1209,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1482,7 +1219,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1492,7 +1229,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'NFL',
@@ -1502,7 +1239,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1512,7 +1249,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1522,7 +1259,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1532,7 +1269,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1542,7 +1279,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1552,7 +1289,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1562,7 +1299,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'Premier League',
@@ -1572,7 +1309,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'Premier League',
@@ -1582,7 +1319,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'Premier League',
@@ -1592,7 +1329,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-23',
     whenLabel: 'Mon 23 Nov',
     competition: 'Premier League',
@@ -1602,7 +1339,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-20',
     whenLabel: 'Fri 20 Nov',
     competition: 'LaLiga',
@@ -1612,7 +1349,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'LaLiga',
@@ -1622,7 +1359,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'LaLiga',
@@ -1632,7 +1369,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'LaLiga',
@@ -1642,7 +1379,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-21',
     whenLabel: 'Sat 21 Nov',
     competition: 'LaLiga',
@@ -1652,7 +1389,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'LaLiga',
@@ -1662,7 +1399,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'LaLiga',
@@ -1672,7 +1409,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'LaLiga',
@@ -1682,7 +1419,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-22',
     whenLabel: 'Sun 22 Nov',
     competition: 'LaLiga',
@@ -1692,7 +1429,7 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
-  {
+{
     dateKey: '2026-11-23',
     whenLabel: 'Mon 23 Nov',
     competition: 'LaLiga',
@@ -1714,6 +1451,7 @@ export function sportLabel(competition: string): string {
   if (c.includes('mlb')) return 'MLB';
   if (c.includes('euroleague')) return 'Basketball';
   if (c.includes('formula') || c === 'f1') return 'Formula 1';
+  if (c.includes('motogp')) return 'MotoGP';
   if (c.includes('rugby') || c.includes('urc') || c.includes('six nations') || c.includes('top 14') || c.includes('wxv')) return 'Rugby';
   if (c.includes('tennis') || c.includes('atp') || c.includes('wta') || c.includes('masters')) {
     return 'Tennis';
@@ -1726,6 +1464,7 @@ export function sportLabelEs(competition: string): string {
   const en = sportLabel(competition);
   if (en === 'Football') return 'Fútbol';
   if (en === 'Formula 1') return 'Fórmula 1';
+  if (en === 'MotoGP') return 'MotoGP';
   if (en === 'Tennis') return 'Tenis';
   if (en === 'Event') return 'Evento';
   if (en === 'Basketball') return 'Baloncesto';
@@ -1766,6 +1505,7 @@ export const SPORT_DURATION_MIN: Record<string, number> = {
   Rugby: 120,
   NFL: 210, // ~3h30
   'Formula 1': 150, // ~2h30
+  MotoGP: 120,
   NBA: 150,
   NHL: 150,
   MLB: 210,

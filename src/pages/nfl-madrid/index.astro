@@ -4,6 +4,10 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { withBase } from '../../site';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
+import { isFanWeekendLive } from '../../data/fourBars';
+const fanWeekend = isFanWeekendLive();
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When and where is the 2026 NFL game in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."}}, {"@type": "Question", "name": "Which NFL games are live on Sunday 8 November?", "acceptedAnswer": {"@type": "Answer", "text": "On Sunday 8 November: Bengals vs Falcons at 15:30 and all Sunday NFL games at 19:00, 22:05 and 22:25, LIVE. Other dates are listed on What's On once confirmed."}}]};
 const eventLd = {"@context": "https://schema.org", "@type": "SportsEvent", "name": "Cincinnati Bengals vs Atlanta Falcons", "startDate": "2026-11-08T15:30:00+01:00", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Estadio Santiago Bernabéu", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}};
 const title = "NFL Madrid Sun 8 Nov: Bernabéu Game Live at a Sol Pub";
@@ -18,13 +22,18 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
       <Breadcrumb current="NFL in Madrid" schema />
       <h1>NFL in Madrid: watch it with other fans near Puerta del Sol</h1>
       <p class="lead">Irish sports pub on Calle de Espoz y Mina 7, steps from Puerta del Sol — a <strong>fans meeting point</strong> for NFL fans visiting Madrid. Watch Bengals vs Falcons LIVE on Sunday 8 November from 15:30 — and every Sunday NFL game that day LIVE on our screens.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
-        <a class="btn btn-primary" href={withBase('/visit/')}>FIND US</a>
-        <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
-      </div>
+      {fanWeekend ? (
+        <FanWeekendCtas lang="en" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+          <a class="btn btn-primary" href={withBase('/visit/')}>FIND US</a>
+          <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
+        </div>
+      )}
     </div>
   </section>
+  {fanWeekend && <FourBarsMeet lang="en" />}
   <section class="section">
     <div class="container prose">
       <h2>NFL in Madrid</h2><p>On Sunday 8 November 2026 the Cincinnati Bengals and the Atlanta Falcons play at the Santiago Bernabéu Stadium at 15:30 Madrid time (9:30 a.m. ET). It is the NFL's second regular-season game in Madrid.</p>

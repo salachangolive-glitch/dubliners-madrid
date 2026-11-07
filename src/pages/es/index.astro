@@ -336,7 +336,7 @@ const description = fanWeekend
             style="margin-bottom:1rem"
           />
         </picture>
-        <CtaRow lang="es" />
+        {fanWeekend ? <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" /> : <CtaRow lang="es" />}
       </div>
       <div class="map-frame">
         <MapEmbed lang="es" title="Mapa a Dubliners Madrid" referrerpolicy="no-referrer-when-downgrade" />

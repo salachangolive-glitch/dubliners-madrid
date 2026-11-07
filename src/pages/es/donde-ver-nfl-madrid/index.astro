@@ -5,6 +5,8 @@ import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../../data/hours';
 import { madridToday } from '../../../data/fixtures';
 
@@ -84,12 +86,18 @@ const faqLd = {
         <strong>punto de encuentro</strong> para aficionados, independiente de los actos de la liga.
       </p>
       <p class="small">Dubliners Irish Pub · Espoz y Mina 7 · {hoursLine}</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
-        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
-      </div>
+      {showWeekend ? (
+        <FanWeekendCtas lang="es" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+          <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+        </div>
+      )}
     </div>
   </section>
+
+  {showWeekend && <FourBarsMeet lang="es" />}
 
   <section class="section">
     <div class="container prose">

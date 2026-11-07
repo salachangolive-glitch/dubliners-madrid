@@ -55,6 +55,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/premier-league-sunday-sol-8-nov/': '/es/premier-league-domingo-sol-8-nov/',
   '/english-football-1500-sol-8-nov/': '/es/futbol-ingles-1500-sol-8-nov/',
   '/man-utd-villa-sol-8-nov/': '/es/man-utd-villa-sol-8-nov/',
+  '/meetup-over-hold-espoz-mina-2100/': '/es/quedada-cerrada-espoz-mina-2100/',
+  '/after-tonight-sunday-starts-victoria-6/': '/es/despues-esta-noche-domingo-victoria-6/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

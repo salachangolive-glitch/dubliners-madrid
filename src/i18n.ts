@@ -59,6 +59,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/after-tonight-sunday-starts-victoria-6/': '/es/despues-esta-noche-domingo-victoria-6/',
   '/sol-metro-2100-which-saturday-door/': '/es/metro-sol-2100-que-puerta-sabado/',
   '/english-tourists-saturday-hours-until-premier/': '/es/turistas-ingleses-horas-sabado-hasta-premier/',
+  '/hop-two-streets-last-pint-after-derby/': '/es/saltar-dos-calles-ultima-pinta-despues-derbi/',
+  '/fifteen-hours-sol-until-four-corner-1400/': '/es/quince-horas-sol-hasta-four-corner-1400/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

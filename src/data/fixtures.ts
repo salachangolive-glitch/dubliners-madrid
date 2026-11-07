@@ -115,6 +115,7 @@
  *   + F1 Mexico FP1 Fri 30 19:30 / FP2 23:00 (formula1.com timetable 12:30/16:00 local, UTC-6); + F1 São Paulo quali Sat 7 Nov 19:00 / race Sun 8 18:00
  *   (formula1.com 15:00/14:00 local, UTC-3); + Bundesliga MD8 Bayern–Dortmund Sat 31 18:30 CET (bundesliga.com, datencenter.dfb.de). NO channel.
  * - 29 Oct (morning block): rows dateKey <= 2026-10-28 + Wed-night rows 00:00–00:30 Thu 29 (NBA/NHL) RETIRED (19 rows, all played).
+ * - 7 Nov (morning): Fri 6 rows RETIRED (5: Oxford City–Leicester, Everton–Coventry, Ireland–Argentina, Sevilla–Alavés, F1 FP2).
  * - 6 Nov (morning): Thu 5 rows RETIRED (35: Getafe–Brighton + UEL/UECL J3).
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * No invented fixtures / TV channels / reservations.
@@ -145,17 +146,6 @@
 };
 
 export const FIXTURES: Fixture[] = [
-{
-    dateKey: '2026-11-06',
-    whenLabel: 'Fri 6 Nov',
-    competition: 'FA Cup',
-    competitionEs: 'FA Cup (Copa inglesa)',
-    teams: 'Oxford City vs Leicester City',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-    noteEn: 'FA Cup first round: watch the English cup with other fans.',
-    noteEs: 'Primera ronda de la FA Cup: la copa inglesa, con otros aficionados.',
-  },
 {
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
@@ -354,14 +344,6 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'NFL RedZone EN DIRECTO desde las 19:00 durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00).',
   },
 {
-    dateKey: '2026-11-06',
-    whenLabel: 'Fri 6 Nov',
-    competition: 'Premier League',
-    teams: 'Everton vs Coventry City',
-    madridTime: '21:00',
-    confirmedOnScreens: true,
-  },
-{
     dateKey: '2026-11-07',
     whenLabel: 'Sat 7 Nov',
     competition: 'Premier League',
@@ -433,16 +415,6 @@ export const FIXTURES: Fixture[] = [
     madridTime: '17:30',
     confirmedOnScreens: true,
   },
-{
-    dateKey: '2026-11-06',
-    whenLabel: 'Fri 6 Nov',
-    competition: 'Rugby Nations Championship',
-    teams: 'Ireland vs Argentina',
-    madridTime: '21:10',
-    confirmedOnScreens: true,
-    noteEn: 'Irish rugby Friday night: Ireland at the Aviva Stadium, Dublin. Live at Dubliners.',
-    noteEs: 'Viernes de rugby irlandés: Irlanda en el Aviva Stadium, Dublín. En directo en Dubliners.',
-  },
 // 20 Oct: Ireland men Nov 2026 (irishrugby.ie fixtures 20:10 / 16:40 Irish time + World Rugby API) = Madrid +1 h.
 {
     dateKey: '2026-11-14',
@@ -498,14 +470,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'Rugby Nations Championship',
     teams: 'England vs Australia',
     madridTime: '16:10',
-    confirmedOnScreens: true,
-  },
-{
-    dateKey: '2026-11-06',
-    whenLabel: 'Fri 6 Nov',
-    competition: 'LaLiga',
-    teams: 'Sevilla vs Alavés',
-    madridTime: '21:00',
     confirmedOnScreens: true,
   },
 {
@@ -759,14 +723,6 @@ export const FIXTURES: Fixture[] = [
     noteEn: 'PSV fans welcome: watch the match with other fans by Puerta del Sol, open from 12:00. Welkom in Madrid!',
     noteEs: 'Bienvenidos, aficionados del PSV: para ver el partido con otros aficionados junto a Sol, abrimos desde las 12:00. Welkom in Madrid!',
     link: { href: '/psv-fans-madrid/', labelEn: 'PSV fans in Madrid: match guide (EN · NL)', labelEs: 'Aficionados del PSV en Madrid: guía (en inglés y neerlandés)', hreflang: 'en' },
-  },
-  {
-    dateKey: '2026-11-06',
-    whenLabel: 'Fri 6 Nov',
-    competition: 'Formula 1',
-    teams: 'São Paulo Grand Prix — Free Practice 2',
-    madridTime: '20:00',
-    confirmedOnScreens: true,
   },
 {
     dateKey: '2026-11-07',

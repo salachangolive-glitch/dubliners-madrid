@@ -32,7 +32,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/nfl-madrid-four-sister-bars/': '/es/nfl-madrid-cuatro-bares-hermanos/',
   '/saturday-sunday-sol-four-bars/': '/es/sabado-domingo-sol-cuatro-bares/',
   '/saturday-in-sol-today/': '/es/sabado-en-sol-hoy/',
-  '/after-saturday-nfl-fan-events-sol/': '/es/despues-eventos-nfl-sabado-sol/',
+  '/nfl-fans-madrid-this-saturday/': '/es/fin-de-semana-nfl-ya-se-vive/',
   '/saturday-night-sol-valencia-real-madrid/': '/es/sabado-noche-sol-valencia-real-madrid/',
 };
 

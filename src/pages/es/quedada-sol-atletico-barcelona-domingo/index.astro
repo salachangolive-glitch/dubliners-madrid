@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import SundayFourVenues from '../../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/quedada-sol-atletico-barcelona-domingo/';
+const PATH_EN = '/gather-sol-atletico-barcelona-sunday/';
+const PATH_VISITORS = '/es/visitantes-nfl-sol-atletico-barcelona/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Quedada para el Atlético–Barcelona junto a Sol el domingo 8 de noviembre',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedar junto a Sol para el Atlético–Barcelona a las 21:00 el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fija una calle, no una pantalla. O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7, desde las 12:00), Four Corner (Victoria 6, desde las 14:00, pantallas de deporte). Partido EN DIRECTO confirmado: Dubliners. Los hermanos son el punto de encuentro — pregunta qué echan. No afirmamos que estén echando el Atlético–Barcelona.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Llegamos a las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mejor antes. La NFL desde las 19:00 ya está en Dubliners. Di que quieres el Atlético–Barcelona al sentarte. El final del partido cabe en el horario domingo 12:00–02:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es el Clásico?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El domingo 8 de noviembre es Atlético de Madrid vs FC Barcelona, no Real Madrid vs Barcelona.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Quedada Atlético–Barcelona junto a Sol, domingo 21:00 | Dubliners"
+  description="Domingo 8 nov, 21:00: dónde quedar la afición colchonera y culé junto a Sol. Cuatro bares y maps. Directo confirmado en Dubliners. La NFL ya va desde las 19:00 — pregunta qué echan."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Quedada Atlético–Barcelona junto a Sol" lang="es" schema />
+      <h1>Quedada para el Atlético–Barcelona junto a Sol (domingo 8 nov, 21:00)</h1>
+      <p class="lead">
+        Domingo 8 de noviembre, <strong>21:00 hora de Madrid</strong>: Atlético de Madrid vs FC Barcelona.
+        Si el grupo ya está en el centro, no hace falta salir de Sol. Cuatro bares hermanos a dos-cuatro minutos
+        de la plaza. Pantallas EN DIRECTO confirmadas para este partido: <strong>Dubliners</strong>,
+        Espoz y Mina 7. La misma noche es domingo NFL — decid que queréis el fútbol.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Where local fans gather for Atlético–Barcelona near Sol</a></p>
+      <FanWeekendCtas lang="es" findHref="#fija-la-calle" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>No es el Clásico — y las 21:00 no están vacías</h2>
+        <p>
+          Real Madrid vs Barcelona es otro partido (la página evergreen de El Clásico en esta web).
+          Este domingo es Atlético vs Barcelona en el Riyadh Air Metropolitano, en nuestras pantallas de Dubliners.
+          Salta con la NFL de las 19:00 ya en marcha, y detrás vienen las 22:05 y 22:25. Por eso falla el plan
+          de “nos vemos a las 21:00 delante de un televisor”: el local ya es un pub de deporte a mitad de jornada.
+        </p>
+        <p>
+          Regla práctica para afición del Atleti o del Barça: <strong>queda en una calle y luego pide el fútbol.</strong>
+          Dubliners confirma este partido EN DIRECTO. O’Reilly’s, O’Connell’s y Four Corner son el desborde
+          y el sitio para comer. Four Corner tiene pantallas de deporte desde las 14:00; aun así no listamos
+          qué echan. No des por hecho que cada bar hermano pone el Atlético–Barcelona.
+        </p>
+
+        <h2 id="fija-la-calle">Fija una de las cuatro puertas (todas con Maps)</h2>
+        <p>Metro Sol o Sevilla. A pie, no en autobús nocturno.</p>
+        <ul>
+          <li>
+            <strong>Comer antes — O’Reilly’s, Pasaje de Matheu 4.</strong>
+            Terraza, restaurante-bar, horario habitual 11:30–01:30. Buen pin si la gente llega suelta desde las 19:00.
+            Punto de encuentro, no una parrilla publicada.
+            <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Maps</a>
+          </li>
+          <li>
+            <strong>Pantalla del partido confirmada — Dubliners, Espoz y Mina 7.</strong>
+            Domingo 12:00–02:00. Atlético–Barcelona EN DIRECTO. También Bengals–Falcons 15:30 y las ventanas NFL.
+            Di en barra que quieres el fútbol de las 21:00 antes de sentarte bajo una pantalla NFL de las 19:00.
+            <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Maps</a>
+          </li>
+          <li>
+            <strong>Desborde en la misma calle — O’Connell’s, Espoz y Mina 7.</strong>
+            Domingo 8 nov desde las 12:00. Si Dubliners está de pie, el grupo puede seguir escribiendo
+            “Espoz y Mina 7” y pasar a la puerta de al lado. No listamos sus partidos.
+            <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Maps</a>
+          </li>
+          <li>
+            <strong>Desde las 14:00 — Four Corner, Calle de la Victoria 6.</strong>
+            Pantallas de deporte, abierto hasta la madrugada este domingo. Úsalo como pin temprano o sala extra.
+            Pregunta qué echan. No inventamos su parrilla.
+            <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Maps</a>
+          </li>
+        </ul>
+
+        <h2>Llega pidiendo fútbol, porque la NFL ya está</h2>
+        <p>
+          Plan local razonable: comer en O’Reilly’s o aguantar al grupo en Four Corner a partir de las 14:00,
+          y caminar a Dubliners <strong>antes de las 21:00</strong> — las 20:15 sientan mejor que el pitido inicial.
+          Si en el grupo también hay visitantes NFL, mándales la nota hermana
+          <a href={withBase(PATH_VISITORS)}>visitantes NFL compartiendo Sol este domingo</a>
+          en vez de prometer cada partido americano en la misma pantalla que el derbi.
+        </p>
+        <p>
+          Portada en vivo del partido:
+          <a href={withBase('/es/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona junto a Sol, 21:00</a>.
+          Relojes de todo el domingo:
+          <a href={withBase('/es/deportes-domingo-sol/')}>Deportes domingo en Sol</a>.
+        </p>
+        <p>
+          Pubs independientes — sin vínculo con LaLiga ni los clubes. No es un evento oficial de la NFL.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="es" />
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-primary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos y eventos</a>
+      </div>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde quedar junto a Sol para el Atlético–Barcelona a las 21:00?</strong></dt>
+        <dd>Cuatro bares hermanos. Pantallas EN DIRECTO confirmadas: Dubliners. Los demás son el punto de encuentro — pregunta qué echan; no afirmamos que echen este partido.</dd>
+        <dt><strong>¿Llegamos a las 21:00?</strong></dt>
+        <dd>Llegad antes. La NFL desde las 19:00 ya está. Pedid el fútbol. Dubliners cierra a las 02:00.</dd>
+        <dt><strong>¿Es el Clásico?</strong></dt>
+        <dd>No. Este domingo es Atlético vs Barcelona, no Real Madrid vs Barcelona.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: PATH_VISITORS, label: 'Visitantes NFL compartiendo Sol este domingo', note: 'Página hermana para visitantes' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol, 21:00', note: 'Portada en vivo' },
+              { href: '/es/deportes-domingo-sol/', label: 'Deportes domingo en Sol', note: 'Tabla de horarios' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'Where local fans gather for Atlético–Barcelona', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

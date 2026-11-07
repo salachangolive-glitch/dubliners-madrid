@@ -39,6 +39,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/four-corner-opens-sunday-1400/': '/es/four-corner-abre-domingo-1400/',
   '/atletico-barcelona-sol-8-nov/': '/es/atletico-barcelona-sol-8-nov/',
   '/afternoon-evening-nfl-sol-8-nov/': '/es/nfl-tarde-noche-sol-8-nov/',
+  '/nfl-visitors-sol-atletico-barcelona/': '/es/visitantes-nfl-sol-atletico-barcelona/',
+  '/gather-sol-atletico-barcelona-sunday/': '/es/quedada-sol-atletico-barcelona-domingo/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

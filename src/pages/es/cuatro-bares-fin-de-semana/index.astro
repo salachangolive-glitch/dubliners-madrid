@@ -7,7 +7,7 @@ import { withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../../components/FourBarsMeet.astro';
-import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+import { FAN_WEEKEND_SATURDAY_TONIGHT, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
 
 // Par ES de /4-bars-one-fan-weekend/. Corrección dueño 6 nov 2026 15:48.
 // Un punto de encuentro colectivo: cuatro bares hermanos junto a Sol, incluido Four Corner.
@@ -67,7 +67,7 @@ const faqLd = {
       <p class="small">In English: <a href={withBase('/4-bars-one-fan-weekend/')} hreflang="en" lang="en">4 Bars. One Fan Weekend</a></p>
       <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" />
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.es)} data-show-until="2026-11-07">Quedada 18:00–19:00</a>
         <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Dubliners</a>
       </div>
     </div>
@@ -144,23 +144,34 @@ const faqLd = {
       <h3>Four Corner</h3>
       <p>
         Bar hermano en la misma zona · Calle de la Victoria 6, 28012 Madrid.<br />
-        Four Corner: domingo 8 de noviembre desde las 14:00 hasta la madrugada.<br />
+        Four Corner: domingo 8 de noviembre desde las 14:00 hasta la madrugada. Tiene pantallas de deporte.<br />
         <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
       </p>
       <p>
-        Four Corner entra en el mismo punto de encuentro alrededor de Sol — un bar hermano a un corto paseo de los otros tres.
+        Four Corner entra el domingo en el mismo punto de encuentro alrededor de Sol — un bar hermano con pantallas de deporte,
+        a un corto paseo de los otros tres. La apertura está confirmada; no listamos qué partidos echa.
       </p>
 
-      <h2>Sábado 7 de noviembre</h2>
-      <p data-show-until={SHOW_UNTIL}>
-        Seguid con otros aficionados en los cuatro bares hermanos
-        (España–Uruguay a las 16:00 y Valencia–Real Madrid a las 21:00 EN DIRECTO en Dubliners).
+      <h2>Sábado 7 de noviembre — esta noche 18:00–19:00</h2>
+      <p data-show-until="2026-11-07">
+        Quedada <strong>18:00–19:00</strong> en los tres bares abiertos el sábado:
+        O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (ambos en Espoz y Mina 7).
+        <strong>Four Corner no abre esta noche</strong> — domingo desde las 14:00, con pantallas de deporte.
+        Hoy no hay NFL. Después de las 19:00, Valencia–Real Madrid 21:00 EN DIRECTO solo en Dubliners.
+      </p>
+      <p data-show-until="2026-11-07">
+        Maps:
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O’Reilly’s</a>
+        · <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O’Connell’s</a>
+        · <a href={withBase('/es/fin-de-semana-nfl-ya-se-vive/')}>Guía de esta noche</a>
+        · <a href={withBase('/es/sabado-en-sol-hoy/')}>Andar desde Sol</a>
       </p>
 
       <h2>Domingo 8 de noviembre — desde las 12:00</h2>
       <p data-show-until={SHOW_UNTIL}>
         El día empieza al mediodía, no después del Bernabéu. Dubliners abre a las 12:00; O'Connell St también abre desde las 12:00 ese día.
-        Four Corner: domingo 8 de noviembre desde las 14:00 hasta la madrugada. Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
+        Four Corner: domingo 8 de noviembre desde las 14:00 hasta la madrugada (pantallas de deporte). Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
       </p>
 
       <h2>Horario de Dubliners</h2>
@@ -183,8 +194,9 @@ const faqLd = {
             title: 'Sábado 7 de noviembre',
             until: SHOW_UNTIL,
             items: [
-              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'Una ruta de aficionado por cuatro bares', until: SHOW_UNTIL },
-              { href: '/es/nfl-madrid-cuatro-bares-hermanos/', label: 'Cuatro bares hermanos junto a Sol', note: 'El punto de encuentro colectivo', until: SHOW_UNTIL },
+              { href: '/es/fin-de-semana-nfl-ya-se-vive/', label: 'Quedada 18:00–19:00', note: 'Tres bares abiertos el sábado', until: '2026-11-07' },
+              { href: '/es/sabado-en-sol-hoy/', label: 'Sábado en Sol hoy', note: 'Andar desde la Puerta del Sol', until: SHOW_UNTIL },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Valencia–Real Madrid 21:00', note: 'EN DIRECTO solo en Dubliners', until: SHOW_UNTIL },
               { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada del sábado' },
             ],
           },
@@ -192,6 +204,7 @@ const faqLd = {
             title: 'Domingo 8 de noviembre',
             until: SHOW_UNTIL,
             items: [
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00', note: 'Pantallas de deporte · Victoria 6', until: SHOW_UNTIL },
               { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },

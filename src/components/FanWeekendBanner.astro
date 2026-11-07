@@ -19,10 +19,15 @@ const hub = FAN_WEEKEND_HUB[lang];
 
 <div class="fan-weekend-banner" data-show-until={SHOW_UNTIL_FAN_WEEKEND} data-track-location="fan-weekend-banner">
   <p class="fan-weekend-banner__slogan">4 BARS. ONE FAN WEEKEND.</p>
+  <p class="fan-weekend-banner__sub" data-show-until="2026-11-07">
+    {es
+      ? 'Esta noche 18:00–19:00: O’Reilly’s, Dubliners y O’Connell’s. Four Corner no abre hoy.'
+      : 'Tonight 18:00–19:00: O’Reilly’s, Dubliners and O’Connell’s. Four Corner is not open tonight.'}
+  </p>
   <p class="fan-weekend-banner__sub">
     {es
-      ? 'Sábado 7 y domingo 8 nov junto a Sol. Domingo: Dubliners desde las 12:00 · Four Corner desde las 14:00.'
-      : 'Saturday 7 & Sunday 8 Nov near Sol. Sunday: Dubliners from 12:00 · Four Corner from 14:00.'}
+      ? 'Domingo 8 nov: Dubliners desde las 12:00 · Four Corner desde las 14:00 (pantallas de deporte).'
+      : 'Sunday 8 Nov: Dubliners from 12:00 · Four Corner from 14:00 (sports screens).'}
   </p>
   <div class="fan-weekend-banner__ctas">
     <a class="btn btn-primary" href={withBase(hub)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>

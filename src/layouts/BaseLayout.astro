@@ -6,6 +6,7 @@ import StickyCta from '../components/StickyCta.astro';
 import Analytics from '../components/Analytics.astro';
 import AttributionCapture from '../components/AttributionCapture.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import FixtureAntiStale from '../components/FixtureAntiStale.astro';
 import { SITE, absUrl, withBase } from '../site';
 import { openingHoursJsonLd } from '../data/hours';
 import { type Lang, detectLang, hreflangFor, t, normalizePath } from '../i18n';
@@ -165,5 +166,6 @@ const websiteJsonLd = {
     <CookieBanner lang={lang} />
     <AttributionCapture />
     <Analytics />
+    <FixtureAntiStale />
   </body>
 </html>

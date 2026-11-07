@@ -2,7 +2,7 @@
  * Four sister bars — NFL Madrid 2026 fan meeting point near Puerta del Sol.
  * Owner correction 6 Nov 2026: one collective campaign, not four isolated pages.
  * Four Corner: include as a sister bar. Sunday 8 November from 14:00 until late.
- * Do not claim Saturday hours or that it shows NFL/sport.
+ * Owner-confirmed: has sports screens. Do not claim Saturday hours or list its games.
  *
  * Maps checked 7 Nov 2026:
  * - O'Reilly's CID 9285869778750479445 — Pasaje de Matheu 4 (live hub + sister-site listing).
@@ -48,8 +48,8 @@ export const FOUR_BARS = [
     name: 'Four Corner',
     address: 'Calle de la Victoria 6, 28012 Madrid',
     maps: FOUR_BARS_MAPS.fourCorner,
-    hoursEn: 'Sunday 8 Nov from 14:00 until late',
-    hoursEs: 'Domingo 8 nov desde las 14:00 hasta la madrugada',
+    hoursEn: 'Sunday 8 Nov from 14:00 until late · sports screens',
+    hoursEs: 'Domingo 8 nov desde las 14:00 hasta la madrugada · pantallas de deporte',
   },
 ] as const;
 
@@ -61,8 +61,18 @@ export const FAN_WEEKEND_HUB = {
 } as const;
 
 export const FAN_WEEKEND_SATURDAY = {
-  en: '/saturday-sunday-sol-four-bars/',
-  es: '/es/sabado-domingo-sol-cuatro-bares/',
+  en: '/saturday-in-sol-today/',
+  es: '/es/sabado-en-sol-hoy/',
+} as const;
+
+export const FAN_WEEKEND_SATURDAY_TONIGHT = {
+  en: '/nfl-fans-madrid-this-saturday/',
+  es: '/es/fin-de-semana-nfl-ya-se-vive/',
+} as const;
+
+export const FAN_WEEKEND_FOUR_CORNER = {
+  en: '/four-corner-opens-sunday-1400/',
+  es: '/es/four-corner-abre-domingo-1400/',
 } as const;
 
 export const FAN_WEEKEND_SUNDAY = {

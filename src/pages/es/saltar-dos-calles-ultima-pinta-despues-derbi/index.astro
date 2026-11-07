@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/saltar-dos-calles-ultima-pinta-despues-derbi/';
+const PATH_EN = '/hop-two-streets-last-pint-after-derby/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Última pinta después de Valencia–RM: saltar las dos calles que siguen abiertas',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T23:00:00+01:00',
+  dateModified: '2026-11-07T23:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Ya ha pitado Valencia–Real Madrid. ¿Qué puertas del sábado siguen en las mismas dos calles?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tres puertas del sábado, solo dos calles: O’Reilly’s en Pasaje de Matheu 4, luego Dubliners y O’Connell’s, ambos en Calle de Espoz y Mina 7. Four Corner en Calle de la Victoria 6 no abre esta noche — domingo 8 de noviembre desde las 14:00 con pantallas de deporte.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué distancia está el salto entre las tres puertas del sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'De Pasaje de Matheu 4 a Espoz y Mina 7 hay unos 1 minuto / 90 m. Dubliners y O’Connell’s comparten el mismo número de calle — puertas distintas, a pocos segundos. No hace falta taxi ni cambiar de barrio para la última pinta.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL de sábado después de Valencia–Real Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El sábado 7 de noviembre no hay partido oficial de la NFL. El listado nombrado a las 21:00 era Valencia–Real Madrid solo en Dubliners. La siguiente pantalla NFL es el domingo a las 15:30.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Última pinta después de Valencia–RM: dos calles abiertas | Dubliners"
+  description="Después de Valencia–RM: tres puertas del sábado en dos calles. Salto Matheu 4 ↔ Espoz y Mina 7. Maps. Four Corner domingo 14:00. CÓMO LLEGAR."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Última pinta en dos calles después de Valencia–RM" schema />
+      <h1>Última pinta después de Valencia–RM: saltar las dos calles que siguen abiertas</h1>
+      <p class="lead">
+        El listado de las 21:00 ya ha pitado o se está vaciando. Ya estáis en el bolsillo.
+        <strong>Tres puertas del sábado caben en dos calles</strong> — Pasaje de Matheu y Calle de Espoz y Mina —
+        no un barrio nuevo, no Gran Vía, no un taxi.
+        <strong>Valencia–Real Madrid fue EN DIRECTO solo en Dubliners.</strong>
+        Hoy no hay NFL oficial. Four Corner sigue cerrado hasta el domingo 14:00.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Last pint after Valencia–RM: hop the two streets still open</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Andar a Espoz y Mina 7</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O’Reilly’s en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es un salto de puerta a puerta, no una salida de Metro</h2>
+      <p>
+        Otras páginas ya cubren bajar de Metro Sol a las 21:00, el propio Valencia,
+        aguantar Espoz y Mina hasta el pitido, y las salas tarde después del partido.
+        Esta página es solo la última pinta: cuáles de los tres pines del sábado siguen en las
+        <strong>mismas dos calles</strong>, cuántos metros entre puertas, qué CID de Maps.
+        Quedaos en Pasaje de Matheu y Espoz y Mina. No andéis a Victoria 6 esta noche.
+      </p>
+
+      <h2>Dos calles, tres puertas abiertas — metros, no cambio de barrio</h2>
+      <ol>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4.</strong>
+          Calle uno. Unos <strong>1 minuto / 90 m</strong> desde Espoz y Mina 7.
+          Terraza si Dubliners aún se vacía después de Valencia–RM. Sábado hasta las 01:30.
+          No es el listado nombrado de Valencia.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7.</strong>
+          Calle dos, el mismo bloque. Sábado hasta las 02:30.
+          Si habéis visto Valencia–Real Madrid EN DIRECTO aquí, podéis quedaros; las pantallas siguen después del pitido.
+          No inventamos una parrilla NFL de sábado.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7</strong> (en Maps: O’Connell St).
+          El mismo número de calle que Dubliners, otra puerta — unos segundos, no un paseo.
+          Sábado hasta las 03:30, la más tarde de las tres. Punto de encuentro; no copiamos aquí el listado de las 21:00 de Dubliners.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+      <p>
+        <strong>Four Corner, Calle de la Victoria 6</strong> es una tercera calle en el mismo bolsillo (~2 minutos desde Espoz y Mina) —
+        y <strong>no es una puerta de última pinta del sábado</strong>. Domingo 8 de noviembre desde las 14:00 hasta la madrugada, pantallas de deporte.
+        Marcadlo; no saltéis allí esta noche.
+        {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Marcadlo para el domingo</a>
+        {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie (domingo)</a>.
+      </p>
+      <p>
+        Salto práctico si Dubliners está lleno después del partido: Matheu 4 para una pinta en terraza, luego vuelta a Espoz y Mina 7
+        para las salas más tarde (02:30 / 03:30). Dos calles. Una última pinta. Sin taxi.
+      </p>
+
+      <OriginalFourBars lang="es" when="tonight" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Ya ha pitado. ¿Qué puertas del sábado siguen en las mismas dos calles?</strong></dt>
+        <dd>O’Reilly’s en Pasaje de Matheu 4; Dubliners y O’Connell’s en Espoz y Mina 7. Four Corner (Victoria 6) solo domingo 14:00.</dd>
+        <dt><strong>¿A qué distancia entre las tres puertas del sábado?</strong></dt>
+        <dd>Matheu 4 ↔ Espoz y Mina 7 ~1 min / 90 m. Dubliners y O’Connell’s: mismo número, puertas distintas. Sin taxi.</dd>
+        <dt><strong>¿NFL de sábado después de Valencia–RM?</strong></dt>
+        <dd>No. Hoy no hay NFL oficial. El 21:00 nombrado era Valencia–RM solo en Dubliners. Siguiente pantalla NFL: domingo 15:30.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Última pinta esta noche, luego el domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Valencia–RM 21:00 en Dubliners' },
+              { href: '/es/quince-horas-sol-hasta-four-corner-1400/', label: 'Reloj de madrugada: horas hasta el domingo 14:00' },
+              { href: PATH_EN, label: 'Last pint: hop the two streets still open', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

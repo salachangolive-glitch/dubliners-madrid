@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+// Saturday 7 Nov capture: fans already in Madrid today. Do not recreate PR #4–#8 hubs.
+const path = '/saturday-in-sol-today/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Saturday in Sol today: four bars, one meeting point',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T15:00:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'I am already in Madrid today. Where are the four bars from Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Walk south-east of Puerta del Sol: O'Reilly's Restaurant Bar is on Pasaje de Matheu 4; Dubliners and O'Connell St share Calle de Espoz y Mina 7; Four Corner is on Calle de la Victoria 6. All four are a few minutes apart.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which bar is open Saturday afternoon?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Dubliners is open Saturday 12:00–02:30. O'Reilly's usual hours on the live four-bar page are 11:30–01:30. O'Connell St usual Saturday hours there are 15:00–03:30. Four Corner is advertised from today for Sunday 8 November from 14:00; do not assume Saturday hours.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is confirmed LIVE tonight?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Valencia vs Real Madrid at 21:00 Madrid time is LIVE at Dubliners. We do not promise that match on every screen in the cluster.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Saturday in Sol today: find the four bars | Dubliners"
+  description="Already in Madrid this Saturday 7 Nov? Walk from Puerta del Sol to O'Reilly's, Dubliners, O'Connell St and Four Corner. Maps and tonight's 21:00 kick-off."
+  path={path}
+  lang="en"
+  hreflang={{ en: path, es: '/es/sabado-en-sol-hoy/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Saturday in Sol today" schema />
+      <h1>Saturday in Sol today: four bars, one meeting point</h1>
+      <p class="lead">
+        You are already in Madrid — <strong>Saturday 7 November 2026</strong>. You do not need a new neighbourhood.
+        Four sister bars sit a few minutes from Puerta del Sol. Open Maps and walk.
+      </p>
+      <p class="small">Independent Irish pubs and sister bars. Not an official NFL event.</p>
+      <p class="small">En español: <a href={withBase('/es/sabado-en-sol-hoy/')} hreflang="es" lang="es">Sábado en Sol hoy: encuentra los cuatro bares</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Open Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>All four bars</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>From Puerta del Sol, this is the cluster</h2>
+      <p>
+        Stand on Puerta del Sol and look south-east, toward Plaza de Santa Ana rather than Gran Vía.
+        Pasaje de Matheu, Calle de Espoz y Mina and Calle de la Victoria sit in that pocket.
+        Treat them as one meeting point for fans already in the centre today — not four separate nights out.
+      </p>
+
+      <h2>The four bars — name, address, Maps</h2>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurant-bar with terrace, a short walk from Sol.<br />
+        Usual hours on the live four-bar page: open daily 11:30–01:30. Check Maps if you arrive late.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's on Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Irish pub. Saturday hours: <strong>12:00–02:30</strong>.<br />
+        Valencia vs Real Madrid at 21:00 is LIVE here tonight. Full board: <a href={withBase('/whats-on/')}>What's On</a>.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Google Maps</a>
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — same street as Dubliners.<br />
+        Usual Saturday hours on the live four-bar page: 15:00–03:30.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St on Google Maps</a>
+      </p>
+
+      <h3>Four Corner</h3>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. Sister bar in the same streets.<br />
+        Advertised from today: <strong>Sunday 8 November from 14:00 until late</strong>. Saturday opening is not listed here.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner on Google Maps</a>
+      </p>
+
+      <h2 data-show-until={SHOW_UNTIL}>Tonight — what we can confirm</h2>
+      <p data-show-until={SHOW_UNTIL}>
+        <strong>Valencia vs Real Madrid, 21:00</strong> Madrid time (Real Madrid and LaLiga matchday 12).
+        At Dubliners that match is LIVE. We do not claim it on every screen in the cluster, and we do not list Four Corner broadcasts.
+      </p>
+
+      <p>
+        Walk now: <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        · <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>I am already in Madrid today. Where are the four bars from Sol?</strong></dt>
+        <dd>South-east of Puerta del Sol: O'Reilly's (Pasaje de Matheu 4), Dubliners and O'Connell St (Espoz y Mina 7), Four Corner (Calle de la Victoria 6).</dd>
+        <dt><strong>Which bar is open Saturday afternoon?</strong></dt>
+        <dd>Dubliners 12:00–02:30. O'Reilly's usual daily hours 11:30–01:30. O'Connell St usual Saturday 15:00–03:30. Four Corner: Sunday from 14:00.</dd>
+        <dt><strong>What is confirmed LIVE tonight?</strong></dt>
+        <dd>Valencia vs Real Madrid at 21:00, LIVE at Dubliners. Not promised on every screen.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Saturday capture',
+            items: [
+              { href: '/after-saturday-nfl-fan-events-sol/', label: 'After Saturday fan events', note: 'Walk from Plaza de España / San Martín', until: SHOW_UNTIL },
+              { href: '/saturday-night-sol-valencia-real-madrid/', label: 'Saturday night: Valencia–Real Madrid', note: '21:00 LIVE at Dubliners', until: SHOW_UNTIL },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend', note: 'Weekend hub' },
+              { href: '/whats-on/', label: "What's On" },
+              { href: '/es/sabado-en-sol-hoy/', label: 'Sábado en Sol hoy', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

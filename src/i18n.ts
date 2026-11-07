@@ -31,6 +31,9 @@ export const PATH_PAIRS: Record<string, string> = {
   '/sunday-sports-sol/': '/es/deportes-domingo-sol/',
   '/nfl-madrid-four-sister-bars/': '/es/nfl-madrid-cuatro-bares-hermanos/',
   '/saturday-sunday-sol-four-bars/': '/es/sabado-domingo-sol-cuatro-bares/',
+  '/saturday-in-sol-today/': '/es/sabado-en-sol-hoy/',
+  '/after-saturday-nfl-fan-events-sol/': '/es/despues-eventos-nfl-sabado-sol/',
+  '/saturday-night-sol-valencia-real-madrid/': '/es/sabado-noche-sol-valencia-real-madrid/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

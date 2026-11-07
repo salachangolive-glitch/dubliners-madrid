@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+// Captura post-evento, sáb 7 nov. Solo origen (sin enlaces al evento, sin OnePass).
+const path = '/es/despues-eventos-nfl-sabado-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Después de los eventos del sábado: anda a los cuatro bares en Sol',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T15:00:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Adónde ir después de los eventos del sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Anda hacia la Puerta del Sol. Cuatro bares hermanos ocupan las calles siguientes: O'Reilly's Restaurant Bar (Pasaje de Matheu 4), Dubliners y O'Connell St (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6).",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora terminan los eventos del sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'NFL Experience en Plaza de España figura hasta las 19:00 hoy. NFL House en Casa de las Alhajas, Plaza de San Martín, figura hasta las 20:00 hoy. Dubliners cierra el sábado a las 02:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Estos bares son un recinto oficial de la NFL?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Bares hermanos independientes junto a Sol. No somos un evento oficial de la NFL ni las activaciones del sábado en Plaza de España o Plaza de San Martín.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Después de los eventos NFL del sábado: cuatro bares en Sol | Dubliners"
+  description="Tras NFL Experience (Plaza de España, hasta las 19:00) o NFL House (Plaza de San Martín, hasta las 20:00), anda a cuatro bares hermanos junto a Sol. Maps."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/after-saturday-nfl-fan-events-sol/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Después de los eventos del sábado" lang="es" schema />
+      <h1>Después de los eventos del sábado: anda a los cuatro bares en Sol</h1>
+      <p class="lead">
+        Las activaciones oficiales del sábado cierran esta tarde. Los cuatro bares hermanos alrededor de Sol siguen abiertos.
+        Esta página es <strong>adónde ir después</strong> — no esos eventos, y no un acto oficial de la NFL.
+      </p>
+      <p class="small">In English: <a href={withBase('/after-saturday-nfl-fan-events-sol/')} hreflang="en" lang="en">After Saturday's fan events: walk to the four bars in Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Andar a Dubliners — Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>Los cuatro bares</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Sales de las activaciones, sigues la misma noche</h2>
+      <p>
+        Hoy sábado 7 de noviembre de 2026 hay dos activaciones oficiales:
+        NFL Experience en <strong>Plaza de España hasta las 19:00</strong>, y NFL House en Casa de las Alhajas,
+        <strong>Plaza de San Martín hasta las 20:00</strong> (NFL España / Marca, 2 nov 2026; sigue en la ficha del Madrid Game en nfl.com).
+        Cuando cierran, Sol es el siguiente bolsillo útil — un paseo, no un taxi al otro lado de la ciudad.
+      </p>
+      <p>
+        No organizamos esos eventos, no reservamos entrada ni te devolvemos allí. Sin OnePass. Sin descuentos extra.
+        Si ya has terminado, anda hacia el este, a Sol, y queda en el grupo de cuatro bares.
+      </p>
+
+      <h2>A pie, sin recorrete</h2>
+      <ul>
+        <li>
+          <strong>Desde Plaza de España:</strong> unos 15–20 minutos andando por Gran Vía o Calle del Arenal hasta la Puerta del Sol.
+        </li>
+        <li>
+          <strong>Desde Plaza de San Martín (Ópera):</strong> unos 5–8 minutos por Calle del Arenal hasta Sol, y un minuto más a Espoz y Mina.
+        </li>
+      </ul>
+
+      <h2>Los cuatro bares — guárdalos en Maps</h2>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid.<br />
+        Útil si quieres comer y terraza después de un día de pie. Horario habitual en la página de los cuatro bares: 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid.<br />
+        Sábado 12:00–02:30. Valencia–Real Madrid a las 21:00 va EN DIRECTO aquí — el pitido cae cuando ya han cerrado las dos activaciones.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Google Maps</a>
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid (la misma calle que Dubliners).<br />
+        Horario habitual de sábado en la página de los cuatro bares: 15:00–03:30.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St en Google Maps</a>
+      </p>
+
+      <h3>Four Corner</h3>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid.<br />
+        El mismo grupo. Se anuncia desde el sábado: domingo 8 de noviembre desde las 14:00 hasta tarde. No damos horario de sábado.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Google Maps</a>
+      </p>
+
+      <p>
+        Abre Maps ahora:
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+        · <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner</a>
+      </p>
+
+      <h2>Preguntas</h2>
+      <dl class="faq">
+        <dt><strong>¿Adónde ir después de los eventos del sábado?</strong></dt>
+        <dd>Anda a Sol. O'Reilly's, Dubliners, O'Connell St y Four Corner están en las calles siguientes.</dd>
+        <dt><strong>¿A qué hora terminan los eventos del sábado?</strong></dt>
+        <dd>Plaza de España hasta las 19:00; Plaza de San Martín hasta las 20:00. Dubliners cierra el sábado a las 02:30.</dd>
+        <dt><strong>¿Estos bares son un recinto oficial de la NFL?</strong></dt>
+        <dd>No. Bares hermanos independientes. No somos un evento oficial de la NFL.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sábado en Sol',
+            items: [
+              { href: '/es/sabado-en-sol-hoy/', label: 'Sábado en Sol hoy', note: 'Encuentra los cuatro bares desde Sol', until: SHOW_UNTIL },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Sábado noche: Valencia–Real Madrid', note: '21:00 EN DIRECTO en Dubliners', until: SHOW_UNTIL },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana' },
+              { href: '/after-saturday-nfl-fan-events-sol/', label: 'After Saturday fan events', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

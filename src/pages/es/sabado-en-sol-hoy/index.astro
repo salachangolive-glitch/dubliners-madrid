@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+// Captura del sábado 7 nov: aficionados que ya están en Madrid hoy. No recrea PRs #4–#8.
+const path = '/es/sabado-en-sol-hoy/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Sábado en Sol hoy: cuatro bares, un punto de encuentro',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T15:00:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Ya estoy en Madrid hoy. ¿Dónde están los cuatro bares desde Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Al sureste de la Puerta del Sol: O'Reilly's Restaurant Bar en Pasaje de Matheu 4; Dubliners y O'Connell St en Calle de Espoz y Mina 7; Four Corner en Calle de la Victoria 6. Los cuatro están a pocos minutos.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué bar abre el sábado por la tarde?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Dubliners abre el sábado 12:00–02:30. En la página de los cuatro bares, O'Reilly's figura 11:30–01:30 y O'Connell St el sábado 15:00–03:30. Four Corner se anuncia desde hoy para el domingo 8 de noviembre desde las 14:00; no damos horario de sábado.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué hay EN DIRECTO esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Valencia–Real Madrid a las 21:00 (hora de Madrid) va EN DIRECTO en Dubliners. No prometemos ese partido en todas las pantallas del grupo.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Sábado en Sol hoy: encuentra los cuatro bares | Dubliners"
+  description="¿Ya estás en Madrid este sábado 7 nov? Anda desde Sol hasta O'Reilly's, Dubliners, O'Connell St y Four Corner. Maps y el pitido de las 21:00."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/saturday-in-sol-today/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sábado en Sol hoy" lang="es" schema />
+      <h1>Sábado en Sol hoy: cuatro bares, un punto de encuentro</h1>
+      <p class="lead">
+        Ya estás en Madrid — <strong>sábado 7 de noviembre de 2026</strong>. No hace falta cambiar de barrio.
+        Cuatro bares hermanos están a pocos minutos de la Puerta del Sol. Abre Maps y anda.
+      </p>
+      <p class="small">Pubs irlandeses independientes y bares hermanos. No somos un evento oficial de la NFL.</p>
+      <p class="small">In English: <a href={withBase('/saturday-in-sol-today/')} hreflang="en" lang="en">Saturday in Sol today: find the four bars</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Abrir Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>Los cuatro bares</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Desde la Puerta del Sol, este es el grupo</h2>
+      <p>
+        En la Puerta del Sol, mira hacia el sureste, hacia Santa Ana, no hacia Gran Vía.
+        Ahí están el Pasaje de Matheu, Espoz y Mina y la Calle de la Victoria.
+        Es un solo punto de encuentro para quien ya está en el centro hoy — no cuatro planes sueltos.
+      </p>
+
+      <h2>Los cuatro bares — nombre, dirección, Maps</h2>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurante-bar con terraza, a un paso de Sol.<br />
+        Horario habitual en la página de los cuatro bares: todos los días 11:30–01:30. Si llegas tarde, mira Maps.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Pub irlandés. Sábado: <strong>12:00–02:30</strong>.<br />
+        Valencia–Real Madrid a las 21:00 va EN DIRECTO aquí. Cartel completo: <a href={withBase('/es/partidos/')}>Partidos y eventos</a>.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Google Maps</a>
+      </p>
+
+      <h3>O'Connell St</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — la misma calle que Dubliners.<br />
+        Horario habitual de sábado en la página de los cuatro bares: 15:00–03:30.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St en Google Maps</a>
+      </p>
+
+      <h3>Four Corner</h3>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. Bar hermano en las mismas calles.<br />
+        Se anuncia desde hoy: <strong>domingo 8 de noviembre desde las 14:00 hasta tarde</strong>. No damos horario de sábado.<br />
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Google Maps</a>
+      </p>
+
+      <h2 data-show-until={SHOW_UNTIL}>Esta noche — lo que sí está confirmado</h2>
+      <p data-show-until={SHOW_UNTIL}>
+        <strong>Valencia–Real Madrid, 21:00</strong> hora de Madrid (Real Madrid y jornada 12 de LaLiga).
+        En Dubliners va EN DIRECTO. No lo damos por hecho en todas las pantallas del grupo, ni listamos retransmisiones de Four Corner.
+      </p>
+
+      <p>
+        Anda ahora: <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        · <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell St</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner</a>
+      </p>
+
+      <h2>Preguntas</h2>
+      <dl class="faq">
+        <dt><strong>Ya estoy en Madrid hoy. ¿Dónde están los cuatro bares desde Sol?</strong></dt>
+        <dd>Sureste de Sol: O'Reilly's (Pasaje de Matheu 4), Dubliners y O'Connell St (Espoz y Mina 7), Four Corner (Calle de la Victoria 6).</dd>
+        <dt><strong>¿Qué bar abre el sábado por la tarde?</strong></dt>
+        <dd>Dubliners 12:00–02:30. O'Reilly's 11:30–01:30. O'Connell St sábado 15:00–03:30. Four Corner: domingo desde las 14:00.</dd>
+        <dt><strong>¿Qué hay EN DIRECTO esta noche?</strong></dt>
+        <dd>Valencia–Real Madrid a las 21:00, EN DIRECTO en Dubliners. No en todas las pantallas.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sábado en Madrid',
+            items: [
+              { href: '/es/despues-eventos-nfl-sabado-sol/', label: 'Después de los eventos NFL del sábado', note: 'Desde Plaza de España / San Martín', until: SHOW_UNTIL },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Sábado noche: Valencia–Real Madrid', note: '21:00 EN DIRECTO en Dubliners', until: SHOW_UNTIL },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana', note: 'Hub del fin de semana' },
+              { href: '/es/partidos/', label: 'Partidos y eventos' },
+              { href: '/saturday-in-sol-today/', label: 'Saturday in Sol today', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

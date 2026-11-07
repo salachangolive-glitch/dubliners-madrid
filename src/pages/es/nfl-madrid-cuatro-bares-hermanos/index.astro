@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import FourCornerSundayOpen from '../../../components/FourCornerSundayOpen.astro';
 import { withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
@@ -17,7 +18,7 @@ const articleLd = {
   headline: 'NFL Madrid 2026: cuatro bares hermanos, un punto de encuentro cerca de la Puerta del Sol',
   inLanguage: 'es',
   datePublished: '2026-11-06T16:00:00+01:00',
-  dateModified: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-07T16:00:00+01:00',
   image: [absUrl('/images/facade.jpg')],
   mainEntityOfPage: absUrl(path),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
@@ -32,7 +33,15 @@ const faqLd = {
       name: '¿Dónde está el punto de encuentro NFL Madrid junto a Sol?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Cuatro bares hermanos en la misma zona: O\'Reilly\'s Restaurant Bar (Pasaje de Matheu 4), Dubliners y O\'Connell St (Calle de Espoz y Mina 7) y Four Corner (Calle de la Victoria 6).',
+        text: 'Cuatro bares hermanos en la misma zona: O\'Reilly\'s Restaurant Bar (Pasaje de Matheu 4), Dubliners y O\'Connell St (Calle de Espoz y Mina 7) y Four Corner (Calle de la Victoria 6). Planificad desde el sábado. Domingo: Dubliners desde las 12:00; Four Corner desde las 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora abre Four Corner el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde las 14:00. Calle de la Victoria 6, Madrid. Está en esta página desde el sábado para que podáis planificar antes de que abra.',
       },
     },
     {
@@ -57,7 +66,7 @@ const faqLd = {
 
 <BaseLayout
   title="NFL Madrid 2026: cuatro bares hermanos junto a Sol | Dubliners"
-  description="Cuatro bares hermanos, un punto de encuentro cerca de la Puerta del Sol para NFL Madrid 2026: O'Reilly's, Dubliners, O'Connell St y Four Corner. Nombre, dirección y Maps de cada uno."
+  description="4 Bars. One Fan Weekend. Punto de encuentro cerca de la Puerta del Sol: O'Reilly's, Dubliners, O'Connell St y Four Corner. Four Corner domingo abre desde las 14:00, Calle de la Victoria 6."
   path={path}
   lang="es"
   hreflang={{ en: '/nfl-madrid-four-sister-bars/', es: path }}
@@ -69,9 +78,10 @@ const faqLd = {
       <Breadcrumb current="Cuatro bares hermanos junto a Sol" lang="es" schema />
       <h1>NFL Madrid 2026: cuatro bares hermanos, un punto de encuentro cerca de la Puerta del Sol</h1>
       <p class="lead">
-        Una sola idea para el 7 y el 8 de noviembre: cuatro bares hermanos en las mismas calles alrededor de la Puerta del Sol,
-        para que la afición comparta <strong>un punto de encuentro</strong> y no cuatro paradas sueltas.
+        <strong>Vuestro punto de encuentro cerca de la Puerta del Sol.</strong> Una sola idea para el 7 y el 8 de noviembre: cuatro bares hermanos
+        en las mismas calles, para que la afición comparta un punto de encuentro y no cuatro paradas sueltas. Planificad los cuatro desde el sábado.
       </p>
+      <FourCornerSundayOpen lang="es" />
       <p class="small">In English: <a href={withBase('/nfl-madrid-four-sister-bars/')} hreflang="en" lang="en">NFL Madrid 2026: four sister bars near Sol</a></p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
@@ -119,7 +129,8 @@ const faqLd = {
       <h3>Four Corner</h3>
       <p>
         Calle de la Victoria 6, 28012 Madrid.<br />
-        Bar hermano en la misma zona. Horario por confirmar.<br />
+        Bar hermano en la misma zona. <strong>Domingo 8 de noviembre: abre desde las 14:00.</strong>
+        Está aquí desde el sábado para que podáis planificar antes de que abra.<br />
         <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
       </p>
 
@@ -133,7 +144,8 @@ const faqLd = {
       <h2 data-show-until={SHOW_UNTIL}>Domingo 8 de noviembre en Dubliners</h2>
       <div data-show-until={SHOW_UNTIL}>
         <p>
-          Dubliners abre desde las 12:00. Los horarios siguientes son hora de Madrid. En Dubliners, Bengals–Falcons va EN DIRECTO en
+          Desde las 12:00 el punto de encuentro de cuatro bares sigue, con los horarios reales: Dubliners desde las 12:00; <strong>Four Corner desde las 14:00</strong>.
+          Los horarios siguientes son hora de Madrid. En Dubliners, Bengals–Falcons va EN DIRECTO en
           <strong>pantalla grande</strong> desde las 15:30; la jornada NFL sigue desde las 19:00 dentro del horario (cerramos a las 02:00).
         </p>
         <ul>
@@ -152,7 +164,9 @@ const faqLd = {
       <h2>Preguntas frecuentes</h2>
       <dl class="faq">
         <dt><strong>¿Dónde está el punto de encuentro NFL Madrid junto a Sol?</strong></dt>
-        <dd>Cuatro bares hermanos en la misma zona: O'Reilly's Restaurant Bar (Pasaje de Matheu 4), Dubliners y O'Connell St (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6).</dd>
+        <dd>Cuatro bares hermanos en la misma zona: O'Reilly's Restaurant Bar (Pasaje de Matheu 4), Dubliners y O'Connell St (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6). Planificad desde el sábado. Domingo: Dubliners desde las 12:00; Four Corner desde las 14:00.</dd>
+        <dt><strong>¿A qué hora abre Four Corner el domingo 8 de noviembre?</strong></dt>
+        <dd>Desde las 14:00. Calle de la Victoria 6, Madrid. Está en esta página desde el sábado: no hay que esperar a que abra para planificar.</dd>
         <dt><strong>¿A qué hora abre Dubliners el domingo 8 de noviembre?</strong></dt>
         <dd>Desde las 12:00. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd>
         <dt><strong>¿Los cuatro bares forman parte de la NFL Experience o de la NFL House?</strong></dt>

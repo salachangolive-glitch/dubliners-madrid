@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import FourCornerSundayOpen from '../../../components/FourCornerSundayOpen.astro';
 import { withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
@@ -17,7 +18,7 @@ const articleLd = {
   headline: 'Sábado y domingo en Sol: una ruta de aficionado por cuatro bares',
   inLanguage: 'es',
   datePublished: '2026-11-06T16:00:00+01:00',
-  dateModified: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-07T16:00:00+01:00',
   image: [absUrl('/images/facade.jpg')],
   mainEntityOfPage: absUrl(path),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
@@ -32,7 +33,7 @@ const faqLd = {
       name: '¿Qué hacer en Sol el sábado después de la NFL House?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona: O\'Reilly\'s, Dubliners, O\'Connell St y Four Corner. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.',
+        text: 'Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona: O\'Reilly\'s, Dubliners, O\'Connell St y Four Corner. Four Corner el domingo abre desde las 14:00, Calle de la Victoria 6. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.',
       },
     },
     {
@@ -57,7 +58,7 @@ const faqLd = {
 
 <BaseLayout
   title="Sábado y domingo en Sol: una ruta de aficionado por cuatro bares | Dubliners"
-  description="Una ruta de aficionado por cuatro bares hermanos junto a la Puerta del Sol: sábado tras la NFL House en la Casa de las Alhajas; domingo desde las 12:00 en Dubliners. Nombre, dirección y Maps."
+  description="Una ruta de aficionado por cuatro bares hermanos junto a Sol. 4 Bars. One Fan Weekend. Four Corner domingo abre desde las 14:00, Calle de la Victoria 6. Domingo desde las 12:00 en Dubliners."
   path={path}
   lang="es"
   hreflang={{ en: '/saturday-sunday-sol-four-bars/', es: path }}
@@ -69,9 +70,10 @@ const faqLd = {
       <Breadcrumb current="Sábado y domingo en Sol" lang="es" schema />
       <h1>Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</h1>
       <p class="lead">
-        Dos días, una zona. Tras el programa del sábado de la liga, caminad hacia la Puerta del Sol.
-        Cuatro bares hermanos comparten las mismas calles — <strong>un punto de encuentro</strong> para el sábado por la tarde y el domingo desde el mediodía.
+        Dos días, una zona — <strong>vuestro punto de encuentro cerca de la Puerta del Sol</strong>. Tras el programa del sábado de la liga,
+        caminad hacia Sol. Cuatro bares hermanos comparten las mismas calles. Planificad Four Corner desde el sábado; el domingo abre desde las 14:00.
       </p>
+      <FourCornerSundayOpen lang="es" />
       <p class="small">In English: <a href={withBase('/saturday-sunday-sol-four-bars/')} hreflang="en" lang="en">Saturday and Sunday in Sol: a fan’s route through four bars</a></p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
@@ -107,7 +109,9 @@ const faqLd = {
 
       <h3>Four Corner</h3>
       <p>
-        Calle de la Victoria 6, 28012 Madrid. Bar hermano en la misma zona. Horario por confirmar.<br />
+        Calle de la Victoria 6, 28012 Madrid. Bar hermano en la misma zona.
+        <strong>Domingo 8 de noviembre: abre desde las 14:00.</strong>
+        Planificadlo desde el sábado: no esperéis a las 14:00 para decidir.<br />
         <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
       </p>
 
@@ -118,9 +122,10 @@ const faqLd = {
           la Casa de las Alhajas / Palacio de las Alhajas, calle de San Martín 1 (12:00–20:00). Esos actos son independientes de los cuatro bares.
         </p>
         <p>
-          Al salir de Plaza de España o de la Casa de las Alhajas, Sol queda a un corto paseo. Desde ahí los cuatro bares hermanos están
+          Al salir de Plaza de España o de la Casa de las Alhajas, Sol queda a un corto paseo. Los cuatro bares hermanos están
           justo al sur y al este de la plaza: Four Corner en la calle de la Victoria, O'Reilly's en el Pasaje de Matheu,
-          Dubliners y O'Connell St en la calle de Espoz y Mina. Tomadlos como un solo punto de encuentro, no como cuatro paradas sueltas.
+          Dubliners y O'Connell St en la calle de Espoz y Mina. Tomadlos como un solo punto de encuentro. Four Corner el domingo abre desde las 14:00 —
+          conocedlo esta noche para quedar allí mañana.
         </p>
         <p>
           El sábado por la noche en España: <strong>Valencia vs Real Madrid a las 21:00</strong> (Orange TV y DAZN). En Dubliners ese partido va EN DIRECTO.
@@ -130,8 +135,8 @@ const faqLd = {
       <h2 data-show-until={SHOW_UNTIL}>Domingo 8 de noviembre — desde las 12:00 en Dubliners</h2>
       <div data-show-until={SHOW_UNTIL}>
         <p>
-          El domingo no empieza con el pitido. Dubliners abre desde las <strong>12:00</strong>, así que el mismo grupo de calles junto a Sol
-          funciona como punto de encuentro desde el mediodía. Four Corner: horario por confirmar.
+          El domingo no empieza con el pitido. Desde las 12:00 el punto de encuentro de cuatro bares sigue, con los horarios reales:
+          Dubliners desde las <strong>12:00</strong>; <strong>Four Corner desde las 14:00</strong>, Calle de la Victoria 6.
         </p>
         <p>
           Desde las 15:30, Cincinnati Bengals vs Atlanta Falcons (Madrid Game) va EN DIRECTO en Dubliners en <strong>pantalla grande</strong>.
@@ -154,7 +159,9 @@ const faqLd = {
       <h2>Preguntas frecuentes</h2>
       <dl class="faq">
         <dt><strong>¿Qué hacer en Sol el sábado después de la NFL House?</strong></dt>
-        <dd>Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.</dd>
+        <dd>Tras la NFL Experience en Plaza de España y la NFL House en la Casa de las Alhajas, caminad hacia la Puerta del Sol. Cuatro bares hermanos comparten la misma zona. Four Corner el domingo abre desde las 14:00, Calle de la Victoria 6. Valencia–Real Madrid es a las 21:00 (Orange TV y DAZN); va EN DIRECTO en Dubliners.</dd>
+        <dt><strong>¿A qué hora abre Four Corner el domingo 8 de noviembre?</strong></dt>
+        <dd>Desde las 14:00. Calle de la Victoria 6, Madrid. Planificadlo desde el sábado: no hay que esperar a las 14:00 para decidir.</dd>
         <dt><strong>¿A qué hora empieza el domingo en Dubliners?</strong></dt>
         <dd>Desde las 12:00 el domingo 8 de noviembre. Horario habitual: lunes–jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd>
         <dt><strong>¿Esta ruta forma parte de los actos de la liga?</strong></dt>

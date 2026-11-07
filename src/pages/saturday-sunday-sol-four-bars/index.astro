@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import FourCornerSundayOpen from '../../components/FourCornerSundayOpen.astro';
 import { withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
@@ -17,7 +18,7 @@ const articleLd = {
   headline: 'Saturday and Sunday in Sol: a fan’s route through four bars',
   inLanguage: 'en',
   datePublished: '2026-11-06T16:00:00+01:00',
-  dateModified: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-07T16:00:00+01:00',
   image: [absUrl('/images/facade.jpg')],
   mainEntityOfPage: absUrl(path),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
@@ -32,7 +33,7 @@ const faqLd = {
       name: 'What can I do in Sol on Saturday after the NFL House?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area: O\'Reilly\'s, Dubliners, O\'Connell St and Four Corner. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.',
+        text: 'After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area: O\'Reilly\'s, Dubliners, O\'Connell St and Four Corner. Four Corner Sunday open from 2 PM, Calle de la Victoria 6. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.',
       },
     },
     {
@@ -57,7 +58,7 @@ const faqLd = {
 
 <BaseLayout
   title="Saturday and Sunday in Sol: a fan’s route through four bars | Dubliners"
-  description="A fan’s route through four sister bars near Puerta del Sol: Saturday after NFL House at Casa de las Alhajas; Sunday from 12:00 at Dubliners. Name, address and Maps."
+  description="A fan’s route through four sister bars near Puerta del Sol. 4 Bars. One Fan Weekend. Four Corner Sunday open from 2 PM, Calle de la Victoria 6. Sunday from 12:00 at Dubliners."
   path={path}
   lang="en"
   hreflang={{ en: path, es: '/es/sabado-domingo-sol-cuatro-bares/' }}
@@ -69,9 +70,10 @@ const faqLd = {
       <Breadcrumb current="Saturday and Sunday in Sol" schema />
       <h1>Saturday and Sunday in Sol: a fan’s route through four bars</h1>
       <p class="lead">
-        Two days, one area. After the league’s Saturday programme, walk towards Puerta del Sol.
-        Four sister bars share the same streets — <strong>one meeting point</strong> for Saturday evening and Sunday from midday.
+        Two days, one area — <strong>your meeting point near Puerta del Sol</strong>. After the league’s Saturday programme,
+        walk towards Sol. Four sister bars share the same streets. Plan Four Corner from Saturday; Sunday it opens from 2 PM.
       </p>
+      <FourCornerSundayOpen lang="en" />
       <p class="small">En español: <a href={withBase('/es/sabado-domingo-sol-cuatro-bares/')} hreflang="es" lang="es">Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</a></p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
@@ -107,7 +109,9 @@ const faqLd = {
 
       <h3>Four Corner</h3>
       <p>
-        Calle de la Victoria 6, 28012 Madrid. Sister bar in the same area. Hours to be confirmed.<br />
+        Calle de la Victoria 6, 28012 Madrid. Sister bar in the same area.
+        <strong>Sunday 8 November: open from 14:00 (2 PM).</strong>
+        Plan it from Saturday — do not wait until 14:00 to decide.<br />
         <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
       </p>
 
@@ -118,9 +122,10 @@ const faqLd = {
           Casa de las Alhajas / Palacio de las Alhajas, Calle de San Martín 1 (12:00–20:00). Those events are independent of the four bars.
         </p>
         <p>
-          When you leave Plaza de España or Casa de las Alhajas, Sol is a short walk. From there the four sister bars sit
+          When you leave Plaza de España or Casa de las Alhajas, Sol is a short walk. The four sister bars sit
           just south and east of the square: Four Corner on Calle de la Victoria, O'Reilly's on Pasaje de Matheu,
-          Dubliners and O'Connell St on Calle de Espoz y Mina. Treat them as one meeting point, not a scavenger hunt.
+          Dubliners and O'Connell St on Calle de Espoz y Mina. Treat them as one meeting point. Four Corner Sunday open from 2 PM —
+          know it tonight so you can meet there tomorrow.
         </p>
         <p>
           Saturday evening in Spain: <strong>Valencia vs Real Madrid at 21:00</strong> (Orange TV and DAZN). At Dubliners that match is LIVE.
@@ -130,8 +135,8 @@ const faqLd = {
       <h2 data-show-until={SHOW_UNTIL}>Sunday 8 November — from 12:00 at Dubliners</h2>
       <div data-show-until={SHOW_UNTIL}>
         <p>
-          Sunday does not start at kick-off. Dubliners opens from <strong>12:00</strong>, so the same Sol cluster works as a meeting point
-          from midday. Four Corner: hours to be confirmed.
+          Sunday does not start at kick-off. From 12:00 the four-bar meeting point stays on, with real hours:
+          Dubliners from <strong>12:00</strong>; <strong>Four Corner from 14:00 (2 PM)</strong>, Calle de la Victoria 6.
         </p>
         <p>
           From 15:30, Cincinnati Bengals vs Atlanta Falcons (Madrid Game) is LIVE at Dubliners on the <strong>big screen</strong>.
@@ -154,7 +159,9 @@ const faqLd = {
       <h2>FAQ</h2>
       <dl class="faq">
         <dt><strong>What can I do in Sol on Saturday after the NFL House?</strong></dt>
-        <dd>After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.</dd>
+        <dd>After NFL Experience at Plaza de España and NFL House at Casa de las Alhajas, walk towards Puerta del Sol. Four sister bars share the same area. Four Corner Sunday open from 2 PM, Calle de la Victoria 6. Valencia vs Real Madrid is at 21:00 (Orange TV and DAZN); it is LIVE at Dubliners.</dd>
+        <dt><strong>When does Four Corner open on Sunday 8 November?</strong></dt>
+        <dd>From 14:00 (2 PM). Calle de la Victoria 6, Madrid. Plan it from Saturday — you do not wait until 14:00 to decide.</dd>
         <dt><strong>When does Sunday start at Dubliners?</strong></dt>
         <dd>From 12:00 on Sunday 8 November. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
         <dt><strong>Is this route part of the league’s events?</strong></dt>

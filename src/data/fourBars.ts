@@ -1,7 +1,8 @@
 /**
  * Four sister bars — NFL Madrid 2026 fan meeting point near Puerta del Sol.
- * Owner correction 6 Nov 2026: one collective campaign, not four isolated pages.
- * Four Corner: include as a sister bar; do not claim hours or that it shows NFL/sport.
+ * Owner 6 Nov 2026: one collective campaign, not four isolated pages.
+ * Owner 7 Nov 2026: Four Corner Sunday 8 Nov opens 14:00 (2 PM). Promote from Saturday
+ * and Sunday morning so fans can plan; do not wait until it opens. Do not claim it shows NFL/sport.
  */
 export const FOUR_BARS_MAPS = {
   oreillys: 'https://maps.google.com/maps?cid=9285869778750479445',
@@ -39,3 +40,9 @@ export const FOUR_BARS = [
 ] as const;
 
 export const SHOW_UNTIL_FAN_WEEKEND = '2026-11-08';
+
+/** Confirmed owner 7 Nov 2026: Sunday 8 Nov only. */
+export const FOUR_CORNER_SUNDAY_OPENS = '14:00';
+export const FOUR_CORNER_LINE_EN = 'FOUR CORNER — SUNDAY OPEN FROM 2 PM.';
+export const FOUR_CORNER_LINE_ES = 'FOUR CORNER — DOMINGO ABRE DESDE LAS 14:00.';
+export const FOUR_CORNER_STREET = 'Calle de la Victoria 6, Madrid';

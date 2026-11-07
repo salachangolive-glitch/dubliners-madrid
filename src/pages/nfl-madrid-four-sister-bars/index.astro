@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import FourCornerSundayOpen from '../../components/FourCornerSundayOpen.astro';
 import { withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
@@ -17,7 +18,7 @@ const articleLd = {
   headline: 'NFL Madrid 2026: four sister bars, one fan meeting point near Puerta del Sol',
   inLanguage: 'en',
   datePublished: '2026-11-06T16:00:00+01:00',
-  dateModified: '2026-11-06T16:00:00+01:00',
+  dateModified: '2026-11-07T16:00:00+01:00',
   image: [absUrl('/images/facade.jpg')],
   mainEntityOfPage: absUrl(path),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
@@ -32,7 +33,15 @@ const faqLd = {
       name: 'Where is the fan meeting point for NFL Madrid near Sol?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Four sister bars in the same area: O\'Reilly\'s Restaurant Bar (Pasaje de Matheu 4), Dubliners and O\'Connell St (Calle de Espoz y Mina 7), and Four Corner (Calle de la Victoria 6).',
+        text: 'Four sister bars in the same area: O\'Reilly\'s Restaurant Bar (Pasaje de Matheu 4), Dubliners and O\'Connell St (Calle de Espoz y Mina 7), and Four Corner (Calle de la Victoria 6). Plan from Saturday. Sunday: Dubliners from 12:00; Four Corner from 14:00 (2 PM).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When does Four Corner open on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From 14:00 (2 PM). Calle de la Victoria 6, Madrid. It is listed here from Saturday so you can plan before it opens.',
       },
     },
     {
@@ -57,7 +66,7 @@ const faqLd = {
 
 <BaseLayout
   title="NFL Madrid 2026: four sister bars near Puerta del Sol | Dubliners"
-  description="Four sister bars, one fan meeting point near Puerta del Sol for NFL Madrid 2026: O'Reilly's, Dubliners, O'Connell St and Four Corner. Name, address and Maps for each."
+  description="4 Bars. One Fan Weekend. Your meeting point near Puerta del Sol: O'Reilly's, Dubliners, O'Connell St and Four Corner. Four Corner Sunday open from 2 PM, Calle de la Victoria 6."
   path={path}
   lang="en"
   hreflang={{ en: path, es: '/es/nfl-madrid-cuatro-bares-hermanos/' }}
@@ -69,9 +78,10 @@ const faqLd = {
       <Breadcrumb current="Four sister bars near Sol" schema />
       <h1>NFL Madrid 2026: four sister bars, one fan meeting point near Puerta del Sol</h1>
       <p class="lead">
-        One collective idea for 7 and 8 November: four sister bars in the same streets around Puerta del Sol,
-        so fans share <strong>one meeting point</strong> rather than four disconnected stops.
+        <strong>Your meeting point near Puerta del Sol.</strong> One collective idea for 7 and 8 November: four sister bars
+        in the same streets, so fans share one meeting point rather than four disconnected stops. Plan all four from Saturday.
       </p>
+      <FourCornerSundayOpen lang="en" />
       <p class="small">En español: <a href={withBase('/es/nfl-madrid-cuatro-bares-hermanos/')} hreflang="es" lang="es">NFL Madrid 2026: cuatro bares hermanos junto a Sol</a></p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
@@ -119,7 +129,8 @@ const faqLd = {
       <h3>Four Corner</h3>
       <p>
         Calle de la Victoria 6, 28012 Madrid.<br />
-        Sister bar in the same area. Hours to be confirmed.<br />
+        Sister bar in the same area. <strong>Sunday 8 November: open from 14:00 (2 PM).</strong>
+        Listed here from Saturday so you can plan before it opens.<br />
         <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
       </p>
 
@@ -133,7 +144,8 @@ const faqLd = {
       <h2 data-show-until={SHOW_UNTIL}>Sunday 8 November at Dubliners</h2>
       <div data-show-until={SHOW_UNTIL}>
         <p>
-          Dubliners opens from 12:00. Kick-off facts below are Madrid time. At Dubliners, Bengals vs Falcons is LIVE on the
+          From 12:00 the four-bar meeting point stays on, with real hours: Dubliners from 12:00; <strong>Four Corner from 14:00 (2 PM)</strong>.
+          Kick-off facts below are Madrid time. At Dubliners, Bengals vs Falcons is LIVE on the
           <strong>big screen</strong> from 15:30; Sunday NFL continues from 19:00 within opening hours (we close at 02:00).
         </p>
         <ul>
@@ -152,7 +164,9 @@ const faqLd = {
       <h2>FAQ</h2>
       <dl class="faq">
         <dt><strong>Where is the fan meeting point for NFL Madrid near Sol?</strong></dt>
-        <dd>Four sister bars in the same area: O'Reilly's Restaurant Bar (Pasaje de Matheu 4), Dubliners and O'Connell St (Espoz y Mina 7), and Four Corner (Calle de la Victoria 6).</dd>
+        <dd>Four sister bars in the same area: O'Reilly's Restaurant Bar (Pasaje de Matheu 4), Dubliners and O'Connell St (Espoz y Mina 7), and Four Corner (Calle de la Victoria 6). Plan from Saturday. Sunday: Dubliners from 12:00; Four Corner from 14:00 (2 PM).</dd>
+        <dt><strong>When does Four Corner open on Sunday 8 November?</strong></dt>
+        <dd>From 14:00 (2 PM). Calle de la Victoria 6, Madrid. It is on this page from Saturday — you do not wait until it opens to plan.</dd>
         <dt><strong>When does Dubliners open on Sunday 8 November?</strong></dt>
         <dd>From 12:00. Usual hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd>
         <dt><strong>Are the four bars part of the NFL Experience or NFL House?</strong></dt>

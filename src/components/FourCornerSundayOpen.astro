@@ -1,0 +1,26 @@
+---
+/**
+ * Four Corner Sunday 14:00 highlight. Visible Saturday and Sunday morning
+ * (data-show-until 2026-11-08). Do not gate this until 14:00.
+ */
+import {
+  FOUR_BARS_MAPS,
+  FOUR_CORNER_LINE_EN,
+  FOUR_CORNER_LINE_ES,
+  FOUR_CORNER_STREET,
+  SHOW_UNTIL_FAN_WEEKEND,
+} from '../data/fourBars';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+const line = lang === 'es' ? FOUR_CORNER_LINE_ES : FOUR_CORNER_LINE_EN;
+---
+
+<p class="four-corner-open" data-show-until={SHOW_UNTIL_FAN_WEEKEND}>
+  <strong>{line}</strong><br />
+  {FOUR_CORNER_STREET}.
+  {' '}
+  <a href={FOUR_BARS_MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Google Maps</a>
+</p>

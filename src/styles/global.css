@@ -730,6 +730,13 @@ ul {
   padding-top: 1.25rem;
 }
 
+.four-corner-open {
+  margin: 0.85rem 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--gold, #c9a227);
+  background: rgba(201, 162, 39, 0.1);
+}
+
 .band {
   background: var(--bg-elev);
   border-block: 1px solid var(--border);

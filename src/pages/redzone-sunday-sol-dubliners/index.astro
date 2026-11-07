@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/redzone-sunday-sol-dubliners/';
+const PATH_ES = '/es/redzone-domingo-sol-dubliners/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'NFL RedZone or one 19:00 game — Sunday evening at Dubliners near Sol',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:50:00+01:00',
+  dateModified: '2026-11-07T18:50:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is NFL RedZone on at Dubliners on Sunday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. NFL RedZone from 19:00 at Dubliners, Espoz y Mina 7, plus seven NFL games at 19:00, then 22:05 and 22:25. Ask which screen is which. Not every game on every screen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What else is on at 21:00 the same evening?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Atlético vs Barcelona at 21:00 is LIVE at Dubliners in the same window. Ask at the bar.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do the sister bars list RedZone?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We do not invent O’Reilly’s, O’Connell’s or Four Corner boards. Four Corner opens 14:00 with sports screens. Confirmed RedZone listing is Dubliners.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="NFL RedZone Sunday evening near Sol | Dubliners"
+  description="Sunday 8 Nov from 19:00: RedZone or one NFL game at Dubliners, Espoz y Mina 7. Atlético–Barcelona 21:00 same night. Four Corner from 14:00. Maps. Ask which screen."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="RedZone Sunday near Sol" schema />
+      <h1>NFL RedZone or one 19:00 game — Sunday evening at Dubliners near Sol</h1>
+      <p class="lead">
+        The afternoon clock is 15:30. The evening clock is 19:00: seven NFL games, RedZone, then 22:05 and 22:25 —
+        and Atlético vs Barcelona at 21:00 in the same room. Ask which screen is RedZone. Not every game on every screen.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">RedZone o un partido a las 19:00 el domingo</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>One pub, stacked kick-offs</h2>
+      <p>
+        This is not the afternoon-and-evening list. It is the choice at 19:00: stay on RedZone, or ask for one specific game,
+        knowing Atlético–Barcelona occupies a screen at 21:00. Confirmed LIVE board: Dubliners, Espoz y Mina 7, until 02:00.
+      </p>
+      <p>
+        Sister rooms stay open: O’Reilly’s until 01:30, O’Connell’s late, Four Corner until late from 14:00 with sports screens.
+        We do not copy Dubliners’ RedZone line onto those boards. Saturday has no NFL — tonight is Valencia 21:00 here only.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Is RedZone on at Dubliners Sunday?</strong></dt>
+        <dd>Yes, from 19:00. Ask which screen. Not every game on every screen.</dd>
+        <dt><strong>What else is on at 21:00?</strong></dt>
+        <dd>Atlético vs Barcelona LIVE at Dubliners, same evening.</dd>
+        <dt><strong>Do sister bars list RedZone?</strong></dt>
+        <dd>No invented boards. Four Corner: 14:00, sports screens. Confirmed RedZone: Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday evening',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/pick-sunday-nfl-clock-sol/', label: 'Pick a Sunday NFL clock' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL list' },
+              { href: PATH_ES, label: 'RedZone el domingo', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

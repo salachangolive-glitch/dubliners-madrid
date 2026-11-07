@@ -49,6 +49,9 @@ export const PATH_PAIRS: Record<string, string> = {
   '/tonight-valencia-then-sunday-sol/': '/es/esta-noche-valencia-luego-domingo-sol/',
   '/sunday-nfl-slate-stay-in-sol/': '/es/parrilla-nfl-domingo-quedarse-sol/',
   '/pick-sunday-nfl-clock-sol/': '/es/elige-reloj-nfl-domingo-sol/',
+  '/after-valencia-late-sol/': '/es/despues-valencia-madrugada-sol/',
+  '/sunday-lunch-then-screens-sol/': '/es/comida-domingo-luego-pantallas-sol/',
+  '/redzone-sunday-sol-dubliners/': '/es/redzone-domingo-sol-dubliners/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

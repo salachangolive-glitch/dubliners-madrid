@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/despues-esta-noche-domingo-victoria-6/';
+const PATH_EN = '/after-tonight-sunday-starts-victoria-6/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Después de esta noche: las cuatro horas del domingo empiezan en Victoria 6',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T19:00:00+01:00',
+  dateModified: '2026-11-07T19:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuál es la primera puerta hermana nueva el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four Corner, Calle de la Victoria 6, abre el domingo 8 de noviembre desde las 14:00 hasta la madrugada con pantallas de deporte. Esta noche no abre. Preguntad qué echan — no listamos su programación.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué pasa después de esa puerta a las 14:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Premier League 15:00 en el tablero en vivo de What’s On de Dubliners, luego Bengals–Falcons 15:30 EN DIRECTO en la pantalla grande, NFL de noche desde las 19:00, y Atlético–Barcelona 21:00 en Dubliners. No todos los partidos van en todas las pantallas.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Esto es el Valencia de esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esta noche después de las 19:00 sigue siendo sábado: Valencia–Real Madrid 21:00 EN DIRECTO solo en Dubliners. Hoy no hay NFL oficial. Esta página es la parrilla de horas del domingo después de esa noche.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Después de esta noche: el domingo empieza en Victoria 6 | Dubliners"
+  description="Esta noche Valencia–RM 21:00 en Dubliners. Domingo: Four Corner 14:00 pantallas de deporte, Premier League 15:00, NFL 15:30/noche, Atleti–Barça 21:00. Cuatro bares, Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="El domingo empieza en Victoria 6" lang="es" schema />
+      <h1>Después de esta noche: las cuatro horas del domingo empiezan en Victoria 6</h1>
+      <p class="lead">
+        Cerrad el sábado en Dubliners (Valencia–Real Madrid 21:00 EN DIRECTO; hoy no hay NFL).
+        El domingo abre la cuarta puerta hermana: <strong>Four Corner, Calle de la Victoria 6, desde las 14:00, pantallas de deporte</strong>.
+        Luego el mismo bloque de Sol: Premier League 15:00, NFL 15:30 y noche, Atlético–Barcelona 21:00 en Dubliners.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">After tonight: Sunday starts at Victoria 6</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Una puerta nueva, luego cuatro relojes en las mismas calles</h2>
+      <p>
+        Esta noche hay tres puertas abiertas (O’Reilly’s, Dubliners, O’Connell’s). Victoria 6 está a oscuras hasta el domingo.
+        Esta no es la nota de apertura de Four Corner, ni una página de Premier League, ni una quedada del Atleti.
+        Es el relevo después del sábado noche: la primera hora que esta noche no existía, y luego la parrilla del tablero de Dubliners.
+      </p>
+      <ol>
+        <li><strong>14:00</strong> — Abre Four Corner, Victoria 6, pantallas de deporte. Preguntad qué echan. No inventamos su lista.</li>
+        <li><strong>15:00</strong> — Premier League en el What’s On en vivo de Dubliners (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth). Los listados con nombre se quedan en Dubliners. Preguntad qué echan.</li>
+        <li><strong>15:30 / noche</strong> — Bengals–Falcons EN DIRECTO en la pantalla grande de Dubliners; NFL otra vez desde las 19:00 / 22:05 / 22:25. O’Reilly’s desde las 11:30, Dubliners y O’Connell’s desde las 12:00.</li>
+        <li><strong>21:00</strong> — Atlético–Barcelona en Dubliners. La misma calle que el 21:00 de esta noche, otro partido.</li>
+      </ol>
+      <p>
+        De Espoz y Mina 7 a Victoria 6 hay un par de minutos andando. Quedaos en Sol. Pubs independientes.
+        No es un evento oficial de la NFL. Sin descuentos ni reservas inventadas.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Primera puerta hermana nueva el domingo?</strong></dt>
+        <dd>Four Corner, Victoria 6, desde las 14:00 hasta la madrugada, pantallas de deporte. Esta noche no.</dd>
+        <dt><strong>¿Después de las 14:00?</strong></dt>
+        <dd>PL 15:00 en Dubliners, NFL Game 15:30 en pantalla grande, NFL de noche, Atleti–Barça 21:00 en Dubliners. Preguntad qué echan.</dd>
+        <dt><strong>¿Esto es el Valencia del sábado?</strong></dt>
+        <dd>No. Esta noche a las 21:00 es Valencia–RM solo en Dubliners. Esta página es el domingo después de esa noche.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Esta noche y las horas del domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/quedada-cerrada-espoz-mina-2100/', label: 'Quedada cerrada: hasta las 21:00' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00' },
+              { href: PATH_EN, label: 'Sunday starts at Victoria 6', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

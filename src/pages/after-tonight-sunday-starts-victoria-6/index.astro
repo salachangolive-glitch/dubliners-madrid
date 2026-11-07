@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/after-tonight-sunday-starts-victoria-6/';
+const PATH_ES = '/es/despues-esta-noche-domingo-victoria-6/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'After tonight: Sunday’s four hours start at Victoria 6',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T19:00:00+01:00',
+  dateModified: '2026-11-07T19:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the first new sister door on Sunday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four Corner, Calle de la Victoria 6, opens Sunday 8 November from 14:00 until late with sports screens. It is not open tonight. Ask which game is on — we do not list its broadcasts.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What happens after that 14:00 door?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Premier League 15:00 on Dubliners’ live What’s On board, then Bengals vs Falcons 15:30 LIVE on the big screen, evening NFL from 19:00, and Atlético vs Barcelona 21:00 at Dubliners. Not every game on every screen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this Saturday’s Valencia match?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Tonight after 19:00 is still Saturday: Valencia vs Real Madrid 21:00 LIVE at Dubliners only. No official NFL Saturday. This page is Sunday’s hour stack after that night.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="After tonight: Sunday starts at Victoria 6 | Dubliners"
+  description="Tonight Valencia–RM 21:00 at Dubliners. Sunday: Four Corner 14:00 sports screens, Premier League 15:00, NFL 15:30/evening, Atleti–Barça 21:00. Four bars, Maps."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sunday starts at Victoria 6" schema />
+      <h1>After tonight: Sunday’s four hours start at Victoria 6</h1>
+      <p class="lead">
+        Finish Saturday at Dubliners (Valencia–Real Madrid 21:00 LIVE, no NFL tonight).
+        Sunday the fourth sister door opens: <strong>Four Corner, Calle de la Victoria 6, from 14:00, sports screens</strong>.
+        Then the same Sol block: Premier League 15:00, NFL 15:30 and evening, Atlético–Barcelona 21:00 at Dubliners.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Después de esta noche: el domingo empieza en Victoria 6</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>One new door, then four clocks in the same streets</h2>
+      <p>
+        Tonight three doors are open (O’Reilly’s, Dubliners, O’Connell’s). Victoria 6 is dark until Sunday.
+        This is not the Four Corner opening notice, not a Premier League listing page, and not an Atleti gather.
+        It is the handoff after Saturday night: the first hour that did not exist tonight, then the stack on Dubliners’ board.
+      </p>
+      <ol>
+        <li><strong>14:00</strong> — Four Corner opens, Victoria 6, sports screens. Ask which game is on. We do not invent its list.</li>
+        <li><strong>15:00</strong> — Premier League on Dubliners’ live What’s On (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth). Named listings stay at Dubliners. Ask which game is on.</li>
+        <li><strong>15:30 / evening</strong> — Bengals vs Falcons LIVE on Dubliners’ big screen; NFL again from 19:00 / 22:05 / 22:25. O’Reilly’s from 11:30, Dubliners and O’Connell’s from 12:00.</li>
+        <li><strong>21:00</strong> — Atlético vs Barcelona at Dubliners. Same street as tonight’s 21:00, different match.</li>
+      </ol>
+      <p>
+        The walk from Espoz y Mina 7 to Victoria 6 is a couple of minutes. Stay in Sol. Independent pubs.
+        Not an official NFL event. No invented discounts or bookings.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>First new sister door on Sunday?</strong></dt>
+        <dd>Four Corner, Victoria 6, from 14:00 until late, sports screens. Not tonight.</dd>
+        <dt><strong>After 14:00?</strong></dt>
+        <dd>PL 15:00 at Dubliners, NFL Game 15:30 on the big screen, evening NFL, Atleti–Barça 21:00 at Dubliners. Ask which game is on.</dd>
+        <dt><strong>Is this Saturday Valencia?</strong></dt>
+        <dd>No. Tonight 21:00 is Valencia–RM at Dubliners only. This page is Sunday after that night.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Tonight then Sunday’s hours',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/meetup-over-hold-espoz-mina-2100/', label: 'Meetup over: hold until 21:00' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner Sunday 14:00' },
+              { href: PATH_ES, label: 'El domingo empieza en Victoria 6', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

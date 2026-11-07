@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/quedada-cerrada-espoz-mina-2100/';
+const PATH_EN = '/meetup-over-hold-espoz-mina-2100/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'La quedada ya cerró: quedaos en Espoz y Mina hasta Valencia 21:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T19:00:00+01:00',
+  dateModified: '2026-11-07T19:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'La quedada 18:00–19:00 acaba de terminar. ¿Dónde voy ahora?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Quedaos en Espoz y Mina 7. Dubliners y O’Connell’s siguen abiertos. Si aún estáis en O’Reilly’s, Pasaje de Matheu 4, son dos minutos. Valencia–Real Madrid es a las 21:00 EN DIRECTO solo en Dubliners. Four Corner no abre esta noche.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL en directo en estas dos horas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Hoy sábado 7 de noviembre no hay partido oficial de la NFL. La siguiente pantalla NFL es el domingo a las 15:30. El pitido confirmado de esta noche es Valencia–Real Madrid a las 21:00 en Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Puedo esperar en Four Corner hasta las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner, Calle de la Victoria 6, abre el domingo 8 de noviembre desde las 14:00 con pantallas de deporte. No es una puerta del sábado.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Quedada cerrada: quedaos en Espoz y Mina hasta Valencia 21:00 | Dubliners"
+  description="La 18:00–19:00 ya pasó. Quedaos en Espoz y Mina 7 hasta Valencia–Real Madrid 21:00 EN DIRECTO en Dubliners. Hoy no hay NFL. Four Corner domingo 14:00. Cuatro bares, Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Quedada cerrada — hasta las 21:00" lang="es" schema />
+      <h1>La quedada ya cerró: quedaos en Espoz y Mina hasta Valencia 21:00</h1>
+      <p class="lead">
+        La ventana 18:00–19:00 ha cerrado. No hace falta otra calle. Sentaos en Dubliners o O’Connell’s,
+        <strong>Espoz y Mina 7</strong>, hasta las 21:00. Valencia–Real Madrid es EN DIRECTO solo aquí.
+        Hoy no hay NFL oficial. Four Corner sigue cerrado hasta el domingo a las 14:00.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Meetup over: hold Espoz y Mina until Valencia 21:00</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Dos horas, tres puertas del sábado — no una cuarta</h2>
+      <p>
+        Esta no es la página del orden de la quedada ni la de la retransmisión a las 21:00. Es el hueco después de las 19:00:
+        grupos que siguen en Sol, pitido dentro de dos horas. Si estáis en O’Reilly’s (Pasaje de Matheu 4),
+        el pasaje son dos minutos hasta Espoz y Mina 7. O’Reilly’s sigue hasta las 01:30 si queréis comer antes.
+        Dubliners el sábado hasta las 02:30. O’Connell’s hasta las 03:30. Venid a Dubliners antes de las 21:00 si queréis
+        un asiento de cara a una pantalla — Valencia–RM EN DIRECTO solo aquí, no en los otros tres.
+      </p>
+      <p>
+        Esta noche no vayáis a Victoria 6. Four Corner es el domingo: 14:00 hasta la madrugada, pantallas de deporte, preguntad qué echan.
+        Mañana, desde esa puerta: Premier League 15:00, NFL 15:30 y noche, Atlético–Barcelona 21:00 en Dubliners.
+      </p>
+
+      <OriginalFourBars lang="es" when="tonight" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>La quedada acaba de cerrar. ¿Dónde ahora?</strong></dt>
+        <dd>Quedaos en Espoz y Mina 7. Dubliners para Valencia–RM 21:00 EN DIRECTO. O’Connell’s al lado. O’Reilly’s a dos minutos si aún queréis la terraza.</dd>
+        <dt><strong>¿NFL en directo en estas dos horas?</strong></dt>
+        <dd>No. Hoy no hay NFL oficial. El domingo a las 15:30 es la primera pantalla NFL.</dd>
+        <dt><strong>¿Four Corner hasta las 21:00?</strong></dt>
+        <dd>No. Domingo desde las 14:00, Victoria 6, pantallas de deporte. No es una espera del sábado.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Después de las 19:00, luego el domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Valencia–RM 21:00 en Dubliners' },
+              { href: '/es/despues-esta-noche-domingo-victoria-6/', label: 'El domingo empieza en Victoria 6' },
+              { href: PATH_EN, label: 'Meetup over, hold until Valencia', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

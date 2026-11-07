@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+import { FIXTURES, madridIsoWithOffset } from '../../data/fixtures';
+
+// Irish double Saturday, 14 Nov 2026: two Ireland games the same night, EN only.
+// Times from src/data/fixtures.ts (source of truth, Madrid time). Venues as briefed: Linz / Aviva Stadium, Dublin.
+// Must not cannibalise /ireland-rugby-madrid/ (season rugby page) — this page is the one Saturday night.
+const path = '/irish-double-saturday-madrid/';
+const football = FIXTURES.find((f) => f.dateKey === '2026-11-14' && f.teams === 'Austria vs Republic of Ireland');
+const rugby = FIXTURES.find((f) => f.dateKey === '2026-11-14' && f.teams === 'Ireland vs Fiji');
+if (!football || !rugby) throw new Error('Irish double Saturday: fixture rows missing from src/data/fixtures.ts');
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+/** November CET: Madrid is one hour ahead of Ireland (GMT). */
+const irelandTime = (madridHm: string): string => {
+  const [h, m] = madridHm.split(':').map(Number);
+  return `${String((h + 23) % 24).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+};
+const footballIe = irelandTime(football.madridTime);
+const rugbyIe = irelandTime(rugby.madridTime);
+
+const title = 'Irish Double Saturday in Madrid: 14 Nov | Dubliners';
+const description = `Saturday 14 November: Austria v Republic of Ireland at ${football.madridTime} and Ireland v Fiji at ${rugby.madridTime}, both Madrid time. Watch both LIVE at Dubliners, by Puerta del Sol.`;
+
+const venue = {
+  '@type': 'BarOrPub',
+  name: 'Dubliners Irish Pub',
+  alternateName: 'Dubliners Madrid',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle de Espoz y Mina 7',
+    addressLocality: 'Madrid',
+    postalCode: '28012',
+    addressCountry: 'ES',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+  hasMap: SITE.gbpUrl,
+};
+
+const footballLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Austria v Republic of Ireland — UEFA Nations League (screening at Dubliners Madrid)',
+  description:
+    'Austria v Republic of Ireland (UEFA Nations League, Linz) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  startDate: madridIsoWithOffset(football.dateKey, football.madridTime),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: venue,
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Austria' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Republic of Ireland' },
+  url: absUrl(path),
+};
+
+const rugbyLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Ireland v Fiji — Rugby Nations Championship (screening at Dubliners Madrid)',
+  description:
+    'Ireland v Fiji (Rugby Nations Championship, Aviva Stadium, Dublin) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  startDate: madridIsoWithOffset(rugby.dateKey, rugby.madridTime),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: venue,
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Ireland' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Fiji' },
+  url: absUrl(path),
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What time are the two Ireland games on Saturday 14 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Austria v Republic of Ireland (${football.competition}) is at ${football.madridTime} Madrid time, played in Linz. Ireland v Fiji (${rugby.competition}) is at ${rugby.madridTime} Madrid time, at the Aviva Stadium in Dublin. Madrid is one hour ahead of Ireland.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are you showing both games live?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Both are LIVE on our screens at Dubliners, Calle de Espoz y Mina 7, a short walk from Puerta del Sol. Clashes go on different screens.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What time do you close on Saturday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `We open at ${sat.opens} and close at ${sat.closes} on Saturday.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid, a short walk from Puerta del Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={path} lang="en" hreflang={{ en: path }} ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={[footballLd, rugbyLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Irish double Saturday in Madrid" schema />
+      <h1>Irish double Saturday in Madrid: two Ireland games, one night</h1>
+      <p class="lead">
+        Living in Madrid or here for a few days? Saturday 14 November 2026 is a rare one: the Republic of Ireland play Austria at {football.madridTime}, and Ireland play Fiji at {rugby.madridTime} — both Madrid time, both LIVE on our screens at Dubliners, a short walk from Puerta del Sol.
+      </p>
+      <p class="small">Saturday 14 November 2026 · Madrid time · Clashes go on different screens</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Come early</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>The two games (Madrid time)</h2>
+        <ul>
+          <li>
+            <strong>Austria v Republic of Ireland</strong>, {football.competition}, <strong>{football.madridTime}</strong> Madrid time ({footballIe} in Ireland), played in Linz.
+          </li>
+          <li>
+            <strong>Ireland v Fiji</strong>, {rugby.competition}, <strong>{rugby.madridTime}</strong> Madrid time ({rugbyIe} in Ireland), at the Aviva Stadium, Dublin.
+          </li>
+        </ul>
+        <p>Madrid is one hour ahead of Ireland, so set your watch to Madrid time and you will not miss kick-off.</p>
+        <h2>Watch both at Dubliners</h2>
+        <p>
+          Dubliners is an Irish pub at {SITE.address}, a short walk from Puerta del Sol. Both games are LIVE on our screens.
+          When they overlap, they go on different screens, so you can follow the football and the rugby in the same room.
+          On Saturday we are open {sat.opens}–{sat.closes}. Come early — big nights fill the bar.
+        </p>
+        <h2>The rest of Ireland’s rugby</h2>
+        <p>
+          Ireland v Fiji is one night in the November rugby series. For Ireland v South Africa on Saturday 21 November (17:40 Madrid time) and the rest of the Tests, see
+          <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a>.
+        </p>
+        <h2>Where we are</h2>
+        <p>
+          {SITE.address}, {SITE.postal}, a short walk from Puerta del Sol.
+          <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>.
+          Questions before you come? <a href={withBase('/contact/#request-information')}>Request information</a>.
+        </p>
+      </div>
+      <picture>
+        <img
+          class="split-photo tall"
+          src={withBase('/images/dubliners-screens-sol-1200.webp')}
+          srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`}
+          sizes="(max-width: 800px) 100vw, 720px"
+          width="1200"
+          height="1600"
+          loading="lazy"
+          decoding="async"
+          alt="Screens in the main room at Dubliners, near Sol"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Opening hours</h2>
+      <p>Saturday {sat.opens}–{sat.closes}. The full week:</p>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        {faqLd.mainEntity.map((q) => (
+          <><dt><strong>{q.name}</strong></dt><dd>{q.acceptedAnswer.text}</dd></>
+        ))}
+      </dl>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Come early</a>
+        <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Request information</a>
+      </div>
+      <p class="small">Dubliners Irish Pub · {SITE.address}, {SITE.postal} · Dubliners is an independent pub, not affiliated with UEFA, World Rugby or the teams.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More live sport near Sol',
+            items: [
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: 'The November Tests' },
+              { href: '/whats-on/', label: "What's On", note: 'Everything we show' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/menu/', label: 'Food menu' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

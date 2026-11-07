@@ -663,6 +663,9 @@ export const FIXTURES: Fixture[] = [
     teams: 'Austria vs Republic of Ireland',
     madridTime: '20:45',
     confirmedOnScreens: true,
+    noteEn: 'Irish double Saturday: Ireland v Fiji rugby at 21:10 on another screen. Live at Dubliners.',
+    noteEs: 'Sábado doble irlandés: Irlanda–Fiyi (rugby) a las 21:10 en otra pantalla. En directo en Dubliners.',
+    link: { href: '/irish-double-saturday-madrid/', labelEn: 'Irish double Saturday in Madrid', labelEs: 'Sábado doble irlandés en Madrid (en inglés)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-14',

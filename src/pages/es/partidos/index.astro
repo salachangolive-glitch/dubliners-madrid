@@ -6,6 +6,11 @@ import FixtureBoard from '../../../components/FixtureBoard.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../../data/fixtures';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
+import { isFanWeekendLive } from '../../../data/fourBars';
+
+const fanWeekend = isFanWeekendLive();
 
 const title =
   'Partidos: deporte en directo esta semana | Dubliners Madrid';
@@ -36,7 +41,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         Consulta el deporte en directo esta semana en Dubliners: fútbol, NFL, NBA, rugby, Fórmula 1, tenis y más.
         Horarios en hora de Madrid. Los partidos marcados EN DIRECTO se emiten en nuestras pantallas.
       </p>
-      <CtaRow lang="es" showWhatsOn={false} />
+      {fanWeekend ? <FanWeekendCtas lang="es" /> : <CtaRow lang="es" showWhatsOn={false} />}
     </div>
   </section>
 
@@ -47,11 +52,13 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         Horarios en hora de Madrid. EN DIRECTO = se emite en nuestras pantallas.
       </p>
       <div class="cta-row">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
         <a class="btn btn-primary" href={withBase('/es/contacto/')}>Contacto</a>
       </div>
     </div>
   </section>
+
+  {fanWeekend && <FourBarsMeet lang="es" />}
 
   <section class="section">
     <div class="container prose">

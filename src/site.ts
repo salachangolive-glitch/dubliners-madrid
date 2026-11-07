@@ -6,8 +6,11 @@ export const SITE = {
   postal: '28012 Madrid',
   city: 'Madrid',
   country: 'ES',
-  mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Calle+de+Espoz+y+Mina+7,+28012+Madrid',
+  /** Public Maps listing (CID 4384002297188950803). Cómo llegar / GET DIRECTIONS use this, not a street-search URL. */
+  mapsUrl: 'https://www.google.com/maps?cid=4384002297188950803',
+  /** Walking directions to the same place (GBP place id). */
+  mapsDir:
+    'https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw',
   mapsEmbed:
     'https://www.google.com/maps?q=Calle+de+Espoz+y+Mina+7,+28012+Madrid&output=embed',
   instagram: 'https://www.instagram.com/dublinersirishpubmadrid/',

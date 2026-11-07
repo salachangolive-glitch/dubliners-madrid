@@ -3,9 +3,14 @@ import MapEmbed from '../../../components/MapEmbed.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { SITE, withBase } from '../../../site';
 import { HOURS_ES } from '../../../i18n';
 import { hoursSummary } from '../../../data/hours';
+import { isFanWeekendLive } from '../../../data/fourBars';
+
+const fanWeekend = isFanWeekendLive();
 
 const title = 'Visitar Dubliners Madrid | Cerca de Puerta del Sol — Dirección, Metro y mapa';
 const description =
@@ -22,7 +27,7 @@ const description =
           Pub irlandés en Espoz y Mina 7 — junto a Puerta del Sol.
           Metro Sol (L1, L2, L3) o Sevilla (L2); busca el neón verde de Dubliners.
         </p>
-        <CtaRow lang="es" />
+        {fanWeekend ? <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" /> : <CtaRow lang="es" />}
       </div>
       <picture>
         <source
@@ -63,7 +68,13 @@ const description =
         </tbody>
       </table>
       <p>{hoursSummary('es')}.</p>
+    </div>
+  </section>
 
+  {fanWeekend && <FourBarsMeet lang="es" />}
+
+  <section class="section">
+    <div class="container prose">
       <h2>Cómo llegar desde Sol</h2>
       <ul>
         <li><strong>Referencia:</strong> Puerta del Sol — estamos en Calle de Espoz y Mina, saliendo de la plaza hacia Carrera de San Jerónimo / Sevilla</li>
@@ -71,8 +82,9 @@ const description =
         <li><strong>Metro:</strong> Sol (L1, L2, L3) o Sevilla (L2) — ambos a un paseo corto</li>
         <li>Pub en sala</li>
       </ul>
-      <p>
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Abrir Cómo llegar en Google Maps</a>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsDir} rel="noopener noreferrer" target="_blank">Abrir Cómo llegar en Google Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
       </p>
 
       <div class="map-frame">
@@ -100,6 +112,13 @@ const description =
 
       <h2>Enlaces útiles</h2>
       <ul>
+        {fanWeekend && (
+          <>
+            <li><a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran punto de encuentro — mapas y horarios</a></li>
+            <li><a href={withBase('/es/fin-de-semana-nfl-ya-se-vive/')}>Quedada esta noche 18:00–19:00</a></li>
+            <li><a href={withBase('/es/four-corner-abre-domingo-1400/')}>Four Corner domingo 14:00 · pantallas de deporte</a></li>
+          </>
+        )}
         <li><a href={withBase('/es/partidos/')}>Partidos — agenda de hoy</a></li>
         <li><a href={withBase('/es/premier-league-pub-madrid/')}>Noches de Premier League cerca de Sol</a></li>
         <li><a href={withBase('/es/champions-league-bar-madrid/')}>Pantallas Champions League</a></li>

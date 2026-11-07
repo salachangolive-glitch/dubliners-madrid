@@ -5,6 +5,8 @@ import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../site';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../data/hours';
 import { madridToday } from '../../data/fixtures';
 
@@ -84,12 +86,18 @@ const faqLd = {
         <strong>meeting point</strong> for fans, independent of the league’s own events.
       </p>
       <p class="small">Dubliners Irish Pub · Espoz y Mina 7 · {hoursLine}</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
-      </div>
+      {showWeekend ? (
+        <FanWeekendCtas lang="en" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+          <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
+        </div>
+      )}
     </div>
   </section>
+
+  {showWeekend && <FourBarsMeet lang="en" />}
 
   <section class="section">
     <div class="container prose">

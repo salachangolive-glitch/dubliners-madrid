@@ -4,6 +4,8 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../../data/hours';
 import { madridToday } from '../../../data/fixtures';
 
@@ -83,12 +85,18 @@ const faqLd = {
         echan: no está cada partido en cada pantalla.
       </p>
       <p class="small">Domingo 8 de noviembre de 2026 · hora de Madrid · desde las 12:00 · {hoursLine}</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
-        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
-      </div>
+      {showWeekend ? (
+        <FanWeekendCtas lang="es" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+          <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+        </div>
+      )}
     </div>
   </section>
+
+  {showWeekend && <FourBarsMeet lang="es" />}
 
   <section class="section">
     <div class="container prose">

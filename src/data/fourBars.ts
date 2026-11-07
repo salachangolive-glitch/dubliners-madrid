@@ -85,6 +85,34 @@ export const FAN_WEEKEND_NFL_GUIDE = {
   es: '/es/guia-domingo-nfl-madrid/',
 } as const;
 
+/** Original weekend articles (unique slugs — do not retitle live pages). */
+export const ORIGINAL_WEEKEND_ARTICLES = {
+  meetup: {
+    en: '/meetup-1800-pasaje-matheu-espoz-mina/',
+    es: '/es/quedada-1800-pasaje-matheu-espoz-mina/',
+    labelEn: 'Meetup 18:00–19:00 walking order',
+    labelEs: 'Quedada 18:00–19:00, orden del paseo',
+  },
+  walk: {
+    en: '/walk-sol-four-sister-bars/',
+    es: '/es/andar-sol-cuatro-bares-hermanos/',
+    labelEn: 'Walk from Sol to the four bars',
+    labelEs: 'Andar desde Sol a los cuatro bares',
+  },
+  screens: {
+    en: '/nfl-weekend-madrid-screens-only/',
+    es: '/es/fin-semana-nfl-madrid-en-pantalla/',
+    labelEn: 'Weekend on screens, no stadium',
+    labelEs: 'Fin de semana en pantalla, sin estadio',
+  },
+  international: {
+    en: '/international-nfl-fans-near-sol/',
+    es: '/es/aficionados-nfl-internacionales-sol/',
+    labelEn: 'International NFL fans near Sol',
+    labelEs: 'Aficionados NFL internacionales',
+  },
+} as const;
+
 /** Europe/Madrid calendar date YYYY-MM-DD (banner/nav hide after Sunday). */
 export function madridYmd(d: Date = new Date()): string {
   return new Intl.DateTimeFormat('en-CA', {

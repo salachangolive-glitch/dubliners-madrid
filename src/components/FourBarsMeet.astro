@@ -12,6 +12,7 @@ import {
   FAN_WEEKEND_SATURDAY_TONIGHT,
   FAN_WEEKEND_SUNDAY,
   FOUR_BARS,
+  ORIGINAL_WEEKEND_ARTICLES,
   SHOW_UNTIL_FAN_WEEKEND,
 } from '../data/fourBars';
 
@@ -70,6 +71,14 @@ const H = heading;
       <a href={withBase(FAN_WEEKEND_SUNDAY[lang])}>{es ? 'Domingo en Sol' : 'Sunday sports in Sol'}</a>
       {' · '}
       <a href={withBase(FAN_WEEKEND_NFL_GUIDE[lang])}>{es ? 'Guía NFL del domingo' : 'NFL Sunday guide'}</a>
+      {' · '}
+      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.meetup[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.meetup.labelEs : ORIGINAL_WEEKEND_ARTICLES.meetup.labelEn}</a>
+      {' · '}
+      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.walk[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.walk.labelEs : ORIGINAL_WEEKEND_ARTICLES.walk.labelEn}</a>
+      {' · '}
+      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.screens[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.screens.labelEs : ORIGINAL_WEEKEND_ARTICLES.screens.labelEn}</a>
+      {' · '}
+      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.international[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.international.labelEs : ORIGINAL_WEEKEND_ARTICLES.international.labelEn}</a>
     </p>
   </div>
 </section>

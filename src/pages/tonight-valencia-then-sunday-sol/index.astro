@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/tonight-valencia-then-sunday-sol/';
+const PATH_ES = '/es/esta-noche-valencia-luego-domingo-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Tonight Valencia–Real Madrid, then Sunday kick-off — without leaving Sol',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:40:00+01:00',
+  dateModified: '2026-11-07T18:40:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is tonight’s kick-off near Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Valencia vs Real Madrid at 21:00, LIVE at Dubliners only. Meetup first at 18:00–19:00 at O’Reilly’s, Dubliners and O’Connell’s. No official NFL Saturday.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Sunday’s kick-off if I stay in these streets?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bengals vs Falcons at 15:30, LIVE on Dubliners’ big screen (Bernabéu game). Dubliners from 12:00, Four Corner from 14:00 with sports screens.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When does Dubliners close tonight and reopen Sunday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Saturday 12:00–02:30. Sunday 12:00–02:00. O’Reilly’s is daily 11:30–01:30. Four Corner is not overnight Saturday — Sunday from 14:00.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Tonight Valencia–RM, then Sunday kick-off near Sol | Dubliners"
+  description="Before and after two kick-offs: Valencia–Real Madrid 21:00 tonight at Dubliners, Bengals–Falcons 15:30 Sunday on the big screen. Four bars, Maps. No Saturday NFL."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Tonight Valencia, then Sunday kick-off" schema />
+      <h1>Tonight Valencia–Real Madrid, then Sunday kick-off — without leaving Sol</h1>
+      <p class="lead">
+        Two kick-offs, same streets. Tonight 21:00 is LaLiga at Dubliners (meetup 18:00–19:00 first).
+        Sunday 15:30 is Bengals vs Falcons on the big screen. No official NFL tonight.
+        Four Corner joins Sunday from 14:00 with sports screens.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Esta noche Valencia, luego el pitido del domingo</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Before tonight’s kick-off (21:00)</h2>
+      <p>
+        18:00–19:00 at O’Reilly’s (Pasaje de Matheu 4) or the two doors on Espoz y Mina 7.
+        Come to Dubliners before 21:00 if you want a seat facing a screen. Valencia vs Real Madrid is confirmed LIVE here only —
+        we do not list it for O’Reilly’s, O’Connell’s or Four Corner.
+      </p>
+
+      <h2>After tonight, before Sunday 15:30</h2>
+      <p>
+        Dubliners Saturday close 02:30. Sunday reopen 12:00. O’Reilly’s from 11:30. O’Connell’s from 12:00 this Sunday.
+        Four Corner from 14:00 — that is the last sister door before Bengals–Falcons.
+        This is not the stadium-in-and-out page; it is the overnight in Sol.
+      </p>
+
+      <OriginalFourBars lang="en" when="tonight" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What is tonight’s kick-off near Sol?</strong></dt>
+        <dd>Valencia vs Real Madrid 21:00, LIVE at Dubliners only. Meetup 18:00–19:00 first. No NFL Saturday.</dd>
+        <dt><strong>What is Sunday’s kick-off in these streets?</strong></dt>
+        <dd>Bengals vs Falcons 15:30 on Dubliners’ big screen. Four Corner from 14:00, sports screens.</dd>
+        <dt><strong>Close tonight / open Sunday?</strong></dt>
+        <dd>Dubliners Saturday until 02:30, Sunday from 12:00. Four Corner is not Saturday overnight.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Two kick-offs',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/saturday-night-sol-valencia-real-madrid/', label: 'Saturday night: Valencia–RM' },
+              { href: '/before-after-bengals-falcons-sol/', label: 'Before and after the Bernabéu game' },
+              { href: '/meetup-1800-pasaje-matheu-espoz-mina/', label: 'Meetup 18:00–19:00 walking order' },
+              { href: PATH_ES, label: 'Esta noche Valencia, luego domingo', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

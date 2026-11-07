@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/elige-reloj-nfl-domingo-sol/';
+const PATH_EN = '/pick-sunday-nfl-clock-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Elige reloj NFL del domingo junto a Sol — qué puerta está abierta a las 15:30 y a las 19:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T18:40:00+01:00',
+  dateModified: '2026-11-07T18:40:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué puertas están abiertas para el partido NFL de las 15:30?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s desde las 11:30, Dubliners y O’Connell’s desde las 12:00, Four Corner desde las 14:00 (pantallas de deporte). Bengals–Falcons EN DIRECTO confirmado en Dubliners. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué puertas están abiertas para la NFL de noche desde las 19:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Las cuatro siguen en horario: O’Reilly’s hasta las 01:30, Dubliners hasta las 02:00, O’Connell’s hasta tarde, Four Corner hasta la madrugada. NFL de noche y Atlético–Barcelona 21:00 confirmados en Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿El sábado entra en esta elección de reloj?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El sábado no hay NFL oficial. Esta noche es la quedada 18:00–19:00 y Valencia–Real Madrid a las 21:00 en Dubliners.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Elige reloj NFL del domingo junto a Sol | Dubliners"
+  description="Tarde 15:30 frente a noche 19:00 el domingo NFL: cuál de los cuatro bares hermanos está abierto en cada reloj. Four Corner desde las 14:00. Maps. Hoy no hay NFL."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Elige reloj NFL del domingo" lang="es" schema />
+      <h1>Elige reloj NFL del domingo junto a Sol — qué puerta está abierta a las 15:30 y a las 19:00</h1>
+      <p class="lead">
+        Tarde y noche son salas distintas en las mismas calles.
+        A las 15:30 los cuatro bares hermanos ya pueden estar abiertos (Four Corner desde las 14:00).
+        A las 19:00 la jornada NFL se junta con Atlético–Barcelona a las 21:00. Pantallas confirmadas: Dubliners. Preguntad qué echan.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Pick a Sunday NFL clock near Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Reloj 15:30 — NFL de tarde</h2>
+      <p>
+        Bengals–Falcons, 15:30 Madrid. Four Corner ya lleva una hora abierto (14:00, pantallas de deporte).
+        O’Reilly’s desde las 11:30, Dubliners y O’Connell’s desde las 12:00. El listado de pantalla grande confirmado es Dubliners.
+        Si solo queréis ambiente, los otros tres son puntos de encuentro — no inventamos su parrilla.
+      </p>
+
+      <h2>Reloj 19:00 — NFL de noche</h2>
+      <p>
+        Siete partidos a las 19:00, RedZone desde las 19:00, luego 22:05 y 22:25. Atlético–Barcelona a las 21:00 cae en la misma ventana.
+        Las cuatro puertas siguen dentro del horario del domingo. Parrilla EN DIRECTO confirmada: Dubliners, Espoz y Mina 7, hasta las 02:00.
+        No todos los partidos van en todas las pantallas — preguntad en barra.
+      </p>
+      <p>
+        Esta noche no es esta elección. El sábado no hay NFL. Quedada 18:00–19:00, luego Valencia–RM 21:00 solo en Dubliners.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué puertas están abiertas a las 15:30 el domingo?</strong></dt>
+        <dd>Las cuatro, una vez Four Corner ha abierto a las 14:00. Bengals–Falcons EN DIRECTO confirmado: Dubliners.</dd>
+        <dt><strong>¿Qué puertas están abiertas desde las 19:00?</strong></dt>
+        <dd>Las cuatro siguen en horario. NFL de noche + Atlético–Barcelona confirmados: Dubliners.</dd>
+        <dt><strong>¿El sábado entra en este reloj?</strong></dt>
+        <dd>No. Hoy no hay NFL oficial. Esta noche es quedada + Valencia 21:00 en Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relojes del domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'Lista NFL de tarde y de noche' },
+              { href: '/es/parrilla-nfl-domingo-quedarse-sol/', label: 'Quedarse en Sol para la parrilla' },
+              { href: '/es/que-bar-hermano-domingo-sol/', label: 'Qué bar hermano' },
+              { href: PATH_EN, label: 'Pick a Sunday NFL clock', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

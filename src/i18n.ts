@@ -57,6 +57,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/man-utd-villa-sol-8-nov/': '/es/man-utd-villa-sol-8-nov/',
   '/meetup-over-hold-espoz-mina-2100/': '/es/quedada-cerrada-espoz-mina-2100/',
   '/after-tonight-sunday-starts-victoria-6/': '/es/despues-esta-noche-domingo-victoria-6/',
+  '/sol-metro-2100-which-saturday-door/': '/es/metro-sol-2100-que-puerta-sabado/',
+  '/english-tourists-saturday-hours-until-premier/': '/es/turistas-ingleses-horas-sabado-hasta-premier/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

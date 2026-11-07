@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/english-tourists-saturday-hours-until-premier/';
+const PATH_ES = '/es/turistas-ingleses-horas-sabado-hasta-premier/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'English fans in Madrid: Saturday night is leftover hours until Sunday 15:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T21:00:00+01:00',
+  dateModified: '2026-11-07T21:00:00+01:00',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'My Premier League does not start until Sunday 15:00. What is Saturday night still for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'English football is finished for Saturday. Remaining Saturday night is three open doors near Sol: O’Reilly’s (Pasaje de Matheu 4, until 01:30), Dubliners and O’Connell’s (Espoz y Mina 7, until 02:30 / 03:30). Valencia vs Real Madrid 21:00 is LIVE at Dubliners only if you want a Spanish kick-off. No official NFL Saturday. Four Corner is not tonight.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where should English tourists start the four-bar Sunday stack?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four Corner, Calle de la Victoria 6, opens Sunday 8 November from 14:00 with sports screens — one hour before the English 15:00s. Then the same block: O’Reilly’s from 11:30, Dubliners and O’Connell’s from 12:00. Named Premier League listings sit on Dubliners’ live What’s On. Ask which game is on. We do not invent the other three boards.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you list Palace–Liverpool or United–Villa on every sister screen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Sunday’s English clocks (15:00 Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth; 17:30 United–Villa) sit alongside NFL 15:30 / evening and Atlético–Barcelona 21:00. Named listings are at Dubliners. Not every game on every screen.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="English fans: Saturday leftover hours until Premier 15:00 | Dubliners"
+  description="Premier starts Sunday 15:00. Saturday night: three Sol doors, Valencia 21:00 at Dubliners only. Sunday four-bar stack from Victoria 6 14:00. Maps. Ask which game is on."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Saturday leftover hours until Premier 15:00" schema />
+      <h1>English fans in Madrid: Saturday night is leftover hours until Sunday 15:00</h1>
+      <p class="lead">
+        If you flew in for Crystal Palace–Liverpool, Chelsea, Brighton or the other 15:00s —
+        <strong>that whistle is tomorrow</strong>. Saturday 7 November has no remaining Premier League in Madrid time.
+        Use the leftover night at the three Saturday doors. Sleep. Sunday, start the four-bar stack at
+        <strong>Four Corner, Victoria 6, from 14:00</strong> so you are already in the block when English football lands.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Turistas ingleses: el sábado que queda hasta la Premier 15:00</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner on Maps (Sunday)</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>What the remaining Saturday night is actually for</h2>
+      <p>
+        This is not a Premier League Sunday listing, not a 15:00-vs-NFL clash page, and not United–Villa at 17:30.
+        It is the gap English tourists still have <em>tonight</em>: pints, a Spanish 21:00 if you want it, late rooms —
+        then a clean Sunday start from Victoria 6. The 18:00–19:00 meetup is already over. There is
+        <strong>no official NFL Saturday</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>Want a 21:00 football screen tonight?</strong> Valencia vs Real Madrid LIVE at Dubliners,
+          Espoz y Mina 7, only. We do not list that match at O’Reilly’s, O’Connell’s or Four Corner.
+        </li>
+        <li>
+          <strong>Want a pint without a Spanish derby?</strong> O’Reilly’s terrace, Pasaje de Matheu 4, until 01:30;
+          O’Connell’s next door on Espoz y Mina until 03:30; Dubliners until 02:30 even after the Valencia whistle.
+        </li>
+        <li>
+          <strong>Do not walk to Victoria 6 tonight.</strong> Four Corner is Sunday from 14:00, sports screens.
+          Pin it now; use it tomorrow.
+        </li>
+      </ul>
+
+      <h2>Sunday: four-bar stack from Victoria 6, then the English 15:00s</h2>
+      <p>
+        Be in Sol before English kick-off, not after. The fourth sister door is the one that did not exist tonight:
+      </p>
+      <ol>
+        <li>
+          <strong>14:00 — Four Corner, Calle de la Victoria 6.</strong>
+          Opens until late, sports screens. Ask which game is on. We do not invent its board.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>.
+        </li>
+        <li>
+          <strong>15:00 — English clocks on Dubliners’ live What’s On.</strong>
+          Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth sit at that hour.
+          Named Premier League listings stay at Dubliners. O’Reilly’s (from 11:30) and O’Connell’s (from 12:00)
+          are meeting points in the same streets — ask which game is on. Not every game on every screen.
+          The same hour overlaps Bengals vs Falcons 15:30 LIVE on Dubliners’ big screen.
+        </li>
+        <li>
+          <strong>17:30 — United–Villa</strong> on that same Dubliners board, before NFL from 19:00
+          and Atlético vs Barcelona 21:00 at Dubliners. Coordinate; do not treat Sunday as Premier-only.
+        </li>
+      </ol>
+      <p>
+        The walk from Espoz y Mina 7 to Victoria 6 is a couple of minutes. Stay in Sol both nights.
+        Independent pubs. Not an official NFL event. No invented discounts or bookings.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Premier is Sunday 15:00. What is Saturday night for?</strong></dt>
+        <dd>Three Saturday doors near Sol. Valencia–RM 21:00 LIVE at Dubliners only if you want a screen. No NFL Saturday. Four Corner Sunday 14:00.</dd>
+        <dt><strong>Where does the Sunday four-bar stack start?</strong></dt>
+        <dd>Four Corner, Victoria 6, from 14:00, sports screens — then PL 15:00 at Dubliners, NFL 15:30/evening, Atleti–Barça 21:00 at Dubliners. Ask which game is on.</dd>
+        <dt><strong>Palace–Liverpool on every sister screen?</strong></dt>
+        <dd>No. Named English listings are at Dubliners. The 15:00s sit alongside NFL and Atleti. Ask at the bar.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Tonight’s leftover hours, then Sunday English clocks',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/sol-metro-2100-which-saturday-door/', label: 'Off Metro Sol at 21:00: which door' },
+              { href: '/premier-league-sunday-sol-8-nov/', label: 'Premier League Sunday near Sol' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner Sunday 14:00' },
+              { href: PATH_ES, label: 'Turistas ingleses: el sábado hasta las 15:00', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -424,6 +424,7 @@ ul {
   font-weight: 700;
   text-decoration: none;
   border: 1px solid transparent;
+  min-height: 44px;
 }
 
 .btn-primary {

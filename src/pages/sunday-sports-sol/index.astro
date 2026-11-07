@@ -4,6 +4,8 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../data/hours';
 import { madridToday } from '../../data/fixtures';
 
@@ -83,12 +85,18 @@ const faqLd = {
         game is on — not every game is on every screen.
       </p>
       <p class="small">Sunday 8 November 2026 · Madrid time · Open from 12:00 · {hoursLine}</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
-      </div>
+      {showWeekend ? (
+        <FanWeekendCtas lang="en" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+          <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
+        </div>
+      )}
     </div>
   </section>
+
+  {showWeekend && <FourBarsMeet lang="en" />}
 
   <section class="section">
     <div class="container prose">

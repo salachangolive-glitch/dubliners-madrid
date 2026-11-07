@@ -14,6 +14,7 @@ import {
   FOUR_BARS,
   ORIGINAL_WEEKEND_ARTICLES,
   SHOW_UNTIL_FAN_WEEKEND,
+  SISTER_SITES,
 } from '../data/fourBars';
 
 interface Props {
@@ -50,6 +51,16 @@ const H = heading;
           <a class="btn btn-gold" data-track-event="directions_click" href={bar.maps} rel="noopener noreferrer" target="_blank">
             {es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}
           </a>
+          {bar.id === 'oreillys' && (
+            <p class="four-bars-meet__site">
+              <a href={SISTER_SITES.oreillys} rel="noopener noreferrer" target="_blank">{es ? "Web de O'Reilly's" : "O'Reilly's site"}</a>
+            </p>
+          )}
+          {bar.id === 'oconnell' && (
+            <p class="four-bars-meet__site">
+              <a href={es ? SISTER_SITES.oconnellsEs : SISTER_SITES.oconnells} rel="noopener noreferrer" target="_blank">oconnellsmadrid.es</a>
+            </p>
+          )}
         </article>
       ))}
     </div>
@@ -100,6 +111,7 @@ const H = heading;
   }
   .four-bars-meet__hours { font-weight: 600; color: var(--text); }
   .four-bars-meet__card .btn { width: 100%; min-height: 44px; }
+  .four-bars-meet__site { margin: 0.45rem 0 0; font-size: 0.9rem; }
   .four-bars-meet__links {
     margin: 1.25rem 0 0;
     font-weight: 600;

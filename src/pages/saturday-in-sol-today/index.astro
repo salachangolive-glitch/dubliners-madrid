@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
 import { withBase, absUrl } from '../../site';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
 
@@ -79,6 +80,7 @@ const faqLd = {
         <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
         <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's on Maps</a>
       </div>
+      <FanWeekendCtas lang="en" />
     </div>
   </section>
 

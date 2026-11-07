@@ -18,6 +18,20 @@ export const FOUR_BARS_MAPS = {
     'https://www.google.com/maps/search/?api=1&query=Four+Corner+Calle+de+la+Victoria+6+28012+Madrid',
 } as const;
 
+/** Walking-directions URLs from google-campaign.md (CID listings stay on FOUR_BARS_MAPS). */
+export const FOUR_BARS_DIR = {
+  oreillys: 'https://www.google.com/maps/dir/?api=1&destination=Pasaje+de+Matheu+4,+28012+Madrid',
+  dubliners: 'https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw',
+  oconnell: 'https://www.google.com/maps/dir/?api=1&destination=Calle+de+Espoz+y+Mina+7,+28012+Madrid',
+  fourCorner: 'https://www.google.com/maps/dir/?api=1&destination=Calle+de+la+Victoria+6,+28012+Madrid',
+} as const;
+
+export const SISTER_SITES = {
+  oreillys: 'https://oreillys-restaurant-bar.localo.site/',
+  oconnells: 'https://oconnellsmadrid.es/',
+  oconnellsEs: 'https://oconnellsmadrid.es/es',
+} as const;
+
 export const FOUR_BARS = [
   {
     id: 'oreillys',

@@ -4,6 +4,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import SundayFourVenues from '../../../components/SundayFourVenues.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import { withBase, absUrl } from '../../../site';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
 
@@ -78,6 +79,7 @@ const faqLd = {
         <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
         <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un fin de semana</a>
       </div>
+      <FanWeekendCtas lang="es" />
     </div>
   </section>
 

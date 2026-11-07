@@ -5,6 +5,10 @@ import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import { withBase } from '../../../site';
 import { hoursFor } from '../../../data/hours';
 import { madridToday } from '../../../data/fixtures';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
+import { isFanWeekendLive } from '../../../data/fourBars';
+const fanWeekend = isFanWeekendLive();
 const sundayHours = hoursFor('Sunday');
 const todayKey = madridToday();
 const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Ponéis NFL RedZone el 8 de noviembre?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. NFL RedZone EN DIRECTO desde las 19:00, durante los partidos de las 19:00, 22:05 y 22:25 (cerramos a las 02:00)."}}, {"@type": "Question", "name": "¿Ponéis el partido del domingo por la noche?", "acceptedAnswer": {"@type": "Answer", "text": "No. Empieza a las 02:20 del lunes, después de nuestro cierre a las 02:00."}}]};
@@ -13,7 +17,9 @@ const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity
   <section class="hero hero-compact"><div class="container">
     <Breadcrumb current="Guía del domingo NFL" lang="es" />
     <h1>Domingo NFL en Madrid: guía hora a hora del 8 de noviembre</h1>
+    {fanWeekend && <FanWeekendCtas lang="es" />}
   </div></section>
+  {fanWeekend && <FourBarsMeet lang="es" />}
   <section class="section"><div class="container prose">
     <p>El domingo 8 de noviembre de 2026 la NFL juega en Madrid: Bengals–Falcons en el Santiago Bernabéu y, después, la jornada 9 completa en horario de EE. UU. Así queda el día en hora de Madrid. Calendario completo: <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>.</p>
     <h2>12:00 — abrimos</h2><p>Desde las 12:00 Dubliners es punto de encuentro de la afición que viene de fuera: quedad aquí antes de ir al Bernabéu o quedaos a verlo en nuestras pantallas. Estamos en la Calle de Espoz y Mina 7, a dos minutos de la Puerta del Sol (Metro Sol L1, L2, L3, o Sevilla L2).</p><img class="split-photo tall" src={withBase('/images/dubliners-main-room-madrid-v2-1200.webp')} srcset={`${withBase('/images/dubliners-main-room-madrid-v2-800.webp')} 800w, ${withBase('/images/dubliners-main-room-madrid-v2-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Sala principal con la pantalla grande y pantallas en Dubliners, Madrid" />

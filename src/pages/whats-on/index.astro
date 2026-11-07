@@ -6,6 +6,11 @@ import FixtureBoard from '../../components/FixtureBoard.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
+import { isFanWeekendLive } from '../../data/fourBars';
+
+const fanWeekend = isFanWeekendLive();
 
 const title =
   'What\'s On: Live Sport This Week | Dubliners Madrid';
@@ -35,7 +40,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         See this week’s live sport at Dubliners — football, NFL, NBA, rugby, Formula 1, tennis and more.
         Times are Madrid time. Matches marked LIVE are on our screens.
       </p>
-      <CtaRow showWhatsOn={false} />
+      {fanWeekend ? <FanWeekendCtas lang="en" /> : <CtaRow showWhatsOn={false} />}
     </div>
   </section>
 
@@ -46,11 +51,13 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         Times are Madrid time. LIVE = showing on our screens.
       </p>
       <div class="cta-row">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
         <a class="btn btn-primary" href={withBase('/contact/')}>Contact</a>
       </div>
     </div>
   </section>
+
+  {fanWeekend && <FourBarsMeet lang="en" />}
 
   <section class="section">
     <div class="container prose">

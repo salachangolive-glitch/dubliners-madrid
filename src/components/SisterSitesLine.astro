@@ -1,0 +1,20 @@
+---
+/**
+ * Live sister-bar websites (Dubliners campaign only — no third-party venues).
+ */
+import { SISTER_SITES } from '../data/fourBars';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+---
+
+<p class="sister-sites-line">
+  {es ? 'Sitios hermanos:' : 'Sister sites:'}
+  {' '}
+  <a href={SISTER_SITES.oreillys} rel="noopener noreferrer" target="_blank">{es ? "Web de O'Reilly's" : "O'Reilly's site"}</a>
+  {' · '}
+  <a href={es ? SISTER_SITES.oconnellsEs : SISTER_SITES.oconnells} rel="noopener noreferrer" target="_blank">oconnellsmadrid.es</a>
+</p>

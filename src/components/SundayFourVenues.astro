@@ -3,7 +3,8 @@
  * Four sister bars for Sunday 8 Nov 2026 campaign pages.
  * Screen claims stay on Dubliners only. Four Corner: 14:00 opening, no invented broadcasts.
  */
-import { FOUR_BARS_MAPS } from '../data/fourBars';
+import { FOUR_BARS_MAPS, SISTER_SITES } from '../data/fourBars';
+import SisterSitesLine from './SisterSitesLine.astro';
 
 interface Props {
   lang: 'en' | 'es';
@@ -28,6 +29,8 @@ const es = lang === 'es';
       Pasaje de Matheu 4, 28012 Madrid.<br />
       Restaurante-bar con terraza. Horario habitual: todos los días 11:30–01:30.<br />
       <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+      {' · '}
+      <a href={SISTER_SITES.oreillys} rel="noopener noreferrer" target="_blank">Web de O'Reilly's</a>
     </p>
 
     <h3>Dubliners</h3>
@@ -44,6 +47,8 @@ const es = lang === 'es';
       Pub irlandés deportivo. Horario habitual domingo 14:00–03:00;
       <strong>excepción domingo 8 nov: abren desde las 12:00</strong>. Punto de encuentro; no listamos aquí su programación.<br />
       <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+      {' · '}
+      <a href={SISTER_SITES.oconnellsEs} rel="noopener noreferrer" target="_blank">oconnellsmadrid.es</a>
     </p>
 
     <h3>Four Corner</h3>
@@ -69,6 +74,8 @@ const es = lang === 'es';
       Pasaje de Matheu 4, 28012 Madrid.<br />
       Restaurant-bar with terrace. Usual hours: daily 11:30–01:30.<br />
       <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+      {' · '}
+      <a href={SISTER_SITES.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's site</a>
     </p>
 
     <h3>Dubliners</h3>
@@ -85,6 +92,8 @@ const es = lang === 'es';
       Irish sports pub. Usual Sunday hours 14:00–03:00;
       <strong>exception Sunday 8 Nov: open from 12:00</strong>. Meeting point; we do not list its broadcasts here.<br />
       <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+      {' · '}
+      <a href={SISTER_SITES.oconnells} rel="noopener noreferrer" target="_blank">oconnellsmadrid.es</a>
     </p>
 
     <h3>Four Corner</h3>
@@ -96,3 +105,4 @@ const es = lang === 'es';
     </p>
   </>
 )}
+<SisterSitesLine lang={lang} />

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+import { FIXTURES } from '../../../data/fixtures';
+
+// Sábado noche: Valencia–RM 21:00 solo donde ya está confirmado (Dubliners). Sin NFL hoy.
+const path = '/es/sabado-noche-sol-valencia-real-madrid/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const valencia = FIXTURES.find((f) => f.dateKey === '2026-11-07' && f.teams === 'Valencia vs Real Madrid');
+if (!valencia) throw new Error('Captura sábado noche: falta Valencia vs Real Madrid en fixtures');
+const kickoff = valencia.madridTime;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `Sábado noche en Sol: Valencia vs Real Madrid a las ${kickoff}`,
+  inLanguage: 'es',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T16:15:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿A qué hora es Valencia–Real Madrid esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Sábado 7 de noviembre de 2026, ${kickoff} hora de Madrid, en Mestalla. EN DIRECTO confirmado solo en Dubliners. Pitido: Real Madrid (21:00) y ESPN (20:00 Reino Unido / GMT).`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL en directo esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Hoy no hay partido oficial de la NFL. El domingo 8 de noviembre es Bengals–Falcons a las 15:30. Este sábado noche complementa el fin de semana NFL; no sustituye al domingo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedar antes y después del partido?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "O'Reilly's (Pasaje de Matheu 4, habitual 11:30–01:30), Dubliners y O'Connell's (Espoz y Mina 7; Dubliners sábado hasta las 02:30, O'Connell's sábado habitual hasta las 03:30). Four Corner es el domingo desde las 14:00.",
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Sábado noche en Sol: Valencia–Real Madrid ${kickoff} | Dubliners`}
+  description={`El fin de semana NFL ya se vive: Valencia–Real Madrid a las ${kickoff} está confirmado en Dubliners. Queda en O'Reilly's, Dubliners y O'Connell's. Hoy no hay NFL.`}
+  path={path}
+  lang="es"
+  hreflang={{ en: '/saturday-night-sol-valencia-real-madrid/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sábado noche: Valencia–Real Madrid" lang="es" schema />
+      <h1>Sábado noche en Sol: Valencia vs Real Madrid a las {kickoff}</h1>
+      <p class="lead">
+        El fin de semana NFL ya se vive — <strong>hoy no hay NFL oficial</strong>.
+        El fútbol confirmado aquí es LaLiga: Valencia–Real Madrid a las <strong>{kickoff}</strong>, EN DIRECTO en Dubliners.
+        Queda antes en O’Reilly’s, Dubliners u O’Connell’s.
+      </p>
+      <p class="small">Pubs independientes. No somos un evento oficial de la NFL. Esta noche complementa el fin de semana; el domingo sigue siendo el domingo.</p>
+      <p class="small">In English: <a href={withBase('/saturday-night-sol-valencia-real-madrid/')} hreflang="en" lang="en">Saturday night in Sol: Valencia vs Real Madrid at {kickoff}</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps — {kickoff}</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Retransmisión, solo donde está confirmada</h2>
+      <p>
+        Valencia–Real Madrid, jornada 12 de LaLiga, Mestalla.
+        Hora: <strong>{kickoff} Europe/Madrid</strong> (Real Madrid 21:00; ESPN 20:00 Reino Unido).
+        En Dubliners va EN DIRECTO. No lo listamos en O’Reilly’s, O’Connell’s ni Four Corner — preguntad en barra si necesitáis pantalla allí.
+      </p>
+
+      <h2>Sábado noche: los tres bares</h2>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Come y queda antes del pitido; un pasaje de Espoz y Mina.
+        Horario habitual: 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Sábado 12:00–02:30.
+        Valencia–Real Madrid confirmado EN DIRECTO a las {kickoff}. Si quieres sitio con pantalla, llega antes del pitido.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Google Maps</a>
+      </p>
+
+      <h3>O'Connell's</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — la misma calle (Maps: O'Connell St).
+        Horario habitual de sábado: 15:00–03:30. Otra puerta en la manzana para la noche.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Google Maps</a>
+      </p>
+
+      <h2>Four Corner — domingo desde las 14:00</h2>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. El mismo punto de encuentro mañana:
+        <strong>domingo 8 de noviembre desde las 14:00 hasta tarde</strong>. Sin horario de sábado ni cartel de partido en esta página.
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Google Maps</a>
+      </p>
+
+      <h2>Después del pitido</h2>
+      <p>
+        Dubliners hasta las 02:30 esta noche. Mañana es el día NFL: Dubliners desde las 12:00, Four Corner desde las 14:00,
+        Bengals–Falcons a las 15:30. Eso va en las guías del domingo — esta página es el fútbol de sábado noche en Sol.
+      </p>
+
+      <p>
+        Maps:
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner (domingo 14:00)</a>
+      </p>
+
+      <h2>Preguntas</h2>
+      <dl class="faq">
+        <dt><strong>¿A qué hora es Valencia–Real Madrid?</strong></dt>
+        <dd>{kickoff} hora de Madrid. EN DIRECTO confirmado solo en Dubliners.</dd>
+        <dt><strong>¿Hay NFL en directo esta noche?</strong></dt>
+        <dd>No. El domingo a las 15:30 es Bengals–Falcons.</dd>
+        <dt><strong>¿Dónde quedar antes y después?</strong></dt>
+        <dd>O'Reilly's, Dubliners y O'Connell's hoy. Four Corner el domingo desde las 14:00.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sábado junto a Sol',
+            items: [
+              { href: '/es/fin-de-semana-nfl-ya-se-vive/', label: 'El fin de semana NFL ya se vive', note: 'Punto de encuentro — hoy no hay NFL', until: SHOW_UNTIL },
+              { href: '/es/sabado-en-sol-hoy/', label: 'Sábado en Sol hoy', note: 'Horarios desde la Puerta del Sol', until: SHOW_UNTIL },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana' },
+              { href: '/es/partidos/', label: 'Partidos y eventos' },
+              { href: '/saturday-night-sol-valencia-real-madrid/', label: 'Saturday night: Valencia–Real Madrid', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

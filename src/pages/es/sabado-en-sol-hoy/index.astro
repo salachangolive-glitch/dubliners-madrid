@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+// Sábado 7 nov: los tres bares abiertos hoy desde Sol. Four Corner = domingo 14:00.
+const path = '/es/sabado-en-sol-hoy/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Sábado en Sol hoy: O’Reilly’s, Dubliners, O’Connell’s',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T16:15:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Estoy en la Puerta del Sol ahora. ¿Hacia dónde ando?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Al sureste de Sol: O'Reilly's Restaurant Bar, Pasaje de Matheu 4 (desde las 11:30). Dubliners y O'Connell's comparten Calle de Espoz y Mina 7 (Dubliners desde las 12:00, O'Connell's el sábado habitual desde las 15:00). Four Corner, Calle de la Victoria 6, es el domingo desde las 14:00.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL en directo el sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Hoy no hay partido oficial de la NFL. El domingo 8 de noviembre es Bengals–Falcons a las 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué hay confirmado en las pantallas de Dubliners esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Valencia–Real Madrid a las 21:00 hora de Madrid va EN DIRECTO solo en Dubliners. No listamos ese partido en los otros bares.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Sábado en Sol hoy: O’Reilly’s, Dubliners, O’Connell’s | Dubliners"
+  description="El fin de semana NFL ya se vive: anda desde Sol a O'Reilly's, Dubliners y O'Connell's. Hoy no hay NFL. Four Corner el domingo desde las 14:00. Maps."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/saturday-in-sol-today/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sábado en Sol hoy" lang="es" schema />
+      <h1>Sábado en Sol hoy: O’Reilly’s, Dubliners, O’Connell’s</h1>
+      <p class="lead">
+        El fin de semana NFL ya se vive — ya estás en el centro.
+        <strong>Hoy no hay partido oficial de la NFL.</strong> Anda al sureste de Sol, a los tres bares hermanos con horario de sábado.
+      </p>
+      <p class="small">Pubs independientes. No somos un evento oficial de la NFL.</p>
+      <p class="small">In English: <a href={withBase('/saturday-in-sol-today/')} hreflang="en" lang="en">Saturday in Sol today: O’Reilly’s, Dubliners, O’Connell’s</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Desde la Puerta del Sol, esta tarde</h2>
+      <p>
+        Mira al sureste, hacia Santa Ana, no hacia Gran Vía.
+        Ahí están el Pasaje de Matheu y Espoz y Mina.
+        Un punto de encuentro para la afición internacional que ya está aquí — pantallas, tarde y noche — antes del domingo.
+      </p>
+
+      <h2>Abiertos hoy</h2>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurante-bar con terraza. Primera parada si sales desde media mañana.<br />
+        Horario habitual: todos los días 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Pub irlandés. Sábado <strong>12:00–02:30</strong>.
+        Pantallas esta tarde y noche. Hoy no hay NFL en directo.
+        Valencia–Real Madrid a las 21:00 está confirmado solo en estas pantallas.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Google Maps</a>
+      </p>
+
+      <h3>O'Connell's</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — la misma calle que Dubliners (Maps: O'Connell St).<br />
+        Horario habitual de sábado: 15:00–03:30.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Google Maps</a>
+      </p>
+
+      <h2>Four Corner — domingo 8 de noviembre desde las 14:00</h2>
+      <p>
+        Calle de la Victoria 6, 28012 Madrid. El mismo grupo, otro día.
+        Se anuncia desde el sábado: <strong>domingo desde las 14:00 hasta tarde</strong>. Sin horario de sábado ni cartel de partidos aquí.
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Google Maps</a>
+      </p>
+
+      <p>
+        Anda ahora:
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner (domingo 14:00)</a>
+      </p>
+
+      <h2>Preguntas</h2>
+      <dl class="faq">
+        <dt><strong>Estoy en Sol ahora. ¿Hacia dónde ando?</strong></dt>
+        <dd>Sureste: O'Reilly's (Pasaje de Matheu 4), Dubliners y O'Connell's (Espoz y Mina 7). Four Corner es el domingo desde las 14:00.</dd>
+        <dt><strong>¿Hay NFL en directo el sábado?</strong></dt>
+        <dd>No. El domingo a las 15:30 es Bengals–Falcons.</dd>
+        <dt><strong>¿Qué hay confirmado en Dubliners esta noche?</strong></dt>
+        <dd>Valencia–Real Madrid a las 21:00, solo en Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sábado junto a Sol',
+            items: [
+              { href: '/es/fin-de-semana-nfl-ya-se-vive/', label: 'El fin de semana NFL ya se vive', note: 'Punto de encuentro antes del domingo', until: SHOW_UNTIL },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Sábado noche: Valencia–Real Madrid', note: '21:00 en Dubliners', until: SHOW_UNTIL },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana' },
+              { href: '/saturday-in-sol-today/', label: 'Saturday in Sol today', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

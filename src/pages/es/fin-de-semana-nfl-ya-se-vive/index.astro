@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+// Mensaje ES aprobado del sábado, adaptado a Dubliners. Sin NFL hoy. Sin recintos de terceros.
+const path = '/es/fin-de-semana-nfl-ya-se-vive/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'El fin de semana NFL ya se vive',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T15:00:00+01:00',
+  dateModified: '2026-11-07T16:15:00+01:00',
+  image: [absUrl('/images/facade.jpg')],
+  mainEntityOfPage: absUrl(path),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL en directo hoy, sábado 7 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Hoy no hay partido oficial de la NFL. El Madrid Game es el domingo 8 de noviembre en el Bernabéu (Bengals–Falcons, 15:30). Hoy es el punto de encuentro junto a Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué bares abren hoy?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "O'Reilly's Restaurant Bar (Pasaje de Matheu 4), horario habitual 11:30–01:30. Dubliners (Espoz y Mina 7) sábado 12:00–02:30. O'Connell's (Espoz y Mina 7) sábado habitual 15:00–03:30. Four Corner (Calle de la Victoria 6) es el domingo 8 desde las 14:00 hasta tarde — no lo damos como abierto hoy.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Estos bares son un evento oficial de la NFL?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Bares hermanos independientes junto a la Puerta del Sol. No somos un evento oficial de la NFL.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="El fin de semana NFL ya se vive | Dubliners junto a Sol"
+  description="El fin de semana NFL ya se vive: queda en O'Reilly's, Dubliners y O'Connell's junto a Sol. Hoy no hay NFL. Four Corner el domingo desde las 14:00. Maps."
+  path={path}
+  lang="es"
+  hreflang={{ en: '/nfl-fans-madrid-this-saturday/', es: path }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="El fin de semana NFL ya se vive" lang="es" schema />
+      <h1>El fin de semana NFL ya se vive</h1>
+      <p class="lead">
+        El fin de semana ya está en Madrid. <strong>Hoy no hay partido oficial de la NFL</strong> —
+        el Madrid Game en el Bernabéu es mañana. El sábado 7 de noviembre es el punto de encuentro:
+        afición internacional, salas en inglés, pantallas, tarde y noche, a pocos minutos de Sol.
+      </p>
+      <p class="small">CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO. Bares hermanos independientes. No somos un evento oficial de la NFL.</p>
+      <p class="small">In English: <a href={withBase('/nfl-fans-madrid-this-saturday/')} hreflang="en" lang="en">NFL fans in Madrid this Saturday</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Hoy: tres bares junto a Sol</h2>
+      <p>
+        Empieza por las salas con horario de sábado. Un solo bolsillo, no cuatro planes sueltos.
+        El pitido del domingo puede esperar a mañana.
+      </p>
+
+      <h3>O'Reilly's Restaurant Bar</h3>
+      <p>
+        Pasaje de Matheu 4, 28012 Madrid. Restaurante-bar con terraza, el primero de los tres en abrir.<br />
+        Horario habitual: todos los días 11:30–01:30.<br />
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Google Maps</a>
+      </p>
+
+      <h3>Dubliners</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid. Pub irlandés, se habla inglés, pantallas esta tarde y noche.
+        Sábado <strong>12:00–02:30</strong>. No anunciamos NFL en directo hoy — no hay.
+        Confirmado esta noche en estas pantallas: Valencia–Real Madrid a las 21:00.<br />
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Google Maps</a>
+      </p>
+
+      <h3>O'Connell's</h3>
+      <p>
+        Calle de Espoz y Mina 7, 28012 Madrid — la misma calle que Dubliners (en Maps, O'Connell St).<br />
+        Horario habitual de sábado: 15:00–03:30.<br />
+        <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Google Maps</a>
+      </p>
+
+      <h2>Four Corner — domingo desde las 14:00</h2>
+      <p>
+        Four Corner, Calle de la Victoria 6, 28012 Madrid, forma parte del mismo punto de encuentro.
+        Confirmado: <strong>domingo 8 de noviembre desde las 14:00 hasta tarde</strong>. No damos horario de sábado ni retransmisiones allí.
+        <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Google Maps</a>
+      </p>
+
+      <h2>Antes del domingo</h2>
+      <p>
+        Mañana: Dubliners desde las 12:00, Four Corner desde las 14:00, Bengals–Falcons a las 15:30 en el Bernabéu
+        (y en la pantalla grande de Dubliners). Ese día tiene sus propias guías.
+        Hoy es la afición internacional en Sol — anda, queda, quédate.
+      </p>
+
+      <p>
+        Maps:
+        <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
+        · <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+        · <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's</a>
+        · <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner (domingo 14:00)</a>
+      </p>
+
+      <h2>Preguntas</h2>
+      <dl class="faq">
+        <dt><strong>¿Hay NFL en directo hoy?</strong></dt>
+        <dd>No. Hoy no hay partido oficial de la NFL. El Madrid Game es el domingo a las 15:30.</dd>
+        <dt><strong>¿Qué bares abren hoy?</strong></dt>
+        <dd>O'Reilly's 11:30–01:30, Dubliners 12:00–02:30, O'Connell's sábado 15:00–03:30. Four Corner: domingo desde las 14:00.</dd>
+        <dt><strong>¿Son un evento oficial de la NFL?</strong></dt>
+        <dd>No. Bares hermanos independientes. No somos un evento oficial de la NFL.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sábado junto a Sol',
+            items: [
+              { href: '/es/sabado-en-sol-hoy/', label: 'Sábado en Sol hoy', note: 'Horarios y Maps desde la Puerta del Sol', until: SHOW_UNTIL },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Sábado noche: Valencia–Real Madrid', note: '21:00 confirmado en Dubliners', until: SHOW_UNTIL },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un gran fin de semana' },
+              { href: '/nfl-fans-madrid-this-saturday/', label: 'NFL fans in Madrid this Saturday', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

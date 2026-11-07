@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/que-bar-hermano-domingo-sol/';
+const PATH_EN = '/which-sister-bar-sunday-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Qué bar hermano el domingo 8 nov — terraza, pantallas o pub deportivo',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T18:40:00+01:00',
+  dateModified: '2026-11-07T18:40:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué bar hermano tiene pantallas NFL confirmadas el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners, Espoz y Mina 7, desde las 12:00. Bengals–Falcons 15:30, NFL desde las 19:00 / 22:05 / 22:25, Atlético–Barcelona 21:00. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué bar es para comer y terraza el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s Restaurant Bar, Pasaje de Matheu 4, todos los días 11:30–01:30. Punto de encuentro antes de que Four Corner abra a las 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuándo entra la cuarta puerta?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four Corner, Calle de la Victoria 6, domingo desde las 14:00 hasta la madrugada. Tiene pantallas de deporte. No listamos qué partidos echa.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Qué bar hermano el domingo junto a Sol | Dubliners"
+  description="Domingo 8 nov junto a Sol: terraza en O’Reilly’s, pantallas NFL confirmadas en Dubliners, O’Connell’s al lado, Four Corner desde las 14:00 con pantallas. Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Qué bar hermano el domingo" lang="es" schema />
+      <h1>Qué bar hermano el domingo 8 nov — terraza, pantallas o pub deportivo</h1>
+      <p class="lead">
+        Cuatro puertas en las mismas calles. No son el mismo trabajo.
+        Elige terraza, parrilla NFL confirmada, el pub deportivo de al lado o la sala del domingo a las 14:00 con pantallas de deporte.
+        Esta noche la elección son tres puertas (18:00–19:00). El domingo entra la cuarta.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Which sister bar on Sunday near Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Empareja la puerta con el trabajo</h2>
+      <ul>
+        <li>
+          <strong>Comer / terraza / quedada de media mañana → O’Reilly’s.</strong>
+          Pasaje de Matheu 4. Todos los días 11:30–01:30. Primera puerta si el grupo tiene hambre antes de las 15:30.
+          <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>.
+        </li>
+        <li>
+          <strong>Pantallas NFL y Atlético–Barcelona confirmadas → Dubliners.</strong>
+          Espoz y Mina 7. Domingo 12:00–02:00. Pantalla grande para Bengals–Falcons 15:30. Preguntad qué echan.
+          <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>.
+        </li>
+        <li>
+          <strong>Otro pub irlandés deportivo en la misma calle → O’Connell’s.</strong>
+          Espoz y Mina 7 (Maps: O’Connell St). Excepción domingo 8 nov: desde las 12:00. Punto de encuentro; no listamos su parrilla.
+          <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>.
+        </li>
+        <li>
+          <strong>Cuarta puerta después de comer → Four Corner.</strong>
+          Calle de la Victoria 6. Domingo desde las 14:00 hasta la madrugada. Tiene pantallas de deporte. Sin lista de partidos aquí.
+          <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>.
+        </li>
+      </ul>
+      <p>
+        Esta noche (sábado) saltad la cuarta puerta. Quedada 18:00–19:00 en las tres primeras. Hoy no hay NFL en directo.
+        Valencia–Real Madrid 21:00 va EN DIRECTO solo en Dubliners.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué bar tiene pantallas NFL confirmadas el domingo?</strong></dt>
+        <dd>Dubliners, Espoz y Mina 7, desde las 12:00. Preguntad qué echan.</dd>
+        <dt><strong>¿Cuál es la parada de terraza / comida?</strong></dt>
+        <dd>O’Reilly’s, Pasaje de Matheu 4, desde las 11:30.</dd>
+        <dt><strong>¿Cuándo entra la cuarta puerta?</strong></dt>
+        <dd>Four Corner, Victoria 6, domingo 14:00 hasta la madrugada, pantallas de deporte.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Elige puerta',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/nfl-domingo-cerca-sol-8-nov/', label: 'NFL domingo cerca de Sol' },
+              { href: '/es/elige-reloj-nfl-domingo-sol/', label: 'Qué reloj del domingo en cada puerta' },
+              { href: PATH_EN, label: 'Which sister bar Sunday', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

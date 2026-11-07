@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/international-nfl-fans-near-sol/';
+const PATH_ES = '/es/aficionados-nfl-internacionales-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'International NFL fans near Sol: English-speaking rooms this weekend',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:30:00+01:00',
+  dateModified: '2026-11-07T18:30:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can international NFL fans meet near Sol tonight?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '18:00–19:00 at O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell’s (Espoz y Mina 7). English-speaking staff at Dubliners. Four Corner is Sunday from 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What time is the Madrid Game in US Eastern time?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bengals vs Falcons is Sunday 8 November at 15:30 Madrid, which is 9:30 a.m. ET. Confirmed LIVE on Dubliners’ big screen if you are not at the Bernabéu.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are these official NFL venues?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Independent sister bars near Puerta del Sol. Not an official NFL event. No league logos, discounts or bookings invented here.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="International NFL fans near Sol | Dubliners"
+  description="Visiting NFL fans: English-speaking rooms off Puerta del Sol. Meetup tonight 18:00–19:00. Sunday screens from 12:00, Four Corner 14:00. Maps for four bars."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="International NFL fans near Sol" schema />
+      <h1>International NFL fans near Sol: English-speaking rooms this weekend</h1>
+      <p class="lead">
+        If you flew in for the Madrid Game and your hotel is around Sol, the sister bars are a few minutes on foot — not a metro puzzle.
+        Tonight 18:00–19:00 is the overlap at three doors. Sunday kick-off is 15:30 Madrid / 9:30 a.m. ET.
+        Staff at Dubliners speak English. Independent pubs. Not official NFL.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Aficionados NFL internacionales junto a Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Already in a hotel around Sol?</h2>
+      <p>
+        Pin the two Saturday streets: Pasaje de Matheu 4 and Espoz y Mina 7. You can walk it from Metro Sol or Sevilla.
+        The 18:00–19:00 window is for groups that landed today and still need a landmark.
+        There is <strong>no live NFL on Saturday</strong> — the night game here is Valencia vs Real Madrid at 21:00 at Dubliners.
+      </p>
+
+      <h2>Sunday clock for visitors</h2>
+      <p>
+        15:30 Madrid is 9:30 a.m. in New York. Dubliners opens 12:00. Four Corner opens 14:00 with sports screens, one street over.
+        If you stay for the screen, evening NFL starts 19:00 (1:00 p.m. ET), then 22:05 and 22:25. Atlético vs Barcelona is 21:00 local.
+        Ask at the bar which game is on. We do not promise every game on every screen, and we do not invent Four Corner listings.
+      </p>
+
+      <OriginalFourBars lang="en" when="tonight" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can international fans meet tonight?</strong></dt>
+        <dd>18:00–19:00 at O’Reilly’s, Dubliners and O’Connell’s. Four Corner is Sunday from 14:00.</dd>
+        <dt><strong>What time is the Madrid Game in ET?</strong></dt>
+        <dd>15:30 Madrid = 9:30 a.m. ET, Sunday 8 November. LIVE on Dubliners’ big screen.</dd>
+        <dt><strong>Are these official NFL venues?</strong></dt>
+        <dd>No. Independent sister bars. Not an official NFL event.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'For visiting fans',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/walk-sol-four-sister-bars/', label: 'Walk from Sol' },
+              { href: '/nfl-weekend-madrid-screens-only/', label: 'Weekend without the stadium' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'Sunday hour-by-hour' },
+              { href: PATH_ES, label: 'Aficionados internacionales', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

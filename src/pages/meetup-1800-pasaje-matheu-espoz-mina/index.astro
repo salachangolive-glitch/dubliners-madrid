@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/meetup-1800-pasaje-matheu-espoz-mina/';
+const PATH_ES = '/es/quedada-1800-pasaje-matheu-espoz-mina/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Meetup 18:00–19:00: Pasaje de Matheu 4 to Espoz y Mina 7',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:30:00+01:00',
+  dateModified: '2026-11-07T18:30:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where do we meet between 18:00 and 19:00 tonight?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Three doors, two streets: O’Reilly’s at Pasaje de Matheu 4, then Dubliners and O’Connell’s at Calle de Espoz y Mina 7. Four Corner on Calle de la Victoria 6 is not open tonight.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long is the walk between the meetup doors?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pasaje de Matheu 4 and Espoz y Mina 7 sit in the same pocket south-east of Puerta del Sol. The walk is a couple of minutes — one passage, then the next street. You do not need a taxi.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there live NFL during the meetup?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. There is no official NFL game on Saturday 7 November. After the meetup, Valencia vs Real Madrid at 21:00 is LIVE at Dubliners only.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Meetup 18:00–19:00: Pasaje de Matheu to Espoz y Mina | Dubliners"
+  description="Tonight 18:00–19:00: walk O’Reilly’s (Pasaje de Matheu 4) to Dubliners and O’Connell’s (Espoz y Mina 7). No NFL Saturday. Maps. Four Corner Sunday 14:00."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Meetup 18:00–19:00" schema />
+      <h1>Meetup 18:00–19:00: walk Pasaje de Matheu 4 to Espoz y Mina 7</h1>
+      <p class="lead">
+        Tonight the three Saturday rooms overlap for one hour. Start at O’Reilly’s terrace (Pasaje de Matheu 4),
+        then two minutes to Dubliners and O’Connell’s (Espoz y Mina 7). <strong>Four Corner is not tonight.</strong>
+        No official NFL Saturday — stay for Valencia vs Real Madrid at 21:00 at Dubliners.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Quedada 18:00–19:00: Pasaje de Matheu a Espoz y Mina</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's on Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>The hour when all three Saturday doors are open</h2>
+      <p>
+        O’Reilly’s has been open since 11:30. Dubliners since 12:00. O’Connell’s since 15:00.
+        From <strong>18:00 to 19:00</strong> you can pick any of the three without checking who is still closed.
+        Use that hour to gather a group that arrived from different hotels around Sol.
+      </p>
+      <ol>
+        <li>
+          <strong>18:00 — Pasaje de Matheu 4.</strong> O’Reilly’s terrace is the easy landmark if someone is late.
+          Pin <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's on Maps</a>.
+        </li>
+        <li>
+          <strong>Then Espoz y Mina 7.</strong> Walk the passage toward Santa Ana; Dubliners and O’Connell’s share the street number.
+          Two doors, two rooms. Pin
+          <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners</a>
+          and <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's</a>.
+        </li>
+        <li>
+          <strong>After 19:00.</strong> If you want a seat in view of a screen for Valencia–Real Madrid at 21:00, stay at Dubliners.
+          That broadcast is confirmed here only.
+        </li>
+      </ol>
+      <p>
+        Do not send anyone to Calle de la Victoria 6 tonight. Four Corner opens <strong>Sunday from 14:00</strong> with sports screens.
+      </p>
+
+      <OriginalFourBars lang="en" when="tonight" findHref="#the-four-sister-bars" />
+
+      <h2 id="the-four-sister-bars">FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where do we meet between 18:00 and 19:00 tonight?</strong></dt>
+        <dd>O’Reilly’s (Pasaje de Matheu 4), then Dubliners and O’Connell’s (Espoz y Mina 7). Four Corner is Sunday.</dd>
+        <dt><strong>How long is the walk between the meetup doors?</strong></dt>
+        <dd>A couple of minutes in the same pocket south-east of Sol. No taxi.</dd>
+        <dt><strong>Is there live NFL during the meetup?</strong></dt>
+        <dd>No. Saturday has no official NFL game. Valencia–Real Madrid 21:00 is LIVE at Dubliners only.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Tonight and Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL', note: 'Four-bar hub' },
+              { href: '/nfl-fans-madrid-this-saturday/', label: 'NFL fans this Saturday', note: 'Meetup window' },
+              { href: '/saturday-night-sol-valencia-real-madrid/', label: 'Valencia–Real Madrid 21:00', note: 'Dubliners only' },
+              { href: '/walk-sol-four-sister-bars/', label: 'Walk from Sol to the four bars' },
+              { href: PATH_ES, label: 'Quedada 18:00–19:00', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

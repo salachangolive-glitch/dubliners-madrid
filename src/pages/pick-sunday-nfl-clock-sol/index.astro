@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/pick-sunday-nfl-clock-sol/';
+const PATH_ES = '/es/elige-reloj-nfl-domingo-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Pick a Sunday NFL clock near Sol — which door is open at 15:30 vs 19:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:40:00+01:00',
+  dateModified: '2026-11-07T18:40:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which doors are open for the 15:30 Sunday NFL game?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s from 11:30, Dubliners and O’Connell’s from 12:00, Four Corner from 14:00 (sports screens). Confirmed Bengals–Falcons LIVE is at Dubliners. Ask which game is on.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which doors are open for evening NFL from 19:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'All four remain in hours: O’Reilly’s until 01:30, Dubliners until 02:00, O’Connell’s late, Four Corner until late. Confirmed evening NFL and Atlético–Barcelona 21:00 screens are at Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Saturday part of this clock choice?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. There is no official NFL on Saturday. Tonight is the 18:00–19:00 meetup and Valencia–Real Madrid at 21:00 at Dubliners.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Pick a Sunday NFL clock near Sol | Dubliners"
+  description="Afternoon 15:30 vs evening 19:00 Sunday NFL: which of the four sister bars is open at each clock. Four Corner from 14:00. Maps. No Saturday NFL."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Pick a Sunday NFL clock" schema />
+      <h1>Pick a Sunday NFL clock near Sol — which door is open at 15:30 vs 19:00</h1>
+      <p class="lead">
+        Afternoon and evening are different rooms in the same streets.
+        At 15:30 all four sister bars can already be open (Four Corner from 14:00).
+        At 19:00 the NFL card stacks with Atlético–Barcelona at 21:00. Confirmed screens: Dubliners. Ask which game is on.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Elige reloj NFL del domingo junto a Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner on Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>15:30 clock — afternoon NFL</h2>
+      <p>
+        Bengals vs Falcons, 15:30 Madrid. Four Corner has already been open an hour (14:00, sports screens).
+        O’Reilly’s since 11:30, Dubliners and O’Connell’s since 12:00. The confirmed big-screen listing is Dubliners.
+        If you only want atmosphere, the other three are meeting points — we do not invent their TV grids.
+      </p>
+
+      <h2>19:00 clock — evening NFL</h2>
+      <p>
+        Seven NFL games at 19:00, RedZone from 19:00, then 22:05 and 22:25. Atlético vs Barcelona at 21:00 sits in the same window.
+        All four doors are still inside Sunday hours. Confirmed LIVE board: Dubliners, Espoz y Mina 7, until 02:00.
+        Not every game on every screen — ask at the bar.
+      </p>
+      <p>
+        Tonight is not this choice. Saturday has no NFL. Meetup 18:00–19:00, then Valencia–RM 21:00 at Dubliners only.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Which doors are open at 15:30 Sunday?</strong></dt>
+        <dd>All four, once Four Corner has opened at 14:00. Confirmed Bengals–Falcons LIVE: Dubliners.</dd>
+        <dt><strong>Which doors are open from 19:00?</strong></dt>
+        <dd>All four still in hours. Confirmed evening NFL + Atlético–Barcelona: Dubliners.</dd>
+        <dt><strong>Is Saturday part of this clock?</strong></dt>
+        <dd>No. No official NFL Saturday. Tonight is meetup + Valencia 21:00 at Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday clocks',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL list' },
+              { href: '/sunday-nfl-slate-stay-in-sol/', label: 'Stay in Sol for the slate' },
+              { href: '/which-sister-bar-sunday-sol/', label: 'Which sister bar' },
+              { href: PATH_ES, label: 'Elige reloj del domingo', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

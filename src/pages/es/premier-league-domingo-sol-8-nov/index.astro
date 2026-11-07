@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import PremierSundayVenues from '../../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/premier-league-domingo-sol-8-nov/';
+const PATH_EN = '/premier-league-sunday-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Premier League el domingo junto a Sol, 8 de noviembre: cinco partidos ingleses, cuatro bares',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué partidos de Premier League hay el domingo 8 de noviembre (hora de Madrid)?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '15:00: Crystal Palace vs Liverpool, Sunderland vs Chelsea, Brighton vs Brentford, Ipswich Town vs Bournemouth. 17:30: Manchester United vs Aston Villa. Dubliners los tiene en el tablero de Partidos. Pregunta qué echan: la NFL a las 15:30 y desde las 19:00 se pisa esa misma tarde.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedar junto a Sol para ver fútbol inglés?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cuatro bares hermanos: O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7, desde las 12:00), Four Corner (Victoria 6, desde las 14:00 hasta la madrugada, pantallas de deporte). Los partidos de Premier League con nombre están en Dubliners. No inventamos la parrilla de los otros tres.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Está cada partido de Premier en cada pantalla?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Cuatro kick-off a las 15:00 coinciden con Bengals–Falcons a las 15:30. United–Villa a las 17:30 queda antes de la NFL desde las 19:00 y Atlético–Barcelona a las 21:00. Pregunta en barra qué echan.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Premier League domingo junto a Sol, 8 nov | Dubliners"
+  description="Domingo 8 nov Premier League junto a Sol: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth 15:00, United–Villa 17:30. Cuatro bares, mapas. Pregunta qué echan."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Premier League domingo junto a Sol" lang="es" schema />
+      <h1>Premier League el domingo junto a Sol: cinco partidos ingleses, cuatro bares</h1>
+      <p class="lead">
+        Si sois aficionados ingleses o turistas buscando un bar de deporte en Madrid el domingo 8 de noviembre,
+        empezad en Sol — no en un estadio. Cuatro bares irlandeses hermanos están a pocos minutos de la plaza.
+        El tablero de Partidos de Dubliners ya lista la Premier League del domingo en nuestras pantallas.
+        La misma tarde tiene NFL a las 15:30 y desde las 19:00, y Atlético vs Barcelona a las 21:00.
+        <strong>Preguntad qué echan. No está cada partido en cada pantalla.</strong>
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Premier League Sunday near Sol</a></p>
+      <FanWeekendCtas lang="es" findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Domingo 8 de noviembre — fútbol inglés (hora de Madrid)</h2>
+        <p>
+          Esto no es un clon de la página evergreen de pub Premier League. Es el tablero de este domingo,
+          para quien ya está en el centro y quiere una pinta y una pantalla sin salir de Sol.
+        </p>
+        <table>
+          <thead>
+            <tr><th>Hora Madrid</th><th>Partido</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>15:00</td><td>Crystal Palace vs Liverpool</td></tr>
+            <tr><td>15:00</td><td>Sunderland vs Chelsea</td></tr>
+            <tr><td>15:00</td><td>Brighton vs Brentford</td></tr>
+            <tr><td>15:00</td><td>Ipswich Town vs Bournemouth</td></tr>
+            <tr><td>17:30</td><td>Manchester United vs Aston Villa</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Esos cinco ya están en <a href={withBase('/es/partidos/')}>Partidos</a> como pantallas confirmadas de Dubliners.
+          Cuatro coinciden. Media hora después empieza el NFL Madrid Game (Bengals vs Falcons) a las 15:30
+          — EN DIRECTO en la pantalla grande. Por eso se nombra el equipo en barra. Un pub no es un centro de retransmisión.
+        </p>
+        <p>
+          United–Villa a las 17:30 es el hueco después del bloque de las 15:00 y antes de la NFL desde las 19:00
+          y Atlético–Barcelona a las 21:00. Quedaos en las mismas calles. Esta página no sustituye las guías de
+          <a href={withBase('/es/nfl-tarde-noche-sol-8-nov/')}>NFL de tarde y de noche</a> ni de
+          <a href={withBase('/es/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona junto a Sol</a> — esos relojes siguen en marcha.
+        </p>
+        <p>
+          Four Corner, Calle de la Victoria 6, abre el domingo desde las <strong>14:00 hasta la madrugada</strong> y tiene pantallas de deporte.
+          No listamos qué partidos de Premier echa. O’Reilly’s y O’Connell’s son puntos de encuentro en la misma manzana;
+          no inventamos su parrilla.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="es" />
+
+      <p class="small">
+        Pubs irlandeses independientes junto a Sol. No es un evento oficial de Premier League ni de la NFL. Sin locales de terceros.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué partidos de Premier League hay el domingo 8 de noviembre (hora de Madrid)?</strong></dt>
+        <dd>15:00: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. 17:30: United–Villa. En Partidos de Dubliners. Pregunta qué echan.</dd>
+        <dt><strong>¿Dónde quedar junto a Sol para ver fútbol inglés?</strong></dt>
+        <dd>Cuatro bares hermanos alrededor de Sol. Partidos de Premier con nombre: Dubliners. Four Corner desde las 14:00 con pantallas de deporte; no listamos qué echan.</dd>
+        <dt><strong>¿Está cada partido de Premier en cada pantalla?</strong></dt>
+        <dd>No. La NFL 15:30 y 19:00 y Atlético–Barcelona 21:00 comparten el día. Pregunta en barra.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/futbol-ingles-1500-sol-8-nov/', label: 'Cuatro a las 15:00 y el partido NFL a las 15:30' },
+              { href: '/es/man-utd-villa-sol-8-nov/', label: 'United–Villa a las 17:30 junto a Sol' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol, 21:00' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Tablero de Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'Premier League Sunday near Sol', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

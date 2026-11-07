@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import SundayFourVenues from '../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/afternoon-evening-nfl-sol-8-nov/';
+const PATH_ES = '/es/nfl-tarde-noche-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Afternoon and evening NFL near Sol on Sunday 8 November',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the afternoon NFL near Sol on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bengals vs Falcons at 15:30 Madrid time at the Santiago Bernabéu. LIVE on the big screen at Dubliners from 15:30. Four Corner opens at 14:00; Dubliners and O’Connell St from 12:00. Plan it from Saturday.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the evening NFL near Sol on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Seven NFL games at 19:00, Texans–Chargers at 22:05, three more at 22:25, with NFL RedZone from 19:00 at Dubliners. Atlético–Barcelona is at 21:00 in the same window. Ask which game is on. Not every game is on every screen. We close at 02:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is every game on every screen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Afternoon 15:30 and evening 19:00 / 21:00 / 22:05 / 22:25 overlap. Confirmed screens are at Dubliners. We do not invent Four Corner broadcasts.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Afternoon and evening NFL near Sol, Sunday 8 Nov | Dubliners"
+  description="Sunday 8 Nov NFL near Sol in two clocks: afternoon Bengals–Falcons 15:30, then evening 19:00 / 22:05 / 22:25. Four bars, maps. Plan it today."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Afternoon and evening NFL" schema />
+      <h1>Afternoon and evening NFL near Sol on Sunday 8 November</h1>
+      <p class="lead">
+        Two clocks, one cluster of bars. Afternoon is the Madrid Game at <strong>15:30</strong>.
+        Evening is the US Sunday window at <strong>19:00, 22:05 and 22:25</strong>.
+        Plan both from Saturday — you do not wait until Sunday 12:00.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">NFL de tarde y de noche junto a Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>Full Sunday NFL list</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Afternoon — 15:30 Madrid Game</h2>
+        <p>
+          Bengals vs Falcons, Santiago Bernabéu, 15:30 (9:30 a.m. ET). In Spain: DAZN and Cuatro.
+          At Dubliners: LIVE on the big screen from 15:30. Doors at Dubliners and O’Connell St from 12:00;
+          O’Reilly’s from 11:30; Four Corner from <strong>14:00</strong>.
+        </p>
+        <p>
+          If you are going to the stadium, the perimeter opens at 12:30. If you are staying in Sol, arrive before 15:30
+          and ask which screen. Not every game is on every screen — on Sunday afternoon there is mainly one NFL kick-off,
+          plus other sport already on the board.
+        </p>
+
+        <h2>Evening — 19:00, then 22:05 / 22:25</h2>
+        <p>
+          After the Bernabéu game, the US Sunday slate starts at 19:00 Madrid time:
+        </p>
+        <ul>
+          <li><strong>19:00</strong> — Broncos–Panthers · Cowboys–Colts · Jets–Chiefs · Lions–Dolphins · Browns–Saints · Giants–Eagles · Rams–Commanders</li>
+          <li><strong>21:00</strong> — Atlético de Madrid vs FC Barcelona (football, same night — say if you want this screen)</li>
+          <li><strong>22:05</strong> — Texans–Chargers</li>
+          <li><strong>22:25</strong> — Raiders–49ers · Packers–Patriots · Cardinals–Seahawks</li>
+        </ul>
+        <p>
+          NFL RedZone is LIVE at Dubliners from 19:00 across those windows. We close at 02:00; Buccaneers–Bears at 02:20 Monday is not shown.
+          Seven 19:00 games plus a 21:00 derby do not all play on every screen. Ask.
+        </p>
+        <p>
+          Four Corner remains a sister meeting point from 14:00 until late. We do not invent which evening games it shows.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="en" />
+
+      <p class="small">
+        Not an official NFL event. Confirmed LIVE screens: Dubliners. Hours and maps: all four bars.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What is the afternoon NFL near Sol on Sunday 8 November?</strong></dt>
+        <dd>Bengals vs Falcons at 15:30. LIVE on the big screen at Dubliners. Four Corner opens at 14:00.</dd>
+        <dt><strong>What is the evening NFL near Sol on Sunday 8 November?</strong></dt>
+        <dd>19:00, 22:05 and 22:25 at Dubliners, with RedZone from 19:00. Atlético–Barcelona at 21:00. Ask which game is on.</dd>
+        <dt><strong>Is every game on every screen?</strong></dt>
+        <dd>No. We do not invent Four Corner broadcasts.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/before-after-bengals-falcons-sol/', label: 'Before and after Bengals–Falcons' },
+              { href: '/sunday-nfl-near-sol-8-nov/', label: 'Sunday NFL near Sol' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00' },
+              { href: '/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona near Sol' },
+              { href: '/nfl-sunday-madrid-guide/', label: 'Hour-by-hour NFL Sunday', note: 'Dubliners' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'NFL de tarde y de noche', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

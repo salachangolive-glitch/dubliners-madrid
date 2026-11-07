@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import SundayFourVenues from '../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/atletico-barcelona-sol-8-nov/';
+const PATH_ES = '/es/atletico-barcelona-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Atlético–Barcelona near Sol on Sunday 8 November at 21:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When is Atlético–Barcelona on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '21:00 Madrid time, LaLiga, at the Riyadh Air Metropolitano. At Dubliners, Espoz y Mina 7, it is LIVE on our screens. Ask which game is on — NFL windows at 19:00 and 22:05/22:25 overlap the same night.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this El Clásico?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. This Sunday is Atlético de Madrid vs FC Barcelona, not Real Madrid vs Barcelona. The evergreen El Clásico page is a different fixture.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can the group meet near Sol for 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four sister bars: O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell St (Espoz y Mina 7, from 12:00), Four Corner (Victoria 6, from 14:00 until late). Confirmed 21:00 screens: Dubliners. We do not invent Four Corner broadcasts.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Atlético–Barcelona near Sol, Sunday 8 Nov 21:00 | Dubliners"
+  description="Sunday 8 Nov, 21:00: Atlético vs Barcelona near Puerta del Sol. Confirmed live at Dubliners. Four sister bars, maps. NFL overlaps — ask which game is on."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Atlético–Barcelona near Sol" schema />
+      <h1>Atlético–Barcelona near Sol, Sunday 8 November at 21:00</h1>
+      <p class="lead">
+        LaLiga, Sunday night, Riyadh Air Metropolitano — <strong>Atlético de Madrid vs FC Barcelona at 21:00</strong>.
+        If you are already in the Sol streets for NFL Madrid, you do not need another neighbourhood.
+        Plan it today (Saturday).
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Atlético–Barcelona junto a Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What's On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>21:00 sits inside an NFL night</h2>
+        <p>
+          This is not El Clásico (Real Madrid vs Barcelona). This Sunday is Atlético vs Barcelona.
+          At Dubliners it is confirmed LIVE on our screens. Dubliners opens from 12:00 and closes at 02:00,
+          so full time sits inside opening hours.
+        </p>
+        <p>
+          The same night already has NFL at <strong>19:00</strong>, then <strong>22:05</strong> and <strong>22:25</strong>.
+          Those clocks overlap. <strong>Ask at the bar which game is on. Not every game is on every screen.</strong>
+          If the group cares about Atlético–Barcelona, say so when you sit down.
+        </p>
+        <p>
+          Four Corner is already open from 14:00 until late as a sister meeting point. We do not invent its broadcasts.
+          O’Reilly’s and O’Connell St share the same streets if you want to eat or split the group before 21:00.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="en" />
+
+      <p class="small">
+        Independent pubs — no link to LaLiga or the clubs. Not an official NFL event.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Atlético–Barcelona on Sunday 8 November?</strong></dt>
+        <dd>21:00 Madrid time, LaLiga, Riyadh Air Metropolitano. LIVE at Dubliners. Ask which game is on — NFL overlaps the same night.</dd>
+        <dt><strong>Is this El Clásico?</strong></dt>
+        <dd>No. This Sunday is Atlético vs Barcelona, not Real Madrid vs Barcelona.</dd>
+        <dt><strong>Where can the group meet near Sol for 21:00?</strong></dt>
+        <dd>Four sister bars around Sol. Confirmed 21:00 screens: Dubliners. Four Corner from 14:00 until late; we do not list its broadcasts.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/sunday-nfl-near-sol-8-nov/', label: 'Sunday NFL near Sol' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL' },
+              { href: '/before-after-bengals-falcons-sol/', label: 'Before and after Bengals–Falcons' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00' },
+              { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'Dubliners kick-off table' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'Atlético–Barcelona junto a Sol', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

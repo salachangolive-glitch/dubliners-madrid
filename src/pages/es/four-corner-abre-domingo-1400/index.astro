@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import SundayFourVenues from '../../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/four-corner-abre-domingo-1400/';
+const PATH_EN = '/four-corner-opens-sunday-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Four Corner abre el domingo 8 de noviembre a las 14:00 — planeadlo desde el sábado',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿A qué hora abre Four Corner el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A las 14:00 hasta la madrugada. No a las 12:00. Calle de la Victoria 6, 28012 Madrid, a un corto paseo de la Puerta del Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué partidos echa Four Corner el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No listamos la programación de Four Corner. La apertura a las 14:00 sí está confirmada. Para pantallas NFL y Atlético–Barcelona confirmadas, pregunta en Dubliners, Espoz y Mina 7 — no está cada partido en cada pantalla.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Se puede planear Four Corner desde el sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Esta página es para quien lee el sábado. Las 14:00 del domingo ya están confirmadas: no hace falta esperar al mediodía del domingo.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Four Corner abre el domingo 8 nov a las 14:00 | Dubliners"
+  description="Four Corner, Calle de la Victoria 6, abre el domingo 8 nov a las 14:00 hasta la madrugada. Apertura confirmada — planeadlo hoy. Maps de los cuatro bares hermanos."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Four Corner abre a las 14:00" lang="es" schema />
+      <h1>Four Corner abre el domingo 8 de noviembre a las 14:00 — planeadlo desde el sábado</h1>
+      <p class="lead">
+        Four Corner, el bar hermano de la calle de la Victoria 6, abre el domingo desde las <strong>14:00 hasta la madrugada</strong>.
+        Esa hora está confirmada. No es a las 12:00. Guardad el pin de Maps hoy para que el grupo no improvise mañana.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Four Corner opens Sunday at 14:00</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Apertura del domingo, no una parrilla</h2>
+        <p>
+          Four Corner forma parte del mismo punto de encuentro que O’Reilly’s, Dubliners y O’Connell St.
+          Dirección: <strong>Calle de la Victoria 6, 28012 Madrid</strong>, a pocos minutos al este de la Puerta del Sol.
+        </p>
+        <p>
+          Lo que sí decimos: domingo 8 de noviembre desde las 14:00 hasta la madrugada. Lo que no decimos: qué partidos
+          echan en sus pantallas. Esa programación no está confirmada aquí. Si necesitáis NFL o Atlético–Barcelona
+          confirmados en pantalla, esa lista está en <a href={withBase('/es/nfl-madrid/')}>Dubliners</a> — y aun ahí,
+          preguntad qué echan. No está cada partido en cada pantalla.
+        </p>
+        <p>
+          Las 14:00 siguen siendo antes de Bengals–Falcons (15:30). Sirve si el grupo ya está en Sol después de comer,
+          sin fingir que Four Corner abre con Dubliners al mediodía.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="es" />
+
+      <p class="small">
+        Bares hermanos junto a Sol — no es un evento oficial de la NFL. Sin promociones, reservas ni retransmisiones inventadas.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿A qué hora abre Four Corner el domingo 8 de noviembre?</strong></dt>
+        <dd>A las 14:00 hasta la madrugada. No a las 12:00. Calle de la Victoria 6, 28012 Madrid.</dd>
+        <dt><strong>¿Qué partidos echa Four Corner el domingo?</strong></dt>
+        <dd>No listamos su programación. La apertura sí está confirmada. Para pantallas confirmadas, preguntad en Dubliners.</dd>
+        <dt><strong>¿Se puede planear Four Corner desde el sábado?</strong></dt>
+        <dd>Sí. Las 14:00 del domingo ya están confirmadas.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/antes-despues-bengals-falcons-sol/', label: 'Antes y después de Bengals–Falcons' },
+              { href: '/es/nfl-domingo-cerca-sol-8-nov/', label: 'NFL domingo cerca de Sol' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'Four Corner opens at 14:00', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

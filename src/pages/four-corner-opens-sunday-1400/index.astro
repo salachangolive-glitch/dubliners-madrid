@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import SundayFourVenues from '../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/four-corner-opens-sunday-1400/';
+const PATH_ES = '/es/four-corner-abre-domingo-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Four Corner opens Sunday 8 November at 14:00 — plan it from Saturday',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What time does Four Corner open on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '14:00 until late. Not 12:00. Calle de la Victoria 6, 28012 Madrid, a short walk from Puerta del Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which games does Four Corner show on Sunday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We do not list Four Corner broadcasts. Opening at 14:00 is confirmed. For confirmed NFL and Atlético–Barcelona screens, ask at Dubliners, Espoz y Mina 7 — not every game is on every screen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I plan Four Corner from Saturday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. This page is for Saturday readers. Sunday 14:00 is already confirmed, so you do not wait until Sunday noon.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Four Corner opens Sunday 8 Nov at 14:00 | Dubliners"
+  description="Four Corner, Calle de la Victoria 6, opens Sunday 8 Nov at 14:00 until late. Confirmed opening — plan it today. Maps for all four sister bars near Sol."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Four Corner opens 14:00 Sunday" schema />
+      <h1>Four Corner opens Sunday 8 November at 14:00 — plan it from Saturday</h1>
+      <p class="lead">
+        Four Corner, the sister bar on Calle de la Victoria 6, opens Sunday from <strong>14:00 until late</strong>.
+        That hour is confirmed. It is not 12:00. Save the Maps pin today so the group is not guessing tomorrow.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Four Corner abre el domingo a las 14:00</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Sunday opening, not a TV grid</h2>
+        <p>
+          Four Corner is part of the same fan meeting point as O’Reilly’s, Dubliners and O’Connell St.
+          Address: <strong>Calle de la Victoria 6, 28012 Madrid</strong>, a few minutes east of Puerta del Sol.
+        </p>
+        <p>
+          What we can say: Sunday 8 November from 14:00 until late. What we will not say: which games play on its screens.
+          Those broadcasts are not confirmed here. If you need confirmed NFL or Atlético–Barcelona on a screen,
+          that list is at <a href={withBase('/nfl-madrid/')}>Dubliners</a> — and even there, ask which game is on.
+          Not every game is on every screen.
+        </p>
+        <p>
+          14:00 is still before Bengals–Falcons at 15:30. It is a useful arrival if the group is already in Sol
+          after lunch, without pretending Four Corner opens with Dubliners at midday.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="en" />
+
+      <p class="small">
+        Sister bars near Sol — not an official NFL event. No invented promotions, bookings or broadcasts.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>What time does Four Corner open on Sunday 8 November?</strong></dt>
+        <dd>14:00 until late. Not 12:00. Calle de la Victoria 6, 28012 Madrid.</dd>
+        <dt><strong>Which games does Four Corner show on Sunday?</strong></dt>
+        <dd>We do not list Four Corner broadcasts. Opening is confirmed. For confirmed screens, ask at Dubliners.</dd>
+        <dt><strong>Can I plan Four Corner from Saturday?</strong></dt>
+        <dd>Yes. Sunday 14:00 is already confirmed.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/before-after-bengals-falcons-sol/', label: 'Before and after Bengals–Falcons' },
+              { href: '/sunday-nfl-near-sol-8-nov/', label: 'Sunday NFL near Sol' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL' },
+              { href: '/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona near Sol' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'Four Corner abre a las 14:00', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

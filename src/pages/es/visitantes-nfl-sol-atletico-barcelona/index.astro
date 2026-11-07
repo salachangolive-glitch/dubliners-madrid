@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import SundayFourVenues from '../../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/visitantes-nfl-sol-atletico-barcelona/';
+const PATH_EN = '/nfl-visitors-sol-atletico-barcelona/';
+const PATH_LOCAL = '/es/quedada-sol-atletico-barcelona-domingo/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Visitantes NFL: cómo compartir Sol el domingo con el Atlético–Barcelona',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Estoy en Madrid por el domingo NFL. ¿El Atlético–Barcelona cambia la noche junto a Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. El domingo 8 de noviembre es jornada NFL y también Atlético de Madrid vs FC Barcelona a las 21:00 hora de Madrid. Pantallas de fútbol confirmadas EN DIRECTO: Dubliners, Espoz y Mina 7. Las ventanas NFL de 15:30, 19:00, 22:05 y 22:25 caen la misma noche. Pregunta qué echan. No está cada partido en cada pantalla.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedar cerca de Sol si parte del grupo quiere el fútbol de las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cuatro bares hermanos a dos-cuatro minutos de Sol: O’Reilly’s Restaurant Bar (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7), Four Corner (Calle de la Victoria 6, desde las 14:00, pantallas de deporte). Dubliners es la pantalla confirmada del Atlético–Barcelona. Los hermanos son punto de encuentro: pregunta qué echan; no listamos su programación.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Seguirán todos los partidos NFL a las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los horarios se pisan. Di el equipo que te importa al sentarte. Un pub no es un centro de retransmisión.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Visitantes NFL: compartir Sol con el Atlético–Barcelona | Dubliners"
+  description="Domingo 8 nov junto a Sol: visitantes NFL y Atlético–Barcelona a las 21:00 en cuatro bares hermanos. Fútbol confirmado en Dubliners. Maps, horarios, pregunta qué echan."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Visitantes NFL comparten Sol el domingo" lang="es" schema />
+      <h1>Visitantes NFL: cómo compartir Sol el domingo con el Atlético–Barcelona</h1>
+      <p class="lead">
+        Si has venido por el domingo NFL, el 8 de noviembre junto a Sol no es solo el Madrid Game.
+        A las <strong>21:00</strong> arranca Atlético de Madrid vs FC Barcelona: una noche de LaLiga en las mismas
+        calles que las ventanas NFL de 15:30, 19:00, 22:05 y 22:25. Fútbol EN DIRECTO confirmado:
+        Dubliners, Espoz y Mina 7. Cuatro puertas hermanas. Pregunta qué echan.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">NFL visitors: how to share Sol with Atlético–Barcelona</a></p>
+      <FanWeekendCtas lang="es" findHref="#cuatro-puertas-desde-sol" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Dos públicos, las mismas calles</h2>
+        <p>
+          Quien viene por Bengals–Falcons en el Bernabéu (15:30) suele volver a Sol después.
+          La afición local y quien viaja por el fútbol llega para las 21:00. Esa superposición es el tema:
+          el grupo puede quedarse en un radio de dos minutos sin fingir que cada pantalla seguirá
+          en tu partido NFL cuando salte el fútbol.
+        </p>
+        <p>
+          Esto <strong>no es el Clásico</strong> (Real Madrid vs Barcelona). El domingo es Atlético vs Barcelona.
+          En Dubliners va confirmado EN DIRECTO. Los bares hermanos son puntos de encuentro con horario confirmado —
+          y Four Corner tiene pantallas de deporte desde las 14:00 — pero no inventamos qué partido ponen. Pregunta en cada puerta.
+        </p>
+        <p>
+          Pubs irlandeses independientes. No es un evento oficial de la NFL. Aquí no se venden entradas de estadio.
+        </p>
+
+        <h2 id="cuatro-puertas-desde-sol">Las cuatro puertas desde Sol, a pie</h2>
+        <p>
+          Metro Sol (L1, L2, L3) o Sevilla (L2). No hace falta taxi entre estas salas.
+          Un recorrido útil si el grupo mezcla NFL y fútbol:
+        </p>
+        <ol>
+          <li>
+            <strong>Four Corner — Calle de la Victoria 6.</strong> Desde Sol, Victoria hacia el este.
+            El domingo 8 nov abre a las <strong>14:00 hasta la madrugada</strong> (no a las 12:00). Pantallas de deporte
+            confirmadas; programación no. Sirve para aguantar al grupo después de las 15:30 o como desborde si Espoz y Mina está lleno.
+            <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Four Corner en Maps</a>.
+          </li>
+          <li>
+            <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4.</strong> Pasaje cubierto, terraza, comida.
+            Horario habitual 11:30–01:30. Para comer y fijar el punto de encuentro antes de elegir pantalla.
+            No listamos su parrilla.
+            <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O’Reilly’s en Maps</a>.
+          </li>
+          <li>
+            <strong>Dubliners — Calle de Espoz y Mina 7.</strong> Domingo <strong>12:00–02:00</strong>.
+            EN DIRECTO confirmado: Bengals–Falcons 15:30 (pantalla grande), NFL desde las 19:00 luego 22:05 y 22:25,
+            <strong>Atlético–Barcelona 21:00</strong>. Di el partido al sentarte.
+            <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Dubliners en Maps</a>.
+          </li>
+          <li>
+            <strong>O’Connell’s — Espoz y Mina 7</strong> (la misma calle; en Maps: O’Connell St).
+            Domingo 8 nov desde las 12:00 (habitual domingo 14:00). Segunda puerta del mismo bloque si el grupo se parte.
+            Punto de encuentro; no listamos su programación.
+            <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O’Connell’s en Maps</a>.
+          </li>
+        </ol>
+
+        <h2>Relojes del domingo que se pisan</h2>
+        <ul>
+          <li><strong>15:30</strong> — Bengals vs Falcons (Bernabéu; también EN DIRECTO en la pantalla grande de Dubliners)</li>
+          <li><strong>19:00</strong> — siete partidos NFL más, y RedZone en Dubliners</li>
+          <li><strong>21:00</strong> — Atlético vs Barcelona (EN DIRECTO confirmado en Dubliners)</li>
+          <li><strong>22:05</strong> — Texans at Chargers</li>
+          <li><strong>22:25</strong> — tres partidos NFL más</li>
+        </ul>
+        <p>
+          Si al grupo le importa un equipo de las 19:00 o las 22:25 <em>y</em> alguien quiere el fútbol de las 21:00,
+          partid el grupo en dos puertas en vez de pelearos por un televisor. Dubliners para la pantalla de fútbol confirmada;
+          Four Corner desde las 14:00 u O’Connell’s en la misma calle como desborde. Aun así:
+          <strong>preguntad qué echan. No está cada partido en cada pantalla.</strong>
+        </p>
+        <p>
+          Tabla de horarios y equipos:
+          <a href={withBase('/es/deportes-domingo-sol/')}>Deportes domingo en Sol</a>.
+          NFL hora a hora:
+          <a href={withBase('/es/guia-domingo-nfl-madrid/')}>Guía del domingo NFL</a>.
+          Portada en vivo del Atlético–Barcelona (no es esta nota para visitantes):
+          <a href={withBase('/es/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona junto a Sol, 21:00</a>.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="es" />
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-primary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos y eventos</a>
+      </div>
+
+      <p class="small">
+        No es un evento oficial de la NFL. Independiente de LaLiga y de los clubes. El punto de encuentro son estos cuatro bares.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Estoy en Madrid por el domingo NFL. ¿El Atlético–Barcelona cambia la noche junto a Sol?</strong></dt>
+        <dd>Sí. El fútbol de las 21:00 comparte noche con las ventanas NFL. Pantallas de fútbol confirmadas: Dubliners. Pregunta qué echan.</dd>
+        <dt><strong>¿Dónde quedar si parte del grupo quiere el fútbol de las 21:00?</strong></dt>
+        <dd>Cuatro bares hermanos a dos-cuatro minutos de Sol. Dubliners para la pantalla confirmada. Hermanos: punto de encuentro / pantallas donde está confirmado — pregunta; no listamos sus partidos.</dd>
+        <dt><strong>¿Seguirán todos los partidos NFL a las 21:00?</strong></dt>
+        <dd>No. Los horarios se pisan. Di el equipo. Un pub no es un centro de retransmisión.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: PATH_LOCAL, label: 'Quedada de la afición para el Atlético–Barcelona', note: 'Página hermana, fútbol primero' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol, 21:00', note: 'Portada en vivo' },
+              { href: '/es/nfl-domingo-cerca-sol-8-nov/', label: 'NFL domingo cerca de Sol' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'NFL visitors: share Sol on Sunday', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

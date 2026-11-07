@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import PremierSundayVenues from '../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/english-football-1500-sol-8-nov/';
+const PATH_ES = '/es/futbol-ingles-1500-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Four 15:00 Premier League kick-offs near Sol — and a 15:30 NFL Game',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which English games kick off at 15:00 on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Crystal Palace vs Liverpool, Sunderland vs Chelsea, Brighton vs Brentford, and Ipswich Town vs Bournemouth. All four are on the live Dubliners What’s On board. They sit 30 minutes before Bengals vs Falcons at 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'If I want Liverpool or Chelsea, not the NFL Game, what do I do?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Say so when you sit down at Dubliners, Espoz y Mina 7. The big screen is already confirmed for Bengals–Falcons LIVE at 15:30. Other screens can carry Premier League. Ask which game is on. Not every game is on every screen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do the four sister bars all show the 15:00s?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The four bars are the Sol meeting point. Named 15:00 Premier League listings are at Dubliners. Four Corner opens at 14:00 with sports screens; we do not list which games it shows. O’Reilly’s and O’Connell’s: ask at the door.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="English football at 15:00 near Sol, Sunday 8 Nov | Dubliners"
+  description="Sunday 8 Nov 15:00 near Sol: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. NFL Game 15:30 on the big screen. Four bars. Ask which game is on."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="English football at 15:00" schema />
+      <h1>Four 15:00 Premier League kick-offs near Sol — and a 15:30 NFL Game</h1>
+      <p class="lead">
+        Sunday 8 November at 15:00 is four English matches at once, then the NFL Madrid Game at 15:30.
+        If you came to Madrid for Liverpool, Chelsea, Brighton or a 15:00 pint — not for Bengals–Falcons —
+        this is the clash. Meet at the four sister bars by Sol. At Dubliners, the 15:00s are on the live board
+        and the big screen is already booked for 15:30 NFL. <strong>Ask which game is on.</strong>
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Fútbol inglés a las 15:00 junto a Sol</a></p>
+      <FanWeekendCtas findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>15:00 is crowded on purpose</h2>
+        <p>
+          This page is only the 15:00 cluster. The later United–Villa 17:30 has its own note.
+          The evergreen Brighton-fans page is a Thursday Conference League leftover — not this Sunday.
+        </p>
+        <ul>
+          <li><strong>15:00</strong> — Crystal Palace vs Liverpool</li>
+          <li><strong>15:00</strong> — Sunderland vs Chelsea</li>
+          <li><strong>15:00</strong> — Brighton vs Brentford</li>
+          <li><strong>15:00</strong> — Ipswich Town vs Bournemouth</li>
+          <li><strong>15:30</strong> — Bengals vs Falcons (NFL Madrid Game; LIVE on Dubliners’ big screen)</li>
+        </ul>
+        <p>
+          You cannot put four Premier League matches and a Bernabéu NFL kick-off on one television.
+          Dubliners has several screens. Name Palace, Liverpool, Sunderland, Chelsea, Brighton, Brentford,
+          Ipswich or Bournemouth when you walk in. If the group wants the NFL Game, say that instead.
+          The <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>afternoon and evening NFL guide</a> still owns 15:30, 19:00, 22:05 and 22:25.
+        </p>
+        <p>
+          Doors: Dubliners and O’Connell’s from 12:00; O’Reilly’s from 11:30; Four Corner from <strong>14:00</strong>
+          with sports screens (no invented 15:00 list). Arrive before 15:00 if the group cares about a 15:00 shirt.
+          Stay on Espoz y Mina, Pasaje de Matheu and Victoria — do not wander looking for a third-party “fan zone”.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="en" />
+
+      <p class="small">
+        Independent pubs. Not an official Premier League or NFL event. Confirmed named 15:00 listings: Dubliners What’s On.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Which English games kick off at 15:00 on Sunday 8 November?</strong></dt>
+        <dd>Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. On Dubliners What’s On. NFL Game at 15:30.</dd>
+        <dt><strong>If I want Liverpool or Chelsea, not the NFL Game, what do I do?</strong></dt>
+        <dd>Say so at Dubliners. The big screen is LIVE for Bengals–Falcons at 15:30. Ask which game is on.</dd>
+        <dt><strong>Do the four sister bars all show the 15:00s?</strong></dt>
+        <dd>No. They are the Sol meeting point. Named listings: Dubliners. Four Corner from 14:00 with sports screens; we do not list its games.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/premier-league-sunday-sol-8-nov/', label: 'Premier League Sunday near Sol' },
+              { href: '/man-utd-villa-sol-8-nov/', label: 'United–Villa at 17:30' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL' },
+              { href: '/before-after-bengals-falcons-sol/', label: 'Before and after Bengals–Falcons' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'Fútbol inglés a las 15:00', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

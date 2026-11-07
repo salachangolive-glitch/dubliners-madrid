@@ -1,0 +1,107 @@
+---
+/**
+ * Four sister bars for Sunday 8 Nov 2026 Premier League pages.
+ * Screen claims for named PL matches stay on Dubliners only (live What’s On).
+ * Four Corner: 14:00 opening + sports screens, no invented broadcasts.
+ */
+import { FOUR_BARS_MAPS } from '../data/fourBars';
+
+interface Props {
+  lang: 'en' | 'es';
+}
+const { lang } = Astro.props;
+const MAPS = FOUR_BARS_MAPS;
+const es = lang === 'es';
+---
+
+<section id="four-bars">
+{es ? (
+  <>
+    <h2>Los cuatro bares junto a Sol</h2>
+    <p>
+      Domingo 8 nov: punto de encuentro junto a Sol, no un recinto de fútbol inglés.
+      O’Reilly’s, Dubliners, O’Connell’s y Four Corner están a pocos minutos de la Puerta del Sol.
+      Preguntad en barra qué hay en pantalla — no está cada partido en cada pantalla.
+      Four Corner abre a las <strong>14:00</strong> con pantallas de deporte; no listamos qué echan.
+      Independientes. Sin descuentos ni reservas inventadas.
+    </p>
+
+    <h3>O'Reilly's Restaurant Bar</h3>
+    <p>
+      Pasaje de Matheu 4, 28012 Madrid.<br />
+      Restaurante-bar con terraza. Horario habitual: todos los días 11:30–01:30 — también el domingo.
+      Punto de encuentro; no listamos aquí su programación de Premier League.<br />
+      <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>Dubliners</h3>
+    <p>
+      Calle de Espoz y Mina 7, 28012 Madrid.<br />
+      Pub irlandés. Domingo 8 de noviembre: abre desde las <strong>12:00</strong> (hasta las 02:00).
+      El tablero de What’s On ya marca la Premier League del domingo en estas pantallas, junto a
+      Bengals–Falcons 15:30, la jornada NFL y Atlético–Barcelona 21:00. Pregunta qué echan.<br />
+      <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>O'Connell's</h3>
+    <p>
+      Calle de Espoz y Mina 7, 28012 Madrid (misma calle que Dubliners; en Maps figura como O'Connell St).<br />
+      Pub irlandés deportivo. Horario habitual domingo 14:00–03:00;
+      <strong>excepción domingo 8 nov: abren desde las 12:00</strong>. Punto de encuentro; no listamos aquí su programación.<br />
+      <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>Four Corner</h3>
+    <p>
+      Calle de la Victoria 6, 28012 Madrid.<br />
+      Bar hermano con pantallas de deporte. Domingo 8 de noviembre: <strong>abre a las 14:00 hasta la madrugada</strong> — no a las 12:00.
+      Apertura confirmada. Tiene pantallas de deporte; no listamos qué partidos echan.<br />
+      <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+  </>
+) : (
+  <>
+    <h2>The four bars near Sol</h2>
+    <p>
+      Sunday 8 Nov: a meeting point near Sol, not an English-football stadium.
+      O’Reilly’s, Dubliners, O’Connell’s and Four Corner sit a few minutes from Puerta del Sol.
+      Ask at the bar which game is on — not every game is on every screen.
+      Four Corner opens at <strong>14:00</strong> with sports screens; we do not list which games it shows.
+      Independent pubs. No invented discounts or bookings.
+    </p>
+
+    <h3>O'Reilly's Restaurant Bar</h3>
+    <p>
+      Pasaje de Matheu 4, 28012 Madrid.<br />
+      Restaurant-bar with terrace. Usual hours: daily 11:30–01:30 — including Sunday.
+      Meeting point; we do not list its Premier League broadcasts here.<br />
+      <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>Dubliners</h3>
+    <p>
+      Calle de Espoz y Mina 7, 28012 Madrid.<br />
+      Irish pub. Sunday 8 November: open from <strong>12:00</strong> (until 02:00).
+      The live What’s On board already lists Sunday’s Premier League on these screens, alongside
+      Bengals–Falcons 15:30, the NFL windows and Atlético–Barcelona 21:00. Ask which game is on.<br />
+      <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>O'Connell's</h3>
+    <p>
+      Calle de Espoz y Mina 7, 28012 Madrid (same street as Dubliners; Maps listing: O'Connell St).<br />
+      Irish sports pub. Usual Sunday hours 14:00–03:00;
+      <strong>exception Sunday 8 Nov: open from 12:00</strong>. Meeting point; we do not list its broadcasts here.<br />
+      <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+
+    <h3>Four Corner</h3>
+    <p>
+      Calle de la Victoria 6, 28012 Madrid.<br />
+      Sister bar with sports screens. Sunday 8 November: <strong>opens at 14:00 until late</strong> — not 12:00.
+      Opening confirmed. It has sports screens; we do not list which games it shows.<br />
+      <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Google Maps</a>
+    </p>
+  </>
+)}
+</section>

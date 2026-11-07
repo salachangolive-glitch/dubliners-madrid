@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import PremierSundayVenues from '../../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/man-utd-villa-sol-8-nov/';
+const PATH_EN = '/man-utd-villa-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Manchester United vs Aston Villa junto a Sol a las 17:30, domingo 8 de noviembre',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿A qué hora es Manchester United vs Aston Villa el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A las 17:30 hora de Madrid. Está en el tablero de Partidos de Dubliners. Queda después del bloque Premier de las 15:00 y del partido NFL a las 15:30, y antes de la NFL desde las 19:00 y Atlético–Barcelona a las 21:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedar junto a Sol si sois del United o del Villa?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cuatro bares hermanos: O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7, desde las 12:00), Four Corner (Victoria 6, desde las 14:00 hasta la madrugada, pantallas de deporte). Listado con nombre United–Villa: Dubliners. Pregunta qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Las 17:30 siguen chocando con otro deporte?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. La NFL de tarde puede seguir en una pantalla. La NFL de noche empieza a las 19:00; Atlético–Barcelona es a las 21:00. No está cada partido en cada pantalla. Nombrad United o Villa al sentaros.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="United–Villa a las 17:30 junto a Sol, domingo 8 nov | Dubliners"
+  description="Domingo 8 nov 17:30: Manchester United vs Aston Villa junto a Sol. Después de la Premier a las 15:00 y la NFL a las 15:30, antes de la NFL 19:00 y Atleti–Barça 21:00. Cuatro bares. Pregunta qué echan."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="United–Villa a las 17:30" lang="es" schema />
+      <h1>Manchester United vs Aston Villa junto a Sol a las 17:30</h1>
+      <p class="lead">
+        El domingo 8 de noviembre a las 17:30 es el partido inglés que cae en el hueco:
+        después de las cuatro Premier League de las 15:00 y del partido NFL a las 15:30, antes de la NFL desde las 19:00
+        y Atlético vs Barcelona a las 21:00. Turistas y camisetas del United o del Villa podéis quedaros en Sol.
+        Dubliners ya lista este kick-off en Partidos. <strong>Preguntad qué echan.</strong>
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">United–Villa at 17:30 near Sol</a></p>
+      <FanWeekendCtas lang="es" findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Las 17:30 son un hueco, no un pub vacío</h2>
+        <p>
+          El final de las 15:00 cae hacia las 16:45–17:00. United–Villa arranca a las 17:30.
+          Alguna pantalla puede seguir en Bengals–Falcons. Algún grupo ya guarda mesa para la NFL de las 19:00
+          o para <a href={withBase('/es/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona a las 21:00</a>.
+          Por eso se dice “United” o “Villa” en barra — no se asume que la pantalla más cercana ha cambiado por vosotros.
+        </p>
+        <p>
+          Esto no es una segunda copia del tablero de Premier del domingo. El bloque de las 15:00 tiene su página.
+          Las 17:30 son el único kick-off inglés más tarde este domingo. Dubliners abre 12:00–02:00, así que el partido
+          cabe en el horario. Four Corner lleva abierto desde las 14:00 con pantallas de deporte; seguimos sin listar
+          United–Villa ahí. O’Reilly’s (horario habitual 11:30–01:30) y O’Connell’s (desde las 12:00 este domingo) siguen siendo puntos de encuentro.
+        </p>
+        <p>
+          Después de las 17:30, la noche es de los
+          <a href={withBase('/es/nfl-tarde-noche-sol-8-nov/')}>relojes de NFL de tarde y de noche</a>
+          (19:00, 22:05, 22:25) y de Atleti–Barça a las 21:00. Quedaos en las mismas cuatro puertas. Esta página no sustituye
+          esas campañas — se camina entre ellas.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="es" />
+
+      <p class="small">
+        Pubs irlandeses independientes junto a Sol. No es un evento oficial de club ni de la NFL. Listado con nombre United–Villa: Partidos de Dubliners.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿A qué hora es Manchester United vs Aston Villa el domingo 8 de noviembre?</strong></dt>
+        <dd>A las 17:30 hora de Madrid, en Partidos de Dubliners. Después de la Premier 15:00 y la NFL 15:30; antes de la NFL 19:00 y Atleti–Barça 21:00.</dd>
+        <dt><strong>¿Dónde quedar junto a Sol si sois del United o del Villa?</strong></dt>
+        <dd>Cuatro bares hermanos alrededor de Sol. Listado con nombre: Dubliners. Four Corner desde las 14:00 con pantallas de deporte; no listamos qué echan.</dd>
+        <dt><strong>¿Las 17:30 siguen chocando con otro deporte?</strong></dt>
+        <dd>Sí. Pregunta en barra. No está cada partido en cada pantalla.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/premier-league-domingo-sol-8-nov/', label: 'Premier League domingo junto a Sol' },
+              { href: '/es/futbol-ingles-1500-sol-8-nov/', label: 'Cuatro a las 15:00 y el partido NFL a las 15:30' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol, 21:00' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'United–Villa at 17:30', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

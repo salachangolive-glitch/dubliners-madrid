@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import PremierSundayVenues from '../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/man-utd-villa-sol-8-nov/';
+const PATH_ES = '/es/man-utd-villa-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Manchester United vs Aston Villa near Sol at 17:30, Sunday 8 November',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When is Manchester United vs Aston Villa on Sunday 8 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '17:30 Madrid time. It is on the live Dubliners What’s On board. It sits after the 15:00 Premier League cluster and the 15:30 NFL Game, and before NFL from 19:00 and Atlético–Barcelona at 21:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where should United or Villa fans meet near Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four sister bars: O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell’s (Espoz y Mina 7, from 12:00), Four Corner (Victoria 6, from 14:00 until late, sports screens). Named United–Villa listing: Dubliners. Ask which game is on.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will 17:30 still clash with other sport?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Afternoon NFL may still be on a screen. Evening NFL starts at 19:00; Atlético–Barcelona is at 21:00. Not every game is on every screen. Name United or Villa when you sit down.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="United–Villa at 17:30 near Sol, Sunday 8 Nov | Dubliners"
+  description="Sunday 8 Nov 17:30: Manchester United vs Aston Villa near Sol. After 15:00 Premier League and 15:30 NFL, before 19:00 NFL and Atleti–Barça 21:00. Four bars. Ask which game is on."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="United–Villa at 17:30" schema />
+      <h1>Manchester United vs Aston Villa near Sol at 17:30</h1>
+      <p class="lead">
+        Sunday 8 November at 17:30 is the English game that sits in the gap:
+        after four Premier League 15:00s and the 15:30 NFL Game, before NFL from 19:00
+        and Atlético vs Barcelona at 21:00. Tourists and United or Villa shirts can stay in Sol.
+        Dubliners already lists this kick-off on What’s On. <strong>Ask which game is on.</strong>
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">United–Villa a las 17:30 junto a Sol</a></p>
+      <FanWeekendCtas findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>17:30 is a gap, not an empty pub</h2>
+        <p>
+          Full time on the 15:00s lands around 16:45–17:00. United–Villa then starts at 17:30.
+          Some screens may still be on Bengals–Falcons. Some groups will already be holding a table for 19:00 NFL
+          or for <a href={withBase('/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona at 21:00</a>.
+          That is the point of saying “United” or “Villa” at the bar — not assuming the nearest screen flipped for you.
+        </p>
+        <p>
+          This is not a second copy of the Sunday Premier League board. The 15:00 cluster has its own page.
+          17:30 is the only later English kick-off on this Sunday. Dubliners is open 12:00–02:00, so the match
+          fits inside opening hours. Four Corner has been open since 14:00 with sports screens; we still do not
+          list United–Villa there. O’Reilly’s (usual 11:30–01:30) and O’Connell’s (from 12:00 this Sunday) stay meeting points.
+        </p>
+        <p>
+          After 17:30, the night belongs to the
+          <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>afternoon and evening NFL clocks</a>
+          (19:00, 22:05, 22:25) and to Atleti–Barça at 21:00. Stay on the same four doors. Do not replace those campaigns
+          with this page — walk between them.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="en" />
+
+      <p class="small">
+        Independent Irish pubs near Sol. Not an official club or NFL event. Named United–Villa listing: Dubliners What’s On.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Manchester United vs Aston Villa on Sunday 8 November?</strong></dt>
+        <dd>17:30 Madrid time, on Dubliners What’s On. After 15:00 Premier League and 15:30 NFL; before 19:00 NFL and Atleti–Barça 21:00.</dd>
+        <dt><strong>Where should United or Villa fans meet near Sol?</strong></dt>
+        <dd>Four sister bars around Sol. Named listing: Dubliners. Four Corner from 14:00 with sports screens; we do not list its games.</dd>
+        <dt><strong>Will 17:30 still clash with other sport?</strong></dt>
+        <dd>Yes. Ask at the bar. Not every game is on every screen.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/premier-league-sunday-sol-8-nov/', label: 'Premier League Sunday near Sol' },
+              { href: '/english-football-1500-sol-8-nov/', label: 'Four 15:00s and the 15:30 NFL Game' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL' },
+              { href: '/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona near Sol, 21:00' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'United–Villa a las 17:30', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import PremierSundayVenues from '../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/premier-league-sunday-sol-8-nov/';
+const PATH_ES = '/es/premier-league-domingo-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Premier League Sunday near Sol, 8 November: five English games, four bars',
+  inLanguage: 'en',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which Premier League games are on Sunday 8 November in Madrid time?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '15:00: Crystal Palace vs Liverpool, Sunderland vs Chelsea, Brighton vs Brentford, Ipswich Town vs Bournemouth. 17:30: Manchester United vs Aston Villa. Dubliners lists them on the live What’s On board. Ask which game is on — NFL at 15:30 and 19:00 overlaps the same afternoon.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can English fans meet near Sol to watch?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four sister bars: O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell’s (Espoz y Mina 7, from 12:00), Four Corner (Victoria 6, from 14:00 until late, sports screens). Named Premier League listings are at Dubliners. We do not invent the other three bars’ boards.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is every Premier League game on every screen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four 15:00 kick-offs sit next to Bengals–Falcons at 15:30. United–Villa at 17:30 sits before NFL from 19:00 and Atlético–Barcelona at 21:00. Ask at the bar which game is on.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Premier League Sunday near Sol, 8 Nov | Dubliners"
+  description="Sunday 8 Nov Premier League near Sol: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth 15:00, United–Villa 17:30. Four bars, maps. Ask which game is on."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Premier League Sunday near Sol" schema />
+      <h1>Premier League Sunday near Sol: five English games, four bars</h1>
+      <p class="lead">
+        If you are an English fan or a tourist looking for a sports bar in Madrid on Sunday 8 November,
+        start at Sol — not at a stadium. Four sister Irish bars sit a few minutes from the plaza.
+        Dubliners’ live What’s On board already lists Sunday’s Premier League on our screens.
+        The same afternoon also has NFL at 15:30 and from 19:00, then Atlético vs Barcelona at 21:00.
+        <strong>Ask which game is on. Not every game is on every screen.</strong>
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Premier League domingo junto a Sol</a></p>
+      <FanWeekendCtas findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Sunday 8 November — English football (Madrid time)</h2>
+        <p>
+          This is not a clone of the evergreen Premier League pub page. It is this Sunday’s board,
+          for people already in centro who want a pint and a screen without leaving Sol.
+        </p>
+        <table>
+          <thead>
+            <tr><th>Madrid time</th><th>Fixture</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>15:00</td><td>Crystal Palace vs Liverpool</td></tr>
+            <tr><td>15:00</td><td>Sunderland vs Chelsea</td></tr>
+            <tr><td>15:00</td><td>Brighton vs Brentford</td></tr>
+            <tr><td>15:00</td><td>Ipswich Town vs Bournemouth</td></tr>
+            <tr><td>17:30</td><td>Manchester United vs Aston Villa</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Those five already sit on <a href={withBase('/whats-on/')}>What’s On</a> as confirmed Dubliners screens.
+          Four of them kick off together. Thirty minutes later the NFL Madrid Game (Bengals vs Falcons) starts at 15:30
+          — LIVE on our big screen. That is why you name the team at the bar. A pub is not a broadcast centre.
+        </p>
+        <p>
+          The 17:30 United–Villa game is the gap after the 15:00 cluster and before NFL from 19:00
+          and Atlético–Barcelona at 21:00. Stay in the same streets. Do not treat this page as a replacement for
+          the <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>afternoon and evening NFL</a> or
+          <a href={withBase('/atletico-barcelona-sol-8-nov/')}>Atlético–Barcelona near Sol</a> guides — those clocks are still on.
+        </p>
+        <p>
+          Four Corner, Calle de la Victoria 6, opens Sunday from <strong>14:00 until late</strong> and has sports screens.
+          We do not list which Premier League games it shows. O’Reilly’s and O’Connell’s are meeting points on the same block;
+          we do not invent their boards.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="en" />
+
+      <p class="small">
+        Independent Irish pubs near Sol. Not an official Premier League or NFL event. No third-party venues.
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Which Premier League games are on Sunday 8 November in Madrid time?</strong></dt>
+        <dd>15:00: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. 17:30: United–Villa. Listed on Dubliners What’s On. Ask which game is on.</dd>
+        <dt><strong>Where can English fans meet near Sol to watch?</strong></dt>
+        <dd>Four sister bars around Sol. Named Premier League listings: Dubliners. Four Corner from 14:00 with sports screens; we do not list its games.</dd>
+        <dt><strong>Is every Premier League game on every screen?</strong></dt>
+        <dd>No. NFL 15:30 and 19:00 and Atlético–Barcelona 21:00 share the day. Ask at the bar.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday 8 November near Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/english-football-1500-sol-8-nov/', label: 'Four 15:00s and the 15:30 NFL Game' },
+              { href: '/man-utd-villa-sol-8-nov/', label: 'United–Villa at 17:30 near Sol' },
+              { href: '/afternoon-evening-nfl-sol-8-nov/', label: 'Afternoon and evening NFL' },
+              { href: '/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona near Sol, 21:00' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00' },
+              { href: '/whats-on/', label: "What's On", note: 'Dubliners kick-off table' },
+              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend' },
+              { href: PATH_ES, label: 'Premier League domingo junto a Sol', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

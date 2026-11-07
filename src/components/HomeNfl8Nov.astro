@@ -36,6 +36,7 @@ const slots = slotDefs
   .filter((d) => d.games.length > 0);
 const guideHref = es ? '/es/guia-domingo-nfl-madrid/' : '/nfl-sunday-madrid-guide/';
 const agendaHref = es ? '/es/partidos/' : '/whats-on/';
+const hubHref = es ? '/es/cuatro-bares-fin-de-semana/' : '/4-bars-one-fan-weekend/';
 ---
 
 <section class="section band-gold home-nfl8" id={es ? 'nfl-domingo-8-noviembre' : 'nfl-sunday-8-november'} data-show-until={SHOW_UNTIL} data-home-block="nfl-8nov">
@@ -68,8 +69,9 @@ const agendaHref = es ? '/es/partidos/' : '/whats-on/';
     <p class="small">
       <a href={NFL_SCHEDULE_URL} target="_blank" rel="noopener">{es ? 'Ver el calendario completo en nfl.com' : 'Full schedule on nfl.com'}</a>
     </p>
-    <p class="small">{es ? 'Domingo abierto de 12:00 a 02:00.' : 'Open Sunday 12:00–02:00.'}</p>
+    <p class="small">{es ? 'Dubliners: domingo abierto de 12:00 a 02:00. Four Corner: domingo 8 nov desde las 14:00.' : 'Dubliners: open Sunday 12:00–02:00. Four Corner: Sunday 8 Nov from 14:00.'}</p>
     <div class="cta-row">
+      <a class="btn btn-gold" href={withBase(hubHref)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
       <a class="btn btn-primary" href={withBase(guideHref)}>{es ? 'Guía del domingo NFL' : 'NFL Sunday guide'}</a>
       <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(agendaHref)}>{es ? 'Agenda completa' : 'Full What’s On'}</a>
     </div>

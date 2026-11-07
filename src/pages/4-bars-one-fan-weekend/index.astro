@@ -5,6 +5,8 @@ import LinkHub from '../../components/LinkHub.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { withBase } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
 
 // Campaign landing: 4 BARS. ONE FAN WEEKEND. Owner correction 6 Nov 2026 15:48.
@@ -45,8 +47,8 @@ const faqLd = {
 ---
 
 <BaseLayout
-  title="4 Bars. One Fan Weekend · NFL Madrid near Sol | Dubliners"
-  description="Four sister bars, one meeting point near Puerta del Sol for NFL Madrid: O'Reilly's, Dubliners, O'Connell St and Four Corner. Sunday from 12:00 at Dubliners."
+  title="4 BARS. ONE FAN WEEKEND. | NFL Madrid near Sol — Dubliners"
+  description="Four bars near Sol, 7–8 Nov: O'Reilly's, Dubliners, O'Connell's and Four Corner. Addresses, Maps, hours. Sunday: Dubliners from 12:00, Four Corner from 14:00."
   path={path}
   lang="en"
   hreflang={{ en: path, es: '/es/cuatro-bares-fin-de-semana/' }}
@@ -56,19 +58,22 @@ const faqLd = {
   <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
     <div class="container">
       <Breadcrumb current="4 Bars. One Fan Weekend" schema />
-      <h1>4 Bars. One Fan Weekend</h1>
+      <h1>4 BARS. ONE FAN WEEKEND.</h1>
       <p class="lead">
         <strong>NFL Madrid 2026 — 7 &amp; 8 November.</strong> Four sister bars a short walk from Puerta del Sol —
         <strong>one fan meeting point</strong> for the weekend, not four separate nights out.
       </p>
       <p class="small">Friday 6 · Saturday 7 · Sunday 8 November 2026 · Near Puerta del Sol</p>
       <p class="small">En español: <a href={withBase('/es/cuatro-bares-fin-de-semana/')} hreflang="es" lang="es">Cuatro bares. Un gran fin de semana deportivo</a></p>
+      <FanWeekendCtas lang="en" findHref="#meet-us-near-sol" />
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
         <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL at Dubliners</a>
       </div>
     </div>
   </section>
+
+  <FourBarsMeet lang="en" compact />
 
   <section class="section">
     <div class="container prose">
@@ -87,7 +92,7 @@ const faqLd = {
         more NFL from 19:00, and Atlético vs Barcelona at 21:00 on our screens.
       </p>
 
-      <h2>The four sister bars</h2>
+      <h2 id="the-four-sister-bars">FIND US · The four sister bars</h2>
       <p>Each has its own character. All sit within a few minutes of Puerta del Sol.</p>
 
       <h3>O'Reilly's Restaurant Bar</h3>
@@ -175,16 +180,28 @@ const faqLd = {
         heading="h2"
         groups={[
           {
-            title: 'NFL at Dubliners',
+            title: 'Saturday 7 November',
+            until: SHOW_UNTIL,
             items: [
+              { href: '/saturday-sunday-sol-four-bars/', label: 'Saturday and Sunday in Sol', note: 'A fan’s route through four bars', until: SHOW_UNTIL },
+              { href: '/nfl-madrid-four-sister-bars/', label: 'Four sister bars near Sol', note: 'The collective meeting point', until: SHOW_UNTIL },
+              { href: '/whats-on/', label: "What's On", note: 'Confirmed Saturday fixtures' },
+            ],
+          },
+          {
+            title: 'Sunday 8 November',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'NFL + Atlético–Barça, 8 Nov', until: SHOW_UNTIL },
+              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday hour-by-hour guide' },
               { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday schedule LIVE' },
               { href: '/where-to-watch-nfl-madrid/', label: 'Where to watch NFL in Madrid', note: 'Near Puerta del Sol' },
-              { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'NFL + Atlético–Barça, 8 Nov', until: SHOW_UNTIL },
-              { href: '/nfl-madrid-four-sister-bars/', label: 'Four sister bars near Sol', note: 'The collective meeting point', until: SHOW_UNTIL },
-              { href: '/saturday-sunday-sol-four-bars/', label: "Saturday and Sunday in Sol", note: 'A fan’s route through four bars', until: SHOW_UNTIL },
-              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday hour-by-hour guide' },
-              { href: '/whats-on/', label: "What's On", note: 'Confirmed fixtures' },
-              { href: '/visit/', label: 'Hours & map' },
+            ],
+          },
+          {
+            title: 'Find us',
+            items: [
+              { href: '/visit/', label: 'FIND US', note: 'Hours & map' },
               { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares · fin de semana', note: 'En español', hreflang: 'es', lang: 'es' },
             ],
           },

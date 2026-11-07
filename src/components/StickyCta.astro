@@ -1,6 +1,12 @@
 ---
 import { SITE, withBase } from '../site';
 import { type Lang, t } from '../i18n';
+import {
+  FAN_WEEKEND_HUB,
+  FOUR_BARS_MAPS,
+  SHOW_UNTIL_FAN_WEEKEND,
+  isFanWeekendLive,
+} from '../data/fourBars';
 
 interface Props {
   lang?: Lang;
@@ -9,14 +15,26 @@ const { lang = 'en' } = Astro.props;
 const copy = t(lang);
 const whatsOnHref = lang === 'es' ? '/es/partidos/' : '/whats-on/';
 const contactHref = lang === 'es' ? '/es/contacto/' : '/contact/';
+const visitHref = lang === 'es' ? '/es/visitar/' : '/visit/';
+const showFanWeekend = isFanWeekendLive();
 ---
 
 <div class="sticky-cta" data-track-location="sticky" role="region" aria-label={lang === 'es' ? 'Acciones rápidas' : 'Quick actions'}>
-  <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
-  <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
-  {SITE.publicEmail ? (
-    <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>
+  {showFanWeekend ? (
+    <>
+      <a class="btn btn-secondary" href={withBase(FAN_WEEKEND_HUB[lang])} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>{lang === 'es' ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+      <a class="btn btn-gold" data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-show-until={SHOW_UNTIL_FAN_WEEKEND}>{lang === 'es' ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}</a>
+      <a class="btn btn-primary" href={withBase(visitHref)} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>FIND US</a>
+    </>
   ) : (
-    <a class="btn btn-primary" href="#hours">{copy.openingHours}</a>
+    <>
+      <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(whatsOnHref)}>{copy.whatsOn}</a>
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
+      {SITE.publicEmail ? (
+        <a class="btn btn-primary" href={withBase(contactHref)}>{copy.contact}</a>
+      ) : (
+        <a class="btn btn-primary" href="#hours">{copy.openingHours}</a>
+      )}
+    </>
   )}
 </div>

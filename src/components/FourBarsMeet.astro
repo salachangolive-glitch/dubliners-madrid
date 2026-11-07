@@ -1,0 +1,89 @@
+---
+/**
+ * Four names + addresses + individual Maps links + confirmed hours.
+ * Sunday hours advertised from Saturday. Four Corner Sunday from 14:00 only.
+ */
+import { withBase } from '../site';
+import {
+  FAN_WEEKEND_HUB,
+  FAN_WEEKEND_NFL_GUIDE,
+  FAN_WEEKEND_SATURDAY,
+  FAN_WEEKEND_SUNDAY,
+  FOUR_BARS,
+  SHOW_UNTIL_FAN_WEEKEND,
+} from '../data/fourBars';
+
+interface Props {
+  lang?: 'en' | 'es';
+  heading?: 'h1' | 'h2';
+  /** Hide the self-link when this block already sits on the hub. */
+  compact?: boolean;
+}
+const { lang = 'en', heading = 'h2', compact = false } = Astro.props;
+const es = lang === 'es';
+const H = heading;
+---
+
+<section class="section band-gold four-bars-meet" id={es ? 'punto-de-encuentro-sol' : 'meet-us-near-sol'} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>
+  <div class="container">
+    <p class="four-bars-meet__kicker">4 BARS. ONE FAN WEEKEND.</p>
+    <H class="four-bars-meet__title">{es ? 'Cuatro bares junto a Sol — sábado 7 y domingo 8 nov' : 'Four bars near Sol — Saturday 7 & Sunday 8 Nov'}</H>
+    <p>
+      {es
+        ? 'Hoy sábado: punto de encuentro junto a Sol en O\'Reilly\'s, Dubliners y O\'Connell\'s (horario de cada local). Four Corner entra el domingo desde las 14:00. El domingo se anuncia ya hoy. No es un evento oficial de la NFL.'
+        : 'This Saturday: meet near Sol at O\'Reilly\'s, Dubliners and O\'Connell\'s (each bar\'s own hours). Four Corner joins Sunday from 14:00. Sunday is advertised from Saturday. Not an official NFL event.'}
+    </p>
+    <div class="card-grid cols-4">
+      {FOUR_BARS.map((bar) => (
+        <article class="card four-bars-meet__card">
+          <h3>{bar.name}</h3>
+          <p class="four-bars-meet__addr">{bar.address}</p>
+          <p class="four-bars-meet__hours">{es ? bar.hoursEs : bar.hoursEn}</p>
+          <a class="btn btn-gold" data-track-event="directions_click" href={bar.maps} rel="noopener noreferrer" target="_blank">
+            {es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="four-bars-meet__links">
+      {!compact && (
+        <>
+          <a href={withBase(FAN_WEEKEND_HUB[lang])}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+          {' · '}
+        </>
+      )}
+      <a href={withBase(FAN_WEEKEND_SATURDAY[lang])}>{es ? 'Sábado en Sol' : 'Saturday in Sol'}</a>
+      {' · '}
+      <a href={withBase(FAN_WEEKEND_SUNDAY[lang])}>{es ? 'Domingo en Sol' : 'Sunday sports in Sol'}</a>
+      {' · '}
+      <a href={withBase(FAN_WEEKEND_NFL_GUIDE[lang])}>{es ? 'Guía NFL del domingo' : 'NFL Sunday guide'}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .four-bars-meet__kicker {
+    margin: 0 0 0.35rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--accent-2);
+    font-size: 0.95rem;
+  }
+  .four-bars-meet__title { margin-top: 0; }
+  .four-bars-meet__addr,
+  .four-bars-meet__hours {
+    margin: 0 0 0.55rem;
+    color: var(--muted);
+  }
+  .four-bars-meet__hours { font-weight: 600; color: var(--text); }
+  .four-bars-meet__card .btn { width: 100%; min-height: 44px; }
+  .four-bars-meet__links {
+    margin: 1.25rem 0 0;
+    font-weight: 600;
+  }
+  @media (min-width: 1000px) {
+    .card-grid.cols-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

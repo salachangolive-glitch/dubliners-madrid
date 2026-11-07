@@ -1,6 +1,13 @@
 ---
 import { SITE, withBase } from '../site';
 import { type Lang, navLinks, t, alternatePath, normalizePath } from '../i18n';
+import FanWeekendBanner from './FanWeekendBanner.astro';
+import {
+  FAN_WEEKEND_HUB,
+  FOUR_BARS_MAPS,
+  SHOW_UNTIL_FAN_WEEKEND,
+  isFanWeekendLive,
+} from '../data/fourBars';
 
 interface Props {
   lang?: Lang;
@@ -16,6 +23,9 @@ const isErrorPage = ['/404/', '/es/404/'].includes(normalizePath(path));
 const enHref = isErrorPage ? withBase('/') : lang === 'en' ? withBase(path) : withBase(alt);
 const esHref = isErrorPage ? withBase('/es/') : lang === 'es' ? withBase(path) : withBase(alt);
 const logoHref = withBase(lang === 'es' ? '/es/' : '/');
+const showFanWeekend = isFanWeekendLive();
+const hubHref = FAN_WEEKEND_HUB[lang];
+const visitHref = lang === 'es' ? '/es/visitar/' : '/visit/';
 ---
 
 <header class="site-header" data-track-location="header">
@@ -25,6 +35,9 @@ const logoHref = withBase(lang === 'es' ? '/es/' : '/');
       {links.map((l) => (
         <a href={withBase(l.href)}>{l.label}</a>
       ))}
+      {showFanWeekend && (
+        <a class="nav-fan-weekend" href={withBase(hubHref)} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>{lang === 'es' ? 'Cuatro bares' : '4 Bars'}</a>
+      )}
       <span class="lang-sel" aria-label={lang === 'es' ? 'Idioma' : 'Language'}>
         <a href={enHref} class:list={[{ active: lang === 'en' }]} hreflang="en" lang="en">EN</a>
         <span aria-hidden="true">|</span>
@@ -46,8 +59,16 @@ const logoHref = withBase(lang === 'es' ? '/es/' : '/');
     {links.map((l) => (
       <a href={withBase(l.href)}>{l.label}</a>
     ))}
+    {showFanWeekend && (
+      <>
+        <a href={withBase(hubHref)} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>{lang === 'es' ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+        <a href={withBase(visitHref)} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>FIND US</a>
+        <a data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-show-until={SHOW_UNTIL_FAN_WEEKEND}>{lang === 'es' ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}</a>
+      </>
+    )}
     <a data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{copy.directions}</a>
   </nav>
+  {showFanWeekend && <FanWeekendBanner lang={lang} />}
 </header>
 <script>
   const btn = document.getElementById('menu-btn');

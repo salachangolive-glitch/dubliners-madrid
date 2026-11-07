@@ -9,11 +9,18 @@ import HomeNfl8Nov from '../../components/HomeNfl8Nov.astro'; // TEMP NFL 8 Nov 
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
-const title = 'Pub irlandés Madrid cerca de Sol | Fútbol, NFL y rugby — Dubliners';
-const description =
-  'Pub irlandés en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.';
 import { madridToday } from '../../data/fixtures';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
 const todayKey = madridToday();
+const fanWeekend = todayKey <= SHOW_UNTIL_FAN_WEEKEND;
+const title = fanWeekend
+  ? 'CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO. | NFL Madrid cerca de Sol'
+  : 'Pub irlandés Madrid cerca de Sol | Fútbol, NFL y rugby — Dubliners';
+const description = fanWeekend
+  ? "Cuatro bares junto a Sol, 7–8 nov: O'Reilly's, Dubliners, O'Connell's y Four Corner. Mapas y horarios. Domingo: Dubliners 12:00, Four Corner 14:00."
+  : 'Pub irlandés en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg" website>
@@ -58,9 +65,11 @@ const todayKey = madridToday();
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
       </p>
-      <CtaRow lang="es" showWednesday={false} />
+      {fanWeekend ? <FanWeekendCtas lang="es" findHref="#find-us" /> : <CtaRow lang="es" showWednesday={false} />}
     </div>
   </section>
+
+  {fanWeekend && <FourBarsMeet lang="es" />}
 
   <!-- 3rd block (owner 30 Oct 01:23): NFL Sunday 8 Nov — TEMP, remove Mon 9 Nov -->
 
@@ -153,8 +162,11 @@ const todayKey = madridToday();
             title: 'NFL y deportes americanos',
             id: 'nfl-deportes-americanos',
             items: [
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES', note: 'Cuatro bares junto a Sol, 7–8 nov', until: '2026-11-08' },
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Partidos del domingo en nuestras pantallas' },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
+              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'Ruta por cuatro bares', until: '2026-11-08' },
+              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: '2026-11-08' },
             ],
           },
           {
@@ -292,7 +304,7 @@ const todayKey = madridToday();
   <section class="section">
     <div class="container split">
       <div>
-        <h2>Dónde estamos</h2>
+        <h2 id="find-us">FIND US · Dónde estamos</h2>
         <p>
           Calle de Espoz y Mina 7, 28012 Madrid — a un paseo de Sol.
           Metro: Sol o Sevilla.

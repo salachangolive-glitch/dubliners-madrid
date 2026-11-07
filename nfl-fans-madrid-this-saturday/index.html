@@ -71,8 +71,11 @@
   </nav>
   <div class="fan-weekend-banner" data-show-until="2026-11-08" data-track-location="fan-weekend-banner" data-astro-cid-7ms3zkcr>
   <p class="fan-weekend-banner__slogan" data-astro-cid-7ms3zkcr>4 BARS. ONE FAN WEEKEND.</p>
+  <p class="fan-weekend-banner__sub" data-show-until="2026-11-07" data-astro-cid-7ms3zkcr>
+    Tonight 18:00–19:00: O’Reilly’s, Dubliners and O’Connell’s. Four Corner is not open tonight.
+  </p>
   <p class="fan-weekend-banner__sub" data-astro-cid-7ms3zkcr>
-    Saturday 7 &amp; Sunday 8 Nov near Sol. Sunday: Dubliners from 12:00 · Four Corner from 14:00.
+    Sunday 8 Nov: Dubliners from 12:00 · Four Corner from 14:00 (sports screens).
   </p>
   <div class="fan-weekend-banner__ctas" data-astro-cid-7ms3zkcr>
     <a class="btn btn-primary" href="/4-bars-one-fan-weekend/" data-astro-cid-7ms3zkcr>MEET US NEAR SOL</a>
@@ -92,7 +95,8 @@
       <h1>NFL fans in Madrid this Saturday</h1>
       <p class="lead">
         The weekend is already here. <strong>There is no official NFL game today</strong> —
-        Sunday is the Madrid Game at the Bernabéu. Saturday 7 November is the meetup:
+        Sunday is the Madrid Game at the Bernabéu. Saturday 7 November is the meetup
+        <strong>18:00–19:00</strong> at O’Reilly’s, Dubliners and O’Connell’s:
         an international crowd, English-speaking rooms, screens, afternoon into evening, a few minutes from Puerta del Sol.
       </p>
       <p class="small">4 BARS. ONE FAN WEEKEND. Independent sister bars. Not an official NFL event.</p>
@@ -107,10 +111,17 @@
 
   <section class="section">
     <div class="container prose">
+      <h2>Tonight 18:00–19:00</h2>
+      <p>
+        Meet <strong>18:00–19:00</strong> at O’Reilly’s (Pasaje de Matheu 4), Dubliners or O’Connell’s (Espoz y Mina 7) —
+        three rooms, one pocket south-east of Sol. All three are already open by then
+        (O’Reilly’s from 11:30, Dubliners from 12:00, O’Connell’s from 15:00).
+        Four Corner is <strong>not open Saturday</strong>. Sunday’s kick-off can wait until tomorrow.
+      </p>
+
       <h2>Today: three bars near Sol</h2>
       <p>
         Lead with the rooms that have Saturday hours. Meet in one pocket, not four separate plans.
-        Sunday’s kick-off can wait until tomorrow.
       </p>
 
       <h3>O'Reilly's Restaurant Bar</h3>
@@ -138,7 +149,8 @@
       <h2>Four Corner — Sunday from 14:00</h2>
       <p>
         Four Corner, Calle de la Victoria 6, 28012 Madrid, is part of the same meeting point.
-        Confirmed: <strong>Sunday 8 November from 14:00 until late</strong>. We do not list Saturday hours or broadcasts there.
+        Confirmed: <strong>Sunday 8 November from 14:00 until late</strong>, with sports screens.
+        We do not list Saturday hours or which games it shows.
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Four+Corner+Calle+de+la+Victoria+6+28012+Madrid" rel="noopener noreferrer" target="_blank">Four Corner on Google Maps</a>
       </p>
 
@@ -161,8 +173,10 @@
       <dl class="faq">
         <dt><strong>Is there live NFL today?</strong></dt>
         <dd>No. No official NFL game on Saturday. The Madrid Game is Sunday 15:30.</dd>
+        <dt><strong>When is tonight’s meetup?</strong></dt>
+        <dd>18:00–19:00 at O’Reilly’s, Dubliners or O’Connell’s. Four Corner is not open Saturday.</dd>
         <dt><strong>Which bars are open today?</strong></dt>
-        <dd>O'Reilly's 11:30–01:30, Dubliners 12:00–02:30, O'Connell's Saturday 15:00–03:30. Four Corner: Sunday from 14:00.</dd>
+        <dd>O'Reilly's 11:30–01:30, Dubliners 12:00–02:30, O'Connell's Saturday 15:00–03:30. Four Corner: Sunday from 14:00 (sports screens).</dd>
         <dt><strong>Are these bars official NFL?</strong></dt>
         <dd>No. Independent sister bars. Not an official NFL event.</dd>
       </dl>
@@ -549,5 +563,64 @@ const emailTrackingEnabled = true;
         track('contact_submit', { language, page_path });
       });
     })();</script>
+    <script>
+(function () {
+  function madridTodayYmd(now) {
+    try {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(now);
+    } catch (e) { return null; }
+  }
+  function startOf(li) { return Number(li.getAttribute('data-start-ms')); }
+  function endOf(li) { return Number(li.getAttribute('data-end-ms')); }
+  function sortKey(li) {
+    return (li.getAttribute('data-date-key') || '') + 'T' + (li.getAttribute('data-madrid-time') || '');
+  }
+  function refreshBoard(board, now, todayYmd) {
+    var todayCol = board.querySelector('[data-fixture-slot="today"]');
+    var weekCol = board.querySelector('[data-fixture-slot="week"]');
+    if (!todayCol || !weekCol) return;
+    var todayList = todayCol.querySelector('ul.fixture-list');
+    var weekList = weekCol.querySelector('ul.fixture-list');
+    if (!todayList || !weekList) return;
+    var rows = Array.prototype.slice.call(board.querySelectorAll('li[data-date-key]'));
+    rows.sort(function (a, b) { var x = sortKey(a), y = sortKey(b); return x < y ? -1 : x > y ? 1 : 0; });
+    var t = now.getTime();
+    var nToday = 0, nWeek = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var li = rows[i];
+      var key = li.getAttribute('data-date-key');
+      var s = startOf(li), e = endOf(li);
+      var valid = todayYmd && key && isFinite(s) && isFinite(e);
+      var finished = !valid || t >= e;
+      if (finished) { li.hidden = true; li.setAttribute('aria-hidden', 'true'); continue; }
+      li.hidden = false; li.removeAttribute('aria-hidden');
+      if (key === todayYmd || (key < todayYmd && s <= t)) { todayList.appendChild(li); nToday++; }
+      else { weekList.appendChild(li); nWeek++; }
+    }
+    todayList.hidden = nToday === 0;
+    weekList.hidden = nWeek === 0;
+    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
+    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+  }
+  function run() {
+    var now = new Date();
+    var todayYmd = madridTodayYmd(now);
+    var boards = document.querySelectorAll('[data-fixture-board]');
+    for (var b = 0; b < boards.length; b++) refreshBoard(boards[b], now, todayYmd);
+    var timed = document.querySelectorAll('[data-show-until]');
+    for (var k = 0; k < timed.length; k++) {
+      var until = timed[k].getAttribute('data-show-until');
+      timed[k].hidden = !todayYmd || todayYmd > until;
+    }
+  }
+  window.__dublinersAgendaRefresh = run;
+  run();
+  setInterval(run, 60 * 1000);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') run(); });
+  window.addEventListener('pageshow', run);
+})();
+</script>
   </body>
 </html>

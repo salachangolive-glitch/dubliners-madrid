@@ -34,6 +34,11 @@ export const PATH_PAIRS: Record<string, string> = {
   '/saturday-in-sol-today/': '/es/sabado-en-sol-hoy/',
   '/nfl-fans-madrid-this-saturday/': '/es/fin-de-semana-nfl-ya-se-vive/',
   '/saturday-night-sol-valencia-real-madrid/': '/es/sabado-noche-sol-valencia-real-madrid/',
+  '/before-after-bengals-falcons-sol/': '/es/antes-despues-bengals-falcons-sol/',
+  '/sunday-nfl-near-sol-8-nov/': '/es/nfl-domingo-cerca-sol-8-nov/',
+  '/four-corner-opens-sunday-1400/': '/es/four-corner-abre-domingo-1400/',
+  '/atletico-barcelona-sol-8-nov/': '/es/atletico-barcelona-sol-8-nov/',
+  '/afternoon-evening-nfl-sol-8-nov/': '/es/nfl-tarde-noche-sol-8-nov/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

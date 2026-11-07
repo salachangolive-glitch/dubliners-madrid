@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import SundayFourVenues from '../../../components/SundayFourVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/nfl-domingo-cerca-sol-8-nov/';
+const PATH_EN = '/sunday-nfl-near-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'NFL domingo cerca de Sol: cuatro bares hermanos, un punto de encuentro el 8 de noviembre',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde ver la NFL del domingo cerca de Sol el 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El punto de encuentro son cuatro bares hermanos a un corto paseo de Sol: O’Reilly’s Restaurant Bar (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6). Las pantallas NFL confirmadas este domingo están en Dubliners. Pregunta qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Está cada partido NFL del domingo en cada pantalla junto a Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los kick-offs se pisan (15:30, 19:00, fútbol a las 21:00, 22:05, 22:25). Pregunta en Dubliners qué echan. No prometemos cada partido en cada pantalla ni inventamos la programación de Four Corner.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora abre Four Corner el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Domingo 8 de noviembre desde las 14:00 hasta la madrugada. No a las 12:00. La apertura está confirmada; no listamos qué echan.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="NFL domingo cerca de Sol, 8 nov: cuatro bares | Dubliners"
+  description="Domingo 8 nov NFL junto a Sol: cuatro bares hermanos, maps y horario. Pantallas confirmadas en Dubliners. Planeadlo hoy — no está cada partido en cada pantalla."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="NFL domingo cerca de Sol" lang="es" schema />
+      <h1>NFL domingo cerca de Sol: cuatro bares, un punto de encuentro (8 de noviembre)</h1>
+      <p class="lead">
+        Domingo 8 nov junto a Sol. Dubliners 12:00–02:00, Espoz y Mina 7. Bengals–Falcons EN DIRECTO 15:30
+        (Bernabéu; también en pantalla grande). NFL desde las 19:00, luego 22:05 y 22:25. Atlético–Barcelona 21:00.
+        Cuatro bares hermanos — Four Corner desde las 14:00. Preguntad en barra qué hay en pantalla. Planeadlo desde el sábado.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Sunday NFL near Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Dubliners</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Qué hay confirmado junto a Sol</h2>
+        <p>
+          Metro Sol (L1, L2, L3) o Sevilla (L2). Los cuatro bares están al sur y al este de la plaza: Four Corner en
+          la calle de la Victoria, O’Reilly’s en el Pasaje de Matheu, Dubliners y O’Connell’s en Espoz y Mina.
+        </p>
+        <p>
+          En <strong>Dubliners</strong> este domingo está confirmado EN DIRECTO: Bengals–Falcons a las 15:30 (pantalla grande; DAZN y Cuatro en España),
+          siete partidos NFL a las 19:00, Texans–Chargers a las 22:05, tres más a las 22:25, más NFL RedZone desde las 19:00.
+          Atlético–Barcelona a las 21:00 cae en la misma noche. Cerramos a las 02:00.
+        </p>
+        <p>
+          Son muchos kick-offs. Un pub no es un centro de retransmisión. <strong>Preguntad en barra qué echan.
+          No está cada partido en cada pantalla.</strong> No listamos partido a partido Four Corner, O’Reilly’s ni O’Connell’s —
+          son puntos de encuentro hermanos con horario confirmado, no una parrilla inventada.
+        </p>
+      </div>
+
+      <SundayFourVenues lang="es" />
+
+      <p class="small">
+        No es un evento oficial de la NFL. Independiente de la liga y de los organizadores del estadio.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde ver la NFL del domingo cerca de Sol el 8 de noviembre?</strong></dt>
+        <dd>Cuatro bares hermanos a un corto paseo de Sol. Las pantallas NFL confirmadas este domingo están en Dubliners, Espoz y Mina 7. Preguntad qué echan.</dd>
+        <dt><strong>¿Está cada partido NFL del domingo en cada pantalla junto a Sol?</strong></dt>
+        <dd>No. Los kick-offs se pisan. Preguntad en Dubliners. No inventamos la programación de Four Corner.</dd>
+        <dt><strong>¿A qué hora abre Four Corner el domingo?</strong></dt>
+        <dd>Domingo 8 de noviembre desde las 14:00 hasta la madrugada. No a las 12:00.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/antes-despues-bengals-falcons-sol/', label: 'Antes y después de Bengals–Falcons', note: 'Quedar, estadio o pantallas' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche', note: 'Dos relojes el domingo' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00', note: 'Apertura confirmada' },
+              { href: '/es/atletico-barcelona-sol-8-nov/', label: 'Atlético–Barcelona junto a Sol', note: '21:00 domingo' },
+              { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Guía Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'Sunday NFL near Sol', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

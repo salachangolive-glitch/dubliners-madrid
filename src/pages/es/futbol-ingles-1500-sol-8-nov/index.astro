@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import PremierSundayVenues from '../../../components/PremierSundayVenues.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/futbol-ingles-1500-sol-8-nov/';
+const PATH_EN = '/english-football-1500-sol-8-nov/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Cuatro kick-off de Premier League a las 15:00 junto a Sol — y un partido NFL a las 15:30',
+  inLanguage: 'es',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué partidos ingleses empiezan a las 15:00 el domingo 8 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Crystal Palace vs Liverpool, Sunderland vs Chelsea, Brighton vs Brentford e Ipswich Town vs Bournemouth. Los cuatro están en el tablero de Partidos de Dubliners. Quedan 30 minutos antes de Bengals vs Falcons a las 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Si quiero Liverpool o Chelsea, no el partido NFL, ¿qué hago?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dilo al sentarte en Dubliners, Espoz y Mina 7. La pantalla grande ya está confirmada para Bengals–Falcons EN DIRECTO a las 15:30. Otras pantallas pueden llevar Premier League. Pregunta qué echan. No está cada partido en cada pantalla.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Echan los cuatro bares hermanos las 15:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los cuatro bares son el punto de encuentro en Sol. Los partidos de las 15:00 con nombre están en Dubliners. Four Corner abre a las 14:00 con pantallas de deporte; no listamos qué echan. O’Reilly’s y O’Connell’s: pregunta en la puerta.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Fútbol inglés a las 15:00 junto a Sol, domingo 8 nov | Dubliners"
+  description="Domingo 8 nov 15:00 junto a Sol: Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. NFL Game 15:30 en la pantalla grande. Cuatro bares. Pregunta qué echan."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Fútbol inglés a las 15:00" lang="es" schema />
+      <h1>Cuatro kick-off de Premier League a las 15:00 junto a Sol — y un partido NFL a las 15:30</h1>
+      <p class="lead">
+        El domingo 8 de noviembre a las 15:00 hay cuatro partidos ingleses a la vez, y a las 15:30 el NFL Madrid Game.
+        Si vinisteis a Madrid por Liverpool, Chelsea, Brighton o una pinta a las 15:00 — no por Bengals–Falcons —
+        este es el choque. Quedad en los cuatro bares hermanos junto a Sol. En Dubliners, las 15:00 están en el tablero
+        y la pantalla grande ya está para la NFL de las 15:30. <strong>Preguntad qué echan.</strong>
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">English football at 15:00 near Sol</a></p>
+      <FanWeekendCtas lang="es" findHref="#four-bars" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div data-show-until={SHOW_UNTIL}>
+        <h2>Las 15:00 están llenas a propósito</h2>
+        <p>
+          Esta página es solo el bloque de las 15:00. United–Villa a las 17:30 tiene su propia nota.
+          La página evergreen de aficionados del Brighton es un resto del jueves de Conference League — no este domingo.
+        </p>
+        <ul>
+          <li><strong>15:00</strong> — Crystal Palace vs Liverpool</li>
+          <li><strong>15:00</strong> — Sunderland vs Chelsea</li>
+          <li><strong>15:00</strong> — Brighton vs Brentford</li>
+          <li><strong>15:00</strong> — Ipswich Town vs Bournemouth</li>
+          <li><strong>15:30</strong> — Bengals vs Falcons (NFL Madrid Game; EN DIRECTO en la pantalla grande de Dubliners)</li>
+        </ul>
+        <p>
+          No caben cuatro Premier League y un kick-off NFL del Bernabéu en un solo televisor.
+          Dubliners tiene varias pantallas. Nombrad Palace, Liverpool, Sunderland, Chelsea, Brighton, Brentford,
+          Ipswich o Bournemouth al entrar. Si el grupo quiere el partido NFL, decidlo. La
+          <a href={withBase('/es/nfl-tarde-noche-sol-8-nov/')}>guía de NFL de tarde y de noche</a> sigue siendo dueña de las 15:30, 19:00, 22:05 y 22:25.
+        </p>
+        <p>
+          Apertura: Dubliners y O’Connell’s desde las 12:00; O’Reilly’s desde las 11:30; Four Corner desde las <strong>14:00</strong>
+          con pantallas de deporte (sin lista inventada de las 15:00). Llegad antes de las 15:00 si al grupo le importa una camiseta de las 15:00.
+          Quedaos en Espoz y Mina, Pasaje de Matheu y Victoria — no busquéis una “fan zone” de terceros.
+        </p>
+      </div>
+
+      <PremierSundayVenues lang="es" />
+
+      <p class="small">
+        Pubs independientes. No es un evento oficial de Premier League ni de la NFL. Listados con nombre a las 15:00: Partidos de Dubliners.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Qué partidos ingleses empiezan a las 15:00 el domingo 8 de noviembre?</strong></dt>
+        <dd>Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth. En Partidos de Dubliners. NFL Game a las 15:30.</dd>
+        <dt><strong>Si quiero Liverpool o Chelsea, no el partido NFL, ¿qué hago?</strong></dt>
+        <dd>Dilo en Dubliners. La pantalla grande es EN DIRECTO para Bengals–Falcons a las 15:30. Pregunta qué echan.</dd>
+        <dt><strong>¿Echan los cuatro bares hermanos las 15:00?</strong></dt>
+        <dd>No. Son el punto de encuentro en Sol. Listados con nombre: Dubliners. Four Corner desde las 14:00 con pantallas de deporte; no listamos qué echan.</dd>
+      </dl>
+
+      <p>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo 8 de noviembre junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/premier-league-domingo-sol-8-nov/', label: 'Premier League domingo junto a Sol' },
+              { href: '/es/man-utd-villa-sol-8-nov/', label: 'United–Villa a las 17:30' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'NFL de tarde y de noche' },
+              { href: '/es/antes-despues-bengals-falcons-sol/', label: 'Antes y después de Bengals–Falcons' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares. Un fin de semana' },
+              { href: PATH_EN, label: 'English football at 15:00', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

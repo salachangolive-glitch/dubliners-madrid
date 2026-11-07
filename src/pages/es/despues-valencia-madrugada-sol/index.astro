@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/despues-valencia-madrugada-sol/';
+const PATH_EN = '/after-valencia-late-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Después de Valencia–Real Madrid: salas tarde en Espoz y Mina esta noche',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T18:50:00+01:00',
+  dateModified: '2026-11-07T18:50:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedarme después de Valencia–Real Madrid esta noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners, Espoz y Mina 7, sábado hasta las 02:30. O’Connell’s al lado hasta las 03:30. O’Reilly’s, Pasaje de Matheu 4, hasta las 01:30. Four Corner no abre esta noche.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL en directo después del partido de las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El sábado 7 de noviembre no hay partido oficial de la NFL. La NFL del domingo empieza a las 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuándo entra Four Corner?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Domingo 8 de noviembre desde las 14:00 hasta la madrugada, Calle de la Victoria 6, con pantallas de deporte. No es una puerta tarde del sábado.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Después de Valencia–RM: salas tarde junto a Sol | Dubliners"
+  description="Después de Valencia–Real Madrid 21:00 en Dubliners: quedaos en Espoz y Mina hasta las 02:30 / 03:30. O’Reilly’s hasta las 01:30. Hoy no hay NFL. Four Corner domingo 14:00."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Después de Valencia–RM, tarde en Sol" lang="es" schema />
+      <h1>Después de Valencia–Real Madrid: salas tarde en Espoz y Mina esta noche</h1>
+      <p class="lead">
+        El pitido es a las 21:00 solo en Dubliners. Cuando acaba, seguís en las mismas dos calles.
+        Dubliners el sábado hasta las <strong>02:30</strong>. O’Connell’s hasta las <strong>03:30</strong>. O’Reilly’s hasta las 01:30.
+        Four Corner es el domingo desde las 14:00 — no una puerta tarde del sábado. Hoy no hay NFL oficial.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">After Valencia–RM: late rooms near Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Quién sigue abierto después de las 21:00</h2>
+      <p>
+        Esta no es la página de la quedada 18:00–19:00 ni la de la retransmisión a las 21:00. Es la hora después del partido,
+        cuando el grupo decide si se queda en Espoz y Mina 7 o vuelve al pasaje, Pasaje de Matheu 4, antes del cierre de O’Reilly’s a las 01:30.
+      </p>
+      <p>
+        El domingo es el día NFL: Dubliners desde las 12:00, Four Corner desde las 14:00 con pantallas de deporte, Bengals–Falcons 15:30 en pantalla grande.
+      </p>
+
+      <OriginalFourBars lang="es" when="tonight" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde quedarme después de Valencia–RM esta noche?</strong></dt>
+        <dd>Dubliners hasta las 02:30, O’Connell’s hasta las 03:30, O’Reilly’s hasta las 01:30. Four Corner es el domingo.</dd>
+        <dt><strong>¿Hay NFL en directo después de las 21:00?</strong></dt>
+        <dd>No. Hoy no hay NFL oficial. Domingo 15:30.</dd>
+        <dt><strong>¿Cuándo entra Four Corner?</strong></dt>
+        <dd>Domingo desde las 14:00 hasta la madrugada, pantallas de deporte, Victoria 6.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Esta noche y el domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/sabado-noche-sol-valencia-real-madrid/', label: 'Valencia–RM 21:00 en Dubliners' },
+              { href: '/es/esta-noche-valencia-luego-domingo-sol/', label: 'Esta noche y luego el pitido del domingo' },
+              { href: PATH_EN, label: 'After Valencia, late in Sol', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

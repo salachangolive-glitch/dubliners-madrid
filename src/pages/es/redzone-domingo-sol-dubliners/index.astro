@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/redzone-domingo-sol-dubliners/';
+const PATH_EN = '/redzone-sunday-sol-dubliners/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'NFL RedZone o un partido a las 19:00 — domingo noche en Dubliners junto a Sol',
+  inLanguage: 'es',
+  datePublished: '2026-11-07T18:50:00+01:00',
+  dateModified: '2026-11-07T18:50:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Hay NFL RedZone en Dubliners el domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. NFL RedZone desde las 19:00 en Dubliners, Espoz y Mina 7, más siete partidos a las 19:00, luego 22:05 y 22:25. Preguntad qué pantalla es cuál. No todos los partidos van en todas las pantallas.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué más hay a las 21:00 esa misma noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Atlético–Barcelona a las 21:00 va EN DIRECTO en Dubliners en la misma ventana. Preguntad en barra.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Los bares hermanos listan RedZone?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No inventamos las parrillas de O’Reilly’s, O’Connell’s ni Four Corner. Four Corner abre a las 14:00 con pantallas de deporte. El listado de RedZone confirmado es Dubliners.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="NFL RedZone el domingo noche junto a Sol | Dubliners"
+  description="Domingo 8 nov desde las 19:00: RedZone o un partido NFL en Dubliners, Espoz y Mina 7. Atlético–Barcelona 21:00 la misma noche. Four Corner desde las 14:00. Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="RedZone el domingo junto a Sol" lang="es" schema />
+      <h1>NFL RedZone o un partido a las 19:00 — domingo noche en Dubliners junto a Sol</h1>
+      <p class="lead">
+        El reloj de tarde es las 15:30. El de noche es las 19:00: siete partidos NFL, RedZone, luego 22:05 y 22:25 —
+        y Atlético–Barcelona a las 21:00 en la misma sala. Preguntad qué pantalla es RedZone. No todos los partidos van en todas las pantallas.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">NFL RedZone or one 19:00 game Sunday</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Un pub, pitidos apilados</h2>
+      <p>
+        Esto no es la lista de tarde y noche. Es la elección a las 19:00: quedaros en RedZone, o pedir un partido concreto,
+        sabiendo que Atlético–Barcelona ocupa una pantalla a las 21:00. Parrilla EN DIRECTO confirmada: Dubliners, Espoz y Mina 7, hasta las 02:00.
+      </p>
+      <p>
+        Las salas hermanas siguen abiertas: O’Reilly’s hasta las 01:30, O’Connell’s hasta tarde, Four Corner hasta la madrugada desde las 14:00 con pantallas de deporte.
+        No copiamos la línea de RedZone de Dubliners a esas parrillas. El sábado no hay NFL — esta noche es Valencia 21:00 solo aquí.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Hay RedZone en Dubliners el domingo?</strong></dt>
+        <dd>Sí, desde las 19:00. Preguntad qué pantalla. No todos los partidos van en todas las pantallas.</dd>
+        <dt><strong>¿Qué más hay a las 21:00?</strong></dt>
+        <dd>Atlético–Barcelona EN DIRECTO en Dubliners, la misma noche.</dd>
+        <dt><strong>¿Los bares hermanos listan RedZone?</strong></dt>
+        <dd>Sin parrillas inventadas. Four Corner: 14:00, pantallas de deporte. RedZone confirmado: Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Domingo noche',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'Inicio Dubliners' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/elige-reloj-nfl-domingo-sol/', label: 'Elige reloj NFL del domingo' },
+              { href: '/es/nfl-tarde-noche-sol-8-nov/', label: 'Lista NFL de tarde y de noche' },
+              { href: PATH_EN, label: 'RedZone Sunday', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

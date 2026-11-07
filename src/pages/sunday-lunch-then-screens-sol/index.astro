@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/sunday-lunch-then-screens-sol/';
+const PATH_ES = '/es/comida-domingo-luego-pantallas-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Sunday lunch at O’Reilly’s, then Bengals–Falcons screens at Dubliners',
+  inLanguage: 'en',
+  datePublished: '2026-11-07T18:50:00+01:00',
+  dateModified: '2026-11-07T18:50:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I eat before the 15:30 Sunday NFL screen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s Restaurant Bar, Pasaje de Matheu 4, from 11:30. Then a couple of minutes to Dubliners, Espoz y Mina 7, for Bengals vs Falcons LIVE at 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Four Corner open in time for lunch?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner opens Sunday 14:00 until late, with sports screens. Lunch is O’Reilly’s from 11:30. Four Corner is the door after lunch, before 15:30.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this Saturday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Saturday has no official NFL. Tonight is meetup 18:00–19:00 and Valencia–Real Madrid 21:00 at Dubliners.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Sunday lunch then NFL screens near Sol | Dubliners"
+  description="Sunday 8 Nov: eat at O’Reilly’s Pasaje de Matheu 4 from 11:30, then Dubliners screens at 15:30. Four Corner from 14:00 with sports screens. Maps."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Sunday lunch then screens" schema />
+      <h1>Sunday lunch at O’Reilly’s, then Bengals–Falcons screens at Dubliners</h1>
+      <p class="lead">
+        If the group wants food before 15:30, start at the terrace: Pasaje de Matheu 4 from 11:30.
+        Walk two minutes to Espoz y Mina 7 for the confirmed big screen. Four Corner opens 14:00 in between, with sports screens — not a lunch listing.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Comida el domingo y luego pantallas en Sol</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's on Maps</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>11:30 food, 14:00 fourth door, 15:30 screen</h2>
+      <p>
+        O’Reilly’s is the restaurant-bar. Dubliners is the confirmed LIVE board for Bengals vs Falcons at 15:30.
+        O’Connell’s is the next door on Espoz y Mina from 12:00 this Sunday. Four Corner, Victoria 6, from 14:00 — sports screens, no game list.
+        Ask which game is on. Not every game on every screen.
+      </p>
+      <p>
+        Tonight is still Saturday: no NFL, meetup 18:00–19:00, Valencia–RM 21:00 at Dubliners. Plan this lunch from tonight.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can I eat before the 15:30 screen?</strong></dt>
+        <dd>O’Reilly’s, Pasaje de Matheu 4, from 11:30. Then Dubliners for Bengals–Falcons LIVE.</dd>
+        <dt><strong>Does Four Corner do Sunday lunch from 11:30?</strong></dt>
+        <dd>No. It opens 14:00 with sports screens. After lunch, before 15:30.</dd>
+        <dt><strong>Is this Saturday?</strong></dt>
+        <dd>No. No official NFL Saturday. Tonight: meetup + Valencia 21:00 at Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Sunday before 15:30',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'Dubliners home' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/which-sister-bar-sunday-sol/', label: 'Which sister bar' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner 14:00' },
+              { href: PATH_ES, label: 'Comida y luego pantallas', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

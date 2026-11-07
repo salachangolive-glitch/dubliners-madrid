@@ -5,6 +5,8 @@ import LinkHub from '../../../components/LinkHub.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import { withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
 
 // Par ES de /4-bars-one-fan-weekend/. Corrección dueño 6 nov 2026 15:48.
@@ -45,8 +47,8 @@ const faqLd = {
 ---
 
 <BaseLayout
-  title="Cuatro bares. Un gran fin de semana deportivo · NFL Madrid | Dubliners"
-  description="Cuatro bares hermanos, un punto de encuentro cerca de Sol para el fin de semana NFL Madrid: O'Reilly's, Dubliners, O'Connell St y Four Corner. Domingo desde las 12:00 en Dubliners."
+  title="CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO. | NFL Madrid junto a Sol"
+  description="Cuatro bares junto a Sol, 7–8 nov: O'Reilly's, Dubliners, O'Connell's y Four Corner. Direcciones, Maps, horarios. Domingo: Dubliners desde las 12:00, Four Corner desde las 14:00."
   path={path}
   lang="es"
   hreflang={{ en: '/4-bars-one-fan-weekend/', es: path }}
@@ -63,12 +65,15 @@ const faqLd = {
       </p>
       <p class="small">Viernes 6 · sábado 7 · domingo 8 de noviembre de 2026 · Junto a Sol</p>
       <p class="small">In English: <a href={withBase('/4-bars-one-fan-weekend/')} hreflang="en" lang="en">4 Bars. One Fan Weekend</a></p>
+      <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" />
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
         <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Dubliners</a>
       </div>
     </div>
   </section>
+
+  <FourBarsMeet lang="es" compact />
 
   <section class="section">
     <div class="container prose">
@@ -87,7 +92,7 @@ const faqLd = {
         más NFL desde las 19:00 y Atlético–Barcelona a las 21:00 en nuestras pantallas.
       </p>
 
-      <h2>Los cuatro bares hermanos</h2>
+      <h2 id="los-cuatro-bares-hermanos">FIND US · Los cuatro bares hermanos</h2>
       <p>Cada uno con su estilo. Todos a pocos minutos de la Puerta del Sol.</p>
 
       <h3>O'Reilly's Restaurant Bar</h3>
@@ -175,16 +180,28 @@ const faqLd = {
         heading="h2"
         groups={[
           {
-            title: 'NFL en Dubliners',
+            title: 'Sábado 7 de noviembre',
+            until: SHOW_UNTIL,
             items: [
+              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'Una ruta de aficionado por cuatro bares', until: SHOW_UNTIL },
+              { href: '/es/nfl-madrid-cuatro-bares-hermanos/', label: 'Cuatro bares hermanos junto a Sol', note: 'El punto de encuentro colectivo', until: SHOW_UNTIL },
+              { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada del sábado' },
+            ],
+          },
+          {
+            title: 'Domingo 8 de noviembre',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
+              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo EN DIRECTO' },
               { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Junto a Puerta del Sol' },
-              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
-              { href: '/es/nfl-madrid-cuatro-bares-hermanos/', label: 'Cuatro bares hermanos junto a Sol', note: 'El punto de encuentro colectivo', until: SHOW_UNTIL },
-              { href: '/es/sabado-domingo-sol-cuatro-bares/', label: 'Sábado y domingo en Sol', note: 'Una ruta de aficionado por cuatro bares', until: SHOW_UNTIL },
-              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía hora a hora del domingo NFL' },
-              { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
-              { href: '/es/visitar/', label: 'Horario y mapa' },
+            ],
+          },
+          {
+            title: 'Cómo llegar',
+            items: [
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR', note: 'Horario y mapa' },
               { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend', note: 'In English', hreflang: 'en', lang: 'en' },
             ],
           },

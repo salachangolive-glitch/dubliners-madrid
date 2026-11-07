@@ -1,6 +1,7 @@
 ---
 import { SITE, HOURS, withBase } from '../site';
 import { type Lang, t, HOURS_ES } from '../i18n';
+import { FAN_WEEKEND_HUB, isFanWeekendLive } from '../data/fourBars';
 
 interface Props {
   lang?: Lang;
@@ -8,9 +9,11 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const copy = t(lang);
 const hours = lang === 'es' ? HOURS_ES : HOURS;
+const fanWeekend = isFanWeekendLive();
 const explore =
   lang === 'es'
     ? [
+        ...(fanWeekend ? [{ href: FAN_WEEKEND_HUB.es, label: 'VER LOS CUATRO BARES' }] : []),
         { href: '/es/partidos/', label: copy.whatsOn },
         { href: '/es/visitar/', label: copy.directions },
         { href: '/es/contacto/', label: copy.contact },
@@ -18,6 +21,7 @@ const explore =
         { href: '/es/privacidad/', label: copy.privacy },
       ]
     : [
+        ...(fanWeekend ? [{ href: FAN_WEEKEND_HUB.en, label: 'MEET US NEAR SOL' }] : []),
         { href: '/whats-on/', label: copy.whatsOn },
         { href: '/visit/', label: copy.directions },
         { href: '/contact/', label: copy.contact },

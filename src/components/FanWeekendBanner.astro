@@ -1,0 +1,73 @@
+---
+/**
+ * Site-wide campaign strip — 4 BARS. ONE FAN WEEKEND. Hide after Sun 8 Nov.
+ */
+import { withBase } from '../site';
+import {
+  FAN_WEEKEND_HUB,
+  FOUR_BARS_MAPS,
+  SHOW_UNTIL_FAN_WEEKEND,
+} from '../data/fourBars';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const hub = FAN_WEEKEND_HUB[lang];
+---
+
+<div class="fan-weekend-banner" data-show-until={SHOW_UNTIL_FAN_WEEKEND} data-track-location="fan-weekend-banner">
+  <p class="fan-weekend-banner__slogan">4 BARS. ONE FAN WEEKEND.</p>
+  <p class="fan-weekend-banner__sub">
+    {es
+      ? 'Sábado 7 y domingo 8 nov junto a Sol. Domingo: Dubliners desde las 12:00 · Four Corner desde las 14:00.'
+      : 'Saturday 7 & Sunday 8 Nov near Sol. Sunday: Dubliners from 12:00 · Four Corner from 14:00.'}
+  </p>
+  <div class="fan-weekend-banner__ctas">
+    <a class="btn btn-primary" href={withBase(hub)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+    <a class="btn btn-secondary" data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank">{es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}</a>
+  </div>
+</div>
+
+<style>
+  .fan-weekend-banner {
+    background: var(--accent-2);
+    color: #1a1405;
+    text-align: center;
+    padding: 0.55rem 1rem 0.7rem;
+    border-bottom: 1px solid rgba(26, 20, 5, 0.15);
+  }
+  .fan-weekend-banner__slogan {
+    margin: 0;
+    color: #1a1405;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: clamp(0.95rem, 2.8vw, 1.2rem);
+  }
+  .fan-weekend-banner__sub {
+    margin: 0.15rem 0 0.45rem;
+    color: #1a1405;
+    font-size: 0.88rem;
+  }
+  .fan-weekend-banner__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+  .fan-weekend-banner__ctas .btn-secondary {
+    background: #1a1405;
+    color: var(--accent-2);
+    border-color: #1a1405;
+  }
+  .fan-weekend-banner__ctas .btn-secondary:hover {
+    background: #2a2412;
+    color: #f3efe6;
+  }
+  .fan-weekend-banner__ctas .btn {
+    min-height: 44px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+  }
+</style>

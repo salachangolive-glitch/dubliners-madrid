@@ -65,6 +65,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/wake-sol-sunday-premier-block-which-door/': '/es/despierta-sol-bloque-premier-que-puerta/',
   '/barajas-small-hours-into-sol-until-1400/': '/es/barajas-madrugada-a-sol-hasta-1400/',
   '/two-streets-all-day-premier-nfl-atleti/': '/es/dos-calles-todo-el-dia-premier-nfl-atleti/',
+  '/first-metro-into-sol-sunday-station-to-door/': '/es/primer-metro-a-sol-domingo-estacion-a-puerta/',
+  '/brighton-ipswich-1500-sol-skip-liverpool-chelsea-united/': '/es/brighton-ipswich-1500-sol-sin-liverpool-chelsea-united/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

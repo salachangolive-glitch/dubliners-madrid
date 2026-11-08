@@ -12,9 +12,31 @@ const fanWeekend = isFanWeekendLive();
 const title = 'Pub Premier League Madrid | Pub irlandés y bar deportivo cerca de Sol';
 const description =
   'Pub Premier League Madrid: fútbol inglés en un pub irlandés y bar deportivo junto a Puerta del Sol. Espoz y Mina 7. Listados con nombre en Partidos. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Es un pub de Premier League en Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Dubliners es un pub Premier League en Madrid: un pub irlandés y bar deportivo junto a Puerta del Sol. Los listados con nombre están en Partidos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo se llega?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/es/premier-league-pub-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
+<BaseLayout title={title} description={description} path="/es/premier-league-pub-madrid/" lang="es" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -63,8 +85,7 @@ const description =
     <div class="container prose">
       <h2>Pub Premier League Madrid</h2>
       <p>
-        Un pub Premier League Madrid es lo que se busca cuando se quiere fútbol inglés en el centro.
-        Dubliners es ese pub irlandés y bar deportivo: Premier League de sábado y domingo en pantallas cuando está confirmada,
+        Fútbol inglés en el centro: Premier League de sábado y domingo en pantallas cuando está confirmada,
         con público internacional junto a Sol. No inventamos carteleras — los listados con nombre se quedan en Partidos.
       </p>
       <p>

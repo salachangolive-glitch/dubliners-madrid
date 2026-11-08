@@ -13,9 +13,31 @@ const fanWeekend = isFanWeekendLive();
 const title = 'Bar deportivo Madrid | Pub irlandés cerca de Puerta del Sol — Dubliners';
 const description =
   'Bar deportivo Madrid: pub irlandés junto a Puerta del Sol. Fútbol, NFL y rugby en pantallas. Espoz y Mina 7. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Sois un bar deportivo en Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Dubliners es un bar deportivo en Madrid y un pub irlandés en Espoz y Mina 7, junto a Puerta del Sol. Fútbol primero; NFL y rugby cuando están en Partidos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo se llega a Dubliners desde Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
+<BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -185,6 +207,11 @@ const description =
           </p>
         </details>
       </div>
+      <h2>Cómo llegar</h2>
+      <p>
+        Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.
+        Notas a pie: <a href={withBase('/es/visitar/')}>FIND US</a>.
+      </p>
       <div class="map-frame" style="margin-top:1.5rem">
         <MapEmbed lang="es" title="Mapa a Dubliners bar deportivo" />
       </div>

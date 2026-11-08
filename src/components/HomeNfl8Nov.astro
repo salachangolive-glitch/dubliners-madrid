@@ -7,7 +7,7 @@
  * src/pages/es/index.astro (or `git revert` the commit that added this file).
  */
 import { FIXTURES } from '../data/fixtures';
-import { withBase } from '../site';
+import { SITE, withBase } from '../site';
 
 interface Props { lang?: 'en' | 'es' }
 const { lang = 'en' } = Astro.props;
@@ -71,8 +71,9 @@ const hubHref = es ? '/es/cuatro-bares-fin-de-semana/' : '/4-bars-one-fan-weeken
     </p>
     <p class="small">{es ? 'Dubliners: domingo abierto de 12:00 a 02:00. Four Corner está abierto desde las 14:00 (pantallas de deporte). Las cuatro puertas están abiertas.' : 'Dubliners: open Sunday 12:00–02:00. Four Corner is open from 14:00 (sports screens). All four doors are open.'}</p>
     <div class="cta-row">
-      <a class="btn btn-gold" href={withBase(hubHref)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
-      <a class="btn btn-primary" href={withBase(guideHref)}>{es ? 'Guía del domingo NFL' : 'NFL Sunday guide'}</a>
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}</a>
+      <a class="btn btn-primary" href={withBase(hubHref)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+      <a class="btn btn-secondary" href={withBase(guideHref)}>{es ? 'Guía del domingo NFL' : 'NFL Sunday guide'}</a>
       <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href={withBase(agendaHref)}>{es ? 'Agenda completa' : 'Full What’s On'}</a>
     </div>
   </div>

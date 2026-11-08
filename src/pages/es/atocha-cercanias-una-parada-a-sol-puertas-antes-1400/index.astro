@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/atocha-cercanias-una-parada-a-sol-puertas-antes-1400/';
+const PATH_EN = '/atocha-cercanias-one-stop-into-sol-doors-before-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Atocha Cercanías: una parada a Sol, luego las cuatro puertas antes de las 14:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T09:00:00+01:00',
+  dateModified: '2026-11-08T09:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Acabo de llegar a Atocha en tren este domingo por la mañana. ¿Eso es Metro Sol y hacia dónde van los cuatro bares?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esto es Cercanías RENFE desde Atocha-Cercanías, no Metro L1/L2/L3, no un taxi de Barajas ni una salida de hotel. Coged C3 o C4 una parada al norte hasta Sol (~2–3 min cuando circule la línea). Del vestíbulo de Cercanías Sol, salid hacia Carrera de San Jerónimo / Calle de Carretas y luego el bolsillo sureste: Espoz y Mina 7, Pasaje de Matheu 4, Victoria 6. Marcad Four Corner para las 14:00 (pantallas de deporte; no abre antes). Maps abajo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué distancia está Atocha, y Cercanías Sol, de Victoria 6, Espoz y Mina 7 y Pasaje de Matheu 4?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde las salidas de Cercanías Sol: Espoz y Mina 7 unos 3–5 min / 220–320 m; Pasaje de Matheu 4 unos 4–5 min / 250–350 m; Victoria 6 unos 4–6 min / 280–380 m. Andando desde Atocha, norte por Calle de Atocha vía Plaza de Jacinto Benavente y luego Carretas: unos 18–22 min / 1,4–1,6 km a las mismas puertas. No esperéis en Victoria 6 antes de las 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Son alrededor de las 09:00. ¿Puedo ir ahora a Four Corner?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner abre el domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte — unas cinco horas desde las 09:00, no antes. O’Reilly’s habitual desde las 11:30; Dubliners y O’Connell’s desde las 12:00. Haced la parada, marcad las puertas y sentaos en la primera hermana que esté abierta. Premier League desde las 15:00, NFL tarde/noche y Atlético–Barcelona 21:00 van en las mismas calles después — coordinad, no sustituyáis. Listados con nombre: Partidos de Dubliners solamente.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Atocha Cercanías una parada a Sol — cuatro puertas antes de las 14:00 | Dubliners"
+  description="Domingo 8 nov: llegad a Atocha en tren, Cercanías C3/C4 una parada a Sol, luego andad a Victoria 6, Espoz y Mina 7 y Pasaje de Matheu 4 antes de las 14:00. Geografía de estación, Maps, distancias. No es Metro ni Barajas."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Atocha Cercanías una parada a Sol, luego las cuatro puertas" schema />
+      <h1>Atocha Cercanías: una parada a Sol, luego las cuatro puertas antes de las 14:00</h1>
+      <p class="lead">
+        El sábado ya ha acabado. No aterrizáis en Barajas, no estáis en un andén de Metro ni salís de un hotel en Sol.
+        <strong>Habéis llegado en tren a Atocha</strong> — AVE, Alvia o un transbordo de Cercanías en Atocha-Cercanías.
+        Coged <strong>C3 o C4 una parada al norte hasta Sol</strong> (~2–3 min cuando circule la línea). Salid del vestíbulo de Cercanías Sol hacia Carrera de San Jerónimo / Calle de Carretas, luego el bolsillo sureste.
+        Marcad las cuatro puertas hermanas antes de que Four Corner abra a las 14:00 con pantallas de deporte (unas cinco horas desde las 09:00; no abre antes). Maps abajo.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Atocha Cercanías: one stop into Sol, then pin the four doors before 14:00</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es un salto de estación de tren, no Metro Sol, no Barajas, no Plaza Mayor</h2>
+      <p>
+        Otras páginas ya cubren el primer Metro del domingo a la estación L1/L2/L3, el taxi de madrugada desde Barajas, la primera calle desde un hotel en Sol,
+        los soportales este de Plaza Mayor cuesta abajo y el paseo desde la propia plaza.
+        Esta página es solo para quien <strong>baja de un tren de larga distancia o de cercanías en Atocha</strong>
+        y necesita nombres de línea, salidas del vestíbulo, metros y qué puerta marcar antes de las 14:00.
+        No re-promocionéis el sábado 18:00–19:00 ni Valencia–Real Madrid como si siguieran en curso.
+      </p>
+
+      <h2>Atocha-Cercanías → Sol — una parada, luego qué salida</h2>
+      <p>
+        Puerta de Atocha (larga distancia) conecta por pasillos con <strong>Atocha-Cercanías</strong>.
+        Desde ahí, <strong>Cercanías C3 o C4</strong> van una parada al norte hasta <strong>Sol</strong> — una estación distinta del Metro Sol.
+        No inventamos hora del primer tren: viajad cuando circule Cercanías el domingo.
+        En Sol, quedaos en el <strong>vestíbulo de Cercanías</strong> (no los pasillos de Metro). Salid hacia
+        <strong>Carrera de San Jerónimo</strong> y <strong>Calle de Carretas</strong> — esa dirección es el bolsillo sureste de la plaza.
+        Luego Espoz y Mina, Pasaje de Matheu (el atajo cubierto) y Calle de la Victoria.
+      </p>
+      <ul>
+        <li>
+          <strong>Desde las salidas de Cercanías Sol.</strong>
+          Espoz y Mina 7: <strong>3–5 min / 220–320 m</strong>.
+          Pasaje de Matheu 4: <strong>4–5 min / 250–350 m</strong>.
+          Victoria 6: <strong>4–6 min / 280–380 m</strong>.
+        </li>
+        <li>
+          <strong>Andando desde Atocha, sin la parada.</strong>
+          Norte por <strong>Calle de Atocha</strong> pasando Antón Martín hasta Plaza de Jacinto Benavente, luego Calle de Carretas al mismo salto sureste.
+          Unos <strong>18–22 min / 1,4–1,6 km</strong>. Útil si ya tenéis maletas en la calle y no queréis volver a entrar al vestíbulo.
+        </li>
+      </ul>
+      <p>
+        Desde alrededor de las 09:00 son <strong>unas cinco horas</strong> hasta que Four Corner abre a las 14:00.
+        Marcad Victoria 6 para esa hora. No acampéis una puerta cerrada en Calle de la Victoria antes.
+      </p>
+
+      <h2>Antes de las 14:00 — qué puerta está siquiera abierta</h2>
+      <p>
+        Four Corner abre el <strong>domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte</strong>.
+        No antes de las 14:00. No listamos qué partido echan — preguntad en la puerta.
+        O’Reilly’s habitual desde las 11:30 (Pasaje de Matheu 4). Dubliners y O’Connell’s desde las 12:00 (Espoz y Mina 7).
+        Haced ahora la parada; sentaos en la primera hermana que esté abierta; estad en Victoria para la apertura de las 14:00.
+        Premier League desde las 15:00 (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth),
+        United–Villa 17:30, NFL tarde/noche y Atlético–Barcelona 21:00 van en las mismas calles después — coordinad, no sustituyáis.
+        Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners solamente. Preguntad qué pantalla — no está cada partido en cada pantalla.
+      </p>
+
+      <h2>Del vestíbulo a tres calles — direcciones</h2>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid</strong> (marcar para las 14:00; pantallas de deporte; no abre antes).
+          Unos 4–6 min desde Cercanías Sol.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Pasaje cubierto desde Espoz y Mina. Habitual desde las 11:30. Unos 4–5 min desde Cercanías Sol.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Unos 3–5 min desde Cercanías Sol. Domingo desde las 12:00. Pantallas con nombre en Partidos — preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps figura como O’Connell St).
+          Mismo número que Dubliners, otra puerta. Domingo 8 nov desde las 12:00 (habitual domingo 14:00). Punto de encuentro; no inventamos su tablero.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Bajo del tren en Atocha esta mañana. ¿Metro Sol? ¿Hacia dónde?</strong></dt>
+        <dd>Cercanías, no Metro. C3/C4 una parada a Sol. Salid hacia San Jerónimo / Carretas. Marcad Victoria 6 para las 14:00. Luego Matheu 4 y Espoz y Mina 7 dos veces.</dd>
+        <dt><strong>¿A qué distancia de Atocha / Cercanías Sol a las cuatro puertas?</strong></dt>
+        <dd>Desde Cercanías Sol: Espoz y Mina 7 3–5 min / 220–320 m; Matheu 4 4–5 min / 250–350 m; Victoria 6 4–6 min / 280–380 m. Andando desde Atocha: 18–22 min / 1,4–1,6 km norte por Calle de Atocha.</dd>
+        <dt><strong>Son ~09:00. ¿Está abierto Four Corner?</strong></dt>
+        <dd>No. Desde las 14:00, pantallas de deporte — unas cinco horas desde ahora. O’Reilly’s desde las 11:30; Dubliners y O’Connell’s desde las 12:00. No esperéis en Victoria 6 antes de las 14:00.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Desde Atocha Cercanías este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/galeria-acristalada-matheu-4-primera-pinta-antes-saque-domingo/', label: 'Pasaje de Matheu 4 cubierto: primera pinta antes del saque' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00' },
+              { href: PATH_EN, label: 'Atocha Cercanías: one stop into Sol, then the four doors', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
-import { withBase } from '../../../site';
+import { SITE, withBase } from '../../../site';
 import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { isFanWeekendLive } from '../../../data/fourBars';
@@ -36,8 +36,10 @@ const SHOW_POSTGAME = true; // desbloqueado 13 oct: dueño confirma todos los pa
   {fanWeekend && <FourBarsMeet lang="es" />}
   <section class="section">
     <div class="container prose">
+      <h2>Bar NFL Madrid</h2>
+      <p>Dubliners es un bar NFL en Madrid: los partidos del domingo en pantallas, en un pub irlandés a un paseo de Puerta del Sol. Los listados con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a>. El resto de la semana es el mismo <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo en Madrid</a>.</p>
       <h2>La NFL en Madrid</h2><p>El domingo 8 de noviembre de 2026 los Cincinnati Bengals y los Atlanta Falcons juegan en el Estadio Santiago Bernabéu a las 15:30 (hora de Madrid). Es el segundo partido de temporada regular de la NFL en Madrid.</p>
-      <p>Si buscabas un bar NFL Madrid o dónde ver NFL en Madrid, este bar deportivo irlandés junto a Puerta del Sol es la puerta. Los listados con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a>. Las cuatro puertas hermanas alrededor de Sol están abiertas ahora; Four Corner está abierto desde las 14:00 con pantallas de deporte.</p>
+      <p>Si buscabas dónde ver NFL en Madrid, este pub irlandés junto a Puerta del Sol es la puerta. Las cuatro puertas hermanas alrededor de Sol están abiertas ahora; Four Corner está abierto desde las 14:00 con pantallas de deporte. Parrilla de tarde y noche: <a href={withBase('/es/nfl-tarde-noche-sol-8-nov/')}>NFL tarde y noche</a>.</p>
       <h2>Calendario NFL (solo confirmado)</h2>
       <table><tbody><tr><td>Dom 8 nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Estadio Santiago Bernabéu, Madrid</td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Broncos at Panthers</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Cowboys at Colts</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Jets at Chiefs</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Lions at Dolphins</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Browns at Saints</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Giants at Eagles</td><td></td></tr><tr><td>Dom 8 nov</td><td>19:00</td><td>Rams at Commanders</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:05</td><td>Texans at Chargers</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:25</td><td>Raiders at 49ers</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:25</td><td>Packers at Patriots</td><td></td></tr><tr><td>Dom 8 nov</td><td>22:25</td><td>Cardinals at Seahawks</td><td></td></tr></tbody></table>
       <p class="small">Horas de Madrid (CET). Todos los partidos de la tabla, EN DIRECTO en Dubliners. Fuente: calendario Week 9 de nfl.com. El partido del domingo noche (02:20 del lunes) queda fuera de horario. <a href={withBase('/es/partidos/')}>Ver partidos</a></p>
@@ -49,6 +51,11 @@ const SHOW_POSTGAME = true; // desbloqueado 13 oct: dueño confirma todos los pa
       <p class="small">El jueves de Thanksgiving: <a href={withBase('/es/thanksgiving-madrid/')}>NFL de Thanksgiving en Madrid</a> (26 de noviembre: 19:00 y 22:30)</p>
       <h2>Cómo llegar</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2).</p><p>Horario: lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</p>
       <div class="map-frame"><MapEmbed title="Mapa de Dubliners Madrid" lang="es" /></div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+        <a class="btn btn-secondary" href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a>
+      </p>
       <h3>Del pub al Bernabéu en metro</h3><p>Para ir al estadio, usa Concha Espina (Línea 9) o Cuzco (Línea 10), las estaciones de Metro que cita el plan de movilidad de la NFL del Ayuntamiento de Madrid. Consulta tu ruta desde Sol en crtm.es o en la app de Metro de Madrid.</p>
       <h3>En el Bernabéu: información práctica</h3><p>Según la página NFL del Real Madrid (<a href="https://bernabeu.realmadrid.com/nfl/" rel="noopener">bernabeu.realmadrid.com/nfl</a>): el partido empieza a las 15:30 y el perímetro del estadio abre a las 12:30. No hay parking en el estadio, así que conviene ir en transporte público; la estación de metro accesible es Nuevos Ministerios (L6, L8, L10), a unos 15 minutos andando de la entrada accesible. Rige la política de bolsas transparentes de la NFL: bolsas transparentes de hasta 30,5 × 15,25 × 30,5 cm o bolsos de mano de hasta 11,5 × 16,5 cm. Se puede llevar una botella reutilizable vacía y transparente (hasta 1 litro).</p>
       <h2>Centro de Madrid</h2><p>Estamos entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras: fácil de encontrar antes o después de visitar la ciudad.</p><img class="split-photo tall" src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`} sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Barra y pantalla de televisión dentro de Dubliners Madrid" />

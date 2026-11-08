@@ -73,7 +73,8 @@ const faqLd = {
         {showSaturdayTonight && (
           <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.en)} data-show-until="2026-11-07">Tonight 18:00–19:00</a>
         )}
-        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>Watch NFL Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL bar Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
       </div>
     </div>
   </section>
@@ -116,8 +117,10 @@ const faqLd = {
       <p>
         Irish pub and sports bar · Calle de Espoz y Mina 7, 28012 Madrid.<br />
         Hours: Mon–Thu &amp; Sun 12:00–02:00 · Fri–Sat 12:00–02:30. Sunday 8 November: open from 12:00.<br />
-        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
-        · <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>
+        · <a href={withBase('/nfl-madrid/')}>NFL bar Madrid</a>
+        · <a href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
+        · <a href={withBase('/premier-league-pub-madrid/')}>Premier League pub Madrid</a>
         · <a href={withBase('/whats-on/')}>What's On</a>
         · <a href="https://dublinersmadrid.es/">dublinersmadrid.es</a>
       </p>
@@ -252,6 +255,16 @@ const faqLd = {
       <LinkHub
         heading="h2"
         groups={[
+          {
+            title: 'Watch at Dubliners',
+            items: [
+              { href: '/sports-bar-madrid/', label: 'Sports bar Madrid', note: 'Irish pub near Puerta del Sol' },
+              { href: '/nfl-madrid/', label: 'NFL bar Madrid', note: 'Watch NFL Madrid' },
+              { href: '/premier-league-pub-madrid/', label: 'Premier League pub Madrid', note: 'English football near Sol' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid', note: 'Near Plaza Mayor & Sol' },
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+            ],
+          },
           {
             title: 'Saturday 7 November',
             until: SHOW_UNTIL,

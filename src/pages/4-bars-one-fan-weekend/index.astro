@@ -7,7 +7,8 @@ import { withBase } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
 import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../components/FourBarsMeet.astro';
-import { FAN_WEEKEND_SATURDAY_TONIGHT, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+import { FAN_WEEKEND_SATURDAY_TONIGHT, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND, madridYmd } from '../../data/fourBars';
+const showSaturdayTonight = madridYmd() <= '2026-11-07';
 
 // Campaign landing: 4 BARS. ONE FAN WEEKEND. Owner correction 6 Nov 2026 15:48.
 // One collective meeting point: four sister bars near Puerta del Sol, including Four Corner.
@@ -69,7 +70,9 @@ const faqLd = {
       <p class="small">En español: <a href={withBase('/es/cuatro-bares-fin-de-semana/')} hreflang="es" lang="es">Cuatro bares. Un gran fin de semana deportivo</a></p>
       <FanWeekendCtas lang="en" findHref="#meet-us-near-sol" />
       <div class="cta-row">
-        <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.en)} data-show-until="2026-11-07">Tonight 18:00–19:00</a>
+        {showSaturdayTonight && (
+          <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.en)} data-show-until="2026-11-07">Tonight 18:00–19:00</a>
+        )}
         <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>Watch NFL Madrid</a>
       </div>
     </div>
@@ -154,6 +157,8 @@ const faqLd = {
         a short walk from the other three. Opening is confirmed; we do not list which games it shows. Named listings: Dubliners What’s On only.
       </p>
 
+      {showSaturdayTonight && (
+      <>
       <h2>Saturday 7 November — tonight 18:00–19:00</h2>
       <p data-show-until="2026-11-07">
         Meetup <strong>18:00–19:00</strong> at the three bars open Saturday:
@@ -179,6 +184,8 @@ const faqLd = {
         (door-to-door metres + Maps). Overnight clock:
         <a href={withBase('/fifteen-hours-sol-until-four-corner-1400/')}>~15 hours until Four Corner 14:00</a>, stay in Sol.
       </p>
+      </>
+      )}
 
       <h2>Sunday 8 November — from 12:00</h2>
       <p data-show-until={SHOW_UNTIL}>

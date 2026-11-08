@@ -81,6 +81,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/bengals-falcons-split-two-doors-espoz-mina-7/': '/es/bengals-falcons-reparte-dos-puertas-espoz-mina-7/',
   '/stay-after-united-villa-1730-four-open-doors/': '/es/quedarse-despues-united-villa-1730-cuatro-puertas-abiertas/',
   '/evening-metro-gran-via-sevilla-to-open-sol-doors/': '/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/',
+  '/nfl-on-now-1900-then-hop-atleti-2100/': '/es/nfl-en-pantalla-ahora-1900-luego-saltar-atleti-2100/',
+  '/standing-in-sol-square-last-metres-to-1900-doors/': '/es/en-plaza-sol-ultimos-metros-a-puertas-1900/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

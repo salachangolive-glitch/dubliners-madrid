@@ -19,9 +19,9 @@ const SHOW_UNTIL = '2026-11-08';
 const todayKey = madridToday();
 const showWeekend = todayKey <= SHOW_UNTIL;
 const hoursLine = hoursSummary('es');
-const title = 'Dónde ver la NFL en Madrid | Dubliners Pub Sol';
+const title = 'Ver NFL en Madrid | Bar NFL Madrid cerca de Puerta del Sol';
 const description =
-  'Bar NFL en Madrid junto a Sol. Mira Bengals–Falcons y la jornada NFL en pantallas grandes en Dubliners, Espoz y Mina 7. Punto de encuentro este finde.';
+  'Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Four Corner está abierto desde las 14:00, pantallas de deporte. Listados con nombre: Partidos.';
 const articleLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -79,10 +79,10 @@ const faqLd = {
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Dónde ver la NFL" lang="es" schema />
-      <h1>Dónde ver la NFL en Madrid junto a Puerta del Sol</h1>
+      <h1>Ver NFL en Madrid junto a Puerta del Sol</h1>
       <p class="lead">
-        Si quieres seguir la jornada NFL en el centro de Madrid, <strong>Dubliners</strong> es un pub irlandés deportivo
-        en Calle de Espoz y Mina 7, junto a Puerta del Sol (Metro Sol L1/L2/L3 o Sevilla L2) — un
+        Si quieres ver NFL en Madrid en el centro, <strong>Dubliners</strong> es un pub irlandés y bar deportivo —
+        un bar NFL Madrid en Calle de Espoz y Mina 7, junto a Puerta del Sol (Metro Sol L1/L2/L3 o Sevilla L2) — un
         <strong>punto de encuentro</strong> para aficionados, independiente de los actos de la liga.
       </p>
       <p class="small">Dubliners Irish Pub · Espoz y Mina 7 · {hoursLine}</p>
@@ -152,10 +152,12 @@ const faqLd = {
         </div>
       )}
 
-      <h2>Sports bar Sol</h2>
+      <h2>Bar deportivo Sol Madrid</h2>
       <p>
-        Un sports bar junto a Sol, entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Horario:
+        Un bar deportivo Sol Madrid, entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Horario:
         {hoursLine}. Domingo 8 de noviembre: desde las 12:00.
+        Las cuatro puertas hermanas están abiertas ahora. Four Corner está abierto desde las 14:00 con pantallas de deporte.
+        Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
       <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
 

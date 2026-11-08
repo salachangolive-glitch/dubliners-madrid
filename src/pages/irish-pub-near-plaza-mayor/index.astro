@@ -2,7 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { SITE, withBase } from '../../site';
+import { isFanWeekendLive } from '../../data/fourBars';
+
+const fanWeekend = isFanWeekendLive();
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -34,22 +39,27 @@ const faqLd = {
     }
   ]
 };
-const title = "Irish Pub near Plaza Mayor & Puerta del Sol, Madrid | Dubliners";
-const description = "English-speaking Irish pub a short walk from Plaza Mayor, just off Puerta del Sol: Espoz y Mina 7. Live sport, open daily from 12:00.";
+const title = "Irish pub Madrid near Plaza Mayor & Puerta del Sol | Dubliners";
+const description = "Irish pub Madrid and sports bar a short walk from Plaza Mayor, just off Puerta del Sol: Espoz y Mina 7. Irish bar Madrid with live sport. GET DIRECTIONS.";
 ---
 
 <BaseLayout title={title} description={description} path="/irish-pub-near-plaza-mayor/" ogImage="/images/facade.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Near Plaza Mayor" />
-      <h1>Irish pub near Plaza Mayor and Puerta del Sol</h1>
-      <p class="lead">Sightseeing around Plaza Mayor and Sol? Dubliners is a short walk away on Calle de Espoz y Mina 7 — an English-speaking Irish pub with live sport on the screens.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Directions</a>
-        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
-      </div>
+      <h1>Irish pub Madrid near Plaza Mayor and Puerta del Sol</h1>
+      <p class="lead">Sightseeing around Plaza Mayor and Sol? Dubliners is a short walk away on Calle de Espoz y Mina 7 — an English-speaking Irish pub Madrid and sports bar with live sport on the screens. Irish bar Madrid, just off the plaza.</p>
+      {fanWeekend ? (
+        <FanWeekendCtas lang="en" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+          <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+        </div>
+      )}
     </div>
   </section>
+  {fanWeekend && <FourBarsMeet lang="en" />}
   <section class="section">
     <div class="container prose">
       <h2>Walking from Plaza Mayor</h2>
@@ -57,15 +67,21 @@ const description = "English-speaking Irish pub a short walk from Plaza Mayor, j
       <h2>By metro</h2>
       <p>Sol (L1, L2, L3) or Sevilla (L2), both a short street-level walk.</p>
       <h2>Why stop by</h2>
-      <p>Live sport on DAZN, Movistar and Premier Sports, a historic painted ceiling from the old Barragán tailor shop (1885), and €1 shots every Wednesday.</p>
+      <p>
+        Live sport on DAZN, Movistar and Premier Sports, a historic painted ceiling from the old Barragán tailor shop (1885), and €1 shots every Wednesday.
+        Same door as the <a href={withBase('/sports-bar-madrid/')}>sports bar Sol Madrid</a> and
+        <a href={withBase('/nfl-madrid/')}>NFL bar Madrid</a> pages. Named listings: What’s On.
+        Four Corner is open from 14:00 with sports screens; all four doors are open now.
+      </p>
       <LinkHub
         heading="h2"
         groups={[
           {
             title: 'Plan your visit',
             items: [
-              { href: '/visit/', label: 'Map & directions' },
+              { href: '/visit/', label: 'FIND US — map & GET DIRECTIONS' },
               { href: '/whats-on/', label: 'What’s On' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar Sol Madrid' },
               { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots' },
               { href: '/international-students-pub-madrid/', label: 'Erasmus & international students' },
             ],

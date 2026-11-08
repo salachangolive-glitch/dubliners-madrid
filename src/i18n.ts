@@ -83,6 +83,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/evening-metro-gran-via-sevilla-to-open-sol-doors/': '/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/',
   '/nfl-on-now-1900-then-hop-atleti-2100/': '/es/nfl-en-pantalla-ahora-1900-luego-saltar-atleti-2100/',
   '/standing-in-sol-square-last-metres-to-1900-doors/': '/es/en-plaza-sol-ultimos-metros-a-puertas-1900/',
+  '/atleti-barca-kickoff-now-four-open-sol-doors/': '/es/atleti-barca-saque-ahora-cuatro-puertas-sol-abiertas/',
+  '/stay-after-atleti-2100-late-nfl-2205-2225/': '/es/quedarse-despues-atleti-2100-nfl-tarde-2205-2225/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

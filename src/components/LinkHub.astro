@@ -2,10 +2,11 @@
 /**
  * Organised link sections (owner order 22 Oct 2026): internal guides are linked
  * from clean, labelled lists — never piled into commercial paragraphs.
- * Each item keeps its keyword anchor; `until` (YYYY-MM-DD, Madrid) hides
- * temporary items client-side via FixtureAntiStale's [data-show-until].
+ * Each item keeps its keyword anchor; `until` (YYYY-MM-DD, Madrid) is omitted
+ * from HTML once that date has passed (crawlers ignore data-show-until).
  */
 import { withBase } from '../site';
+import { madridYmd } from '../data/fourBars';
 
 export interface HubItem {
   href: string;
@@ -29,7 +30,13 @@ interface Props {
   label?: string;
   compact?: boolean;
 }
-const { groups, heading = 'h2', label, compact = false } = Astro.props;
+const { groups: rawGroups, heading = 'h2', label, compact = false } = Astro.props;
+const today = madridYmd();
+const stillLive = (until?: string) => !until || today <= until;
+const groups = rawGroups
+  .filter((g) => stillLive(g.until))
+  .map((g) => ({ ...g, items: g.items.filter((it) => stillLive(it.until)) }))
+  .filter((g) => g.items.length > 0);
 const H = heading;
 const href = (h: string) => (h.startsWith('http') ? h : withBase(h));
 ---

@@ -73,7 +73,8 @@ const faqLd = {
         {showSaturdayTonight && (
           <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.es)} data-show-until="2026-11-07">Quedada 18:00–19:00</a>
         )}
-        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>Ver NFL en Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>Bar NFL Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a>
       </div>
     </div>
   </section>
@@ -116,8 +117,10 @@ const faqLd = {
       <p>
         Pub irlandés y bar deportivo · Calle de Espoz y Mina 7, 28012 Madrid.<br />
         Horario: lun–jue y dom 12:00–02:00 · vie–sáb 12:00–02:30. Domingo 8 de noviembre: abrimos desde las 12:00.<br />
-        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Google Maps</a>
-        · <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+        <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">CÓMO LLEGAR</a>
+        · <a href={withBase('/es/nfl-madrid/')}>Bar NFL Madrid</a>
+        · <a href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a>
+        · <a href={withBase('/es/premier-league-pub-madrid/')}>Pub Premier League Madrid</a>
         · <a href={withBase('/es/partidos/')}>Partidos y eventos</a>
         · <a href="https://dublinersmadrid.es/es/">dublinersmadrid.es</a>
       </p>
@@ -252,6 +255,16 @@ const faqLd = {
       <LinkHub
         heading="h2"
         groups={[
+          {
+            title: 'Ver en Dubliners',
+            items: [
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Madrid', note: 'Pub irlandés cerca de Puerta del Sol' },
+              { href: '/es/nfl-madrid/', label: 'Bar NFL Madrid', note: 'Ver NFL en Madrid' },
+              { href: '/es/premier-league-pub-madrid/', label: 'Pub Premier League Madrid', note: 'Fútbol inglés cerca de Sol' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid', note: 'Cerca de Plaza Mayor y Sol' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'Maps, Metro Sol, CÓMO LLEGAR' },
+            ],
+          },
           {
             title: 'Sábado 7 de noviembre',
             until: SHOW_UNTIL,

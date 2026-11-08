@@ -10,9 +10,9 @@ import { SITE, withBase } from '../../site';
 import { isFanWeekendLive } from '../../data/fourBars';
 
 const fanWeekend = isFanWeekendLive();
-const title = 'Sports bar Sol Madrid | Irish pub near Puerta del Sol — Dubliners';
+const title = 'Sports bar Madrid | Irish pub near Puerta del Sol — Dubliners';
 const description =
-  'Sports bar Sol Madrid: Irish pub and sports bar just off Puerta del Sol. Football, NFL bar Madrid, rugby. Espoz y Mina 7. Four Corner is open from 14:00, sports screens. Named listings: What’s On.';
+  'Sports bar Madrid: Irish pub just off Puerta del Sol. Football, NFL and rugby on the screens. Espoz y Mina 7. GET DIRECTIONS.';
 ---
 
 <BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg">
@@ -20,11 +20,11 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Sports bar Madrid" schema />
-        <h1>Sports bar Sol Madrid: watch football live near Puerta del Sol</h1>
+        <h1>Sports bar Madrid: Irish pub near Puerta del Sol</h1>
         <p class="lead">
-          Looking for a sports bar Sol Madrid, an Irish pub, or a Premier League pub in Madrid? Dubliners is an Irish pub and sports bar on Espoz y Mina 7,
-          just off Puerta del Sol. Football comes first: Premier League weekends, Champions League nights and LaLiga, watched with an international crowd.
-          It is also an NFL bar Madrid — watch NFL Madrid on the screens when listed. Rugby too.
+          Looking for a sports bar in Madrid, or an Irish pub next to Sol? Dubliners is on Espoz y Mina 7, a short walk from Puerta del Sol.
+          Football comes first: Premier League weekends, Champions League nights and LaLiga, watched with an international crowd.
+          Sunday NFL and rugby go on the screens when listed.
         </p>
         {fanWeekend ? <FanWeekendCtas lang="en" /> : <CtaRow />}
       </div>
@@ -67,10 +67,10 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Sports bar Sol Madrid</h2>
+      <h2>Sports bar Madrid</h2>
       <p>
-        Dubliners is an Irish pub and sports bar just off Sol with screens facing the main room, so groups can watch together.
-        A sports bar Sol Madrid between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Big games fill early.
+        Dubliners is an Irish pub just off Sol with screens facing the main room, so groups can watch together.
+        It is a sports bar in Madrid between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Big games fill early.
         All four sister doors around Sol are open now; Four Corner is open from 14:00 with sports screens. Named listings: <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
       <p>
@@ -96,10 +96,11 @@ const description =
         <li><strong>Tennis:</strong> the big finals and late rounds when they are on.</li>
       </ul>
 
-      <h2>NFL bar Madrid — watch NFL Madrid</h2>
+      <h2>NFL bar Madrid</h2>
       <p>
         NFL Sundays are the big one: the early and late afternoon games (US time) land in the Madrid evening,
-        on our screens. This sports bar is also an NFL bar Madrid — <a href={withBase('/nfl-madrid/')}>watch NFL Madrid</a> here when it is on What’s On.
+        on our screens. Watch NFL Madrid here when it is on What’s On — full board on the
+        <a href={withBase('/nfl-madrid/')}>NFL bar Madrid</a> page.
         We also put NBA and NHL games on when they start before our late cut-off, and MLB at playoff time.
         A game has to start at least an hour before we close (02:00, or 02:30 on Friday and Saturday nights) to be listed.
       </p>
@@ -122,10 +123,11 @@ const description =
             title: 'Match-night guides',
             items: [
               { href: '/whats-on/', label: 'What’s On', note: 'Tonight’s fixtures and the week ahead' },
-              { href: '/premier-league-pub-madrid/', label: 'Premier League nights' },
+              { href: '/premier-league-pub-madrid/', label: 'Premier League pub Madrid' },
               { href: '/champions-league-bar-madrid/', label: 'Champions League nights' },
-              { href: '/nfl-madrid/', label: 'Watch NFL Madrid', note: 'NFL bar Madrid near Sol' },
-              { href: '/visit/', label: 'Visit', note: 'Address, Metro Sol walk and map' },
+              { href: '/nfl-madrid/', label: 'NFL bar Madrid', note: 'Watch NFL Madrid near Sol' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid', note: 'Near Plaza Mayor & Sol' },
+              { href: '/visit/', label: 'Visit', note: 'Address, Metro Sol walk and GET DIRECTIONS' },
             ],
           },
         ]}
@@ -145,6 +147,13 @@ const description =
       </ul>
 
       <div class="faq">
+        <details>
+          <summary>Is this a sports bar in Madrid?</summary>
+          <p>
+            Yes. Dubliners is a sports bar in Madrid and an Irish pub on Espoz y Mina 7, next to Puerta del Sol.
+            Football first; NFL and rugby when listed. <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>.
+          </p>
+        </details>
         <details>
           <summary>Which leagues do you show?</summary>
           <p>

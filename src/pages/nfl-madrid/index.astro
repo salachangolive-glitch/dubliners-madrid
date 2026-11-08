@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
-import { withBase } from '../../site';
+import { SITE, withBase } from '../../site';
 import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { isFanWeekendLive } from '../../data/fourBars';
@@ -36,8 +36,10 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
   {fanWeekend && <FourBarsMeet lang="en" />}
   <section class="section">
     <div class="container prose">
+      <h2>NFL bar Madrid</h2>
+      <p>Dubliners is an NFL bar in Madrid: Sunday games on the screens at an Irish pub a short walk from Puerta del Sol. Named listings stay on <a href={withBase('/whats-on/')}>What’s On</a>. The same room is our <a href={withBase('/sports-bar-madrid/')}>sports bar in Madrid</a> the rest of the week.</p>
       <h2>NFL in Madrid</h2><p>On Sunday 8 November 2026 the Cincinnati Bengals and the Atlanta Falcons play at the Santiago Bernabéu Stadium at 15:30 Madrid time (9:30 a.m. ET). It is the NFL's second regular-season game in Madrid.</p>
-      <p>If you searched for an NFL bar Madrid or a place to watch NFL Madrid, this Irish sports bar next to Puerta del Sol is the door. Named listings stay on <a href={withBase('/whats-on/')}>What’s On</a>. All four sister doors around Sol are open now; Four Corner is open from 14:00 with sports screens.</p>
+      <p>If you searched for a place to watch NFL Madrid, this Irish pub next to Puerta del Sol is the door. All four sister doors around Sol are open now; Four Corner is open from 14:00 with sports screens. Afternoon and evening slate: <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>NFL afternoon and evening</a>.</p>
       <h2>NFL schedule (confirmed only)</h2>
       <table><tbody><tr><td>Sun 8 Nov</td><td>15:30</td><td>Bengals vs Falcons</td><td>Santiago Bernabéu Stadium, Madrid</td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Broncos at Panthers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Cowboys at Colts</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Jets at Chiefs</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Lions at Dolphins</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Browns at Saints</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Giants at Eagles</td><td></td></tr><tr><td>Sun 8 Nov</td><td>19:00</td><td>Rams at Commanders</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:05</td><td>Texans at Chargers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Raiders at 49ers</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Packers at Patriots</td><td></td></tr><tr><td>Sun 8 Nov</td><td>22:25</td><td>Cardinals at Seahawks</td><td></td></tr></tbody></table>
       <p class="small">Madrid times (CET). All games above are LIVE at Dubliners. Source: nfl.com Week 9 schedule. The Sunday night game (02:20 Monday Madrid) is after closing time. <a href={withBase('/whats-on/')}>See what's on</a></p>
@@ -50,6 +52,11 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
       <p class="small">The Sunday before: <a href={withBase('/nfl-sunday-madrid-1-november/')}>NFL Sunday, 1 November</a> (19:00, 22:05 and 22:25, bank holiday Monday)</p>
       <h2>How to find us</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2).</p><p>Opening hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</p>
       <div class="map-frame"><MapEmbed title="Map of Dubliners Madrid" lang="en" /></div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+        <a class="btn btn-secondary" href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
+      </p>
       <h3>From the pub to the Bernabéu by metro</h3><p>For the stadium, use Concha Espina (Line 9) or Cuzco (Line 10), the Metro stations named in Madrid City Council's NFL mobility plan. Check your route from Sol on crtm.es or the Metro de Madrid app.</p>
       <h3>At the Bernabéu: practical info</h3><p>From Real Madrid's NFL page (<a href="https://bernabeu.realmadrid.com/nfl/" rel="noopener">bernabeu.realmadrid.com/nfl</a>): kick-off is at 15:30 and the stadium perimeter opens at 12:30. There is no parking at the stadium, so plan on public transport; the accessible metro station is Nuevos Ministerios (L6, L8, L10), about 15 minutes on foot from the accessible entrance. The NFL clear-bag policy applies: clear bags up to 30.5 × 15.25 × 30.5 cm or small clutch bags up to 11.5 × 16.5 cm. You can bring an empty, clear reusable bottle (up to 1 litre).</p>
       <h2>Central Madrid</h2><p>We're between Puerta del Sol, Plaza Mayor and the Barrio de las Letras — easy to find before or after exploring the city.</p><img class="split-photo tall" src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`} sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Bar counter and a TV screen inside Dubliners Madrid" />

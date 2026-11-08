@@ -10,9 +10,9 @@ import { SITE, withBase } from '../../../site';
 import { isFanWeekendLive } from '../../../data/fourBars';
 
 const fanWeekend = isFanWeekendLive();
-const title = 'Bar deportivo Sol Madrid | Pub irlandés cerca de Puerta del Sol — Dubliners';
+const title = 'Bar deportivo Madrid | Pub irlandés cerca de Puerta del Sol — Dubliners';
 const description =
-  'Bar deportivo Sol Madrid: pub irlandés y bar deportivo junto a Puerta del Sol. Fútbol, bar NFL Madrid, rugby. Espoz y Mina 7. Four Corner está abierto desde las 14:00, pantallas de deporte. Listados con nombre: Partidos.';
+  'Bar deportivo Madrid: pub irlandés junto a Puerta del Sol. Fútbol, NFL y rugby en pantallas. Espoz y Mina 7. CÓMO LLEGAR.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -20,11 +20,11 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Bar deportivo Madrid" lang="es" schema />
-        <h1>Bar deportivo Sol Madrid: fútbol en directo cerca de Puerta del Sol</h1>
+        <h1>Bar deportivo Madrid: pub irlandés cerca de Puerta del Sol</h1>
         <p class="lead">
-          ¿Buscas un bar deportivo Sol Madrid, un pub irlandés o un pub de Premier League en Madrid? Dubliners es un pub irlandés y bar deportivo en Espoz y Mina 7,
-          junto a Puerta del Sol. El fútbol va primero: fines de semana de Premier League, noches de Champions League y LaLiga, con público internacional.
-          También es un bar NFL Madrid — ver NFL en Madrid en pantallas cuando está en Partidos. Rugby también.
+          ¿Buscas un bar deportivo en Madrid, o un pub irlandés junto a Sol? Dubliners está en Espoz y Mina 7, a un paseo de Puerta del Sol.
+          El fútbol va primero: fines de semana de Premier League, noches de Champions League y LaLiga, con público internacional.
+          La NFL del domingo y el rugby van en pantallas cuando están en Partidos.
         </p>
         {fanWeekend ? <FanWeekendCtas lang="es" /> : <CtaRow lang="es" />}
       </div>
@@ -67,10 +67,10 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Bar deportivo Sol Madrid</h2>
+      <h2>Bar deportivo Madrid</h2>
       <p>
-        Dubliners es un pub irlandés y bar deportivo a un paso de Sol con pantallas orientadas a la sala principal, para ver el partido en grupo.
-        Un bar deportivo Sol Madrid entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Los partidos grandes se llenan pronto.
+        Dubliners es un pub irlandés a un paso de Sol con pantallas orientadas a la sala principal, para ver el partido en grupo.
+        Es un bar deportivo en Madrid entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Los partidos grandes se llenan pronto.
         Las cuatro puertas hermanas alrededor de Sol están abiertas ahora; Four Corner está abierto desde las 14:00 con pantallas de deporte. Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
       <p>
@@ -96,10 +96,11 @@ const description =
         <li><strong>Tenis:</strong> las grandes finales y últimas rondas cuando se emiten.</li>
       </ul>
 
-      <h2>Bar NFL Madrid — ver NFL en Madrid</h2>
+      <h2>Bar NFL Madrid</h2>
       <p>
         Los domingos de NFL son lo principal: los partidos de primera y última hora de la tarde (hora de EE. UU.)
-        caen en la tarde-noche de Madrid, en nuestras pantallas. Este bar deportivo es también un bar NFL Madrid — <a href={withBase('/es/nfl-madrid/')}>ver NFL en Madrid</a> aquí cuando está en Partidos.
+        caen en la tarde-noche de Madrid, en nuestras pantallas. Ver NFL en Madrid aquí cuando está en Partidos — parrilla completa en
+        <a href={withBase('/es/nfl-madrid/')}>bar NFL Madrid</a>.
         También ponemos NBA y NHL cuando empiezan antes de nuestro corte de la noche, y la MLB en playoffs.
         Solo anunciamos partidos que empiezan al menos una hora antes del cierre (02:00; viernes y sábado, 02:30).
       </p>
@@ -122,10 +123,11 @@ const description =
             title: 'Guías para noches de partido',
             items: [
               { href: '/es/partidos/', label: 'Partidos', note: 'Partidos de hoy y agenda de la semana' },
-              { href: '/es/premier-league-pub-madrid/', label: 'Noches de Premier League' },
+              { href: '/es/premier-league-pub-madrid/', label: 'Pub Premier League Madrid' },
               { href: '/es/champions-league-bar-madrid/', label: 'Noches de Champions League' },
-              { href: '/es/nfl-madrid/', label: 'Ver NFL en Madrid', note: 'Bar NFL Madrid cerca de Sol' },
-              { href: '/es/visitar/', label: 'Visitar', note: 'Dirección, Metro Sol y mapa' },
+              { href: '/es/nfl-madrid/', label: 'Bar NFL Madrid', note: 'Ver NFL en Madrid cerca de Sol' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid', note: 'Cerca de Plaza Mayor y Sol' },
+              { href: '/es/visitar/', label: 'Visitar', note: 'Dirección, Metro Sol y CÓMO LLEGAR' },
             ],
           },
         ]}
@@ -145,6 +147,13 @@ const description =
       </ul>
 
       <div class="faq">
+        <details>
+          <summary>¿Sois un bar deportivo en Madrid?</summary>
+          <p>
+            Sí. Dubliners es un bar deportivo en Madrid y un pub irlandés en Espoz y Mina 7, junto a Puerta del Sol.
+            Fútbol primero; NFL y rugby cuando están en Partidos. <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">CÓMO LLEGAR</a>.
+          </p>
+        </details>
         <details>
           <summary>¿Qué ligas ponéis?</summary>
           <p>

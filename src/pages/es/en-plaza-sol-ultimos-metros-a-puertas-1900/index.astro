@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/en-plaza-sol-ultimos-metros-a-puertas-1900/';
+const PATH_EN = '/standing-in-sol-square-last-metres-to-1900-doors/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'De pie en la plaza de Puerta del Sol: últimos metros a Victoria 6, Espoz y Mina 7 y Matheu 4 para la ventana 19:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T19:00:00+01:00',
+  dateModified: '2026-11-08T19:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Ya estoy de pie en la plaza de Puerta del Sol para la NFL 19:00. ¿Hacia dónde son los últimos metros?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mirad al sureste hacia Carrera de San Jerónimo / Calle de la Victoria — no Gran Vía. Las cuatro puertas hermanas están abiertas AHORA. Four Corner, Calle de la Victoria 6 (desde las 14:00 hasta la madrugada, pantallas de deporte) está a unos 2–3 minutos / 180–220 m del lado este de Sol (ya publicado). Dubliners y O’Connell’s, Calle de Espoz y Mina 7. O’Reilly’s, Pasaje de Matheu 4. Seguid Maps en vivo para los últimos metros. NFL 19:00 y Atlético–Barcelona 21:00 con nombre: solo Partidos de Dubliners. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Esto es Metro de tarde Gran Vía/Sevilla, primer Metro, Callao–Preciados, soportales de Plaza Mayor o Tirso?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El Metro de tarde es llegada desde las estaciones Gran Vía (L1/L5) o Sevilla (L2). El primer Metro es primera hora del domingo, con Four Corner aún cerrado. Callao–Preciados es calle comercial con bolsas antes de las 14:00. Los soportales de Plaza Mayor son una calle turística cuesta abajo desde otra plaza antes de las 14:00. Tirso / Antón Martín es andar al norte desde L1 al sur de Sol antes de las 14:00. Esta página es solo ya en el pavimento de la plaza de Puerta del Sol, últimos metros, cuatro puertas ya abiertas, para la ventana 19:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Están abiertas las cuatro puertas si ya estoy en la plaza a las 19:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. El domingo son cuatro bares. Four Corner está abierto desde las 14:00 hasta la madrugada, pantallas de deporte. La quedada de tres bares del sábado ya ha acabado. Del lado este de Sol, Victoria 6 está a unos 2–3 minutos / 180–220 m (ya publicado). Preguntad qué echan. Premier va a la vez que NFL y Atleti; no sustituyáis.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="En la plaza de Sol: últimos metros a Victoria 6 / Espoz y Mina 7 | Dubliners"
+  description="Domingo 8 nov: ya en la plaza de Puerta del Sol. Andad los últimos metros a Victoria 6, Espoz y Mina 7 y Matheu 4. Las cuatro puertas abiertas AHORA para la NFL 19:00. Maps. FIND US."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="En la plaza de Sol: últimos metros a las puertas 19:00" schema />
+      <h1>De pie en la plaza de Puerta del Sol: últimos metros a Victoria 6, Espoz y Mina 7 y Matheu 4</h1>
+      <p class="lead">
+        Ya estáis <strong>en la plaza</strong> — no en un andén de Gran Vía, no de compras en Callao con bolsas, no bajo los soportales de Plaza Mayor, no subiendo desde Tirso.
+        Mirad al <strong>sureste hacia Carrera de San Jerónimo / Calle de la Victoria</strong>.
+        <strong>Las cuatro puertas hermanas están abiertas AHORA</strong> para la ventana NFL 19:00, luego Atlético–Barcelona 21:00.
+        Four Corner, Calle de la Victoria 6, está abierto (desde las 14:00 hasta la madrugada, pantallas de deporte).
+        La quedada de tres bares del sábado ya ha acabado. Seguid Maps en vivo para los últimos metros. Preguntad qué echan.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Standing in Puerta del Sol square: last metres to Victoria 6, Espoz y Mina 7 and Matheu 4</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>En el pavimento de la plaza — no Metro de tarde, no primer Metro, no Callao, no Plaza Mayor, no Tirso</h2>
+      <p>
+        <a href={withBase('/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/')}>Metro de tarde Gran Vía o Sevilla</a> es llegada desde esas estaciones.
+        <a href={withBase('/es/primer-metro-a-sol-domingo-estacion-a-puerta/')}>Primer Metro del domingo</a> es de la estación a la puerta cuando arranca el Metro, con Four Corner aún cerrado.
+        <a href={withBase('/es/callao-preciados-compras-sur-puertas-sol-antes-1400/')}>Callao–Preciados</a> es calle comercial al sur antes de las 14:00.
+        <a href={withBase('/es/plaza-mayor-soportales-cuesta-abajo-puertas-sol-antes-1400/')}>Soportales de Plaza Mayor</a> es calle turística cuesta abajo desde otra plaza antes de las 14:00 — esa plaza no es recinto de aficionados.
+        <a href={withBase('/es/tirso-anton-martin-norte-puertas-sol-antes-1400/')}>Tirso / Antón Martín</a> es andar al norte desde L1 al sur de Sol antes de las 14:00.
+        Esta página es solo <strong>ya de pie en la plaza de Puerta del Sol</strong>, últimos metros a las cuatro puertas abiertas, para las 19:00.
+      </p>
+
+      <h2>Sureste desde la plaza — Victoria 6, luego Espoz y Mina 7, luego Matheu 4</h2>
+      <p>
+        Del lado este de Sol, Calle de la Victoria 6 está a unos <strong>2–3 minutos / 180–220 m</strong> (ya publicado).
+        Mirad al sureste hacia Carrera de San Jerónimo / Calle de la Victoria — no Gran Vía, no un plan de autobús nocturno.
+        Espoz y Mina 7 es el par del número 7 más cercano (Dubliners y O’Connell’s, dos puertas, dos CID).
+        Pasaje de Matheu 4 es el atajo cubierto. Seguid Maps en vivo para los últimos metros; no inventamos un reloj nuevo desde la plaza.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abierto AHORA (desde las 14:00 hasta la madrugada · pantallas de deporte). Primer pin de Victoria desde el este de la plaza.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Domingo 12:00–02:00. NFL 19:00 y Atleti 21:00 con nombre en Partidos. Preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps: O’Connell St).
+          Mismo número, otra puerta, otro CID. Punto de encuentro; no inventamos su cartel.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Atajo cubierto desde Victoria / Espoz y Mina. Habitual desde las 11:30. Punto de encuentro; sin menú inventado.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+
+      <h2>A qué son esos últimos metros — Premier va a la vez, no sustituye</h2>
+      <p>
+        <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners ya lista el domingo 8 de noviembre en hora de Madrid.
+        Entráis para la NFL desde las <strong>19:00</strong> (RedZone desde las 19:00) luego <strong>22:05</strong> / <strong>22:25</strong>, y Atlético vs Barcelona <strong>21:00</strong>.
+        Premier 15:00 / 17:30 va a la vez; no sustituyáis. Listados con nombre: solo Dubliners.
+        No asignamos esos partidos a O’Reilly’s, O’Connell’s ni Four Corner. Preguntad qué pantalla.
+      </p>
+      <p>
+        ¿Ya en una puerta y la ventana NFL 19:00 está en vivo?
+        <a href={withBase('/es/nfl-en-pantalla-ahora-1900-luego-saltar-atleti-2100/')}>NFL en pantalla AHORA — sentaos, luego saltad a las 21:00 para Atleti</a>.
+        ¿Aún en Metro de tarde, no en la plaza?
+        <a href={withBase('/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/')}>Gran Vía o Sevilla a Victoria 6 y Espoz y Mina 7</a>.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Ya en la plaza de Puerta del Sol. ¿Hacia dónde para las 19:00?</strong></dt>
+        <dd>Sureste hacia Carrera de San Jerónimo / Calle de la Victoria. Victoria 6 está a 2–3 min / 180–220 m del este de Sol. Espoz y Mina 7 dos veces, Matheu 4 el atajo. Las cuatro puertas abiertas AHORA. Preguntad qué echan.</dd>
+        <dt><strong>¿Esto es Metro de tarde, primer Metro, Callao, Plaza Mayor o Tirso?</strong></dt>
+        <dd>No. Esos son estaciones de llegada, primera hora, compras antes de las 14:00, otra plaza antes de las 14:00, y al sur de Sol antes de las 14:00. Esto es últimos metros desde el pavimento de la plaza, cuatro puertas ya abiertas.</dd>
+        <dt><strong>¿Andar desde la plaza sustituye Premier, NFL o Atleti?</strong></dt>
+        <dd>No. Coordinad. Los relojes con nombre van a la vez en Partidos de Dubliners. No copiamos ese cartel a las puertas hermanas.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Últimos metros desde la plaza de Sol este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/nfl-en-pantalla-ahora-1900-luego-saltar-atleti-2100/', label: 'NFL en pantalla AHORA desde las 19:00 — luego saltar a Atleti 21:00' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: PATH_EN, label: 'Standing in Puerta del Sol square: last metres to Victoria 6, Espoz y Mina 7 and Matheu 4', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

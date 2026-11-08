@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/callao-preciados-shop-south-sol-doors-before-1400/';
+const PATH_ES = '/es/callao-preciados-compras-sur-puertas-sol-antes-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Callao and Preciados: shop south to the four Sol doors before 14:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T11:00:00+01:00',
+  dateModified: '2026-11-08T11:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'I am shopping at Callao / Calle de Preciados this Sunday morning. Which way to the four bars before 14:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Keep walking south on pedestrian Calle de Preciados toward Puerta del Sol — bags in hand, not a station hop and not a plaza photo stop. Cross the square south-east toward Calle de Carretas / Carrera de San Jerónimo, then Espoz y Mina 7, Pasaje de Matheu 4 and Calle de la Victoria 6. Pin Four Corner for 14:00 (sports screens, not open before). Maps below.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How far from Callao / Preciados to Victoria 6, Espoz y Mina 7 and Pasaje de Matheu 4?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From Plaza del Callao south on Preciados: Espoz y Mina 7 about 10–13 min / 700–850 m; Pasaje de Matheu 4 about 11–13 min / 750–900 m; Victoria 6 about 11–14 min / 780–950 m. Once you hit Puerta del Sol, the south-east pocket is 2–6 min more. Do not wait on Victoria 6 before 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'It is about 11:00. Can I go to Four Corner now?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner opens Sunday 8 November from 14:00 until late, with sports screens — about three hours from 11:00, not before. Finish Preciados, pin the four doors, sit the first sister that is open. O’Reilly’s usual from 11:30; Dubliners and O’Connell’s from 12:00. Premier League from 15:00, NFL afternoon/evening and Atlético–Barcelona 21:00 sit on the same streets after that — coordinate, do not substitute. Named listings: Dubliners What’s On only.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Callao–Preciados shop south to four Sol doors before 14:00 | Dubliners"
+  description="Sunday 8 Nov ~11:00: shopping at Callao / Calle de Preciados? Walk south to Puerta del Sol, then pin Victoria 6, Espoz y Mina 7 and Pasaje de Matheu 4 before 14:00. Tourist shopping-to-pint, Maps, metres."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Callao–Preciados shop south to the four Sol doors" schema />
+      <h1>Callao and Preciados: shop south to the four Sol doors before 14:00</h1>
+      <p class="lead">
+        Saturday is over. You are not at a hotel checkout, not off a train at Atocha, and not already under a plaza arcade.
+        <strong>You are on the Callao–Preciados shopping street</strong> — bags, Sunday shoppers, pedestrian granite.
+        Walk <strong>south on Calle de Preciados</strong> into Puerta del Sol, then the south-east pocket.
+        Pin the four sister doors before Four Corner opens at 14:00 with sports screens (about three hours from 11:00; not open before). Maps below.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Callao y Preciados: compras hacia el sur, cuatro puertas de Sol antes de las 14:00</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>This is a shopping-street walk, not a plaza downhill, not Atocha, not a hotel first street</h2>
+      <p>
+        Other pages already cover Plaza Mayor’s east arcade, Atocha Cercanías one stop, a Sol hotel’s first Sunday street,
+        and a stroll out from the square itself.
+        This page is only for the person <strong>already on Plaza del Callao or Calle de Preciados with shopping bags</strong>
+        who needs the south heading, metres, and which door to pin before 14:00.
+        Do not re-promote Saturday 18:00–19:00 or Valencia–Real Madrid as still on.
+      </p>
+
+      <h2>Callao → Preciados south → Sol — then which pocket</h2>
+      <p>
+        Start at <strong>Plaza del Callao</strong>. Stay on pedestrian <strong>Calle de Preciados</strong> and keep walking
+        <strong>south toward Puerta del Sol</strong> — that is the shopping street, not a Metro corridor and not a train concourse.
+        Cross the square on the south-east side toward <strong>Calle de Carretas</strong> and <strong>Carrera de San Jerónimo</strong>.
+        Then Espoz y Mina, Pasaje de Matheu (the covered cut-through) and Calle de la Victoria.
+      </p>
+      <ul>
+        <li>
+          <strong>From Plaza del Callao, south on Preciados.</strong>
+          Espoz y Mina 7: <strong>10–13 min / 700–850 m</strong>.
+          Pasaje de Matheu 4: <strong>11–13 min / 750–900 m</strong>.
+          Victoria 6: <strong>11–14 min / 780–950 m</strong>.
+        </li>
+        <li>
+          <strong>Once you hit Puerta del Sol.</strong>
+          The south-east pocket is short: Espoz y Mina 7 about <strong>2–4 min / 150–250 m</strong>;
+          Matheu 4 about <strong>3–5 min / 200–300 m</strong>;
+          Victoria 6 about <strong>4–6 min / 250–350 m</strong>.
+        </li>
+      </ul>
+      <p>
+        From about 11:00 it is <strong>about three hours</strong> until Four Corner opens at 14:00.
+        Finish the shops, pin Victoria 6 for that hour. Do not camp a closed door on Calle de la Victoria before then.
+      </p>
+
+      <h2>Before 14:00 — which door is even open</h2>
+      <p>
+        Four Corner opens <strong>Sunday 8 November from 14:00 until late, with sports screens</strong>.
+        Not before 14:00. We do not list which game is on there — ask at the door.
+        O’Reilly’s usual from 11:30 (Pasaje de Matheu 4). Dubliners and O’Connell’s from 12:00 (Espoz y Mina 7).
+        Walk Preciados now; sit the first sister that is open; be on Victoria for the 14:00 open.
+        Premier League from 15:00 (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth),
+        United–Villa 17:30, NFL afternoon/evening, and Atlético–Barcelona 21:00 sit on the same streets after that — coordinate, do not substitute.
+        Named listings: Dubliners <a href={withBase('/whats-on/')}>What’s On</a> only. Ask which screen — not every game on every screen.
+      </p>
+
+      <h2>Shopping street to three streets — addresses</h2>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid</strong> (pin for 14:00; sports screens; not open before).
+          About 11–14 min from Callao / 4–6 min once you are on Sol.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Covered passage off Espoz y Mina. Usual from 11:30. About 11–13 min from Callao.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          About 10–13 min from Callao. Sunday from 12:00. Named screens on What’s On — ask which game is on.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          Same street number as Dubliners, different door. Sunday 8 Nov from 12:00 (usual Sunday 14:00). Meeting point; we do not invent its board.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Shopping at Callao / Preciados this morning. Which way before 14:00?</strong></dt>
+        <dd>South on pedestrian Preciados to Puerta del Sol, then south-east to Carretas / San Jerónimo. Pin Victoria 6 for 14:00. Then Matheu 4 and Espoz y Mina 7 twice.</dd>
+        <dt><strong>How far from Callao to the four doors?</strong></dt>
+        <dd>Callao south on Preciados: Espoz y Mina 7 10–13 min / 700–850 m; Matheu 4 11–13 min / 750–900 m; Victoria 6 11–14 min / 780–950 m. From Sol itself, 2–6 min more. Do not wait on Victoria 6 before 14:00.</dd>
+        <dt><strong>It is ~11:00. Is Four Corner open?</strong></dt>
+        <dd>No. From 14:00, sports screens — about three hours from now. O’Reilly’s from 11:30; Dubliners and O’Connell’s from 12:00. Do not wait on Victoria 6 before 14:00.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'From Callao / Preciados this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/oreillys-table-three-hours-until-victoria-6-1400/', label: 'Three hours to spare: sit an O’Reilly’s table until 14:00' },
+              { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner Sunday 14:00' },
+              { href: PATH_ES, label: 'Callao y Preciados: compras hacia el sur, cuatro puertas de Sol', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

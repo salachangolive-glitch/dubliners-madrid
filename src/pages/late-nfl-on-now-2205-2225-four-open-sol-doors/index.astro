@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/late-nfl-on-now-2205-2225-four-open-sol-doors/';
+const PATH_ES = '/es/nfl-tarde-en-pantalla-ahora-2205-2225-cuatro-puertas-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Late NFL is on NOW: 22:05 / 22:25 at the four open Sol doors',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T23:00:00+01:00',
+  dateModified: '2026-11-08T23:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'It is late Sunday. Is NFL 22:05 / 22:25 on now at the four Sol doors?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. The late NFL clocks 22:05 then 22:25 are the window on now. Walk into the four open sister doors near Puerta del Sol. Four Corner, Calle de la Victoria 6, is open (from 14:00 until late, sports screens). Dubliners and O’Connell’s at Calle de Espoz y Mina 7. O’Reilly’s at Pasaje de Matheu 4. Named late NFL: Dubliners What’s On only. At the sister doors, ask which game is on.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the stay-after-Atleti page, the afternoon–evening slate, RedZone Sunday, or the all-day Sunday stay?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Stay after Atleti is the sit-through after the 21:00 football whistle. Afternoon–evening NFL is the 15:30 then night clocks. RedZone Sunday is which screen to ask for at 19:00. Sunday slate stay is 12:00-to-late without leaving Sol. This page is only the time-of-day now: late NFL 22:05 / 22:25 is already on at the four open doors.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does walking in for 22:05 / 22:25 replace Atlético–Barcelona or Premier?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinate; do not substitute. Atlético vs Barcelona 21:00 already sat on Dubliners What’s On alongside late NFL from 22:05 / 22:25. Premier 15:00 / 17:30 already ran on the same board. We do not assign those matches to O’Reilly’s, O’Connell’s or Four Corner. Ask which screen.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Late NFL is on NOW: 22:05 / 22:25 at the four open Sol doors | Dubliners"
+  description="Sunday 8 Nov ~23:00: late NFL 22:05 then 22:25 is on NOW at the four open Sol doors. Named screens: Dubliners What’s On. Ask which game. Maps. FIND US."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Late NFL is on NOW: 22:05 / 22:25 at the four open Sol doors" schema />
+      <h1>Late NFL is on NOW: 22:05 / 22:25 at the four open Sol doors</h1>
+      <p class="lead">
+        It is late Sunday. The late NFL clocks <strong>22:05</strong> then <strong>22:25</strong> are
+        <strong>on NOW</strong> — not a note to stay after football, not a 15:30 slate, not a 19:00 screen pick.
+        Walk into the four sister doors, all <strong>open NOW</strong> —
+        Four Corner on Calle de la Victoria 6 (from 14:00 until late, sports screens),
+        Dubliners and O’Connell’s at Espoz y Mina 7, O’Reilly’s at Pasaje de Matheu 4.
+        Named late NFL: Dubliners <a href={withBase('/whats-on/')}>What’s On</a> only.
+        At the sister doors, <strong>ask which game</strong>. Maps below.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">NFL de después en pantalla AHORA: 22:05 / 22:25 en las cuatro puertas abiertas de Sol</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>This is the late window on now — not stay-after-Atleti, not the afternoon slate, not RedZone, not the all-day stay</h2>
+      <p>
+        <a href={withBase('/stay-after-atleti-2100-late-nfl-2205-2225/')}>Stay after Atleti 21:00</a> is sit through the football whistle, then wait for 22:05.
+        <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>Afternoon and evening NFL</a> is the 15:30 then night clocks.
+        <a href={withBase('/redzone-sunday-sol-dubliners/')}>RedZone Sunday</a> is which screen to ask for at 19:00.
+        <a href={withBase('/sunday-nfl-slate-stay-in-sol/')}>Sunday NFL slate without leaving Sol</a> is the 12:00-to-late pin.
+        This page is only <strong>time-of-day now</strong>: the late NFL clocks are already on. Walk in.
+        Saturday’s three-bar meetup is over. Sunday is four doors. Do not re-promote 18:00–19:00 as still on.
+      </p>
+
+      <h2>Walk these two streets. Late NFL is the current show, not a new neighbourhood</h2>
+      <p>
+        Pin <strong>Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4</strong>.
+        Four Corner <strong>is open now</strong> (from 14:00 until late · sports screens). We do not list which game is on there.
+        O’Reilly’s and O’Connell’s are meeting points on the same cluster; we do not copy Dubliners’ board onto those doors.
+        Named listings: Dubliners What’s On only. Ask which screen. Not every game on every screen.
+        If the first door you try is not showing late NFL, hop — the other three open doors are still on these two streets.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Open NOW (from 14:00 until late · sports screens). Ask at the door.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Sunday 12:00–02:00. Named late NFL clocks on What’s On. Ask which game is on.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          Same number, different door, different CID. Meeting point; we do not invent its board.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Covered passage. Usual from 11:30. Meeting point; no invented menu.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ol>
+
+      <h2>What is on now — Premier already sat alongside; Atleti already ran</h2>
+      <p>
+        Dubliners <a href={withBase('/whats-on/')}>What’s On</a> already lists Sunday 8 November in Madrid time.
+        Late NFL from <strong>22:05</strong> then <strong>22:25</strong> is the named clock on that board right now.
+        Atlético vs Barcelona <strong>21:00</strong> already sat alongside; it does not replace this window.
+        Premier 15:00 / 17:30 already ran; they sit alongside, they do not stand in for late NFL.
+        Coordinate; do not substitute. Named listings: Dubliners only. We do not assign those matches to O’Reilly’s, O’Connell’s or Four Corner.
+        Ask which screen.
+      </p>
+      <p>
+        Already sitting through the 21:00 whistle and staying put?
+        <a href={withBase('/stay-after-atleti-2100-late-nfl-2205-2225/')}>Stay after Atleti 21:00 for late NFL 22:05 / 22:25</a>.
+        Leaving Sol after 23:00 for last Metro or Cercanías?
+        <a href={withBase('/last-metro-cercanias-out-of-sol-after-2300/')}>Outbound from Victoria 6 / Espoz y Mina 7 / Matheu 4</a>.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Late Sunday. Is 22:05 / 22:25 on now?</strong></dt>
+        <dd>Yes. Walk into the four open doors: Victoria 6, Espoz y Mina 7 twice, Pasaje de Matheu 4. Named late NFL: Dubliners What’s On. Sister doors: ask which game.</dd>
+        <dt><strong>Is this stay-after-Atleti, the afternoon slate, RedZone, or the all-day stay?</strong></dt>
+        <dd>No. Those pages are sit-through after 21:00, 15:30-then-night, which 19:00 screen, and 12:00-to-late. This is the late NFL window on now.</dd>
+        <dt><strong>Does 22:05 / 22:25 replace Atleti or Premier?</strong></dt>
+        <dd>No. Coordinate. Those clocks sit alongside on Dubliners What’s On. We do not copy that board onto sister doors.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Late NFL on now this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/last-metro-cercanias-out-of-sol-after-2300/', label: 'Last Metro / Cercanías out of Sol after 23:00' },
+              { href: '/whats-on/', label: 'What’s On — named screens only' },
+              { href: PATH_ES, label: 'NFL de después en pantalla AHORA: 22:05 / 22:25', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

@@ -75,6 +75,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/oreillys-table-three-hours-until-victoria-6-1400/': '/es/mesa-oreillys-tres-horas-hasta-victoria-6-1400/',
   '/last-hour-before-four-corner-1400/': '/es/ultima-hora-antes-four-corner-1400/',
   '/tirso-anton-martin-north-sol-doors-before-1400/': '/es/tirso-anton-martin-norte-puertas-sol-antes-1400/',
+  '/from-bernabeu-exit-to-four-sol-doors/': '/es/salida-bernabeu-a-las-cuatro-puertas-sol/',
+  '/after-madrid-game-continue-four-open-doors/': '/es/despues-madrid-game-seguir-cuatro-puertas-abiertas/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

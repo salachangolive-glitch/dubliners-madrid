@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/from-bernabeu-exit-to-four-sol-doors/';
+const PATH_ES = '/es/salida-bernabeu-a-las-cuatro-puertas-sol/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+/** Google Maps directions: stadium name as origin, existing site destinations only. Live ETA stays in Maps. */
+const FROM_BERNABEU = {
+  fourCorner:
+    'https://www.google.com/maps/dir/?api=1&origin=Estadio+Santiago+Bernab%C3%A9u&destination=Calle+de+la+Victoria+6,+28012+Madrid',
+  oreillys:
+    'https://www.google.com/maps/dir/?api=1&origin=Estadio+Santiago+Bernab%C3%A9u&destination=Pasaje+de+Matheu+4,+28012+Madrid',
+  dubliners:
+    'https://www.google.com/maps/dir/?api=1&origin=Estadio+Santiago+Bernab%C3%A9u&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw',
+  oconnell:
+    'https://www.google.com/maps/dir/?api=1&origin=Estadio+Santiago+Bernab%C3%A9u&destination=Calle+de+Espoz+y+Mina+7,+28012+Madrid',
+} as const;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Stadium exit: Santiago Bernabéu to the four open Sol doors',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T15:00:00+01:00',
+  dateModified: '2026-11-08T15:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'I am leaving the Santiago Bernabéu. How do I reach the four sister doors near Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Open Google Maps from Estadio Santiago Bernabéu to Calle de la Victoria 6, Calle de Espoz y Mina 7 or Pasaje de Matheu 4. Follow the live routing Maps shows (Metro, taxi or walk). We do not publish minutes or kilometres. All four doors are open now: Four Corner from 14:00 with sports screens; O’Reilly’s usual 11:30; Dubliners and O’Connell’s from 12:00. Pins below.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Four Corner open when I leave the stadium?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Four Corner, Calle de la Victoria 6, is open Sunday 8 November from 14:00 until late, with sports screens. The three sister doors are also open. Ask which game is on. Named listings: Dubliners What’s On only. We do not list Four Corner, O’Reilly’s or O’Connell’s broadcasts.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the before-and-after Bengals meeting page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. That page is the Sol meet before 15:30 and the return after. This page is only the stadium-exit how-to: Maps from the Bernabéu to the four open doors. Confirmed clocks stay on What’s On: Bengals–Falcons 15:30, Premier 15:00 / 17:30, later NFL from 19:00, Atlético–Barcelona 21:00. Coordinate; do not substitute.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Bernabéu stadium exit to four open Sol doors | Dubliners"
+  description="Sunday 8 Nov: leaving the Santiago Bernabéu? Google Maps from the stadium to Victoria 6, Espoz y Mina 7 and Pasaje de Matheu 4. All four doors are open (Four Corner from 14:00, sports screens). FIND US."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Stadium exit: Bernabéu to the four open Sol doors" schema />
+      <h1>Stadium exit: Santiago Bernabéu to the four open Sol doors</h1>
+      <p class="lead">
+        You are <strong>leaving the Santiago Bernabéu</strong> — not checking out of a Sol hotel, not off Atocha, not walking Plaza Mayor.
+        Pin the four sister doors near Puerta del Sol. <strong>Four Corner is open</strong> (from 14:00 until late, sports screens) at Calle de la Victoria 6.
+        Dubliners and O’Connell’s at Espoz y Mina 7, O’Reilly’s at Pasaje de Matheu 4 — all four doors are serving.
+        Open Google Maps from the stadium. We do not invent minutes, kilometres or a kick-off clock. Maps below.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Salida del Bernabéu a las cuatro puertas abiertas de Sol</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>This is a stadium-exit how-to, not the before-after Bengals meet</h2>
+      <p>
+        The live page <a href={withBase('/before-after-bengals-falcons-sol/')}>Before and after Bengals–Falcons near Sol</a>
+        is the meet in Sol before 15:30 and the return after. This page is only the person
+        <strong>coming out of the stadium</strong> who needs Maps from Estadio Santiago Bernabéu to the four open doors.
+        It is not the Sunday NFL slate, not the clock picker, not first Metro into Sol, not Barajas, not a hotel first street.
+        Do not re-promote Saturday 18:00–19:00 as still on.
+      </p>
+
+      <h2>Open Google Maps from the stadium — live routing, no invented clock</h2>
+      <p>
+        Origin: <strong>Estadio Santiago Bernabéu</strong>. Destination: one of the four addresses below.
+        Use the “from the Bernabéu” link so Maps fills origin and destination. Follow whatever Metro, taxi or walk
+        Maps shows <em>now</em>. Crowd and Sunday service change the route — that is why we do not print minutes or kilometres.
+      </p>
+      <ul>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Open now (from 14:00 until late · sports screens). We do not list which game is on there — ask at the door.
+          {' '}<a href={FROM_BERNABEU.fourCorner} rel="noopener noreferrer" target="_blank">Maps from the Bernabéu</a>
+          {' · '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps pin</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Open Sunday from 12:00 (until 02:00). Named screens on <a href={withBase('/whats-on/')}>What’s On</a> — ask which game is on.
+          {' '}<a href={FROM_BERNABEU.dubliners} rel="noopener noreferrer" target="_blank">Maps from the Bernabéu</a>
+          {' · '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps pin</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          Same number as Dubliners, different door. Meeting point; we do not invent its board.
+          {' '}<a href={FROM_BERNABEU.oconnell} rel="noopener noreferrer" target="_blank">Maps from the Bernabéu</a>
+          {' · '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps pin</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Covered passage off Espoz y Mina. Usual from 11:30. Meeting point; no invented menu.
+          {' '}<a href={FROM_BERNABEU.oreillys} rel="noopener noreferrer" target="_blank">Maps from the Bernabéu</a>
+          {' · '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps pin</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ul>
+
+      <h2>Confirmed clocks stay on What’s On — we do not invent a whistle</h2>
+      <p>
+        Dubliners <a href={withBase('/whats-on/')}>What’s On</a> already lists Sunday 8 November in Madrid time:
+        Bengals vs Falcons <strong>15:30</strong> at the Santiago Bernabéu (also LIVE on the big screen at Dubliners),
+        Premier League from <strong>15:00</strong> and United–Villa <strong>17:30</strong>, later NFL from <strong>19:00</strong>
+        then <strong>22:05</strong> / <strong>22:25</strong>, Atlético vs Barcelona <strong>21:00</strong>.
+        Those clocks sit alongside — coordinate, do not substitute. Ask which screen. Not every game on every screen.
+        Named listings: Dubliners only. We do not assign Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford,
+        Ipswich–Bournemouth or later NFL to O’Reilly’s, O’Connell’s or Four Corner.
+      </p>
+      <p>
+        Continue after you sit:
+        <a href={withBase('/after-madrid-game-continue-four-open-doors/')}>after-game meeting point at the four open doors</a>
+        (later Sunday NFL, then Atlético–Barcelona 21:00).
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Leaving the Bernabéu. How do I reach the four Sol doors?</strong></dt>
+        <dd>Google Maps from Estadio Santiago Bernabéu to Victoria 6, Espoz y Mina 7 or Pasaje de Matheu 4. Follow live routing. We do not publish minutes or kilometres. All four doors are open.</dd>
+        <dt><strong>Is Four Corner open?</strong></dt>
+        <dd>Yes. From 14:00 until late, sports screens, Calle de la Victoria 6. Ask which game is on. We do not list its broadcasts.</dd>
+        <dt><strong>Is this the before-after Bengals page?</strong></dt>
+        <dd>No. That is the Sol meet before 15:30 and after. This is stadium-exit Maps to the four open doors.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'From the Bernabéu this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/after-madrid-game-continue-four-open-doors/', label: 'After the Madrid Game: four open doors, later NFL then Atleti' },
+              { href: '/whats-on/', label: 'What’s On — named screens only' },
+              { href: PATH_ES, label: 'Salida del Bernabéu a las cuatro puertas abiertas de Sol', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

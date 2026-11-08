@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/after-madrid-game-continue-four-open-doors/';
+const PATH_ES = '/es/despues-madrid-game-seguir-cuatro-puertas-abiertas/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'After the Madrid Game: continue at the four open doors for later NFL, then Atlético–Barcelona 21:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T15:00:00+01:00',
+  dateModified: '2026-11-08T15:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'After the Madrid Game, where is the meeting point near Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The four sister doors that are already open: Four Corner, Calle de la Victoria 6 (from 14:00 until late, sports screens); Dubliners and O’Connell’s, Espoz y Mina 7; O’Reilly’s, Pasaje de Matheu 4. Pin a street, then ask which game is on. Named listings: Dubliners What’s On only. We do not invent sister-bar broadcasts.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is confirmed after the 15:30 game at Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'What’s On lists later NFL from 19:00 (seven games), NFL RedZone from 19:00, Texans–Chargers at 22:05, three more NFL games at 22:25, and Atlético vs Barcelona at 21:00. We close at 02:00; the 02:20 Monday game is not shown. Ask which screen. Premier League 15:00 and United–Villa 17:30 sit alongside — coordinate, do not substitute.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the afternoon–evening slate, the clock picker, or the Atleti gather pages?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Those pages already cover the two NFL clocks, staying in Sol all day, picking 15:30 vs 19:00, NFL visitors sharing Sol, and a local Atleti–Barça gather. This page is only the after-game meeting point at the four open doors: later Sunday NFL, then Atlético–Barcelona 21:00.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="After the Madrid Game: four open doors, later NFL then Atleti | Dubliners"
+  description="Sunday 8 Nov after the Madrid Game: meet at the four open Sol doors. Later NFL from 19:00 then Atlético–Barcelona 21:00 at Dubliners. Four Corner is open (from 14:00, sports screens). Ask which game. FIND US."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="After the Madrid Game: continue at the four open doors" schema />
+      <h1>After the Madrid Game: continue at the four open doors (later NFL, then Atlético–Barcelona 21:00)</h1>
+      <p class="lead">
+        The 15:30 Madrid Game does not empty Sol. <strong>All four sister doors are open now</strong> —
+        Four Corner on Calle de la Victoria 6 (from 14:00 until late, sports screens), Dubliners and O’Connell’s at Espoz y Mina 7,
+        O’Reilly’s at Pasaje de Matheu 4. This is the <strong>after-game meeting point</strong>: later Sunday NFL, then Atlético vs Barcelona 21:00.
+        Named listings: Dubliners <a href={withBase('/whats-on/')}>What’s On</a> only. Ask which game is on. Maps below.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Después del Madrid Game: seguir en las cuatro puertas abiertas</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>After-game meeting point — not the slate, not the clock picker, not the Atleti gather</h2>
+      <p>
+        Other pages already cover afternoon then evening NFL clocks, staying in Sol all day without leaving,
+        picking 15:30 vs 19:00, NFL visitors sharing the streets with 21:00 football, and a local Atleti–Barça gather.
+        This page is only the group that <strong>already has the Madrid Game behind them</strong> — out of the Bernabéu
+        or off the 15:30 big screen at Dubliners — and needs a pin for what still sits on the same two streets.
+        Leaving the stadium? Use
+        <a href={withBase('/from-bernabeu-exit-to-four-sol-doors/')}>Maps from the Bernabéu to the four open doors</a>.
+        Do not re-promote Saturday 18:00–19:00 as still on.
+      </p>
+
+      <h2>Four open doors — pin a street, then ask which game</h2>
+      <p>
+        Four Corner <strong>is open</strong> (from 14:00 until late · sports screens). We do not list its broadcasts.
+        O’Reilly’s and O’Connell’s are meeting points on the same cluster; we do not copy Dubliners’ board onto those doors.
+        Say you want later NFL or Atlético–Barcelona when you sit. Not every game on every screen.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Open now, sports screens, until late. Ask at the door.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Sunday 12:00–02:00. Named screens on What’s On.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          Same number, different door. Meeting point; we do not invent its board.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Usual from 11:30. Meeting point; no invented menu.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ol>
+
+      <h2>Later Sunday NFL, then Atlético–Barcelona 21:00 — Premier sits alongside</h2>
+      <p>
+        Confirmed at Dubliners only, from <a href={withBase('/whats-on/')}>What’s On</a> (Madrid time). Ask which screen:
+      </p>
+      <ul>
+        <li>Later NFL from <strong>19:00</strong> (seven games) and NFL RedZone LIVE from 19:00.</li>
+        <li>Atlético de Madrid vs FC Barcelona at <strong>21:00</strong> — same window, different screen if they clash.</li>
+        <li>Texans vs Chargers at <strong>22:05</strong>, then three more NFL games at <strong>22:25</strong>.</li>
+        <li>We close at 02:00. The 02:20 Monday Sunday-night game is not shown.</li>
+      </ul>
+      <p>
+        Premier League from <strong>15:00</strong> (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth)
+        and United–Villa at <strong>17:30</strong> sit on the same streets. They do not replace later NFL or Atleti 21:00 —
+        coordinate, do not substitute. If a 15:00 or 17:30 is still on when you sit, ask. We do not assign those matches
+        to O’Reilly’s, O’Connell’s or Four Corner.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>After the Madrid Game, where do we meet?</strong></dt>
+        <dd>The four open doors: Victoria 6, Espoz y Mina 7 twice, Pasaje de Matheu 4. Four Corner is open (from 14:00, sports screens). Ask which game is on.</dd>
+        <dt><strong>What is confirmed after 15:30 at Dubliners?</strong></dt>
+        <dd>What’s On: NFL from 19:00, RedZone from 19:00, Atleti–Barça 21:00, Texans–Chargers 22:05, three more at 22:25. Close 02:00. Premier 15:00 / 17:30 sit alongside.</dd>
+        <dt><strong>Is this the slate, clock picker or Atleti gather?</strong></dt>
+        <dd>No. This is only the after-game meeting point at the four open doors.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'After the Madrid Game this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/from-bernabeu-exit-to-four-sol-doors/', label: 'Stadium exit: Bernabéu to the four open Sol doors' },
+              { href: '/whats-on/', label: 'What’s On — named screens only' },
+              { href: PATH_ES, label: 'Después del Madrid Game: seguir en las cuatro puertas abiertas', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

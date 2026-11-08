@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/ultimo-metro-cercanias-salida-sol-despues-2300/';
+const PATH_EN = '/last-metro-cercanias-out-of-sol-after-2300/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Último Metro / Cercanías de salida de Sol después de las 23:00 desde Victoria 6, Espoz y Mina 7 y Matheu 4',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T23:00:00+01:00',
+  dateModified: '2026-11-08T23:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Es después de las 23:00. ¿Cómo salgo de Sol en el último Metro o Cercanías desde las cuatro puertas abiertas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Andad hacia fuera desde las cuatro puertas hermanas abiertas — Four Corner, Calle de la Victoria 6; Dubliners y O’Connell’s, Calle de Espoz y Mina 7; O’Reilly’s, Pasaje de Matheu 4 — al Metro Sol (L1/L2/L3), Sevilla (L2) o Cercanías Sol (C3/C4). Del este de Sol, Victoria 6 está a unos 2–3 minutos / 180–220 m (ya publicado). Coged el tren cuando salga el último Metro / Cercanías del domingo; no inventamos ese reloj. NFL de después 22:05 / 22:25 con nombre: solo Partidos de Dubliners. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Esto es el primer Metro hacia Sol, Barajas de llegada, Atocha Cercanías una parada hacia dentro, o la última pinta del sábado tras el derbi?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El primer Metro es de llegada, domingo temprano, de la estación a la puerta. Barajas es un aterrizaje tardío hacia Sol. Atocha Cercanías es una parada de llegada antes de las 14:00. La última pinta del sábado son tres puertas saltando tras Valencia–RM. Esta página es de salida después de las 23:00: de la puerta a la estación desde Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4 cuando salga el último Metro / Cercanías del domingo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué hora sale el último Metro o Cercanías del domingo desde Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No inventamos ese reloj. Salid cuando salga el último Metro / Cercanías del domingo. Seguid Maps en vivo desde las cuatro puertas abiertas a Sol, Sevilla o el vestíbulo de Cercanías. Las cuatro puertas siguen siendo el punto de encuentro hasta que salgáis; Four Corner está abierto desde las 14:00 hasta la madrugada, pantallas de deporte. Premier va a la vez que la NFL de después; no sustituyáis.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Último Metro / Cercanías de salida de Sol después de las 23:00 | Dubliners"
+  description="Domingo 8 nov después de las 23:00: andad de salida desde Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4 al Metro Sol, Sevilla o Cercanías. Cuando salga el último tren del domingo. Maps. FIND US."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Último Metro / Cercanías de salida de Sol después de las 23:00" schema />
+      <h1>Último Metro / Cercanías de salida de Sol después de las 23:00 desde Victoria 6, Espoz y Mina 7 y Matheu 4</h1>
+      <p class="lead">
+        No estáis llegando. <strong>Salís de Sol después de las 23:00</strong> —
+        hacia fuera desde las cuatro puertas abiertas al Metro Sol (L1/L2/L3), Sevilla (L2) o Cercanías Sol (C3/C4).
+        Coged el tren <strong>cuando salga el último Metro / Cercanías del domingo</strong>. No inventamos ese reloj.
+        <strong>Las cuatro puertas hermanas están abiertas AHORA.</strong> Four Corner, Calle de la Victoria 6, está abierto (desde las 14:00 hasta la madrugada, pantallas de deporte).
+        Marcad el paseo desde Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4. La quedada de tres bares del sábado ya ha acabado. Seguid Maps en vivo.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Last Metro / Cercanías out of Sol after 23:00 from Victoria 6, Espoz y Mina 7 and Matheu 4</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es de salida después de las 23:00 — no primer Metro de llegada, no Barajas, no Atocha hacia dentro, no última pinta del sábado</h2>
+      <p>
+        <a href={withBase('/es/primer-metro-a-sol-domingo-estacion-a-puerta/')}>Primer Metro del domingo</a> es de llegada, de la estación a la puerta, cuando arranca el Metro.
+        <a href={withBase('/es/barajas-madrugada-a-sol-hasta-1400/')}>Barajas de madrugada</a> es un aterrizaje tardío hacia Sol.
+        <a href={withBase('/es/atocha-cercanias-una-parada-a-sol-puertas-antes-1400/')}>Atocha Cercanías una parada</a> es de llegada antes de las 14:00.
+        <a href={withBase('/es/saltar-dos-calles-ultima-pinta-despues-derbi/')}>Última pinta después del derbi</a> son tres puertas del sábado saltando tras Valencia–RM.
+        Esta página es solo <strong>de la puerta a la estación, de salida</strong> después de las 23:00, con las cuatro puertas ya abiertas, últimos trenes del domingo fuera de Sol.
+      </p>
+
+      <h2>De las cuatro puertas abiertas a Sol, Sevilla o Cercanías — el reverso de los metros de llegada</h2>
+      <p>
+        <strong>Metro Sol (L1, L2, L3).</strong> Andad al noroeste hacia la plaza — no a otro barrio.
+        Del este de Sol, Victoria 6 está a unos <strong>2–3 minutos / 180–220 m</strong> (ya publicado de llegada; el paseo de salida son los mismos metros).
+        Espoz y Mina 7 y Pasaje de Matheu 4 están en ese mismo bolsillo este. Seguid Maps en vivo para los últimos metros; no inventamos un reloj nuevo.
+      </p>
+      <p>
+        <strong>Sevilla (L2).</strong> Ya es el bolsillo este. Pin de salida más cercano desde Victoria 6 y Espoz y Mina 7 si queréis L2 sin cruzar la plaza.
+        Seguid Maps en vivo; no inventamos minutos de la puerta a ese andén.
+      </p>
+      <p>
+        <strong>Cercanías Sol (C3/C4).</strong> El mismo complejo de estación de Sol, vestíbulo hacia Carrera de San Jerónimo / Calle de Carretas (ya publicado de llegada desde Atocha).
+        Invertid esa dirección al salir. Coged Cercanías <strong>cuando salga el último Cercanías del domingo</strong>. No inventamos ese reloj.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abierto AHORA (desde las 14:00 hasta la madrugada · pantallas de deporte). Pin de Victoria más cercano al este de Sol / Sevilla.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Domingo 12:00–02:00. NFL de después 22:05 / 22:25 con nombre en Partidos. Preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps: O’Connell St).
+          Mismo número, otra puerta, otro CID. Punto de encuentro; no inventamos su cartel.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Atajo cubierto desde Victoria / Espoz y Mina. Habitual desde las 11:30. Punto de encuentro; sin menú inventado.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+
+      <h2>Salid cuando salga el último tren del domingo — la NFL de después va a la vez, no inventa un horario</h2>
+      <p>
+        <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners ya lista el domingo 8 de noviembre en hora de Madrid.
+        La NFL de después desde las <strong>22:05</strong> y luego las <strong>22:25</strong> está ahora en las cuatro puertas abiertas.
+        Ese cartel no publica los últimos trenes de Metro o Cercanías. Salid <strong>cuando salga el último Metro / Cercanías del domingo</strong>.
+        Premier 15:00 / 17:30 y Atlético vs Barcelona 21:00 ya estuvieron a la vez; no ocupan el sitio de este paseo de salida.
+        Coordinad; no sustituyáis. Listados con nombre: solo Dubliners. No asignamos esos partidos a O’Reilly’s, O’Connell’s ni Four Corner.
+        Preguntad qué pantalla antes de andar a la estación.
+      </p>
+      <p>
+        ¿Seguís viéndolo, no os vais?
+        <a href={withBase('/es/nfl-tarde-en-pantalla-ahora-2205-2225-cuatro-puertas-sol/')}>NFL de después en pantalla AHORA: 22:05 / 22:25 en las cuatro puertas abiertas</a>.
+        ¿Necesitáis el tren de llegada de antes?
+        <a href={withBase('/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/')}>El Metro de tarde Gran Vía o Sevilla era de llegada</a>.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Después de las 23:00. ¿Cómo salgo de Sol en el último Metro o Cercanías?</strong></dt>
+        <dd>Andad de salida desde Victoria 6 / Espoz y Mina 7 / Matheu 4 al Metro Sol, Sevilla (L2) o Cercanías Sol. Cuando salga el último Metro / Cercanías del domingo. Maps en vivo. No inventamos ese reloj.</dd>
+        <dt><strong>¿Esto es primer Metro de llegada, Barajas, Atocha hacia dentro o última pinta del sábado?</strong></dt>
+        <dd>No. Esos son llegada de domingo temprano, aeropuerto, Cercanías de llegada antes de las 14:00, y tres puertas del sábado tras Valencia. Esto es de salida después de las 23:00.</dd>
+        <dt><strong>¿A qué hora es el último tren del domingo?</strong></dt>
+        <dd>Aquí no está publicado. Salid cuando salga el último Metro / Cercanías del domingo. No esperéis un reloj que no hemos impreso.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Salida después de las 23:00 este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/nfl-tarde-en-pantalla-ahora-2205-2225-cuatro-puertas-sol/', label: 'NFL de después en pantalla AHORA: 22:05 / 22:25 en las cuatro puertas abiertas de Sol' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: PATH_EN, label: 'Last Metro / Cercanías out of Sol after 23:00', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

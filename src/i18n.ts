@@ -71,6 +71,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/espoz-mina-7-two-doors-split-premier-then-nfl/': '/es/espoz-mina-7-dos-puertas-reparte-premier-luego-nfl/',
   '/atocha-cercanias-one-stop-into-sol-doors-before-1400/': '/es/atocha-cercanias-una-parada-a-sol-puertas-antes-1400/',
   '/glass-arcade-matheu-4-first-pint-before-sunday-kickoff/': '/es/galeria-acristalada-matheu-4-primera-pinta-antes-saque-domingo/',
+  '/callao-preciados-shop-south-sol-doors-before-1400/': '/es/callao-preciados-compras-sur-puertas-sol-antes-1400/',
+  '/oreillys-table-three-hours-until-victoria-6-1400/': '/es/mesa-oreillys-tres-horas-hasta-victoria-6-1400/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

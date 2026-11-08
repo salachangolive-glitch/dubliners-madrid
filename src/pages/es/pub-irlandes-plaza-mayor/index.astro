@@ -2,7 +2,12 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { SITE, withBase } from '../../../site';
+import { isFanWeekendLive } from '../../../data/fourBars';
+
+const fanWeekend = isFanWeekendLive();
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -34,22 +39,27 @@ const faqLd = {
     }
   ]
 };
-const title = "Pub irlandés cerca de Plaza Mayor y Puerta del Sol, Madrid | Dubliners";
-const description = "Pub irlandés con atención en inglés a pocos pasos de Plaza Mayor, junto a Puerta del Sol: Espoz y Mina 7. Deporte en directo, abierto a diario desde las 12:00.";
+const title = "Pub irlandés Madrid cerca de Plaza Mayor y Puerta del Sol | Dubliners";
+const description = "Pub irlandés Madrid y bar deportivo a pocos pasos de Plaza Mayor, junto a Puerta del Sol: Espoz y Mina 7. Bar irlandés en Madrid con deporte en directo. CÓMO LLEGAR.";
 ---
 
 <BaseLayout title={title} description={description} path="/es/pub-irlandes-plaza-mayor/" lang="es" ogImage="/images/facade.jpg">
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Cerca de Plaza Mayor" lang="es" />
-      <h1>Pub irlandés cerca de Plaza Mayor y Puerta del Sol</h1>
-      <p class="lead">¿De paseo por Plaza Mayor y Sol? Dubliners está a pocos pasos, en la calle de Espoz y Mina 7 — un pub irlandés con atención en inglés y deporte en directo.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
-        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
-      </div>
+      <h1>Pub irlandés Madrid cerca de Plaza Mayor y Puerta del Sol</h1>
+      <p class="lead">¿De paseo por Plaza Mayor y Sol? Dubliners está a pocos pasos, en la calle de Espoz y Mina 7 — un pub irlandés Madrid y bar deportivo con atención en inglés y deporte en directo. Bar irlandés en Madrid, junto a la plaza.</p>
+      {fanWeekend ? (
+        <FanWeekendCtas lang="es" />
+      ) : (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+          <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+        </div>
+      )}
     </div>
   </section>
+  {fanWeekend && <FourBarsMeet lang="es" />}
   <section class="section">
     <div class="container prose">
       <h2>Andando desde Plaza Mayor</h2>
@@ -57,15 +67,21 @@ const description = "Pub irlandés con atención en inglés a pocos pasos de Pla
       <h2>En metro</h2>
       <p>Sol (L1, L2, L3) o Sevilla (L2), ambas a un paseo corto.</p>
       <h2>Por qué pasar</h2>
-      <p>Deporte en directo en DAZN, Movistar y Premier Sports, el techo pintado histórico de la antigua sastrería Barragán (1885) y chupitos a 1 € todos los miércoles.</p>
+      <p>
+        Deporte en directo en DAZN, Movistar y Premier Sports, el techo pintado histórico de la antigua sastrería Barragán (1885) y chupitos a 1 € todos los miércoles.
+        La misma puerta que las páginas de <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo Sol Madrid</a> y
+        <a href={withBase('/es/nfl-madrid/')}>bar NFL Madrid</a>. Listados con nombre: Partidos.
+        Four Corner está abierto desde las 14:00 con pantallas de deporte; las cuatro puertas están abiertas ahora.
+      </p>
       <LinkHub
         heading="h2"
         groups={[
           {
             title: 'Planea tu visita',
             items: [
-              { href: '/es/visitar/', label: 'Mapa y cómo llegar' },
+              { href: '/es/visitar/', label: 'FIND US — mapa y CÓMO LLEGAR' },
               { href: '/es/partidos/', label: 'Partidos' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Sol Madrid' },
               { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €' },
               { href: '/es/estudiantes-internacionales/', label: 'Erasmus y estudiantes internacionales' },
             ],

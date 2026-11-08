@@ -2,11 +2,16 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import FourBarsMeet from '../../../components/FourBarsMeet.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../../site';
+import { isFanWeekendLive } from '../../../data/fourBars';
 
-const title = 'Pub Premier League Madrid | Ver PL cerca de Sol — Dubliners';
+const fanWeekend = isFanWeekendLive();
+const title = 'Pub Premier League Madrid | Pub irlandés y bar deportivo cerca de Sol';
 const description =
-  'Premier League en pantallas cerca de Sol. Pub irlandés, Espoz y Mina 7.';
+  'Pub Premier League Madrid: fútbol inglés en un pub irlandés y bar deportivo junto a Puerta del Sol. Espoz y Mina 7. Listados con nombre en Partidos. CÓMO LLEGAR.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/premier-league-pub-madrid/" lang="es" ogImage="/images/screens-sports.jpg">
@@ -14,12 +19,13 @@ const description =
     <div class="container hero-grid">
       <div>
         <Breadcrumb current="Pub Premier League Madrid" lang="es" />
-        <h1>Premier League cerca de Sol</h1>
+        <h1>Pub Premier League Madrid cerca de Puerta del Sol</h1>
         <p class="lead">
-          Fútbol inglés en pantallas en Dubliners cuando hay PL —
-          Espoz y Mina 7, a un paseo de la plaza. Llega pronto en los partidos grandes.
+          Dubliners es un pub Premier League en Madrid y un pub irlandés deportivo en Espoz y Mina 7 — a un paseo de Puerta del Sol.
+          El fútbol inglés va en pantallas de interior cuando se emite. Los saques con nombre están en
+          <a href={withBase('/es/partidos/')}>Partidos</a>.
         </p>
-        <CtaRow lang="es" />
+        {fanWeekend ? <FanWeekendCtas lang="es" /> : <CtaRow lang="es" showWednesday={false} />}
       </div>
       <picture>
         <source
@@ -32,20 +38,22 @@ const description =
     </div>
   </section>
 
+  {fanWeekend && <FourBarsMeet lang="es" />}
+
   <section class="section">
     <div class="container">
       <div class="card-grid cols-3">
         <article class="card">
           <h3>Dónde</h3>
-          <p>Junto a Puerta del Sol.</p>
+          <p>Pub irlandés junto a Puerta del Sol — Espoz y Mina 7. Metro Sol o Sevilla.</p>
         </article>
         <article class="card">
           <h3>Cómo</h3>
-          <p>Metro Sol / Sevilla y a pie.</p>
+          <p>Anda desde la plaza hacia Carrera de San Jerónimo. Busca el neón verde.</p>
         </article>
         <article class="card">
           <h3>Qué ver hoy</h3>
-          <p><a href={withBase('/es/partidos/')}>Lista de esta semana</a> · <a href={withBase('/es/contacto/')}>Contacto</a></p>
+          <p>Fútbol inglés con nombre: <a href={withBase('/es/partidos/')}>lista de esta semana</a>. Pregunta qué pantalla.</p>
         </article>
       </div>
     </div>
@@ -53,17 +61,50 @@ const description =
 
   <section class="section band">
     <div class="container prose">
-      <h2>Fútbol inglés en el centro</h2>
+      <h2>Pub Premier League Madrid</h2>
       <p>
-        Organiza el partido por Sol y míralo en Dubliners.
-        Relacionado: <a href={withBase('/es/partidos/')}>Partidos</a>,
-        <a href={withBase('/es/champions-league-bar-madrid/')}>Champions League</a>,
-        <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo</a>.
+        Un pub Premier League Madrid es lo que se busca cuando se quiere fútbol inglés en el centro.
+        Dubliners es ese pub irlandés y bar deportivo: Premier League de sábado y domingo en pantallas cuando está confirmada,
+        con público internacional junto a Sol. No inventamos carteleras — los listados con nombre se quedan en Partidos.
       </p>
+      <p>
+        El mismo bar deportivo también lleva NFL y LaLiga cuando coinciden. Coordinad; no sustituyáis.
+        Las cuatro puertas hermanas alrededor de Sol están abiertas ahora. Four Corner está abierto desde las 14:00 con pantallas de deporte.
+      </p>
+
+      <h2>Pub irlandés y bar deportivo cerca de Sol</h2>
+      <p>
+        Organiza el partido por Sol y míralo en este bar irlandés en Madrid.
+        Relacionado:
+        <a href={withBase('/es/partidos/')}>Partidos</a>,
+        <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo Sol Madrid</a>,
+        <a href={withBase('/es/nfl-madrid/')}>ver NFL en Madrid</a>,
+        <a href={withBase('/es/champions-league-bar-madrid/')}>Champions League</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — pub Premier League Madrid" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
       <div class="faq">
+        <details>
+          <summary>¿Es un pub de Premier League en Madrid?</summary>
+          <p>
+            Sí — Dubliners es un pub Premier League Madrid: un pub irlandés y bar deportivo junto a Puerta del Sol.
+            Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.
+          </p>
+        </details>
         <details>
           <summary>Dirección</summary>
           <p>{SITE.address}, {SITE.postal}</p>
+        </details>
+        <details>
+          <summary>¿Grupos o dudas?</summary>
+          <p><a href={withBase('/es/contacto/#request-information')}>Pide información</a> en el formulario de contacto.</p>
         </details>
       </div>
     </div>

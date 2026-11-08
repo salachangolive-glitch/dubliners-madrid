@@ -184,7 +184,7 @@ export function t(lang: Lang) {
   }
   return {
     contact: 'Contact',
-    directions: 'Directions',
+    directions: 'GET DIRECTIONS',
     menu: 'Menu',
     explore: 'Explore',
     hours: 'Hours',

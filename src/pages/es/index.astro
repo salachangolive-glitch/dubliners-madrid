@@ -16,11 +16,11 @@ import { SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
 const todayKey = madridToday();
 const fanWeekend = todayKey <= SHOW_UNTIL_FAN_WEEKEND;
 const title = fanWeekend
-  ? 'CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO. | NFL Madrid cerca de Sol'
-  : 'Pub irlandés Madrid cerca de Sol | Fútbol, NFL y rugby — Dubliners';
+  ? 'CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO. | Pub irlandés y bar deportivo cerca de Sol'
+  : 'Pub irlandés Madrid cerca de Sol | Bar deportivo, NFL y rugby — Dubliners';
 const description = fanWeekend
-  ? "Cuatro bares junto a Sol, 7–8 nov: O'Reilly's, Dubliners, O'Connell's y Four Corner. Mapas y horarios. Domingo: Dubliners 12:00, Four Corner 14:00."
-  : 'Pub irlandés en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.';
+  ? "Pub irlandés y bar deportivo cerca de Puerta del Sol. Cuatro bares, 7–8 nov: O'Reilly's, Dubliners, O'Connell's y Four Corner (abierto desde las 14:00, pantallas de deporte). Bar NFL Madrid — ver NFL en Madrid. Mapas y horarios."
+  : 'Pub irlandés y bar deportivo en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg" website>
@@ -48,7 +48,7 @@ const description = fanWeekend
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Tu pub irlandés en el corazón de Madrid</p>
+      <p class="home-identity__tag">Pub irlandés y bar deportivo en el corazón de Madrid</p>
     </div>
   </div>
 
@@ -60,7 +60,7 @@ const description = fanWeekend
         Dubliners es un pub irlandés a un paso de Puerta del Sol, en la antigua sastrería Barragán (1885): fútbol de Premier League, Champions League y LaLiga, NFL los domingos y test matches de rugby en nuestras pantallas, personal que habla inglés y ambiente internacional, abierto cada día desde las 12:00.
       </p>
       <p class="home-intro__text">
-        Pasa a tomar algo, queda con amigos o ven a ver el partido. Aquí se juntan madrileños, visitantes y la gente internacional de la ciudad, en un local que aún conserva el techo pintado de una sastrería del siglo XIX.
+        Pasa a tomar algo, queda con amigos o ven a ver el partido en un bar deportivo cerca de Puerta del Sol. Aquí se juntan madrileños, visitantes y la gente internacional de la ciudad — un bar irlandés en Madrid que también funciona como bar NFL Madrid los domingos — en un local que aún conserva el techo pintado de una sastrería del siglo XIX.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
@@ -80,7 +80,7 @@ const description = fanWeekend
     <div class="container prose">
       <h2>Fútbol cerca de Sol: Premier League, Champions League y LaLiga</h2>
       <p>
-        El fútbol es lo que más llena el local casi todas las semanas. Los fines de semana de Premier League, las noches de Champions League y los grandes partidos de LaLiga
+        El fútbol es lo que más llena el local casi todas las semanas. Los fines de semana de Premier League — un pub de Premier League en Madrid para el fútbol inglés —, las noches de Champions League y los grandes partidos de LaLiga
         van en nuestras pantallas, con el público internacional de Madrid viéndolos juntos: estudiantes Erasmus e internacionales, visitantes alojados cerca de Sol
         y aficionados de fuera que siguen a su equipo. Todos los partidos que anunciamos están confirmados y en hora de Madrid.
       </p>
@@ -99,6 +99,7 @@ const description = fanWeekend
         <h2>Deporte en directo</h2>
         <p>
           Fútbol, NFL, rugby, NBA y más en nuestras pantallas. Solo anunciamos lo confirmado, siempre en hora de Madrid, y en barra te dicen qué se emite esta noche.
+          Este bar deportivo cerca de Puerta del Sol es también donde vemos la NFL en Madrid.
         </p>
         {todayKey <= '2026-10-31' && (
           <p data-show-until="2026-10-31"><strong>Halloween en Dubliners: sábado 31 de octubre, desde las 19:00.</strong> Disfraces, decoración y música. <a href={withBase('/es/halloween-madrid-2026/')}>Halloween en Madrid junto a Sol</a></p>
@@ -193,7 +194,7 @@ const description = fanWeekend
               { href: '/es/comida-domingo-luego-pantallas-sol/', label: 'Comida el domingo y luego pantallas', note: 'O’Reilly’s y luego Dubliners 15:30', until: '2026-11-08' },
               { href: '/es/redzone-domingo-sol-dubliners/', label: 'RedZone el domingo noche', note: 'Preguntad qué pantalla a las 19:00', until: '2026-11-08' },
               { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00', note: 'Pantallas de deporte · Victoria 6', until: '2026-11-08' },
-              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Partidos del domingo en nuestras pantallas' },
+              { href: '/es/nfl-madrid/', label: 'Ver NFL en Madrid', note: 'Bar NFL Madrid · pantallas del domingo' },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
               { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: '2026-11-08' },
             ],
@@ -315,6 +316,20 @@ const description = fanWeekend
           <p>
             Sí — fútbol importante, NFL, NBA, rugby, Fórmula 1 y tenis cuando estén confirmados.
             Consulta <a href={withBase('/es/partidos/')}>Partidos</a> para la agenda de esta semana.
+          </p>
+        </details>
+        <details>
+          <summary>¿Sois un pub irlandés y un bar deportivo?</summary>
+          <p>
+            Sí — Dubliners es un pub irlandés y un bar deportivo a un paso de Puerta del Sol, Espoz y Mina 7.
+            Bar irlandés en Madrid, fútbol y NFL en pantallas. Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.
+          </p>
+        </details>
+        <details>
+          <summary>¿Puedo ver la NFL en Madrid aquí?</summary>
+          <p>
+            Sí — Dubliners es un bar NFL en Madrid cerca de Puerta del Sol. La NFL del domingo va EN DIRECTO en nuestras pantallas cuando está en Partidos.
+            <a href={withBase('/es/nfl-madrid/')}>Ver NFL en Madrid</a>.
           </p>
         </details>
         <details>

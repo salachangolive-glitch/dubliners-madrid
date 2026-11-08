@@ -62,8 +62,8 @@ export const FOUR_BARS = [
     name: 'Four Corner',
     address: 'Calle de la Victoria 6, 28012 Madrid',
     maps: FOUR_BARS_MAPS.fourCorner,
-    hoursEn: 'Sunday 8 Nov from 14:00 until late · sports screens',
-    hoursEs: 'Domingo 8 nov desde las 14:00 hasta la madrugada · pantallas de deporte',
+    hoursEn: 'Open from 14:00 until late · sports screens',
+    hoursEs: 'Abierto desde las 14:00 hasta la madrugada · pantallas de deporte',
   },
 ] as const;
 

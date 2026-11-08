@@ -11,9 +11,9 @@ import { isFanWeekendLive } from '../../data/fourBars';
 
 const fanWeekend = isFanWeekendLive();
 
-const title = 'Visit Dubliners Madrid | Near Puerta del Sol — Address, Metro & Map';
+const title = 'Visit Dubliners | Irish pub & sports bar near Puerta del Sol';
 const description =
-  `Espoz y Mina 7, just off Puerta del Sol. Metro Sol (L1, L2, L3) or Sevilla (L2). Hours ${hoursSummary('en', '; ')}. Green neon facade.`;
+  `Irish pub and sports bar on Espoz y Mina 7, just off Puerta del Sol. NFL bar Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Hours ${hoursSummary('en', '; ')}. Green neon facade.`;
 ---
 
 <BaseLayout title={title} description={description} path="/visit/" ogImage="/images/facade.jpg">
@@ -23,8 +23,9 @@ const description =
         <Breadcrumb current="Visit" />
         <h1>Find us near Puerta del Sol</h1>
         <p class="lead">
-          Indoor Irish pub on Espoz y Mina 7 — just off Puerta del Sol.
+          Indoor Irish pub and sports bar on Espoz y Mina 7 — just off Puerta del Sol.
           Metro Sol (L1, L2, L3) or Sevilla (L2); look for the green Dubliners neon.
+          NFL bar Madrid a short walk from the square.
         </p>
         {fanWeekend ? <FanWeekendCtas lang="en" findHref="#meet-us-near-sol" /> : <CtaRow />}
       </div>
@@ -114,8 +115,8 @@ const description =
         {fanWeekend && (
           <>
             <li><a href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend — maps and hours</a></li>
-            <li><a href={withBase('/nfl-fans-madrid-this-saturday/')}>Tonight 18:00–19:00 meetup</a></li>
-            <li><a href={withBase('/four-corner-opens-sunday-1400/')}>Four Corner Sunday 14:00 · sports screens</a></li>
+            <li data-show-until="2026-11-07"><a href={withBase('/nfl-fans-madrid-this-saturday/')}>Tonight 18:00–19:00 meetup</a></li>
+            <li><a href={withBase('/four-corner-opens-sunday-1400/')}>Four Corner is open from 14:00 · sports screens</a></li>
           </>
         )}
         <li><a href={withBase('/whats-on/')}>What’s on — tonight’s fixtures</a></li>

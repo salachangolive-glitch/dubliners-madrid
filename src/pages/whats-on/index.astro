@@ -13,9 +13,9 @@ import { isFanWeekendLive } from '../../data/fourBars';
 const fanWeekend = isFanWeekendLive();
 
 const title =
-  'What\'s On: Live Sport This Week | Dubliners Madrid';
+  'What\'s On: live sport at an Irish pub & sports bar near Sol';
 const description =
-  'Live sport this week at Dubliners, Espoz y Mina 7: football, NFL, rugby, NBA and more in Madrid time, with what is LIVE on our screens.';
+  'Live sport this week at Dubliners, an Irish pub and sports bar on Espoz y Mina 7: football, NFL, rugby and more in Madrid time. Named listings below — NFL bar Madrid near Puerta del Sol.';
 
 // One agenda for EN + ES (same filter, same range, Europe/Madrid).
 const { todayKey, today, upcoming } = agendaAt();
@@ -37,8 +37,8 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       <Breadcrumb current="What's on" />
       <h1>What’s On at Dubliners — live sport this week</h1>
       <p class="lead">
-        See this week’s live sport at Dubliners — football, NFL, NBA, rugby, Formula 1, tennis and more.
-        Times are Madrid time. Matches marked LIVE are on our screens.
+        See this week’s live sport at this Irish pub and sports bar near Puerta del Sol — football, NFL, NBA, rugby, Formula 1, tennis and more.
+        Times are Madrid time. Matches marked LIVE are on our screens. Named listings are on this page only.
       </p>
       {fanWeekend ? <FanWeekendCtas lang="en" /> : <CtaRow showWhatsOn={false} />}
     </div>
@@ -63,10 +63,10 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     <div class="container prose">
       <h2>Live sports at Dubliners</h2>
       <p>
-        Dubliners is an Irish pub just off Puerta del Sol — Espoz y Mina 7, Metro Sol or Sevilla.
-        We put major live sport on our indoor screens when it’s confirmed: football, NFL, NBA, rugby,
-        Formula 1, tennis and more. Check What’s On above for this week’s schedule, or ask at the bar
-        if you’re looking for a specific game.
+        Dubliners is an Irish pub and sports bar just off Puerta del Sol — Espoz y Mina 7, Metro Sol or Sevilla.
+        An Irish bar in Madrid with football and NFL on the indoor screens when confirmed.
+        Check What’s On above for this week’s schedule, or ask at the bar
+        if you’re looking for a specific game. Named listings stay here.
       </p>
       <p>
         How the screens work and which sports we show: <a href={withBase('/sports-bar-madrid/')}>our sports bar in Madrid</a>.
@@ -114,7 +114,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             title: 'NFL & American sports',
             id: 'nfl-american-sports',
             items: [
-              { href: '/nfl-madrid/', label: 'NFL in Madrid' },
+              { href: '/nfl-madrid/', label: 'Watch NFL Madrid', note: 'NFL bar Madrid near Sol' },
               { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour, Sunday 8 November' },
             ],
           },

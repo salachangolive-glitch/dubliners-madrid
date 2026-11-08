@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/despierta-sol-bloque-premier-que-puerta/';
+const PATH_EN = '/wake-sol-sunday-premier-block-which-door/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Despiertas en Madrid: el primer fútbol es el bloque Premier 15:00 — cuál de las cuatro puertas del domingo',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T01:00:00+01:00',
+  dateModified: '2026-11-08T01:00:00+01:00',
+  image: absUrl('/images/screens-sports.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Me he despertado en Madrid. ¿Cuál es mi primer fútbol hoy, y a qué puerta debo ir?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El primer fútbol inglés hoy es el bloque Premier League 15:00: Crystal Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich Town–Bournemouth. United–Villa es a las 17:30. Los listados nombrados están en Partidos de Dubliners (Espoz y Mina 7, desde las 12:00). Four Corner (Victoria 6) abre a las 14:00 con pantallas de deporte — una hora antes de las 15:00; preguntad qué echan. O’Reilly’s (Matheu 4, desde las 11:30) es comida/terraza primero. O’Connell’s (Espoz y Mina 7, desde las 12:00 hoy) es el punto de encuentro de al lado. No apuntéis a Four Corner antes de las 14:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Todas las puertas del domingo echan Palace–Liverpool o United–Villa?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los listados nombrados de Premier League están solo en Dubliners. No inventamos las parrillas de O’Reilly’s, O’Connell’s ni Four Corner. Preguntad qué echan. No todos los partidos van en todas las pantallas. La NFL a las 15:30 / desde las 19:00 y Atlético–Barcelona a las 21:00 van al lado de la misma tarde — esta página no los sustituye.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Sigue el plan de la noche de sobra del sábado o Valencia–Real Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Os despertáis el domingo 8 de noviembre. La quedada del sábado 18:00–19:00 y Valencia–Real Madrid 21:00 (solo Dubliners) ya han terminado. Hoy empieza con el bloque Premier 15:00, luego United–Villa 17:30.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Despiertas en Madrid: bloque Premier 15:00 — qué puerta del domingo | Dubliners"
+  description="Domingo 8 nov: os despertáis en Madrid. El primer fútbol es 15:00 Palace–Liverpool, Chelsea, Brighton, Ipswich; United 17:30. Cuál de las cuatro puertas. Maps. CÓMO LLEGAR."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Despertar: Premier 15:00 — qué puerta del domingo" schema />
+      <h1>Despiertas en Madrid: el primer fútbol es el bloque Premier 15:00 — cuál de las cuatro puertas del domingo</h1>
+      <p class="lead">
+        No estáis terminando el sábado. Os despertáis el domingo 8 de noviembre.
+        <strong>Vuestro primer fútbol hoy es a las 15:00:</strong> Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth.
+        Luego United–Villa a las 17:30. Cuatro puertas hermanas junto a Sol. Apuntad por el reloj, no por anoche.
+        Listados nombrados de Premier: solo Partidos de Dubliners. Preguntad qué echan.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Woke up in Madrid: first football is the 15:00 Premier block</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Andar a Espoz y Mina 7</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es una elección al despertar, no anoche ni un volcado de partidos</h2>
+      <p>
+        Otras páginas ya listan los cinco partidos ingleses, el racimo de las 15:00 frente al partido NFL 15:30,
+        el hueco United–Villa 17:30, las horas de sobra del sábado hasta la Premier, y terraza frente a pantallas el domingo.
+        Esta página es solo el aficionado inglés o turista <strong>que se despierta en Madrid hoy</strong>:
+        el primer pitido que os importa es a las 15:00, luego las 17:30 — <strong>a cuál de las cuatro puertas del domingo andar</strong>.
+        El sábado 18:00–19:00 y Valencia–RM 21:00 ya han terminado. No los trates como si siguieran.
+      </p>
+
+      <h2>El reloj en el que os habéis despertado</h2>
+      <p>
+        Hora de Madrid, domingo 8 de noviembre. Primer fútbol inglés:
+      </p>
+      <ul>
+        <li><strong>15:00</strong> — Crystal Palace vs Liverpool</li>
+        <li><strong>15:00</strong> — Sunderland vs Chelsea</li>
+        <li><strong>15:00</strong> — Brighton vs Brentford</li>
+        <li><strong>15:00</strong> — Ipswich Town vs Bournemouth</li>
+        <li><strong>17:30</strong> — Manchester United vs Aston Villa</li>
+      </ul>
+      <p>
+        Esos cinco ya están en <a href={withBase('/es/partidos/')}>Partidos</a> como pantallas de Dubliners.
+        Media hora después de las 15:00, Bengals–Falcons es 15:30 EN DIRECTO en la pantalla grande.
+        La NFL desde las 19:00 y Atlético–Barcelona 21:00 siguen en las mismas calles.
+        <strong>Coordinad; no sustituyáis.</strong> Decid el equipo al sentaros.
+      </p>
+
+      <h2>Cuál de las cuatro puertas del domingo — para un inicio a las 15:00, luego 17:30</h2>
+      <ol>
+        <li>
+          <strong>Parrilla Premier nombrada → Dubliners, Calle de Espoz y Mina 7.</strong>
+          Abre desde las 12:00. Esa es la puerta si queréis los listados que ya están en Partidos
+          (Palace–Liverpool, Chelsea, Brighton, Ipswich a las 15:00; United–Villa a las 17:30).
+          La pantalla grande ya está confirmada para Bengals–Falcons 15:30 — preguntad qué otra pantalla lleva vuestro equipo.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Puerta con pantallas de deporte que abre una hora antes de las 15:00 → Four Corner, Calle de la Victoria 6.</strong>
+          Abre a las <strong>14:00</strong>, no antes. Pantallas de deporte. No listamos qué partido de Premier echa.
+          Apuntad aquí si queréis estar en una sala de deporte desde las 14:00 y preguntar en barra.
+          No andéis a las 12:00 esperando una pinta.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Comida / terraza primero, luego salto → O’Reilly’s Restaurant Bar, Pasaje de Matheu 4.</strong>
+          Desde las 11:30. Unos 1 minuto / 90 m de Espoz y Mina 7, unos 2 minutos de Victoria 6.
+          Punto de encuentro con terraza si os habéis despertado con hambre antes de cualquier pitido a las 15:00. No inventamos su parrilla Premier.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Pub deportivo de al lado → O’Connell’s, Calle de Espoz y Mina 7</strong> (en Maps: O’Connell St).
+          Domingo 8 nov desde las 12:00 (habitual domingo 14:00). El mismo número que Dubliners, otra puerta.
+          Punto de encuentro si Dubliners está lleno a las 15:00; no copiamos Partidos de Dubliners en este pin.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+      <p>
+        Apunte práctico si os importa un equipo nombrado a las 15:00: estad en Espoz y Mina 7 a las 14:30 (Dubliners desde las 12:00).
+        Si os importa sentaros en una sala con pantallas de deporte desde que abre: Victoria 6 a las 14:00, luego quedaos o saltad 2 minutos.
+        United–Villa 17:30 no necesita otro barrio — las mismas cuatro puertas, los mismos CID de Maps.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Despierto en Madrid. Primer fútbol hoy, ¿qué puerta?</strong></dt>
+        <dd>Bloque Premier 15:00, luego United 17:30. Parrilla nombrada: Dubliners desde las 12:00. Pantallas de deporte desde las 14:00: Four Corner (preguntad). Comida primero: O’Reilly’s 11:30. Al lado: O’Connell’s desde las 12:00. No Four Corner antes de las 14:00.</dd>
+        <dt><strong>¿Todas las puertas echan Palace–Liverpool o United–Villa?</strong></dt>
+        <dd>No. Listados Premier nombrados: solo Partidos de Dubliners. Preguntad. NFL 15:30/19:00 y Atleti–Barça 21:00 van al lado.</dd>
+        <dt><strong>¿Sigue la noche de sobra del sábado o Valencia–RM?</strong></dt>
+        <dd>No. Eso ya ha terminado. Hoy empieza a las 15:00 el fútbol inglés.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Despertar del domingo, luego las cuatro puertas',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/del-hotel-sol-primera-calle-domingo-victoria-6/', label: 'Hotel en Sol: la primera calle es Victoria 6' },
+              { href: '/es/premier-league-domingo-sol-8-nov/', label: 'Premier League domingo junto a Sol' },
+              { href: PATH_EN, label: 'Woke up: 15:00 Premier block — which door', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

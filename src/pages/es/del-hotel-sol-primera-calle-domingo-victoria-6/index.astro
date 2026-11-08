@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/del-hotel-sol-primera-calle-domingo-victoria-6/';
+const PATH_EN = '/from-sol-hotel-first-sunday-street-victoria-6/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Hotel o Airbnb junto a Sol: la primera calle del domingo es Victoria 6, luego tres puertas hermanas',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T01:00:00+01:00',
+  dateModified: '2026-11-08T01:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Estoy en un hotel o Airbnb junto a Sol. ¿A dónde ando primero el domingo por la mañana?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calculad el primer paseo para llegar a Four Corner, Calle de la Victoria 6, antes de las 14:00. La puerta no abre antes de las 14:00. Cuando abre (pantallas de deporte), saltad a las tres puertas hermanas que ya están en el mismo bolsillo: O’Reilly’s en Pasaje de Matheu 4, luego Dubliners y O’Connell’s en Calle de Espoz y Mina 7.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué distancia está Victoria 6 desde un hotel en Sol, y luego las otras tres puertas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde el lado este de Puerta del Sol, Calle de la Victoria 6 está a unos 2–3 minutos / 180–220 m. Habitaciones típicas en Carretas, Mayor, Preciados, Arenal o Montera: 3–8 minutos / 250–600 m. De Victoria 6 a Pasaje de Matheu 4 hay unos 2 minutos / 120–150 m. De Victoria 6 a Espoz y Mina 7, unos 2 minutos / 150–180 m. De Matheu 4 a Espoz y Mina 7, unos 1 minuto / 90 m. Dubliners y O’Connell’s comparten el mismo número — puertas distintas, a pocos segundos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Four Corner abre antes de las 14:00, y siguen la quedada del sábado o Valencia–RM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner abre el domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte. La quedada del sábado 18:00–19:00 y Valencia–Real Madrid 21:00 (solo Dubliners) ya han terminado. No andéis como si siguieran esta noche.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Del hotel en Sol a Victoria 6 antes de las 14:00, luego tres puertas | Dubliners"
+  description="Domingo 8 nov: salid del hotel/Airbnb en Sol para llegar a Four Corner, Victoria 6, antes de las 14:00. Luego Matheu 4 y Espoz y Mina 7 dos veces. Maps, metros. CÓMO LLEGAR."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Hotel en Sol: primera calle del domingo a Victoria 6" schema />
+      <h1>Hotel o Airbnb junto a Sol: la primera calle del domingo es Victoria 6, luego tres puertas hermanas</h1>
+      <p class="lead">
+        El sábado ya ha acabado. Os habéis despertado en una habitación a pocos minutos de Puerta del Sol.
+        <strong>El primer paseo útil del domingo es Calle de la Victoria 6 — llegad antes de las 14:00, no esperéis la puerta antes de las 14:00.</strong>
+        Four Corner abre entonces, con pantallas de deporte. Después de ese pin, saltad a las tres puertas hermanas en las mismas calles:
+        Pasaje de Matheu 4, luego Espoz y Mina 7 dos veces. Metros, no un taxi. CID de Maps abajo.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Hotel or Airbnb near Sol: first Sunday street is Victoria 6</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Andar a Victoria 6</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es un paseo desde la habitación, no las calles de anoche</h2>
+      <p>
+        Otras páginas ya cubren el reloj de madrugada del sábado, el paseo genérico de Sol a los cuatro bares,
+        la comida del domingo y luego pantallas, y la propia apertura de Four Corner a las 14:00.
+        Esta página es solo el huésped que sigue en un hotel o Airbnb de Sol el domingo por la mañana:
+        <strong>qué calle andar primero, cuántos metros, cuándo abre de verdad la primera puerta.</strong>
+        La quedada 18:00–19:00 y Valencia–Real Madrid 21:00 ya han terminado. No las reandéis como si siguieran.
+      </p>
+
+      <h2>Salid de la habitación para llegar a Victoria 6 antes de las 14:00</h2>
+      <p>
+        Desde el lado este de Puerta del Sol, mirad hacia Carrera de San Jerónimo / Calle de la Victoria — no Gran Vía, no un salto de Metro.
+        <strong>Calle de la Victoria 6 está a unos 2–3 minutos / 180–220 m de la plaza.</strong>
+        Si la habitación está en Carretas, Mayor, Preciados, Arenal o Montera, contad <strong>3–8 minutos / 250–600 m</strong>.
+        Calculad el paseo para las <strong>13:40–13:55</strong>. Quedaos en la calle; el bar está cerrado hasta las 14:00.
+        Cuando abre, tiene pantallas de deporte — no listamos qué partido echa. Preguntad en la puerta.
+        {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+        {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+      </p>
+      <p>
+        Si salís de la habitación bastante antes de las 13:30, no acampéis una puerta cerrada durante una hora.
+        Marcad Victoria 6, usad Matheu o Espoz y Mina (ya abiertos) y volved a Victoria para las 14:00.
+        La primera <em>calle del domingo</em> que debéis tratar como objetivo sigue siendo Victoria 6.
+      </p>
+
+      <h2>Después de las 14:00 — tres puertas hermanas cerca, calle a calle</h2>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6</strong> (primer pin, desde las 14:00).
+          Pantallas de deporte. Domingo hasta la madrugada. No abre antes de las 14:00.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4.</strong>
+          Unos <strong>2 minutos / 120–150 m</strong> al oeste/suroeste de Victoria 6.
+          Restaurante-bar con terraza, habitual desde las 11:30. Primera puerta hermana después del pin de Victoria.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7.</strong>
+          Unos <strong>2 minutos / 150–180 m</strong> desde Victoria 6, o <strong>1 minuto / 90 m</strong> desde Matheu 4.
+          Domingo desde las 12:00. Las pantallas nombradas están en <a href={withBase('/es/partidos/')}>Partidos</a> — preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7</strong> (en Maps: O’Connell St).
+          El mismo número de calle que Dubliners, otra puerta — unos segundos, no un paseo nuevo.
+          Domingo 8 nov desde las 12:00 (habitual domingo 14:00). Punto de encuentro; no inventamos su parrilla.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+      <p>
+        Los cuatro pines caben en el mismo bolsillo al sureste de Sol. Premier League desde las 15:00, NFL tarde/noche
+        y Atlético–Barcelona 21:00 comparten las mismas calles — van al lado de este paseo; esta página no sustituye esos relojes.
+        Los listados nombrados siguen en Partidos de Dubliners. No todos los partidos van en todas las pantallas.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Hotel junto a Sol. ¿Primer paseo del domingo?</strong></dt>
+        <dd>Victoria 6 antes de las 14:00. Four Corner está cerrado hasta entonces. Cuando abre, salto a Matheu 4 y luego Espoz y Mina 7 dos veces.</dd>
+        <dt><strong>¿A qué distancia, calle a calle?</strong></dt>
+        <dd>Lado este de Sol → Victoria 6 ~2–3 min / 180–220 m. Habitaciones típicas 3–8 min. Victoria 6 → Matheu 4 ~2 min / 120–150 m. Victoria 6 → Espoz y Mina 7 ~2 min / 150–180 m. Matheu ↔ Espoz ~1 min / 90 m.</dd>
+        <dt><strong>¿Four Corner abre antes de las 14:00? ¿Sigue el sábado?</strong></dt>
+        <dd>No, y no. Puerta desde las 14:00 con pantallas de deporte. La quedada 18:00–19:00 y Valencia–RM 21:00 ya han terminado.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Calles del domingo desde la habitación',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/despierta-sol-bloque-premier-que-puerta/', label: 'Despertar: Premier 15:00 — qué puerta del domingo' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00' },
+              { href: PATH_EN, label: 'Sol hotel: first Sunday street is Victoria 6', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

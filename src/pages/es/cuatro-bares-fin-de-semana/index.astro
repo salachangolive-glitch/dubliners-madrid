@@ -183,6 +183,13 @@ const faqLd = {
         El día empieza al mediodía, no después del Bernabéu. Dubliners abre a las 12:00; O'Connell St también abre desde las 12:00 ese día.
         Four Corner: domingo 8 de noviembre desde las 14:00 hasta la madrugada (pantallas de deporte). Bengals–Falcons a las 15:30, más NFL desde las 19:00, Atlético–Barcelona a las 21:00.
       </p>
+      <p data-show-until={SHOW_UNTIL}>
+        ¿Os despertáis en un hotel o Airbnb junto a Sol?
+        <a href={withBase('/es/del-hotel-sol-primera-calle-domingo-victoria-6/')}>La primera calle del domingo es Victoria 6</a>
+        — llegad antes de las 14:00 (la puerta no abre antes), luego salto a Matheu 4 y Espoz y Mina 7 dos veces (metros + Maps).
+        Aficionados ingleses cuyo primer fútbol hoy es el bloque Premier 15:00, luego United 17:30:
+        <a href={withBase('/es/despierta-sol-bloque-premier-que-puerta/')}>cuál de las cuatro puertas del domingo apuntar</a>.
+      </p>
 
       <h2>Horario de Dubliners</h2>
       <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
@@ -221,6 +228,8 @@ const faqLd = {
             title: 'Domingo 8 de noviembre',
             until: SHOW_UNTIL,
             items: [
+              { href: '/es/del-hotel-sol-primera-calle-domingo-victoria-6/', label: 'Hotel en Sol: primera calle del domingo es Victoria 6', note: 'Llegad antes de las 14:00, luego tres puertas', until: SHOW_UNTIL },
+              { href: '/es/despierta-sol-bloque-premier-que-puerta/', label: 'Despertar: Premier 15:00 — qué puerta del domingo', note: 'Luego United 17:30', until: SHOW_UNTIL },
               { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner abre a las 14:00', note: 'Pantallas de deporte · Victoria 6', until: SHOW_UNTIL },
               { href: '/es/que-bar-hermano-domingo-sol/', label: 'Qué bar hermano el domingo', note: 'Terraza, pantallas o pub', until: SHOW_UNTIL },
               { href: '/es/parrilla-nfl-domingo-quedarse-sol/', label: 'Parrilla del domingo sin salir de Sol', note: 'De 12:00 a la madrugada', until: SHOW_UNTIL },

@@ -46,6 +46,13 @@ for f in "$HOME_EN" "$HOME_ES" "$ABOUT_EN" "$ABOUT_ES"; do
 done
 grep -q 'An Irish pub near Puerta del Sol, in the heart of Madrid' "$HOME_EN" || { echo "HOME EN H1 missing — abort"; exit 1; }
 grep -q 'Un pub irlandés cerca de Puerta del Sol, en el corazón de Madrid' "$HOME_ES" || { echo "HOME ES H1 missing — abort"; exit 1; }
+if grep -q '4 BARS. ONE FAN WEEKEND' "$HOME_EN" "$HOME_ES"; then
+  echo "Fan-weekend chrome still in Home — abort"; exit 1
+fi
+if grep -q 'CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO' "$HOME_ES"; then
+  echo "Fan-weekend chrome still in Home ES — abort"; exit 1
+fi
+grep -q 'Irish Pub Madrid near Sol' "$HOME_EN" || { echo "HOME EN permanent title missing — abort"; exit 1; }
 grep -q 'Where suits were once made' "$HOME_EN" || { echo "HOME EN brand line missing — abort"; exit 1; }
 grep -q 'Donde antes se cosían trajes' "$HOME_ES" || { echo "HOME ES brand line missing — abort"; exit 1; }
 grep -q 'The story behind Dubliners' "$ABOUT_EN" || { echo "ABOUT EN H1 missing — abort"; exit 1; }

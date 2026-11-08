@@ -26,8 +26,8 @@ const SHOW_POSTGAME = true; // desbloqueado 13 oct: dueño confirma todos los pa
         <FanWeekendCtas lang="es" />
       ) : (
         <div class="cta-row">
-          <a class="btn btn-gold" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
-          <a class="btn btn-primary" href={withBase('/es/visitar/')}>CÓMO LLEGAR</a>
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+          <a class="btn btn-primary" href={withBase('/es/visitar/')}>FIND US</a>
           <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Ver partidos</a>
         </div>
       )}
@@ -45,9 +45,13 @@ const SHOW_POSTGAME = true; // desbloqueado 13 oct: dueño confirma todos los pa
       <p class="small">Horas de Madrid (CET). Todos los partidos de la tabla, EN DIRECTO en Dubliners. Fuente: calendario Week 9 de nfl.com. El partido del domingo noche (02:20 del lunes) queda fuera de horario. <a href={withBase('/es/partidos/')}>Ver partidos</a></p>
       <p class="small">¿Planificas todo el día? <a href={withBase('/es/guia-domingo-nfl-madrid/')}>Guía hora a hora del domingo NFL</a></p>
       <p class="small">Dónde ver la NFL junto a Puerta del Sol: <a href={withBase('/es/donde-ver-nfl-madrid/')}>Dónde ver la NFL en Madrid</a></p>
-      <p class="small" data-show-until="2026-11-08">Domingo 8 nov en Sol: NFL 15:30, 19:00, 22:05/22:25 y Atlético–Barcelona 21:00 — <a href={withBase('/es/deportes-domingo-sol/')}>Deportes el domingo en Sol</a></p>
-      <p class="small" data-show-until="2026-11-08">Fin de semana cerca de Sol: <a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran fin de semana deportivo</a> — cuatro bares hermanos: O&apos;Reilly&apos;s, Dubliners, O&apos;Connell St y Four Corner</p>
-      <p class="small" data-show-until="2026-11-08"><a href={withBase('/es/nfl-madrid-cuatro-bares-hermanos/')}>NFL Madrid 2026: cuatro bares hermanos, un punto de encuentro cerca de la Puerta del Sol</a> · <a href={withBase('/es/sabado-domingo-sol-cuatro-bares/')}>Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</a></p>
+      {fanWeekend && (
+        <>
+          <p class="small" data-show-until="2026-11-08">Domingo 8 nov en Sol: NFL 15:30, 19:00, 22:05/22:25 y Atlético–Barcelona 21:00 — <a href={withBase('/es/deportes-domingo-sol/')}>Deportes el domingo en Sol</a></p>
+          <p class="small" data-show-until="2026-11-08">Fin de semana cerca de Sol: <a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran fin de semana deportivo</a> — cuatro bares hermanos: O&apos;Reilly&apos;s, Dubliners, O&apos;Connell St y Four Corner</p>
+          <p class="small" data-show-until="2026-11-08"><a href={withBase('/es/nfl-madrid-cuatro-bares-hermanos/')}>NFL Madrid 2026: cuatro bares hermanos, un punto de encuentro cerca de la Puerta del Sol</a> · <a href={withBase('/es/sabado-domingo-sol-cuatro-bares/')}>Sábado y domingo en Sol: una ruta de aficionado por cuatro bares</a></p>
+        </>
+      )}
       <p class="small">El jueves de Thanksgiving: <a href={withBase('/es/thanksgiving-madrid/')}>NFL de Thanksgiving en Madrid</a> (26 de noviembre: 19:00 y 22:30)</p>
       <h2>Cómo llegar</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2).</p><p>Horario: lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</p>
       <div class="map-frame"><MapEmbed title="Mapa de Dubliners Madrid" lang="es" /></div>

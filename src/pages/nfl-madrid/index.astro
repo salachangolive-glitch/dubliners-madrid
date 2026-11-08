@@ -26,7 +26,7 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
         <FanWeekendCtas lang="en" />
       ) : (
         <div class="cta-row">
-          <a class="btn btn-gold" href={withBase('/4-bars-one-fan-weekend/')}>MEET US NEAR SOL</a>
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
           <a class="btn btn-primary" href={withBase('/visit/')}>FIND US</a>
           <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
         </div>
@@ -45,9 +45,13 @@ const SHOW_POSTGAME = true; // unlocked 13 Oct: owner confirmed all Sunday NFL g
       <p class="small">Madrid times (CET). All games above are LIVE at Dubliners. Source: nfl.com Week 9 schedule. The Sunday night game (02:20 Monday Madrid) is after closing time. <a href={withBase('/whats-on/')}>See what's on</a></p>
       <p class="small">Planning the whole day? <a href={withBase('/nfl-sunday-madrid-guide/')}>NFL Sunday hour-by-hour guide</a></p>
       <p class="small">Where to watch NFL near Puerta del Sol: <a href={withBase('/where-to-watch-nfl-madrid/')}>Where to watch NFL in Madrid</a></p>
-      <p class="small" data-show-until="2026-11-08">Sunday 8 Nov in Sol: NFL 15:30, 19:00, 22:05/22:25 and Atlético–Barcelona 21:00 — <a href={withBase('/sunday-sports-sol/')}>Sunday sports in Sol</a></p>
-      <p class="small" data-show-until="2026-11-08">Fan weekend near Sol: <a href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend</a> — four sister bars: O&apos;Reilly&apos;s, Dubliners, O&apos;Connell St and Four Corner</p>
-      <p class="small" data-show-until="2026-11-08"><a href={withBase('/nfl-madrid-four-sister-bars/')}>NFL Madrid 2026: four sister bars, one fan meeting point near Puerta del Sol</a> · <a href={withBase('/saturday-sunday-sol-four-bars/')}>Saturday and Sunday in Sol: a fan’s route through four bars</a></p>
+      {fanWeekend && (
+        <>
+          <p class="small" data-show-until="2026-11-08">Sunday 8 Nov in Sol: NFL 15:30, 19:00, 22:05/22:25 and Atlético–Barcelona 21:00 — <a href={withBase('/sunday-sports-sol/')}>Sunday sports in Sol</a></p>
+          <p class="small" data-show-until="2026-11-08">Fan weekend near Sol: <a href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend</a> — four sister bars: O&apos;Reilly&apos;s, Dubliners, O&apos;Connell St and Four Corner</p>
+          <p class="small" data-show-until="2026-11-08"><a href={withBase('/nfl-madrid-four-sister-bars/')}>NFL Madrid 2026: four sister bars, one fan meeting point near Puerta del Sol</a> · <a href={withBase('/saturday-sunday-sol-four-bars/')}>Saturday and Sunday in Sol: a fan’s route through four bars</a></p>
+        </>
+      )}
       <p class="small">Thanksgiving Thursday: <a href={withBase('/thanksgiving-madrid/')}>Thanksgiving NFL in Madrid</a> (26 November: 19:00 and 22:30)</p>
       <p class="small">The Sunday before: <a href={withBase('/nfl-sunday-madrid-1-november/')}>NFL Sunday, 1 November</a> (19:00, 22:05 and 22:25, bank holiday Monday)</p>
       <h2>How to find us</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2).</p><p>Opening hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</p>

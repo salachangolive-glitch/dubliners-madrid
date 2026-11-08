@@ -5,22 +5,18 @@ import CtaRow from '../components/CtaRow.astro';
 import LinkHub from '../components/LinkHub.astro';
 import HomeFixtureCards from '../components/HomeFixtureCards.astro';
 import FixtureAntiStale from '../components/FixtureAntiStale.astro';
-import HomeNfl8Nov from '../components/HomeNfl8Nov.astro'; // TEMP NFL 8 Nov — remove Mon 9 Nov
 import { SITE, withBase } from '../site';
 import { hoursSummary } from '../data/hours';
 
 import { madridToday } from '../data/fixtures';
 import FourBarsMeet from '../components/FourBarsMeet.astro';
 import FanWeekendCtas from '../components/FanWeekendCtas.astro';
-import { SHOW_UNTIL_FAN_WEEKEND } from '../data/fourBars';
+import { isFanWeekendLive } from '../data/fourBars';
 const todayKey = madridToday();
-const fanWeekend = todayKey <= SHOW_UNTIL_FAN_WEEKEND;
-const title = fanWeekend
-  ? '4 BARS. ONE FAN WEEKEND. | Irish pub & sports bar near Sol — Dubliners'
-  : 'Irish Pub Madrid near Sol | Sports bar, NFL & Rugby — Dubliners';
-const description = fanWeekend
-  ? "Irish pub and sports bar near Puerta del Sol. Four bars, 7–8 Nov: O'Reilly's, Dubliners, O'Connell's and Four Corner (open from 14:00, sports screens). NFL bar Madrid — watch NFL Madrid. Maps, hours."
-  : 'Irish pub and sports bar in the former Barragán tailor shop (1885), just off Puerta del Sol: Premier League, Champions League and LaLiga football, NFL and rugby on our screens, international crowd, open from 12:00.';
+const fanWeekend = isFanWeekendLive();
+const title = 'Irish Pub Madrid near Sol | Sports bar, NFL & Rugby — Dubliners';
+const description =
+  'Irish pub and sports bar in the former Barragán tailor shop (1885), just off Puerta del Sol: Premier League, Champions League and LaLiga football, NFL and rugby on our screens, international crowd, open from 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg" website>
@@ -70,10 +66,6 @@ const description = fanWeekend
   </section>
 
   {fanWeekend && <FourBarsMeet lang="en" />}
-
-  <!-- 3rd block (owner 30 Oct 01:23): NFL Sunday 8 Nov — TEMP, remove Mon 9 Nov -->
-
-  {todayKey <= '2026-11-08' && <HomeNfl8Nov lang="en" />}
 
   <!-- 2b. Football (DG 27 Oct: football + international crowd) -->
   <section class="section" id="football">

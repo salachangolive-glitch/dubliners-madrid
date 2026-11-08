@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/espoz-mina-7-dos-puertas-reparte-premier-luego-nfl/';
+const PATH_EN = '/espoz-mina-7-two-doors-split-premier-then-nfl/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Espoz y Mina 7: dos puertas, un número — Premier 15:00 frente a NFL después',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T07:00:00+01:00',
+  dateModified: '2026-11-08T07:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'El grupo se parte: unos quieren Premier a las 15:00, otros NFL después. ¿Nos vamos de Espoz y Mina 7?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Dubliners y O’Connell’s comparten Calle de Espoz y Mina 7 — mismo número, dos puertas, dos pines de Maps. Dejad ese número como punto de reencuentro. Los listados con nombre de Premier y NFL están solo en Partidos de Dubliners. No asignamos Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth ni el partido NFL a una puerta hermana concreta. Preguntad qué pantalla.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedan O’Reilly’s y Four Corner si nos partimos en Espoz y Mina 7?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s Restaurant Bar está en Pasaje de Matheu 4 — el atajo cubierto, a 1–2 minutos del número 7. Four Corner está en Calle de la Victoria 6, a unos 2 minutos, desde las 14:00 con pantallas de deporte (no abre antes). Pines de desborde, no sustitutos. Maps abajo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Partir Premier frente a NFL sustituye Atlético–Barcelona a las 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinad; no sustituyáis. United–Villa es a las 17:30 en Partidos de Dubliners. La NFL de tarde (Bengals–Falcons 15:30 EN DIRECTO) y de noche desde las 19:00 va a la vez. Atlético vs Barcelona es a las 21:00 en el mismo tablero de Dubliners. No está cada partido en cada pantalla.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Espoz y Mina 7 dos puertas — Premier 15:00 frente a NFL después | Dubliners"
+  description="Domingo 8 nov: Dubliners y O’Connell’s comparten Calle de Espoz y Mina 7. Mismo número, dos puertas cuando el grupo parte Premier 15:00 frente a NFL después. Luego O’Reilly’s Matheu 4 y Four Corner Victoria 6. Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Espoz y Mina 7: dos puertas, un número" schema />
+      <h1>Espoz y Mina 7: dos puertas, un número — Premier 15:00 frente a NFL después</h1>
+      <p class="lead">
+        El sábado ya ha acabado. Media mesa quiere saques ingleses a las 15:00. La otra media quiere NFL después.
+        <strong>No hacen falta dos barrios.</strong>
+        Dubliners y O’Connell’s comparten <strong>Calle de Espoz y Mina 7</strong> — mismo número, dos puertas, dos CID de Maps.
+        Marcad el número. Luego O’Reilly’s en Pasaje de Matheu y Four Corner en Victoria 6 (desde las 14:00, pantallas de deporte).
+        Listados con nombre: solo Partidos de Dubliners. Preguntad qué pantalla.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Espoz y Mina 7: two doors, one number — split Premier 15:00 vs NFL later</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Mismo número de finca, no un test de personalidad de bar</h2>
+      <p>
+        Otras páginas ya eligen puerta del domingo por terraza frente a pantallas, recorren el despertar al bloque Premier 15:00,
+        os dejan en dos calles todo el día o listan las cuatro 15:00 frente al partido NFL 15:30.
+        Esta página es solo el <strong>grupo partido que sigue queriendo un pin</strong>:
+        camisetas Premier por una puerta del número 7, camisetas NFL por la otra — sin perderse por Madrid.
+        No afirmamos qué puerta de esas dos echa qué partido.
+      </p>
+
+      <h2>Un número, dos pines de Maps</h2>
+      <p>
+        <strong>Dubliners</strong> y <strong>O’Connell’s</strong> figuran ambos en Calle de Espoz y Mina 7, 28012 Madrid.
+        Son fichas distintas (O’Connell’s aparece en Maps como O’Connell St). Domingo 8 nov ambos desde las 12:00
+        (el domingo habitual de O’Connell’s es 14:00; hoy es la excepción).
+        Si la mesa se parte a las 15:00, dejad <strong>Espoz y Mina 7</strong> como texto de reencuentro.
+        Salid; la otra puerta está en la misma línea de fachada.
+      </p>
+      <p>
+        Con nombre en <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners (preguntad qué pantalla — no está cada partido en cada pantalla):
+      </p>
+      <ul>
+        <li><strong>15:00</strong> — Crystal Palace vs Liverpool · Sunderland vs Chelsea · Brighton vs Brentford · Ipswich Town vs Bournemouth</li>
+        <li><strong>15:30</strong> — Bengals vs Falcons EN DIRECTO (NFL Madrid Game)</li>
+        <li><strong>17:30</strong> — Manchester United vs Aston Villa</li>
+        <li><strong>desde las 19:00</strong> — NFL noche / RedZone · <strong>21:00</strong> — Atlético vs Barcelona</li>
+      </ul>
+      <p>
+        No copiamos ese tablero a O’Connell’s, O’Reilly’s ni Four Corner. Preguntad en cada puerta.
+      </p>
+
+      <h2>Luego los otros dos pines — desborde, no sustitutos</h2>
+      <p>
+        Four Corner, Calle de la Victoria 6, abre <strong>a las 14:00 hasta la madrugada con pantallas de deporte</strong> — una hora antes de las 15:00; no abre antes de las 14:00.
+        O’Reilly’s, Pasaje de Matheu 4, es el atajo cubierto (habitual desde las 11:30). Unos <strong>1–2 minutos</strong> del número 7 a Matheu;
+        unos <strong>2 minutos</strong> del número 7 a Victoria 6.
+        Usadlos cuando el número 7 esté lleno — no como motivo para mandar a media mesa al otro lado de la ciudad.
+        Premier, NFL y Atleti van a la vez; coordinad pantallas, no sustituyáis.
+      </p>
+      <ol>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Una de las dos puertas de este número. Domingo desde las 12:00. Listados con nombre de Premier, NFL y Atleti en Partidos. Preguntad qué pantalla.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps figura como O’Connell St).
+          La otra puerta del mismo número. Desde las 12:00 hoy (habitual domingo 14:00). Punto de encuentro; no inventamos su tablero.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Desborde del pasaje, 1–2 min del número 7. Restaurante-bar con terraza. No listamos su tablero.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abre a las 14:00 hasta la madrugada · pantallas de deporte. No abre antes de las 14:00. Unos 2 min del número 7. Preguntad qué echan.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>El grupo parte Premier 15:00 frente a NFL después. ¿Dejamos Espoz y Mina 7?</strong></dt>
+        <dd>No. Mismo número, dos puertas. Marcad Espoz y Mina 7. Listados con nombre: Partidos de Dubliners. No asignamos un partido a una puerta hermana. Preguntad qué pantalla.</dd>
+        <dt><strong>¿Dónde están O’Reilly’s y Four Corner desde el número 7?</strong></dt>
+        <dd>Matheu 4 es el atajo cubierto, 1–2 min. Victoria 6 unos 2 min, desde las 14:00 con pantallas de deporte (no antes). Desborde, no sustitutos.</dd>
+        <dt><strong>¿Esto sustituye Atleti–Barça 21:00?</strong></dt>
+        <dd>No. Coordinad. United–Villa 17:30, NFL 15:30 / desde las 19:00, Atleti 21:00 van a la vez en Partidos de Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Mismo número, dos puertas este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: '/es/plaza-mayor-soportales-cuesta-abajo-puertas-sol-antes-1400/', label: 'Soportales de Plaza Mayor cuesta abajo antes de las 14:00' },
+              { href: PATH_EN, label: 'Espoz y Mina 7: two doors, one number', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

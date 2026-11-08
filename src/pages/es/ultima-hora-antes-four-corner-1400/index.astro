@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/ultima-hora-antes-four-corner-1400/';
+const PATH_EN = '/last-hour-before-four-corner-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Última hora antes de las 14:00: sentaos en O’Reilly’s y Dubliners, luego las dos puertas de las 14:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T13:00:00+01:00',
+  dateModified: '2026-11-08T13:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Son alrededor de las 13:00. Four Corner abre a las 14:00. ¿Dónde me siento esta última hora?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sentaos ahora en O’Reilly’s Restaurant Bar, Pasaje de Matheu 4 (habitual desde las 11:30, ya sirviendo) o en Dubliners, Calle de Espoz y Mina 7 (habitual domingo desde las 12:00, ya sirviendo). Es la última hora del reloj, no una mesa de restaurante de tres horas ni comida y luego pantallas. A las 14:00 andad a Four Corner, Calle de la Victoria 6 (pantallas de deporte; no abre antes) y a la puerta habitual de domingo de O’Connell’s en Espoz y Mina 7. Maps abajo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'A las 14:00, ¿a qué dos puertas ando desde O’Reilly’s o Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four Corner en Calle de la Victoria 6 — unos 2 min / 120–180 m desde Matheu 4, unos 1–2 min / 80–150 m desde Espoz y Mina 7 — abre a las 14:00 hasta la madrugada con pantallas de deporte, no antes. La puerta habitual de domingo de O’Connell’s es la otra puerta en Espoz y Mina 7 (habitual 14:00; el listado de hoy también desde las 12:00 — no inventamos). Desde O’Reilly’s unos 1 min / 40–80 m; desde Dubliners es la puerta de al lado, mismo número. Listados con nombre: Partidos de Dubliners solamente.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Sentarse esta última hora sustituye Premier 15:00, NFL después o Atlético–Barcelona 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinad; no sustituyáis. Premier League desde las 15:00 (unas dos horas desde las 13:00), United–Villa 17:30, NFL tarde/noche y Atlético–Barcelona 21:00 van en las mismas dos calles después de las 14:00. No asignamos Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth ni el partido NFL a O’Reilly’s, O’Connell’s ni Four Corner. Preguntad qué pantalla.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Última hora antes de Four Corner 14:00: O’Reilly’s y Dubliners ahora | Dubliners"
+  description="Domingo 8 nov ~13:00: últimos 60 minutos antes de que abra Four Corner. Sentaos ahora en O’Reilly’s Pasaje de Matheu 4 (habitual 11:30) y Dubliners Espoz y Mina 7 (habitual domingo 12:00). A las 14:00 andad a Victoria 6 y a la puerta habitual de domingo de O’Connell’s. Última hora del reloj, Maps."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Última hora antes de las 14:00: O’Reilly’s y Dubliners" schema />
+      <h1>Última hora antes de las 14:00: sentaos en O’Reilly’s y Dubliners, luego las dos puertas de las 14:00</h1>
+      <p class="lead">
+        Son alrededor de las <strong>13:00</strong>. Four Corner en Calle de la Victoria 6 sigue cerrado — <strong>una hora</strong>, no tres, no toda la noche.
+        Sentaos <strong>ahora</strong> en O’Reilly’s, Pasaje de Matheu 4 (habitual desde las 11:30) y Dubliners, Espoz y Mina 7 (habitual domingo desde las 12:00).
+        A las 14:00 andad a Four Corner (pantallas de deporte; no abre antes) <strong>y</strong> a la puerta habitual de domingo de O’Connell’s, mismo número que Dubliners.
+        No es una mesa de restaurante para tres horas libres. No es comida y luego Bengals. Maps abajo.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Last 60 minutes before 14:00: sit O’Reilly’s and Dubliners, then walk the two 14:00 doors</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es el reloj de la última hora, no una mesa de tres horas, no la comida, no la página de las 14:00</h2>
+      <p>
+        Otras páginas ya cubren sentarse en una mesa de O’Reilly’s durante tres horas libres desde ~11:00, la comida del domingo y luego pantallas,
+        el reloj de madrugada desde el sábado y la propia página de apertura de Four Corner a las 14:00.
+        Esta página es solo para quien mira el reloj y ve <strong>~13:00 — sesenta minutos</strong>.
+        Las dos puertas habituales de la mañana ya sirven. Las dos puertas de las 14:00 son el paseo, no el asiento.
+        No re-promocionéis el sábado 18:00–19:00 como si siguiera.
+      </p>
+
+      <h2>13:00–14:00 — sentaos en las dos puertas que ya están en horario habitual</h2>
+      <p>
+        O’Reilly’s habitual desde las <strong>11:30</strong> (Pasaje de Matheu 4) — ya lleva hora y media abierto.
+        Dubliners habitual domingo desde las <strong>12:00</strong> (Espoz y Mina 7) — ya lleva una hora abierto.
+        Sentaos en esas dos. No acampéis Calle de la Victoria antes de las 14:00.
+      </p>
+      <ul>
+        <li>
+          <strong>O’Reilly’s, Pasaje de Matheu 4.</strong>
+          Última pinta o un asiento corto bajo el pasaje. A las 14:00: Four Corner queda a unos <strong>2 min / 120–180 m</strong>;
+          la puerta habitual de domingo de O’Connell’s en Espoz y Mina 7 a unos <strong>1 min / 40–80 m</strong> al salir del pasaje.
+        </li>
+        <li>
+          <strong>Dubliners, Espoz y Mina 7.</strong>
+          Pantallas con nombre en Partidos — preguntad qué hay; no inventamos un listado a las 13:00.
+          A las 14:00: O’Connell’s es la otra puerta del mismo número; Four Corner Victoria 6 queda a unos <strong>1–2 min / 80–150 m</strong>.
+        </li>
+      </ul>
+
+      <h2>14:00 — andad a las dos puertas que faltan</h2>
+      <p>
+        Dejad el asiento a esa hora:
+      </p>
+      <ul>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6.</strong>
+          Abre el domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte. No abre antes de las 14:00.
+          No listamos qué partido hay ahí — preguntad en la puerta.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7</strong> (en Maps: O’Connell St).
+          La puerta habitual de domingo es a las 14:00. El listado de hoy también desde las 12:00 — no inventamos horarios.
+          Marcad la hora habitual de las 14:00 como el paseo junto a Four Corner. Punto de encuentro; no copiamos el cartel de Dubliners a esta puerta.
+        </li>
+      </ul>
+      <p>
+        Premier League desde las 15:00 queda a unas dos horas (Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth),
+        United–Villa 17:30, NFL tarde/noche y Atlético–Barcelona 21:00 van en las mismas calles después — coordinad, no sustituyáis.
+        Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners solamente. Preguntad qué pantalla — no todos los partidos van en todas las pantallas.
+      </p>
+
+      <h2>Última hora, luego el paseo de las 14:00 — direcciones</h2>
+      <ol>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Sentaos ahora (habitual desde las 11:30). Salid para las 14:00. No inventamos la carta.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Sentaos ahora (habitual domingo desde las 12:00). Premier, NFL y Atleti con nombre en Partidos.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Andad a las 14:00. Pantallas de deporte. No abre antes. Unos 2 min desde Matheu / 1–2 min desde Espoz y Mina 7.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps: O’Connell St).
+          Puerta habitual de domingo 14:00 (hoy también listado desde las 12:00). La otra puerta del mismo número que Dubliners.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>~13:00, una hora hasta Four Corner. ¿Dónde me siento?</strong></dt>
+        <dd>O’Reilly’s, Pasaje de Matheu 4 (habitual 11:30) o Dubliners, Espoz y Mina 7 (habitual domingo 12:00). Últimos 60 minutos, no una mesa de tres horas. No esperéis en Victoria 6 antes de las 14:00.</dd>
+        <dt><strong>A las 14:00, ¿qué dos puertas?</strong></dt>
+        <dd>Four Corner Victoria 6 (pantallas de deporte, no antes de las 14:00) y la puerta habitual de domingo de O’Connell’s en Espoz y Mina 7. Desde Matheu: 2 min y 1 min. Desde Dubliners: la de al lado y 1–2 min a Victoria 6.</dd>
+        <dt><strong>¿Esta última hora sustituye Premier, NFL o Atleti 21:00?</strong></dt>
+        <dd>No. Coordinad. Bloque Premier 15:00 (~2 h desde las 13:00), United 17:30, NFL 15:30 / desde las 19:00, Atleti 21:00 van a la vez después de andar. Listados con nombre: Partidos de Dubliners solamente.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Última hora antes de las 14:00 este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/tirso-anton-martin-norte-puertas-sol-antes-1400/', label: 'Al sur de Sol: Tirso / Antón Martín, al norte antes de las 14:00' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: PATH_EN, label: 'Last 60 minutes before 14:00: sit O’Reilly’s and Dubliners now', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

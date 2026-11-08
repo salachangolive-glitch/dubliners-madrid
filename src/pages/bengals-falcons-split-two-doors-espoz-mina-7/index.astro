@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/bengals-falcons-split-two-doors-espoz-mina-7/';
+const PATH_ES = '/es/bengals-falcons-reparte-dos-puertas-espoz-mina-7/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Bengals and Falcons fans: split the two doors at Espoz y Mina 7',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T15:05:00+01:00',
+  dateModified: '2026-11-08T15:05:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Our group splits Bengals shirts and Falcons shirts. Do we leave Espoz y Mina 7?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Dubliners and O’Connell’s share Calle de Espoz y Mina 7 — same number, two doors, two Maps CIDs. Keep that number as the reunion. We do not name which door shows which screen. Ask which game is on. Named listings: Dubliners What’s On only.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where do O’Reilly’s and Four Corner sit if number 7 is full?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s Restaurant Bar is Pasaje de Matheu 4 — the covered cut-through from Espoz y Mina. Four Corner is Calle de la Victoria 6, open NOW (from 14:00 until late, sports screens). Overflow pins, not substitutes. We do not list their broadcasts. Maps below.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Premier 15:00 vs NFL later two-door page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. That page splits English kick-offs at 15:00 against NFL later. This page is only Bengals fans and Falcons fans sharing one street number. Premier 15:00 / 17:30 sit alongside; later NFL from 19:00 and Atlético–Barcelona 21:00 sit alongside. Coordinate; do not substitute.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Bengals and Falcons split two doors at Espoz y Mina 7 | Dubliners"
+  description="Sunday 8 Nov: Bengals fans and Falcons fans split Calle de Espoz y Mina 7 — same number, two doors, two CIDs. We do not name which screen. O’Reilly’s Matheu 4 and Four Corner Victoria 6 (open NOW) as overflow. Ask which game. Maps."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Bengals and Falcons: two doors at Espoz y Mina 7" schema />
+      <h1>Bengals and Falcons fans: split the two doors at Espoz y Mina 7 (same number, two CIDs)</h1>
+      <p class="lead">
+        Half the table is Cincinnati. Half is Atlanta. <strong>You do not need two neighbourhoods.</strong>
+        Dubliners and O’Connell’s share <strong>Calle de Espoz y Mina 7</strong> — same street number, two doors, two Maps CIDs.
+        Pin the number. We do not name which door shows which screen. Ask which game is on.
+        Overflow: O’Reilly’s, Pasaje de Matheu 4, and Four Corner, Calle de la Victoria 6 — <strong>open NOW</strong> (from 14:00, sports screens).
+        Named listings: Dubliners What’s On only.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Bengals y Falcons: dos puertas en Espoz y Mina 7</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Shirt split, not Premier vs NFL later</h2>
+      <p>
+        <a href={withBase('/espoz-mina-7-two-doors-split-premier-then-nfl/')}>Espoz y Mina 7 two doors: Premier 15:00 vs NFL later</a>
+        is the group that splits English kick-offs against a later NFL clock.
+        This page is only <strong>Bengals shirts through one door of number 7, Falcons shirts through the other</strong>
+        — still one reunion text. We do not claim which of those two doors shows which match.
+        Not before-and-after Bengals. Not a which-bar personality quiz. Not a walk from Plaza Mayor, Atocha, Callao or Tirso.
+      </p>
+
+      <h2>Same façade line, two Maps pins — ask which game</h2>
+      <p>
+        Both listings read Calle de Espoz y Mina 7, 28012 Madrid. They are distinct CIDs (O’Connell’s appears on Maps as O’Connell St).
+        If the table splits by team, keep <strong>Espoz y Mina 7</strong> as the reunion. Step outside; the other door is the same façade line.
+        Named on Dubliners <a href={withBase('/whats-on/')}>What’s On</a> (ask which screen — not every game on every screen):
+      </p>
+      <ul>
+        <li><strong>15:00</strong> — Crystal Palace vs Liverpool · Sunderland vs Chelsea · Brighton vs Brentford · Ipswich Town vs Bournemouth</li>
+        <li><strong>15:30</strong> — Bengals vs Falcons LIVE (NFL Madrid Game; also the Bernabéu kick-off)</li>
+        <li><strong>17:30</strong> — Manchester United vs Aston Villa</li>
+        <li><strong>from 19:00</strong> — NFL evening / RedZone · <strong>21:00</strong> — Atlético vs Barcelona</li>
+      </ul>
+      <p>
+        We do not copy that board onto O’Connell’s, O’Reilly’s or Four Corner. We do not name which screen is which door. Ask at each door.
+        Premier 15:00 / 17:30 sit alongside; later NFL and Atleti sit alongside. Coordinate, do not substitute.
+      </p>
+
+      <h2>Then Matheu 4 and Victoria 6 — overflow, not substitutes. All four doors open NOW</h2>
+      <p>
+        Four Corner, Calle de la Victoria 6, <strong>is open NOW</strong> (from 14:00 until late · sports screens). Ask which game is on; we do not list its broadcasts.
+        O’Reilly’s, Pasaje de Matheu 4, is the covered cut-through (usual from 11:30). Use them when number 7 is full — not as a reason to send half the group across the city.
+        Maps below. No invented walking clock.
+      </p>
+      <ol>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          One of the two doors at this number. Sunday from 12:00. Named Premier, NFL and Atleti listings on What’s On. Ask which screen.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          The other door at the same number. Different CID. Meeting point; we do not invent its board and we do not name its screen.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Passage overflow. Terrace restaurant-bar. We do not list its board.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Open NOW from 14:00 until late · sports screens. Ask which game is on.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ol>
+      <p>
+        Already in Sol while the stadium is still playing?
+        <a href={withBase('/already-in-sol-during-madrid-game-four-open-doors/')}>Hold the four open doors as the in-city meeting point</a>.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Bengals shirts vs Falcons shirts. Leave Espoz y Mina 7?</strong></dt>
+        <dd>No. Same number, two doors, two CIDs. Pin Espoz y Mina 7. We do not name which screen. Ask which game. Named listings: Dubliners What’s On.</dd>
+        <dt><strong>Where are O’Reilly’s and Four Corner if number 7 is full?</strong></dt>
+        <dd>Matheu 4 is the covered cut-through. Victoria 6 is open NOW (from 14:00, sports screens). Overflow, not substitutes. Maps below.</dd>
+        <dt><strong>Is this the Premier-then-NFL two-door page?</strong></dt>
+        <dd>No. That splits 15:00 English games vs NFL later. This is only Bengals vs Falcons at one number. Premier and Atleti still sit alongside.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Two doors, one number this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/already-in-sol-during-madrid-game-four-open-doors/', label: 'Already in Sol during the Madrid Game: four doors open NOW' },
+              { href: '/whats-on/', label: 'What’s On — named screens' },
+              { href: PATH_ES, label: 'Bengals y Falcons: dos puertas en Espoz y Mina 7', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

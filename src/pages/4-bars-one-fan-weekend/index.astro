@@ -183,6 +183,13 @@ const faqLd = {
         The day starts at midday, not after the Bernabéu whistle. Dubliners opens at 12:00; O'Connell St also opens from 12:00 that day.
         Four Corner: Sunday 8 November from 14:00 until late (sports screens). Bengals vs Falcons at 15:30, more NFL from 19:00, Atlético–Barcelona at 21:00.
       </p>
+      <p data-show-until={SHOW_UNTIL}>
+        Waking in a Sol hotel or Airbnb?
+        <a href={withBase('/from-sol-hotel-first-sunday-street-victoria-6/')}>First Sunday street is Victoria 6</a>
+        — arrive before 14:00 (door not open before then), then hop Matheu 4 and Espoz y Mina 7 twice (metres + Maps).
+        English fans whose first football today is the 15:00 Premier block, then United 17:30:
+        <a href={withBase('/wake-sol-sunday-premier-block-which-door/')}>which of the four Sunday doors to aim for</a>.
+      </p>
 
       <h2>Opening hours at Dubliners</h2>
       <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
@@ -221,6 +228,8 @@ const faqLd = {
             title: 'Sunday 8 November',
             until: SHOW_UNTIL,
             items: [
+              { href: '/from-sol-hotel-first-sunday-street-victoria-6/', label: 'Sol hotel: first Sunday street is Victoria 6', note: 'Arrive before 14:00, then three sister doors', until: SHOW_UNTIL },
+              { href: '/wake-sol-sunday-premier-block-which-door/', label: 'Woke up: 15:00 Premier — which Sunday door', note: 'Then United 17:30', until: SHOW_UNTIL },
               { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner opens 14:00', note: 'Sports screens · Victoria 6', until: SHOW_UNTIL },
               { href: '/which-sister-bar-sunday-sol/', label: 'Which sister bar on Sunday', note: 'Terrace, screens, or sports pub', until: SHOW_UNTIL },
               { href: '/sunday-nfl-slate-stay-in-sol/', label: 'Sunday slate without leaving Sol', note: '12:00 to late', until: SHOW_UNTIL },

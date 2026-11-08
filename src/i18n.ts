@@ -61,6 +61,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/english-tourists-saturday-hours-until-premier/': '/es/turistas-ingleses-horas-sabado-hasta-premier/',
   '/hop-two-streets-last-pint-after-derby/': '/es/saltar-dos-calles-ultima-pinta-despues-derbi/',
   '/fifteen-hours-sol-until-four-corner-1400/': '/es/quince-horas-sol-hasta-four-corner-1400/',
+  '/from-sol-hotel-first-sunday-street-victoria-6/': '/es/del-hotel-sol-primera-calle-domingo-victoria-6/',
+  '/wake-sol-sunday-premier-block-which-door/': '/es/despierta-sol-bloque-premier-que-puerta/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

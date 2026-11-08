@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/brighton-ipswich-1500-sol-sin-liverpool-chelsea-united/';
+const PATH_EN = '/brighton-ipswich-1500-sol-skip-liverpool-chelsea-united/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Sin perseguir Liverpool, Chelsea ni United: Brighton–Brentford e Ipswich–Bournemouth a las 15:00 junto a Sol',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T05:00:00+01:00',
+  dateModified: '2026-11-08T05:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'No voy a por Liverpool, Chelsea ni United. ¿Qué partidos ingleses de las 15:00 puedo pedir junto a Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Brighton vs Brentford e Ipswich Town vs Bournemouth, ambos a las 15:00 Europe/Madrid. Están en el tablero de Partidos de Dubliners (Espoz y Mina 7, desde las 12:00). Palace–Liverpool y Sunderland–Chelsea coinciden a esa hora; United–Villa es a las 17:30. Quedad en los cuatro bares hermanos. Preguntad qué pantalla. No afirmamos que O’Reilly’s, O’Connell’s o Four Corner echen un partido concreto.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde quedamos si queremos las 15:00 más tranquilas, no los grandes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El punto de encuentro de cuatro bares al sureste de Sol. Four Corner, Calle de la Victoria 6, abre a las 14:00 con pantallas de deporte (una hora antes de las 15:00; no abre antes de las 14:00). O’Reilly’s en Pasaje de Matheu 4. Dubliners y O’Connell’s en Calle de Espoz y Mina 7. Maps abajo. Listados con nombre de Brighton e Ipswich: solo Partidos de Dubliners. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Estos dos partidos sustituyen la NFL o Atlético–Barcelona?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinad; no sustituyáis. La NFL va a la vez desde las 15:30 / desde las 19:00. Atlético vs Barcelona es a las 21:00 en Partidos de Dubliners. United–Villa 17:30 es más tarde si os quedáis. No está cada partido en cada pantalla.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Brighton e Ipswich 15:00 junto a Sol — sin Liverpool, Chelsea ni United | Dubliners"
+  description="Domingo 8 nov 15:00: Brighton–Brentford e Ipswich–Bournemouth junto a Sol. Fútbol inglés más tranquilo si no vais a por Liverpool, Chelsea o United. Cuatro bares, Maps, preguntad qué pantalla."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Brighton e Ipswich 15:00 — no Liverpool/Chelsea/United" schema />
+      <h1>Sin perseguir Liverpool, Chelsea ni United: Brighton–Brentford e Ipswich–Bournemouth a las 15:00 junto a Sol</h1>
+      <p class="lead">
+        El domingo 8 de noviembre a las 15:00 hay cuatro saques ingleses. Dos llenarán las salas ruidosas:
+        Palace–Liverpool y Sunderland–Chelsea. United–Villa es a las 17:30.
+        <strong>Si sois del Brighton, Brentford, Ipswich o Bournemouth — o solo queréis una pinta inglesa más tranquila — pedid estos dos.</strong>
+        Quedad en los cuatro bares hermanos junto a Sol. Listados con nombre: solo Partidos de Dubliners. Preguntad qué pantalla.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Not chasing Liverpool, Chelsea or United: Brighton and Ipswich at 15:00 near Sol</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Estas dos 15:00, no todo el bloque Premier</h2>
+      <p>
+        Otras páginas ya listan las cuatro 15:00 frente al partido NFL 15:30, recorren qué puerta del domingo si acabáis de despertar
+        y cubren United–Villa a las 17:30. La página antigua de Brighton es Getafe el jueves — no hoy.
+        Esta página es solo para aficionados <strong>que no van a por Liverpool, Chelsea ni United</strong>
+        y quieren Brighton vs Brentford o Ipswich Town vs Bournemouth a las 15:00.
+        La quedada del sábado ya ha acabado. No trates esto como una página de captura de Liverpool/Chelsea.
+      </p>
+      <ul>
+        <li><strong>15:00</strong> — Brighton vs Brentford (<a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners)</li>
+        <li><strong>15:00</strong> — Ipswich Town vs Bournemouth (mismo tablero)</li>
+      </ul>
+      <p>
+        Palace–Liverpool y Sunderland–Chelsea coinciden a esa hora; se llevarán pantallas. Decid los dos nombres más tranquilos al sentaros.
+        United–Villa a las 17:30 es más tarde si os quedáis — no es el trabajo de esta página.
+      </p>
+
+      <h2>Punto de encuentro de cuatro bares — preguntad qué pantalla</h2>
+      <p>
+        El punto de encuentro son cuatro puertas, no un recinto. No afirmamos que O’Reilly’s, O’Connell’s o Four Corner echen Brighton o Ipswich.
+        Los listados con nombre de Brighton–Brentford e Ipswich–Bournemouth están en Partidos de Dubliners (Espoz y Mina 7, desde las 12:00).
+        Four Corner abre a las 14:00 con pantallas de deporte — una hora antes de las 15:00; no abre antes de las 14:00; preguntad qué echan.
+        O’Reilly’s (Matheu 4, habitual desde las 11:30) y O’Connell’s (Espoz y Mina 7, desde las 12:00 hoy): preguntad en la puerta.
+      </p>
+      <ol>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Restaurante-bar con terraza. Punto de encuentro antes de las 15:00. No listamos su tablero.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Domingo desde las 12:00. Brighton vs Brentford e Ipswich Town vs Bournemouth están en Partidos. Preguntad qué pantalla — no está cada partido en cada pantalla.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps figura como O’Connell St).
+          Mismo número, otra puerta. Desde las 12:00 hoy (habitual domingo 14:00). Punto de encuentro; no copiamos aquí el tablero de Dubliners.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abre a las 14:00 hasta la madrugada · pantallas de deporte. No abre antes de las 14:00. No listamos qué echa. Preguntad.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+      </ol>
+
+      <h2>La NFL y el Atleti van a la vez — no sustituyáis</h2>
+      <p>
+        Estas dos 15:00 más tranquilas no reemplazan el resto del domingo.
+        La NFL de tarde/noche va a la vez (Bengals vs Falcons 15:30 EN DIRECTO en Dubliners; más desde las 19:00 en Partidos).
+        Atlético vs Barcelona 21:00 está en el mismo tablero de Dubliners.
+        Coordinad las pantallas; no trates Brighton o Ipswich como motivo para saltaros las salas NFL o Atleti, ni esas como motivo para esconder el fútbol inglés más tranquilo.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>No voy a por Liverpool, Chelsea ni United. ¿Qué 15:00?</strong></dt>
+        <dd>Brighton vs Brentford e Ipswich Town vs Bournemouth. En Partidos de Dubliners. Preguntad qué pantalla. Quedad en los cuatro bares.</dd>
+        <dt><strong>¿Dónde quedamos?</strong></dt>
+        <dd>Four Corner Victoria 6 desde las 14:00 (pantallas de deporte, no antes). O’Reilly’s Matheu 4. Dubliners y O’Connell’s Espoz y Mina 7. Maps arriba.</dd>
+        <dt><strong>¿Esto sustituye la NFL o Atleti–Barça?</strong></dt>
+        <dd>No. Coordinad. NFL desde las 15:30 / 19:00 y Atleti 21:00 van a la vez. United–Villa 17:30 es más tarde si os quedáis.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: '15:00 inglesas más tranquilas junto a Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: '/es/primer-metro-a-sol-domingo-estacion-a-puerta/', label: 'Primer Metro a Sol el domingo: de la estación a la puerta' },
+              { href: PATH_EN, label: 'Brighton and Ipswich 15:00, skip Liverpool/Chelsea/United', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

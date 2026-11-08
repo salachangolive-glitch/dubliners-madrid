@@ -12,9 +12,31 @@ const fanWeekend = isFanWeekendLive();
 const title = 'Premier League pub Madrid | Irish sports bar near Puerta del Sol';
 const description =
   'Premier League pub Madrid: watch English football at an Irish pub and sports bar just off Puerta del Sol. Espoz y Mina 7. Named listings on What’s On. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is this a Premier League pub in Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Dubliners is a Premier League pub in Madrid: an Irish pub and sports bar just off Puerta del Sol. Named listings are on What’s On.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get here?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/premier-league-pub-madrid/" ogImage="/images/screens-sports.jpg">
+<BaseLayout title={title} description={description} path="/premier-league-pub-madrid/" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -63,8 +85,7 @@ const description =
     <div class="container prose">
       <h2>Premier League pub Madrid</h2>
       <p>
-        A Premier League pub Madrid is what people search when they want English football in the centre.
-        Dubliners is that Irish pub and sports bar: Saturday and Sunday Premier League on the screens when confirmed,
+        English football in the centre: Saturday and Sunday Premier League on the screens when confirmed,
         with an international crowd around Sol. We do not invent boards — named listings stay on What’s On.
       </p>
       <p>

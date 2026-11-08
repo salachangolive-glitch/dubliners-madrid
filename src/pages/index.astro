@@ -16,11 +16,11 @@ import { SHOW_UNTIL_FAN_WEEKEND } from '../data/fourBars';
 const todayKey = madridToday();
 const fanWeekend = todayKey <= SHOW_UNTIL_FAN_WEEKEND;
 const title = fanWeekend
-  ? '4 BARS. ONE FAN WEEKEND. | NFL Madrid near Sol — Dubliners'
-  : 'Irish Pub Madrid near Sol | Football, NFL & Rugby — Dubliners';
+  ? '4 BARS. ONE FAN WEEKEND. | Irish pub & sports bar near Sol — Dubliners'
+  : 'Irish Pub Madrid near Sol | Sports bar, NFL & Rugby — Dubliners';
 const description = fanWeekend
-  ? "Four bars near Puerta del Sol, 7–8 Nov: O'Reilly's, Dubliners, O'Connell's and Four Corner. Maps, hours. Sunday: Dubliners 12:00, Four Corner 14:00."
-  : 'Irish pub in the former Barragán tailor shop (1885), just off Puerta del Sol: Premier League, Champions League and LaLiga football, NFL and rugby on our screens, international crowd, open from 12:00.';
+  ? "Irish pub and sports bar near Puerta del Sol. Four bars, 7–8 Nov: O'Reilly's, Dubliners, O'Connell's and Four Corner (open from 14:00, sports screens). NFL bar Madrid — watch NFL Madrid. Maps, hours."
+  : 'Irish pub and sports bar in the former Barragán tailor shop (1885), just off Puerta del Sol: Premier League, Champions League and LaLiga football, NFL and rugby on our screens, international crowd, open from 12:00.';
 ---
 
 <BaseLayout title={title} description={description} path="/" ogImage="/images/bar-interior.jpg" website>
@@ -48,7 +48,7 @@ const description = fanWeekend
   <div class="home-identity">
     <div class="home-identity__inner">
       <p class="home-identity__name">Dubliners Madrid</p>
-      <p class="home-identity__tag">Your Irish pub in the heart of Madrid</p>
+      <p class="home-identity__tag">Irish pub and sports bar in the heart of Madrid</p>
     </div>
   </div>
 
@@ -60,7 +60,7 @@ const description = fanWeekend
         Dubliners is an Irish pub just off Puerta del Sol, in the former Barragán tailor shop (1885): Premier League, Champions League and LaLiga football, NFL Sundays and rugby Tests on our screens, English-speaking staff and an international crowd, open every day from 12:00.
       </p>
       <p class="home-intro__text">
-        Drop in for a drink, meet friends or catch the game. Locals, visitors and Madrid’s international crowd all end up here, in a room that still keeps the painted ceiling of a 19th-century tailor shop.
+        Drop in for a drink, meet friends or catch the game at a sports bar near Puerta del Sol. Locals, visitors and Madrid’s international crowd all end up here — an Irish bar in Madrid that also works as an NFL bar Madrid on Sundays — in a room that still keeps the painted ceiling of a 19th-century tailor shop.
       </p>
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) or Sevilla (L2)
@@ -80,7 +80,7 @@ const description = fanWeekend
     <div class="container prose">
       <h2>Football near Sol: Premier League, Champions League and LaLiga</h2>
       <p>
-        Football is what fills the room most weeks. Premier League weekends, Champions League nights and the big LaLiga games go on our screens,
+        Football is what fills the room most weeks. Premier League weekends — a Premier League pub in Madrid for English football — Champions League nights and the big LaLiga games go on our screens,
         with Madrid’s international crowd watching together: Erasmus and international students, visitors staying around Sol and fans from abroad following their club.
         Every kick-off we list is confirmed and in Madrid time.
       </p>
@@ -99,6 +99,7 @@ const description = fanWeekend
         <h2>Live sports</h2>
         <p>
           Football, NFL, rugby, NBA and more on our screens. We only list what is confirmed, always in Madrid time, and the staff can tell you what is on tonight.
+          This sports bar near Puerta del Sol is also where we watch NFL Madrid.
         </p>
         {todayKey <= '2026-10-31' && (
           <p data-show-until="2026-10-31"><strong>Halloween at Dubliners: Saturday 31 October, from 19:00.</strong> Costumes, decorations and music. <a href={withBase('/halloween-madrid-2026/')}>Halloween in Madrid near Sol</a></p>
@@ -193,7 +194,7 @@ const description = fanWeekend
               { href: '/sunday-lunch-then-screens-sol/', label: 'Sunday lunch then screens', note: 'O’Reilly’s then Dubliners 15:30', until: '2026-11-08' },
               { href: '/redzone-sunday-sol-dubliners/', label: 'RedZone Sunday evening', note: 'Ask which screen at 19:00', until: '2026-11-08' },
               { href: '/four-corner-opens-sunday-1400/', label: 'Four Corner Sunday 14:00', note: 'Sports screens · Victoria 6', until: '2026-11-08' },
-              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday games on our screens' },
+              { href: '/nfl-madrid/', label: 'Watch NFL Madrid', note: 'NFL bar Madrid · Sunday screens' },
               { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour, Sunday 8 November' },
               { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'NFL + Atlético–Barça, 8 Nov', until: '2026-11-08' },
             ],
@@ -315,6 +316,20 @@ const description = fanWeekend
           <p>
             Yes — major football, NFL, NBA, rugby, Formula 1 and tennis when confirmed.
             See <a href={withBase('/whats-on/')}>What’s On</a> for this week’s schedule.
+          </p>
+        </details>
+        <details>
+          <summary>Is this an Irish pub and sports bar?</summary>
+          <p>
+            Yes — Dubliners is an Irish pub and sports bar just off Puerta del Sol, Espoz y Mina 7.
+            Irish bar Madrid, football and NFL on the screens. Named listings: <a href={withBase('/whats-on/')}>What’s On</a>.
+          </p>
+        </details>
+        <details>
+          <summary>Can I watch NFL Madrid here?</summary>
+          <p>
+            Yes — Dubliners is an NFL bar in Madrid near Puerta del Sol. Sunday NFL is LIVE on our screens when listed on What’s On.
+            <a href={withBase('/nfl-madrid/')}>Watch NFL Madrid</a>.
           </p>
         </details>
         <details>

@@ -13,9 +13,9 @@ import { isFanWeekendLive } from '../../../data/fourBars';
 const fanWeekend = isFanWeekendLive();
 
 const title =
-  'Partidos: deporte en directo esta semana | Dubliners Madrid';
+  'Partidos: deporte en directo en un pub irlandés y bar deportivo cerca de Sol';
 const description =
-  'Deporte en directo esta semana en Dubliners, Espoz y Mina 7: fútbol, NFL, rugby, NBA y más en hora de Madrid, con lo que va EN DIRECTO.';
+  'Deporte en directo esta semana en Dubliners, pub irlandés y bar deportivo en Espoz y Mina 7: fútbol, NFL, rugby y más en hora de Madrid. Listados con nombre abajo — bar NFL Madrid cerca de Puerta del Sol.';
 
 // One agenda for EN + ES (same filter, same range, Europe/Madrid).
 const { todayKey, today, upcoming } = agendaAt();
@@ -38,8 +38,8 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       <Breadcrumb current="Partidos" lang="es" />
       <h1>Partidos en Dubliners — deporte en directo esta semana</h1>
       <p class="lead">
-        Consulta el deporte en directo esta semana en Dubliners: fútbol, NFL, NBA, rugby, Fórmula 1, tenis y más.
-        Horarios en hora de Madrid. Los partidos marcados EN DIRECTO se emiten en nuestras pantallas.
+        Consulta el deporte en directo esta semana en este pub irlandés y bar deportivo cerca de Puerta del Sol: fútbol, NFL, NBA, rugby, Fórmula 1, tenis y más.
+        Horarios en hora de Madrid. Los partidos marcados EN DIRECTO se emiten en nuestras pantallas. Los listados con nombre están solo en esta página.
       </p>
       {fanWeekend ? <FanWeekendCtas lang="es" /> : <CtaRow lang="es" showWhatsOn={false} />}
     </div>
@@ -64,10 +64,10 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     <div class="container prose">
       <h2>Deportes en directo en Dubliners</h2>
       <p>
-        Dubliners es un pub irlandés junto a Puerta del Sol — Espoz y Mina 7, Metro Sol o Sevilla.
-        Ponemos grandes eventos deportivos en nuestras pantallas cuando están confirmados: fútbol, NFL, NBA,
-        rugby, Fórmula 1, tenis y más. Consulta Partidos arriba para la agenda de esta semana, o pregunta
-        en barra si buscas un partido concreto.
+        Dubliners es un pub irlandés y un bar deportivo junto a Puerta del Sol — Espoz y Mina 7, Metro Sol o Sevilla.
+        Un bar irlandés en Madrid con fútbol y NFL en las pantallas de interior cuando están confirmados.
+        Consulta Partidos arriba para la agenda de esta semana, o pregunta
+        en barra si buscas un partido concreto. Los listados con nombre se quedan aquí.
       </p>
       <p>
         Cómo funcionan las pantallas y qué deportes ponemos: <a href={withBase('/es/bar-deportivo-madrid/')}>nuestro bar deportivo en Madrid</a>.
@@ -115,7 +115,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             title: 'NFL y deportes americanos',
             id: 'nfl-deportes-americanos',
             items: [
-              { href: '/es/nfl-madrid/', label: 'NFL en Madrid' },
+              { href: '/es/nfl-madrid/', label: 'Ver NFL en Madrid', note: 'Bar NFL Madrid cerca de Sol' },
               { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
             ],
           },

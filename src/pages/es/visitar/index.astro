@@ -12,9 +12,9 @@ import { isFanWeekendLive } from '../../../data/fourBars';
 
 const fanWeekend = isFanWeekendLive();
 
-const title = 'Visitar Dubliners Madrid | Cerca de Puerta del Sol — Dirección, Metro y mapa';
+const title = 'Visitar Dubliners | Pub irlandés y bar deportivo cerca de Puerta del Sol';
 const description =
-  `Espoz y Mina 7, junto a Puerta del Sol. Metro Sol (L1, L2, L3) o Sevilla (L2). Horario ${hoursSummary('es', '; ').replace(/^L/, 'l').replace('; V', '; v')}. Neón verde en fachada.`;
+  `Pub irlandés y bar deportivo en Espoz y Mina 7, junto a Puerta del Sol. Bar NFL Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Horario ${hoursSummary('es', '; ').replace(/^L/, 'l').replace('; V', '; v')}. Neón verde en fachada.`;
 ---
 
 <BaseLayout title={title} description={description} path="/es/visitar/" lang="es" ogImage="/images/facade.jpg">
@@ -24,8 +24,9 @@ const description =
         <Breadcrumb current="Visitar" lang="es" />
         <h1>Cómo llegar desde Puerta del Sol</h1>
         <p class="lead">
-          Pub irlandés en Espoz y Mina 7 — junto a Puerta del Sol.
+          Pub irlandés y bar deportivo en Espoz y Mina 7 — junto a Puerta del Sol.
           Metro Sol (L1, L2, L3) o Sevilla (L2); busca el neón verde de Dubliners.
+          Bar NFL Madrid a un paseo de la plaza.
         </p>
         {fanWeekend ? <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" /> : <CtaRow lang="es" />}
       </div>
@@ -115,8 +116,8 @@ const description =
         {fanWeekend && (
           <>
             <li><a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran punto de encuentro — mapas y horarios</a></li>
-            <li><a href={withBase('/es/fin-de-semana-nfl-ya-se-vive/')}>Quedada esta noche 18:00–19:00</a></li>
-            <li><a href={withBase('/es/four-corner-abre-domingo-1400/')}>Four Corner domingo 14:00 · pantallas de deporte</a></li>
+            <li data-show-until="2026-11-07"><a href={withBase('/es/fin-de-semana-nfl-ya-se-vive/')}>Quedada esta noche 18:00–19:00</a></li>
+            <li><a href={withBase('/es/four-corner-abre-domingo-1400/')}>Four Corner está abierto desde las 14:00 · pantallas de deporte</a></li>
           </>
         )}
         <li><a href={withBase('/es/partidos/')}>Partidos — agenda de hoy</a></li>

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/galeria-acristalada-matheu-4-primera-pinta-antes-saque-domingo/';
+const PATH_EN = '/glass-arcade-matheu-4-first-pint-before-sunday-kickoff/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Pasaje de Matheu 4: galería acristalada, primera pinta, luego salto antes del saque del domingo',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T09:00:00+01:00',
+  dateModified: '2026-11-08T09:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Es un domingo de noviembre y quiero la primera pinta a cubierto antes de las 15:00. ¿Qué puerta?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O’Reilly’s Restaurant Bar en Pasaje de Matheu 4 — la galería comercial con techo de cristal entre Espoz y Mina y Victoria. Habitual desde las 11:30. Marcad el pasaje ahora aunque el bar siga cerrado; esperad bajo el cristal, no en Victoria 6. Four Corner (Calle de la Victoria 6) abre a las 14:00 con pantallas de deporte, no antes. Luego salid a Espoz y Mina 7 (Dubliners y O’Connell’s). Maps abajo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué distancia está Pasaje de Matheu 4 de Espoz y Mina 7 y Victoria 6?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El pasaje abre a Calle de Espoz y Mina: el número 7 está a unos 1 minuto / 40–80 m (Dubliners y O’Connell’s, mismo número, dos puertas). Four Corner en Calle de la Victoria 6 unos 2 minutos / 120–180 m a la vuelta. No esperéis en Victoria 6 antes de las 14:00. Listados con nombre: Partidos de Dubliners solamente.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿La primera pinta en el pasaje sustituye Premier 15:00, NFL después o Atlético–Barcelona 21:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinad; no sustituyáis. El pasaje es la primera pinta a cubierto antes del saque. Premier League desde las 15:00, United–Villa 17:30, NFL tarde/noche y Atlético vs Barcelona 21:00 van en las mismas dos calles después del salto. No asignamos Palace–Liverpool, Sunderland–Chelsea, Brighton–Brentford, Ipswich–Bournemouth ni el partido NFL a O’Reilly’s ni a Four Corner. Preguntad qué pantalla.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Pasaje de Matheu 4 galería acristalada — primera pinta antes del saque | Dubliners"
+  description="Domingo 8 nov: O’Reilly’s en Pasaje de Matheu 4 es la galería acristalada para la primera pinta antes de las 15:00. Luego salto a Espoz y Mina 7 y Four Corner Victoria 6 desde las 14:00. Cubierto, Maps, metros. No es un test de bar."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Pasaje de Matheu 4: galería cubierta, primera pinta antes del saque" schema />
+      <h1>Pasaje de Matheu 4: galería acristalada, primera pinta, luego salto antes del saque del domingo</h1>
+      <p class="lead">
+        El sábado ya ha acabado. Es un domingo de noviembre — lluvia o viento en la plaza es motivo para ir <strong>bajo el cristal</strong>, no para elegir personalidad de bar.
+        <strong>Pasaje de Matheu 4</strong> es O’Reilly’s Restaurant Bar en la galería comercial cubierta.
+        Habitual desde las 11:30. Primera pinta antes de los saques ingleses de las 15:00. Luego salid a Espoz y Mina 7 y a Four Corner en Victoria 6 (desde las 14:00, pantallas de deporte; no abre antes).
+        Listados con nombre: Partidos de Dubliners solamente. Preguntad qué pantalla.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Pasaje de Matheu 4: covered glass arcade, first pint, then hop before Sunday kick-off</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Cubierto y primera pinta — no un test de bar, no un reparto a dos puertas</h2>
+      <p>
+        Otras páginas ya eligen puerta del domingo por terraza frente a pantallas, parten un grupo en Espoz y Mina 7 (Premier 15:00 frente a NFL después)
+        o saltan dos calles para la última pinta después del derbi del sábado.
+        Esta página es solo la <strong>primera puerta cubierta antes del saque</strong>:
+        tiempo de noviembre, techo de cristal, primera pinta en O’Reilly’s, luego un salto corto cuando abra Four Corner y empiecen las 15:00.
+        No afirmamos qué partido echan en el pasaje.
+      </p>
+
+      <h2>Bajo el cristal desde ~09:00 — incluso antes de las 11:30</h2>
+      <p>
+        Pasaje de Matheu es un <strong>pasaje con techo de cristal</strong> entre Calle de Espoz y Mina y Calle de la Victoria.
+        Desde alrededor de las 09:00 son <strong>unas dos horas y media</strong> hasta el 11:30 habitual de O’Reilly’s, y <strong>unas cinco horas</strong> hasta Four Corner 14:00.
+        Marcad <strong>Pasaje de Matheu 4</strong> ahora. Esperad bajo el pasaje si la puerta sigue cerrada — no acampéis Victoria 6 antes de las 14:00.
+      </p>
+      <p>
+        Primera pinta en el pasaje (habitual 11:30). Luego el salto:
+      </p>
+      <ul>
+        <li>
+          <strong>Salid a Espoz y Mina 7</strong> — la calle a la que abre el pasaje.
+          Dubliners y O’Connell’s, mismo número, dos puertas. Unos <strong>1 min / 40–80 m</strong>. Ambos desde las 12:00 hoy (domingo habitual de O’Connell’s 14:00).
+        </li>
+        <li>
+          <strong>A la vuelta, Victoria 6</strong> — Four Corner desde las 14:00 hasta la madrugada, pantallas de deporte, no abre antes.
+          Unos <strong>2 min / 120–180 m</strong>. Una hora a cubierto antes del bloque Premier 15:00.
+        </li>
+      </ul>
+
+      <h2>El saque va a la vez — coordinad, no sustituyáis</h2>
+      <p>
+        Con nombre en <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners (preguntad qué pantalla — no está cada partido en cada pantalla):
+      </p>
+      <ul>
+        <li><strong>15:00</strong> — Crystal Palace vs Liverpool · Sunderland vs Chelsea · Brighton vs Brentford · Ipswich Town vs Bournemouth</li>
+        <li><strong>15:30</strong> — Bengals vs Falcons EN DIRECTO (NFL Madrid Game)</li>
+        <li><strong>17:30</strong> — Manchester United vs Aston Villa</li>
+        <li><strong>desde las 19:00</strong> — NFL noche / RedZone · <strong>21:00</strong> — Atlético vs Barcelona</li>
+      </ul>
+      <p>
+        No copiamos ese tablero a O’Reilly’s, O’Connell’s ni Four Corner. El pasaje es la primera pinta en seco; el salto es para pantallas después de las 12:00 / 14:00.
+        Premier, NFL y Atleti van a la vez; coordinad, no sustituyáis.
+      </p>
+
+      <h2>Pasaje, luego el salto — direcciones</h2>
+      <ol>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Galería acristalada. Habitual desde las 11:30. Primera pinta antes del saque. Restaurante-bar con terraza. No listamos su tablero.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          ~1 min al salir del pasaje. Domingo desde las 12:00. Listados con nombre de Premier, NFL y Atleti en Partidos. Preguntad qué pantalla.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps figura como O’Connell St).
+          La otra puerta del mismo número, ~1 min del pasaje. Desde las 12:00 hoy (habitual domingo 14:00). Punto de encuentro; no inventamos su tablero.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abre a las 14:00 hasta la madrugada · pantallas de deporte. No abre antes de las 14:00. Unos 2 min del pasaje. Preguntad qué echan.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar andando</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Domingo de noviembre, primera pinta a cubierto antes de las 15:00. ¿Qué puerta?</strong></dt>
+        <dd>O’Reilly’s, Pasaje de Matheu 4 — galería de cristal. Habitual 11:30. Marcad el pasaje ahora; esperad bajo el cristal, no en Victoria 6. Four Corner desde las 14:00, pantallas de deporte, no antes.</dd>
+        <dt><strong>¿A qué distancia de Matheu 4 a Espoz y Mina 7 y Victoria 6?</strong></dt>
+        <dd>El número 7 ~1 min / 40–80 m (la calle a la que abre el pasaje). Victoria 6 ~2 min / 120–180 m. Listados con nombre: Partidos de Dubliners solamente.</dd>
+        <dt><strong>¿La pinta del pasaje sustituye Premier, NFL o Atleti 21:00?</strong></dt>
+        <dd>No. Coordinad. Bloque Premier 15:00, United 17:30, NFL 15:30 / desde las 19:00, Atleti 21:00 van a la vez después del salto. No asignamos un partido a O’Reilly’s ni a Four Corner.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Galería cubierta, primera pinta este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: '/es/atocha-cercanias-una-parada-a-sol-puertas-antes-1400/', label: 'Atocha Cercanías: una parada a Sol antes de las 14:00' },
+              { href: PATH_EN, label: 'Pasaje de Matheu 4: covered glass arcade, first pint', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

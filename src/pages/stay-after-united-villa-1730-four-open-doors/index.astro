@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
+
+const PATH = '/stay-after-united-villa-1730-four-open-doors/';
+const PATH_ES = '/es/quedarse-despues-united-villa-1730-cuatro-puertas-abiertas/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'After United–Villa 17:30: stay at the four open Sol doors for 19:00 NFL, then Atlético–Barcelona 21:00',
+  inLanguage: 'en',
+  datePublished: '2026-11-08T17:00:00+01:00',
+  dateModified: '2026-11-08T17:00:00+01:00',
+  image: absUrl('/images/dubliners-screens-sol-1200.webp'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'United vs Villa is ending at 17:30. Do we leave Sol before 19:00 NFL?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Stay at the four open sister doors near Puerta del Sol. Four Corner, Calle de la Victoria 6, is open (from 14:00 until late, sports screens). Dubliners and O’Connell’s at Calle de Espoz y Mina 7. O’Reilly’s at Pasaje de Matheu 4. Named 19:00 NFL and Atlético–Barcelona 21:00: Dubliners What’s On only. Ask which game is on. Premier 17:30 sits alongside; do not substitute.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the after-Madrid-Game page, the RedZone picker, or the afternoon–evening NFL slate?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. After the Madrid Game is the stadium-exit / 15:30-whistle pin. RedZone Sunday is which screen at 19:00. Afternoon–evening NFL is the 15:30 then night clocks. The United–Villa page is the 17:30 meeting itself. This page is only the stay-seated bridge after that Premier whistle: already at the four open doors, next named clocks 19:00 then 21:00.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does staying after 17:30 replace Premier, NFL or Atlético–Barcelona?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Coordinate; do not substitute. United–Villa 17:30 sits on Dubliners What’s On with later NFL from 19:00 (RedZone from 19:00) and Atlético vs Barcelona 21:00. We do not assign those matches to O’Reilly’s, O’Connell’s or Four Corner. Ask which screen.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="After United–Villa 17:30: stay at the four open Sol doors | Dubliners"
+  description="Sunday 8 Nov: United–Villa 17:30 is done. Stay at the four open Sol doors — already serving — for 19:00 NFL then Atlético–Barcelona 21:00. Maps. FIND US."
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="After United–Villa 17:30: stay at the four open doors" schema />
+      <h1>After United–Villa 17:30: stay at the four open Sol doors for 19:00 NFL, then Atleti 21:00</h1>
+      <p class="lead">
+        The Premier whistle at <strong>17:30</strong> is not a cue to leave Sol.
+        You are already at one of the four sister doors — all <strong>open NOW</strong> —
+        Four Corner on Calle de la Victoria 6 (from 14:00 until late, sports screens),
+        Dubliners and O’Connell’s at Espoz y Mina 7, O’Reilly’s at Pasaje de Matheu 4.
+        Stay seated. Next named clocks on Dubliners <a href={withBase('/whats-on/')}>What’s On</a>: NFL from <strong>19:00</strong>, then Atlético vs Barcelona <strong>21:00</strong>.
+        Ask which game. Maps below.
+      </p>
+      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Después de United–Villa 17:30: quedarse en las cuatro puertas abiertas</a></p>
+      <FanWeekendCtas lang="en" findHref="/visit/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>This is the 17:30 stay-seated bridge — not stadium-exit, not RedZone, not the afternoon slate</h2>
+      <p>
+        <a href={withBase('/after-madrid-game-continue-four-open-doors/')}>After the Madrid Game</a> is for people who already have
+        the 15:30 stadium / big-screen whistle behind them. <a href={withBase('/redzone-sunday-sol-dubliners/')}>RedZone Sunday</a>
+        is which screen to ask for at 19:00. <a href={withBase('/afternoon-evening-nfl-sol-8-nov/')}>Afternoon and evening NFL</a>
+        is the 15:30 then night clocks. <a href={withBase('/man-utd-villa-sol-8-nov/')}>United–Villa near Sol</a>
+        is the 17:30 meeting itself.
+        This page is only the group <strong>already sitting through United vs Villa</strong> who should not stand up and scatter.
+        Saturday’s three-bar meetup is over. Sunday is four doors. Do not re-promote 18:00–19:00 as still on.
+      </p>
+
+      <h2>Keep the same pin — the gap to 19:00 is still these two streets</h2>
+      <p>
+        Text the group <strong>Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4</strong>.
+        Four Corner <strong>is open now</strong> (from 14:00 until late · sports screens). We do not list which game is on there.
+        O’Reilly’s and O’Connell’s are meeting points on the same cluster; we do not copy Dubliners’ board onto those doors.
+        Named listings: Dubliners What’s On only. Ask which screen. Not every game on every screen.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Open NOW (from 14:00 until late · sports screens). Ask at the door.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Sunday 12:00–02:00. Named screens on What’s On. Ask which game is on.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (Maps listing: O’Connell St).
+          Same number, different door, different CID. Meeting point; we do not invent its board.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Covered passage. Usual from 11:30. Meeting point; no invented menu.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Walking directions</a>.
+        </li>
+      </ol>
+
+      <h2>What sits after 17:30 — Premier does not stand in for NFL or Atleti</h2>
+      <p>
+        Dubliners <a href={withBase('/whats-on/')}>What’s On</a> already lists Sunday 8 November in Madrid time.
+        Manchester United vs Aston Villa <strong>17:30</strong> sits after the 15:00 Premier block and Bengals vs Falcons 15:30.
+        Later NFL from <strong>19:00</strong> then <strong>22:05</strong> / <strong>22:25</strong>, RedZone from 19:00, Atlético vs Barcelona <strong>21:00</strong>.
+        Coordinate; do not substitute. Named listings: Dubliners only. We do not assign those matches to O’Reilly’s, O’Connell’s or Four Corner.
+      </p>
+      <p>
+        Still riding Metro in for 19:00?
+        <a href={withBase('/evening-metro-gran-via-sevilla-to-open-sol-doors/')}>Evening Metro from Gran Vía or Sevilla to the four open doors</a>.
+        Need the 19:00 screen choice once you stay?
+        <a href={withBase('/redzone-sunday-sol-dubliners/')}>RedZone or one 19:00 game — ask which screen</a>.
+      </p>
+
+      <OriginalFourBars lang="en" when="sunday" findHref="/visit/" />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>United–Villa is ending. Do we leave Sol before 19:00?</strong></dt>
+        <dd>No. Stay at the four open doors NOW: Victoria 6, Espoz y Mina 7 twice, Pasaje de Matheu 4. Next named clocks 19:00 then 21:00. Ask which game.</dd>
+        <dt><strong>Is this after the Madrid Game, RedZone, or the afternoon–evening slate?</strong></dt>
+        <dd>No. Those pages are the 15:30-whistle pin, which 19:00 screen, and the 15:30-then-night clocks. This is the stay-seated bridge after Premier 17:30.</dd>
+        <dt><strong>Does 17:30 replace NFL from 19:00 or Atleti 21:00?</strong></dt>
+        <dd>No. Coordinate. Those clocks sit alongside on Dubliners What’s On. We do not copy that board onto sister doors.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Stay after 17:30 this Sunday',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/', label: 'FIND US — Dubliners home' },
+              { href: '/visit/', label: 'GET DIRECTIONS — visit / hours' },
+              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
+              { href: '/evening-metro-gran-via-sevilla-to-open-sol-doors/', label: 'Evening Metro: Gran Vía or Sevilla to the four open doors' },
+              { href: '/whats-on/', label: 'What’s On — named screens only' },
+              { href: PATH_ES, label: 'Después de United–Villa 17:30: quedarse en las cuatro puertas abiertas', note: 'En español', hreflang: 'es', lang: 'es' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

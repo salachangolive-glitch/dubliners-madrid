@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/';
+const PATH_EN = '/evening-metro-gran-via-sevilla-to-open-sol-doors/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Metro de tarde a Sol: Gran Vía o Sevilla a Victoria 6 y Espoz y Mina 7 (las cuatro puertas ya abiertas)',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T17:00:00+01:00',
+  dateModified: '2026-11-08T17:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Voy en Metro de tarde hacia Sol para la NFL 19:00. Gran Vía o Sevilla — ¿qué puerta?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Las cuatro puertas hermanas están abiertas AHORA. Four Corner, Calle de la Victoria 6 (desde las 14:00 hasta la madrugada, pantallas de deporte). Dubliners y O’Connell’s, Calle de Espoz y Mina 7. O’Reilly’s, Pasaje de Matheu 4. Sevilla (L2) ya es el bolsillo este — marcad Victoria 6 y Espoz y Mina 7. Gran Vía (L1/L5): seguid Maps en vivo al sur hacia Sol, luego al sureste a esos mismos pines, o coged L1 una parada a Sol. NFL 19:00 y Atlético–Barcelona 21:00 con nombre: solo Partidos de Dubliners. Preguntad qué echan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Esto es el primer Metro del domingo, Callao–Preciados, Tirso o Barajas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El primer Metro es a primera hora, cuando Four Corner aún no abre. Callao–Preciados es un paseo de compras con bolsas antes de las 14:00. Tirso / Antón Martín es andar al norte desde L1 al sur de Sol antes de las 14:00. Barajas es un aterrizaje de madrugada. El Metro Sol del sábado a las 21:00 eran tres puertas del sábado para Valencia. Esta página es Metro de tarde el domingo, cuatro puertas ya abiertas, estación Gran Vía o Sevilla a Victoria 6 y Espoz y Mina 7.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Están abiertas las cuatro puertas si salgo en Gran Vía o Sevilla después de las 17:00?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. El domingo son cuatro bares. Four Corner está abierto desde las 14:00 hasta la madrugada, pantallas de deporte. La quedada de tres bares del sábado ya ha acabado. Seguid Maps en vivo; no inventamos un reloj desde los andenes de Gran Vía. Del lado este de Sol, Victoria 6 está a unos 2–3 minutos / 180–220 m (ya publicado). Preguntad qué echan. Premier va a la vez que NFL y Atleti; no sustituyáis.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Metro de tarde: Gran Vía o Sevilla a Victoria 6 y Espoz y Mina 7 | Dubliners"
+  description="Domingo 8 nov, Metro de tarde a Sol. Gran Vía (L1/L5) o Sevilla (L2) a Victoria 6 y Espoz y Mina 7. Las cuatro puertas están abiertas AHORA. NFL 19:00 luego Atleti 21:00. Maps. FIND US."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Metro de tarde: Gran Vía o Sevilla a las cuatro puertas abiertas" schema />
+      <h1>Metro de tarde a Sol: Gran Vía o Sevilla a Victoria 6 y Espoz y Mina 7</h1>
+      <p class="lead">
+        No es el primer tren del domingo. No es Callao con bolsas. No es un aterrizaje en Barajas.
+        <strong>Metro de tarde hacia dentro</strong> — Gran Vía (L1/L5) o Sevilla (L2) — para la NFL 19:00 y luego Atlético–Barcelona 21:00.
+        <strong>Las cuatro puertas hermanas están abiertas AHORA.</strong> Four Corner, Calle de la Victoria 6, está abierto (desde las 14:00 hasta la madrugada, pantallas de deporte).
+        Marcad Victoria 6 y Espoz y Mina 7. La quedada de tres bares del sábado ya ha acabado. Seguid Maps en vivo. Preguntad qué echan.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Evening Metro: Gran Vía or Sevilla to Victoria 6 and Espoz y Mina 7</a></p>
+      <FanWeekendCtas lang="es" findHref="/es/visitar/" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Llegada de tarde — no primer Metro, no bolsas de Callao, no Tirso, no Barajas</h2>
+      <p>
+        <a href={withBase('/es/primer-metro-a-sol-domingo-estacion-a-puerta/')}>Primer Metro del domingo</a> es de la estación a la puerta cuando arranca el Metro,
+        con Four Corner aún cerrado. <a href={withBase('/es/callao-preciados-compras-sur-puertas-sol-antes-1400/')}>Callao–Preciados</a>
+        es calle comercial al sur antes de las 14:00. <a href={withBase('/es/tirso-anton-martin-norte-puertas-sol-antes-1400/')}>Tirso / Antón Martín</a>
+        es andar al norte desde L1 al sur de Sol antes de las 14:00. <a href={withBase('/es/barajas-madrugada-a-sol-hasta-1400/')}>Barajas de madrugada</a>
+        es un aterrizaje. <a href={withBase('/es/metro-sol-2100-que-puerta-sabado/')}>Metro Sol a las 21:00 el sábado</a>
+        eran tres puertas del sábado para Valencia–RM.
+        Esta página es solo el <strong>Metro de tarde del domingo</strong> al bolsillo este de Sol, con las cuatro puertas ya en servicio.
+      </p>
+
+      <h2>Gran Vía (L1/L5) o Sevilla (L2) — luego Victoria 6 y Espoz y Mina 7</h2>
+      <p>
+        <strong>Sevilla (L2).</strong> Ya estáis en el bolsillo este de Sol. Salid y marcad
+        Calle de la Victoria 6 y Calle de Espoz y Mina 7. Del lado este de Sol, Victoria 6 está a unos
+        <strong>2–3 minutos / 180–220 m</strong> (ya publicado). Espoz y Mina 7 es el par del número 7 más cercano.
+        Seguid Maps en vivo para los últimos metros; no inventamos un reloj nuevo.
+      </p>
+      <p>
+        <strong>Gran Vía (L1/L5).</strong> Es la estación de Metro, no un paseo de compras ni la noche de tres puertas del sábado.
+        Seguid Google Maps en vivo al sur hacia Puerta del Sol, luego al sureste a Victoria 6 / Espoz y Mina 7 / Pasaje de Matheu 4 —
+        o coged <strong>L1 una parada a Sol</strong> y usad los mismos pines del este. No inventamos minutos desde los andenes de Gran Vía.
+        No esperéis en Gran Vía. El punto de encuentro son las cuatro puertas abiertas, no la estación.
+      </p>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid.</strong>
+          Abierto AHORA (desde las 14:00 hasta la madrugada · pantallas de deporte). Pin de Victoria más cercano desde Sevilla.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Domingo 12:00–02:00. NFL 19:00 y Atleti 21:00 con nombre en Partidos. Preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps: O’Connell St).
+          Mismo número, otra puerta, otro CID. Punto de encuentro; no inventamos su cartel.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Atajo cubierto desde Victoria / Espoz y Mina. Habitual desde las 11:30. Punto de encuentro; sin menú inventado.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+
+      <h2>A qué venís — Premier va a la vez, no sustituye</h2>
+      <p>
+        <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners ya lista el domingo 8 de noviembre en hora de Madrid.
+        Si salís después de United–Villa <strong>17:30</strong>, quedaos en estas cuatro puertas abiertas:
+        NFL desde las <strong>19:00</strong> luego <strong>22:05</strong> / <strong>22:25</strong>, RedZone desde las 19:00, Atlético vs Barcelona <strong>21:00</strong>.
+        Coordinad; no sustituyáis. Listados con nombre: solo Dubliners. No asignamos esos partidos a O’Reilly’s, O’Connell’s ni Four Corner.
+        Preguntad qué pantalla.
+      </p>
+      <p>
+        ¿Ya pasasteis las 17:30 en una puerta, no en el tren?
+        <a href={withBase('/es/quedarse-despues-united-villa-1730-cuatro-puertas-abiertas/')}>Quedaos en las cuatro puertas abiertas para las 19:00 y luego las 21:00</a>.
+      </p>
+
+      <OriginalFourBars lang="es" when="sunday" findHref="/es/visitar/" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Metro de tarde, Gran Vía o Sevilla. ¿Adónde andamos?</strong></dt>
+        <dd>Victoria 6 y Espoz y Mina 7 (Matheu 4 es el atajo cubierto). Las cuatro puertas abiertas AHORA. Sevilla ya es el bolsillo este. Gran Vía: Maps en vivo al sur a Sol, o L1 una parada. Preguntad qué echan.</dd>
+        <dt><strong>¿Esto es primer Metro, Callao, Tirso o Barajas?</strong></dt>
+        <dd>No. Esos son primera hora, compras antes de las 14:00, al sur de Sol antes de las 14:00 y el aeropuerto. Esto es llegada de tarde el domingo, cuatro puertas ya abiertas.</dd>
+        <dt><strong>¿Llegar en Metro sustituye Premier, NFL o Atleti?</strong></dt>
+        <dd>No. Coordinad. Los relojes con nombre van a la vez en Partidos de Dubliners. No copiamos ese cartel a las puertas hermanas.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Metro de tarde este domingo',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/quedarse-despues-united-villa-1730-cuatro-puertas-abiertas/', label: 'Después de United–Villa 17:30: quedarse en las cuatro puertas abiertas' },
+              { href: '/es/partidos/', label: 'Partidos — pantallas con nombre' },
+              { href: PATH_EN, label: 'Evening Metro: Gran Vía or Sevilla to Victoria 6 and Espoz y Mina 7', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

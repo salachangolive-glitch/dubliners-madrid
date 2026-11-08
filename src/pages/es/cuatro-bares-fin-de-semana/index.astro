@@ -7,7 +7,8 @@ import { withBase } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../../components/FourBarsMeet.astro';
-import { FAN_WEEKEND_SATURDAY_TONIGHT, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+import { FAN_WEEKEND_SATURDAY_TONIGHT, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND, madridYmd } from '../../../data/fourBars';
+const showSaturdayTonight = madridYmd() <= '2026-11-07';
 
 // Par ES de /4-bars-one-fan-weekend/. Corrección dueño 6 nov 2026 15:48.
 // Un punto de encuentro colectivo: cuatro bares hermanos junto a Sol, incluido Four Corner.
@@ -69,7 +70,9 @@ const faqLd = {
       <p class="small">In English: <a href={withBase('/4-bars-one-fan-weekend/')} hreflang="en" lang="en">4 Bars. One Fan Weekend</a></p>
       <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" />
       <div class="cta-row">
-        <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.es)} data-show-until="2026-11-07">Quedada 18:00–19:00</a>
+        {showSaturdayTonight && (
+          <a class="btn btn-gold" href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT.es)} data-show-until="2026-11-07">Quedada 18:00–19:00</a>
+        )}
         <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>Ver NFL en Madrid</a>
       </div>
     </div>
@@ -154,6 +157,8 @@ const faqLd = {
         a un corto paseo de los otros tres. La apertura está confirmada; no listamos qué partidos echa. Listados con nombre: solo Partidos de Dubliners.
       </p>
 
+      {showSaturdayTonight && (
+      <>
       <h2>Sábado 7 de noviembre — esta noche 18:00–19:00</h2>
       <p data-show-until="2026-11-07">
         Quedada <strong>18:00–19:00</strong> en los tres bares abiertos el sábado:
@@ -179,6 +184,8 @@ const faqLd = {
         (metros de puerta a puerta + Maps). Reloj de madrugada:
         <a href={withBase('/es/quince-horas-sol-hasta-four-corner-1400/')}>~15 horas hasta Four Corner 14:00</a>, quedaos en Sol.
       </p>
+      </>
+      )}
 
       <h2>Domingo 8 de noviembre — desde las 12:00</h2>
       <p data-show-until={SHOW_UNTIL}>

@@ -77,6 +77,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/tirso-anton-martin-north-sol-doors-before-1400/': '/es/tirso-anton-martin-norte-puertas-sol-antes-1400/',
   '/from-bernabeu-exit-to-four-sol-doors/': '/es/salida-bernabeu-a-las-cuatro-puertas-sol/',
   '/after-madrid-game-continue-four-open-doors/': '/es/despues-madrid-game-seguir-cuatro-puertas-abiertas/',
+  '/already-in-sol-during-madrid-game-four-open-doors/': '/es/ya-en-sol-durante-madrid-game-cuatro-puertas-abiertas/',
+  '/bengals-falcons-split-two-doors-espoz-mina-7/': '/es/bengals-falcons-reparte-dos-puertas-espoz-mina-7/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

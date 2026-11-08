@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import OriginalFourBars from '../../../components/OriginalFourBars.astro';
+import { withBase, absUrl } from '../../../site';
+import { FOUR_BARS_DIR, FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
+
+const PATH = '/es/barajas-madrugada-a-sol-hasta-1400/';
+const PATH_EN = '/barajas-small-hours-into-sol-until-1400/';
+const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
+const MAPS = FOUR_BARS_MAPS;
+const DIR = FOUR_BARS_DIR;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Aterrizaje de madrugada en Barajas: taxi o Metro a Sol, la primera puerta útil es Four Corner 14:00',
+  inLanguage: 'es',
+  datePublished: '2026-11-08T03:00:00+01:00',
+  dateModified: '2026-11-08T03:00:00+01:00',
+  image: absUrl('/images/facade.jpg'),
+  mainEntityOfPage: absUrl(PATH),
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Acabo de aterrizar en Barajas hacia las 03:00. ¿Cómo llego a Sol y cuál es la primera puerta?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A las 03:00 del domingo el Metro línea 8 suele estar cerrado. Coged un taxi oficial del aeropuerto a Puerta del Sol / Carrera de San Jerónimo — bajad en el lado este, hacia Calle de la Victoria, no Gran Vía. La quedada del sábado y Valencia–Real Madrid ya han terminado. La primera puerta útil de deporte del domingo es Four Corner, Calle de la Victoria 6, a las 14:00 (pantallas de deporte; no abre antes). Luego O’Reilly’s en Pasaje de Matheu 4 y Dubliners y O’Connell’s en Calle de Espoz y Mina 7.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A qué distancia está Barajas de Sol y cuánto queda hasta que abra Four Corner?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Adolfo Suárez Madrid-Barajas está a unos 12–13 km al noreste de Puerta del Sol. Un taxi de madrugada suele tardar 25–40 minutos. Desde un aterrizaje a las 03:00 hay unas 11 horas hasta que Four Corner abre a las 14:00. Cuando arranca el Metro (~06:00), línea 8 desde las terminales a Nuevos Ministerios y luego Cercanías o Metro hacia Sol. Victoria 6 está a 2–3 minutos / 180–220 m del lado este de Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Puedo ir ahora a Four Corner, o sigue el sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Four Corner abre el domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte. No os quedéis en Victoria 6 antes de las 14:00. La quedada del sábado 18:00–19:00 y Valencia–Real Madrid 21:00 (solo Dubliners) ya han acabado. Dormid o dejad la maleta junto a Sol; marcad Victoria 6 para las 14:00 y luego las tres puertas hermanas.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Barajas 03:00 a Sol — primera puerta útil Four Corner 14:00 | Dubliners"
+  description="Domingo 8 nov: aterrizaje tarde en Barajas. Taxi (Metro cerrado). El sábado se perdió. Primera puerta útil: Four Corner, Victoria 6, a las 14:00, luego tres hermanas. Maps. CÓMO LLEGAR."
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[articleLd, faqLd]}
+>
+  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
+    <div class="container">
+      <Breadcrumb current="Barajas de madrugada a Sol hasta las 14:00" schema />
+      <h1>Aterrizaje de madrugada en Barajas: taxi o Metro a Sol, la primera puerta útil es Four Corner 14:00</h1>
+      <p class="lead">
+        El sábado ya ha acabado. No llegasteis a la quedada ni a Valencia–Real Madrid.
+        <strong>Estáis en Adolfo Suárez Madrid-Barajas hacia las 03:00.</strong>
+        Entrad ahora a Sol. La primera puerta útil de deporte del domingo es Four Corner, Calle de la Victoria 6, a las 14:00 — unas 11 horas desde un aterrizaje a las 03:00, pantallas de deporte, no abre antes.
+        Después de ese pin: Pasaje de Matheu 4, luego Espoz y Mina 7 dos veces. Maps abajo.
+      </p>
+      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Landed Barajas in the small hours: taxi or Metro into Sol until 14:00</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Andar a Victoria 6 (desde las 14:00)</a>
+        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner en Maps</a>
+        <a class="btn btn-secondary" href={withBase('/es/cuatro-bares-fin-de-semana/')}>VER LOS CUATRO BARES</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Esto es un aterrizaje aeropuerto–Sol, no un paseo desde el hotel ni anoche</h2>
+      <p>
+        Otras páginas ya cubren la salida del hotel en Sol, el paseo genérico desde la plaza, la propia apertura de Four Corner a las 14:00
+        y el reloj de madrugada si ya estabais bebiendo en Sol.
+        Esta página es solo el pasajero que <strong>acaba de aterrizar en Barajas y se perdió el sábado</strong>:
+        qué trayecto a Sol, dónde bajarse, cuántas horas hasta la primera puerta útil del domingo.
+        No reactivéis el sábado 18:00–19:00 ni Valencia–RM 21:00 como si siguieran.
+      </p>
+
+      <h2>Barajas → Sol de madrugada</h2>
+      <p>
+        El aeropuerto está a <strong>unos 12–13 km al noreste de Puerta del Sol</strong>. Las terminales T1–T4 apuntan al mismo pin de ciudad: este de Sol, Carrera de San Jerónimo / Calle de la Victoria — no Gran Vía.
+      </p>
+      <ul>
+        <li>
+          <strong>~03:00: taxi.</strong> El Metro línea 8 suele estar cerrado después del sábado noche (últimos trenes hacia las 02:00). Usad el taxi oficial del aeropuerto.
+          Pedid <strong>Puerta del Sol, lado Carrera de San Jerónimo</strong>. A esta hora el trayecto suele ser de <strong>25–40 minutos</strong>.
+          Bajad en el lado este de la plaza. Victoria 6 queda a <strong>2–3 minutos / 180–220 m</strong> a pie — marcadlo, no andéis hasta allí antes de las 14:00.
+        </li>
+        <li>
+          <strong>Cuando arranca el Metro (~06:00 domingo): línea 8</strong> desde T4 o T1–T2–T3 a Nuevos Ministerios, luego Cercanías o Metro hacia Sol.
+          El último salto sigue siendo el este de Sol, no otro barrio.
+        </li>
+      </ul>
+      <p>
+        Si aterrizáis con maleta y sin habitación, dejadla junto a Sol (Carretas, Victoria, Espoz y Mina, Mayor). No paséis la espera en una puerta cerrada de Four Corner.
+        O’Reilly’s (desde las 11:30), Dubliners y O’Connell’s (desde las 12:00) ya están en el mismo bolsillo cuando os levantéis — usadlos si estáis despiertos antes de las 14:00, y estad en Victoria para la apertura.
+      </p>
+
+      <h2>Reloj desde un aterrizaje a las 03:00</h2>
+      <p>
+        Four Corner abre el <strong>domingo 8 de noviembre desde las 14:00 hasta la madrugada, con pantallas de deporte</strong>.
+        Desde ~03:00 son <strong>unas 11 horas</strong>. Dormid. La puerta está cerrada hasta las 14:00.
+        No listamos qué partido echa Four Corner — preguntad en la puerta.
+        Premier League desde las 15:00, NFL tarde/noche y Atlético–Barcelona 21:00 van en las mismas calles después; esta página no sustituye esos relojes.
+        Listados nombrados: solo <a href={withBase('/es/partidos/')}>Partidos</a> de Dubliners.
+      </p>
+
+      <h2>Primera puerta útil 14:00, luego tres hermanas — direcciones</h2>
+      <ol>
+        <li>
+          <strong>Four Corner — Calle de la Victoria 6, 28012 Madrid</strong> (primera puerta útil de deporte del domingo, desde las 14:00).
+          Pantallas de deporte. Hasta la madrugada. No abre antes de las 14:00.
+          {' '}<a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.fourCorner} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Reilly’s Restaurant Bar — Pasaje de Matheu 4, 28012 Madrid.</strong>
+          Unos <strong>2 minutos / 120–150 m</strong> desde Victoria 6. Restaurante-bar con terraza, habitual desde las 11:30.
+          {' '}<a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oreillys} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>Dubliners — Calle de Espoz y Mina 7, 28012 Madrid.</strong>
+          Unos <strong>2 minutos / 150–180 m</strong> desde Victoria 6. Domingo desde las 12:00. Pantallas nombradas en Partidos — preguntad qué echan.
+          {' '}<a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.dubliners} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+        <li>
+          <strong>O’Connell’s — Calle de Espoz y Mina 7, 28012 Madrid</strong> (en Maps: O’Connell St).
+          El mismo número de calle que Dubliners, otra puerta. Domingo 8 nov desde las 12:00 (habitual domingo 14:00). Punto de encuentro; no inventamos su parrilla.
+          {' '}<a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">Maps</a>
+          {' · '}<a href={DIR.oconnell} rel="noopener noreferrer" target="_blank">Cómo llegar a pie</a>.
+        </li>
+      </ol>
+
+      <OriginalFourBars lang="es" when="sunday" />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>Aterrizaje en Barajas ~03:00. ¿Cómo a Sol, primera puerta?</strong></dt>
+        <dd>Taxi al este de Sol (Metro suele estar cerrado). Marcad Four Corner, Victoria 6, para las 14:00. Luego Matheu 4 y Espoz y Mina 7 dos veces. El sábado ya ha acabado.</dd>
+        <dt><strong>¿A qué distancia, cuánto hasta las 14:00?</strong></dt>
+        <dd>Aeropuerto ~12–13 km al NE de Sol; taxi 25–40 min. Unas 11 horas desde un aterrizaje a las 03:00 hasta que abre Four Corner. Victoria 6 está a 2–3 min del este de Sol.</dd>
+        <dt><strong>¿Four Corner abre ahora?</strong></dt>
+        <dd>No. Desde las 14:00 con pantallas de deporte. No esperéis en Victoria 6 toda la noche. Dormid junto a Sol.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Del aeropuerto al domingo en Sol',
+            until: SHOW_UNTIL,
+            items: [
+              { href: '/es/', label: 'FIND US — inicio Dubliners' },
+              { href: '/es/visitar/', label: 'CÓMO LLEGAR — visitar / horario' },
+              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
+              { href: '/es/dos-calles-todo-el-dia-premier-nfl-atleti/', label: 'Quedarse en dos calles: Premier, NFL, Atleti' },
+              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00' },
+              { href: PATH_EN, label: 'Barajas small hours into Sol until 14:00', note: 'In English', hreflang: 'en', lang: 'en' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <FixtureAntiStale />
+</BaseLayout>

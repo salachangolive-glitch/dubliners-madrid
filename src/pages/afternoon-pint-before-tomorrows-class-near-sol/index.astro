@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/afternoon-pint-before-tomorrows-class-near-sol/';
+const PATH_ES = '/es/pinta-de-tarde-antes-de-clase-manana-junto-a-sol/';
+const title = 'Afternoon pint before tomorrow’s class | Irish pub near Sol';
+const description =
+  'Erasmus afternoon in Madrid? One indoor Irish pint at Espoz y Mina 7 before tomorrow’s lecture — Sol on foot, English at the bar. Not the students hub page. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can students get an afternoon pint near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol — indoor room, English-friendly bar. Metro Sol (L1, L2, L3) or Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the international students pub page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. That page is the evergreen Erasmus hub. This page is one afternoon moment: today’s pint between lectures, back to class tomorrow.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Tuesday tailor shop or birthday table page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Tuesday tailor is midweek quiet room. Birthday table is group celebration. This is student tourism: afternoon pint before tomorrow’s class.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Afternoon pint before tomorrow’s class" schema />
+      <h1>Afternoon pint before tomorrow’s class</h1>
+      <p class="lead">
+        You finished a seminar, the hostel is near Sol, and lecture starts again in the morning.
+        One Irish pint indoors at Espoz y Mina 7 — English at the bar, two streets from Puerta del Sol, then back to the notes.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Between lectures, not the Erasmus hub</h2>
+      <p>
+        This is not the students landing —
+        <a href={withBase('/international-students-pub-madrid/')}>international students pub Madrid</a>.
+        That hub covers semesters and student nights. Here you only need today: afternoon pint, tomorrow’s class.
+      </p>
+      <p>
+        Not wet Plaza Mayor, not Prado walk, not Gran Vía theatre, not soccer wording, not birthday table, not Tuesday tailor quiet.
+        Student afternoon, Irish room off Sol.
+      </p>
+
+      <h2>Short walk from Sol</h2>
+      <ol>
+        <li>From <strong>Puerta del Sol</strong>, walk <strong>Calle de Espoz y Mina</strong> to number 7.</li>
+        <li>Green neon, indoor stools — sit one pint, not a stadium night.</li>
+        <li>Sport on screens only if
+          <a href={withBase('/whats-on/')}>What’s On</a> lists it; class does not need a kick-off.
+        </li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — afternoon pint before class" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can students get an afternoon pint near Puerta del Sol?</strong></dt>
+        <dd>Dubliners, Espoz y Mina 7. Indoor Irish pub, English-friendly.</dd>
+        <dt><strong>Is this the international students pub page?</strong></dt>
+        <dd>No. Hub vs one afternoon before tomorrow’s class.</dd>
+        <dt><strong>Is this the Tuesday tailor or birthday page?</strong></dt>
+        <dd>No. Erasmus afternoon intent only.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this afternoon pint)',
+            items: [
+              { href: '/international-students-pub-madrid/', label: 'International students pub', note: 'Erasmus hub, not one afternoon' },
+              { href: '/english-at-the-bar-after-you-land/', label: 'English after you land', note: 'First night, not class tomorrow' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

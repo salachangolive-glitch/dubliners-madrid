@@ -94,6 +94,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/if-you-asked-for-soccer-near-sol/': '/es/si-pediste-soccer-futbol-cerca-de-sol/',
   '/tuesday-in-the-barragan-tailor-shop-near-sol/': '/es/martes-en-la-sastreria-barragan-junto-a-sol/',
   '/mixed-language-birthday-table-near-sol/': '/es/mesa-cumpleanos-idiomas-mezclados-junto-a-sol/',
+  '/afternoon-pint-before-tomorrows-class-near-sol/': '/es/pinta-de-tarde-antes-de-clase-manana-junto-a-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

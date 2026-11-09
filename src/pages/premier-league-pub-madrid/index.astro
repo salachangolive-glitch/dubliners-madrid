@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../components/FourBarsMeet.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../site';
 import { isFanWeekendLive } from '../../data/fourBars';
@@ -29,18 +30,33 @@ const faqLd = {
       name: 'How do I get here?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon.',
+        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon. GET DIRECTIONS uses Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where are named Premier League listings?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Only confirmed English kick-offs on What’s On in Madrid time. If the list is empty, ask at the bar which screen is on.',
       },
     },
   ],
 };
 ---
 
-<BaseLayout title={title} description={description} path="/premier-league-pub-madrid/" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/premier-league-pub-madrid/"
+  hreflang={{ en: '/premier-league-pub-madrid/', es: '/es/premier-league-pub-madrid/' }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Premier League pub Madrid" />
+        <Breadcrumb current="Premier League pub Madrid" schema />
         <h1>Premier League pub Madrid near Puerta del Sol</h1>
         <p class="lead">
           Dubliners is a Premier League pub in Madrid and an Irish sports bar on Espoz y Mina 7 — a short walk from Puerta del Sol.
@@ -109,9 +125,12 @@ const faqLd = {
         <a href={withBase('/champions-league-bar-madrid/')}>Champions League</a>.
       </p>
 
-      <h2>How to get here</h2>
+      <h2 id="how-to-get">How to get here</h2>
       <p>
-        Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon.
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/premier-league-pub-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) or Sevilla (L2). From Puerta del Sol, walk Calle de Espoz y Mina to the green neon.
+        Walking notes: <a href={withBase('/visit/')}>FIND US</a>.
       </p>
 
       <div class="map-frame">
@@ -131,14 +150,37 @@ const faqLd = {
           </p>
         </details>
         <details>
-          <summary>Address</summary>
-          <p>{SITE.address}, {SITE.postal}</p>
+          <summary>How do I get directions?</summary>
+          <p>
+            {SITE.address}, {SITE.postal}. Use
+            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>
+            (CID 4384002297188950803) or <a href={withBase('/visit/')}>FIND US</a>.
+          </p>
+        </details>
+        <details>
+          <summary>Are kick-offs invented on this page?</summary>
+          <p>No. Named fixtures only on <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.</p>
         </details>
         <details>
           <summary>Groups or questions?</summary>
           <p><a href={withBase('/contact/#request-information')}>Request information</a> through our contact form.</p>
         </details>
       </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related hubs',
+            items: [
+              { href: '/whats-on/', label: 'What’s On', note: 'Named Premier kick-offs only' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar Madrid', note: 'Broader live sport near Sol' },
+              { href: '/champions-league-bar-madrid/', label: 'Champions League nights' },
+              { href: '/visit/', label: 'Visit', note: 'GET DIRECTIONS, Metro Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

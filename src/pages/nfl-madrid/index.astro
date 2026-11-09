@@ -2,23 +2,67 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
+import LinkHub from '../../components/LinkHub.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../site';
 import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { isFanWeekendLive } from '../../data/fourBars';
+
 const fanWeekend = isFanWeekendLive();
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When was the 2026 NFL game in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30."}}, {"@type": "Question", "name": "Which NFL games are on this Sunday?", "acceptedAnswer": {"@type": "Answer", "text": "Named Sunday NFL listings stay on What’s On once confirmed. Ask at the bar which game is on which screen."}}, {"@type": "Question", "name": "Is Dubliners an NFL bar in Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dubliners is an Irish pub and sports bar near Puerta del Sol — an NFL bar Madrid where you watch NFL Madrid on the screens. Named listings: What's On."}}]};
-const title = "NFL bar Madrid | Watch NFL Madrid near Puerta del Sol — Dubliners";
-const description = "Watch NFL Madrid at an Irish pub and sports bar by Puerta del Sol. NFL bar Madrid, Espoz y Mina 7. Named listings: What’s On. GET DIRECTIONS.";
+const title = 'NFL bar Madrid | Watch NFL Madrid near Puerta del Sol — Dubliners';
+const description =
+  'Watch NFL Madrid at an Irish pub and sports bar by Puerta del Sol. NFL bar Madrid, Espoz y Mina 7. Named listings: What’s On. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is Dubliners an NFL bar in Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Dubliners is an Irish pub and sports bar on Espoz y Mina 7, next to Puerta del Sol — an NFL bar Madrid for Sunday screens when listed on What’s On.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get to this NFL bar near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). GET DIRECTIONS uses Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which NFL games are on this Sunday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Named Sunday NFL listings stay on What’s On once confirmed, in Madrid time. Ask at the bar which game is on which screen.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/nfl-madrid/" lang="en" hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }} ogImage="/images/facade.jpg">
+<BaseLayout
+  title={title}
+  description={description}
+  path="/nfl-madrid/"
+  lang="en"
+  hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="NFL in Madrid" schema />
       <h1>Watch NFL Madrid near Puerta del Sol</h1>
-      <p class="lead">Irish pub and sports bar on Calle de Espoz y Mina 7, steps from Puerta del Sol — an <strong>NFL bar in Madrid</strong>. Watch NFL Madrid on the indoor screens when it is listed. Named Sundays stay on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <p class="lead">
+        Irish pub and sports bar on Calle de Espoz y Mina 7, steps from Puerta del Sol — an <strong>NFL bar in Madrid</strong>.
+        Watch NFL Madrid on the indoor screens when it is listed. Named Sundays stay on
+        <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
       {fanWeekend ? (
         <FanWeekendCtas lang="en" />
       ) : (
@@ -34,27 +78,112 @@ const description = "Watch NFL Madrid at an Irish pub and sports bar by Puerta d
   <section class="section">
     <div class="container prose">
       <h2>NFL bar Madrid</h2>
-      <p>Dubliners is an NFL bar in Madrid: Sunday games on the screens at an Irish pub a short walk from Puerta del Sol. Named listings stay on <a href={withBase('/whats-on/')}>What’s On</a>. The same room is our <a href={withBase('/sports-bar-madrid/')}>sports bar in Madrid</a> the rest of the week.</p>
-      <h2>NFL in Madrid</h2>
-      <p>The NFL’s 2026 Madrid Game (Bengals vs Falcons, 8 November at the Santiago Bernabéu) has been played. This Irish pub next to Puerta del Sol remains the centro door for Sunday NFL on the screens.</p>
-      <p>If you searched for a place to watch NFL Madrid, Espoz y Mina 7 is the door. Ask which game is on. Named Sundays: <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <p>
+        Dubliners is an NFL bar in Madrid: Sunday games on the screens at an Irish pub a short walk from Puerta del Sol.
+        Named listings stay on <a href={withBase('/whats-on/')}>What’s On</a>.
+        The same room is our <a href={withBase('/sports-bar-madrid/')}>sports bar in Madrid</a> the rest of the week.
+      </p>
+
+      <h2>NFL in Madrid (evergreen)</h2>
+      <p>
+        This page is not a match-day recap. The one-off Bernabéu Madrid Game is in the past; Sunday NFL at this centro door
+        stays on What’s On when confirmed. If you searched where to watch NFL Madrid, Espoz y Mina 7 is the indoor Irish room off Sol.
+      </p>
+
       <h2>NFL schedule (confirmed only)</h2>
-      <p>We do not invent a board on this page. Sunday NFL, including RedZone windows when they fall inside opening hours, is listed on <a href={withBase('/whats-on/')}>What’s On</a> once confirmed. Ask at the bar which screen.</p>
-      <p class="small">Where to watch NFL near Puerta del Sol: <a href={withBase('/where-to-watch-nfl-madrid/')}>Where to watch NFL in Madrid</a></p>
-      <p class="small">Thanksgiving Thursday 26 November: <a href={withBase('/thanksgiving-madrid/')}>Thanksgiving NFL in Madrid</a> (19:00 and 22:30, when listed).</p>
-      <h2>How to find us</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2).</p><p>Opening hours: Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</p>
-      <div class="map-frame"><MapEmbed title="Map of Dubliners Madrid" lang="en" /></div>
+      <p>
+        We do not invent a board on this page. Sunday NFL, including RedZone when listed, appears on
+        <a href={withBase('/whats-on/')}>What’s On</a> once confirmed. Ask at the bar which screen.
+      </p>
+      <p class="small">
+        Where to watch NFL near Puerta del Sol: <a href={withBase('/where-to-watch-nfl-madrid/')}>Where to watch NFL in Madrid</a>
+      </p>
+      <p class="small">
+        Thanksgiving NFL: <a href={withBase('/thanksgiving-madrid/')}>Thanksgiving in Madrid</a> when listed on What’s On.
+      </p>
+
+      <h2 id="how-to-get">How to find us</h2>
+      <p>
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/nfl-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) or Sevilla (L2). From Puerta del Sol, walk Calle de Espoz y Mina to the green neon.
+        Walking notes: <a href={withBase('/visit/')}>FIND US</a>.
+      </p>
+      <div class="map-frame">
+        <MapEmbed title="Map of Dubliners Madrid" lang="en" />
+      </div>
       <p class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
         <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
         <a class="btn btn-secondary" href={withBase('/sports-bar-madrid/')}>Sports bar Madrid</a>
       </p>
-      <h2>Central Madrid</h2><p>We're between Puerta del Sol, Plaza Mayor and the Barrio de las Letras — easy to find before or after exploring the city.</p><img class="split-photo tall" src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`} sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Bar counter and a TV screen inside Dubliners Madrid" />
+
+      <h2>Central Madrid</h2>
+      <p>
+        We're between Puerta del Sol, Plaza Mayor and the Barrio de las Letras — easy to find before or after exploring the city.
+      </p>
+      <img
+        class="split-photo tall"
+        src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')}
+        srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`}
+        sizes="(max-width: 800px) 100vw, 720px"
+        width="1152"
+        height="2048"
+        loading="lazy"
+        decoding="async"
+        alt="Bar counter and a TV screen inside Dubliners Madrid"
+      />
+
       <h2>Sunday NFL on the screens</h2>
-      <p>Sunday NFL, including RedZone windows when they fall inside opening hours, goes on the indoor screens when listed. Check <a href={withBase('/whats-on/')}>What’s On</a> and ask which game is on. Coming as a group? <a href={withBase('/contact/#request-information')}>Request information</a>.</p>
-      <img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Big screen and other screens at Dubliners near Sol" />
-      <h2>FAQ</h2><dl class="faq"><dt><strong>When was the 2026 NFL game in Madrid?</strong></dt><dd>Bengals vs Falcons, Sunday 8 November 2026 at 15:30 Madrid time, Santiago Bernabéu Stadium.</dd><dt><strong>What are your opening hours?</strong></dt><dd>Monday–Thursday and Sunday 12:00–02:00; Friday and Saturday 12:00–02:30.</dd><dt><strong>Which NFL games are on this Sunday?</strong></dt><dd>Named listings stay on <a href={withBase('/whats-on/')}>What's On</a> once confirmed. Ask at the bar which screen.</dd><dt><strong>Is Dubliners an NFL bar in Madrid?</strong></dt><dd>Yes. Dubliners is an Irish pub and sports bar near Puerta del Sol — an NFL bar Madrid where you watch NFL Madrid on the screens. Named listings: <a href={withBase('/whats-on/')}>What's On</a>.</dd></dl>
-      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+      <p>
+        Sunday NFL goes on the indoor screens when listed. Check <a href={withBase('/whats-on/')}>What’s On</a> and ask which game is on.
+        Coming as a group? <a href={withBase('/contact/#request-information')}>Request information</a>.
+      </p>
+      <img
+        class="split-photo tall"
+        src={withBase('/images/dubliners-screens-sol-1200.webp')}
+        srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`}
+        sizes="(max-width: 800px) 100vw, 720px"
+        width="1200"
+        height="1600"
+        loading="lazy"
+        decoding="async"
+        alt="Big screen and other screens at Dubliners near Sol"
+      />
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Is Dubliners an NFL bar in Madrid?</strong></dt>
+        <dd>
+          Yes — Irish pub and sports bar near Puerta del Sol. Named listings:
+          <a href={withBase('/whats-on/')}>What’s On</a>.
+        </dd>
+        <dt><strong>Which NFL games are on this Sunday?</strong></dt>
+        <dd>Named listings on What’s On once confirmed. Ask at the bar which screen.</dd>
+        <dt><strong>How do I get directions?</strong></dt>
+        <dd>
+          {SITE.address}, {SITE.postal}.
+          <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>
+          (CID 4384002297188950803).
+        </dd>
+        <dt><strong>Is this an 8 November recap?</strong></dt>
+        <dd>No. Evergreen Sunday NFL at this door — confirm on What’s On.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related hubs',
+            items: [
+              { href: '/whats-on/', label: 'What’s On', note: 'Named NFL Sundays only' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar Madrid', note: 'Football and live sport' },
+              { href: '/sunday-without-stadium-ticket-near-sol/', label: 'Sunday without stadium ticket', note: 'Visitor screens when listed' },
+              { href: '/visit/', label: 'Visit', note: 'GET DIRECTIONS' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
   <FixtureAntiStale />

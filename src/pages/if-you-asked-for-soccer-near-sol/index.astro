@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/if-you-asked-for-soccer-near-sol/';
+const PATH_ES = '/es/si-pediste-soccer-futbol-cerca-de-sol/';
+const title = 'If you asked for soccer near Sol | Irish pub with football screens';
+const description =
+  'US visitor in Madrid? “Soccer” is football here. Indoor Irish pub at Espoz y Mina 7, two streets from Puerta del Sol — ask What’s On, then this door. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I watch soccer in Madrid near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol, with indoor screens for football when listed. In Spain and in this bar, “soccer” is football. Named fixtures stay on What’s On; ask at the bar which match is on.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the NFL Sunday page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The NFL page is for American football on Sundays. This page is visitor language: you asked for soccer, meaning association football on the screens.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the general sports bar Madrid hub?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The sports bar page is the evergreen hub for Premier League and live sport near Sol. This page is one tourist moment: soccer wording at an Irish pub before you sit down.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="If you asked for soccer near Sol" schema />
+      <h1>If you asked for soccer near Sol</h1>
+      <p class="lead">
+        You are in Madrid, you want the match on a screen, and you said <em>soccer</em>.
+        Here that is <strong>football</strong> — LaLiga, Champions League, Premier League when it is listed.
+        Dubliners is an indoor Irish pub on Espoz y Mina 7, two streets from Puerta del Sol, with English at the bar.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Soccer wording, football on the screens</h2>
+      <p>
+        Staff understand both words. Screens face the tables in the indoor room off Sol.
+        This is not the NFL guide —
+        <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a> —
+        and not the sports-bar roundup —
+        <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>.
+        It is the tourist question: “Where is soccer?” → this Irish pub, then ask what is on.
+      </p>
+      <p>
+        Not the Prado walk, not wet Plaza Mayor, not Gran Vía after the show, not your first night off the plane.
+        You are sightseeing or staying near Sol and you want football with a pint.
+      </p>
+
+      <h2>Find the door</h2>
+      <ol>
+        <li>From <strong>Puerta del Sol</strong>, walk <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+        <li>Ask at the bar: which screen, which competition — do not assume a kick-off that is not on
+          <a href={withBase('/whats-on/')}>What’s On</a>.
+        </li>
+      </ol>
+      <p>
+        Metro Sol (L1, L2, L3) or Sevilla (L2).
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Named fixtures only</h2>
+      <p>
+        Dubliners lists confirmed matches on What’s On in Madrid time.
+        If the list is empty, you can still sit for an Irish pint indoors.
+        No invented broadcasts; no ticket to the Bernabéu or Metropolitano in this copy.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — soccer / football near Sol" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can I watch soccer in Madrid near Puerta del Sol?</strong></dt>
+        <dd>Espoz y Mina 7, indoor Irish pub off Sol. Football when listed; ask at the bar.</dd>
+        <dt><strong>Is this the NFL Sunday page?</strong></dt>
+        <dd>No. NFL is American football. Soccer here means football.</dd>
+        <dt><strong>Is this the general sports bar Madrid hub?</strong></dt>
+        <dd>No. That hub covers Premier and live sport year-round. This is the soccer wording moment.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this soccer wording page)',
+            items: [
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol', note: 'Evergreen hub, not tourist soccer ask' },
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'American football, not soccer' },
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/tuesday-in-the-barragan-tailor-shop-near-sol/';
+const PATH_ES = '/es/martes-en-la-sastreria-barragan-junto-a-sol/';
+const title = 'Tuesday in the Barragán tailor shop room | Irish pub near Sol';
+const description =
+  'Midweek Madrid? A quiet indoor Irish pint in the former Barragán tailor shop (1885) at Espoz y Mina 7, two streets from Puerta del Sol. Painted ceiling, not a weekend fan crawl. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where is the old tailor shop Irish pub near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol, in the room that was the Barragán tailor shop from 1885. The painted ceiling is still overhead. Metro Sol (L1, L2, L3) or Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the four-bars fan weekend guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Fan-weekend pages are Saturday and Sunday door clocks. This page is a midweek Tuesday: one indoor Irish room off Sol, fewer crowds than match night.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the international students pub page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The students page is Erasmus between lectures. This is any visitor or local who wants the tailor-shop room on a quiet weekday.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Tuesday in the Barragán tailor shop room" schema />
+      <h1>Tuesday in the Barragán tailor shop room</h1>
+      <p class="lead">
+        It is Tuesday, the centre is moving but not on a weekend match clock.
+        Dubliners is an indoor Irish pub in the former <strong>Barragán tailor shop (1885)</strong> —
+        painted ceiling, stools at the bar, Espoz y Mina 7, two streets from Puerta del Sol.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/about/')}>The tailor shop story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Midweek room, not a four-door weekend crawl</h2>
+      <p>
+        This is not the fan-weekend hub —
+        <a href={withBase('/4-bars-one-fan-weekend/')}>four bars one fan weekend</a> —
+        and not a stadium or soccer wording page.
+        You want one Irish pint in the historic room before dinner or after work.
+      </p>
+      <p>
+        Not the Prado walk, not wet Plaza Mayor, not Gran Vía curtain-down, not first night off the plane.
+        Tuesday, tailor-shop ceiling, Sol on foot.
+      </p>
+
+      <h2>Walk in from Sol</h2>
+      <ol>
+        <li>From <strong>Puerta del Sol</strong>, take <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+        <li>Inside, look up — the <strong>painted ceiling</strong> is the Barragán legacy; the screens face the tables when something is listed.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        More history on <a href={withBase('/about/')}>About Dubliners</a>.
+      </p>
+
+      <h2>Matches only when What’s On says so</h2>
+      <p>
+        Midweek can be quieter. Named fixtures stay on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.
+        If nothing is listed, the pint and the room still stand. Ask which screen is on.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Tuesday in the tailor shop room" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where is the old tailor shop Irish pub near Puerta del Sol?</strong></dt>
+        <dd>Espoz y Mina 7. Barragán 1885 room, green neon off Sol.</dd>
+        <dt><strong>Is this the four-bars fan weekend guide?</strong></dt>
+        <dd>No. Weekend door clocks. This is a quiet Tuesday in one room.</dd>
+        <dt><strong>Is this the international students pub page?</strong></dt>
+        <dd>No. That is Erasmus daytime. This is midweek tailor-shop tourism.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Tuesday room)',
+            items: [
+              { href: '/about/', label: 'About Dubliners', note: 'Tailor shop history, not Tuesday intent' },
+              { href: '/international-students-pub-madrid/', label: 'International students pub', note: 'Erasmus, not midweek room' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol', note: 'Late out, not Tuesday pint' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS, Metro Sol' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

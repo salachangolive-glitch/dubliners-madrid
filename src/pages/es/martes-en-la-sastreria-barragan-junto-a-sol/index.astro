@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/martes-en-la-sastreria-barragan-junto-a-sol/';
+const PATH_EN = '/tuesday-in-the-barragan-tailor-shop-near-sol/';
+const title = 'Martes en la sala de la sastrería Barragán | Pub irlandés junto a Sol';
+const description =
+  '¿Madrid entre semana? Pinta irlandesa de interior en la antigua sastrería Barragán (1885), Espoz y Mina 7, junto a Puerta del Sol. Techo pintado, sin crawl de fin de semana. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde está el pub irlandés de la antigua sastrería junto a Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners está en la calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol, en la sala que fue la sastrería Barragán desde 1885. El techo pintado sigue arriba. Metro Sol (L1, L2, L3) o Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la guía de cuatro bares del fin de semana de fans?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Las páginas de fan weekend son relojes de puerta sábado y domingo. Esta página es un martes entre semana: una sala irlandesa de interior junto a Sol, menos masificada que la noche de partido.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página de pub para estudiantes internacionales?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. La de estudiantes es Erasmus entre clases. Esto es cualquier visitante o local que quiere la sala de la sastrería un día laborable tranquilo.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Martes en la sala de la sastrería Barragán" lang="es" schema />
+      <h1>Martes en la sala de la sastrería Barragán</h1>
+      <p class="lead">
+        Es martes, el centro se mueve pero sin reloj de partido de fin de semana.
+        Dubliners es un pub irlandés de interior en la antigua <strong>sastrería Barragán (1885)</strong> —
+        techo pintado, taburetes en barra, Espoz y Mina 7, a dos calles de Puerta del Sol.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/sobre-dubliners/')}>Historia de la sastrería</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Sala entre semana, no ruta de cuatro puertas</h2>
+      <p>
+        No es el hub de fan weekend —
+        <a href={withBase('/es/cuatro-bares-fin-de-semana/')}>cuatro bares un fin de semana fan</a> —
+        ni una página de soccer o estadio.
+        Quieres una pinta irlandesa en la sala histórica antes de cenar o después del trabajo.
+      </p>
+      <p>
+        No el paseo del Prado, no la plaza mojada, no el teatro en Gran Vía, no la primera noche del avión.
+        Martes, techo de sastrería, Sol a pie.
+      </p>
+
+      <h2>Entra desde Sol</h2>
+      <ol>
+        <li>Desde <strong>Puerta del Sol</strong>, entra en la <strong>calle de Espoz y Mina</strong> hacia Carrera de San Jerónimo.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7.</li>
+        <li>Dentro, mira arriba — el <strong>techo pintado</strong> es el legado Barragán; las pantallas miran a las mesas cuando hay listado.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        Más historia en <a href={withBase('/es/sobre-dubliners/')}>Sobre Dubliners</a>.
+      </p>
+
+      <h2>Partidos solo cuando lo dice Partidos</h2>
+      <p>
+        Entre semana puede ir más tranquilo. Los listados con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a> en hora de Madrid.
+        Si no hay nada, la pinta y la sala siguen. Pregunta qué pantalla hay.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — martes en la sala de la sastrería" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde está el pub irlandés de la antigua sastrería junto a Sol?</strong></dt>
+        <dd>Espoz y Mina 7. Sala Barragán 1885, neón verde junto a Sol.</dd>
+        <dt><strong>¿Es la guía de cuatro bares del fin de semana de fans?</strong></dt>
+        <dd>No. Relojes de fin de semana. Esto es un martes tranquilo en una sala.</dd>
+        <dt><strong>¿Es la página de pub para estudiantes internacionales?</strong></dt>
+        <dd>No. Eso es Erasmus. Esto es turismo entre semana en la sastrería.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este martes en la sala)',
+            items: [
+              { href: '/es/sobre-dubliners/', label: 'Sobre Dubliners', note: 'Historia sastrería, no intento martes' },
+              { href: '/es/estudiantes-internacionales/', label: 'Estudiantes internacionales', note: 'Erasmus, no sala entre semana' },
+              { href: '/es/noche-cerca-de-sol/', label: 'Noche cerca de Sol', note: 'Salir tarde, no pinta de martes' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'CÓMO LLEGAR, Metro Sol' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

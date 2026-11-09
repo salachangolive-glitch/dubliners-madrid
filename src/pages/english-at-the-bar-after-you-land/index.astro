@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/english-at-the-bar-after-you-land/';
+const PATH_ES = '/es/ingles-en-barra-despues-de-aterrizar/';
+const title = 'English at the bar after you land | Irish pub near Sol';
+const description =
+  'First night in Madrid? English-speaking Irish pub at Espoz y Mina 7, just off Puerta del Sol — a pint before the hotel, not an airport clock. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I get an English-speaking Irish pint after I land?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol. Staff and the room answer in English. Metro Sol (L1, L2, L3) or Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Barajas small-hours weekend page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. That page is a dated airport-to-Sol clock. This one is the first night in the centre: you are already off the plane, you want English at an Irish bar before the hotel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will there be a match on my first night?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Named fixtures stay on What’s On. If the list is empty, this is still an indoor Irish pint in English. Ask at the bar which screen, if any, is on.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="English at the bar after you land" schema />
+      <h1>English at the bar after you land</h1>
+      <p class="lead">
+        Bags down, or still on your shoulder. You are in Madrid now, not in the terminal.
+        Dubliners is the indoor Irish pub just off Puerta del Sol — Espoz y Mina 7 — where the bar answers in English on the first night.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>First night in the centre, not an airport clock</h2>
+      <p>
+        This is not the dated Barajas small-hours walk —
+        <a href={withBase('/barajas-small-hours-into-sol-until-1400/')}>Barajas into Sol until 14:00</a> —
+        and it is not a museum street, a wet plaza, Callao with shopping bags, or Atocha one stop inbound.
+        You already landed. You want a room that speaks English before you find the hotel pillow.
+      </p>
+      <p>
+        The room is the former Barragán tailor shop (1885). Painted ceiling, indoor stools, no terrace. Coats from the flight hang at the door.
+      </p>
+
+      <h2>Already in Sol, two minutes to the neon</h2>
+      <ol>
+        <li>If you came on Metro or Cercanías, you are at <strong>Sol</strong>. Walk out toward Carrera de San Jerónimo / Sevilla.</li>
+        <li>Take <strong>Calle de Espoz y Mina</strong>.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7 and come in.</li>
+      </ol>
+      <p>
+        Metro Sol (L1, L2, L3) or Sevilla (L2). NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        Do not invent a taxi clock from the airport. Live Maps: GET DIRECTIONS.
+      </p>
+
+      <h2>Screens only when What’s On says so</h2>
+      <p>
+        A first-night pint does not need a kick-off. Named fixtures stay on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.
+        If nothing is listed, sit anyway. Ask which game is on.
+      </p>
+      <p>
+        Wednesday €1 shots are already on the live site if that is the night you land —
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — English at the bar after you land" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can I get an English-speaking Irish pint after I land?</strong></dt>
+        <dd>Dubliners, Calle de Espoz y Mina 7, 28012 Madrid. Indoor Irish pub just off Sol. Metro Sol or Sevilla.</dd>
+        <dt><strong>Is this the Barajas small-hours weekend page?</strong></dt>
+        <dd>No. That is a dated airport clock. This is the first night in the centre.</dd>
+        <dt><strong>Will there be a match on my first night?</strong></dt>
+        <dd>Named fixtures: <a href={withBase('/whats-on/')}>What’s On</a>. If the list is empty, the pint still stands.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this first night)',
+            items: [
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid near Plaza Mayor', note: 'Sightseeing, not landing' },
+              { href: '/from-the-prado-steps-to-espoz-mina-7/', label: 'From the Prado steps', note: 'Museum walk, not the airport' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

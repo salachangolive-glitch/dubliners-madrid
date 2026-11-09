@@ -89,6 +89,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/last-metro-cercanias-out-of-sol-after-2300/': '/es/ultimo-metro-cercanias-salida-sol-despues-2300/',
   '/indoor-pint-when-plaza-mayor-is-wet/': '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/',
   '/from-the-prado-steps-to-espoz-mina-7/': '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/',
+  '/english-at-the-bar-after-you-land/': '/es/ingles-en-barra-despues-de-aterrizar/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/domingo-sin-entrada-estadio-junto-a-sol/';
+const PATH_EN = '/sunday-without-stadium-ticket-near-sol/';
+const title = 'Domingo sin entrada al estadio junto a Sol | Pub irlandés';
+const description =
+  '¿Domingo sin entrada al Bernabéu o al Metropolitano? Pub irlandés de interior en Espoz y Mina 7, junto a Sol — deporte en pantalla cuando Partidos lo lista. No vendemos entradas. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde ver fútbol el domingo en Madrid sin entrada al estadio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners es un pub irlandés en la calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol, con pantallas de interior cuando hay partidos en Partidos. Este pub no vende entradas de estadio. Metro Sol (L1, L2, L3) o Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la guía NFL del domingo o fin de semana sin estadio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esas páginas van de NFL. Esta es turismo evergreen: cualquier domingo en el centro, sin entrada, sala irlandesa junto a Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página de campaña deporte domingo Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Los relojes de campaña son copy de fin de semana fan. Esto es intento visitante fijo: domingo, sin entrada, esta puerta.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Domingo sin entrada al estadio" lang="es" schema />
+      <h1>Domingo sin entrada al estadio junto a Sol</h1>
+      <p class="lead">
+        Madrid juega el domingo y tú no estás en la grada.
+        Dubliners es un pub irlandés de interior en Espoz y Mina 7, a dos calles de Puerta del Sol —
+        pantallas cuando Partidos lista el partido, pinta igual. No vendemos entradas de estadio.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Domingo en el centro, no en la grada visitante</h2>
+      <p>
+        No es la página de pantalla NFL sin estadio —
+        <a href={withBase('/es/fin-de-semana-nfl-madrid-en-pantalla/')}>fin de semana NFL en pantalla</a> —
+        ni el hub de reloj deportivo del domingo.
+        Visitantes y locales sin entrada al Bernabéu o al Metropolitano quieren sala junto a Sol.
+      </p>
+      <p>
+        No plaza mojada, no Prado, no teatro Gran Vía, no soccer, no tarde Erasmus, no cumpleaños.
+        Domingo, sin entrada, pub irlandés de interior.
+      </p>
+
+      <h2>Encuentra la sala</h2>
+      <ol>
+        <li>Desde <strong>Puerta del Sol</strong>, camina <strong>Espoz y Mina</strong> al número 7.</li>
+        <li>Mira <a href={withBase('/es/partidos/')}>Partidos</a> para listados con nombre en hora de Madrid — pregunta en barra si está vacío.</li>
+        <li>No vendemos entradas aquí; solo la pinta y la pantalla cuando hay listado.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — domingo sin entrada estadio" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo junto a Sol</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde ver fútbol el domingo sin entrada al estadio?</strong></dt>
+        <dd>Espoz y Mina 7 junto a Sol. Partidos para listados. Sin venta de entradas.</dd>
+        <dt><strong>¿Es la página NFL domingo o fin de semana?</strong></dt>
+        <dd>No. Led NFL. Esto es visitante domingo sin entrada.</dd>
+        <dt><strong>¿Es reloj fan weekend domingo?</strong></dt>
+        <dd>No. Intento turismo evergreen.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este domingo sin entrada)',
+            items: [
+              { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Fútbol americano' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Madrid', note: 'Hub evergreen' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'CÓMO LLEGAR' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

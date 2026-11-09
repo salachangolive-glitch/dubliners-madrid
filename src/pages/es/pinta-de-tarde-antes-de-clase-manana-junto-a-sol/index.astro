@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/pinta-de-tarde-antes-de-clase-manana-junto-a-sol/';
+const PATH_EN = '/afternoon-pint-before-tomorrows-class-near-sol/';
+const title = 'Pinta de tarde antes de clase mañana | Pub irlandés junto a Sol';
+const description =
+  '¿Tarde Erasmus en Madrid? Una pinta irlandesa de interior en Espoz y Mina 7 antes de clase mañana — Sol a pie, inglés en barra. No es el hub de estudiantes. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde tomar una pinta por la tarde cerca de Sol si estudio en Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners está en la calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol — sala de interior, barra en inglés. Metro Sol (L1, L2, L3) o Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página de pub para estudiantes internacionales?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esa página es el hub Erasmus. Esta es un momento: pinta de tarde hoy, clase mañana.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la de martes en la sastrería o cumpleaños?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Martes sastrería es sala tranquila entre semana. Cumpleaños es grupo. Esto es turismo estudiante: tarde antes de clase.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Pinta de tarde antes de clase mañana" lang="es" schema />
+      <h1>Pinta de tarde antes de clase mañana</h1>
+      <p class="lead">
+        Terminaste el seminario, el hostel está junto a Sol, y mañana vuelve la clase.
+        Una pinta irlandesa de interior en Espoz y Mina 7 — inglés en barra, dos calles de Puerta del Sol, y luego los apuntes.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Entre clases, no el hub Erasmus</h2>
+      <p>
+        No es la landing de estudiantes —
+        <a href={withBase('/es/estudiantes-internacionales/')}>estudiantes internacionales</a>.
+        Ese hub cubre semestres y noches de estudiantes. Aquí solo hace falta hoy: pinta de tarde, clase mañana.
+      </p>
+      <p>
+        No plaza mojada, no Prado, no teatro Gran Vía, no soccer, no mesa de cumpleaños, no martes en la sastrería.
+        Tarde de estudiante, sala irlandesa junto a Sol.
+      </p>
+
+      <h2>Paseo corto desde Sol</h2>
+      <ol>
+        <li>Desde <strong>Puerta del Sol</strong>, camina la <strong>calle de Espoz y Mina</strong> al número 7.</li>
+        <li>Neón verde, taburetes de interior — una pinta, no noche de estadio.</li>
+        <li>Deporte en pantalla solo si
+          <a href={withBase('/es/partidos/')}>Partidos</a> lo lista; la clase no necesita saque.
+        </li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — pinta de tarde antes de clase" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde tomar una pinta por la tarde cerca de Sol si estudio en Madrid?</strong></dt>
+        <dd>Dubliners, Espoz y Mina 7. Pub irlandés de interior, barra en inglés.</dd>
+        <dt><strong>¿Es la página de estudiantes internacionales?</strong></dt>
+        <dd>No. Hub frente a una tarde antes de clase mañana.</dd>
+        <dt><strong>¿Es martes sastrería o cumpleaños?</strong></dt>
+        <dd>No. Solo intento tarde Erasmus.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no esta pinta de tarde)',
+            items: [
+              { href: '/es/estudiantes-internacionales/', label: 'Estudiantes internacionales', note: 'Hub Erasmus' },
+              { href: '/es/ingles-en-barra-despues-de-aterrizar/', label: 'Inglés después de aterrizar', note: 'Primera noche' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'CÓMO LLEGAR' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,13 +1,13 @@
 ---
 /**
- * Site-wide campaign strip — 4 BARS. ONE FAN WEEKEND. Hide after Sun 8 Nov.
+ * Site-wide campaign strip for 7–8 Nov 2026. Hidden after Sunday 8 Nov
+ * via isFanWeekendLive() in Header. Copy is past-tense; no live invite.
  */
 import { withBase } from '../site';
 import {
   FAN_WEEKEND_HUB,
   FOUR_BARS_MAPS,
   SHOW_UNTIL_FAN_WEEKEND,
-  madridYmd,
 } from '../data/fourBars';
 
 interface Props {
@@ -16,25 +16,17 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const es = lang === 'es';
 const hub = FAN_WEEKEND_HUB[lang];
-const showSaturdayTonight = madridYmd() <= '2026-11-07';
 ---
 
 <div class="fan-weekend-banner" data-show-until={SHOW_UNTIL_FAN_WEEKEND} data-track-location="fan-weekend-banner">
-  <p class="fan-weekend-banner__slogan">4 BARS. ONE FAN WEEKEND.</p>
-  {showSaturdayTonight && (
-    <p class="fan-weekend-banner__sub" data-show-until="2026-11-07">
-      {es
-        ? 'Esta noche 18:00–19:00: O’Reilly’s, Dubliners y O’Connell’s. Four Corner no abre hoy.'
-        : 'Tonight 18:00–19:00: O’Reilly’s, Dubliners and O’Connell’s. Four Corner is not open tonight.'}
-    </p>
-  )}
+  <p class="fan-weekend-banner__slogan">{es ? 'Fin de semana junto a Sol (archivo)' : 'Weekend near Sol (archive)'}</p>
   <p class="fan-weekend-banner__sub">
     {es
-      ? 'Domingo 8 nov: las cuatro puertas abiertas. Four Corner está abierto desde las 14:00 (pantallas de deporte). NFL tarde/noche · Atlético–Barcelona 21:00.'
-      : 'Sunday 8 Nov: all four doors open. Four Corner is open from 14:00 (sports screens). NFL afternoon/evening · Atlético–Barcelona 21:00.'}
+      ? 'El 7 y 8 de noviembre de 2026 ya pasaron. NFL los domingos: Ver NFL en Madrid. Esta semana: Partidos.'
+      : '7 and 8 November 2026 have passed. Sunday NFL: Watch NFL Madrid. This week: What’s On.'}
   </p>
   <div class="fan-weekend-banner__ctas">
-    <a class="btn btn-primary" href={withBase(hub)}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+    <a class="btn btn-primary" href={withBase(hub)}>{es ? 'Archivo de aquel fin de semana' : 'That weekend’s archive'}</a>
     <a class="btn btn-secondary" data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank">{es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}</a>
   </div>
 </div>

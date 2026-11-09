@@ -1,50 +1,33 @@
 ---
 /**
- * Four names + addresses + individual Maps links + confirmed hours.
- * Sunday hours advertised from Saturday. Four Corner Sunday from 14:00 only.
+ * Four names + addresses + Maps. Campaign copy retired 9 Nov 2026 (past tense).
  */
 import { withBase } from '../site';
 import {
-  FAN_WEEKEND_FOUR_CORNER,
   FAN_WEEKEND_HUB,
-  FAN_WEEKEND_NFL_GUIDE,
-  FAN_WEEKEND_SATURDAY,
-  FAN_WEEKEND_SATURDAY_TONIGHT,
-  FAN_WEEKEND_SUNDAY,
   FOUR_BARS,
-  ORIGINAL_WEEKEND_ARTICLES,
   SHOW_UNTIL_FAN_WEEKEND,
   SISTER_SITES,
-  madridYmd,
 } from '../data/fourBars';
 
 interface Props {
   lang?: 'en' | 'es';
   heading?: 'h1' | 'h2';
-  /** Hide the self-link when this block already sits on the hub. */
   compact?: boolean;
 }
 const { lang = 'en', heading = 'h2', compact = false } = Astro.props;
 const es = lang === 'es';
 const H = heading;
-const showSaturdayTonight = madridYmd() <= '2026-11-07';
 ---
 
 <section class="section band-gold four-bars-meet" id={es ? 'punto-de-encuentro-sol' : 'meet-us-near-sol'} data-show-until={SHOW_UNTIL_FAN_WEEKEND}>
   <div class="container">
-    <p class="four-bars-meet__kicker">4 BARS. ONE FAN WEEKEND.</p>
-    <H class="four-bars-meet__title">{es ? 'Cuatro bares junto a Sol — sábado 7 y domingo 8 nov' : 'Four bars near Sol — Saturday 7 & Sunday 8 Nov'}</H>
-    {showSaturdayTonight && (
-      <p class="four-bars-meet__tonight" data-show-until="2026-11-07">
-        {es
-          ? 'Esta noche 18:00–19:00: quedada en O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7). Four Corner no abre hoy. Hoy no hay NFL. Valencia–Real Madrid 21:00 EN DIRECTO solo en Dubliners.'
-          : 'Tonight 18:00–19:00: meetup at O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell’s (Espoz y Mina 7). Four Corner is not open tonight. No official NFL game Saturday. Valencia vs Real Madrid 21:00 LIVE at Dubliners only.'}
-      </p>
-    )}
+    <p class="four-bars-meet__kicker">{es ? 'Archivo · 7 y 8 de noviembre de 2026' : 'Archive · 7 and 8 November 2026'}</p>
+    <H class="four-bars-meet__title">{es ? 'Cuatro bares junto a Sol — aquel fin de semana' : 'Four bars near Sol — that weekend'}</H>
     <p>
       {es
-        ? 'Domingo 8 nov: las cuatro puertas están abiertas. Dubliners desde las 12:00 · Four Corner está abierto desde las 14:00 (pantallas de deporte). NFL tarde y noche en Dubliners (desde las 19:00 / 22:05 / 22:25). Atlético–Barcelona 21:00 EN DIRECTO en Dubliners. Listados con nombre: Partidos. No es un evento oficial de la NFL.'
-        : 'Sunday 8 Nov: all four doors are open. Dubliners from 12:00 · Four Corner is open from 14:00 (sports screens). NFL afternoon and evening at Dubliners (from 19:00 / 22:05 / 22:25). Atlético–Barcelona 21:00 LIVE at Dubliners. Named listings: What’s On. Not an official NFL event.'}
+        ? 'Ese fin de semana ya pasó. Dubliners, O’Reilly’s, O’Connell’s y Four Corner están en las mismas calles junto a Puerta del Sol. NFL los domingos: Ver NFL en Madrid. Esta semana: Partidos.'
+        : 'That weekend has passed. Dubliners, O’Reilly’s, O’Connell’s and Four Corner sit on the same streets by Puerta del Sol. Sunday NFL: Watch NFL Madrid. This week: What’s On.'}
     </p>
     <div class="card-grid cols-4">
       {FOUR_BARS.map((bar) => (
@@ -71,35 +54,13 @@ const showSaturdayTonight = madridYmd() <= '2026-11-07';
     <p class="four-bars-meet__links">
       {!compact && (
         <>
-          <a href={withBase(FAN_WEEKEND_HUB[lang])}>{es ? 'VER LOS CUATRO BARES' : 'MEET US NEAR SOL'}</a>
+          <a href={withBase(FAN_WEEKEND_HUB[lang])}>{es ? 'Archivo de aquel fin de semana' : 'That weekend’s archive'}</a>
           {' · '}
         </>
       )}
-      {showSaturdayTonight && (
-        <span data-show-until="2026-11-07">
-          <a href={withBase(FAN_WEEKEND_SATURDAY_TONIGHT[lang])}>{es ? 'Quedada 18:00–19:00' : 'Tonight 18:00–19:00'}</a>
-          {' · '}
-        </span>
-      )}
-      <a href={withBase(FAN_WEEKEND_SATURDAY[lang])}>{es ? 'Sábado en Sol' : 'Saturday in Sol'}</a>
+      <a href={withBase(es ? '/es/nfl-madrid/' : '/nfl-madrid/')}>{es ? 'Ver NFL en Madrid' : 'Watch NFL Madrid'}</a>
       {' · '}
-      <a href={withBase(FAN_WEEKEND_FOUR_CORNER[lang])}>{es ? 'Four Corner domingo 14:00' : 'Four Corner Sunday 14:00'}</a>
-      {' · '}
-      <a href={withBase(FAN_WEEKEND_SUNDAY[lang])}>{es ? 'Domingo en Sol' : 'Sunday sports in Sol'}</a>
-      {' · '}
-      <a href={withBase(es ? '/es/nfl-tarde-noche-sol-8-nov/' : '/afternoon-evening-nfl-sol-8-nov/')}>{es ? 'NFL tarde y noche' : 'NFL afternoon & evening'}</a>
-      {' · '}
-      <a href={withBase(es ? '/es/atletico-barcelona-sol-8-nov/' : '/atletico-barcelona-sol-8-nov/')}>{es ? 'Atlético–Barcelona 21:00' : 'Atlético–Barcelona 21:00'}</a>
-      {' · '}
-      <a href={withBase(FAN_WEEKEND_NFL_GUIDE[lang])}>{es ? 'Guía NFL del domingo' : 'NFL Sunday guide'}</a>
-      {' · '}
-      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.meetup[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.meetup.labelEs : ORIGINAL_WEEKEND_ARTICLES.meetup.labelEn}</a>
-      {' · '}
-      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.walk[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.walk.labelEs : ORIGINAL_WEEKEND_ARTICLES.walk.labelEn}</a>
-      {' · '}
-      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.screens[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.screens.labelEs : ORIGINAL_WEEKEND_ARTICLES.screens.labelEn}</a>
-      {' · '}
-      <a href={withBase(ORIGINAL_WEEKEND_ARTICLES.international[lang])}>{es ? ORIGINAL_WEEKEND_ARTICLES.international.labelEs : ORIGINAL_WEEKEND_ARTICLES.international.labelEn}</a>
+      <a href={withBase(es ? '/es/partidos/' : '/whats-on/')}>{es ? 'Partidos' : "What's On"}</a>
     </p>
   </div>
 </section>
@@ -113,7 +74,6 @@ const showSaturdayTonight = madridYmd() <= '2026-11-07';
     font-size: 0.95rem;
   }
   .four-bars-meet__title { margin-top: 0; }
-  .four-bars-meet__tonight { font-weight: 700; }
   .four-bars-meet__addr,
   .four-bars-meet__hours {
     margin: 0 0 0.55rem;

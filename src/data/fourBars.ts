@@ -1,8 +1,9 @@
 /**
  * Four sister bars — NFL Madrid 2026 fan meeting point near Puerta del Sol.
  * Owner correction 6 Nov 2026: one collective campaign, not four isolated pages.
- * Four Corner: include as a sister bar. Sunday 8 November from 14:00 until late.
+ * Four Corner: include as a sister bar. Usual Sunday from 14:00 until late.
  * Owner-confirmed: has sports screens. Do not claim Saturday hours or list its games.
+ * Dated Sat 7 / Sun 8 Nov 2026 hours removed 9 Nov (campaign retired).
  *
  * Maps checked 7 Nov 2026:
  * - O'Reilly's CID 9285869778750479445 — Pasaje de Matheu 4 (live hub + sister-site listing).
@@ -38,24 +39,24 @@ export const FOUR_BARS = [
     name: "O'Reilly's Restaurant Bar",
     address: 'Pasaje de Matheu 4, 28012 Madrid',
     maps: FOUR_BARS_MAPS.oreillys,
-    hoursEn: 'Saturday 7 Nov: 11:30–01:30 (daily)',
-    hoursEs: 'Sábado 7 nov: 11:30–01:30 (todos los días)',
+    hoursEn: 'Daily 11:30–01:30',
+    hoursEs: 'Todos los días 11:30–01:30',
   },
   {
     id: 'dubliners',
     name: 'Dubliners',
     address: 'Calle de Espoz y Mina 7, 28012 Madrid',
     maps: FOUR_BARS_MAPS.dubliners,
-    hoursEn: 'Sat 7 Nov 12:00–02:30 · Sun 8 Nov from 12:00',
-    hoursEs: 'Sáb 7 nov 12:00–02:30 · dom 8 nov desde las 12:00',
+    hoursEn: 'Sun–Thu 12:00–02:00 · Fri–Sat 12:00–02:30',
+    hoursEs: 'Dom–jue 12:00–02:00 · vie–sáb 12:00–02:30',
   },
   {
     id: 'oconnell',
     name: "O'Connell's",
     address: 'Calle de Espoz y Mina 7, 28012 Madrid',
     maps: FOUR_BARS_MAPS.oconnell,
-    hoursEn: 'Sat 7 Nov from 15:00 · Sun 8 Nov from 12:00 (usual Sun 14:00)',
-    hoursEs: 'Sáb 7 nov desde las 15:00 · dom 8 nov desde las 12:00 (habitual 14:00)',
+    hoursEn: 'Usual Sunday from 14:00',
+    hoursEs: 'Domingo habitual desde las 14:00',
   },
   {
     id: 'fourCorner',

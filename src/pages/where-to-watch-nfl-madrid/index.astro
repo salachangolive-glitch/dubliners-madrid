@@ -5,30 +5,21 @@ import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../site';
-import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../data/hours';
-import { madridToday } from '../../data/fixtures';
 
-// Organic NFL landing (DG 6 Nov 2026). Copy from mant-dub-en + DUB-OC-NFL-PAGES.
-// Schedule: RADAR-AGENDA.md verified rows only. No TV channel except Bengals–Falcons (DAZN, Cuatro)
-// and Valencia–Real Madrid Sat 21:00 (Orange TV and DAZN). Independent of the league's events.
 const PATH = '/where-to-watch-nfl-madrid/';
 const PATH_ES = '/es/donde-ver-nfl-madrid/';
-const SHOW_UNTIL = '2026-11-08';
-const todayKey = madridToday();
-const showWeekend = todayKey <= SHOW_UNTIL;
 const hoursLine = hoursSummary('en');
 const title = 'Watch NFL Madrid | NFL bar Madrid near Puerta del Sol';
 const description =
-  'Watch NFL Madrid at an Irish pub and sports bar by Puerta del Sol. NFL bar Madrid, Espoz y Mina 7. Four Corner is open from 14:00, sports screens. Named listings: What’s On.';
+  'Watch NFL Madrid at an Irish pub and sports bar by Puerta del Sol. NFL bar Madrid, Espoz y Mina 7. Named listings: What’s On.';
 const articleLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Where to watch NFL in Madrid near Puerta del Sol',
   inLanguage: 'en',
   datePublished: '2026-11-06',
-  dateModified: '2026-11-06',
+  dateModified: '2026-11-09',
   image: absUrl('/images/screens-sports.jpg'),
   mainEntityOfPage: absUrl(PATH),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
@@ -49,10 +40,10 @@ const faqLd = {
     },
     {
       '@type': 'Question',
-      name: 'What time is Bengals–Falcons in Madrid on Sunday 8 November?',
+      name: 'Which NFL games are on this Sunday?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sunday 8 November 2026 at 15:30 Madrid time (9:30 a.m. ET), at the Santiago Bernabéu. In Spain it is on DAZN and Cuatro. At Dubliners it is on the big screen from 15:30. We open from 12:00 that Sunday.',
+        text: 'Named Sunday NFL listings stay on What’s On once confirmed, in Madrid time. Ask at the bar which game is on which screen.',
       },
     },
     {
@@ -60,7 +51,7 @@ const faqLd = {
       name: 'What are the opening hours at Dubliners?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `${hoursLine}. Sunday 8 November: from 12:00.`,
+        text: hoursLine,
       },
     },
   ],
@@ -82,30 +73,23 @@ const faqLd = {
       <h1>Watch NFL Madrid near Puerta del Sol</h1>
       <p class="lead">
         Looking for a place to watch NFL Madrid in the centre? <strong>Dubliners</strong> is an Irish pub and sports bar —
-        an NFL bar Madrid on Calle de Espoz y Mina 7, a short walk from Puerta del Sol (Metro Sol L1/L2/L3 or Sevilla L2) — a
-        <strong>meeting point</strong> for fans, independent of the league’s own events.
+        an NFL bar Madrid on Calle de Espoz y Mina 7, a short walk from Puerta del Sol (Metro Sol L1/L2/L3 or Sevilla L2).
       </p>
       <p class="small">Dubliners Irish Pub · Espoz y Mina 7 · {hoursLine}</p>
-      {showWeekend ? (
-        <FanWeekendCtas lang="en" />
-      ) : (
-        <div class="cta-row">
-          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
-          <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
-        </div>
-      )}
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/nfl-madrid/')}>NFL in Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
     </div>
   </section>
-
-  {showWeekend && <FourBarsMeet lang="en" />}
 
   <section class="section">
     <div class="container prose">
       <h2>NFL bar Madrid</h2>
       <p>
-        Dubliners is an NFL bar in Madrid next to Puerta del Sol: international pub atmosphere, sport on a
-        <strong>big screen</strong> and other screens, and a clear base in the city centre. No ticket needed to follow
-        the Madrid game here. Ask at the bar which game is on — not every game is on every screen.
+        Dubliners is an NFL bar in Madrid next to Puerta del Sol: international pub atmosphere, sport on screens,
+        and a clear base in the city centre. Ask at the bar which game is on.
       </p>
       <picture>
         <source
@@ -124,71 +108,27 @@ const faqLd = {
         />
       </picture>
 
-      {showWeekend && (
-        <div data-show-until={SHOW_UNTIL}>
-          <h2>Bengals Falcons Madrid Sunday 15:30</h2>
-          <p>
-            <strong>Sunday 8 November 2026, 15:30 Madrid time</strong> (9:30 a.m. ET on the NFL Week 9 schedule):
-            Cincinnati Bengals at Atlanta Falcons at the Santiago Bernabéu. In Spain the game is on <strong>DAZN</strong> and
-            <strong>Cuatro</strong>. At Dubliners it is on the <strong>big screen</strong> from 15:30. Doors from
-            <strong>12:00</strong> — meeting point for fans before kick-off.
-          </p>
-          <p class="small">
-            Schedule source: <a href="https://www.nfl.com/schedules/2026/REG9/" rel="noopener" target="_blank">NFL.com Week 9 schedule</a>
-            (“International Game Madrid — Bengals at Falcons”). Broadcast in Spain: <a href="https://www.nfl.com/news/donde-ver-el-2026-nfl-madrid-game-en-espana" rel="noopener" target="_blank">nfl.com</a>.
-          </p>
-
-          <h2>Sunday NFL from 19:00, then 22:05 and 22:25</h2>
-          <p>
-            After the Madrid game, more Sunday NFL is on at Dubliners within opening hours. Seven games kick off at
-            <strong>19:00</strong>, Houston Texans at Los Angeles Chargers at <strong>22:05</strong>, and three games at
-            <strong>22:25</strong>. Ask at the bar which game is on. Not every game is on every screen.
-          </p>
-          <ul>
-            <li><strong>19:00</strong> — Broncos at Panthers · Cowboys at Colts · Jets at Chiefs · Lions at Dolphins · Browns at Saints · Giants at Eagles · Rams at Commanders</li>
-            <li><strong>22:05</strong> — Texans at Chargers</li>
-            <li><strong>22:25</strong> — Raiders at 49ers · Packers at Patriots · Cardinals at Seahawks</li>
-          </ul>
-        </div>
-      )}
+      <h2>Sunday NFL on the screens</h2>
+      <p>
+        Sunday NFL goes on the indoor screens when listed. Named listings stay on
+        <a href={withBase('/whats-on/')}>What’s On</a>. Ask which game is on.
+      </p>
 
       <h2>Sports bar Sol Madrid</h2>
       <p>
-        A sports bar Sol Madrid, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Hours:
-        {hoursLine}. Sunday 8 November: open from 12:00.
-        All four sister doors are open now. Four Corner is open from 14:00 with sports screens.
+        A sports bar Sol Madrid, between Puerta del Sol, Plaza Mayor and the Barrio de las Letras. Hours: {hoursLine}.
         Named listings: <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
       <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
 
-      {showWeekend && (
-        <div data-show-until={SHOW_UNTIL}>
-          <h2>Atlético–Barça near Sol Sunday 21:00</h2>
-          <p>
-            <strong>Sunday 8 November, 21:00</strong> Madrid time: Atlético de Madrid vs FC Barcelona (LaLiga, Riyadh Air
-            Metropolitano). That kick-off sits between the 19:00 NFL window and the 22:05 / 22:25 games. Same rule: ask
-            at the bar which game is on.
-          </p>
-          <p>
-            The night before, <strong>Saturday 7 November, 21:00</strong>: Valencia vs Real Madrid, on
-            <strong>Orange TV</strong> and <strong>DAZN</strong>, at Dubliners.
-          </p>
-        </div>
-      )}
-
       <h2>Practical info</h2>
       <p>
         Address: Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2).
-        Nearby on the same block: O’Connell’s (Espoz y Mina 7) and O’Reilly’s Restaurant Bar (Pasaje de Matheu 4) —
-        see <a href={withBase('/4-bars-one-fan-weekend/')}>4 Bars. One Fan Weekend</a>.
+        Nearby on the same block: O’Connell’s (Espoz y Mina 7) and O’Reilly’s Restaurant Bar (Pasaje de Matheu 4).
       </p>
       <div class="map-frame"><MapEmbed title="Map of Dubliners Madrid" lang="en" /></div>
       <p>
         Full NFL Sunday list: <a href={withBase('/nfl-madrid/')}>NFL in Madrid</a>.
-        Hour-by-hour: <a href={withBase('/nfl-sunday-madrid-guide/')}>NFL Sunday guide</a>.
-      </p>
-      <p class="small">
-        We are a local meeting point for fans — not linked to the league’s own events or the stadium organisers.
       </p>
       <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Dónde ver la NFL en Madrid junto a Puerta del Sol</a></p>
 
@@ -196,10 +136,10 @@ const faqLd = {
       <dl class="faq">
         <dt><strong>Where can I watch NFL in Madrid near Puerta del Sol?</strong></dt>
         <dd>At Dubliners, an Irish sports pub on Calle de Espoz y Mina 7, a short walk from Puerta del Sol (Metro Sol L1/L2/L3 or Sevilla L2). Meeting point for fans; ask at the bar which game is on.</dd>
-        <dt><strong>What time is Bengals–Falcons in Madrid on Sunday 8 November?</strong></dt>
-        <dd>Sunday 8 November 2026 at 15:30 Madrid time (9:30 a.m. ET), at the Santiago Bernabéu. In Spain it is on DAZN and Cuatro. At Dubliners it is on the big screen from 15:30. We open from 12:00 that Sunday.</dd>
+        <dt><strong>Which NFL games are on this Sunday?</strong></dt>
+        <dd>Named listings on <a href={withBase('/whats-on/')}>What’s On</a> once confirmed. Ask at the bar which screen.</dd>
         <dt><strong>What are the opening hours at Dubliners?</strong></dt>
-        <dd>{hoursLine}. Sunday 8 November: from 12:00.</dd>
+        <dd>{hoursLine}.</dd>
       </dl>
 
       <LinkHub
@@ -209,8 +149,6 @@ const faqLd = {
             title: 'NFL at Dubliners',
             items: [
               { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'Sunday schedule' },
-              { href: '/sunday-sports-sol/', label: 'Sunday sports in Sol', note: 'NFL + Atlético–Barça, 8 Nov', until: SHOW_UNTIL },
-              { href: '/4-bars-one-fan-weekend/', label: '4 Bars. One Fan Weekend', note: 'Near Sol this weekend' },
               { href: '/whats-on/', label: "What's On", note: 'Confirmed fixtures' },
               { href: PATH_ES, label: 'Dónde ver la NFL en Madrid', note: 'En español', hreflang: 'es', lang: 'es' },
             ],

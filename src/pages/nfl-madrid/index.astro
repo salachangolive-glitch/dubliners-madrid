@@ -5,11 +5,7 @@ import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import MapEmbed from '../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../site';
-import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../components/FourBarsMeet.astro';
-import { isFanWeekendLive } from '../../data/fourBars';
 
-const fanWeekend = isFanWeekendLive();
 const title = 'NFL bar Madrid | Watch NFL Madrid near Puerta del Sol — Dubliners';
 const description =
   'Watch NFL Madrid at an Irish pub and sports bar by Puerta del Sol. NFL bar Madrid, Espoz y Mina 7. Named listings: What’s On. GET DIRECTIONS.';
@@ -63,18 +59,13 @@ const faqLd = {
         Watch NFL Madrid on the indoor screens when it is listed. Named Sundays stay on
         <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
-      {fanWeekend ? (
-        <FanWeekendCtas lang="en" />
-      ) : (
-        <div class="cta-row">
-          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
-          <a class="btn btn-primary" href={withBase('/visit/')}>FIND US</a>
-          <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
-        </div>
-      )}
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-primary" href={withBase('/visit/')}>FIND US</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>See what's on</a>
+      </div>
     </div>
   </section>
-  {fanWeekend && <FourBarsMeet lang="en" />}
   <section class="section">
     <div class="container prose">
       <h2>NFL bar Madrid</h2>
@@ -166,7 +157,7 @@ const faqLd = {
           <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>
           (CID 4384002297188950803).
         </dd>
-        <dt><strong>Is this an 8 November recap?</strong></dt>
+        <dt><strong>Is this a recap of a past Madrid Game?</strong></dt>
         <dd>No. Evergreen Sunday NFL at this door — confirm on What’s On.</dd>
       </dl>
 

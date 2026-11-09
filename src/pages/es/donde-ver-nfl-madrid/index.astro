@@ -5,30 +5,21 @@ import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../../site';
-import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { OPENING_HOURS, hoursSummary } from '../../../data/hours';
-import { madridToday } from '../../../data/fixtures';
 
-// Par ES de /where-to-watch-nfl-madrid/. Copy de mant-dub-es + DUB-OC-NFL-PAGES.
-// Agenda: solo filas verificadas de RADAR-AGENDA.md. Sin canal salvo Bengals–Falcons (DAZN, Cuatro)
-// y Valencia–Real Madrid sáb 21:00 (Orange TV y DAZN). Independientes de los actos de la liga.
 const PATH = '/es/donde-ver-nfl-madrid/';
 const PATH_EN = '/where-to-watch-nfl-madrid/';
-const SHOW_UNTIL = '2026-11-08';
-const todayKey = madridToday();
-const showWeekend = todayKey <= SHOW_UNTIL;
 const hoursLine = hoursSummary('es');
 const title = 'Ver NFL en Madrid | Bar NFL Madrid cerca de Puerta del Sol';
 const description =
-  'Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Four Corner está abierto desde las 14:00, pantallas de deporte. Listados con nombre: Partidos.';
+  'Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Listados con nombre: Partidos.';
 const articleLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Dónde ver la NFL en Madrid junto a Puerta del Sol',
   inLanguage: 'es',
   datePublished: '2026-11-06',
-  dateModified: '2026-11-06',
+  dateModified: '2026-11-09',
   image: absUrl('/images/screens-sports.jpg'),
   mainEntityOfPage: absUrl(PATH),
   author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
@@ -49,10 +40,10 @@ const faqLd = {
     },
     {
       '@type': 'Question',
-      name: '¿A qué hora es el Bengals–Falcons en Madrid el domingo 8 de noviembre?',
+      name: '¿Qué partidos NFL hay este domingo?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Domingo 8 de noviembre de 2026 a las 15:30 hora de Madrid (9:30 a.m. ET), en el Santiago Bernabéu. En España va en DAZN y Cuatro. En Dubliners, en pantalla grande desde las 15:30. Abrimos desde las 12:00 ese domingo.',
+        text: 'Los listados NFL del domingo con nombre están en Partidos cuando están confirmados, en hora de Madrid. Pregunta en barra qué hay en cada pantalla.',
       },
     },
     {
@@ -60,7 +51,7 @@ const faqLd = {
       name: '¿Cuál es el horario de Dubliners?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `${hoursLine}. Domingo 8 de noviembre: desde las 12:00.`,
+        text: hoursLine,
       },
     },
   ],
@@ -82,30 +73,23 @@ const faqLd = {
       <h1>Ver NFL en Madrid junto a Puerta del Sol</h1>
       <p class="lead">
         Si quieres ver NFL en Madrid en el centro, <strong>Dubliners</strong> es un pub irlandés y bar deportivo —
-        un bar NFL Madrid en Calle de Espoz y Mina 7, junto a Puerta del Sol (Metro Sol L1/L2/L3 o Sevilla L2) — un
-        <strong>punto de encuentro</strong> para aficionados, independiente de los actos de la liga.
+        un bar NFL Madrid en Calle de Espoz y Mina 7, junto a Puerta del Sol (Metro Sol L1/L2/L3 o Sevilla L2).
       </p>
       <p class="small">Dubliners Irish Pub · Espoz y Mina 7 · {hoursLine}</p>
-      {showWeekend ? (
-        <FanWeekendCtas lang="es" />
-      ) : (
-        <div class="cta-row">
-          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
-          <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
-        </div>
-      )}
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
     </div>
   </section>
-
-  {showWeekend && <FourBarsMeet lang="es" />}
 
   <section class="section">
     <div class="container prose">
       <h2>Bar NFL Madrid</h2>
       <p>
-        Dubliners es un bar NFL en Madrid junto a Puerta del Sol: ambiente internacional, deporte en
-        <strong>pantalla grande</strong> y otras pantallas, y una base clara en el centro. No hace falta entrada para
-        seguir aquí el partido de Madrid. Pregunta en barra qué echan: no está cada partido en cada pantalla.
+        Dubliners es un bar NFL en Madrid junto a Puerta del Sol: ambiente internacional, deporte en pantalla
+        y una base clara en el centro. Pregunta en barra qué echan.
       </p>
       <picture>
         <source
@@ -124,71 +108,27 @@ const faqLd = {
         />
       </picture>
 
-      {showWeekend && (
-        <div data-show-until={SHOW_UNTIL}>
-          <h2>Bengals Falcons Madrid domingo 15:30</h2>
-          <p>
-            <strong>Domingo 8 de noviembre de 2026, 15:30 hora de Madrid</strong> (9:30 a.m. ET en el calendario Week 9 de la NFL):
-            Cincinnati Bengals at Atlanta Falcons en el Santiago Bernabéu. En España el partido va en <strong>DAZN</strong> y
-            <strong>Cuatro</strong>. En Dubliners, en <strong>pantalla grande</strong> desde las 15:30. Abrimos desde las
-            <strong>12:00</strong> — punto de encuentro antes del kick-off.
-          </p>
-          <p class="small">
-            Fuente del horario: <a href="https://www.nfl.com/schedules/2026/REG9/" rel="noopener" target="_blank">calendario Week 9 de NFL.com</a>
-            («International Game Madrid — Bengals at Falcons»). Emisión en España: <a href="https://www.nfl.com/news/donde-ver-el-2026-nfl-madrid-game-en-espana" rel="noopener" target="_blank">nfl.com</a>.
-          </p>
-
-          <h2>Jornada NFL desde las 19:00, luego 22:05 y 22:25</h2>
-          <p>
-            Tras el partido de Madrid, hay más NFL del domingo en Dubliners, dentro del horario. Siete partidos empiezan a las
-            <strong>19:00</strong>, Houston Texans at Los Angeles Chargers a las <strong>22:05</strong>, y tres partidos a las
-            <strong>22:25</strong>. Pregunta en barra qué echan. No está cada partido en cada pantalla.
-          </p>
-          <ul>
-            <li><strong>19:00</strong> — Broncos at Panthers · Cowboys at Colts · Jets at Chiefs · Lions at Dolphins · Browns at Saints · Giants at Eagles · Rams at Commanders</li>
-            <li><strong>22:05</strong> — Texans at Chargers</li>
-            <li><strong>22:25</strong> — Raiders at 49ers · Packers at Patriots · Cardinals at Seahawks</li>
-          </ul>
-        </div>
-      )}
+      <h2>NFL del domingo en pantalla</h2>
+      <p>
+        La NFL del domingo va en las pantallas de interior cuando está en la lista. Los listados con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a>. Pregunta qué echan.
+      </p>
 
       <h2>Bar deportivo Sol Madrid</h2>
       <p>
-        Un bar deportivo Sol Madrid, entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Horario:
-        {hoursLine}. Domingo 8 de noviembre: desde las 12:00.
-        Las cuatro puertas hermanas están abiertas ahora. Four Corner está abierto desde las 14:00 con pantallas de deporte.
+        Un bar deportivo Sol Madrid, entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras. Horario: {hoursLine}.
         Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
       <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
 
-      {showWeekend && (
-        <div data-show-until={SHOW_UNTIL}>
-          <h2>Atlético–Barça junto a Sol domingo 21:00</h2>
-          <p>
-            <strong>Domingo 8 de noviembre, 21:00</strong> hora de Madrid: Atlético de Madrid vs FC Barcelona (LaLiga, Riyadh Air
-            Metropolitano). Ese kick-off cae entre la ventana NFL de las 19:00 y los partidos de las 22:05 / 22:25. La misma
-            pauta: pregunta en barra qué echan.
-          </p>
-          <p>
-            La noche anterior, <strong>sábado 7 de noviembre, 21:00</strong>: Valencia vs Real Madrid, en
-            <strong>Orange TV</strong> y <strong>DAZN</strong>, en Dubliners.
-          </p>
-        </div>
-      )}
-
       <h2>Datos prácticos</h2>
       <p>
         Dirección: Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2).
-        En el mismo tramo: O’Connell’s (Espoz y Mina 7) y O’Reilly’s Restaurant Bar (Pasaje de Matheu 4) —
-        ver <a href={withBase('/es/cuatro-bares-fin-de-semana/')}>Cuatro bares. Un gran fin de semana deportivo</a>.
+        En el mismo tramo: O’Connell’s (Espoz y Mina 7) y O’Reilly’s Restaurant Bar (Pasaje de Matheu 4).
       </p>
       <div class="map-frame"><MapEmbed title="Mapa de Dubliners Madrid" lang="es" /></div>
       <p>
         Lista NFL del domingo: <a href={withBase('/es/nfl-madrid/')}>NFL en Madrid</a>.
-        Hora a hora: <a href={withBase('/es/guia-domingo-nfl-madrid/')}>guía del domingo NFL</a>.
-      </p>
-      <p class="small">
-        Somos un punto de encuentro local para aficionados; no formamos parte de los actos de la liga ni de la organización del estadio.
       </p>
       <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Where to watch NFL in Madrid near Puerta del Sol</a></p>
 
@@ -196,10 +136,10 @@ const faqLd = {
       <dl class="faq">
         <dt><strong>¿Dónde ver la NFL en Madrid junto a Puerta del Sol?</strong></dt>
         <dd>En Dubliners, pub irlandés deportivo en Calle de Espoz y Mina 7, a un corto paseo de la Puerta del Sol (Metro Sol L1/L2/L3 o Sevilla L2). Punto de encuentro; pregunta en barra qué partido echan.</dd>
-        <dt><strong>¿A qué hora es el Bengals–Falcons en Madrid el domingo 8 de noviembre?</strong></dt>
-        <dd>Domingo 8 de noviembre de 2026 a las 15:30 hora de Madrid (9:30 a.m. ET), en el Santiago Bernabéu. En España va en DAZN y Cuatro. En Dubliners, en pantalla grande desde las 15:30. Abrimos desde las 12:00 ese domingo.</dd>
+        <dt><strong>¿Qué partidos NFL hay este domingo?</strong></dt>
+        <dd>Listados con nombre en <a href={withBase('/es/partidos/')}>Partidos</a> cuando están confirmados. Pregunta en barra qué pantalla.</dd>
         <dt><strong>¿Cuál es el horario de Dubliners?</strong></dt>
-        <dd>{hoursLine}. Domingo 8 de noviembre: desde las 12:00.</dd>
+        <dd>{hoursLine}.</dd>
       </dl>
 
       <LinkHub
@@ -209,8 +149,6 @@ const faqLd = {
             title: 'NFL en Dubliners',
             items: [
               { href: '/es/nfl-madrid/', label: 'NFL en Madrid', note: 'Calendario del domingo' },
-              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: SHOW_UNTIL },
-              { href: '/es/cuatro-bares-fin-de-semana/', label: 'Cuatro bares · fin de semana', note: 'Junto a Sol este finde' },
               { href: '/es/partidos/', label: 'Partidos y eventos', note: 'Agenda confirmada' },
               { href: PATH_EN, label: 'Where to watch NFL in Madrid', note: 'In English', hreflang: 'en', lang: 'en' },
             ],

@@ -1,11 +1,8 @@
 ---
 /**
- * Four sister bars + Maps for original weekend articles only.
- * Tonight: three doors open; Four Corner is Sunday 14:00.
- * Sunday: all four, Four Corner from 14:00 with sports screens.
+ * Four sister bars + Maps. Campaign copy retired 9 Nov 2026 (past tense).
  */
 import { FOUR_BARS_MAPS } from '../data/fourBars';
-import FanWeekendCtas from './FanWeekendCtas.astro';
 import { withBase } from '../site';
 
 interface Props {
@@ -13,10 +10,9 @@ interface Props {
   when: 'tonight' | 'sunday';
   findHref?: string;
 }
-const { lang, when, findHref } = Astro.props;
+const { lang } = Astro.props;
 const MAPS = FOUR_BARS_MAPS;
 const es = lang === 'es';
-const sunday = when === 'sunday';
 const home = es ? '/es/' : '/';
 const hub = es ? '/es/cuatro-bares-fin-de-semana/' : '/4-bars-one-fan-weekend/';
 ---
@@ -24,107 +20,50 @@ const hub = es ? '/es/cuatro-bares-fin-de-semana/' : '/4-bars-one-fan-weekend/';
 {es ? (
   <>
     <h2>Los cuatro bares hermanos</h2>
-    {sunday ? (
-      <p>
-        Domingo 8 nov. O’Reilly’s desde las 11:30, Dubliners y O’Connell’s desde las 12:00, Four Corner desde las 14:00
-        (pantallas de deporte). Preguntad en barra qué hay en pantalla — no todos los partidos van en todas las pantallas.
-      </p>
-    ) : (
-      <p>
-        Esta noche (sábado 7 nov) están abiertos tres: O’Reilly’s, Dubliners y O’Connell’s. Four Corner no abre hoy —
-        entra el domingo 8 nov desde las 14:00, con pantallas de deporte. Hoy no hay NFL oficial.
-      </p>
-    )}
-
-    <h3>O'Reilly's Restaurant Bar</h3>
     <p>
-      Pasaje de Matheu 4, 28012 Madrid.<br />
-      Restaurante-bar con terraza. Horario habitual: todos los días 11:30–01:30.
-      {sunday ? '' : ' Abierto para la quedada 18:00–19:00.'}<br />
-      <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Reilly's en Google Maps</a>
-    </p>
-
-    <h3>Dubliners</h3>
-    <p>
-      Calle de Espoz y Mina 7, 28012 Madrid.<br />
-      {sunday
-        ? 'Domingo 8 nov: 12:00–02:00. Pantallas confirmadas para Bengals–Falcons 15:30, NFL desde las 19:00 / 22:05 / 22:25 y Atlético–Barcelona 21:00 — preguntad qué echan.'
-        : 'Sábado 12:00–02:30. Quedada 18:00–19:00. Valencia–Real Madrid 21:00 EN DIRECTO solo aquí. Hoy no hay NFL.'}<br />
-      <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Dubliners en Google Maps</a>
-    </p>
-
-    <h3>O'Connell's</h3>
-    <p>
-      Calle de Espoz y Mina 7, 28012 Madrid (misma calle que Dubliners; en Maps figura como O'Connell St).<br />
-      {sunday
-        ? 'Excepción domingo 8 nov: abre desde las 12:00 (habitual 14:00–03:00). Punto de encuentro; no listamos su programación.'
-        : 'Sábado habitual 15:00–03:30 — ya abierto a las 18:00. Punto de encuentro; no copiamos aquí la parrilla de Dubliners.'}<br />
-      <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Connell's en Google Maps</a>
-    </p>
-
-    <h3>Four Corner</h3>
-    <p>
-      Calle de la Victoria 6, 28012 Madrid.<br />
-      {sunday
-        ? 'Domingo 8 nov: abre a las 14:00 hasta la madrugada. Tiene pantallas de deporte. No listamos qué partidos echa.'
-        : 'No abre esta noche. Domingo 8 nov desde las 14:00 hasta la madrugada · pantallas de deporte. Sin horario de sábado ni lista de partidos.'}<br />
-      <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Four Corner en Google Maps</a>
+      Archivo del 7 y 8 de noviembre de 2026. Ese fin de semana ya pasó.
+      O’Reilly’s (Pasaje de Matheu 4), Dubliners y O’Connell’s (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6)
+      siguen en las mismas calles — contexto geográfico.
     </p>
   </>
 ) : (
   <>
     <h2>The four sister bars</h2>
-    {sunday ? (
-      <p>
-        Sunday 8 Nov. O’Reilly’s from 11:30, Dubliners and O’Connell’s from 12:00, Four Corner from 14:00
-        (sports screens). Ask at the bar which game is on — not every game on every screen.
-      </p>
-    ) : (
-      <p>
-        Tonight (Saturday 7 Nov) three doors are open: O’Reilly’s, Dubliners and O’Connell’s. Four Corner is not open tonight —
-        it joins Sunday 8 Nov from 14:00, with sports screens. No official NFL game Saturday.
-      </p>
-    )}
-
-    <h3>O'Reilly's Restaurant Bar</h3>
     <p>
-      Pasaje de Matheu 4, 28012 Madrid.<br />
-      Restaurant-bar with terrace. Usual hours: daily 11:30–01:30.
-      {sunday ? '' : ' Open for the 18:00–19:00 meetup.'}<br />
-      <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Reilly's on Google Maps</a>
-    </p>
-
-    <h3>Dubliners</h3>
-    <p>
-      Calle de Espoz y Mina 7, 28012 Madrid.<br />
-      {sunday
-        ? 'Sunday 8 Nov: 12:00–02:00. Confirmed screens for Bengals–Falcons 15:30, NFL from 19:00 / 22:05 / 22:25 and Atlético–Barcelona 21:00 — ask which game is on.'
-        : 'Saturday 12:00–02:30. Meetup 18:00–19:00. Valencia vs Real Madrid 21:00 LIVE here only. No NFL tonight.'}<br />
-      <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Dubliners on Google Maps</a>
-    </p>
-
-    <h3>O'Connell's</h3>
-    <p>
-      Calle de Espoz y Mina 7, 28012 Madrid (same street as Dubliners; Maps listing: O'Connell St).<br />
-      {sunday
-        ? 'Exception Sunday 8 Nov: open from 12:00 (usual 14:00–03:00). Meeting point; we do not list its broadcasts.'
-        : 'Usual Saturday 15:00–03:30 — already open by 18:00. Meeting point; we do not copy Dubliners’ board here.'}<br />
-      <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Connell's on Google Maps</a>
-    </p>
-
-    <h3>Four Corner</h3>
-    <p>
-      Calle de la Victoria 6, 28012 Madrid.<br />
-      {sunday
-        ? 'Sunday 8 Nov: opens 14:00 until late. Has sports screens. We do not list which games it shows.'
-        : 'Not open tonight. Sunday 8 Nov from 14:00 until late · sports screens. No Saturday hours and no match list.'}<br />
-      <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Four Corner on Google Maps</a>
+      Archive of 7 and 8 November 2026. That weekend has passed.
+      O’Reilly’s (Pasaje de Matheu 4), Dubliners and O’Connell’s (Espoz y Mina 7) and Four Corner (Calle de la Victoria 6)
+      still sit on those streets — geographic context only.
     </p>
   </>
 )}
 
+<h3>O'Reilly's Restaurant Bar</h3>
 <p>
-  {es ? 'Maps:' : 'Maps:'}
+  Pasaje de Matheu 4, 28012 Madrid.<br />
+  {es ? 'Horario habitual: todos los días 11:30–01:30.' : 'Usual hours: daily 11:30–01:30.'}<br />
+  <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Reilly's on Google Maps</a>
+</p>
+<h3>Dubliners</h3>
+<p>
+  Calle de Espoz y Mina 7, 28012 Madrid.<br />
+  {es ? 'Lun–jue y dom 12:00–02:00 · vie–sáb 12:00–02:30.' : 'Sun–Thu 12:00–02:00 · Fri–Sat 12:00–02:30.'}<br />
+  <a href={MAPS.dubliners} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Dubliners on Google Maps</a>
+</p>
+<h3>O'Connell's</h3>
+<p>
+  Calle de Espoz y Mina 7, 28012 Madrid.<br />
+  {es ? 'Domingo habitual desde las 14:00.' : 'Usual Sunday from 14:00.'}<br />
+  <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">O'Connell's on Google Maps</a>
+</p>
+<h3>Four Corner</h3>
+<p>
+  Calle de la Victoria 6, 28012 Madrid.<br />
+  {es ? 'Abierto desde las 14:00 hasta la madrugada · pantallas de deporte.' : 'Open from 14:00 until late · sports screens.'}<br />
+  <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">Four Corner on Google Maps</a>
+</p>
+
+<p>
+  Maps:
   {' '}
   <a href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's</a>
   {' · '}
@@ -132,27 +71,20 @@ const hub = es ? '/es/cuatro-bares-fin-de-semana/' : '/4-bars-one-fan-weekend/';
   {' · '}
   <a href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's</a>
   {' · '}
-  <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner{sunday ? '' : es ? ' (domingo 14:00)' : ' (Sunday 14:00)'}</a>
+  <a href={MAPS.fourCorner} rel="noopener noreferrer" target="_blank">Four Corner</a>
 </p>
-
-<FanWeekendCtas lang={lang} findHref={findHref} />
 <p class="small">
   {es ? (
     <>
       <a href={withBase(home)}>Inicio Dubliners</a>
       {' · '}
-      <a href={withBase(hub)}>VER LOS CUATRO BARES</a>
+      <a href={withBase(hub)}>Archivo de aquel fin de semana</a>
     </>
   ) : (
     <>
       <a href={withBase(home)}>Dubliners home</a>
       {' · '}
-      <a href={withBase(hub)}>MEET US NEAR SOL</a>
+      <a href={withBase(hub)}>That weekend’s archive</a>
     </>
   )}
-</p>
-<p class="small">
-  {es
-    ? 'Pubs independientes. No es un evento oficial de la NFL. Sin descuentos ni reservas inventadas.'
-    : 'Independent pubs. Not an official NFL event. No invented discounts or bookings.'}
 </p>

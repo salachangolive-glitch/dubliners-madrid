@@ -1,35 +1,33 @@
 ---
 /**
- * Campaign CTAs — exact labels: FIND US / GET DIRECTIONS / MEET US NEAR SOL /
- * CÓMO LLEGAR / VER LOS CUATRO BARES.
+ * CTAs used where the 7–8 Nov campaign once sat. No live “come this weekend” invite.
  */
 import { withBase } from '../site';
-import { FAN_WEEKEND_HUB, FOUR_BARS_MAPS } from '../data/fourBars';
+import { SITE } from '../site';
 
 interface Props {
   lang?: 'en' | 'es';
-  /** In-page FIND US target; falls back to Visit. */
   findHref?: string;
 }
 const { lang = 'en', findHref } = Astro.props;
 const es = lang === 'es';
-const hub = FAN_WEEKEND_HUB[lang];
 const find = findHref ?? (es ? '/es/visitar/' : '/visit/');
 const findAbs = find.startsWith('#') ? find : withBase(find);
+const whats = es ? '/es/partidos/' : '/whats-on/';
 ---
 
 <div class="cta-row fan-weekend-ctas" data-track-location="fan-weekend-ctas">
   {es ? (
     <>
-      <a class="btn btn-gold" data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
-      <a class="btn btn-primary" href={withBase(hub)}>VER LOS CUATRO BARES</a>
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+      <a class="btn btn-primary" href={withBase(whats)}>Partidos</a>
       <a class="btn btn-secondary" href={findAbs}>FIND US</a>
     </>
   ) : (
     <>
       <a class="btn btn-gold" href={findAbs}>FIND US</a>
-      <a class="btn btn-primary" data-track-event="directions_click" href={FOUR_BARS_MAPS.dubliners} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
-      <a class="btn btn-secondary" href={withBase(hub)}>MEET US NEAR SOL</a>
+      <a class="btn btn-primary" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+      <a class="btn btn-secondary" href={withBase(whats)}>What's On</a>
     </>
   )}
 </div>

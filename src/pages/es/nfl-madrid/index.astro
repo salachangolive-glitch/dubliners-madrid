@@ -5,11 +5,7 @@ import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../../site';
-import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../../components/FourBarsMeet.astro';
-import { isFanWeekendLive } from '../../../data/fourBars';
 
-const fanWeekend = isFanWeekendLive();
 const title = 'Bar NFL Madrid | Ver NFL en Madrid cerca de Puerta del Sol — Dubliners';
 const description =
   'Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Listados con nombre: Partidos. CÓMO LLEGAR.';
@@ -63,18 +59,13 @@ const faqLd = {
         Ver NFL en Madrid en pantallas de interior cuando está en la lista. Los domingos con nombre están en
         <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
-      {fanWeekend ? (
-        <FanWeekendCtas lang="es" />
-      ) : (
-        <div class="cta-row">
-          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
-          <a class="btn btn-primary" href={withBase('/es/visitar/')}>FIND US</a>
-          <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Ver partidos</a>
-        </div>
-      )}
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-primary" href={withBase('/es/visitar/')}>FIND US</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Ver partidos</a>
+      </div>
     </div>
   </section>
-  {fanWeekend && <FourBarsMeet lang="es" />}
   <section class="section">
     <div class="container prose">
       <h2>Bar NFL Madrid</h2>
@@ -166,7 +157,7 @@ const faqLd = {
           <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">CÓMO LLEGAR</a>
           (CID 4384002297188950803).
         </dd>
-        <dt><strong>¿Es crónica del 8 de noviembre?</strong></dt>
+        <dt><strong>¿Es crónica de un Madrid Game pasado?</strong></dt>
         <dd>No. NFL del domingo evergreen en esta puerta — confirma en Partidos.</dd>
       </dl>
 

@@ -9,11 +9,7 @@ import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
 
 import { madridToday } from '../../data/fixtures';
-import FourBarsMeet from '../../components/FourBarsMeet.astro';
-import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
-import { isFanWeekendLive } from '../../data/fourBars';
 const todayKey = madridToday();
-const fanWeekend = isFanWeekendLive();
 const title = 'Pub irlandés Madrid cerca de Sol | Bar deportivo, NFL y rugby — Dubliners';
 const description =
   'Pub irlandés y bar deportivo en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.';
@@ -61,11 +57,10 @@ const description =
       <p class="nap-line">
         <strong>{SITE.address}</strong>, {SITE.postal} · Metro Sol (L1, L2, L3) o Sevilla (L2)
       </p>
-      {fanWeekend ? <FanWeekendCtas lang="es" findHref="#find-us" /> : <CtaRow lang="es" showWednesday={false} />}
+      <CtaRow lang="es" showWednesday={false} />
     </div>
   </section>
 
-  {fanWeekend && <FourBarsMeet lang="es" />}
 
   <!-- 2b. Fútbol (DG 27 oct: fútbol + público internacional) -->
   <section class="section" id="futbol">
@@ -96,9 +91,9 @@ const description =
         {todayKey <= '2026-10-31' && (
           <p data-show-until="2026-10-31"><strong>Halloween en Dubliners: sábado 31 de octubre, desde las 19:00.</strong> Disfraces, decoración y música. <a href={withBase('/es/halloween-madrid-2026/')}>Halloween en Madrid junto a Sol</a></p>
         )}
-        {todayKey <= '2026-11-08' && (
-          <p data-show-until="2026-11-08">
-            Deporte en directo este fin de semana (7–8 nov, hora de Madrid): sábado Premier League (Leeds–Tottenham 13:30, Arsenal–Hull y Fulham–Newcastle 16:00, Forest–Man City 18:30) y rugby España–Uruguay 16:00 · domingo NFL Bengals–Falcons 15:30, Premier League desde las 15:00 y Atlético–Barcelona 21:00 — abrimos desde las 12:00. Confirmados en pantallas; si coinciden, pantallas distintas.
+        {todayKey <= '2026-11-15' && (
+          <p data-show-until="2026-11-15">
+            Deporte en directo esta semana (lun 9–dom 15 nov, hora de Madrid): jueves Real Madrid–Estrella Roja (EuroLeague) 21:00 · sábado rugby España–Chile 17:00 en el Estadio Ontime Butarque, Leganés · sábado Austria–República de Irlanda 20:45 e Irlanda–Fiyi 21:10 — <a href={withBase('/irish-double-saturday-madrid/')} hreflang="en">sábado doble irlandés</a> · domingo NFL desde las 15:30, luego 19:00, 22:05 y 22:25 · domingo España–Inglaterra 20:45 en el Metropolitano (La 1). Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
         )}
         <div class="cta-row">
@@ -156,48 +151,8 @@ const description =
             title: 'NFL y deportes americanos',
             id: 'nfl-deportes-americanos',
             items: [
-              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES', note: 'Cuatro bares junto a Sol, 7–8 nov', until: '2026-11-08' },
-              { href: '/es/del-hotel-sol-primera-calle-domingo-victoria-6/', label: 'Hotel en Sol: primera calle del domingo es Victoria 6', note: 'Llegad antes de las 14:00, luego tres puertas hermanas', until: '2026-11-08' },
-              { href: '/es/despierta-sol-bloque-premier-que-puerta/', label: 'Despertar: Premier 15:00 — qué puerta del domingo', note: 'Luego United 17:30 · cuatro puertas junto a Sol', until: '2026-11-08' },
-              { href: '/es/barajas-madrugada-a-sol-hasta-1400/', label: 'Aterrizaje Barajas ~03:00: taxi a Sol', note: 'Primera puerta útil Four Corner 14:00, luego tres hermanas', until: '2026-11-08' },
-              { href: '/es/dos-calles-todo-el-dia-premier-nfl-atleti/', label: 'Dos calles todo el día: Premier, NFL, Atleti', note: 'Victoria + Espoz y Mina · no partáis la ciudad', until: '2026-11-08' },
-              { href: '/es/primer-metro-a-sol-domingo-estacion-a-puerta/', label: 'Primer Metro a Sol el domingo: de la estación a la puerta', note: 'Victoria 6 / Espoz y Mina / Matheu · cuando arranque el Metro', until: '2026-11-08' },
-              { href: '/es/brighton-ipswich-1500-sol-sin-liverpool-chelsea-united/', label: 'Sin Liverpool/Chelsea/United: Brighton e Ipswich 15:00', note: 'Fútbol inglés más tranquilo · cuatro bares · preguntad qué pantalla', until: '2026-11-08' },
-              { href: '/es/plaza-mayor-soportales-cuesta-abajo-puertas-sol-antes-1400/', label: 'Soportales de Plaza Mayor cuesta abajo antes de las 14:00', note: 'Ruta turística · metros + Maps · plaza, no recinto de aficionados', until: '2026-11-08' },
-              { href: '/es/espoz-mina-7-dos-puertas-reparte-premier-luego-nfl/', label: 'Espoz y Mina 7: dos puertas, un número', note: 'Premier 15:00 frente a NFL después · luego Matheu + Victoria 6', until: '2026-11-08' },
-              { href: '/es/atocha-cercanias-una-parada-a-sol-puertas-antes-1400/', label: 'Atocha Cercanías: una parada a Sol antes de las 14:00', note: 'C3/C4 tren, no Metro · vestíbulo a las cuatro puertas', until: '2026-11-08' },
-              { href: '/es/galeria-acristalada-matheu-4-primera-pinta-antes-saque-domingo/', label: 'Pasaje de Matheu 4: galería cubierta, primera pinta', note: 'Techo de cristal antes de las 15:00 · luego Espoz y Mina + Victoria 6', until: '2026-11-08' },
-              { href: '/es/callao-preciados-compras-sur-puertas-sol-antes-1400/', label: 'Callao–Preciados: compras al sur, cuatro puertas antes de las 14:00', note: 'Calle comercial · de bolsas a pinta · ~3 h a Victoria 6', until: '2026-11-08' },
-              { href: '/es/mesa-oreillys-tres-horas-hasta-victoria-6-1400/', label: 'Tres horas libres: mesa en O’Reilly’s hasta las 14:00', note: 'Sentaos en Matheu 4 · luego salto a Victoria 6 + Espoz y Mina 7', until: '2026-11-08' },
-              { href: '/es/ultima-hora-antes-four-corner-1400/', label: 'Última hora: O’Reilly’s y Dubliners ahora, andad a las 14:00', note: 'Habitual 11:30 / 12:00 ahora · Four Corner + puerta habitual de O’Connell’s', until: '2026-11-08' },
-              { href: '/es/tirso-anton-martin-norte-puertas-sol-antes-1400/', label: 'Tirso / Antón Martín: al norte a las cuatro puertas antes de las 14:00', note: 'L1 al sur de Sol · Magdalena / Cruz · metros + Maps', until: '2026-11-08' },
-              { href: '/es/salida-bernabeu-a-las-cuatro-puertas-sol/', label: 'Salida del Bernabéu a las cuatro puertas abiertas de Sol', note: 'Google Maps desde el estadio · Four Corner está abierto', until: '2026-11-08' },
-              { href: '/es/despues-madrid-game-seguir-cuatro-puertas-abiertas/', label: 'Después del Madrid Game: cuatro puertas abiertas, NFL luego Atleti', note: 'Punto de encuentro · NFL 19:00 luego 21:00 · preguntad qué echan', until: '2026-11-08' },
-              { href: '/es/ya-en-sol-durante-madrid-game-cuatro-puertas-abiertas/', label: 'Ya en Sol durante el Madrid Game: cuatro puertas abiertas AHORA', note: 'Quedada en la ciudad mientras el estadio sigue · las cuatro puertas abiertas AHORA', until: '2026-11-08' },
-              { href: '/es/bengals-falcons-reparte-dos-puertas-espoz-mina-7/', label: 'Bengals y Falcons: dos puertas en Espoz y Mina 7', note: 'Mismo número, dos CID · las cuatro puertas abiertas AHORA · preguntad qué echan', until: '2026-11-08' },
-              { href: '/es/quedarse-despues-united-villa-1730-cuatro-puertas-abiertas/', label: 'Después de United–Villa 17:30: quedarse en las cuatro puertas abiertas', note: 'NFL 19:00 luego Atleti 21:00 · las cuatro puertas abiertas AHORA', until: '2026-11-08' },
-              { href: '/es/metro-tarde-gran-via-sevilla-a-puertas-sol-abiertas/', label: 'Metro de tarde: Gran Vía o Sevilla a Victoria 6', note: 'Llegada de domingo · cuatro puertas abiertas AHORA · Espoz y Mina 7', until: '2026-11-08' },
-              { href: '/es/nfl-en-pantalla-ahora-1900-luego-saltar-atleti-2100/', label: 'NFL en pantalla AHORA desde las 19:00 — luego saltar a Atleti 21:00', note: 'Ventana 19:00 en vivo · cuatro puertas abiertas AHORA · salto a las 21:00', until: '2026-11-08' },
-              { href: '/es/en-plaza-sol-ultimos-metros-a-puertas-1900/', label: 'En la plaza de Sol: últimos metros a las puertas 19:00', note: 'Pavimento de la plaza · Victoria 6 / Espoz y Mina 7 / Matheu 4', until: '2026-11-08' },
-              { href: '/es/atleti-barca-saque-ahora-cuatro-puertas-sol-abiertas/', label: 'Atleti–Barça saque AHORA en las cuatro puertas abiertas de Sol', note: 'Silbato 21:00 · cuatro puertas abiertas AHORA · preguntad qué echan', until: '2026-11-08' },
-              { href: '/es/quedarse-despues-atleti-2100-nfl-tarde-2205-2225/', label: 'Quedarse después de las 21:00: NFL 22:05 / 22:25 en las mismas cuatro puertas', note: 'No os vayáis · 22:05 luego 22:25 · cuatro puertas abiertas AHORA', until: '2026-11-08' },
-              { href: '/es/nfl-tarde-en-pantalla-ahora-2205-2225-cuatro-puertas-sol/', label: 'NFL de después en pantalla AHORA: 22:05 / 22:25 en las cuatro puertas abiertas de Sol', note: 'Hora de ahora · cuatro puertas abiertas AHORA · preguntad qué echan', until: '2026-11-08' },
-              { href: '/es/ultimo-metro-cercanias-salida-sol-despues-2300/', label: 'Último Metro / Cercanías de salida de Sol después de las 23:00', note: 'Salida desde Victoria 6 / Espoz y Mina 7 / Matheu 4', until: '2026-11-08' },
-              { href: '/es/metro-sol-2100-que-puerta-sabado/', label: 'Metro Sol a las 21:00', note: 'Cuál de las tres puertas del sábado + minutos a pie', until: '2026-11-07' },
-              { href: '/es/turistas-ingleses-horas-sabado-hasta-premier/', label: 'Turistas ingleses: el sábado hasta las 15:00', note: 'Luego pila de cuatro bares desde Victoria 6', until: '2026-11-08' },
-              { href: '/es/saltar-dos-calles-ultima-pinta-despues-derbi/', label: 'Última pinta después de Valencia–RM', note: 'Tres puertas en dos calles + metros a pie', until: '2026-11-07' },
-              { href: '/es/quince-horas-sol-hasta-four-corner-1400/', label: 'Reloj de madrugada: 15 horas hasta las 14:00', note: 'Quedarse en Sol hasta Four Corner + Premier 15:00', until: '2026-11-08' },
-              { href: '/es/fin-de-semana-nfl-ya-se-vive/', label: 'Quedada 18:00–19:00', note: 'Tres bares abiertos el sábado', until: '2026-11-07' },
-              { href: '/es/quedada-1800-pasaje-matheu-espoz-mina/', label: 'Quedada, orden del paseo 18:00–19:00', note: 'Pasaje de Matheu a Espoz y Mina', until: '2026-11-07' },
-              { href: '/es/andar-sol-cuatro-bares-hermanos/', label: 'Andar desde Sol a los cuatro bares', note: 'Esta noche tres puertas · domingo Victoria 6', until: '2026-11-08' },
-              { href: '/es/aficionados-nfl-internacionales-sol/', label: 'Aficionados NFL internacionales', note: 'Salas en inglés junto a Sol', until: '2026-11-08' },
-              { href: '/es/fin-semana-nfl-madrid-en-pantalla/', label: 'Fin de semana en pantalla, sin estadio', note: 'Quedarse en Sol sábado y domingo', until: '2026-11-08' },
-              { href: '/es/comida-domingo-luego-pantallas-sol/', label: 'Comida el domingo y luego pantallas', note: 'O’Reilly’s y luego Dubliners 15:30', until: '2026-11-08' },
-              { href: '/es/redzone-domingo-sol-dubliners/', label: 'RedZone el domingo noche', note: 'Preguntad qué pantalla a las 19:00', until: '2026-11-08' },
-              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner domingo 14:00', note: 'Pantallas de deporte · Victoria 6', until: '2026-11-08' },
               { href: '/es/nfl-madrid/', label: 'Ver NFL en Madrid', note: 'Bar NFL Madrid · pantallas del domingo' },
-              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
-              { href: '/es/deportes-domingo-sol/', label: 'Deportes el domingo en Sol', note: 'NFL + Atlético–Barça, 8 nov', until: '2026-11-08' },
+              { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Pub irlandés junto a Puerta del Sol' },
             ],
           },
           {
@@ -434,7 +389,7 @@ const description =
             style="margin-bottom:1rem"
           />
         </picture>
-        {fanWeekend ? <FanWeekendCtas lang="es" findHref="#punto-de-encuentro-sol" /> : <CtaRow lang="es" />}
+        <CtaRow lang="es" />
       </div>
       <div class="map-frame">
         <MapEmbed lang="es" title="Mapa a Dubliners Madrid" referrerpolicy="no-referrer-when-downgrade" />

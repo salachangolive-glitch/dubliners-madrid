@@ -6,12 +6,6 @@ import FixtureBoard from '../../../components/FixtureBoard.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../../data/fixtures';
-import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../../components/FourBarsMeet.astro';
-import { isFanWeekendLive } from '../../../data/fourBars';
-
-const fanWeekend = isFanWeekendLive();
-
 const title =
   'Partidos: deporte en directo en un pub irlandés y bar deportivo cerca de Sol';
 const description =
@@ -41,7 +35,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         Consulta el deporte en directo esta semana en este pub irlandés y bar deportivo cerca de Puerta del Sol: fútbol, NFL, NBA, rugby, Fórmula 1, tenis y más.
         Horarios en hora de Madrid. Los partidos marcados EN DIRECTO se emiten en nuestras pantallas. Los listados con nombre están solo en esta página.
       </p>
-      {fanWeekend ? <FanWeekendCtas lang="es" /> : <CtaRow lang="es" showWhatsOn={false} />}
+      <CtaRow lang="es" showWhatsOn={false} />
     </div>
   </section>
 
@@ -58,8 +52,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     </div>
   </section>
 
-  {fanWeekend && <FourBarsMeet lang="es" />}
-
   <section class="section">
     <div class="container prose">
       <h2>Deportes en directo en Dubliners</h2>
@@ -75,9 +67,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       {todayKey <= '2026-10-31' && (
         <p data-show-until="2026-10-31"><strong>Halloween en Dubliners: sábado 31 de octubre, desde las 19:00.</strong> Disfraces, decoración y música. <a href={withBase('/es/halloween-madrid-2026/')}>Halloween en Madrid junto a Sol</a></p>
       )}
-      {todayKey <= '2026-11-08' && (
-        <p data-show-until="2026-11-08">
-          Deporte en directo este fin de semana (7–8 nov, hora de Madrid): sábado Premier League (Leeds–Tottenham 13:30, Arsenal–Hull y Fulham–Newcastle 16:00, Forest–Man City 18:30) y rugby España–Uruguay 16:00 · domingo NFL Bengals–Falcons 15:30, Premier League desde las 15:00 y Atlético–Barcelona 21:00 — abrimos desde las 12:00. Confirmados en pantallas; si coinciden, pantallas distintas.
+      {todayKey <= '2026-11-15' && (
+        <p data-show-until="2026-11-15">
+          Deporte en directo esta semana (lun 9–dom 15 nov, hora de Madrid): jueves Real Madrid–Estrella Roja (EuroLeague) 21:00 · sábado rugby España–Chile 17:00 en el Estadio Ontime Butarque, Leganés · sábado Austria–República de Irlanda 20:45 e Irlanda–Fiyi 21:10 — <a href={withBase('/irish-double-saturday-madrid/')} hreflang="en">sábado doble irlandés</a> · domingo NFL desde las 15:30, luego 19:00, 22:05 y 22:25 · domingo España–Inglaterra 20:45 en el Metropolitano (La 1). Confirmados en pantallas; si coinciden, pantallas distintas.
         </p>
       )}
       {todayKey <= '2026-11-01' && (
@@ -116,7 +108,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             id: 'nfl-deportes-americanos',
             items: [
               { href: '/es/nfl-madrid/', label: 'Ver NFL en Madrid', note: 'Bar NFL Madrid cerca de Sol' },
-              { href: '/es/guia-domingo-nfl-madrid/', label: 'Guía del domingo NFL', note: 'Hora a hora, domingo 8 de noviembre' },
+              { href: '/es/donde-ver-nfl-madrid/', label: 'Dónde ver la NFL en Madrid', note: 'Pub irlandés junto a Puerta del Sol' },
             ],
           },
           {
@@ -138,6 +130,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
           {
             title: 'Promociones y eventos',
             items: [
+              { href: '/irish-double-saturday-madrid/', label: 'Sábado doble irlandés en Madrid', note: 'Austria–Irlanda 20:45 · Irlanda–Fiyi 21:10 · sábado 14 de noviembre (en inglés)', hreflang: 'en', until: '2026-11-14' },
               { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €', note: 'Todos los miércoles · pregunta en barra' },
               { href: '/es/oktoberfest-madrid-2026/', label: 'Temporada de Oktoberfest en Madrid', note: '22 oct–15 nov', until: '2026-11-15' },
               { href: '/de/oktoberfest-madrid-2026/', label: 'Oktoberfest-Zeit in Madrid', note: 'En alemán', hreflang: 'de', lang: 'de', until: '2026-11-15' },

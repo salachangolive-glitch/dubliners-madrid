@@ -1,126 +1,15 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
-import LinkHub from '../../../components/LinkHub.astro';
-import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
-import OriginalFourBars from '../../../components/OriginalFourBars.astro';
-import { withBase, absUrl } from '../../../site';
-import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../../data/fourBars';
-
-const PATH = '/es/comida-domingo-luego-pantallas-sol/';
-const PATH_EN = '/sunday-lunch-then-screens-sol/';
-const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
-const MAPS = FOUR_BARS_MAPS;
-const articleLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Comida el domingo en O’Reilly’s y luego pantallas de Bengals–Falcons en Dubliners',
-  inLanguage: 'es',
-  datePublished: '2026-11-07T18:50:00+01:00',
-  dateModified: '2026-11-07T18:50:00+01:00',
-  image: absUrl('/images/facade.jpg'),
-  mainEntityOfPage: absUrl(PATH),
-  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
-  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/es/') },
-};
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: '¿Dónde comer antes de la pantalla NFL de las 15:30?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'O’Reilly’s Restaurant Bar, Pasaje de Matheu 4, desde las 11:30. Luego un par de minutos a Dubliners, Espoz y Mina 7, para Bengals–Falcons EN DIRECTO a las 15:30.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Four Corner abre a tiempo para comer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. Four Corner abre el domingo a las 14:00 hasta la madrugada, con pantallas de deporte. La comida es O’Reilly’s desde las 11:30. Four Corner es la puerta después de comer, antes de las 15:30.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Esto es el sábado?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. El sábado no hay NFL oficial. Esta noche es quedada 18:00–19:00 y Valencia–Real Madrid 21:00 en Dubliners.',
-      },
-    },
-  ],
-};
+import PastWeekendArchive from '../../../components/PastWeekendArchive.astro';
 ---
 
-<BaseLayout
-  title="Comida el domingo y luego pantallas NFL junto a Sol | Dubliners"
-  description="Domingo 8 nov: comed en O’Reilly’s Pasaje de Matheu 4 desde las 11:30, luego pantallas en Dubliners a las 15:30. Four Corner desde las 14:00 con pantallas. Maps."
-  path={PATH}
+<PastWeekendArchive
   lang="es"
-  hreflang={{ en: PATH_EN, es: PATH }}
-  ogImage="/images/facade.jpg"
-  extraJsonLd={[articleLd, faqLd]}
->
-  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
-    <div class="container">
-      <Breadcrumb current="Comida el domingo y luego pantallas" lang="es" schema />
-      <h1>Comida el domingo en O’Reilly’s, luego pantallas de Bengals–Falcons en Dubliners</h1>
-      <p class="lead">
-        Si el grupo quiere comer antes de las 15:30, empezad en la terraza: Pasaje de Matheu 4 desde las 11:30.
-        Andad dos minutos a Espoz y Mina 7 para la pantalla grande confirmada. Four Corner abre a las 14:00 en medio, con pantallas de deporte — no es un listado de menú.
-      </p>
-      <p class="small">In English: <a href={withBase(PATH_EN)} hreflang="en" lang="en">Sunday lunch then NFL screens near Sol</a></p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.oreillys} rel="noopener noreferrer" target="_blank">O'Reilly's en Maps</a>
-        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners en Maps</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container prose">
-      <h2>11:30 comida, 14:00 cuarta puerta, 15:30 pantalla</h2>
-      <p>
-        O’Reilly’s es el restaurante-bar. Dubliners es la parrilla EN DIRECTO confirmada para Bengals–Falcons a las 15:30.
-        O’Connell’s es la puerta de al lado en Espoz y Mina desde las 12:00 este domingo. Four Corner, Victoria 6, desde las 14:00 — pantallas de deporte, sin lista de partidos.
-        Preguntad qué echan. No todos los partidos van en todas las pantallas.
-      </p>
-      <p>
-        Esta noche sigue siendo sábado: no hay NFL, quedada 18:00–19:00, Valencia–RM 21:00 en Dubliners. Planead esta comida desde esta noche.
-      </p>
-
-      <OriginalFourBars lang="es" when="sunday" />
-
-      <h2>Preguntas frecuentes</h2>
-      <dl class="faq">
-        <dt><strong>¿Dónde comer antes de la pantalla de las 15:30?</strong></dt>
-        <dd>O’Reilly’s, Pasaje de Matheu 4, desde las 11:30. Luego Dubliners para Bengals–Falcons EN DIRECTO.</dd>
-        <dt><strong>¿Four Corner come desde las 11:30 el domingo?</strong></dt>
-        <dd>No. Abre a las 14:00 con pantallas de deporte. Después de comer, antes de las 15:30.</dd>
-        <dt><strong>¿Esto es el sábado?</strong></dt>
-        <dd>No. Hoy no hay NFL oficial. Esta noche: quedada + Valencia 21:00 en Dubliners.</dd>
-      </dl>
-
-      <LinkHub
-        heading="h2"
-        groups={[
-          {
-            title: 'Domingo antes de las 15:30',
-            until: SHOW_UNTIL,
-            items: [
-              { href: '/es/', label: 'Inicio Dubliners' },
-              { href: '/es/cuatro-bares-fin-de-semana/', label: 'VER LOS CUATRO BARES' },
-              { href: '/es/que-bar-hermano-domingo-sol/', label: 'Qué bar hermano' },
-              { href: '/es/four-corner-abre-domingo-1400/', label: 'Four Corner 14:00' },
-              { href: PATH_EN, label: 'Sunday lunch then screens', note: 'In English', hreflang: 'en', lang: 'en' },
-            ],
-          },
-        ]}
-      />
-    </div>
-  </section>
-  <FixtureAntiStale />
-</BaseLayout>
+  path="/es/comida-domingo-luego-pantallas-sol/"
+  pathAlt="/sunday-lunch-then-screens-sol/"
+  title="Comida el domingo y luego pantallas NFL junto a Sol | Dubliners"
+  description="Archivo. Comida el domingo en O’Reilly’s, luego pantallas de Bengals–Falcons en Dubliners. El sábado 7 y el domingo 8 de noviembre de 2026 ya pasaron. NFL los domingos: Ver NFL en Madrid. Esta semana: Partidos."
+  h1="Comida el domingo en O’Reilly’s, luego pantallas de Bengals–Falcons en Dubliners"
+  crumb="Comida el domingo y luego pantallas"
+  summary="Comida el domingo en O’Reilly’s, luego pantallas de Bengals–Falcons en Dubliners. Esta página cubría el sábado 7 y el domingo 8 de noviembre de 2026 junto a Puerta del Sol. Ese fin de semana ya pasó. Dubliners puso NFL y fútbol en pantalla en Espoz y Mina 7 cuando figuraba en Partidos. Los bares hermanos O’Reilly’s, O’Connell’s y Four Corner están en las mismas calles — contexto geográfico, no una quedada de esta semana. Para la NFL de los domingos, ver NFL en Madrid. Para el deporte confirmado de esta semana, consulta Partidos."
+  variant="tactical"
+/>

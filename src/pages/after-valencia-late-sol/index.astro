@@ -1,126 +1,15 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
-import LinkHub from '../../components/LinkHub.astro';
-import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
-import OriginalFourBars from '../../components/OriginalFourBars.astro';
-import { withBase, absUrl } from '../../site';
-import { FOUR_BARS_MAPS, SHOW_UNTIL_FAN_WEEKEND } from '../../data/fourBars';
-
-const PATH = '/after-valencia-late-sol/';
-const PATH_ES = '/es/despues-valencia-madrugada-sol/';
-const SHOW_UNTIL = SHOW_UNTIL_FAN_WEEKEND;
-const MAPS = FOUR_BARS_MAPS;
-const articleLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'After Valencia–Real Madrid: late rooms on Espoz y Mina tonight',
-  inLanguage: 'en',
-  datePublished: '2026-11-07T18:50:00+01:00',
-  dateModified: '2026-11-07T18:50:00+01:00',
-  image: absUrl('/images/facade.jpg'),
-  mainEntityOfPage: absUrl(PATH),
-  author: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
-  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
-};
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Where can I stay after Valencia–Real Madrid tonight?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Dubliners, Espoz y Mina 7, Saturday until 02:30. O’Connell’s next door until 03:30. O’Reilly’s, Pasaje de Matheu 4, until 01:30. Four Corner is not open tonight.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is there live NFL after the 21:00 match?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. There is no official NFL game on Saturday 7 November. Sunday NFL starts 15:30.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'When does Four Corner join?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sunday 8 November from 14:00 until late, Calle de la Victoria 6, with sports screens. Not a Saturday late door.',
-      },
-    },
-  ],
-};
+import PastWeekendArchive from '../../components/PastWeekendArchive.astro';
 ---
 
-<BaseLayout
-  title="After Valencia–RM: late rooms near Sol tonight | Dubliners"
-  description="After 21:00 Valencia–Real Madrid at Dubliners: stay on Espoz y Mina until 02:30 / 03:30. O’Reilly’s until 01:30. No NFL Saturday. Four Corner Sunday 14:00."
-  path={PATH}
+<PastWeekendArchive
   lang="en"
-  hreflang={{ en: PATH, es: PATH_ES }}
-  ogImage="/images/facade.jpg"
-  extraJsonLd={[articleLd, faqLd]}
->
-  <section class="hero hero-compact" data-show-until={SHOW_UNTIL}>
-    <div class="container">
-      <Breadcrumb current="After Valencia–RM, late in Sol" schema />
-      <h1>After Valencia–Real Madrid: late rooms on Espoz y Mina tonight</h1>
-      <p class="lead">
-        Kick-off is 21:00 at Dubliners only. When the whistle goes, you are still in the same two streets.
-        Dubliners Saturday until <strong>02:30</strong>. O’Connell’s until <strong>03:30</strong>. O’Reilly’s until 01:30.
-        Four Corner is Sunday from 14:00 — not a late Saturday door. No official NFL tonight.
-      </p>
-      <p class="small">En español: <a href={withBase(PATH_ES)} hreflang="es" lang="es">Después de Valencia–RM: salas tarde en Sol</a></p>
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={MAPS.dubliners} rel="noopener noreferrer" target="_blank">Dubliners on Maps</a>
-        <a class="btn btn-secondary" data-track-event="directions_click" href={MAPS.oconnell} rel="noopener noreferrer" target="_blank">O'Connell's on Maps</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container prose">
-      <h2>Who is still open after 21:00</h2>
-      <p>
-        This is not the 18:00–19:00 meetup page and not the 21:00 broadcast page. It is the hour after the match,
-        when the group decides whether to stay on Espoz y Mina 7 or walk the passage back to Pasaje de Matheu 4 before O’Reilly’s 01:30 close.
-      </p>
-      <p>
-        Sunday is the NFL day: Dubliners from 12:00, Four Corner from 14:00 with sports screens, Bengals–Falcons 15:30 on our big screen.
-      </p>
-
-      <OriginalFourBars lang="en" when="tonight" />
-
-      <h2>FAQ</h2>
-      <dl class="faq">
-        <dt><strong>Where can I stay after Valencia–RM tonight?</strong></dt>
-        <dd>Dubliners until 02:30, O’Connell’s until 03:30, O’Reilly’s until 01:30. Four Corner is Sunday.</dd>
-        <dt><strong>Is there live NFL after 21:00?</strong></dt>
-        <dd>No. No official NFL Saturday. Sunday 15:30.</dd>
-        <dt><strong>When does Four Corner join?</strong></dt>
-        <dd>Sunday from 14:00 until late, sports screens, Victoria 6.</dd>
-      </dl>
-
-      <LinkHub
-        heading="h2"
-        groups={[
-          {
-            title: 'Tonight then Sunday',
-            until: SHOW_UNTIL,
-            items: [
-              { href: '/', label: 'Dubliners home' },
-              { href: '/4-bars-one-fan-weekend/', label: 'MEET US NEAR SOL' },
-              { href: '/saturday-night-sol-valencia-real-madrid/', label: 'Valencia–RM 21:00 at Dubliners' },
-              { href: '/tonight-valencia-then-sunday-sol/', label: 'Tonight then Sunday kick-off' },
-              { href: PATH_ES, label: 'Después de Valencia, madrugada', note: 'En español', hreflang: 'es', lang: 'es' },
-            ],
-          },
-        ]}
-      />
-    </div>
-  </section>
-  <FixtureAntiStale />
-</BaseLayout>
+  path="/after-valencia-late-sol/"
+  pathAlt="/es/despues-valencia-madrugada-sol/"
+  title="After Valencia–RM: late rooms near Sol tonight | Dubliners"
+  description="Archive. After Valencia–Real Madrid: late rooms on Espoz y Mina tonight. Saturday 7 and Sunday 8 November 2026 have passed. Sunday NFL: Watch NFL Madrid. This week: What’s On."
+  h1="After Valencia–Real Madrid: late rooms on Espoz y Mina tonight"
+  crumb="After Valencia–RM, late in Sol"
+  summary="After Valencia–Real Madrid: late rooms on Espoz y Mina tonight. This page covered Saturday 7 and Sunday 8 November 2026 near Puerta del Sol. That weekend has passed. Dubliners showed NFL and football on screens at Espoz y Mina 7 when listed. Sister bars O’Reilly’s, O’Connell’s and Four Corner sat on the same streets — geographic context, not a meetup for this week. For Sunday NFL from here on, see Watch NFL Madrid. For this week’s confirmed sport, see What’s On."
+  variant="tactical"
+/>

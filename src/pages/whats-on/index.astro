@@ -6,12 +6,6 @@ import FixtureBoard from '../../components/FixtureBoard.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
-import FanWeekendCtas from '../../components/FanWeekendCtas.astro';
-import FourBarsMeet from '../../components/FourBarsMeet.astro';
-import { isFanWeekendLive } from '../../data/fourBars';
-
-const fanWeekend = isFanWeekendLive();
-
 const title =
   'What\'s On: live sport at an Irish pub & sports bar near Sol';
 const description =
@@ -40,7 +34,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
         See this week’s live sport at this Irish pub and sports bar near Puerta del Sol — football, NFL, NBA, rugby, Formula 1, tennis and more.
         Times are Madrid time. Matches marked LIVE are on our screens. Named listings are on this page only.
       </p>
-      {fanWeekend ? <FanWeekendCtas lang="en" /> : <CtaRow showWhatsOn={false} />}
+      <CtaRow showWhatsOn={false} />
     </div>
   </section>
 
@@ -57,8 +51,6 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
     </div>
   </section>
 
-  {fanWeekend && <FourBarsMeet lang="en" />}
-
   <section class="section">
     <div class="container prose">
       <h2>Live sports at Dubliners</h2>
@@ -74,9 +66,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       {todayKey <= '2026-10-31' && (
         <p data-show-until="2026-10-31"><strong>Halloween at Dubliners: Saturday 31 October, from 19:00.</strong> Costumes, decorations and music. <a href={withBase('/halloween-madrid-2026/')}>Halloween in Madrid near Sol</a></p>
       )}
-      {todayKey <= '2026-11-08' && (
-        <p data-show-until="2026-11-08">
-          This weekend’s live sports (7–8 Nov, Madrid time): Saturday Premier League (Leeds–Tottenham 13:30, Arsenal–Hull and Fulham–Newcastle 16:00, Forest–Man City 18:30) and Spain–Uruguay rugby 16:00 · Sunday NFL Bengals–Falcons 15:30, Premier League from 15:00 and Atlético–Barcelona 21:00 — open from 12:00. Confirmed on our screens; clashes go on different screens.
+      {todayKey <= '2026-11-15' && (
+        <p data-show-until="2026-11-15">
+          This week’s live sports (Mon 9–Sun 15 Nov, Madrid time): Thursday Real Madrid–Crvena Zvezda (EuroLeague) 21:00 · Saturday Spain–Chile rugby 17:00 at Estadio Ontime Butarque, Leganés · Saturday Austria–Republic of Ireland 20:45 and Ireland–Fiji 21:10 — <a href={withBase('/irish-double-saturday-madrid/')}>Irish double Saturday</a> · Sunday NFL from 15:30, then 19:00, 22:05 and 22:25 · Sunday Spain–England 20:45 at the Metropolitano (La 1). Confirmed on our screens; clashes go on different screens.
         </p>
       )}
       {todayKey <= '2026-11-01' && (
@@ -115,7 +107,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             id: 'nfl-american-sports',
             items: [
               { href: '/nfl-madrid/', label: 'Watch NFL Madrid', note: 'NFL bar Madrid near Sol' },
-              { href: '/nfl-sunday-madrid-guide/', label: 'NFL Sunday guide', note: 'Hour by hour, Sunday 8 November' },
+              { href: '/where-to-watch-nfl-madrid/', label: 'Where to watch NFL in Madrid', note: 'Irish pub near Puerta del Sol' },
             ],
           },
           {

@@ -1,0 +1,169 @@
+---
+/**
+ * Short past-tense archive for 7–8 Nov 2026 campaign URLs.
+ * Same path, HTTP 200. No Event / SportsEvent JSON-LD. No “come this weekend” CTA.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from './Breadcrumb.astro';
+import LinkHub from './LinkHub.astro';
+import { SITE, withBase } from '../site';
+import { hoursSummary } from '../data/hours';
+
+interface Props {
+  lang: 'en' | 'es';
+  path: string;
+  pathAlt?: string;
+  title: string;
+  description: string;
+  h1: string;
+  crumb: string;
+  summary: string;
+  variant?: 'hub' | 'guide' | 'tactical';
+}
+
+const {
+  lang,
+  path,
+  pathAlt,
+  title,
+  description,
+  h1,
+  crumb,
+  summary,
+  variant = 'tactical',
+} = Astro.props;
+const es = lang === 'es';
+const hours = hoursSummary(lang);
+const nflHref = es ? '/es/nfl-madrid/' : '/nfl-madrid/';
+const whatsHref = es ? '/es/partidos/' : '/whats-on/';
+const visitHref = es ? '/es/visitar/' : '/visit/';
+const altLabel = es ? 'In English' : 'En español';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  lang={lang}
+  hreflang={pathAlt ? (es ? { en: pathAlt, es: path } : { en: path, es: pathAlt }) : undefined}
+  ogImage="/images/screens-sports.jpg"
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={crumb} lang={lang} schema />
+      <h1>{h1}</h1>
+      <p class="lead">{summary}</p>
+      <p class="small">
+        {es
+          ? 'Archivo · sábado 7 y domingo 8 de noviembre de 2026 · actualizado 9 de noviembre de 2026'
+          : 'Archive · Saturday 7 and Sunday 8 November 2026 · updated 9 November 2026'}
+      </p>
+      {pathAlt && (
+        <p class="small">
+          {es ? 'In English: ' : 'En español: '}
+          <a href={withBase(pathAlt)} hreflang={es ? 'en' : 'es'} lang={es ? 'en' : 'es'}>{altLabel}</a>
+        </p>
+      )}
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">
+          {es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}
+        </a>
+        <a class="btn btn-secondary" href={withBase(whatsHref)}>{es ? 'Partidos de esta semana' : "What's On this week"}</a>
+        <a class="btn btn-secondary" href={withBase(nflHref)}>{es ? 'Ver NFL en Madrid' : 'Watch NFL Madrid'}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      {
+        variant === 'hub' && (
+          es ? (
+            <>
+              <h2>Qué fue ese fin de semana</h2>
+              <p>
+                Esas URLs reunían un punto de encuentro junto a Puerta del Sol el 7 y 8 de noviembre de 2026:
+                Dubliners y O’Connell’s (Espoz y Mina 7), O’Reilly’s Restaurant Bar (Pasaje de Matheu 4) y Four Corner
+                (Calle de la Victoria 6). El fin de semana ya pasó. No hay quedada ni horario especial de aquel domingo.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>What that weekend was</h2>
+              <p>
+                Those URLs described a meeting point near Puerta del Sol on 7 and 8 November 2026:
+                Dubliners and O’Connell’s (Espoz y Mina 7), O’Reilly’s Restaurant Bar (Pasaje de Matheu 4) and Four Corner
+                (Calle de la Victoria 6). That weekend has passed. There is no live meetup and no special hours for that Sunday.
+              </p>
+            </>
+          )
+        )
+      }
+      {
+        variant === 'guide' && (
+          es ? (
+            <>
+              <h2>Guía de aquel domingo</h2>
+              <p>
+                Esta guía cubría el domingo 8 de noviembre de 2026 en Dubliners, Espoz y Mina 7: NFL y fútbol en pantalla
+                cuando figuraban en Partidos. El día ya pasó. Los domingos NFL que siguen se anuncian en
+                <a href={withBase(nflHref)}>Ver NFL en Madrid</a> y en <a href={withBase(whatsHref)}>Partidos</a>.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>That Sunday’s guide</h2>
+              <p>
+                This guide covered Sunday 8 November 2026 at Dubliners, Espoz y Mina 7: NFL and football on screens
+                when listed on What’s On. The day has passed. Ongoing Sunday NFL is on
+                <a href={withBase(nflHref)}>Watch NFL Madrid</a> and <a href={withBase(whatsHref)}>What’s On</a>.
+              </p>
+            </>
+          )
+        )
+      }
+
+      <h2>{es ? 'Dónde estamos' : 'Where we are'}</h2>
+      <p>
+        Dubliners Irish Pub, Calle de Espoz y Mina 7, 28012 Madrid — a un paso de Puerta del Sol.
+        Metro Sol (L1, L2, L3) o Sevilla (L2). {es ? 'Horario habitual:' : 'Usual hours:'} {hours}.
+      </p>
+      <p>
+        {es
+          ? 'En las mismas calles: O’Reilly’s (Pasaje de Matheu 4), O’Connell’s (Espoz y Mina 7) y Four Corner (Calle de la Victoria 6). Contexto geográfico; no es una quedada de esta semana.'
+          : 'On the same streets: O’Reilly’s (Pasaje de Matheu 4), O’Connell’s (Espoz y Mina 7) and Four Corner (Calle de la Victoria 6). Geographic context only — not a meetup for this week.'}
+      </p>
+
+      <h2>{es ? 'Qué ver ahora' : 'What to watch now'}</h2>
+      <p>
+        {es ? (
+          <>
+            NFL los domingos, cuando esté en la lista: <a href={withBase(nflHref)}>bar NFL Madrid</a>.
+            Agenda de esta semana (lun 9–dom 15 nov): <a href={withBase(whatsHref)}>Partidos</a>.
+            Horario y mapa: <a href={withBase(visitHref)}>Visitar</a>.
+          </>
+        ) : (
+          <>
+            Sunday NFL when listed: <a href={withBase(nflHref)}>NFL bar Madrid</a>.
+            This week’s board (Mon 9–Sun 15 Nov): <a href={withBase(whatsHref)}>What’s On</a>.
+            Hours and map: <a href={withBase(visitHref)}>Visit</a>.
+          </>
+        )}
+      </p>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: es ? 'Sigue en Dubliners' : 'Stay with Dubliners',
+            items: [
+              { href: whatsHref, label: es ? 'Partidos' : "What's On", note: es ? 'Deporte confirmado esta semana' : 'Confirmed sport this week' },
+              { href: nflHref, label: es ? 'Ver NFL en Madrid' : 'Watch NFL Madrid', note: es ? 'Domingos NFL, evergreen' : 'Sunday NFL, evergreen' },
+              { href: visitHref, label: es ? 'Visitar' : 'Visit', note: `${SITE.address}` },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/from-the-prado-steps-to-espoz-mina-7/';
+const PATH_ES = '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/';
+const title = 'From the Prado steps to Espoz y Mina 7 | Irish pub near Sol';
+const description =
+  'Finished the Prado? Walk Carrera de San Jerónimo through the Barrio de las Letras to an Irish pub at Espoz y Mina 7, just off Puerta del Sol. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I walk from the Prado to Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Leave the Prado west toward Plaza de las Cortes, take Carrera de San Jerónimo toward Sol, then Calle de Espoz y Mina to number 7 and the green neon. Street-level; Metro Sevilla (L2) if you prefer the last stretch underground.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Plaza Mayor sightseeing walk?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The plaza walk lives on Irish pub Madrid near Plaza Mayor. This page starts at the Prado steps and crosses the Barrio de las Letras to Espoz y Mina 7.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will there be a match after the museum?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Named fixtures stay on What’s On. If the list is empty, this is still an Irish pub after the pictures. Ask at the bar which screen, if any, is on.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="From the Prado steps to Espoz y Mina 7" schema />
+      <h1>From the Prado steps to Espoz y Mina 7</h1>
+      <p class="lead">
+        Leave the museum. Keep walking west through the Barrio de las Letras.
+        Dubliners is the indoor Irish pub at the Sol end of that walk — Calle de Espoz y Mina 7 — English at the bar, painted ceiling, pint after the pictures.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Museum afternoon, Irish pub at the Sol end</h2>
+      <p>
+        This is not the Plaza Mayor sightseeing loop — that is
+        <a href={withBase('/irish-pub-near-plaza-mayor/')}>Irish pub Madrid near Plaza Mayor</a>.
+        It is not the wet-plaza indoor pint —
+        <a href={withBase('/indoor-pint-when-plaza-mayor-is-wet/')}>Indoor pint when Plaza Mayor is wet</a> —
+        and it is not a Callao shopping street.
+        You are coming from the Prado steps, through Letras, to this door.
+      </p>
+      <p>
+        The room is the former Barragán tailor shop (1885). Coats from the galleries hang at the door. The pint does not need a terrace.
+      </p>
+
+      <h2>Street names, west from the steps</h2>
+      <ol>
+        <li>Leave the Prado toward <strong>Plaza de las Cortes</strong> / Carrera de San Jerónimo (west, toward Sol — not back toward Atocha).</li>
+        <li>Walk <strong>Carrera de San Jerónimo</strong> past the Congreso. You are in the Barrio de las Letras.</li>
+        <li>Keep west toward <strong>Sevilla</strong> and <strong>Puerta del Sol</strong>.</li>
+        <li>Turn onto <strong>Calle de Espoz y Mina</strong>. Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+      </ol>
+      <p>
+        Huertas, Cervantes and Lope de Vega sit just south of that axis if you came through the literary streets instead of the Carrera.
+        Metro Sevilla (L2) is the nearest stop if you skip the last metres. NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Screens only when What’s On says so</h2>
+      <p>
+        Live sport after a museum is a bonus, not a reason to invent a board. Named kick-offs stay on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.
+        If nothing is listed, sit anyway. Ask which game is on. Do not expect every match on every screen.
+      </p>
+      <p>
+        Wednesday €1 shots are already on the live site if that is the night you walk over —
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — from the Prado to Espoz y Mina 7" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>How do I walk from the Prado to Dubliners?</strong></dt>
+        <dd>Prado west → Plaza de las Cortes → Carrera de San Jerónimo → Espoz y Mina 7, green neon. Metro Sevilla (L2) for the last stretch.</dd>
+        <dt><strong>Is this the Plaza Mayor sightseeing walk?</strong></dt>
+        <dd>No. Plaza Mayor has its own page. This one starts at the Prado steps and crosses Letras.</dd>
+        <dt><strong>Will there be a match after the museum?</strong></dt>
+        <dd>Named fixtures: <a href={withBase('/whats-on/')}>What’s On</a>. If the list is empty, the pint still stands.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this museum walk)',
+            items: [
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid near Plaza Mayor', note: 'Plaza sightseeing, not the Prado' },
+              { href: '/indoor-pint-when-plaza-mayor-is-wet/', label: 'Indoor pint when Plaza Mayor is wet', note: 'Rain on the plaza, not galleries' },
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

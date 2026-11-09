@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/royal-palace-opera-walk-to-espoz-mina-7/';
+const PATH_ES = '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/';
+const title = 'Royal Palace & Ópera walk to Espoz y Mina 7 | Irish pub near Sol';
+const description =
+  'West of Sol: Palacio Real and Teatro Real (Ópera). Walk east to Dubliners, Irish pub at Calle de Espoz y Mina 7 off Puerta del Sol. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I walk from the Royal Palace to Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From Plaza de Oriente / Palacio Real or Teatro Real, walk east through Ópera and Isabel II toward Puerta del Sol, then Calle de Espoz y Mina 7 and the green neon. Metro Ópera (L2, L5) or Sol (L1, L2, L3).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Prado museum walk?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. The Prado walk starts at the museum steps east of Sol. This page starts west of Sol at the Royal Palace and Teatro Real.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Gran Vía theatre curtain-down page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Gran Vía curtain-down is the east theatre strip. This is the west-of-Sol palace and Ópera district walk into Espoz y Mina 7.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Royal Palace & Ópera walk to Espoz y Mina 7" schema />
+      <h1>Royal Palace & Ópera walk to Espoz y Mina 7</h1>
+      <p class="lead">
+        You are west of Puerta del Sol — Palacio Real, Plaza de Oriente, Teatro Real at Ópera.
+        Dubliners is the indoor Irish pub east of that cluster: Calle de Espoz y Mina 7, two streets from Sol, English at the bar.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>West of Sol, pint at the Sol side</h2>
+      <p>
+        Not the Prado walk —
+        <a href={withBase('/from-the-prado-steps-to-espoz-mina-7/')}>from the Prado steps</a> —
+        not wet Plaza Mayor, not Gran Vía curtain-down, not Atocha, not Callao shopping.
+        Palace and Ópera sightseeing, then an Irish pint indoors at Espoz y Mina 7.
+      </p>
+
+      <h2>Walk east from Palacio Real / Ópera</h2>
+      <ol>
+        <li>Start at <strong>Plaza de Oriente</strong> or <strong>Teatro Real</strong> (Ópera station).</li>
+        <li>Walk <strong>east</strong> via Plaza de Isabel II / Ópera toward <strong>Puerta del Sol</strong>.</li>
+        <li>At Sol, enter <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        Metro Ópera (L2, L5) if you want to skip the last block on foot.
+      </p>
+
+      <h2>Screens only when What’s On says so</h2>
+      <p>
+        A palace afternoon does not need a kick-off. Named fixtures stay on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.
+        If nothing is listed, sit anyway. Ask which game is on.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — from Palacio Real and Ópera" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>How do I walk from the Royal Palace to Dubliners?</strong></dt>
+        <dd>Ópera / Isabel II → Sol → Espoz y Mina 7. Indoor Irish pub, green neon.</dd>
+        <dt><strong>Is this the Prado museum walk?</strong></dt>
+        <dd>No. Prado is east of Sol. This starts west at the palace and Ópera.</dd>
+        <dt><strong>Is this the Gran Vía theatre page?</strong></dt>
+        <dd>No. Gran Vía is the east theatre strip. This is west-of-Sol tourism.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this palace walk)',
+            items: [
+              { href: '/from-the-prado-steps-to-espoz-mina-7/', label: 'From the Prado steps', note: 'Museum east, not palace west' },
+              { href: '/gran-via-curtain-down-then-espoz-mina-7/', label: 'Gran Vía curtain down', note: 'East theatre strip' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub near Plaza Mayor', note: 'Sightseeing loop' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS, Metro Sol' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

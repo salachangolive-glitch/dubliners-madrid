@@ -90,6 +90,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/indoor-pint-when-plaza-mayor-is-wet/': '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/',
   '/from-the-prado-steps-to-espoz-mina-7/': '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/',
   '/english-at-the-bar-after-you-land/': '/es/ingles-en-barra-despues-de-aterrizar/',
+  '/gran-via-curtain-down-then-espoz-mina-7/': '/es/bajada-del-telon-gran-via-luego-espoz-mina-7/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

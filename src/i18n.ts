@@ -87,6 +87,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/stay-after-atleti-2100-late-nfl-2205-2225/': '/es/quedarse-despues-atleti-2100-nfl-tarde-2205-2225/',
   '/late-nfl-on-now-2205-2225-four-open-sol-doors/': '/es/nfl-tarde-en-pantalla-ahora-2205-2225-cuatro-puertas-sol/',
   '/last-metro-cercanias-out-of-sol-after-2300/': '/es/ultimo-metro-cercanias-salida-sol-despues-2300/',
+  '/indoor-pint-when-plaza-mayor-is-wet/': '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/indoor-pint-when-plaza-mayor-is-wet/';
+const PATH_ES = '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/';
+const title = 'Indoor pint when Plaza Mayor is wet | Irish pub near Sol';
+const description =
+  'Rain on Plaza Mayor? Indoor Irish pint two streets away at Espoz y Mina 7, just off Puerta del Sol. Covered room, English at the bar. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I get an indoor pint if Plaza Mayor is wet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an indoor Irish pub on Calle de Espoz y Mina 7, 28012 Madrid — two short streets from Plaza Mayor via Puerta del Sol. No terrace; the room is covered.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How wet is the walk from the plaza?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Leave Plaza Mayor toward Calle Mayor, cross Puerta del Sol, then take Calle de Espoz y Mina to number 7 and the green neon. It is a short street-level walk, not a hillside.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a match on while it rains?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Named fixtures stay on What’s On. If nothing is listed, the indoor room still works as a dry pint. Ask at the bar which screen, if any, is on.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Indoor pint when Plaza Mayor is wet" schema />
+      <h1>Indoor pint when Plaza Mayor is wet</h1>
+      <p class="lead">
+        The plaza stones shine, the café tables go away, and you still want a pint without standing under an awning.
+        Dubliners is an indoor Irish pub two streets from Plaza Mayor — Espoz y Mina 7, just off Puerta del Sol — with a roof, stools, and English at the bar.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Rain on the plaza, dry room off Sol</h2>
+      <p>
+        Plaza Mayor is open sky. Even the arcades dump you back onto wet cobbles. This page is not a sightseeing walk of the plaza —
+        that lives on <a href={withBase('/irish-pub-near-plaza-mayor/')}>Irish pub Madrid near Plaza Mayor</a>.
+        This is the weather version: leave the square because it is raining, and sit down indoors.
+      </p>
+      <p>
+        The room is the former Barragán tailor shop (1885), with a painted ceiling and screens facing the tables.
+        There is no terrace here. Coats drip at the door; the pint stays dry.
+      </p>
+
+      <h2>Two streets from the wet square</h2>
+      <ol>
+        <li>Leave Plaza Mayor toward <strong>Calle Mayor</strong> (east side of the square, downhill toward Sol).</li>
+        <li>Cross <strong>Puerta del Sol</strong>. You do not need a taxi.</li>
+        <li>Take <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo / Sevilla.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7 and come in.</li>
+      </ol>
+      <p>
+        Metro Sol (L1, L2, L3) or Sevilla (L2) if you would rather skip the last metres in the rain.
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Screens only when What’s On says so</h2>
+      <p>
+        Live sport is a bonus on a wet afternoon, not a reason to invent a board. Named kick-offs — football, NFL, rugby — sit on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time. If the list is empty, this is still an indoor Irish pint.
+        Ask which game is on. Do not expect every match on every screen.
+      </p>
+
+      <h2>English at the bar</h2>
+      <p>
+        Tourists and Erasmus already in Sol often want a room that answers in English after a wet walk.
+        That is this door, not a stadium, not a covered passage two blocks away.
+        Wednesday €1 shots are already on the live site if you land on that night —
+        <a href={withBase('/wednesday-1-euro-shots-madrid/')}>Wednesday €1 shots</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — indoor pint off Plaza Mayor" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can I get an indoor pint if Plaza Mayor is wet?</strong></dt>
+        <dd>Dubliners, Calle de Espoz y Mina 7, 28012 Madrid. Indoor Irish pub, no terrace. Two short streets from the plaza via Sol.</dd>
+        <dt><strong>How wet is the walk from the plaza?</strong></dt>
+        <dd>Calle Mayor → Puerta del Sol → Espoz y Mina 7. Street-level, short. Look for the green neon.</dd>
+        <dt><strong>Is there a match on while it rains?</strong></dt>
+        <dd>Named fixtures: <a href={withBase('/whats-on/')}>What’s On</a>. If nothing is listed, sit in anyway.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this rain walk)',
+            items: [
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid near Plaza Mayor', note: 'Sightseeing walk, dry or not' },
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar Madrid', note: 'Screens when listed' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

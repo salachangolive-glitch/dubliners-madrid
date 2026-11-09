@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/';
+const PATH_EN = '/indoor-pint-when-plaza-mayor-is-wet/';
+const title = 'Pinta interior cuando Plaza Mayor está mojada | Pub irlandés cerca de Sol';
+const description =
+  '¿Llueve en Plaza Mayor? Pinta irlandesa bajo techo a dos calles, Espoz y Mina 7, junto a Puerta del Sol. Sala cubierta, inglés en barra. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde tomo una pinta interior si Plaza Mayor está mojada?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners es un pub irlandés de interior en la calle de Espoz y Mina 7, 28012 Madrid — dos calles cortas desde Plaza Mayor por Puerta del Sol. No hay terraza; la sala está cubierta.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto se moja el paseo desde la plaza?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sal de Plaza Mayor hacia la calle Mayor, cruza Puerta del Sol y entra en la calle de Espoz y Mina hasta el 7, el neón verde. Es un paseo corto a pie de calle, no una cuesta.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay partido mientras llueve?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Los partidos con nombre están en Partidos. Si la lista está vacía, la sala interior sigue valiendo para una pinta en seco. Pregunta en barra qué pantalla hay, si hay alguna.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Pinta interior cuando Plaza Mayor está mojada" lang="es" schema />
+      <h1>Pinta interior cuando Plaza Mayor está mojada</h1>
+      <p class="lead">
+        Las losas brillan, las mesas de terraza desaparecen y sigues queriendo una pinta sin quedarte bajo un toldo.
+        Dubliners es un pub irlandés de interior a dos calles de Plaza Mayor — Espoz y Mina 7, junto a Puerta del Sol — con techo, taburetes e inglés en barra.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Lluvia en la plaza, sala seca junto a Sol</h2>
+      <p>
+        Plaza Mayor es cielo abierto. Hasta los soportales te devuelven a adoquín mojado. Esta página no es el paseo turístico de la plaza —
+        eso está en <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>pub irlandés Madrid cerca de Plaza Mayor</a>.
+        Esta es la versión del tiempo: sales de la plaza porque llueve y te sientas dentro.
+      </p>
+      <p>
+        La sala es la antigua sastrería Barragán (1885), con techo pintado y pantallas hacia las mesas.
+        Aquí no hay terraza. Los abrigos gotean en la puerta; la pinta se queda seca.
+      </p>
+
+      <h2>Dos calles desde la plaza mojada</h2>
+      <ol>
+        <li>Sal de Plaza Mayor hacia la <strong>calle Mayor</strong> (lado este, cuesta abajo hacia Sol).</li>
+        <li>Cruza <strong>Puerta del Sol</strong>. No hace falta taxi.</li>
+        <li>Entra en la <strong>calle de Espoz y Mina</strong> hacia Carrera de San Jerónimo / Sevilla.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7 y entra.</li>
+      </ol>
+      <p>
+        Metro Sol (L1, L2, L3) o Sevilla (L2) si prefieres saltarte los últimos metros bajo la lluvia.
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Pantallas solo cuando lo dice Partidos</h2>
+      <p>
+        El deporte en directo es un extra en una tarde húmeda, no una excusa para inventar cartelera. Los saques con nombre — fútbol, NFL, rugby — están en
+        <a href={withBase('/es/partidos/')}>Partidos</a> en hora de Madrid. Si la lista está vacía, sigue siendo una pinta irlandesa de interior.
+        Pregunta qué echan. No esperes todos los partidos en todas las pantallas.
+      </p>
+
+      <h2>Inglés en barra</h2>
+      <p>
+        Turistas y Erasmus que ya están en Sol suelen querer una sala que responda en inglés después del chaparrón.
+        Esta es esa puerta, no un estadio ni un pasaje cubierto dos manzanas más allá.
+        Los miércoles de chupitos a 1 € ya están en el sitio si caes ese día —
+        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>miércoles chupitos a 1 €</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — pinta interior junto a Plaza Mayor" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde tomo una pinta interior si Plaza Mayor está mojada?</strong></dt>
+        <dd>Dubliners, calle de Espoz y Mina 7, 28012 Madrid. Pub irlandés de interior, sin terraza. Dos calles cortas desde la plaza por Sol.</dd>
+        <dt><strong>¿Cuánto se moja el paseo desde la plaza?</strong></dt>
+        <dd>Calle Mayor → Puerta del Sol → Espoz y Mina 7. A pie de calle, corto. Busca el neón verde.</dd>
+        <dt><strong>¿Hay partido mientras llueve?</strong></dt>
+        <dd>Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>. Si no hay nada, siéntate igual.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este paseo con lluvia)',
+            items: [
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid cerca de Plaza Mayor', note: 'Paseo turístico, llueva o no' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'Maps, Metro Sol, CÓMO LLEGAR' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Madrid', note: 'Pantallas cuando están en la lista' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/mesa-cumpleanos-idiomas-mezclados-junto-a-sol/';
+const PATH_EN = '/mixed-language-birthday-table-near-sol/';
+const title = 'Mesa de cumpleaños con idiomas mezclados junto a Sol | Pub irlandés';
+const description =
+  '¿Cumpleaños en Madrid junto a Sol? Inglés y español en la misma mesa irlandesa, Espoz y Mina 7. Escribe por Contacto; sin reservas inventadas. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde celebrar un cumpleaños en grupo cerca de Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners es un pub irlandés en la calle de Espoz y Mina 7, 28012 Madrid, junto a Sol. Mesas con inglés y español mezclados son habituales. Para grupos grandes, usa el formulario de Contacto — el equipo responde; esta página no confirma mesa reservada por sí sola.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es lo mismo que la página de Contacto?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Contacto es el formulario y el email. Esta página es la historia turística: amigos de varios países, un cumpleaños junto a Sol en un pub irlandés.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página de noche o de fan weekend?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Noche cerca de Sol es salir tarde. Fan weekend son relojes de partido. Esto es un grupo de cumpleaños en Espoz y Mina 7.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Mesa de cumpleaños con idiomas mezclados" lang="es" schema />
+      <h1>Mesa de cumpleaños con idiomas mezclados junto a Sol</h1>
+      <p class="lead">
+        Mitad de la mesa llegó de Londres, mitad de Barcelona, y alguien trajo una vela.
+        Dubliners es un pub irlandés en Espoz y Mina 7, a dos calles de Puerta del Sol —
+        inglés en barra, español en el taburete de al lado, una sala de interior para el brindis.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/contacto/')}>Contacto para grupos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Historia de grupo, no promesa de reserva</h2>
+      <p>
+        Esta página no es solo el formulario —
+        <a href={withBase('/es/contacto/')}>Contacto Dubliners</a>.
+        Es el intento: cumpleaños a pie de Sol sin buscar terraza con lluvia.
+      </p>
+      <p>
+        No el paseo del Prado, no la plaza mojada, no el teatro en Gran Vía, no soccer, no el martes tranquilo en la sastrería.
+        Mesa de cumpleaños, idiomas mezclados, pinta irlandesa de interior.
+      </p>
+
+      <h2>Cómo organizarlo</h2>
+      <ol>
+        <li>Fija la puerta: <strong>Espoz y Mina 7</strong>, neón verde junto a Sol.</li>
+        <li>Grupos pequeños pueden entrar — pide un rincón en barra al llegar.</li>
+        <li>Grupos grandes: mensaje por <a href={withBase('/es/contacto/')}>Contacto</a> con fecha, número y idiomas. El equipo responde; nada aquí reserva mesa por sí solo.</li>
+        <li>Deporte en pantalla solo si figura en
+          <a href={withBase('/es/partidos/')}>Partidos</a> — el cumpleaños no necesita saque.
+        </li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — cumpleaños junto a Sol" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/carta/')}>Carta</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde celebrar un cumpleaños en grupo cerca de Puerta del Sol?</strong></dt>
+        <dd>Dubliners, Espoz y Mina 7. EN/ES mezclado habitual. Contacto para mesas grandes.</dd>
+        <dt><strong>¿Es lo mismo que la página de Contacto?</strong></dt>
+        <dd>No. Contacto es el canal. Esto es el intento cumpleaños junto a Sol.</dd>
+        <dt><strong>¿Es la página de noche o de fan weekend?</strong></dt>
+        <dd>No. Grupo de cumpleaños en este pub irlandés.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no esta mesa de cumpleaños)',
+            items: [
+              { href: '/es/contacto/', label: 'Contacto', note: 'Formulario, no historia de grupo' },
+              { href: '/es/noche-cerca-de-sol/', label: 'Noche cerca de Sol', note: 'Salir tarde, no cumpleaños' },
+              { href: '/es/carta/', label: 'Carta', note: 'Comida con el brindis' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'CÓMO LLEGAR, Metro Sol' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/mixed-language-birthday-table-near-sol/';
+const PATH_ES = '/es/mesa-cumpleanos-idiomas-mezclados-junto-a-sol/';
+const title = 'Mixed-language birthday table near Sol | Irish pub Madrid';
+const description =
+  'Birthday in Madrid near Puerta del Sol? English and Spanish at one Irish pub table — Espoz y Mina 7. Message the team via Contact; no invented bookings. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can a group celebrate a birthday near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol. Mixed English and Spanish tables are normal. For a larger group, use the Contact form — the team replies; this page does not confirm a reserved table by itself.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the same as the Contact page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Contact is the form and email. This page is the tourist story: friends from different countries, one birthday table near Sol at an Irish pub.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the night-out or fan-weekend page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Night out is late Sol. Fan weekend is match-door clocks. This is a birthday group at Espoz y Mina 7.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Mixed-language birthday table near Sol" schema />
+      <h1>Mixed-language birthday table near Sol</h1>
+      <p class="lead">
+        Half the table landed from London, half from Barcelona, and someone brought a candle.
+        Dubliners is an Irish pub on Espoz y Mina 7, two streets from Puerta del Sol —
+        English at the bar, Spanish at the next stool, one indoor room for the toast.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/contact/')}>Contact for groups</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>A group story, not a booking promise</h2>
+      <p>
+        This page is not the bare contact form —
+        <a href={withBase('/contact/')}>Contact Dubliners</a>.
+        It is the intent: celebrate a birthday walking distance from Sol without hunting a terrace in the rain.
+      </p>
+      <p>
+        Not the Prado walk, not wet Plaza Mayor, not Gran Vía theatre, not soccer wording, not Tuesday tailor quiet.
+        Birthday table, mixed languages, Irish pint indoors.
+      </p>
+
+      <h2>How to plan it</h2>
+      <ol>
+        <li>Pin the door: <strong>Espoz y Mina 7</strong>, green neon off Sol.</li>
+        <li>Smaller groups can walk in — still ask the bar for a corner when you arrive.</li>
+        <li>Larger groups: send a note through <a href={withBase('/contact/')}>Contact</a> with date, headcount, and languages. The team answers; nothing on this page reserves a table by itself.</li>
+        <li>Named sport on screens only when
+          <a href={withBase('/whats-on/')}>What’s On</a> lists it — birthdays do not need a kick-off.
+        </li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — birthday group near Sol" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/menu/')}>Food menu</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can a group celebrate a birthday near Puerta del Sol?</strong></dt>
+        <dd>Dubliners, Espoz y Mina 7. Mixed EN/ES normal. Contact for bigger tables.</dd>
+        <dt><strong>Is this the same as the Contact page?</strong></dt>
+        <dd>No. Contact is the channel. This is the birthday-near-Sol intent.</dd>
+        <dt><strong>Is this the night-out or fan-weekend page?</strong></dt>
+        <dd>No. Birthday group at this Irish pub.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this birthday table)',
+            items: [
+              { href: '/contact/', label: 'Contact', note: 'Form and email, not group story' },
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol', note: 'Late out, not birthday' },
+              { href: '/menu/', label: 'Food menu', note: 'Pub food with the toast' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS, Metro Sol' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

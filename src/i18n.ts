@@ -91,6 +91,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/from-the-prado-steps-to-espoz-mina-7/': '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/',
   '/english-at-the-bar-after-you-land/': '/es/ingles-en-barra-despues-de-aterrizar/',
   '/gran-via-curtain-down-then-espoz-mina-7/': '/es/bajada-del-telon-gran-via-luego-espoz-mina-7/',
+  '/if-you-asked-for-soccer-near-sol/': '/es/si-pediste-soccer-futbol-cerca-de-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

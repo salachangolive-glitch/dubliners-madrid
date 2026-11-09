@@ -4,6 +4,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
 import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../../components/FourBarsMeet.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../../site';
 import { isFanWeekendLive } from '../../../data/fourBars';
@@ -29,18 +30,34 @@ const faqLd = {
       name: '¿Cómo se llega?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.',
+        text: 'Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde. CÓMO LLEGAR usa Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde están los listados Premier con nombre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Solo saques ingleses confirmados en Partidos, en hora de Madrid. Si la lista está vacía, pregunta en barra qué pantalla hay.',
       },
     },
   ],
 };
 ---
 
-<BaseLayout title={title} description={description} path="/es/premier-league-pub-madrid/" lang="es" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/es/premier-league-pub-madrid/"
+  lang="es"
+  hreflang={{ en: '/premier-league-pub-madrid/', es: '/es/premier-league-pub-madrid/' }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
-        <Breadcrumb current="Pub Premier League Madrid" lang="es" />
+        <Breadcrumb current="Pub Premier League Madrid" lang="es" schema />
         <h1>Pub Premier League Madrid cerca de Puerta del Sol</h1>
         <p class="lead">
           Dubliners es un pub Premier League en Madrid y un pub irlandés deportivo en Espoz y Mina 7 — a un paseo de Puerta del Sol.
@@ -109,9 +126,12 @@ const faqLd = {
         <a href={withBase('/es/champions-league-bar-madrid/')}>Champions League</a>.
       </p>
 
-      <h2>Cómo llegar</h2>
+      <h2 id="como-llegar">Cómo llegar</h2>
       <p>
-        Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/es/premier-league-pub-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) o Sevilla (L2). Desde Puerta del Sol, calle de Espoz y Mina hasta el neón verde.
+        Notas a pie: <a href={withBase('/es/visitar/')}>FIND US</a>.
       </p>
 
       <div class="map-frame">
@@ -131,14 +151,37 @@ const faqLd = {
           </p>
         </details>
         <details>
-          <summary>Dirección</summary>
-          <p>{SITE.address}, {SITE.postal}</p>
+          <summary>¿Cómo llego con el mapa?</summary>
+          <p>
+            {SITE.address}, {SITE.postal}. Usa
+            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">CÓMO LLEGAR</a>
+            (CID 4384002297188950803) o <a href={withBase('/es/visitar/')}>FIND US</a>.
+          </p>
+        </details>
+        <details>
+          <summary>¿Inventáis saques en esta página?</summary>
+          <p>No. Solo listados con nombre en <a href={withBase('/es/partidos/')}>Partidos</a>, hora de Madrid.</p>
         </details>
         <details>
           <summary>¿Grupos o dudas?</summary>
           <p><a href={withBase('/es/contacto/#request-information')}>Pide información</a> en el formulario de contacto.</p>
         </details>
       </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Hubs relacionados',
+            items: [
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo saques Premier con nombre' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Madrid', note: 'Deporte en vivo junto a Sol' },
+              { href: '/es/champions-league-bar-madrid/', label: 'Noches Champions League' },
+              { href: '/es/visitar/', label: 'Visitar', note: 'CÓMO LLEGAR, Metro Sol' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>

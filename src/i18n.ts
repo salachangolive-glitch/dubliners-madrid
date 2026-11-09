@@ -98,6 +98,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/sunday-without-stadium-ticket-near-sol/': '/es/domingo-sin-entrada-estadio-junto-a-sol/',
   '/royal-palace-opera-walk-to-espoz-mina-7/': '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/',
   '/zalgiris-fans-madrid/': '/es/aficionados-zalgiris-madrid/',
+  '/sol-christmas-lights-evening-walk/': '/es/paseo-luces-navidad-sol-desde-21-nov/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

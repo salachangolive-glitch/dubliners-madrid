@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/sol-christmas-lights-evening-walk/';
+const PATH_ES = '/es/paseo-luces-navidad-sol-desde-21-nov/';
+const title = 'Sol Christmas lights evening walk to Espoz y Mina 7 | Dubliners';
+const description =
+  'From Saturday 21 November: Christmas lights around Puerta del Sol. Evening walk to Dubliners Irish pub at Espoz y Mina 7 — indoor pint, English at the bar. Not the Plaza Mayor market walk.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where do Christmas lights appear near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The main civic Christmas tree and street lighting cluster at and around Puerta del Sol and Calle Mayor. This page is a short evening walk from those lights to Dubliners at Espoz y Mina 7 — an indoor Irish pub, not an outdoor market stall.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Plaza Mayor Christmas market?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Plaza Mayor has its own Christmas market guide (separate page, when published). This walk starts at Sol’s lights and ends at our indoor pub two streets away.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the walk relevant?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'From Saturday 21 November 2026, when the Sol area is lit for the season. Dubliners stays open in the usual hours — check Visit for the week.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={PATH} lang="en" hreflang={{ en: PATH, es: PATH_ES }} ogImage="/images/facade.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Sol Christmas lights walk" schema />
+      <h1>Christmas lights at Sol, then an indoor pint</h1>
+      <p class="lead">
+        From <strong>Saturday 21 November 2026</strong>, the lights around <strong>Puerta del Sol</strong> and <strong>Calle Mayor</strong> are part of the city’s winter evening.
+        Finish with an indoor Irish pint at Dubliners — Calle de Espoz y Mina 7, English at the bar — a short walk from the tree, not a market queue.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>What this walk is (and is not)</h2>
+      <p>
+        This is a <strong>tourist evening route</strong>: see the Sol Christmas lights on foot, then step inside.
+        It is <strong>not</strong> the Plaza Mayor Christmas market (
+        <a href={withBase('/irish-pub-near-plaza-mayor/')}>Plaza Mayor sightseeing</a> is a different loop).
+        No special menus, ticketed events, or prices are listed here — only the geography and the pub door.
+      </p>
+
+      <h2>Walk from the Sol lights</h2>
+      <ol>
+        <li>Start at <strong>Puerta del Sol</strong> (Kilometre Zero, the tree and street lighting).</li>
+        <li>Walk south-west into <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo (two short blocks from Sol).</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+      </ol>
+      <p>Metro Sol (lines 1, 2 and 3) or Sevilla (line 2) if you arrive after dusk.</p>
+
+      <h2>Indoor Irish pub after the lights</h2>
+      <p>
+        Dubliners is an indoor room — useful when the evening is cold or wet.
+        Named sport stays on <a href={withBase('/whats-on/')}>What’s On</a> only; this page does not announce fixtures.
+        For screens and sport in general: <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — from Sol Christmas lights" />
+      </div>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where do the lights cluster?</strong></dt>
+        <dd>Puerta del Sol and the lower Calle Mayor toward Sol — the city’s usual winter display, viewed from the street.</dd>
+        <dt><strong>Is there a market on this route?</strong></dt>
+        <dd>Plaza Mayor’s market is off this path. We do not duplicate that guide here.</dd>
+        <dt><strong>When does this apply?</strong></dt>
+        <dd>From Saturday 21 November 2026 through the lit season. We do not list switch-on times we have not verified.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this lights walk)',
+            items: [
+              { href: '/royal-palace-opera-walk-to-espoz-mina-7/', label: 'Palace & Ópera walk', note: 'West of Sol sightseeing' },
+              { href: '/indoor-pint-when-plaza-mayor-is-wet/', label: 'Indoor pint when Plaza Mayor is wet', note: 'Rain, not Christmas' },
+              { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub near Plaza Mayor', note: 'Different plaza loop' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

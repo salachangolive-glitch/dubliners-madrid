@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/paseo-luces-navidad-sol-desde-21-nov/';
+const PATH_EN = '/sol-christmas-lights-evening-walk/';
+const title = 'Paseo luces Navidad Sol hasta Espoz y Mina 7 | Dubliners';
+const description =
+  'Desde el sábado 21 de noviembre: luces de Navidad en Puerta del Sol. Paseo nocturno al pub irlandés Dubliners en Espoz y Mina 7 — pinta interior, inglés en barra. No es el mercadillo de Plaza Mayor.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde están las luces de Navidad junto a Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El árbol y el alumbrado se concentran en Puerta del Sol y Calle Mayor. Esta página es un paseo corto hasta Dubliners en Espoz y Mina 7 — pub irlandés interior, no puesto de mercado.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es el mercadillo de Navidad de Plaza Mayor?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Plaza Mayor tiene su propia guía (otra página). Este paseo empieza en las luces de Sol y termina en nuestra puerta interior.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Desde cuándo aplica?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde el sábado 21 de noviembre de 2026, cuando el centro se ilumina para la temporada. Horario habitual en Visitar.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={PATH} lang="es" hreflang={{ en: PATH_EN, es: PATH }} ogImage="/images/facade.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Luces Navidad Sol" lang="es" schema />
+      <h1>Luces de Navidad en Sol y pinta interior</h1>
+      <p class="lead">
+        Desde el <strong>sábado 21 de noviembre de 2026</strong>, las luces de <strong>Puerta del Sol</strong> y <strong>Calle Mayor</strong> forman parte de la tarde-noche invernal.
+        Cierra con una pinta en Dubliners — Calle de Espoz y Mina 7, inglés en barra — a dos calles del árbol, sin cola de mercadillo.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>VISITAR</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Qué es (y qué no es)</h2>
+      <p>
+        Es una <strong>ruta turística de tarde-noche</strong>: ver las luces en Sol a pie y entrar dentro.
+        <strong>No</strong> es el mercadillo de Navidad de Plaza Mayor (
+        <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>pub irlandés cerca de Plaza Mayor</a> es otro recorrido).
+        Aquí no hay menús especiales, eventos con entrada ni precios — solo la geografía y la puerta del pub.
+      </p>
+
+      <h2>Paseo desde las luces de Sol</h2>
+      <ol>
+        <li>Empieza en <strong>Puerta del Sol</strong> (Kilómetro Cero, árbol y alumbrado).</li>
+        <li>Camina hacia <strong>Calle de Espoz y Mina</strong> por Carrera de San Jerónimo (dos manzanas cortas).</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7.</li>
+      </ol>
+      <p>Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2) si llegas de noche.</p>
+
+      <h2>Pub irlandés interior después de las luces</h2>
+      <p>
+        Dubliners es sala interior — cómoda con frío o lluvia.
+        Deporte con nombre solo en <a href={withBase('/es/partidos/')}>Partidos</a>; esta página no anuncia partidos.
+        Pantallas y deporte en general: <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo cerca de Sol</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — desde luces Navidad Sol" />
+      </div>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde se concentran las luces?</strong></dt>
+        <dd>Puerta del Sol y el tramo bajo de Calle Mayor — el alumbrado habitual de invierno en la calle.</dd>
+        <dt><strong>¿Hay mercadillo en esta ruta?</strong></dt>
+        <dd>El mercadillo de Plaza Mayor queda fuera de este paseo. No duplicamos esa guía.</dd>
+        <dt><strong>¿Desde cuándo?</strong></dt>
+        <dd>Desde el sábado 21 de noviembre de 2026 durante la temporada iluminada. No inventamos horas de encendido.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este paseo de luces)',
+            items: [
+              { href: '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/', label: 'Paseo palacio y Ópera', note: 'Turismo al oeste' },
+              { href: '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/', label: 'Pinta interior Plaza mojada', note: 'Lluvia, no Navidad' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Plaza Mayor', note: 'Otra plaza' },
+              { href: '/es/visitar/', label: 'VISITAR', note: 'CÓMO LLEGAR' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

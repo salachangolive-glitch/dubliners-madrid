@@ -17,7 +17,7 @@ interface Props {
   path: string;
   lang?: Lang;
   ogImage?: string;
-  hreflang?: { en?: string; es?: string; nl?: string; de?: string; no?: string };
+  hreflang?: { en?: string; es?: string; nl?: string; de?: string; no?: string; lt?: string };
   /** Standalone page in another language (e.g. 'de'): sets html lang, self hreflang + x-default, no en/es alternates. */
   htmlLang?: string;
   /** Defaults to index,follow. Error documents pass noindex. */
@@ -125,6 +125,7 @@ const websiteJsonLd = {
     {hreflang?.nl && <link rel="alternate" hreflang="nl" href={absUrl(hreflang.nl)} />}
     {hreflang?.de && <link rel="alternate" hreflang="de" href={absUrl(hreflang.de)} />}
     {hreflang?.no && <link rel="alternate" hreflang="no" href={absUrl(hreflang.no)} />}
+    {hreflang?.lt && <link rel="alternate" hreflang="lt" href={absUrl(hreflang.lt)} />}
     {(hreflang?.en || hreflang?.es) && (
       <link rel="alternate" hreflang="x-default" href={absUrl(hreflang.en || pathNorm)} />
     )}

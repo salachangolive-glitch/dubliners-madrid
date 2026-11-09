@@ -68,7 +68,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       )}
       {todayKey <= '2026-11-15' && (
         <p data-show-until="2026-11-15">
-          This week’s live sports (Mon 9–Sun 15 Nov, Madrid time): Thursday Real Madrid–Crvena Zvezda (EuroLeague) 21:00 · Saturday Spain–Chile rugby 17:00 at Estadio Ontime Butarque, Leganés · Saturday Austria–Republic of Ireland 20:45 and Ireland–Fiji 21:10 — <a href={withBase('/irish-double-saturday-madrid/')}>Irish double Saturday</a> · Sunday NFL from 15:30, then 19:00, 22:05 and 22:25 · Sunday Spain–England 20:45 at the Metropolitano (La 1). Confirmed on our screens; clashes go on different screens.
+          This week’s live sports (Mon 9–Sun 15 Nov, Madrid time): Thursday Real Madrid–Crvena Zvezda (EuroLeague) 21:00 · Saturday Spain–Chile rugby 17:00 at Estadio Ontime Butarque, Leganés (Movistar Plus) · Saturday Ireland–Fiji rugby 21:10 (Movistar Plus) — <a href={withBase('/irish-double-saturday-madrid/')}>Ireland v Fiji in Madrid</a> · Sunday NFL from 15:30, then 19:00, 22:05 and 22:25 · Sunday Spain–England 20:45 at the Metropolitano (La 1). Confirmed on our screens; clashes go on different screens.
         </p>
       )}
       {todayKey <= '2026-11-01' && (
@@ -131,7 +131,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
           {
             title: 'Offers & events',
             items: [
-              { href: '/irish-double-saturday-madrid/', label: 'Irish double Saturday in Madrid', note: 'Austria v Ireland 20:45 · Ireland v Fiji 21:10 · Saturday 14 November', until: '2026-11-14' },
+              { href: '/irish-double-saturday-madrid/', label: 'Ireland v Fiji in Madrid', note: 'Rugby · Saturday 14 November, 21:10 (Movistar Plus)', until: '2026-11-14' },
               { href: '/red-star-fans-madrid/', label: 'Red Star fans in Madrid: EuroLeague night near Sol', note: 'Real Madrid v Crvena Zvezda · Thursday 12 November, 21:00', until: '2026-11-12' },
               { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans in Madrid: EuroLeague near Sol', note: 'Real Madrid v Žalgiris · Wednesday 25 November, 20:45', until: '2026-11-25' },
               { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots', note: 'Every Wednesday · ask at the bar' },

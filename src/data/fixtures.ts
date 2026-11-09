@@ -779,6 +779,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
+    link: { href: '/zalgiris-fans-madrid/', labelEn: 'Žalgiris fans in Madrid: EuroLeague guide (EN · ES)', labelEs: 'Aficionados del Žalgiris en Madrid: guía (inglés y español)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-25',

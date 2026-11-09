@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../site';
+
+// Real Madrid v Žalgiris Kaunas, EuroLeague league phase MD14, Movistar Arena, Wed 25 Nov 2026 20:45 Madrid (CET).
+// Source: Radar aficiones-visitantes-6sem-2026-11-09.md + EuroLeague feed E2026_139 (movistararena.es).
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Real Madrid v Žalgiris Kaunas — EuroLeague (screening at Dubliners Madrid)',
+  description: 'Real Madrid v Žalgiris Kaunas (EuroLeague basketball, Movistar Arena) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  inLanguage: 'en',
+  startDate: '2026-11-25T20:45:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.mapsUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Real Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Žalgiris Kaunas' },
+  url: absUrl('/zalgiris-fans-madrid/'),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What time is Real Madrid v Žalgiris?', acceptedAnswer: { '@type': 'Answer', text: '20:45 Madrid time on Wednesday 25 November 2026 at the Movistar Arena. The game is LIVE on our screens at Dubliners, Espoz y Mina 7.' } },
+    { '@type': 'Question', name: 'Is Dubliners a meeting point for Žalgiris fans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Dubliners is a meeting point in the centre before the Movistar Arena or to watch the game LIVE on our screens if you are without a ticket. Lithuanian fans and English speakers use the same door at Calle de Espoz y Mina 7, by Puerta del Sol.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Žalgiris Fans in Madrid: Real Madrid v Žalgiris, 25 Nov | Dubliners'} description={'Real Madrid v Žalgiris Kaunas (EuroLeague basketball), Wednesday 25 November, 20:45 Madrid time, Movistar Arena. Meeting point for Žalgiris fans at Dubliners, by Puerta del Sol. LIVE on our screens.'} path="/zalgiris-fans-madrid/" lang="en" hreflang={{ en: '/zalgiris-fans-madrid/', es: '/es/aficionados-zalgiris-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Žalgiris fans in Madrid'} schema />
+      <h1>Žalgiris fans in Madrid: Real Madrid v Žalgiris</h1>
+      <p class="lead">Wednesday 25 November 2026, tip-off 20:45 Madrid time. EuroLeague basketball, matchday 14, at the Movistar Arena. Dubliners is a meeting point for Žalgiris supporters in the centre of Madrid — a few steps from Puerta del Sol — before the arena or to follow the game LIVE on our screens.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>The game</h2>
+<p>Žalgiris Kaunas travel to Madrid for EuroLeague basketball against Real Madrid. With a ticket or without one, you can follow it here: we show the game LIVE on our screens when it is listed on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+<h2>Meeting point for Žalgiris fans</h2>
+<p>We open from 12:00 on Wednesday (12:00–02:00), so there is time to meet in the centre before heading to the Movistar Arena, or to stay and watch tip-off together. English at the bar is normal; <em>punto de encuentro</em> works too if you are mixing languages on the way from the arena district.</p>
+<h2>Getting here</h2>
+<p>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2).</p>
+<h2>Movistar Arena</h2>
+<p>The Movistar Arena sits north-west of the centre. For the exact Metro or bus route from Sol on the day, check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>, and allow extra time on a EuroLeague night.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Basketball on a screen at Dubliners, with fans watching from tables near Puerta del Sol" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container split reverse">
+      <div class="prose">
+<h2>FAQ</h2>
+<dl class="faq">
+  <dt><strong>What time is Real Madrid v Žalgiris?</strong></dt><dd>20:45 Madrid time on Wednesday 25 November 2026 at the Movistar Arena.</dd>
+  <dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on our screens when the fixture is confirmed on What’s On.</dd>
+  <dt><strong>What time do you open?</strong></dt><dd>From 12:00. On Wednesday we are open 12:00–02:00.</dd>
+  <dt><strong>Where are you?</strong></dt><dd>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol or Sevilla.</dd>
+</dl>
+<p>En español: <a href={withBase('/es/aficionados-zalgiris-madrid/')} hreflang="es">Aficionados del Žalgiris en Madrid</a></p>
+<p>All the sport we show is on <a href={withBase('/whats-on/')}>What’s On</a> and our <a href={withBase('/sports-bar-madrid/')}>sports bar near Sol</a> page.</p>
+<p class="small">Dubliners is an independent pub, not affiliated with the EuroLeague, Real Madrid or BC Žalgiris.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 100vw) 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Screens in the main room at Dubliners, near Sol" /></picture>
+    </div>
+  </section>
+</BaseLayout>

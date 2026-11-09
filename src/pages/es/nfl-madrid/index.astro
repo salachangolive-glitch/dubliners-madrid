@@ -2,23 +2,67 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import FixtureAntiStale from '../../../components/FixtureAntiStale.astro';
+import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase } from '../../../site';
 import FanWeekendCtas from '../../../components/FanWeekendCtas.astro';
 import FourBarsMeet from '../../../components/FourBarsMeet.astro';
 import { isFanWeekendLive } from '../../../data/fourBars';
+
 const fanWeekend = isFanWeekendLive();
-const faqLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuándo fue el partido de la NFL en Madrid en 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu."}}, {"@type": "Question", "name": "¿Cuál es el horario?", "acceptedAnswer": {"@type": "Answer", "text": "Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30."}}, {"@type": "Question", "name": "¿Qué partidos NFL hay este domingo?", "acceptedAnswer": {"@type": "Answer", "text": "Los listados NFL del domingo con nombre están en Partidos cuando están confirmados. Pregunta en barra qué hay en cada pantalla."}}, {"@type": "Question", "name": "¿Dubliners es un bar NFL en Madrid?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Dubliners es un pub irlandés y bar deportivo cerca de Puerta del Sol — un bar NFL Madrid donde ver NFL en Madrid en pantallas. Listados con nombre: Partidos."}}]};
-const title = "Bar NFL Madrid | Ver NFL en Madrid cerca de Puerta del Sol — Dubliners";
-const description = "Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Listados con nombre: Partidos. CÓMO LLEGAR.";
+const title = 'Bar NFL Madrid | Ver NFL en Madrid cerca de Puerta del Sol — Dubliners';
+const description =
+  'Ver NFL en Madrid en un pub irlandés y bar deportivo junto a Puerta del Sol. Bar NFL Madrid, Espoz y Mina 7. Listados con nombre: Partidos. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dubliners es un bar NFL en Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Dubliners es un pub irlandés y bar deportivo en Espoz y Mina 7, junto a Puerta del Sol — bar NFL Madrid para domingos en pantalla cuando figure en Partidos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo llego a este bar NFL junto a Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). CÓMO LLEGAR usa Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué partidos NFL hay este domingo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Los listados NFL del domingo con nombre están en Partidos cuando están confirmados, en hora de Madrid. Pregunta en barra qué hay en cada pantalla.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/es/nfl-madrid/" lang="es" hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }} ogImage="/images/facade.jpg">
+<BaseLayout
+  title={title}
+  description={description}
+  path="/es/nfl-madrid/"
+  lang="es"
+  hreflang={{ en: '/nfl-madrid/', es: '/es/nfl-madrid/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="NFL en Madrid" schema />
       <h1>Ver NFL en Madrid cerca de Puerta del Sol</h1>
-      <p class="lead">Pub irlandés y bar deportivo en Calle de Espoz y Mina 7, a un paso de Puerta del Sol — un <strong>bar NFL en Madrid</strong>. Ver NFL en Madrid en pantallas de interior cuando está en la lista. Los domingos con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
+      <p class="lead">
+        Pub irlandés y bar deportivo en Calle de Espoz y Mina 7, a un paso de Puerta del Sol — un <strong>bar NFL en Madrid</strong>.
+        Ver NFL en Madrid en pantallas de interior cuando está en la lista. Los domingos con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a>.
+      </p>
       {fanWeekend ? (
         <FanWeekendCtas lang="es" />
       ) : (
@@ -34,27 +78,112 @@ const description = "Ver NFL en Madrid en un pub irlandés y bar deportivo junto
   <section class="section">
     <div class="container prose">
       <h2>Bar NFL Madrid</h2>
-      <p>Dubliners es un bar NFL en Madrid: los partidos del domingo en pantallas, en un pub irlandés a un paseo de Puerta del Sol. Los listados con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a>. El resto de la semana es el mismo <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo en Madrid</a>.</p>
-      <h2>La NFL en Madrid</h2>
-      <p>El Madrid Game de 2026 (Bengals vs Falcons, 8 de noviembre en el Santiago Bernabéu) ya se jugó. Este pub irlandés junto a Puerta del Sol sigue siendo la puerta del centro para la NFL del domingo en pantallas.</p>
-      <p>Si buscabas dónde ver NFL en Madrid, Espoz y Mina 7 es la puerta. Pregunta qué echan. Domingos con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
+      <p>
+        Dubliners es un bar NFL en Madrid: los partidos del domingo en pantallas, en un pub irlandés a un paseo de Puerta del Sol.
+        Los listados con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a>.
+        El resto de la semana es el mismo <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo en Madrid</a>.
+      </p>
+
+      <h2>La NFL en Madrid (evergreen)</h2>
+      <p>
+        Esta página no es crónica de un partido concreto. El Madrid Game puntual en el Bernabéu ya pasó; la NFL del domingo en esta puerta del centro
+        sigue en Partidos cuando está confirmada. Si buscabas dónde ver NFL en Madrid, Espoz y Mina 7 es la sala irlandesa de interior junto a Sol.
+      </p>
+
       <h2>Calendario NFL (solo confirmado)</h2>
-      <p>No inventamos cartelera en esta página. La NFL del domingo, incluido RedZone cuando cae en horario, está en <a href={withBase('/es/partidos/')}>Partidos</a> cuando está confirmada. Pregunta en barra qué pantalla.</p>
-      <p class="small">Dónde ver la NFL junto a Puerta del Sol: <a href={withBase('/es/donde-ver-nfl-madrid/')}>Dónde ver la NFL en Madrid</a></p>
-      <p class="small">Jueves de Thanksgiving 26 de noviembre: <a href={withBase('/es/thanksgiving-madrid/')}>NFL de Thanksgiving en Madrid</a> (19:00 y 22:30, cuando esté en la lista).</p>
-      <h2>Cómo llegar</h2><p>Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2).</p><p>Horario: lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</p>
-      <div class="map-frame"><MapEmbed title="Mapa de Dubliners Madrid" lang="es" /></div>
+      <p>
+        No inventamos cartelera en esta página. La NFL del domingo, incluido RedZone cuando está listado, figura en
+        <a href={withBase('/es/partidos/')}>Partidos</a> cuando está confirmada. Pregunta en barra qué pantalla.
+      </p>
+      <p class="small">
+        Dónde ver la NFL junto a Puerta del Sol: <a href={withBase('/es/donde-ver-nfl-madrid/')}>Dónde ver la NFL en Madrid</a>
+      </p>
+      <p class="small">
+        Thanksgiving NFL: <a href={withBase('/es/thanksgiving-madrid/')}>Thanksgiving en Madrid</a> cuando esté en Partidos.
+      </p>
+
+      <h2 id="como-llegar">Cómo llegar</h2>
+      <p>
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/es/nfl-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) o Sevilla (L2). Desde Puerta del Sol, calle de Espoz y Mina hasta el neón verde.
+        Notas a pie: <a href={withBase('/es/visitar/')}>FIND US</a>.
+      </p>
+      <div class="map-frame">
+        <MapEmbed title="Mapa de Dubliners Madrid" lang="es" />
+      </div>
       <p class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
         <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
         <a class="btn btn-secondary" href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a>
       </p>
-      <h2>Centro de Madrid</h2><p>Estamos entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras: fácil de encontrar antes o después de visitar la ciudad.</p><img class="split-photo tall" src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`} sizes="(max-width: 800px) 100vw, 720px" width="1152" height="2048" loading="lazy" decoding="async" alt="Barra y pantalla de televisión dentro de Dubliners Madrid" />
+
+      <h2>Centro de Madrid</h2>
+      <p>
+        Estamos entre Puerta del Sol, Plaza Mayor y el Barrio de las Letras: fácil de encontrar antes o después de visitar la ciudad.
+      </p>
+      <img
+        class="split-photo tall"
+        src={withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')}
+        srcset={`${withBase('/images/dubliners-bar-counter-screen-madrid-800.webp')} 800w, ${withBase('/images/dubliners-bar-counter-screen-madrid-1152.webp')} 1152w`}
+        sizes="(max-width: 800px) 100vw, 720px"
+        width="1152"
+        height="2048"
+        loading="lazy"
+        decoding="async"
+        alt="Barra y pantalla de televisión dentro de Dubliners Madrid"
+      />
+
       <h2>NFL del domingo en pantallas</h2>
-      <p>La NFL del domingo, incluido RedZone cuando cae en horario, va en pantallas de interior cuando está en la lista. Mira <a href={withBase('/es/partidos/')}>Partidos</a> y pregunta qué echan. ¿Venís en grupo? <a href={withBase('/es/contacto/#request-information')}>Pide información</a>.</p>
-      <img class="split-photo tall" src={withBase('/images/dubliners-screens-sol-1200.webp')} srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Pantalla grande y más pantallas en Dubliners, junto a Sol" />
-      <h2>Preguntas frecuentes</h2><dl class="faq"><dt><strong>¿Cuándo fue el partido de la NFL en Madrid en 2026?</strong></dt><dd>Bengals vs Falcons, domingo 8 de noviembre de 2026 a las 15:30 en el Estadio Santiago Bernabéu.</dd><dt><strong>¿Cuál es el horario?</strong></dt><dd>Lunes a jueves y domingo 12:00–02:00; viernes y sábado 12:00–02:30.</dd><dt><strong>¿Qué partidos NFL hay este domingo?</strong></dt><dd>Los listados con nombre están en <a href={withBase('/es/partidos/')}>Partidos</a> cuando están confirmados. Pregunta en barra qué pantalla.</dd><dt><strong>¿Dubliners es un bar NFL en Madrid?</strong></dt><dd>Sí. Dubliners es un pub irlandés y bar deportivo cerca de Puerta del Sol — un bar NFL Madrid donde ver NFL en Madrid en pantallas. Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>.</dd></dl>
-      <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+      <p>
+        La NFL del domingo va en pantallas de interior cuando está en la lista. Mira <a href={withBase('/es/partidos/')}>Partidos</a> y pregunta qué echan.
+        ¿Venís en grupo? <a href={withBase('/es/contacto/#request-information')}>Pide información</a>.
+      </p>
+      <img
+        class="split-photo tall"
+        src={withBase('/images/dubliners-screens-sol-1200.webp')}
+        srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`}
+        sizes="(max-width: 800px) 100vw, 720px"
+        width="1200"
+        height="1600"
+        loading="lazy"
+        decoding="async"
+        alt="Pantalla grande y más pantallas en Dubliners, junto a Sol"
+      />
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dubliners es un bar NFL en Madrid?</strong></dt>
+        <dd>
+          Sí — pub irlandés y bar deportivo junto a Puerta del Sol. Listados con nombre:
+          <a href={withBase('/es/partidos/')}>Partidos</a>.
+        </dd>
+        <dt><strong>¿Qué partidos NFL hay este domingo?</strong></dt>
+        <dd>Listados con nombre en Partidos cuando están confirmados. Pregunta en barra qué pantalla.</dd>
+        <dt><strong>¿Cómo llego con el mapa?</strong></dt>
+        <dd>
+          {SITE.address}, {SITE.postal}.
+          <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">CÓMO LLEGAR</a>
+          (CID 4384002297188950803).
+        </dd>
+        <dt><strong>¿Es crónica del 8 de noviembre?</strong></dt>
+        <dd>No. NFL del domingo evergreen en esta puerta — confirma en Partidos.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Hubs relacionados',
+            items: [
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo domingos NFL con nombre' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo Madrid', note: 'Fútbol y deporte' },
+              { href: '/es/domingo-sin-entrada-estadio-junto-a-sol/', label: 'Domingo sin entrada estadio', note: 'Pantallas cuando hay listado' },
+              { href: '/es/visitar/', label: 'Visitar', note: 'CÓMO LLEGAR' },
+            ],
+          },
+        ]}
+      />
     </div>
   </section>
   <FixtureAntiStale />

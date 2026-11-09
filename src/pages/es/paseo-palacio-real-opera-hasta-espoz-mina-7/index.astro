@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/';
+const PATH_EN = '/royal-palace-opera-walk-to-espoz-mina-7/';
+const title = 'Paseo Palacio Real y Ópera hasta Espoz y Mina 7 | Pub irlandés';
+const description =
+  'Al oeste de Sol: Palacio Real y Teatro Real (Ópera). Camina hacia Sol hasta Dubliners, pub irlandés en Espoz y Mina 7. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cómo camino desde el Palacio Real a Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desde Plaza de Oriente / Palacio Real o Teatro Real, camina hacia el este por Ópera e Isabel II hasta Puerta del Sol, luego calle de Espoz y Mina 7 y el neón verde. Metro Ópera (L2, L5) o Sol (L1, L2, L3).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es el paseo del museo del Prado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El paseo del Prado empieza en las escaleras del museo al este de Sol. Esta página empieza al oeste de Sol en el Palacio Real y Teatro Real.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página del telón en Gran Vía?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Bajada del telón en Gran Vía es el eje teatral del este. Esto es el distrito del palacio y Ópera al oeste de Sol hacia Espoz y Mina 7.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Paseo Palacio Real y Ópera hasta Espoz y Mina 7" lang="es" schema />
+      <h1>Paseo Palacio Real y Ópera hasta Espoz y Mina 7</h1>
+      <p class="lead">
+        Estás al oeste de Puerta del Sol — Palacio Real, Plaza de Oriente, Teatro Real en Ópera.
+        Dubliners es el pub irlandés de interior al este de ese bloque: calle de Espoz y Mina 7, a dos calles de Sol, inglés en barra.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Oeste de Sol, pinta en el lado de Sol</h2>
+      <p>
+        No el paseo del Prado —
+        <a href={withBase('/es/desde-las-escaleras-del-prado-a-espoz-mina-7/')}>desde las escaleras del Prado</a> —
+        no plaza mojada, no telón en Gran Vía, no Atocha, no compras Callao.
+        Turismo palacio y Ópera, luego pinta irlandesa de interior en Espoz y Mina 7.
+      </p>
+
+      <h2>Hacia el este desde Palacio Real / Ópera</h2>
+      <ol>
+        <li>Empieza en <strong>Plaza de Oriente</strong> o <strong>Teatro Real</strong> (estación Ópera).</li>
+        <li>Camina <strong>hacia el este</strong> por Plaza de Isabel II / Ópera hasta <strong>Puerta del Sol</strong>.</li>
+        <li>En Sol, entra en la <strong>calle de Espoz y Mina</strong> hacia Carrera de San Jerónimo.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        Metro Ópera (L2, L5) si prefieres saltarte el último tramo a pie.
+      </p>
+
+      <h2>Pantallas solo cuando lo dice Partidos</h2>
+      <p>
+        Una tarde de palacio no necesita saque. Los listados con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a> en hora de Madrid.
+        Si no hay nada, siéntate igual. Pregunta qué echan.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — desde Palacio Real y Ópera" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Cómo camino desde el Palacio Real a Dubliners?</strong></dt>
+        <dd>Ópera / Isabel II → Sol → Espoz y Mina 7. Pub irlandés de interior, neón verde.</dd>
+        <dt><strong>¿Es el paseo del museo del Prado?</strong></dt>
+        <dd>No. El Prado está al este de Sol. Esto empieza al oeste en palacio y Ópera.</dd>
+        <dt><strong>¿Es la página del teatro en Gran Vía?</strong></dt>
+        <dd>No. Gran Vía es el eje teatral del este. Esto es turismo al oeste de Sol.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este paseo del palacio)',
+            items: [
+              { href: '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/', label: 'Desde las escaleras del Prado', note: 'Museo al este' },
+              { href: '/es/bajada-del-telon-gran-via-luego-espoz-mina-7/', label: 'Bajada del telón Gran Vía', note: 'Teatro al este' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Plaza Mayor', note: 'Ruta turística' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'CÓMO LLEGAR' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

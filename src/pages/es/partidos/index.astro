@@ -69,7 +69,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       )}
       {todayKey <= '2026-11-15' && (
         <p data-show-until="2026-11-15">
-          Deporte en directo esta semana (lun 9–dom 15 nov, hora de Madrid): jueves Real Madrid–Estrella Roja (EuroLeague) 21:00 · sábado rugby España–Chile 17:00 en el Estadio Ontime Butarque, Leganés · sábado Austria–República de Irlanda 20:45 e Irlanda–Fiyi 21:10 — <a href={withBase('/irish-double-saturday-madrid/')} hreflang="en">sábado doble irlandés</a> · domingo NFL desde las 15:30, luego 19:00, 22:05 y 22:25 · domingo España–Inglaterra 20:45 en el Metropolitano (La 1). Confirmados en pantallas; si coinciden, pantallas distintas.
+          Deporte en directo esta semana (lun 9–dom 15 nov, hora de Madrid): jueves Real Madrid–Estrella Roja (EuroLeague) 21:00 · sábado rugby España–Chile 17:00 en el Estadio Ontime Butarque, Leganés (Movistar Plus) · sábado Irlanda–Fiyi rugby 21:10 (Movistar Plus) — <a href={withBase('/irish-double-saturday-madrid/')} hreflang="en">Irlanda–Fiyi en Madrid</a> · domingo NFL desde las 15:30, luego 19:00, 22:05 y 22:25 · domingo España–Inglaterra 20:45 en el Metropolitano (La 1). Confirmados en pantallas; si coinciden, pantallas distintas.
         </p>
       )}
       {todayKey <= '2026-11-01' && (
@@ -130,7 +130,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
           {
             title: 'Promociones y eventos',
             items: [
-              { href: '/irish-double-saturday-madrid/', label: 'Sábado doble irlandés en Madrid', note: 'Austria–Irlanda 20:45 · Irlanda–Fiyi 21:10 · sábado 14 de noviembre (en inglés)', hreflang: 'en', until: '2026-11-14' },
+              { href: '/irish-double-saturday-madrid/', label: 'Irlanda–Fiyi en Madrid', note: 'Rugby · sáb 14 nov, 21:10 (Movistar Plus, en inglés)', hreflang: 'en', until: '2026-11-14' },
               { href: '/es/aficionados-zalgiris-madrid/', label: 'Aficionados del Žalgiris: EuroLeague junto a Sol', note: 'Real Madrid–Žalgiris · mié 25 nov, 20:45', until: '2026-11-25' },
               { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €', note: 'Todos los miércoles · pregunta en barra' },
               { href: '/es/oktoberfest-madrid-2026/', label: 'Temporada de Oktoberfest en Madrid', note: '22 oct–15 nov', until: '2026-11-15' },

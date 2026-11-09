@@ -118,7 +118,7 @@
  * - 7 Nov (morning): Fri 6 rows RETIRED (5: Oxford City–Leicester, Everton–Coventry, Ireland–Argentina, Sevilla–Alavés, F1 FP2).
  * - 6 Nov (morning): Thu 5 rows RETIRED (35: Getafe–Brighton + UEL/UECL J3).
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
- * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. Removed PSG–Bayern, England–Croatia, Scotland–North Macedonia, Norway–Wales, Northern Ireland–Ukraine, and rugby internationals except Spain–Chile + Ireland–Fiji. Channel only on Spain–England (La 1). + Panathinaikos–Barça EuroLeague Fri 13 20:15; + ATP Finals Turin Sun 15 sessions. Austria–Ireland 20:45 and Ireland–Fiji 21:10 kept (Irish double Saturday).
+ * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. No broadcast without verified in-pub channel (owner 9 Nov). Removed Austria–Ireland; removed UWCL rows without channel; removed ATP Finals Sun 15. Channels: Spain–England La 1; Spain–Chile + Ireland–Fiji Movistar Plus; RM–Zvezda Movistar+ Baloncesto; Czechia–Spain La 1. NFL Sun 15 kept. Premier Sat 21 / Sun 22: Newcastle–Arsenal + Liverpool–United DAZN (Radar 9 Nov).
  * No invented fixtures / TV channels / reservations.
  */export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -424,8 +424,10 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ireland vs Fiji',
     madridTime: '21:10',
     confirmedOnScreens: true,
-    noteEn: 'Aviva Stadium, Dublin. Irish double Saturday: Austria v Republic of Ireland at 20:45 on another screen.',
-    noteEs: 'Aviva Stadium, Dublín. Sábado doble irlandés: Austria–República de Irlanda a las 20:45 en otra pantalla.',
+    channel: 'Movistar Plus',
+    noteEn: 'Aviva Stadium, Dublin.',
+    noteEs: 'Aviva Stadium, Dublín.',
+    link: { href: '/irish-double-saturday-madrid/', labelEn: 'Ireland v Fiji in Madrid (Sat 14 Nov)', labelEs: 'Irlanda–Fiyi en Madrid (sáb 14 nov, en inglés)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-21',
@@ -635,19 +637,9 @@ export const FIXTURES: Fixture[] = [
     teams: 'Czechia vs Spain',
     madridTime: '20:45',
     confirmedOnScreens: true,
+    channel: 'La 1',
     noteEn: 'Played in Prague.',
     noteEs: 'Se juega en Praga.',
-  },
-{
-    dateKey: '2026-11-14',
-    whenLabel: 'Sat 14 Nov',
-    competition: 'UEFA Nations League',
-    teams: 'Austria vs Republic of Ireland',
-    madridTime: '20:45',
-    confirmedOnScreens: true,
-    noteEn: 'UEFA Nations League, Linz. Irish double Saturday: Ireland v Fiji rugby at 21:10 on another screen.',
-    noteEs: 'UEFA Nations League, Linz. Sábado doble irlandés: Irlanda–Fiyi (rugby) a las 21:10 en otra pantalla.',
-    link: { href: '/irish-double-saturday-madrid/', labelEn: 'Irish double Saturday in Madrid', labelEs: 'Sábado doble irlandés en Madrid (en inglés)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-16',
@@ -756,6 +748,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Real Madrid vs Crvena Zvezda',
     madridTime: '21:00',
     confirmedOnScreens: true,
+    channel: 'Movistar+ Baloncesto',
     noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
     link: { href: '/red-star-fans-madrid/', labelEn: 'Red Star fans in Madrid: EuroLeague night', labelEs: 'Aficionados del Estrella Roja (info en inglés)', hreflang: 'en' },
@@ -767,6 +760,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Spain vs Chile',
     madridTime: '17:00',
     confirmedOnScreens: true,
+    channel: 'Movistar Plus',
     noteEn: 'Played in Leganés, at Estadio Ontime Butarque.',
     noteEs: 'Se juega en Leganés, en el Estadio Ontime Butarque.',
   },
@@ -779,7 +773,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'EuroLeague basketball (Movistar Arena, Madrid). Watch it with other fans near Sol.',
     noteEs: 'Baloncesto, EuroLeague (Movistar Arena, Madrid). Para ver el partido con otros aficionados junto a Sol.',
-    link: { href: '/zalgiris-fans-madrid/', labelEn: 'Žalgiris fans in Madrid: EuroLeague guide (EN · ES)', labelEs: 'Aficionados del Žalgiris en Madrid: guía (inglés y español)', hreflang: 'en' },
+    link: { href: '/zalgiris-fans-madrid/', labelEn: 'Žalgiris fans in Madrid: EuroLeague guide (EN · ES · LT)', labelEs: 'Aficionados del Žalgiris en Madrid: guía (inglés, español y lituano)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-25',
@@ -794,34 +788,6 @@ export const FIXTURES: Fixture[] = [
   },
 // 26 Oct (DG follow-up 16:11): Tue 27 / Wed 28 Oct + 9–23 Nov reinforcement. Sources per row in
 // /workspace/dubliners-agenda-2026-10-26/FUENTES.md. NO channel. NFL without RedZone (owner-confirmed only 1 + 8 Nov).
-{
-    dateKey: '2026-11-10',
-    whenLabel: 'Tue 10 Nov',
-    competition: 'UEFA Women\'s Champions League',
-    teams: 'Real Madrid Women vs Paris FC',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    noteEn: 'Alfredo Di Stéfano, Madrid.',
-    noteEs: 'Alfredo Di Stéfano, Madrid.',
-  },
-{
-    dateKey: '2026-11-12',
-    whenLabel: 'Thu 12 Nov',
-    competition: 'UEFA Women\'s Champions League',
-    teams: 'Barcelona vs Arsenal',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-  },
-{
-    dateKey: '2026-11-18',
-    whenLabel: 'Wed 18 Nov',
-    competition: 'UEFA Women\'s Champions League',
-    teams: 'Real Madrid vs Inter',
-    madridTime: '18:45',
-    confirmedOnScreens: true,
-    noteEn: 'Live at Dubliners.',
-    noteEs: 'En directo en Dubliners.',
-  },
 {
     dateKey: '2026-11-18',
     whenLabel: 'Wed 18 Nov',
@@ -909,46 +875,6 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
-  },
-{
-    dateKey: '2026-11-15',
-    whenLabel: 'Sun 15 Nov',
-    competition: 'ATP Finals',
-    teams: 'Turin — doubles session',
-    madridTime: '11:30',
-    confirmedOnScreens: true,
-    noteEn: 'Doubles. Turin.',
-    noteEs: 'Dobles. Turín.',
-  },
-{
-    dateKey: '2026-11-15',
-    whenLabel: 'Sun 15 Nov',
-    competition: 'ATP Finals',
-    teams: 'Turin — singles session',
-    madridTime: '14:00',
-    confirmedOnScreens: true,
-    noteEn: 'Singles, not before 14:00. Turin.',
-    noteEs: 'Individuales, no antes de las 14:00. Turín.',
-  },
-{
-    dateKey: '2026-11-15',
-    whenLabel: 'Sun 15 Nov',
-    competition: 'ATP Finals',
-    teams: 'Turin — doubles session',
-    madridTime: '18:00',
-    confirmedOnScreens: true,
-    noteEn: 'Doubles. Turin.',
-    noteEs: 'Dobles. Turín.',
-  },
-{
-    dateKey: '2026-11-15',
-    whenLabel: 'Sun 15 Nov',
-    competition: 'ATP Finals',
-    teams: 'Turin — singles session',
-    madridTime: '20:30',
-    confirmedOnScreens: true,
-    noteEn: 'Singles, not before 20:30. Turin.',
-    noteEs: 'Individuales, no antes de las 20:30. Turín.',
   },
 {
     dateKey: '2026-11-15',
@@ -1227,6 +1153,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Newcastle United vs Arsenal',
     madridTime: '18:30',
     confirmedOnScreens: true,
+    channel: 'DAZN',
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },
@@ -1247,6 +1174,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Liverpool vs Manchester United',
     madridTime: '17:30',
     confirmedOnScreens: true,
+    channel: 'DAZN',
     noteEn: 'Live at Dubliners.',
     noteEs: 'En directo en Dubliners.',
   },

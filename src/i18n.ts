@@ -97,6 +97,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/afternoon-pint-before-tomorrows-class-near-sol/': '/es/pinta-de-tarde-antes-de-clase-manana-junto-a-sol/',
   '/sunday-without-stadium-ticket-near-sol/': '/es/domingo-sin-entrada-estadio-junto-a-sol/',
   '/royal-palace-opera-walk-to-espoz-mina-7/': '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/',
+  '/zalgiris-fans-madrid/': '/es/aficionados-zalgiris-madrid/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

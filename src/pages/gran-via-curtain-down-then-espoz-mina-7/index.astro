@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/gran-via-curtain-down-then-espoz-mina-7/';
+const PATH_ES = '/es/bajada-del-telon-gran-via-luego-espoz-mina-7/';
+const title = 'Gran Vía curtain down, then Espoz y Mina 7 | Irish pub near Sol';
+const description =
+  'Curtain down on Gran Vía? Walk the theatre strip toward Puerta del Sol for an indoor Irish pint at Espoz y Mina 7. English at the bar. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where do I go for a pint after a show on Gran Vía?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an indoor Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol. Walk Gran Vía east toward Sol, then Espoz y Mina to the green neon. Metro Gran Vía (L1, L5), Sol (L1, L2, L3), or Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Sunday evening Metro Gran Vía page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Evening Metro Gran Vía is inbound on a Sunday sports clock. This page is theatre let-out: you walked out of a show and want a pub, not a station timetable.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a match after the theatre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Named fixtures stay on What’s On. If nothing is listed, this is still an indoor Irish pint. Ask at the bar which screen, if any, is on.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Gran Vía curtain down, then Espoz y Mina 7" schema />
+      <h1>Gran Vía curtain down, then Espoz y Mina 7</h1>
+      <p class="lead">
+        The lights come up, the lobby empties onto Gran Vía, and you still want somewhere to sit with a pint and English at the bar.
+        Dubliners is two streets from Puerta del Sol — Calle de Espoz y Mina 7 — an indoor Irish pub on the theatre side of the centre.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Theatre let-out, not a Metro timetable</h2>
+      <p>
+        This is not the late night out page —
+        <a href={withBase('/night-out-near-sol-madrid/')}>night out near Sol</a> —
+        and it is not Sunday evening Metro inbound —
+        <a href={withBase('/evening-metro-gran-via-sevilla-to-open-sol-doors/')}>Gran Vía or Sevilla to Sol doors</a>.
+        You came out of a musical, a play, or a concert house on Gran Vía and want a walkable Irish pub before bed.
+      </p>
+      <p>
+        Not the Prado walk, not the wet plaza, not Callao shopping, not the airport first night.
+        Curtain down on Gran Vía, pint at the tailor-shop room on Espoz y Mina 7.
+      </p>
+
+      <h2>Walk Gran Vía east to Sol</h2>
+      <ol>
+        <li>Leave the theatre onto <strong>Gran Vía</strong> (Callao / Plaza de España end, depending on the show).</li>
+        <li>Walk <strong>east toward Puerta del Sol</strong> — downhill on the strip, not back toward Plaza de España unless that is your ticket office.</li>
+        <li>At Sol, take <strong>Calle de Espoz y Mina</strong> toward Carrera de San Jerónimo / Sevilla.</li>
+        <li>Look for the <strong>green Dubliners neon</strong> at number 7.</li>
+      </ol>
+      <p>
+        Metro Gran Vía (L1, L5) if you would rather skip the last stretch in heels.
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Screens only when What’s On says so</h2>
+      <p>
+        A post-show pint does not need a kick-off. Named fixtures stay on
+        <a href={withBase('/whats-on/')}>What’s On</a> in Madrid time.
+        If nothing is listed, sit anyway. Ask which game is on.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — after Gran Vía curtain down" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/visit/')}>FIND US</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where do I go for a pint after a show on Gran Vía?</strong></dt>
+        <dd>Gran Vía east → Sol → Espoz y Mina 7. Indoor Irish pub, green neon.</dd>
+        <dt><strong>Is this the Sunday evening Metro Gran Vía page?</strong></dt>
+        <dd>No. That is inbound Metro on a sports weekend. This is theatre let-out.</dd>
+        <dt><strong>Is there a match after the theatre?</strong></dt>
+        <dd>Named fixtures: <a href={withBase('/whats-on/')}>What’s On</a>. If the list is empty, the pint still stands.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this theatre walk)',
+            items: [
+              { href: '/night-out-near-sol-madrid/', label: 'Night out near Sol', note: 'Late pub, not curtain-down walk' },
+              { href: '/from-the-prado-steps-to-espoz-mina-7/', label: 'From the Prado steps', note: 'Museum walk, not Gran Vía' },
+              { href: '/visit/', label: 'FIND US', note: 'Maps, Metro Sol, GET DIRECTIONS' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

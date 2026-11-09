@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/sunday-without-stadium-ticket-near-sol/';
+const PATH_ES = '/es/domingo-sin-entrada-estadio-junto-a-sol/';
+const title = 'Sunday without a stadium ticket near Sol | Irish pub screens';
+const description =
+  'No Bernabéu or Metropolitano ticket this Sunday? Indoor Irish pub at Espoz y Mina 7 off Puerta del Sol — live sport on screens when What’s On lists it. No tickets sold here. GET DIRECTIONS.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I watch football on Sunday in Madrid without a stadium ticket?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners is an Irish pub on Calle de Espoz y Mina 7, 28012 Madrid, just off Puerta del Sol, with indoor screens when matches are listed on What’s On. This pub does not sell stadium tickets. Metro Sol (L1, L2, L3) or Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the NFL Sunday guide or NFL weekend without the stadium page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Those pages are NFL-led. This page is evergreen tourism: any Sunday in the centre, no match ticket, Irish pub room near Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the dated Sunday sports Sol campaign page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Campaign Sunday clocks are time-of-day fan weekend copy. This is a standing visitor intent: Sunday, no stadium entry, this door.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Sunday without a stadium ticket near Sol" schema />
+      <h1>Sunday without a stadium ticket near Sol</h1>
+      <p class="lead">
+        Madrid plays on Sunday and you are not in the stands.
+        Dubliners is an indoor Irish pub on Espoz y Mina 7, two streets from Puerta del Sol —
+        screens when What’s On lists the match, pint either way. We do not sell stadium tickets.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Centre Sunday, not the away end</h2>
+      <p>
+        This is not the NFL weekend screen page —
+        <a href={withBase('/nfl-weekend-madrid-screens-only/')}>NFL without the stadium</a> —
+        nor the Sunday sports fan clock hub.
+        Tourists and locals without a Bernabéu or Metropolitano ticket still want a room near Sol.
+      </p>
+      <p>
+        Not wet Plaza Mayor, not Prado walk, not Gran Vía theatre, not soccer wording, not Erasmus afternoon, not birthday table.
+        Sunday, no ticket, Irish pub indoors.
+      </p>
+
+      <h2>Find the room</h2>
+      <ol>
+        <li>From <strong>Puerta del Sol</strong>, walk <strong>Espoz y Mina</strong> to number 7.</li>
+        <li>Check <a href={withBase('/whats-on/')}>What’s On</a> for named fixtures in Madrid time — ask at the bar if the list is empty.</li>
+        <li>No tickets sold at this door; only the pint and the screen when listed.</li>
+      </ol>
+      <p>
+        NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Sunday without stadium ticket" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/sports-bar-madrid/')}>Sports bar near Sol</a>
+      </p>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Where can I watch football on Sunday without a stadium ticket?</strong></dt>
+        <dd>Espoz y Mina 7 off Sol. What’s On for named matches. No ticket sales.</dd>
+        <dt><strong>Is this the NFL Sunday or weekend page?</strong></dt>
+        <dd>No. NFL-led. This is any Sunday visitor without stadium entry.</dd>
+        <dt><strong>Is this the fan-weekend Sunday clock page?</strong></dt>
+        <dd>No. Evergreen tourism intent.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Sunday no-ticket page)',
+            items: [
+              { href: '/nfl-madrid/', label: 'NFL in Madrid', note: 'American football led' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar Madrid', note: 'Evergreen hub' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only' },
+              { href: '/visit/', label: 'FIND US', note: 'GET DIRECTIONS' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

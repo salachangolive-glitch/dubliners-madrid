@@ -30,14 +30,29 @@ const faqLd = {
       name: 'How do I get to Dubliners from Puerta del Sol?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon.',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon. GET DIRECTIONS uses Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where are named match listings?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Only confirmed fixtures on What’s On in Madrid time. If a slot is empty, ask at the bar which screen is on.',
       },
     },
   ],
 };
 ---
 
-<BaseLayout title={title} description={description} path="/sports-bar-madrid/" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/sports-bar-madrid/"
+  hreflang={{ en: '/sports-bar-madrid/', es: '/es/bar-deportivo-madrid/' }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -123,8 +138,8 @@ const faqLd = {
         NFL Sundays are the big one: the early and late afternoon games (US time) land in the Madrid evening,
         on our screens. Watch NFL Madrid here when it is on What’s On — full board on the
         <a href={withBase('/nfl-madrid/')}>NFL bar Madrid</a> page.
-        We also put NBA and NHL games on when they start before our late cut-off, and MLB at playoff time.
-        A game has to start at least an hour before we close (02:00, or 02:30 on Friday and Saturday nights) to be listed.
+        We also put NBA and NHL when listed, and MLB at playoff time when confirmed.
+        Named kick-offs stay on <a href={withBase('/whats-on/')}>What’s On</a> only — ask at the bar if nothing is posted.
       </p>
       <h2>Food &amp; drinks</h2>
       <p>
@@ -137,10 +152,12 @@ const faqLd = {
           {
             title: 'Match-night guides',
             items: [
-              { href: '/whats-on/', label: 'What’s On', note: 'Tonight’s fixtures and the week ahead' },
+              { href: '/whats-on/', label: 'What’s On', note: 'Named fixtures only — Madrid time' },
               { href: '/premier-league-pub-madrid/', label: 'Premier League pub Madrid' },
               { href: '/champions-league-bar-madrid/', label: 'Champions League nights' },
               { href: '/nfl-madrid/', label: 'NFL bar Madrid', note: 'Watch NFL Madrid near Sol' },
+              { href: '/if-you-asked-for-soccer-near-sol/', label: 'If you asked for soccer', note: 'Visitor wording vs this hub' },
+              { href: '/sunday-without-stadium-ticket-near-sol/', label: 'Sunday without stadium ticket', note: 'Screens when listed' },
               { href: '/irish-pub-near-plaza-mayor/', label: 'Irish pub Madrid', note: 'Near Plaza Mayor & Sol' },
               { href: '/visit/', label: 'Visit', note: 'Address, Metro Sol walk and GET DIRECTIONS' },
             ],
@@ -200,10 +217,12 @@ const faqLd = {
           </p>
         </details>
       </div>
-      <h2>How to get here</h2>
+      <h2 id="how-to-get">How to get here</h2>
       <p>
-        <strong>{SITE.address}</strong>, {SITE.postal}. Metro Sol (L1, L2, L3) or Sevilla (L2). Walk from the plaza toward Carrera de San Jerónimo and look for the green neon.
-        Full walking notes: <a href={withBase('/visit/')}>FIND US</a>.
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/sports-bar-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) or Sevilla (L2). From Puerta del Sol, walk Calle de Espoz y Mina toward the green neon.
+        Walking notes: <a href={withBase('/visit/')}>FIND US</a>.
       </p>
       <div class="map-frame" style="margin-top:1.5rem">
         <MapEmbed lang="en" title="Map to Dubliners sports bar" />

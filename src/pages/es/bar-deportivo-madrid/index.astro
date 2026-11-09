@@ -30,14 +30,30 @@ const faqLd = {
       name: '¿Cómo se llega a Dubliners desde Puerta del Sol?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde. CÓMO LLEGAR usa Google Maps CID 4384002297188950803.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde están los listados con nombre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Solo partidos confirmados en Partidos, en hora de Madrid. Si un hueco está vacío, pregunta en barra qué pantalla hay.',
       },
     },
   ],
 };
 ---
 
-<BaseLayout title={title} description={description} path="/es/bar-deportivo-madrid/" lang="es" ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/es/bar-deportivo-madrid/"
+  lang="es"
+  hreflang={{ en: '/sports-bar-madrid/', es: '/es/bar-deportivo-madrid/' }}
+  ogImage="/images/screens-sports.jpg"
+  extraJsonLd={[faqLd]}
+>
   <section class="hero hero-compact">
     <div class="container hero-grid">
       <div>
@@ -123,8 +139,8 @@ const faqLd = {
         Los domingos de NFL son lo principal: los partidos de primera y última hora de la tarde (hora de EE. UU.)
         caen en la tarde-noche de Madrid, en nuestras pantallas. Ver NFL en Madrid aquí cuando está en Partidos — parrilla completa en
         <a href={withBase('/es/nfl-madrid/')}>bar NFL Madrid</a>.
-        También ponemos NBA y NHL cuando empiezan antes de nuestro corte de la noche, y la MLB en playoffs.
-        Solo anunciamos partidos que empiezan al menos una hora antes del cierre (02:00; viernes y sábado, 02:30).
+        También ponemos NBA y NHL cuando están listados, y MLB en playoffs si está confirmado.
+        Los horarios con nombre solo en <a href={withBase('/es/partidos/')}>Partidos</a> — pregunta en barra si no hay nada publicado.
       </p>
       <h2>Comida y bebida</h2>
       <p>
@@ -137,10 +153,12 @@ const faqLd = {
           {
             title: 'Guías para noches de partido',
             items: [
-              { href: '/es/partidos/', label: 'Partidos', note: 'Partidos de hoy y agenda de la semana' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre — hora Madrid' },
               { href: '/es/premier-league-pub-madrid/', label: 'Pub Premier League Madrid' },
               { href: '/es/champions-league-bar-madrid/', label: 'Noches de Champions League' },
               { href: '/es/nfl-madrid/', label: 'Bar NFL Madrid', note: 'Ver NFL en Madrid cerca de Sol' },
+              { href: '/es/si-pediste-soccer-futbol-cerca-de-sol/', label: 'Si pediste soccer', note: 'Visitante vs este hub' },
+              { href: '/es/domingo-sin-entrada-estadio-junto-a-sol/', label: 'Domingo sin entrada estadio', note: 'Pantallas cuando hay listado' },
               { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid', note: 'Cerca de Plaza Mayor y Sol' },
               { href: '/es/visitar/', label: 'Visitar', note: 'Dirección, Metro Sol y CÓMO LLEGAR' },
             ],
@@ -185,6 +203,10 @@ const faqLd = {
           <p>Sí. La mayoría de hoteles de la zona Sol están a un paseo corto de Espoz y Mina 7: desde la plaza, dirígete hacia la Calle de Espoz y Mina.</p>
         </details>
         <details>
+          <summary>¿Puedo ver soccer aquí (visitantes de EE. UU.)?</summary>
+          <p>Sí — fútbol en pantallas de interior junto a Sol; «soccer» es fútbol aquí. Listados en Partidos.</p>
+        </details>
+        <details>
           <summary>¿Hay terraza?</summary>
           <p>No — solo interior con pantallas.</p>
         </details>
@@ -200,9 +222,11 @@ const faqLd = {
           </p>
         </details>
       </div>
-      <h2>Cómo llegar</h2>
+      <h2 id="como-llegar">Cómo llegar</h2>
       <p>
-        <strong>{SITE.address}</strong>, {SITE.postal}. Metro Sol (L1, L2, L3) o Sevilla (L2). Anda desde la plaza hacia Carrera de San Jerónimo y busca el neón verde.
+        <strong>NAP:</strong> Dubliners · <strong>{SITE.address}</strong> · {SITE.postal} ·
+        <a href="https://dublinersmadrid.es/es/bar-deportivo-madrid/">dublinersmadrid.es</a>.
+        Metro Sol (L1, L2, L3) o Sevilla (L2). Desde Puerta del Sol, calle de Espoz y Mina hasta el neón verde.
         Notas a pie: <a href={withBase('/es/visitar/')}>FIND US</a>.
       </p>
       <div class="map-frame" style="margin-top:1.5rem">

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/ingles-en-barra-despues-de-aterrizar/';
+const PATH_EN = '/english-at-the-bar-after-you-land/';
+const title = 'Inglés en barra después de aterrizar | Pub irlandés cerca de Sol';
+const description =
+  '¿Primera noche en Madrid? Pub irlandés con inglés en barra en Espoz y Mina 7, junto a Puerta del Sol — una pinta antes del hotel, no un reloj de aeropuerto. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde tomo una pinta irlandesa en inglés después de aterrizar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners es un pub irlandés en la calle de Espoz y Mina 7, 28012 Madrid, junto a Puerta del Sol. La sala y la barra responden en inglés. Metro Sol (L1, L2, L3) o Sevilla (L2).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página de Barajas de madrugada del fin de semana?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esa página es un reloj fechado del aeropuerto a Sol. Esta es la primera noche en el centro: ya bajaste del avión y quieres inglés en un pub irlandés antes del hotel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Habrá partido la primera noche?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Los partidos con nombre están en Partidos. Si la lista está vacía, sigue siendo una pinta irlandesa de interior en inglés. Pregunta en barra qué pantalla hay, si hay alguna.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/bar-interior.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Inglés en barra después de aterrizar" lang="es" schema />
+      <h1>Inglés en barra después de aterrizar</h1>
+      <p class="lead">
+        Maleta en el suelo, o aún al hombro. Ya estás en Madrid, no en la terminal.
+        Dubliners es el pub irlandés de interior junto a Puerta del Sol — Espoz y Mina 7 — donde la barra responde en inglés la primera noche.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Primera noche en el centro, no un reloj de aeropuerto</h2>
+      <p>
+        Esto no es el paseo fechado de Barajas de madrugada —
+        <a href={withBase('/es/barajas-madrugada-a-sol-hasta-1400/')}>Barajas a Sol hasta las 14:00</a> —
+        ni un paseo de museo, una plaza mojada, Callao con bolsas ni Atocha una parada hacia dentro.
+        Ya aterrizaste. Quieres una sala que hable inglés antes de la almohada del hotel.
+      </p>
+      <p>
+        La sala es la antigua sastrería Barragán (1885). Techo pintado, taburetes de interior, sin terraza. Los abrigos del vuelo quedan en la puerta.
+      </p>
+
+      <h2>Ya en Sol, dos minutos al neón</h2>
+      <ol>
+        <li>Si viniste en Metro o Cercanías, estás en <strong>Sol</strong>. Sal hacia Carrera de San Jerónimo / Sevilla.</li>
+        <li>Entra en la <strong>calle de Espoz y Mina</strong>.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7 y entra.</li>
+      </ol>
+      <p>
+        Metro Sol (L1, L2, L3) o Sevilla (L2). NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+        No inventamos un reloj de taxi desde el aeropuerto. Maps en directo: CÓMO LLEGAR.
+      </p>
+
+      <h2>Pantallas solo cuando lo dice Partidos</h2>
+      <p>
+        Una pinta de primera noche no necesita saque. Los partidos con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a> en hora de Madrid.
+        Si no hay nada, siéntate igual. Pregunta qué echan.
+      </p>
+      <p>
+        Los miércoles de chupitos a 1 € ya están en el sitio si caes ese día —
+        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>miércoles chupitos a 1 €</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — inglés en barra después de aterrizar" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Dónde tomo una pinta irlandesa en inglés después de aterrizar?</strong></dt>
+        <dd>Dubliners, calle de Espoz y Mina 7, 28012 Madrid. Pub irlandés de interior junto a Sol. Metro Sol o Sevilla.</dd>
+        <dt><strong>¿Es la página de Barajas de madrugada del fin de semana?</strong></dt>
+        <dd>No. Eso es un reloj de aeropuerto fechado. Esta es la primera noche en el centro.</dd>
+        <dt><strong>¿Habrá partido la primera noche?</strong></dt>
+        <dd>Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>. Si la lista está vacía, la pinta sigue.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no esta primera noche)',
+            items: [
+              { href: '/es/visitar/', label: 'FIND US', note: 'Maps, Metro Sol, CÓMO LLEGAR' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid cerca de Plaza Mayor', note: 'Paseo turístico, no el aterrizaje' },
+              { href: '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/', label: 'Desde las escaleras del Prado', note: 'Paseo de museo, no el aeropuerto' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

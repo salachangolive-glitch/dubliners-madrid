@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/desde-las-escaleras-del-prado-a-espoz-mina-7/';
+const PATH_EN = '/from-the-prado-steps-to-espoz-mina-7/';
+const title = 'Desde las escaleras del Prado a Espoz y Mina 7 | Pub irlandés cerca de Sol';
+const description =
+  '¿Saliste del Prado? Camina por la Carrera de San Jerónimo, Barrio de las Letras, hasta el pub irlandés de Espoz y Mina 7, junto a Puerta del Sol. CÓMO LLEGAR.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cómo voy andando del Prado a Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sal del Prado hacia el oeste, Plaza de las Cortes, Carrera de San Jerónimo hacia Sol, luego calle de Espoz y Mina hasta el 7 y el neón verde. A pie de calle; Metro Sevilla (L2) si prefieres el último tramo bajo tierra.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es el paseo turístico de Plaza Mayor?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El paseo de la plaza está en pub irlandés Madrid cerca de Plaza Mayor. Esta página empieza en las escaleras del Prado y cruza el Barrio de las Letras hasta Espoz y Mina 7.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Habrá partido después del museo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Los partidos con nombre están en Partidos. Si la lista está vacía, sigue siendo un pub irlandés después de las salas. Pregunta en barra qué pantalla hay, si hay alguna.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Desde las escaleras del Prado a Espoz y Mina 7" lang="es" schema />
+      <h1>Desde las escaleras del Prado a Espoz y Mina 7</h1>
+      <p class="lead">
+        Sales del museo. Sigues hacia el oeste por el Barrio de las Letras.
+        Dubliners es el pub irlandés de interior al final de ese paseo, junto a Sol — calle de Espoz y Mina 7 — inglés en barra, techo pintado, pinta después de los cuadros.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Tarde de museo, pub irlandés al lado de Sol</h2>
+      <p>
+        Esto no es el circuito turístico de Plaza Mayor — eso está en
+        <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>pub irlandés Madrid cerca de Plaza Mayor</a>.
+        Tampoco es la pinta interior con lluvia —
+        <a href={withBase('/es/pinta-interior-cuando-plaza-mayor-esta-mojada/')}>Pinta interior cuando Plaza Mayor está mojada</a> —
+        ni las compras de Callao.
+        Vienes de las escaleras del Prado, por Letras, a esta puerta.
+      </p>
+      <p>
+        La sala es la antigua sastrería Barragán (1885). Los abrigos de las galerías gotean en la puerta. La pinta no necesita terraza.
+      </p>
+
+      <h2>Nombres de calle, al oeste de las escaleras</h2>
+      <ol>
+        <li>Sal del Prado hacia <strong>Plaza de las Cortes</strong> / Carrera de San Jerónimo (oeste, hacia Sol — no de vuelta a Atocha).</li>
+        <li>Sigue la <strong>Carrera de San Jerónimo</strong> junto al Congreso. Estás en el Barrio de las Letras.</li>
+        <li>Sigue al oeste hacia <strong>Sevilla</strong> y <strong>Puerta del Sol</strong>.</li>
+        <li>Entra en la <strong>calle de Espoz y Mina</strong>. Busca el <strong>neón verde de Dubliners</strong> en el número 7.</li>
+      </ol>
+      <p>
+        Huertas, Cervantes y Lope de Vega quedan justo al sur de ese eje si viniste por las calles literarias en vez de por la Carrera.
+        Metro Sevilla (L2) es la parada más cercana si te saltas los últimos metros. NAP: <strong>{SITE.address}</strong>, {SITE.postal}.
+      </p>
+
+      <h2>Pantallas solo cuando lo dice Partidos</h2>
+      <p>
+        El deporte en directo después del museo es un extra, no una excusa para inventar cartelera. Los saques con nombre están en
+        <a href={withBase('/es/partidos/')}>Partidos</a> en hora de Madrid.
+        Si no hay nada, siéntate igual. Pregunta qué echan. No esperes todos los partidos en todas las pantallas.
+      </p>
+      <p>
+        Los miércoles de chupitos a 1 € ya están en el sitio si caes ese día —
+        <a href={withBase('/es/miercoles-chupitos-1-euro/')}>miércoles chupitos a 1 €</a>.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — del Prado a Espoz y Mina 7" />
+      </div>
+      <p class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>FIND US</a>
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      <dl class="faq">
+        <dt><strong>¿Cómo voy andando del Prado a Dubliners?</strong></dt>
+        <dd>Prado al oeste → Plaza de las Cortes → Carrera de San Jerónimo → Espoz y Mina 7, neón verde. Metro Sevilla (L2) para el último tramo.</dd>
+        <dt><strong>¿Es el paseo turístico de Plaza Mayor?</strong></dt>
+        <dd>No. Plaza Mayor tiene su página. Esta empieza en las escaleras del Prado y cruza Letras.</dd>
+        <dt><strong>¿Habrá partido después del museo?</strong></dt>
+        <dd>Listados con nombre: <a href={withBase('/es/partidos/')}>Partidos</a>. Si la lista está vacía, la pinta sigue.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este paseo de museo)',
+            items: [
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés Madrid cerca de Plaza Mayor', note: 'Paseo de la plaza, no el Prado' },
+              { href: '/es/pinta-interior-cuando-plaza-mayor-esta-mojada/', label: 'Pinta interior cuando Plaza Mayor está mojada', note: 'Lluvia en la plaza, no las galerías' },
+              { href: '/es/visitar/', label: 'FIND US', note: 'Maps, Metro Sol, CÓMO LLEGAR' },
+              { href: '/es/partidos/', label: 'Partidos', note: 'Solo listados con nombre' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

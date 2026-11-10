@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CtaRow from '../../components/CtaRow.astro';
+import { withBase, absUrl } from '../../site';
+
+const PATH = '/gallery/';
+const PATH_ES = '/es/galeria/';
+const title = 'Gallery | Photos and video inside Dubliners Madrid';
+const description =
+  'Photos and a short video of the atmosphere inside Dubliners Irish pub on Espoz y Mina 7, near Puerta del Sol — screens and crowd, no ticketed events.';
+const imageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  contentUrl: absUrl('/images/gallery/dubliners-ambiente-01.jpg'),
+  description: 'Guests seated inside Dubliners watching sport on wall screens near Puerta del Sol',
+  name: 'Inside Dubliners Madrid',
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/gallery/dubliners-ambiente-01.jpg"
+  extraJsonLd={[imageLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Gallery" schema />
+      <h1>Gallery</h1>
+      <p class="lead">
+        Recent photos and a short clip from inside Dubliners — the Irish pub on Espoz y Mina 7, a short walk from
+        Puerta del Sol. Atmosphere only: no prices, no fixtures, no other venues.
+      </p>
+      <CtaRow showWednesday={false} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Photos</h2>
+      <figure class="gallery-figure">
+        <picture>
+          <source type="image/webp" srcset={withBase('/images/gallery/dubliners-ambiente-01.webp')} />
+          <img
+            class="gallery-photo"
+            src={withBase('/images/gallery/dubliners-ambiente-01.jpg')}
+            alt="Guests seated inside Dubliners watching sport on wall screens near Puerta del Sol"
+            width="900"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <figcaption>Inside the main room — screens and crowd on a match night.</figcaption>
+      </figure>
+
+      <h2>Video</h2>
+      <figure class="gallery-figure">
+        <video
+          class="gallery-video"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          poster={withBase('/images/gallery/dubliners-video-01-poster.jpg')}
+          width="576"
+          height="1024"
+          aria-label="Short clip of the atmosphere inside Dubliners near Puerta del Sol"
+        >
+          <source src={withBase('/images/gallery/dubliners-video-01.mp4')} type="video/mp4" />
+        </video>
+        <figcaption>Tap play for sound. Filmed inside Dubliners; ambient room only.</figcaption>
+      </figure>
+
+      <p>
+        <a href={withBase('/visit/')}>Find us</a> · <a href={withBase('/about/')}>Our story</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

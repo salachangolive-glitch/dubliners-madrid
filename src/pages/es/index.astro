@@ -260,6 +260,34 @@ const description =
     </div>
   </section>
 
+  <!-- 3b. Galería del dueño -->
+  <section class="section band" id="galeria-preview">
+    <div class="container gallery-preview">
+      <div class="prose">
+        <h2>Fotos y vídeo</h2>
+        <p>
+          Una mirada reciente al interior de Dubliners — la sala junto a Sol, pantallas y público. Más material del dueño
+          en la galería; los partidos solo en <a href={withBase('/es/partidos/')}>Partidos</a>.
+        </p>
+        <a class="btn btn-primary" href={withBase('/es/galeria/')}>Galería</a>
+      </div>
+      <a class="gallery-preview__link" href={withBase('/es/galeria/')} aria-label="Abrir la galería de Dubliners">
+        <picture>
+          <source type="image/webp" srcset={withBase('/images/gallery/dubliners-ambiente-01.webp')} />
+          <img
+            class="gallery-preview__thumb"
+            src={withBase('/images/gallery/dubliners-ambiente-01.jpg')}
+            alt="Clientela en Dubliners viendo deporte en pantallas"
+            width="900"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </a>
+    </div>
+  </section>
+
   <!-- 4. El local -->
   <section class="section">
     <div class="container">

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaRow from '../../../components/CtaRow.astro';
+import { withBase, absUrl } from '../../../site';
+
+const PATH = '/es/galeria/';
+const PATH_EN = '/gallery/';
+const title = 'Galería | Fotos y vídeo de Dubliners Madrid';
+const description =
+  'Fotos y un vídeo corto del ambiente en el pub irlandés Dubliners, Espoz y Mina 7, junto a Puerta del Sol — pantallas y público, sin eventos con entrada.';
+const imageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  contentUrl: absUrl('/images/gallery/dubliners-ambiente-01.jpg'),
+  description: 'Clientela sentada en Dubliners viendo deporte en pantallas junto a Puerta del Sol',
+  name: 'Interior Dubliners Madrid',
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/gallery/dubliners-ambiente-01.jpg"
+  extraJsonLd={[imageLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Galería" lang="es" schema />
+      <h1>Galería</h1>
+      <p class="lead">
+        Fotos y un clip reciente desde dentro de Dubliners — el pub irlandés en Espoz y Mina 7, a dos calles de
+        Puerta del Sol. Solo ambiente: sin precios, sin partidos anunciados, sin otros locales.
+      </p>
+      <CtaRow showWednesday={false} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Fotos</h2>
+      <figure class="gallery-figure">
+        <picture>
+          <source type="image/webp" srcset={withBase('/images/gallery/dubliners-ambiente-01.webp')} />
+          <img
+            class="gallery-photo"
+            src={withBase('/images/gallery/dubliners-ambiente-01.jpg')}
+            alt="Clientela sentada en Dubliners viendo deporte en pantallas junto a Puerta del Sol"
+            width="900"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <figcaption>Sala principal — pantallas y público en noche de partido.</figcaption>
+      </figure>
+
+      <h2>Vídeo</h2>
+      <figure class="gallery-figure">
+        <video
+          class="gallery-video"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          poster={withBase('/images/gallery/dubliners-video-01-poster.jpg')}
+          width="576"
+          height="1024"
+          aria-label="Clip corto del ambiente interior en Dubliners junto a Sol"
+        >
+          <source src={withBase('/images/gallery/dubliners-video-01.mp4')} type="video/mp4" />
+        </video>
+        <figcaption>Pulsa play para sonido. Grabado en Dubliners; solo sala y ambiente.</figcaption>
+      </figure>
+
+      <p>
+        <a href={withBase('/es/visitar/')}>Visitar</a> · <a href={withBase('/es/sobre-dubliners/')}>Nuestra historia</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

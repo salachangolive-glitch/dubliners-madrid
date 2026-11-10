@@ -260,6 +260,34 @@ const description =
     </div>
   </section>
 
+  <!-- 6b. Owner gallery preview -->
+  <section class="section band" id="gallery-preview">
+    <div class="container gallery-preview">
+      <div class="prose">
+        <h2>Photos and video</h2>
+        <p>
+          A recent look inside Dubliners — the room near Puerta del Sol, screens and crowd. More owner footage on the
+          gallery page; fixtures stay on <a href={withBase('/whats-on/')}>What’s On</a>.
+        </p>
+        <a class="btn btn-primary" href={withBase('/gallery/')}>Gallery</a>
+      </div>
+      <a class="gallery-preview__link" href={withBase('/gallery/')} aria-label="Open the Dubliners gallery">
+        <picture>
+          <source type="image/webp" srcset={withBase('/images/gallery/dubliners-ambiente-01.webp')} />
+          <img
+            class="gallery-preview__thumb"
+            src={withBase('/images/gallery/dubliners-ambiente-01.jpg')}
+            alt="Guests inside Dubliners watching sport on wall screens"
+            width="900"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </a>
+    </div>
+  </section>
+
   <!-- 7. Inside -->
   <section class="section">
     <div class="container">

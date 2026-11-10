@@ -9,6 +9,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/wednesday-1-euro-shots-madrid/': '/es/miercoles-chupitos-1-euro/',
   '/sports-bar-madrid/': '/es/bar-deportivo-madrid/',
   '/visit/': '/es/visitar/',
+  '/gallery/': '/es/galeria/',
   '/contact/': '/es/contacto/',
   '/privacy/': '/es/privacidad/',
   '/premier-league-pub-madrid/': '/es/premier-league-pub-madrid/',
@@ -159,6 +160,7 @@ export function navLinks(lang: Lang): NavLink[] {
       { href: '/es/carta/', label: 'Carta' },
       { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles' },
       { href: '/es/visitar/', label: 'Visitar' },
+      { href: '/es/galeria/', label: 'Galería' },
       { href: '/es/contacto/', label: 'Contacto' },
     ];
   }
@@ -169,6 +171,7 @@ export function navLinks(lang: Lang): NavLink[] {
     { href: '/menu/', label: 'Menu' },
     { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday' },
     { href: '/visit/', label: 'Visit' },
+    { href: '/gallery/', label: 'Gallery' },
     { href: '/contact/', label: 'Contact' },
   ];
 }

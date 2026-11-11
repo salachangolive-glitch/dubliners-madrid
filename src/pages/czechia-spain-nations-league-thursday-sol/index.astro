@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase, absUrl } from '../../site';
+
+const PATH = '/czechia-spain-nations-league-thursday-sol/';
+const PATH_ES = '/es/republica-checa-espana-nations-league-jueves-sol/';
+const title = 'Czechia v Spain Thursday Nations League from Sol | Dubliners';
+const description =
+  'Spain play away in Prague on Thursday 12 November, 20:45 Madrid time, UEFA Nations League on La 1 at Dubliners Irish pub, Espoz y Mina 7 near Puerta del Sol.';
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Czechia vs Spain — UEFA Nations League (screening at Dubliners Madrid)',
+  description:
+    'Czechia vs Spain (UEFA Nations League, Prague) shown on the screens at Dubliners Irish Pub, Espoz y Mina 7, near Puerta del Sol, Madrid. Broadcast: La 1.',
+  startDate: '2026-11-12T20:45:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.mapsUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Spain' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Czechia' },
+  url: absUrl(PATH),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When is Czechia v Spain on Thursday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Thursday 12 November 2026, kick-off 20:45 Madrid time. The match is played in Prague; we show it on La 1 when listed on What’s On.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Spain v England Metropolitano guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. England fans in Madrid covers Sunday 15 November at the stadium. This page is La Roja away in Prague on Thursday evening from our pub near Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[eventLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Czechia v Spain, Thursday" schema />
+      <h1>La Roja away in Prague — Thursday from Sol</h1>
+      <p class="lead">
+        International break, but <strong>Thursday 12 November</strong> has a named Spain fixture:
+        <strong>Czechia v Spain</strong>, UEFA Nations League, <strong>20:45 Madrid time</strong>, played in Prague,
+        <strong>La 1</strong> on our screens when confirmed on <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>What this page is (and is not)</h2>
+      <p>
+        This is a <strong>Thursday evening screening note</strong> for visitors and locals in central Madrid — not a stadium
+        guide. Sunday’s <a href={withBase('/england-fans-madrid/')}>Spain v England at the Metropolitano</a> is a different
+        match and a different page. No prices, no ticket sales, no unverified channels.
+      </p>
+
+      <h2>Thursday 12 November · 20:45</h2>
+      <p>
+        <strong>Czechia v Spain</strong> (UEFA Nations League). Kick-off <strong>20:45 Madrid time</strong>. The fixture is
+        in <strong>Prague</strong> — follow it indoors at Dubliners, Calle de Espoz y Mina 7, two streets from Puerta del
+        Sol. English at the bar; mixed crowd. Channel on the board: <strong>La 1</strong> (same as listed on What’s On).
+      </p>
+
+      <h2>Same evening, later clock</h2>
+      <p>
+        EuroLeague basketball follows at <strong>21:00</strong>: Real Madrid v Crvena Zvezda (<strong>Movistar+ Baloncesto</strong>),
+        Movistar Arena. Screen meeting point for visiting basketball fans:
+        <a href={withBase('/red-star-fans-madrid/')}>Red Star fans in Madrid</a>. Pick one kick-off or stay through both — ask at the bar which screen is which.
+      </p>
+
+      <h2>Tuesday 11 November</h2>
+      <p>
+        No Spain kick-off tonight. Midweek in the tailor-shop room still works — see
+        <a href={withBase('/tuesday-in-the-barragan-tailor-shop-near-sol/')}>Tuesday in the Barragán room</a> for a quiet
+        indoor pint. Tomorrow is Wednesday <a href={withBase('/wednesday-1-euro-shots-madrid/')}>€1 shots</a> at the bar (ask on arrival).
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Nations League Thursday" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Thursday match)',
+            items: [
+              { href: '/england-fans-madrid/', label: 'England fans — Spain v England Sun 15', note: 'Stadium night, not Prague' },
+              { href: '/red-star-fans-madrid/', label: 'Red Star fans — EuroLeague Thu 21:00', note: 'Basketball, same evening' },
+              { href: '/irish-double-saturday-madrid/', label: 'Ireland v Fiji Saturday', note: 'Rugby, not Nations League' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol', note: 'How screens work' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

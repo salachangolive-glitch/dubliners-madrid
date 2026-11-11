@@ -100,6 +100,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/royal-palace-opera-walk-to-espoz-mina-7/': '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/',
   '/zalgiris-fans-madrid/': '/es/aficionados-zalgiris-madrid/',
   '/sol-christmas-lights-evening-walk/': '/es/paseo-luces-navidad-sol-desde-21-nov/',
+  '/czechia-spain-nations-league-thursday-sol/': '/es/republica-checa-espana-nations-league-jueves-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/jueves-12-noviembre-2045-luego-2100-baloncesto-sol/';
+const PATH_EN = '/thursday-12-november-2045-then-2100-basketball-sol/';
+const title = 'Jueves 12 nov: 20:45 fútbol y 21:00 baloncesto | Dubliners';
+const description =
+  'Jueves 12 de noviembre en Dubliners junto a Sol: Nations League 20:45 en La 1 y EuroLeague 21:00 en Movistar+ Baloncesto. Quince minutos entre saques, un pub interior.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué hay a las 20:45 y 21:00 el jueves 12 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cuando figura en Partidos: UEFA Nations League a las 20:45 en La 1, luego EuroLeague a las 21:00 en Movistar+ Baloncesto. Pregunta en barra qué pantalla es cada una.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la guía Chequia–España o la de aficionados del Estrella Roja?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Esas páginas cubren un solo partido. Esta es la pareja del jueves: dos saques con quince minutos de margen desde Espoz y Mina 7.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Jueves 12 de noviembre" lang="es" schema />
+      <h1>Jueves 12 de noviembre: fútbol y después baloncesto</h1>
+      <p class="lead">
+        Esta noche encajan <strong>dos saques confirmados</strong> con <strong>quince minutos</strong> de diferencia — una sola
+        puerta interior junto a Puerta del Sol en lugar de dos locales.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>No es un clon de la guía de España</h2>
+      <p>
+        <a href={withBase('/es/republica-checa-espana-nations-league-jueves-sol/')}>República Checa–España en Praga</a> es la nota de La Roja.
+        Esta página es el <strong>reloj doble</strong> para quien está en Madrid el <strong>jueves 12 de noviembre de 2026</strong>.
+      </p>
+
+      <h2>20:45 · Nations League en La 1</h2>
+      <p>
+        <strong>República Checa–España</strong>, saque <strong>20:45</strong> Madrid, en Praga.
+        En pantalla cuando confirma: <strong>La 1</strong> (consulta <a href={withBase('/es/partidos/')}>Partidos</a>).
+        Más contexto: <a href={withBase('/es/republica-checa-espana-nations-league-jueves-sol/')}>Nations League jueves desde Sol</a>.
+      </p>
+
+      <h2>21:00 · EuroLeague en Movistar+ Baloncesto</h2>
+      <p>
+        <strong>Real Madrid–Crvena Zvezda</strong> en Movistar Arena, <strong>21:00</strong>.
+        En pantalla cuando confirma: <strong>Movistar+ Baloncesto</strong>.
+        Aficionados visitantes: <a href={withBase('/red-star-fans-madrid/')}>aficionados del Estrella Roja</a> (en inglés).
+      </p>
+
+      <h2>Una puerta, dos relojes</h2>
+      <p>
+        Dubliners, Calle de Espoz y Mina 7 — Metro Sol o Sevilla, inglés en barra.
+        Elige el primer partido, quédate al marcador final o llega antes de las 20:45 para los dos.
+        No prometemos pantalla privada; solapes en TVs distintas — pregunta al equipo.
+        Sin precios, sin entradas, sin canales fuera de Partidos.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — doble cartel jueves" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no esta pareja del jueves)',
+            items: [
+              { href: '/es/republica-checa-espana-nations-league-jueves-sol/', label: 'Chequia–España — La Roja fuera', note: 'Nota de un solo partido' },
+              { href: '/red-star-fans-madrid/', label: 'Estrella Roja — EuroLeague', note: 'Arena + punto de encuentro' },
+              { href: '/es/martes-en-la-sastreria-barragan-junto-a-sol/', label: 'Martes tranquilo', note: 'Sin noche de partido' },
+              { href: '/es/galeria/', label: 'Galería', note: 'Fotos y vídeo interior' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

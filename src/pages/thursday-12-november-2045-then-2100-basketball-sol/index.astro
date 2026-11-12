@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/thursday-12-november-2045-then-2100-basketball-sol/';
+const PATH_ES = '/es/jueves-12-noviembre-2045-luego-2100-baloncesto-sol/';
+const title = 'Thursday 12 Nov: 20:45 football then 21:00 basketball | Dubliners';
+const description =
+  'Thursday 12 November at Dubliners near Sol: Nations League 20:45 on La 1, then EuroLeague basketball 21:00 on Movistar+ Baloncesto. Fifteen minutes between kick-offs, one indoor pub.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What plays at 20:45 and 21:00 on Thursday 12 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'When listed on What’s On: UEFA Nations League at 20:45 on La 1, then EuroLeague basketball at 21:00 on Movistar+ Baloncesto. Ask at the bar which screen is which.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Czechia v Spain or Red Star fan page?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Those guides cover one match each. This page is the Thursday pairing — two kick-offs, fifteen minutes apart, from Espoz y Mina 7 near Puerta del Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Thursday 12 November" schema />
+      <h1>Thursday 12 November: football, then basketball</h1>
+      <p class="lead">
+        Tonight stacks two confirmed kick-offs <strong>fifteen minutes apart</strong> — enough to stay in one indoor Irish pub off
+        Puerta del Sol instead of chasing two venues.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Not a clone of yesterday’s Spain guide</h2>
+      <p>
+        <a href={withBase('/czechia-spain-nations-league-thursday-sol/')}>Czechia v Spain in Prague</a> is the La Roja away note.
+        This page is the <strong>double-header clock</strong> for anyone in Madrid on <strong>Thursday 12 November 2026</strong>.
+      </p>
+
+      <h2>20:45 · Nations League on La 1</h2>
+      <p>
+        <strong>Czechia v Spain</strong>, kick-off <strong>20:45 Madrid time</strong>, played in Prague.
+        On our screens when confirmed: <strong>La 1</strong> (see <a href={withBase('/whats-on/')}>What’s On</a>).
+        Deeper context: <a href={withBase('/czechia-spain-nations-league-thursday-sol/')}>Thursday Nations League from Sol</a>.
+      </p>
+
+      <h2>21:00 · EuroLeague on Movistar+ Baloncesto</h2>
+      <p>
+        <strong>Real Madrid v Crvena Zvezda</strong> at the Movistar Arena, tip-off <strong>21:00</strong>.
+        On our screens when confirmed: <strong>Movistar+ Baloncesto</strong>.
+        Visiting basketball fans: <a href={withBase('/red-star-fans-madrid/')}>Red Star fans in Madrid</a> (meeting point copy).
+      </p>
+
+      <h2>One door, two clocks</h2>
+      <p>
+        Dubliners is on Calle de Espoz y Mina 7 — Metro Sol or Sevilla, English at the bar.
+        Pick the earlier game, stay for the buzzer, or arrive before 20:45 for both.
+        We do not promise a private screen; clashes go on different TVs — ask staff.
+        No prices, no ticket sales, no channels beyond what What’s On lists.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Thursday double header" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Thursday pairing)',
+            items: [
+              { href: '/czechia-spain-nations-league-thursday-sol/', label: 'Czechia v Spain — La Roja away', note: 'Single-match Thursday note' },
+              { href: '/red-star-fans-madrid/', label: 'Red Star fans — EuroLeague', note: 'Arena + meeting point' },
+              { href: '/tuesday-in-the-barragan-tailor-shop-near-sol/', label: 'Quiet Tuesday room', note: 'Not match night' },
+              { href: '/gallery/', label: 'Gallery', note: 'Photos and video inside' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

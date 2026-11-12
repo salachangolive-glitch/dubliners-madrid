@@ -411,7 +411,10 @@ const description =
           <p>
             A short walk from Puerta del Sol. Metro Sol (L1, L2, L3) or Sevilla (L2).
             Address: {SITE.address}, {SITE.postal}.
-            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open Directions</a>.
+            Phone: <a data-track-event="phone_click" href={SITE.telephoneHref}>{SITE.telephone}</a>.
+            <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open Directions</a>
+            {' · '}
+            <a href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Google Maps</a>.
           </p>
         </details>
       </div>
@@ -424,8 +427,12 @@ const description =
       <div>
         <h2 id="find-us">FIND US</h2>
         <p>
-          Calle de Espoz y Mina 7, 28012 Madrid — a short walk from Sol.
+          {SITE.address}, {SITE.postal} — a short walk from Sol.
           Metro: Sol or Sevilla.
+          <br />
+          <a data-track-event="phone_click" href={SITE.telephoneHref}>{SITE.telephone}</a>
+          {' · '}
+          <a data-track-event="maps_listing_click" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Google Maps</a>
         </p>
         <p>
           Studying in Madrid? See our

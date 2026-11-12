@@ -37,7 +37,13 @@ const explore =
       <p>
         Dubliners Madrid<br />
         {SITE.address}<br />
-        {SITE.postal}
+        {SITE.postal}<br />
+        <a data-track-event="phone_click" href={SITE.telephoneHref}>{SITE.telephone}</a>
+      </p>
+      <p>
+        <a data-track-event="maps_listing_click" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">
+          {lang === 'es' ? 'Ver en Google Maps' : 'View on Google Maps'}
+        </a>
       </p>
       <p>
         <a data-track-event="instagram_click" href={SITE.instagram} rel="noopener noreferrer" target="_blank">{SITE.instagramHandle}</a>

@@ -17,6 +17,9 @@ export const SITE = {
   instagramHandle: '@dublinersirishpubmadrid',
   /** Google Business Profile (Maps) of Dubliners — CID 4384002297188950803 (place ChIJLdKNhYAoQg0RE6Nxotwa1zw). */
   gbpUrl: 'https://www.google.com/maps?cid=4384002297188950803',
+  /** GBP phone (Localo googleLocationData, place 1wsao1c-3TWQN4izQcGURg). */
+  telephone: '+34 915 32 79 56',
+  telephoneHref: 'tel:+34915327956',
   siteUrl: 'https://dublinersmadrid.es',
   base: '',
   /** GA4 web stream Measurement ID (Dubliners Madrid Website → dublinersmadrid.es). */

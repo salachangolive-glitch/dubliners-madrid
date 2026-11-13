@@ -102,6 +102,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/sol-christmas-lights-evening-walk/': '/es/paseo-luces-navidad-sol-desde-21-nov/',
   '/czechia-spain-nations-league-thursday-sol/': '/es/republica-checa-espana-nations-league-jueves-sol/',
   '/thursday-12-november-2045-then-2100-basketball-sol/': '/es/jueves-12-noviembre-2045-luego-2100-baloncesto-sol/',
+  '/friday-20-november-2015-2030-euroleague-travel-night-sol/': '/es/viernes-20-noviembre-2015-2030-euroleague-noche-viaje-sol/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

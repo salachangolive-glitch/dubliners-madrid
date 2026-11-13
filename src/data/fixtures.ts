@@ -437,6 +437,7 @@ export const FIXTURES: Fixture[] = [
     teams: 'Ireland vs South Africa',
     madridTime: '17:40',
     confirmedOnScreens: true,
+    link: { href: '/ireland-south-africa-madrid/', labelEn: 'Ireland v South Africa in Madrid (Sat 21 Nov)', labelEs: 'Irlanda–Sudáfrica en Madrid (sáb 21 nov, en inglés)', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-07',

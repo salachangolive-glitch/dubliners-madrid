@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+import { FIXTURES, madridIsoWithOffset } from '../../data/fixtures';
+
+// Ireland v South Africa, Rugby Nations Championship — kick-off from src/data/fixtures.ts (irishrugby.ie).
+const path = '/ireland-south-africa-madrid/';
+const rugby = FIXTURES.find((f) => f.dateKey === '2026-11-21' && f.teams === 'Ireland vs South Africa');
+if (!rugby) throw new Error('Ireland v South Africa: fixture row missing from src/data/fixtures.ts');
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const irelandTime = (madridHm: string): string => {
+  const [h, m] = madridHm.split(':').map(Number);
+  return `${String((h + 23) % 24).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+};
+const rugbyIe = irelandTime(rugby.madridTime);
+const WEEKDAYS_LONG = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
+const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as const;
+const [yearN, monthN, dayN] = rugby.dateKey.split('-').map(Number);
+const weekdayLong = WEEKDAYS_LONG[new Date(Date.UTC(yearN, monthN - 1, dayN)).getUTCDay()];
+const longDate = `${weekdayLong} ${dayN} ${MONTHS_LONG[monthN - 1]}`;
+const year = String(yearN);
+
+const title = `Ireland v South Africa in Madrid: ${rugby.whenLabel} | Dubliners`;
+const description = `${longDate}: Ireland v South Africa at ${rugby.madridTime} Madrid time. Watch LIVE at Dubliners Irish pub, by Puerta del Sol.`;
+
+const venue = {
+  '@type': 'BarOrPub',
+  name: 'Dubliners Irish Pub',
+  alternateName: 'Dubliners Madrid',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle de Espoz y Mina 7',
+    addressLocality: 'Madrid',
+    postalCode: '28012',
+    addressCountry: 'ES',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+  hasMap: SITE.mapsUrl,
+};
+
+const rugbyLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Ireland v South Africa — Rugby Nations Championship (screening at Dubliners Madrid)',
+  description:
+    'Ireland v South Africa (Rugby Nations Championship) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  startDate: madridIsoWithOffset(rugby.dateKey, rugby.madridTime),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: venue,
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Ireland' },
+  awayTeam: { '@type': 'SportsTeam', name: 'South Africa' },
+  url: absUrl(path),
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `What time is Ireland v South Africa on ${longDate}?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Ireland v South Africa (${rugby.competition}) is at ${rugby.madridTime} Madrid time. Madrid is one hour ahead of Ireland (${rugbyIe} in Ireland). Listed on What's On.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are you showing Ireland v South Africa live?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Ireland v South Africa is LIVE on our screens at Dubliners, Calle de Espoz y Mina 7, a short walk from Puerta del Sol.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What time do you close on Saturday?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `We open at ${sat.opens} and close at ${sat.closes} on Saturday.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Calle de Espoz y Mina 7, 28012 Madrid, a short walk from Puerta del Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={path} lang="en" hreflang={{ en: path }} ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={[rugbyLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Ireland v South Africa in Madrid" schema />
+      <h1>Ireland v South Africa in Madrid: {longDate}</h1>
+      <p class="lead">
+        Living in Madrid or visiting for the weekend? Ireland play South Africa at {rugby.madridTime} Madrid time ({rugbyIe} in Ireland) on {longDate} {year} — LIVE on our screens at Dubliners, a short walk from Puerta del Sol.
+      </p>
+      <p class="small">{longDate} {year} · Madrid time · On <a href={withBase('/whats-on/')}>What’s On</a></p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>The match</h2>
+        <p>
+          <strong>Ireland v South Africa</strong>, {rugby.competition}, <strong>{rugby.madridTime}</strong> Madrid time ({rugbyIe} in Ireland). With a ticket or without one, follow it here — it is LIVE on
+          <a href={withBase('/whats-on/')}>What’s On</a>.
+        </p>
+        <h2>Watch at Dubliners</h2>
+        <p>
+          Dubliners is an Irish pub at {SITE.address}, a short walk from Puerta del Sol. The game is LIVE on our screens.
+          On Saturday we are open {sat.opens}–{sat.closes}. Come early — big rugby nights fill the bar.
+        </p>
+        <h2>More Ireland rugby in November</h2>
+        <p>
+          Ireland v Fiji and the rest of the November Tests are on
+          <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a>.
+        </p>
+        <h2>Where we are</h2>
+        <p>
+          {SITE.address}, {SITE.postal}, a short walk from Puerta del Sol.
+          <a href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank" data-track-event="directions_click">GET DIRECTIONS</a>.
+        </p>
+      </div>
+      <picture>
+        <img
+          class="split-photo tall"
+          src={withBase('/images/dubliners-screens-sol-1200.webp')}
+          srcset={`${withBase('/images/dubliners-screens-sol-800.webp')} 800w, ${withBase('/images/dubliners-screens-sol-1200.webp')} 1200w`}
+          sizes="(max-width: 800px) 100vw, 720px"
+          width="1200"
+          height="1600"
+          loading="lazy"
+          decoding="async"
+          alt="Screens in the main room at Dubliners, near Sol"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Opening hours</h2>
+      <p>Saturday {sat.opens}–{sat.closes}. The full week:</p>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        {faqLd.mainEntity.map((q) => (
+          <><dt><strong>{q.name}</strong></dt><dd>{q.acceptedAnswer.text}</dd></>
+        ))}
+      </dl>
+      <p class="small">Dubliners Irish Pub · {SITE.address}, {SITE.postal} · Dubliners is an independent pub, not affiliated with World Rugby or the teams.</p>
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More live sport near Sol',
+            items: [
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: 'The November Tests' },
+              { href: '/irish-double-saturday-madrid/', label: 'Ireland v Fiji in Madrid', note: 'Earlier November Test' },
+              { href: '/whats-on/', label: "What's On", note: 'Named fixtures only' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/menu/', label: 'Food menu' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

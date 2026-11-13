@@ -3,7 +3,7 @@
 Static Astro site for Dubliners Irish pub, Calle de Espoz y Mina 7, 28012 Madrid.
 
 - **Production:** https://dublinersmadrid.es/ (apex; indexable on GitHub Pages + Fastly)
-- **Legacy Pages path:** https://salachangolive-glitch.github.io/dubliners-madrid/
+- **Legacy Pages path:** https://salachangolive-glitch.github.io/dubliners-madrid/ (mirror only; not the indexable host)
 - **Repo:** https://github.com/salachangolive-glitch/dubliners-madrid
 - **Stack:** Astro + TypeScript, `output: 'static'`, `site: dublinersmadrid.es`, `base: '/'` (apex)
 - **Deploy (V1):** `gh-pages` branch (built `dist`). Free GitHub Pages.

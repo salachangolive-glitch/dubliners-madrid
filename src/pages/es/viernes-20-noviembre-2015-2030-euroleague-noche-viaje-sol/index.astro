@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/viernes-20-noviembre-2015-2030-euroleague-noche-viaje-sol/';
+const PATH_EN = '/friday-20-november-2015-2030-euroleague-travel-night-sol/';
+const title = 'Viernes 20 nov: EuroLeague 20:15 y 20:30 desde Sol | Dubliners';
+const description =
+  'Viernes 20 de noviembre en Dubliners junto a Sol: Olympiacos–Real Madrid 20:15 y Barcelona–Crvena Zvezda 20:30. Quince minutos entre saques, un pub irlandés interior junto a Puerta del Sol.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué hay a las 20:15 y 20:30 el viernes 20 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cuando figura en Partidos: EuroLeague a las 20:15 (Olympiacos–Real Madrid) y a las 20:30 (FC Barcelona–Crvena Zvezda). Horas Madrid. Pregunta en barra qué pantalla es cada una.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es la página del jueves con La Roja o la guía de aficionados del Estrella Roja?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El jueves mezclaba Nations League y baloncesto en la arena. Esta es solo la pareja EuroLeague del viernes: fuera y casa, quince minutos de margen.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Viernes 20 de noviembre" lang="es" schema />
+      <h1>Viernes 20 de noviembre: dos saques de EuroLeague, quince minutos de margen</h1>
+      <p class="lead">
+        El Real Madrid juega fuera en El Pireo y el Barcelona recibe al Estrella Roja — ambos en pantalla el mismo viernes por la noche.
+        Quédate en un pub irlandés interior junto a <strong>Puerta del Sol</strong> sin dividir la velada.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>No es la pareja fútbol–baloncesto del jueves</h2>
+      <p>
+        <a href={withBase('/es/jueves-12-noviembre-2045-luego-2100-baloncesto-sol/')}>Jueves 12 de noviembre</a> juntaba Nations
+        League y la arena. Esta página es solo <strong>viernes 20 de noviembre de 2026</strong> — EuroLeague en semana de viajes, dos partidos seguidos.
+      </p>
+
+      <h2>20:15 · Real Madrid fuera ante el Olympiacos</h2>
+      <p>
+        <strong>Olympiacos–Real Madrid</strong>, saque <strong>20:15 hora Madrid</strong> (en El Pireo).
+        En pantalla cuando conste en <a href={withBase('/es/partidos/')}>Partidos</a>.
+        No nombramos canal de TV aquí salvo que Partidos lo indique.
+      </p>
+
+      <h2>20:30 · Barcelona–Crvena Zvezda</h2>
+      <p>
+        <strong>FC Barcelona–Crvena Zvezda</strong>, saque <strong>20:30 hora Madrid</strong> (Palau Blaugrana).
+        Aficionados visitantes: <a href={withBase('/red-star-fans-madrid/')}>Estrella Roja en Madrid</a> (punto de encuentro en inglés).
+        Comprueba Partidos para la pantalla — sin inventar emisiones.
+      </p>
+
+      <h2>Una puerta antes del fin de semana</h2>
+      <p>
+        Dubliners está en la Calle de Espoz y Mina 7 — Metro Sol o Sevilla, inglés en barra.
+        Llega antes de las 20:15 para los dos saques o entra tras el curro para el segundo.
+        Choques en distintas televisiones — pregunta al personal.
+        Sin precios, sin venta de entradas, sin canales inventados.
+        Puertas hermanas la misma noche: <strong>O’Connell’s</strong> y <strong>O’Reilly’s</strong> en Espoz y Mina 7;
+        <strong>Four Corner</strong> abre los domingos — este viernes son tres barras en fila.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — EuroLeague del viernes" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no esta pareja del viernes)',
+            items: [
+              { href: '/es/aficionados-zalgiris-madrid/', label: 'Aficionados Žalgiris — EuroLeague', note: 'Más adelante en noviembre' },
+              { href: '/red-star-fans-madrid/', label: 'Estrella Roja', note: 'Contexto visitante' },
+              { href: '/es/paseo-luces-navidad-sol-desde-21-nov/', label: 'Paseo luces de Sol', note: 'Desde sáb 21 nov' },
+              { href: '/es/galeria/', label: 'Galería', note: 'Interior del pub' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

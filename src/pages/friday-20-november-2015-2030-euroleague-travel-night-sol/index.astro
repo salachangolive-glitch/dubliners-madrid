@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../site';
+
+const PATH = '/friday-20-november-2015-2030-euroleague-travel-night-sol/';
+const PATH_ES = '/es/viernes-20-noviembre-2015-2030-euroleague-noche-viaje-sol/';
+const title = 'Friday 20 Nov: 20:15 and 20:30 EuroLeague from Sol | Dubliners';
+const description =
+  'Friday 20 November at Dubliners near Sol: Olympiacos v Real Madrid 20:15, then Barcelona v Crvena Zvezda 20:30. Fifteen minutes between tip-offs, one indoor Irish pub off Puerta del Sol.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What plays at 20:15 and 20:30 on Friday 20 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'When listed on What’s On: EuroLeague at 20:15 (Olympiacos v Real Madrid) and at 20:30 (FC Barcelona v Crvena Zvezda). Madrid times. Ask at the bar which screen is which.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this the Thursday Nations League page or the Red Star fan guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Thursday’s pairing mixed La Roja football with arena basketball. This is Friday’s EuroLeague stack only — away and home Madrid clubs, fifteen minutes apart.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Friday 20 November" schema />
+      <h1>Friday 20 November: two EuroLeague tip-offs, fifteen minutes apart</h1>
+      <p class="lead">
+        Real Madrid play away in Piraeus while Barcelona host Belgrade — both listed on our screens the same Friday evening.
+        Stay at one indoor Irish pub off <strong>Puerta del Sol</strong> instead of splitting the night.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Not Thursday’s football-and-basketball pairing</h2>
+      <p>
+        <a href={withBase('/thursday-12-november-2045-then-2100-basketball-sol/')}>Thursday 12 November</a> stacked Nations
+        League and Movistar Arena hoops. This page is <strong>Friday 20 November 2026</strong> only — pure EuroLeague, two
+        travel-week games, one after the other.
+      </p>
+
+      <h2>20:15 · Real Madrid away at Olympiacos</h2>
+      <p>
+        <strong>Olympiacos v Real Madrid</strong>, tip-off <strong>20:15 Madrid time</strong> (played in Piraeus).
+        On our screens when confirmed on <a href={withBase('/whats-on/')}>What’s On</a>.
+        We do not list a TV channel here unless What’s On names one.
+      </p>
+
+      <h2>20:30 · Barcelona v Crvena Zvezda</h2>
+      <p>
+        <strong>FC Barcelona v Crvena Zvezda</strong>, tip-off <strong>20:30 Madrid time</strong> (Palau Blaugrana).
+        Visiting Serb fans: <a href={withBase('/red-star-fans-madrid/')}>Red Star fans in Madrid</a> (meeting point in English).
+        Again, check What’s On for the screen — we do not invent broadcast details.
+      </p>
+
+      <h2>One door before the weekend</h2>
+      <p>
+        Dubliners is on Calle de Espoz y Mina 7 — Metro Sol or Sevilla, English at the bar.
+        Arrive before 20:15 for both tips or join after work for the second.
+        Clashes go on different TVs — ask staff.
+        No prices, no ticket sales, no invented channels.
+        Sister doors on the same evening: <strong>O’Connell’s</strong> and <strong>O’Reilly’s</strong> on Espoz y Mina 7;
+        <strong>Four Corner</strong> opens on Sundays — this Friday is the three-bar row.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Friday EuroLeague stack" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Friday stack)',
+            items: [
+              { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans — EuroLeague', note: 'Later in November' },
+              { href: '/red-star-fans-madrid/', label: 'Red Star fans', note: 'Barcelona leg context' },
+              { href: '/sol-christmas-lights-evening-walk/', label: 'Sol Christmas lights walk', note: 'From Sat 21 Nov' },
+              { href: '/gallery/', label: 'Gallery', note: 'Inside the pub' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -22,6 +22,10 @@ const RETIRED_PATHS = [
   '/el-clasico/',
   '/watch-leinster-munster-madrid/',
   '/leinster-munster/',
+  // Oktoberfest Madrid 2026 ended 15 Nov — stubs keep the URLs, noindex
+  '/oktoberfest-madrid-2026/',
+  '/es/oktoberfest-madrid-2026/',
+  '/de/oktoberfest-madrid-2026/',
 ];
 
 export default defineConfig({

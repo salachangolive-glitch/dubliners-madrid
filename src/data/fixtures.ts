@@ -120,7 +120,7 @@
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. No broadcast without verified in-pub channel (owner 9 Nov). Removed Austria–Ireland; removed UWCL rows without channel; removed ATP Finals Sun 15. Channels: Spain–England La 1; Spain–Chile + Ireland–Fiji Movistar Plus; RM–Zvezda Movistar+ Baloncesto; Czechia–Spain La 1. NFL Sun 15 kept. Premier Sat 21 / Sun 22: Newcastle–Arsenal + Liverpool–United DAZN (Radar 9 Nov).
  * - 12 Nov (owner standing rule via DG 15:08): ALL sport events listed ≥7 days ahead, times from league/federation sources; channel NOT required (9 Nov no-channel exclusion annulled). 66 rows added 12–22 Nov.
- * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Levante–Elche, Brentford–Everton (Mon 23) and UCL 24–25 kept as avance (after this week). Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
+ * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / UWCL / EuroLeague / MotoGP. RM Fem–Inter and Austria–Ireland not published. Levante–Elche, Brentford–Everton (Mon 23) and UCL 24–25 kept as avance (after this week). Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
  * No invented fixtures / TV channels / reservations.
  */
 
@@ -210,16 +210,6 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Nations League',
     teams: 'Republic of Ireland vs Kosovo',
     madridTime: '20:45',
-    confirmedOnScreens: true,
-  },
-{
-    dateKey: '2026-11-18',
-    whenLabel: 'Wed 18 Nov',
-    competition: 'UEFA Women\'s Champions League',
-    competitionEs: 'UEFA Women\'s Champions League (Liga de Campeones femenina)',
-    teams: 'Real Madrid Fem vs Inter',
-    teamsEs: 'RM Fem vs Inter',
-    madridTime: '18:45',
     confirmedOnScreens: true,
   },
 {

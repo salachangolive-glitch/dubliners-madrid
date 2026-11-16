@@ -75,10 +75,17 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             This week’s live sports (Mon 16–Sun 22 Nov, Madrid time): Monday and Tuesday UEFA Nations League from 20:45, Ireland–Kosovo on Tuesday 20:45 · Wednesday RM Fem–Inter (UWCL) 18:45 · Friday Athletic–Espanyol 21:00 · Saturday Premier League and LaLiga from 13:30, Ireland–South Africa rugby 17:40 — <a href={withBase('/ireland-south-africa-madrid/')}>Ireland v South Africa in Madrid</a> — then Newcastle–Arsenal 18:30 (DAZN) · Sunday Barcelona–Villarreal 14:00, Liverpool–Manchester United 17:30 (DAZN). Confirmed on our screens; clashes go on different screens.
           </p>
           <p data-show-until="2026-11-22">
-            Irish fans this week: Ireland–Kosovo in the Nations League on Tuesday 17 at 20:45, and Ireland–South Africa in the Autumn Nations on Saturday 21 at 17:40. Dubliners is a meeting point near Sol for the Irish crowd — both matches live on our screens.
+            Irish fans this week: Ireland–Kosovo in the Nations League on Tuesday 17 at 20:45, and Ireland–South Africa in the Autumn Nations on Saturday 21 at 17:40. Dubliners is where the Irish crowd watches both matches near Sol — both live on our screens.
           </p>
         </>
       )}
+      <!-- THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
+      {todayKey <= '2026-11-26' && (
+        <p data-show-until="2026-11-26">
+          Thursday 26 November: NFL Thanksgiving games live at Dubliners — <a href={withBase('/thanksgiving-madrid/')}>Thanksgiving NFL in Madrid</a>.
+        </p>
+      )}
+      <!-- /THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
       {todayKey <= '2026-11-01' && (
         <p data-show-until="2026-11-01">
           This week’s live sports (31 Oct–1 Nov, Madrid time): Saturday 31 is Halloween at Dubliners from 19:00, with the day’s games on screen too, Barça–Alavés 21:00 among them · Sunday 1, the night before Monday’s bank holiday: Racing–Real Madrid 16:15, Liverpool–Arsenal 17:30, NFL from 19:00, the F1 Mexico City Grand Prix 21:00 and Athletic–Real Sociedad 21:00. Confirmed on our screens; clashes go on different screens.
@@ -139,8 +146,8 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
           {
             title: 'Offers & events',
             items: [
-              { href: '/whats-on/', label: 'Ireland v Kosovo', note: 'Nations League · Tuesday 17 November, 20:45 — meeting point near Sol', until: '2026-11-17' },
-              { href: '/ireland-south-africa-madrid/', label: 'Ireland v South Africa in Madrid', note: 'Autumn Nations rugby · Saturday 21 November, 17:40 — meeting point near Sol', until: '2026-11-21' },
+              { href: '/whats-on/', label: 'Ireland v Kosovo', note: 'Nations League · Tuesday 17 November, 20:45 — near Sol', until: '2026-11-17' },
+              { href: '/ireland-south-africa-madrid/', label: 'Ireland v South Africa in Madrid', note: 'Autumn Nations rugby · Saturday 21 November, 17:40 — near Sol', until: '2026-11-21' },
               { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans in Madrid: EuroLeague near Sol', note: 'Real Madrid v Žalgiris · Wednesday 25 November, 20:45', until: '2026-11-25' },
               { href: '/wednesday-1-euro-shots-madrid/', label: 'Wednesday €1 shots', note: 'Every Wednesday · ask at the bar' },
             ],

@@ -76,10 +76,17 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             Deporte en directo esta semana (lun 16–dom 22 nov, hora de Madrid): lunes y martes UEFA Nations League desde las 20:45, Irlanda–Kosovo el martes 20:45 · miércoles RM Fem–Inter (UWCL) 18:45 · viernes Athletic–Espanyol 21:00 · sábado Premier League y LaLiga desde las 13:30, rugby Irlanda–Sudáfrica 17:40 — <a href={withBase('/ireland-south-africa-madrid/')} hreflang="en">Irlanda–Sudáfrica en Madrid</a> — luego Newcastle–Arsenal 18:30 (DAZN) · domingo Barcelona–Villarreal 14:00, Liverpool–Manchester United 17:30 (DAZN). Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
           <p data-show-until="2026-11-22">
-            Afición irlandesa esta semana: Irlanda–Kosovo en la Nations League el martes 17 a las 20:45, e Irlanda–Sudáfrica en el Autumn Nations el sábado 21 a las 17:40. Dubliners es punto de encuentro junto a Sol para la afición irlandesa — los dos en directo en nuestras pantallas.
+            Afición irlandesa esta semana: Irlanda–Kosovo en la Nations League el martes 17 a las 20:45, e Irlanda–Sudáfrica en el Autumn Nations el sábado 21 a las 17:40. Dubliners es donde la afición irlandesa ve los dos junto a Sol — los dos en directo en nuestras pantallas.
           </p>
         </>
       )}
+      <!-- THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
+      {todayKey <= '2026-11-26' && (
+        <p data-show-until="2026-11-26">
+          Jueves 26 de noviembre: NFL de Thanksgiving en directo en Dubliners — <a href={withBase('/es/thanksgiving-madrid/')}>NFL de Thanksgiving en Madrid</a>.
+        </p>
+      )}
+      <!-- /THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
       {todayKey <= '2026-11-01' && (
         <p data-show-until="2026-11-01">
           Deporte en directo esta semana (31 oct–1 nov, hora de Madrid): el sábado 31 es Halloween en Dubliners desde las 19:00, con los partidos del día también en pantalla, entre ellos el Barça–Alavés 21:00 · domingo 1, víspera del festivo del lunes: Racing–Real Madrid 16:15, Liverpool–Arsenal 17:30, NFL desde las 19:00, GP de México de F1 21:00 y Athletic–Real Sociedad 21:00. Confirmados en pantallas; si coinciden, pantallas distintas.
@@ -138,8 +145,8 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
           {
             title: 'Partidos y eventos',
             items: [
-              { href: '/es/partidos/', label: 'Irlanda–Kosovo', note: 'Nations League · mar 17 nov, 20:45 — punto de encuentro junto a Sol', until: '2026-11-17' },
-              { href: '/ireland-south-africa-madrid/', label: 'Irlanda–Sudáfrica en Madrid', note: 'Autumn Nations rugby · sáb 21 nov, 17:40 — punto de encuentro junto a Sol (en inglés)', hreflang: 'en', until: '2026-11-21' },
+              { href: '/es/partidos/', label: 'Irlanda–Kosovo', note: 'Nations League · mar 17 nov, 20:45 — junto a Sol', until: '2026-11-17' },
+              { href: '/ireland-south-africa-madrid/', label: 'Irlanda–Sudáfrica en Madrid', note: 'Autumn Nations rugby · sáb 21 nov, 17:40 — junto a Sol (en inglés)', hreflang: 'en', until: '2026-11-21' },
               { href: '/es/aficionados-zalgiris-madrid/', label: 'Aficionados del Žalgiris: EuroLeague junto a Sol', note: 'Real Madrid–Žalgiris · mié 25 nov, 20:45', until: '2026-11-25' },
               { href: '/es/miercoles-chupitos-1-euro/', label: 'Miércoles chupitos a 1 €', note: 'Todos los miércoles · pregunta en barra' },
             ],

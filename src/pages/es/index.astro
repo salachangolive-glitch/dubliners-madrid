@@ -91,9 +91,9 @@ const description =
         {todayKey <= '2026-10-31' && (
           <p data-show-until="2026-10-31"><strong>Halloween en Dubliners: sábado 31 de octubre, desde las 19:00.</strong> Disfraces, decoración y música. <a href={withBase('/es/halloween-madrid-2026/')}>Halloween en Madrid junto a Sol</a></p>
         )}
-        {todayKey <= '2026-11-15' && (
-          <p data-show-until="2026-11-15">
-            Deporte en directo esta semana (lun 9–dom 15 nov, hora de Madrid): jueves Real Madrid–Estrella Roja (EuroLeague) 21:00 · sábado rugby España–Chile 17:00 en el Estadio Ontime Butarque, Leganés (Movistar Plus) · sábado Irlanda–Fiyi rugby 21:10 (Movistar Plus) — <a href={withBase('/irish-double-saturday-madrid/')} hreflang="en">Irlanda–Fiyi en Madrid</a> · domingo NFL desde las 15:30, luego 19:00, 22:05 y 22:25 · domingo España–Inglaterra 20:45 en el Metropolitano (La 1). Confirmados en pantallas; si coinciden, pantallas distintas.
+        {todayKey <= '2026-11-22' && (
+          <p data-show-until="2026-11-22">
+            Deporte en directo esta semana (lun 16–dom 22 nov, hora de Madrid): Nations League lunes y martes desde las 20:45 · viernes Athletic–Espanyol 21:00 · sábado rugby Irlanda–Sudáfrica 17:40, luego Newcastle–Arsenal 18:30 (DAZN) · domingo Liverpool–Manchester United 17:30 (DAZN). Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
         )}
         <div class="cta-row">
@@ -252,13 +252,14 @@ const description =
             ],
           },
           {
-            title: 'Viernes 20 de noviembre',
+            title: 'Sábado de rugby',
             until: '2026-11-21',
             items: [
               {
-                href: '/es/viernes-20-noviembre-2015-2030-euroleague-noche-viaje-sol/',
-                label: 'EuroLeague 20:15 y 20:30',
-                note: 'Olympiacos–RM, luego Barça–Zvezda — un pub',
+                href: '/ireland-south-africa-madrid/',
+                label: 'Irlanda–Sudáfrica, sáb 17:40',
+                note: 'Autumn Nations — punto de encuentro junto a Sol',
+                hreflang: 'en',
                 until: '2026-11-21',
               },
             ],
@@ -278,20 +279,6 @@ const description =
           Todos los miércoles: chupitos a 1 € en el pub. Pregunta en barra al llegar.
         </p>
         <a class="btn btn-gold" href={withBase('/es/miercoles-chupitos-1-euro/')}>Miércoles chupitos a 1 €</a>
-        <LinkHub
-          heading="h3"
-          compact
-          groups={[
-            {
-              title: 'Próximamente',
-              until: '2026-11-15',
-              items: [
-                { href: '/es/oktoberfest-madrid-2026/', label: 'Temporada de Oktoberfest en Madrid', note: '22 oct–15 nov · cerveza y deporte de jueves a domingo', until: '2026-11-15' },
-                { href: '/de/oktoberfest-madrid-2026/', label: 'Oktoberfest-Zeit in Madrid', note: 'En alemán', hreflang: 'de', lang: 'de', until: '2026-11-15' },
-              ],
-            },
-          ]}
-        />
       </div>
     </div>
   </section>

@@ -97,10 +97,17 @@ const description =
               Deporte en directo esta semana (lun 16–dom 22 nov, hora de Madrid): Nations League lunes y martes desde las 20:45, Irlanda–Kosovo el martes 20:45 · miércoles RM Fem–Inter (UWCL) 18:45 · viernes Athletic–Espanyol 21:00 · sábado Premier League y LaLiga desde las 13:30, rugby Irlanda–Sudáfrica 17:40, luego Newcastle–Arsenal 18:30 (DAZN) · domingo Barcelona–Villarreal 14:00, Liverpool–Manchester United 17:30 (DAZN). Confirmados en pantallas; si coinciden, pantallas distintas.
             </p>
             <p data-show-until="2026-11-22">
-              Afición irlandesa esta semana: Irlanda–Kosovo en la Nations League el martes 17 a las 20:45, e Irlanda–Sudáfrica en el Autumn Nations el sábado 21 a las 17:40. Dubliners es punto de encuentro junto a Sol para la afición irlandesa — los dos en directo en nuestras pantallas.
+              Afición irlandesa esta semana: Irlanda–Kosovo en la Nations League el martes 17 a las 20:45, e Irlanda–Sudáfrica en el Autumn Nations el sábado 21 a las 17:40. Dubliners es donde la afición irlandesa ve los dos junto a Sol — los dos en directo en nuestras pantallas.
             </p>
           </>
         )}
+        <!-- THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
+        {todayKey <= '2026-11-26' && (
+          <p data-show-until="2026-11-26">
+            Jueves 26 de noviembre: NFL de Thanksgiving en directo en Dubliners — <a href={withBase('/es/thanksgiving-madrid/')}>NFL de Thanksgiving en Madrid</a>.
+          </p>
+        )}
+        <!-- /THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
         <div class="cta-row">
           <a class="btn btn-gold" data-track-event="whats_on_cta_click" href={withBase('/es/partidos/')}>Partidos de esta semana</a>
           <a class="btn btn-secondary" href={withBase('/es/bar-deportivo-madrid/')}>Bar deportivo Madrid</a>
@@ -263,13 +270,13 @@ const description =
               {
                 href: '/es/partidos/',
                 label: 'Irlanda–Kosovo, mar 20:45',
-                note: 'Nations League — punto de encuentro junto a Sol',
+                note: 'Nations League — junto a Sol',
                 until: '2026-11-17',
               },
               {
                 href: '/ireland-south-africa-madrid/',
                 label: 'Irlanda–Sudáfrica, sáb 17:40',
-                note: 'Autumn Nations — punto de encuentro junto a Sol',
+                note: 'Autumn Nations — junto a Sol',
                 hreflang: 'en',
                 until: '2026-11-21',
               },

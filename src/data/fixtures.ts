@@ -464,6 +464,21 @@ export const FIXTURES: Fixture[] = [
   },
 {
     dateKey: '2026-11-20',
+    whenLabel: 'Thu 20 Nov',
+    competition: 'UEFA Nations League',
+    teams: 'Portugal vs Armenia',
+    madridTime: '20:45',
+    noteEn: 'Meeting point near Sol.',
+    noteEs: 'Punto de encuentro junto a Sol.',
+    link: {
+      href: '/campaign/portugal-nations-league-meetup-2026-11-20/',
+      hrefEs: '/es/campaign/portugal-nations-league-meetup-2026-11-20/',
+      labelEn: 'Portuguese fans meeting point (Thu 20 Nov)',
+      labelEs: 'Afición portuguesa — punto de encuentro (jue 20 nov)',
+    },
+  },
+{
+    dateKey: '2026-11-20',
     whenLabel: 'Fri 20 Nov',
     competition: 'LaLiga',
     teams: 'Athletic Club vs Espanyol',

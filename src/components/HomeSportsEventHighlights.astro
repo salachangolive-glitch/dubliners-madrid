@@ -1,0 +1,46 @@
+---
+/**
+ * Home promos from sports-event-registry.ts (auto-hide via data-show-until).
+ */
+import type { Lang } from '../i18n';
+import { madridToday } from '../data/fixtures';
+import { activeHomeCampaigns } from '../lib/sportsEventCampaigns';
+import HomeSportsEventHighlight from './HomeSportsEventHighlight.astro';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const todayKey = madridToday();
+const campaigns = activeHomeCampaigns(todayKey);
+---
+
+{
+  campaigns.length > 0 && (
+    <section
+      class="home-sports-events-band"
+      aria-label={lang === 'es' ? 'Próximos eventos deportivos' : 'Upcoming sports events'}
+    >
+      <div class="home-sports-events-band__inner">
+        {campaigns.map((c) => (
+          <HomeSportsEventHighlight campaign={c} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .home-sports-events-band {
+    background:
+      linear-gradient(135deg, rgba(74, 124, 89, 0.18), rgba(20, 26, 18, 0.92) 55%),
+      var(--bg-elev);
+    border-bottom: 2px solid rgba(201, 162, 39, 0.35);
+    padding: 0.85rem 1rem 0.5rem;
+  }
+  .home-sports-events-band__inner {
+    width: min(100%, 40rem);
+    margin-inline: auto;
+    text-align: center;
+  }
+</style>

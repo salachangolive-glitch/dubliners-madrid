@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { SITE, withBase } from '../site';
+import { OPENING_HOURS } from '../data/hours';
+import type { SportsEventCampaign } from '../data/sports-event-registry';
+import type { Lang } from '../i18n';
+import { campaignSportsEventJsonLd, campaignPagePath } from '../lib/sportsEventCampaigns';
+
+interface Props {
+  campaign: SportsEventCampaign;
+  lang: Lang;
+}
+const { campaign, lang } = Astro.props;
+const es = lang === 'es';
+const path = campaignPagePath(campaign, lang);
+const pathEn = campaign.paths.en;
+const pathEs = campaign.paths.es || campaign.paths.en;
+const day = OPENING_HOURS.find((d) => d.day === 'Thursday'); // demo meetup Thu; generic fallback below
+
+function hoursForDateKey(dateKey: string): { opens: string; closes: string; dayEn: string; dayEs: string } {
+  const d = new Date(`${dateKey}T12:00:00+01:00`);
+  const wd = d.getUTCDay();
+  const map: Record<number, Weekday> = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  };
+  type Weekday = (typeof OPENING_HOURS)[number]['day'];
+  const dayName = map[wd] ?? 'Thursday';
+  const row = OPENING_HOURS.find((x) => x.day === dayName) ?? day!;
+  return { opens: row.opens, closes: row.closes, dayEn: row.day, dayEs: row.es };
+}
+const hours = hoursForDateKey(campaign.madridDateKey);
+const jsonLd = campaignSportsEventJsonLd(campaign, lang);
+const title = es
+  ? `${campaign.teamsEs} | Punto de encuentro — Dubliners`
+  : `${campaign.teamsEn} | Meeting point — Dubliners`;
+const description = es
+  ? `${campaign.competition}: aficionados portugueses en Madrid, saque ${campaign.madridTime} hora Madrid. Dubliners, Espoz y Mina 7 junto a Sol. Sin reservas; orden de llegada.`
+  : `${campaign.competition}: Portuguese supporters in Madrid, kick-off ${campaign.madridTime} Madrid time. Dubliners, Espoz y Mina 7 near Sol. No reservations; first come, first served.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  lang={lang}
+  hreflang={{ en: pathEn, es: pathEs }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={jsonLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={es ? 'Punto de encuentro' : 'Meeting point'} lang={lang} schema />
+      <h1>{es ? campaign.teamsEs : campaign.teamsEn}</h1>
+      <p class="lead">
+        {campaign.broadcastConfirmed
+          ? es
+            ? `${campaign.competition}, saque ${campaign.madridTime} hora Madrid. EN DIRECTO en nuestras pantallas en Dubliners, Calle de Espoz y Mina 7, junto a Puerta del Sol.`
+            : `${campaign.competition}, kick-off ${campaign.madridTime} Madrid time. LIVE on our screens at Dubliners, Calle de Espoz y Mina 7, by Puerta del Sol.`
+          : es
+            ? `${campaign.competition}, saque ${campaign.madridTime} hora Madrid. Punto de encuentro en Dubliners antes del partido — no prometemos el partido en pantalla hasta que figure en Partidos.`
+            : `${campaign.competition}, kick-off ${campaign.madridTime} Madrid time. Meeting point at Dubliners before the match — we do not promise this game on our screens until it appears on What’s On.`}
+      </p>
+      {campaign.fanOrigin && (
+        <p>
+          {es ? campaign.fanOrigin.labelEs || `Aficionados de ${campaign.fanOrigin.country}` : campaign.fanOrigin.labelEn || `Fans from ${campaign.fanOrigin.country}`}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>{es ? 'Dubliners, Espoz y Mina 7' : 'Dubliners, Espoz y Mina 7'}</h2>
+      <p>
+        <strong>{SITE.address}</strong>, {SITE.postal} · {es ? hours.dayEs : hours.dayEn} {hours.opens}–{hours.closes} ·{' '}
+        {es ? 'Metro Sol (1, 2 y 3) o Sevilla (2).' : 'Metro Sol (L1, L2, L3) or Sevilla (L2).'} ·{' '}
+        {es ? 'Sin reservas; acceso por orden de llegada.' : 'No reservations; first come, first served.'}
+      </p>
+      <div class="map-frame">
+        <MapEmbed lang={lang} title={es ? 'Mapa a Dubliners' : 'Map to Dubliners'} />
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">
+          {es ? 'CÓMO LLEGAR' : 'GET DIRECTIONS'}
+        </a>
+        <a class="btn btn-secondary" href={withBase(es ? '/es/partidos/' : '/whats-on/')}>
+          {es ? 'Partidos' : 'What’s On'}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

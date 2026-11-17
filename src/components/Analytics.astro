@@ -93,6 +93,17 @@ const emailTrackingEnabled = Boolean(SITE.publicEmail.trim());
             return;
           }
 
+          if (link.dataset.trackEvent === 'sports_event_cta_click') {
+            track('sports_event_cta_click', {
+              bar: link.dataset.trackBar || 'dubliners',
+              language,
+              page_path: pagePath,
+              cta_location: location,
+              campaign_id: link.dataset.trackCampaign || '',
+            });
+            return;
+          }
+
           const host = url.hostname;
           const isGoogleHost =
             host === 'google.com' ||

@@ -1,0 +1,79 @@
+---
+import type { SportsEventCampaign } from '../data/sports-event-registry';
+import type { Lang } from '../i18n';
+import {
+  campaignAbsoluteUrl,
+  ctaLabel,
+  homeTitle,
+  screensLead,
+  sportsEventTrackingBar,
+} from '../lib/sportsEventCampaigns';
+
+interface Props {
+  campaign: SportsEventCampaign;
+  lang: Lang;
+}
+const { campaign, lang } = Astro.props;
+const es = lang === 'es';
+---
+
+<article
+  class="home-sports-event"
+  data-show-until={campaign.homeTakeDown}
+  data-home-block={`sports-event-${campaign.id}`}
+  data-track-location={`home-sports-event-${campaign.id}`}
+>
+  <h2 class="home-sports-event__title">{homeTitle(campaign, lang)}</h2>
+  <p class="home-sports-event__time">
+    <strong>{campaign.madridTime}</strong> — {es ? campaign.teamsEs : campaign.teamsEn}
+  </p>
+  <p class="home-sports-event__lead">{screensLead(campaign, lang)}</p>
+  <p class="home-sports-event__meta">
+    Calle de Espoz y Mina 7, 28012 Madrid ·{' '}
+    {es ? 'Metro Sol o Sevilla · Sin reservas; orden de llegada.' : 'Metro Sol or Sevilla · No reservations; first come, first served.'}
+  </p>
+  <a
+    class="btn btn-gold home-sports-event__cta"
+    href={campaignAbsoluteUrl(campaign, lang)}
+    data-track-event="sports_event_cta_click"
+    data-track-bar={sportsEventTrackingBar}
+    data-track-campaign={campaign.id}
+  >
+    {ctaLabel(campaign, lang)}
+  </a>
+</article>
+
+<style>
+  .home-sports-event {
+    border-bottom: 1px solid var(--border);
+    padding: 0.85rem 0;
+  }
+  .home-sports-event:first-child {
+    padding-top: 0;
+  }
+  .home-sports-event__title {
+    margin: 0;
+    font-size: clamp(1rem, 3.2vw, 1.25rem);
+    color: var(--accent-2);
+  }
+  .home-sports-event__time {
+    margin: 0.35rem 0 0.25rem;
+    font-size: 0.92rem;
+  }
+  .home-sports-event__lead {
+    margin: 0 0 0.4rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .home-sports-event__meta {
+    margin: 0 0 0.55rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+  .home-sports-event__cta {
+    width: 100%;
+    max-width: 20rem;
+    min-height: 44px;
+  }
+</style>

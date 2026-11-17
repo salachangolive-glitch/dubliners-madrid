@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import HomeFixtureCards from '../../components/HomeFixtureCards.astro';
+import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
@@ -16,6 +17,7 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} path="/es/" lang="es" ogImage="/images/bar-interior.jpg" website>
+  {todayKey <= '2026-11-21' && <HomeRugby21Nov lang="es" />}
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>

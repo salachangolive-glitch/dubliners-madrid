@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase } from '../../../site';
+
+const PATH = '/es/diciembre-mercadillo-navidad-plaza-mayor-pinta-junto-sol/';
+const PATH_EN = '/plaza-mayor-december-christmas-market-pint-near-sol/';
+const title = 'Mercadillo Navidad Plaza Mayor en diciembre, pinta junto a Sol | Dubliners';
+const description =
+  'Diciembre en Madrid: paseo por el mercadillo de Navidad en Plaza Mayor y camino al pub irlandés Dubliners en Espoz y Mina 7 junto a Puerta del Sol. No es el paseo de luces de Sol.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Es el paseo de luces de Navidad en Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. La guía de luces de Sol empieza en el árbol y el alumbrado de Puerta del Sol desde finales de noviembre. Esta página es para quien empieza en el mercadillo de Plaza Mayor en diciembre y quiere una pinta en pub irlandés interior junto a Sol después.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Publicáis precios u horarios del mercadillo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Precios de puestos, horarios especiales y eventos con entrada en Plaza Mayor no figuran aquí. Consulta al ayuntamiento u organizadores la semana que visites. Dubliners mantiene su semana habitual en Visitar.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo se camina de Plaza Mayor a Dubliners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sal de Plaza Mayor hacia Calle Mayor, llega a Puerta del Sol y entra en Calle de Espoz y Mina 7 — recorrido turístico corto a pie, dos calles desde Sol.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={PATH} lang="es" hreflang={{ en: PATH_EN, es: PATH }} ogImage="/images/facade.jpg" extraJsonLd={[faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Mercadillo Navidad Plaza Mayor" lang="es" schema />
+      <h1>Mercadillo de Navidad en Plaza Mayor y pinta junto a Sol</h1>
+      <p class="lead">
+        En <strong>diciembre</strong>, muchos turistas combinan el mercadillo de Navidad de <strong>Plaza Mayor</strong> con el centro.
+        Cierra con una pinta en Dubliners — Calle de Espoz y Mina 7, inglés en barra — a pocos minutos a pie de la plaza pasando por Sol.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/visitar/')}>VISITAR</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Qué es esta guía (y qué no es)</h2>
+      <p>
+        Es un <strong>recorrido turístico de diciembre</strong>: pasear la zona del mercadillo de Navidad en Plaza Mayor y entrar en un pub junto a Puerta del Sol.
+        <strong>No</strong> es el
+        <a href={withBase('/es/paseo-luces-navidad-sol-desde-21-nov/')}>paseo de luces de Navidad en Sol</a> (árbol y alumbrado de Calle Mayor desde finales de noviembre).
+        Tampoco es un catálogo de precios de regalos, menús de churros ni días de apertura del mercado que no hayamos verificado — solo la geografía y nuestra puerta.
+      </p>
+
+      <h2>De Plaza Mayor hacia Sol</h2>
+      <ol>
+        <li>Empieza en <strong>Plaza Mayor</strong> (puestos y público en la plaza y calles adyacentes en temporada).</li>
+        <li>Camina por <strong>Calle Mayor</strong> hacia <strong>Puerta del Sol</strong>.</li>
+        <li>Sigue por <strong>Calle de Espoz y Mina</strong> hacia Carrera de San Jerónimo.</li>
+        <li>Busca el <strong>neón verde de Dubliners</strong> en el número 7.</li>
+      </ol>
+      <p>Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2) si acortas el paseo.</p>
+
+      <h2>Pub irlandés interior después del mercado</h2>
+      <p>
+        Dubliners es sala cubierta — útil cuando las tardes de diciembre hacen frío o llueve.
+        El deporte con nombre solo en <a href={withBase('/es/partidos/')}>Partidos</a>; esta página no anuncia encuentros.
+        Turismo en Plaza Mayor todo el año: <a href={withBase('/es/pub-irlandes-plaza-mayor/')}>pub irlandés cerca de Plaza Mayor</a>.
+        Lluvia en los adoquines: <a href={withBase('/es/pinta-interior-cuando-plaza-mayor-esta-mojada/')}>pinta interior lejos de la plaza mojada</a>.
+      </p>
+
+      <h2>Punto de encuentro junto a Sol</h2>
+      <p>
+        Amigos que se separan en el mercadillo pueden usar Dubliners como <strong>punto de encuentro</strong> en Espoz y Mina 7 — mismo número que
+        <strong>O’Connell’s</strong> (otra puerta en la calle).
+        <strong>O’Reilly’s</strong> está en Pasaje de Matheu 4; <strong>Four Corner</strong> abre los domingos en Victoria 6.
+        No listamos eventos de barras hermanas aquí.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — desde Plaza Mayor en diciembre" />
+      </div>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>¿Cuándo aplica?</strong></dt>
+        <dd>Visitas de diciembre cuando el mercadillo de Navidad en Plaza Mayor forma parte del plan. No publicamos fechas de encendido o cierre del mercado sin fuente verificada.</dd>
+        <dt><strong>¿Hay ofertas de Navidad en Dubliners?</strong></dt>
+        <dd>No se prometen precios ni menús especiales en esta página. Pregunta en barra; los miércoles de chupitos a 1 € siguen su oferta semanal habitual cuando corre.</dd>
+        <dt><strong>¿Son las luces de Sol?</strong></dt>
+        <dd>No — mira la guía de luces de Sol para el árbol y el alumbrado de finales de noviembre.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado (no este recorrido de mercadillo)',
+            items: [
+              { href: '/es/paseo-luces-navidad-sol-desde-21-nov/', label: 'Paseo luces Navidad Sol', note: 'Fines nov — no mercadillo Plaza Mayor' },
+              { href: '/es/pub-irlandes-plaza-mayor/', label: 'Pub irlandés cerca de Plaza Mayor', note: 'Recorrido plaza todo el año' },
+              { href: '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/', label: 'Paseo Palacio y Ópera', note: 'Turismo al oeste de Sol' },
+              { href: '/es/visitar/', label: 'VISITAR', note: 'CÓMO LLEGAR' },
+            ],
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>

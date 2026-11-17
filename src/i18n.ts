@@ -99,6 +99,8 @@ export const PATH_PAIRS: Record<string, string> = {
   '/sunday-without-stadium-ticket-near-sol/': '/es/domingo-sin-entrada-estadio-junto-a-sol/',
   '/royal-palace-opera-walk-to-espoz-mina-7/': '/es/paseo-palacio-real-opera-hasta-espoz-mina-7/',
   '/zalgiris-fans-madrid/': '/es/aficionados-zalgiris-madrid/',
+  '/viking-fans-madrid/': '/es/aficionados-viking-madrid/',
+  '/psv-fans-madrid/': '/es/aficionados-psv-madrid/',
   '/sol-christmas-lights-evening-walk/': '/es/paseo-luces-navidad-sol-desde-21-nov/',
   '/czechia-spain-nations-league-thursday-sol/': '/es/republica-checa-espana-nations-league-jueves-sol/',
   '/thursday-12-november-2045-then-2100-basketball-sol/': '/es/jueves-12-noviembre-2045-luego-2100-baloncesto-sol/',

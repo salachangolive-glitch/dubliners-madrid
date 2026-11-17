@@ -358,6 +358,16 @@ const emailTrackingEnabled = true;
           const language = document.documentElement.lang.startsWith('es') ? 'es' : 'en';
           const location = getLocation(link);
 
+          if (link.dataset.trackEvent === 'rugby_cta_click') {
+            track('rugby_cta_click', {
+              bar: link.dataset.trackBar || 'dubliners',
+              language,
+              page_path: pagePath,
+              cta_location: location,
+            });
+            return;
+          }
+
           const host = url.hostname;
           const isGoogleHost =
             host === 'google.com' ||

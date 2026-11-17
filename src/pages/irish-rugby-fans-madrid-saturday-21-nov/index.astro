@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+const PATH = '/irish-rugby-fans-madrid-saturday-21-nov/';
+const PATH_ES = '/es/rugby-irlanda-21-noviembre-puerta-del-sol/';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+/** Owner confirmed 17 Nov 13:54 — Madrid kick-offs; LIVE on our screens (no channel named). */
+const SLATE = [
+  { time: '15:10', match: 'England vs New Zealand', priority: true },
+  { time: '15:10', match: 'Scotland vs Japan', priority: false },
+  { time: '17:40', match: 'Ireland vs South Africa', priority: true },
+  { time: '17:40', match: 'Italy vs Fiji', priority: false },
+  { time: '21:10', match: 'France vs Argentina', priority: false },
+  { time: '21:10', match: 'Wales vs Australia', priority: false },
+] as const;
+
+const sportsEventsLd = SLATE.map((row) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: `${row.match} — Rugby Nations Championship (screening at Dubliners Madrid)`,
+  description: `${row.match} (Rugby Nations Championship) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.`,
+  startDate: `2026-11-21T${row.time}:00+01:00`,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.mapsUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  url: absUrl(PATH),
+}));
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can Irish rugby fans meet in Madrid on Saturday 21 November?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners Irish Pub, Calle de Espoz y Mina 7, a short walk from Puerta del Sol — meeting point before and after the tests. No reservations; first come, first served.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What time is Ireland v South Africa in Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '17:40 Madrid time on Saturday 21 November 2026. It is LIVE on our screens at Dubliners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are all six Autumn Nations games on screen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — England v New Zealand, Scotland v Japan, Ireland v South Africa, Italy v Fiji, France v Argentina and Wales v Australia are LIVE on our screens when listed on What’s On. Clashes go on different TVs — ask at the bar.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={'Irish rugby fans Madrid: Saturday 21 Nov Nations Championship | Dubliners'}
+  description={'Saturday 21 November rugby near Puerta del Sol: Ireland v South Africa 17:40 and five more Autumn Nations tests LIVE on our screens at Dubliners, Espoz y Mina 7. Meeting point; no reservations.'}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[...sportsEventsLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Irish rugby fans, Sat 21 Nov" schema />
+      <h1>Irish rugby fans in Madrid: Saturday 21 November at Puerta del Sol</h1>
+      <p class="lead">
+        A full Saturday of Autumn Nations rugby — <strong>Irish and international fans</strong> use Dubliners as a
+        <strong>meeting point</strong> two streets from <strong>Puerta del Sol</strong>. All six tests below are
+        <strong>LIVE on our screens</strong> (Madrid time). No reservations — first come, first served.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Saturday 21 November — kick-offs (Madrid time)</h2>
+      <ul>
+        {SLATE.map((row) => (
+          <li>
+            <strong>{row.time}</strong> — {row.match}
+            {row.priority ? ' · highlighted on What’s On' : ''}
+          </li>
+        ))}
+      </ul>
+      <p>
+        Commercial focus for Irish visitors: <strong>England v New Zealand</strong> at 15:10 and
+        <strong> Ireland v South Africa</strong> at 17:40. Deeper Ireland-only note:
+        <a href={withBase('/ireland-south-africa-madrid/')}>Ireland v South Africa in Madrid</a>.
+      </p>
+
+      <h2>Meeting point before and after</h2>
+      <p>
+        <strong>Dubliners</strong> — {SITE.address}, {SITE.postal}. Indoor Irish pub, English at the bar, international
+        crowd. Meet friends before the early kick-offs, stay through Ireland–South Africa, or return after the late tests.
+        We do not take table reservations for rugby; access is first come, first served. Ask staff which screen is which.
+      </p>
+
+      <h2>How to get here</h2>
+      <p>Metro <strong>Sol</strong> (lines 1, 2 and 3) or <strong>Sevilla</strong> (line 2), then a short walk to Espoz y Mina 7.</p>
+
+      <h2>Opening hours (Saturday)</h2>
+      <p>
+        We open at <strong>{sat.opens}</strong> and close at <strong>{sat.closes}</strong> on Saturday — cover for every
+        kick-off above.
+      </p>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — rugby Saturday near Sol" />
+      </div>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Do you show Ireland v South Africa?</strong></dt>
+        <dd>Yes — 17:40 Madrid time, LIVE on our screens at Dubliners.</dd>
+        <dt><strong>Reservations?</strong></dt>
+        <dd>No. First come, first served at the bar.</dd>
+        <dt><strong>TV channels?</strong></dt>
+        <dd>We do not list broadcast brands here. What’s On names what we are showing in the pub.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related (not this Saturday slate)',
+            items: [
+              { href: '/ireland-south-africa-madrid/', label: 'Ireland v South Africa', note: 'Single-match guide' },
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: 'November Tests overview' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/visit/', label: 'FIND US' },
+            ],
+          },
+        ]}
+      />
+      <p class="small">Dubliners is an independent pub, not affiliated with World Rugby or the teams.</p>
+    </div>
+  </section>
+</BaseLayout>

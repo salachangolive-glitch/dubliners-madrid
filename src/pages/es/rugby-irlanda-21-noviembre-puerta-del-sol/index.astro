@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+
+const PATH = '/es/rugby-irlanda-21-noviembre-puerta-del-sol/';
+const PATH_EN = '/irish-rugby-fans-madrid-saturday-21-nov/';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+const SLATE = [
+  { time: '15:10', match: 'Inglaterra–Nueva Zelanda', priority: true },
+  { time: '15:10', match: 'Escocia–Japón', priority: false },
+  { time: '17:40', match: 'Irlanda–Sudáfrica', priority: true },
+  { time: '17:40', match: 'Italia–Fiyi', priority: false },
+  { time: '21:10', match: 'Francia–Argentina', priority: false },
+  { time: '21:10', match: 'Gales–Australia', priority: false },
+] as const;
+
+const sportsEventsLd = SLATE.map((row) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: `${row.match} — Rugby Nations Championship (en directo en Dubliners Madrid)`,
+  description: `${row.match} (Rugby Nations Championship) en directo en las pantallas de Dubliners Irish Pub, Espoz y Mina 7, junto a la Puerta del Sol, Madrid.`,
+  startDate: `2026-11-21T${row.time}:00+01:00`,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.mapsUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  url: absUrl(PATH),
+}));
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde ver Irlanda–Sudáfrica en Madrid el sábado 21 de noviembre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'En Dubliners Irish Pub, Calle de Espoz y Mina 7, junto a Puerta del Sol. Saque a las 17:40 hora Madrid, EN DIRECTO en pantalla. Punto de encuentro; sin reservas, acceso por orden de llegada.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuántos partidos de rugby hay ese sábado?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Seis pruebas del Rugby Nations Championship con saque 15:10, 17:40 y 21:10 hora Madrid. Los seis EN DIRECTO en nuestras pantallas cuando constan en Partidos.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={'Rugby 21 nov Puerta del Sol: Irlanda–Sudáfrica y Nations Championship | Dubliners'}
+  description={'Sábado 21 nov: dónde ver Irlanda–Sudáfrica en Madrid y seis pruebas del Rugby Nations Championship EN DIRECTO en Dubliners, Espoz y Mina 7 junto a Sol. Punto de encuentro; sin reservas.'}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[...sportsEventsLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Rugby sáb 21 nov, Sol" lang="es" schema />
+      <h1>Rugby junto a Puerta del Sol: sábado 21 de noviembre</h1>
+      <p class="lead">
+        Para aficionados irlandeses e internacionales en Madrid: <strong>Dubliners</strong> es
+        <strong>punto de encuentro</strong> en la Calle de Espoz y Mina 7, a dos calles de
+        <strong>Puerta del Sol</strong>. Seis partidos del sábado, hora de Madrid, <strong>EN DIRECTO en pantalla</strong>.
+        <strong>Sin reservas; acceso por orden de llegada.</strong>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Sábado 21 de noviembre — saques (hora Madrid)</h2>
+      <ul>
+        {SLATE.map((row) => (
+          <li>
+            <strong>{row.time}</strong> — {row.match}
+            {row.priority ? ' · destacado en Partidos' : ''}
+          </li>
+        ))}
+      </ul>
+      <p>
+        Foco para visitantes irlandeses: <strong>Inglaterra–Nueva Zelanda</strong> a las 15:10 e
+        <strong> Irlanda–Sudáfrica</strong> a las 17:40. Nota solo Irlanda–Sudáfrica (en inglés):
+        <a href={withBase('/ireland-south-africa-madrid/')}>Irlanda–Sudáfrica en Madrid</a>.
+      </p>
+
+      <h2>Punto de encuentro antes y después</h2>
+      <p>
+        Pub irlandés interior, inglés en barra, público internacional. Queda antes de los saques tempranos, sigue con
+        Irlanda–Sudáfrica o vuelve tras los partidos nocturnos. Sin reservas de mesa para rugby; orden de llegada.
+        Pregunta en barra qué pantalla es cada partido.
+      </p>
+
+      <h2>Cómo llegar</h2>
+      <p>Metro <strong>Sol</strong> (líneas 1, 2 y 3) o <strong>Sevilla</strong> (línea 2).</p>
+
+      <h2>Horario (sábado)</h2>
+      <p>
+        Abrimos a las <strong>{sat.opens}</strong> y cerramos a las <strong>{sat.closes}</strong> el sábado.
+      </p>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.es}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — rugby sábado junto a Sol" />
+      </div>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>¿Ponéis Irlanda–Sudáfrica?</strong></dt>
+        <dd>Sí — 17:40 hora Madrid, EN DIRECTO en Dubliners.</dd>
+        <dt><strong>¿Reservas?</strong></dt>
+        <dd>No. Acceso por orden de llegada.</dd>
+        <dt><strong>¿Canales de TV?</strong></dt>
+        <dd>No nombramos marcas de emisión aquí. Partidos indica lo que ponemos en el local.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Relacionado',
+            items: [
+              { href: '/ireland-south-africa-madrid/', label: 'Irlanda–Sudáfrica', note: 'Guía un partido (EN)', hreflang: 'en' },
+              { href: '/es/rugby-irlanda-madrid/', label: 'Rugby de Irlanda en Madrid' },
+              { href: '/es/bar-deportivo-madrid/', label: 'Bar deportivo junto a Sol' },
+              { href: '/es/visitar/', label: 'VISITAR' },
+            ],
+          },
+        ]}
+      />
+      <p class="small">Dubliners es un pub independiente, sin vínculo con World Rugby ni los equipos.</p>
+    </div>
+  </section>
+</BaseLayout>

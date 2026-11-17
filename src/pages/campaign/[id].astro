@@ -1,0 +1,15 @@
+---
+import SportsEventCampaignPage from '../../components/SportsEventCampaignPage.astro';
+import { generatedCampaigns } from '../../data/sports-event-registry';
+
+export function getStaticPaths() {
+  return generatedCampaigns().map((campaign) => ({
+    params: { id: campaign.id },
+    props: { campaign, lang: 'en' as const },
+  }));
+}
+
+const { campaign, lang } = Astro.props;
+---
+
+<SportsEventCampaignPage campaign={campaign} lang={lang} />

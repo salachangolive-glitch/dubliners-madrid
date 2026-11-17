@@ -120,7 +120,8 @@
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. No broadcast without verified in-pub channel (owner 9 Nov). Removed Austria–Ireland; removed UWCL rows without channel; removed ATP Finals Sun 15. Channels: Spain–England La 1; Spain–Chile + Ireland–Fiji Movistar Plus; RM–Zvezda Movistar+ Baloncesto; Czechia–Spain La 1. NFL Sun 15 kept. Premier Sat 21 / Sun 22: Newcastle–Arsenal + Liverpool–United DAZN (Radar 9 Nov).
  * - 12 Nov (owner standing rule via DG 15:08): ALL sport events listed ≥7 days ahead, times from league/federation sources; channel NOT required (9 Nov no-channel exclusion annulled). 66 rows added 12–22 Nov.
- * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Levante–Elche, Brentford–Everton (Mon 23) and UCL 24–25 kept as avance (after this week). Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
+ * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
+ * - 17 Nov (DG): UCL MD5 RM–PSV (Tue 24) + Atlético–Viking (Wed 25) on the fixture board through 25 Nov (not only Looking ahead). Mon 23 rows on board when in range.
  * No invented fixtures / TV channels / reservations.
  */
 
@@ -231,7 +232,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'PSV fans welcome: watch the match with other fans by Puerta del Sol, open from 12:00. Welkom in Madrid!',
     noteEs: 'Bienvenidos, aficionados del PSV: para ver el partido con otros aficionados junto a Sol, abrimos desde las 12:00. Welkom in Madrid!',
-    link: { href: '/psv-fans-madrid/', labelEn: 'PSV fans in Madrid: match guide (EN · NL)', labelEs: 'Aficionados del PSV en Madrid: guía (en inglés y neerlandés)', hreflang: 'en' },
+    link: { href: '/psv-fans-madrid/', hrefEs: '/es/aficionados-psv-madrid/', labelEn: 'PSV fans in Madrid: match guide (EN · NL)', labelEs: 'Aficionados del PSV en Madrid: guía del partido', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-26',
@@ -275,7 +276,7 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'Played in Madrid, at the Riyadh Air Metropolitano. Watch the match with other Viking fans.',
     noteEs: 'Se juega en Madrid, en el Riyadh Air Metropolitano. Para ver el partido con otros aficionados del Viking.',
-    link: { href: '/viking-fans-madrid/', labelEn: 'Viking fans in Madrid: match guide (EN · NO)', labelEs: 'Aficionados del Viking en Madrid: guía (en inglés y noruego)', hreflang: 'en' },
+    link: { href: '/viking-fans-madrid/', hrefEs: '/es/aficionados-viking-madrid/', labelEn: 'Viking fans in Madrid: match guide (EN · ES · NO)', labelEs: 'Aficionados del Viking en Madrid: guía del partido', hreflang: 'en' },
   },
 {
     dateKey: '2026-11-21',
@@ -689,9 +690,16 @@ export function sortFixturesSoonestFirst(list: Fixture[]): Fixture[] {
  * - TODAY: kickoff on today's Madrid date, or already started and not finished
  *   (covers late games that run past midnight)
  * - UPCOMING: kickoff on a later Madrid date, still inside this week (through Sunday)
- * Later rows (Mon 23+, Champions 24–25) stay in FIXTURES as avance, not on this week's board.
+ * Board may extend through confirmed UCL MD5 (24–25 Nov 2026) while those fixtures are still current.
  * The client script (FixtureAntiStale) hides finished rows; the board HTML only includes this week.
  */
+
+/** Latest Madrid calendar day on the fixture board (extends past Sunday when owner confirms UCL MD5). */
+const AGENDA_BOARD_THROUGH = '2026-11-25';
+
+function agendaBoardEndKey(weekEnd: string): string {
+  return weekEnd < AGENDA_BOARD_THROUGH ? AGENDA_BOARD_THROUGH : weekEnd;
+}
 export function buildNow(): Date {
   // Test hook: AGENDA_NOW=2026-10-09T20:50:00+02:00 npm run build (never set in deploy).
   const v = typeof process !== 'undefined' ? process.env?.AGENDA_NOW : undefined;
@@ -700,7 +708,7 @@ export function buildNow(): Date {
 
 export function agendaAt(now: Date = buildNow()): { todayKey: string; today: Fixture[]; upcoming: Fixture[]; weekEnd: string } {
   const todayKey = madridToday(now);
-  const weekEnd = madridWeekEnd(todayKey);
+  const weekEnd = agendaBoardEndKey(madridWeekEnd(todayKey));
   const t = now.getTime();
   const live = sortFixturesSoonestFirst(FIXTURES).filter((f) => t < fixtureEndMs(f) && f.dateKey <= weekEnd);
   const today = live.filter((f) => f.dateKey === todayKey || (f.dateKey < todayKey && fixtureStartMs(f) <= t));

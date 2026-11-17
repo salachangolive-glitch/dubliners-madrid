@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+
+// Atlético de Madrid–Viking FK, UEFA Champions League fase liga MD5, Riyadh Air Metropolitano, mié 25 nov 2026 21:00 Madrid (CET).
+// Misma fuente verificada que /viking-fans-madrid/ (UEFA API). Canal en pantalla: no inventar.
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Atlético de Madrid–Viking FK — UEFA Champions League (en directo en Dubliners Madrid)',
+  description: 'Atlético de Madrid–Viking FK (UEFA Champions League, Riyadh Air Metropolitano) en directo en las pantallas de Dubliners Irish Pub, Espoz y Mina 7, junto a la Puerta del Sol, Madrid.',
+  inLanguage: 'es',
+  startDate: '2026-11-25T21:00:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: { '@type': 'PostalAddress', streetAddress: 'Calle de Espoz y Mina 7', addressLocality: 'Madrid', postalCode: '28012', addressCountry: 'ES' },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.gbpUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Atlético de Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Viking FK' },
+  url: absUrl('/es/aficionados-viking-madrid/'),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '¿A qué hora es Atlético de Madrid–Viking?', acceptedAnswer: { '@type': 'Answer', text: 'A las 21:00, hora de Madrid, el miércoles 25 de noviembre de 2026. Madrid y Stavanger comparten zona horaria: también son las 21:00 en Noruega.' } },
+    { '@type': 'Question', name: '¿Lo ponéis en directo?', acceptedAnswer: { '@type': 'Answer', text: 'Sí, EN DIRECTO en nuestras pantallas en Dubliners, Calle de Espoz y Mina 7, junto a la Puerta del Sol.' } },
+    { '@type': 'Question', name: '¿Dubliners es punto de encuentro para aficionados del Viking?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Punto de encuentro en el centro antes del Metropolitano o para ver el partido EN DIRECTO en pantalla si no tienes entrada. Inglés en barra; ambiente internacional junto a Sol.' } },
+    { '@type': 'Question', name: '¿A qué hora abrís el miércoles?', acceptedAnswer: { '@type': 'Answer', text: 'Abrimos desde las 12:00. El miércoles, de 12:00 a 02:00.' } },
+    { '@type': 'Question', name: '¿Cómo llego al estadio?', acceptedAnswer: { '@type': 'Answer', text: 'El Riyadh Air Metropolitano está en la línea 7 de Metro, estación Estadio Metropolitano. Consulta la app de Metro de Madrid o crtm.es para la ruta desde Sol el día del partido.' } },
+  ],
+};
+---
+
+<BaseLayout title={'Aficionados del Viking en Madrid: Atlético–Viking | Dubliners'} description={'Atlético de Madrid–Viking FK (Champions), mié 25 nov, 21:00. Punto de encuentro para aficionados del Viking en Dubliners, junto a Sol. EN DIRECTO en pantalla. Abrimos desde las 12:00.'} path="/es/aficionados-viking-madrid/" lang="es" hreflang={{ en: '/viking-fans-madrid/', es: '/es/aficionados-viking-madrid/', no: '/no/viking-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Aficionados del Viking'} lang="es" schema />
+      <h1>Aficionados del Viking en Madrid: Atlético de Madrid–Viking</h1>
+      <p class="lead">Miércoles 25 de noviembre de 2026, saque inicial a las 21:00 en Madrid, la misma hora que en Stavanger. UEFA Champions League, jornada 5 de la fase liga, en el Riyadh Air Metropolitano. Dubliners es punto de encuentro para seguidores del Viking en el centro de Madrid, junto a la Puerta del Sol.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase('/es/contacto/#request-information')}>Solicitar información</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+<h2>El partido</h2>
+<p>El Viking viaja a Madrid para jugar contra el Atlético de Madrid. Con entrada o sin ella, aquí puedes seguirlo: lo ponemos EN DIRECTO en nuestras pantallas.</p>
+<h2>Ver el partido con otros aficionados del Viking</h2>
+<p>Abrimos desde las 12:00 el miércoles (12:00–02:00), así que hay todo el día para quedar en el centro antes de ir al estadio o para ver el partido juntos.</p>
+<h2>Cómo llegar</h2>
+<p>Calle de Espoz y Mina 7, 28012 Madrid, junto a la Puerta del Sol. Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2).</p>
+<h2>Hasta el Riyadh Air Metropolitano</h2>
+<p>El estadio está en la línea 7 de Metro, estación Estadio Metropolitano. Consulta la app de Metro de Madrid o <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> para la ruta desde Sol el día del partido y calcula tiempo extra: suele haber cortes de tráfico alrededor del estadio.</p>
+      </div>
+      <picture><img class="split-photo tall" src={withBase('/images/dubliners-champions-night-screens-1200.webp')} srcset={`${withBase('/images/dubliners-champions-night-screens-800.webp')} 800w, ${withBase('/images/dubliners-champions-night-screens-1200.webp')} 1200w`} sizes="(max-width: 800px) 100vw, 720px" width="1200" height="1600" loading="lazy" decoding="async" alt="Partido de fútbol en una pantalla de Dubliners, con aficionados mirando desde las mesas" /></picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+<h2>Preguntas frecuentes</h2>
+<dl class="faq">
+  <dt><strong>¿A qué hora es Atlético de Madrid–Viking?</strong></dt><dd>A las 21:00, hora de Madrid, el miércoles 25 de noviembre de 2026. Madrid y Stavanger comparten zona horaria.</dd>
+  <dt><strong>¿Lo ponéis en directo?</strong></dt><dd>Sí, EN DIRECTO en nuestras pantallas.</dd>
+  <dt><strong>¿A qué hora abrís el miércoles?</strong></dt><dd>Desde las 12:00. El miércoles, de 12:00 a 02:00.</dd>
+  <dt><strong>¿Cómo llego al estadio?</strong></dt><dd>Metro línea 7, estación Estadio Metropolitano. Consulta la app de Metro de Madrid o crtm.es desde Sol el día del partido.</dd>
+</dl>
+<p>En inglés: <a href={withBase('/viking-fans-madrid/')} hreflang="en">Viking fans in Madrid</a> · En noruego: <a href={withBase('/no/viking-fans-madrid/')} hreflang="no">Viking-supportere i Madrid</a></p>
+<p>Todo el fútbol que ponemos está en <a href={withBase('/es/partidos/')}>Partidos</a> y en nuestra página de <a href={withBase('/es/bar-deportivo-madrid/')}>bar deportivo cerca de Sol</a>.</p>
+<p class="small">Dubliners es un pub independiente, sin vínculo con UEFA, el Atlético de Madrid ni el Viking FK.</p>
+    </div>
+  </section>
+</BaseLayout>

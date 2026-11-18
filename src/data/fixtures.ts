@@ -304,6 +304,14 @@ export const FIXTURES: Fixture[] = [
     teamsEs: 'RM Fem vs Inter',
     madridTime: '18:45',
     confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en pantalla.',
+    link: {
+      href: '/rm-fem-inter-wednesday-madrid/',
+      hrefEs: '/es/rm-fem-inter-miercoles-madrid/',
+      labelEn: 'Where to watch RM Fem v Inter in Madrid (Wed 18 Nov)',
+      labelEs: 'Dónde ver RM Fem–Inter en Madrid (mié 18 nov)',
+    },
   },
 {
     dateKey: '2026-11-24',

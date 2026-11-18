@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+
+const PATH = '/rm-fem-inter-wednesday-madrid/';
+const PATH_ES = '/es/rm-fem-inter-miercoles-madrid/';
+const wed = OPENING_HOURS.find((d) => d.day === 'Wednesday')!;
+
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Real Madrid Femenino vs Inter — UWCL (screening at Dubliners Madrid)',
+  description:
+    'Real Madrid Femenino vs Inter Milano (UEFA Women’s Champions League) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  startDate: '2026-11-18T18:45:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+    hasMap: SITE.mapsUrl,
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  homeTeam: { '@type': 'SportsTeam', name: 'Real Madrid Femenino' },
+  awayTeam: { '@type': 'SportsTeam', name: 'Inter Milano' },
+  url: absUrl(PATH),
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where can I watch Real Madrid Femenino vs Inter in Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners Irish Pub, Calle de Espoz y Mina 7, a short walk from Puerta del Sol. Kick-off 18:45 Madrid time on Wednesday 18 November 2026. LIVE on our screens. No reservations.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this a meeting point for visiting fans?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Inter supporters and other visitors in Madrid often meet at Dubliners before the evening kick-off. English at the bar; international crowd.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={'Where to watch Real Madrid Femenino v Inter in Madrid | Dubliners'}
+  description={'Wednesday 18 November: Real Madrid Femenino v Inter, UWCL, 18:45 Madrid time. LIVE on our screens at Dubliners by Puerta del Sol — meeting point for visiting fans. No reservations.'}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-champions-night-screens-1200.webp"
+  extraJsonLd={[eventLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="RM Fem v Inter, Wed 18 Nov" schema />
+      <h1>Where to watch Real Madrid Femenino v Inter in Madrid</h1>
+      <p class="lead">
+        <strong>Wednesday 18 November 2026</strong> — UEFA Women’s Champions League:
+        <strong>Real Madrid Femenino v Inter</strong>, kick-off <strong>18:45 Madrid time</strong>.
+        Visiting fans and locals use <strong>Dubliners</strong> as a <strong>meeting point</strong> two streets from
+        <strong>Puerta del Sol</strong>. The match is <strong>LIVE on our screens</strong>. We do not name broadcast brands here.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Match details (Madrid time)</h2>
+      <p>
+        <strong>18:45</strong> — Real Madrid Femenino vs Inter Milano, UEFA Women’s Champions League. Confirmed on our screens at Dubliners when listed on
+        <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
+
+      <h2>Meeting point near Sol</h2>
+      <p>
+        Indoor Irish pub, English at the bar, international crowd. Meet Inter supporters or friends before kick-off, or watch the full match here.
+        <strong>No table reservations</strong> — first come, first served. Ask staff which screen is the UWCL feed.
+      </p>
+
+      <h2>How to get here</h2>
+      <p>
+        <strong>{SITE.address}</strong>, {SITE.postal}. Metro <strong>Sol</strong> (lines 1, 2 and 3) or <strong>Sevilla</strong> (line 2).
+      </p>
+
+      <h2>Opening hours (Wednesday)</h2>
+      <p>
+        Open <strong>{wed.opens}–{wed.closes}</strong> on Wednesday — cover from the afternoon through the evening game.
+      </p>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — UWCL Wednesday near Sol" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Related',
+            items: [
+              { href: '/whats-on/', label: 'What’s On this week' },
+              { href: '/champions-league-bar-madrid/', label: 'Champions League bar Madrid' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/visit/', label: 'FIND US' },
+            ],
+          },
+        ]}
+      />
+      <p class="small">Dubliners is an independent pub, not affiliated with UEFA or the clubs.</p>
+    </div>
+  </section>
+</BaseLayout>

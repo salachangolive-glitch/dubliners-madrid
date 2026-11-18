@@ -12,6 +12,8 @@ git pull --ff-only origin main
 echo "Building from $(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"
 
 npm ci --omit=dev 2>/dev/null || npm install
+# Static agenda (Today/Hoy) follows Madrid calendar at build, not UTC on the runner.
+export AGENDA_NOW="${AGENDA_NOW:-$(TZ=Europe/Madrid date +%Y-%m-%d)T12:00:00+01:00}"
 npm run build
 
 # Custom domain (apex) — CNAME must ship with dist for GitHub Pages

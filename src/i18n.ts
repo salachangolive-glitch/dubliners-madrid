@@ -107,6 +107,7 @@ export const PATH_PAIRS: Record<string, string> = {
   '/friday-20-november-2015-2030-euroleague-travel-night-sol/': '/es/viernes-20-noviembre-2015-2030-euroleague-noche-viaje-sol/',
   '/plaza-mayor-december-christmas-market-pint-near-sol/': '/es/diciembre-mercadillo-navidad-plaza-mayor-pinta-junto-sol/',
   '/irish-rugby-fans-madrid-saturday-21-nov/': '/es/rugby-irlanda-21-noviembre-puerta-del-sol/',
+  '/rm-fem-inter-wednesday-madrid/': '/es/rm-fem-inter-miercoles-madrid/',
 };
 
 const ES_TO_EN: Record<string, string> = Object.fromEntries(

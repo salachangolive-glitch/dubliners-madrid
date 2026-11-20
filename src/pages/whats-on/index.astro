@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FixtureBoard from '../../components/FixtureBoard.astro';
+import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
@@ -26,6 +27,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   ogImage="/images/screens-sports.jpg"
   extraJsonLd={sportsEvents}
 >
+  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="en" />}
+  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />

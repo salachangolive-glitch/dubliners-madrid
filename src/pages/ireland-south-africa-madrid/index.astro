@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
-import { FIXTURES, madridIsoWithOffset } from '../../data/fixtures';
+import { FIXTURES, madridIsoWithOffset, madridToday } from '../../data/fixtures';
+
+const todayKey = madridToday();
 
 // Ireland v South Africa, Rugby Nations Championship — kick-off from src/data/fixtures.ts (irishrugby.ie).
 const path = '/ireland-south-africa-madrid/';
@@ -113,6 +116,10 @@ const faqLd = {
     </div>
   </section>
 
+  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="en" />}
+  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+
   <section class="section">
     <div class="container split">
       <div class="prose">
@@ -130,6 +137,8 @@ const faqLd = {
         <p>
           Ireland v Fiji and the rest of the November Tests are on
           <a href={withBase('/ireland-rugby-madrid/')}>Ireland rugby in Madrid</a>.
+          Saturday 21 November also has five other Nations tests live on our screens —
+          <a href={withBase('/irish-rugby-fans-madrid-saturday-21-nov/')}>Saturday 21 Nov rugby near Sol</a>.
         </p>
         <h2>Where we are</h2>
         <p>

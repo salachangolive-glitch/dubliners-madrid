@@ -1,7 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import HomeRugby21Nov from '../../../components/HomeRugby21Nov.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { madridToday } from '../../../data/fixtures';
+
+const todayKey = madridToday();
 
 // Ireland men, November 2026 (Rugby Nations Championship). Rows already in src/data/fixtures.ts (confirmedOnScreens):
 // Fri 6 Nov Ireland v Argentina 21:10, Sat 14 Nov Ireland v Fiji 21:10, Sat 21 Nov Ireland v South Africa 17:40 (Madrid, CET).
@@ -48,6 +52,9 @@ const eventsLd = games.map((g) => ({
       </div>
     </div>
   </section>
+  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="es" />}
+  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
   <section class="section">
     <div class="container split">
       <div class="prose">
@@ -55,7 +62,7 @@ const eventsLd = games.map((g) => ({
 <ul>
   <li><strong>Viernes 6 de noviembre:</strong> Irlanda–Argentina, 21:10 (20:10 en Irlanda), en el Aviva Stadium: viernes de rugby irlandés junto a Sol.</li>
   <li><strong>Sábado 14 de noviembre:</strong> Irlanda–Fiyi, 21:10 (20:10 en Irlanda).</li>
-  <li><strong>Sábado 21 de noviembre:</strong> Irlanda–Sudáfrica, 17:40 (16:40 en Irlanda).</li>
+  <li><strong>Sábado 21 de noviembre:</strong> Irlanda–Sudáfrica, 17:40 (16:40 en Irlanda). El sábado hay seis pruebas en directo en nuestras pantallas — <a href={withBase('/es/rugby-irlanda-21-noviembre-puerta-del-sol/')}>rugby sáb 21 nov junto a Sol</a>.</li>
 </ul>
 <h2>Rugby de España en Madrid: Los Leones contra Uruguay</h2>
 <p>Sábado 7 de noviembre, 16:00 (hora de Madrid): España–Uruguay (World Rugby Nations Cup) en el Estadio Nacional Complutense, Madrid (<a href="https://ferugby.es/entradas/" rel="noopener">ferugby.es</a>). También lo ponemos EN DIRECTO: consulta <a href={withBase('/es/partidos/')}>Partidos</a>.</p>

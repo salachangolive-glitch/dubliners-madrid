@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import HomeRugby21Nov from '../../../components/HomeRugby21Nov.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
+import { madridToday } from '../../../data/fixtures';
+
+const todayKey = madridToday();
 
 const PATH = '/es/rugby-irlanda-21-noviembre-puerta-del-sol/';
 const PATH_EN = '/irish-rugby-fans-madrid-saturday-21-nov/';
@@ -85,7 +89,7 @@ const faqLd = {
       <p class="lead">
         Para aficionados irlandeses e internacionales en Madrid: <strong>Dubliners</strong> es
         <strong>punto de encuentro</strong> en la Calle de Espoz y Mina 7, a dos calles de
-        <strong>Puerta del Sol</strong>. Seis partidos del sábado, hora de Madrid, <strong>EN DIRECTO en pantalla</strong>.
+        <strong>Puerta del Sol</strong>. Seis partidos del sábado, hora de Madrid, <strong>en directo en nuestras pantallas</strong>.
         <strong>Sin reservas; acceso por orden de llegada.</strong>
       </p>
       <div class="cta-row">
@@ -95,14 +99,17 @@ const faqLd = {
     </div>
   </section>
 
+  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="es" showCta={false} />}
+  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+
   <section class="section">
     <div class="container prose">
       <h2>Sábado 21 de noviembre — saques (hora Madrid)</h2>
-      <ul>
+      <ul class="rugby-slate">
         {SLATE.map((row) => (
-          <li>
-            <strong>{row.time}</strong> — {row.match}
-            {row.priority ? ' · destacado en Partidos' : ''}
+          <li class:list={{ 'rugby-slate__priority': row.priority }}>
+            <strong>{row.time}</strong> — {row.priority ? <strong>{row.match}</strong> : row.match}
           </li>
         ))}
       </ul>
@@ -160,3 +167,9 @@ const faqLd = {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .rugby-slate__priority {
+    font-size: 1.08em;
+  }
+</style>

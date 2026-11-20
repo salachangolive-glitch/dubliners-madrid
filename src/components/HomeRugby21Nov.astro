@@ -1,22 +1,73 @@
 ---
 /**
- * TEMPORARY home hero — Rugby Nations Championship Sat 21 Nov 2026 (owner 17 Nov 14:10).
- * Auto-hide: build-time (todayKey <= '2026-11-21') + data-show-until (FixtureAntiStale).
- * REMOVE after Sat 21 Nov: delete imports/usages in index.astro + es/index.astro.
+ * TEMPORARY rugby feature — Autumn Nations Sat 21 Nov 2026 (owner 20 Nov 18:16).
+ * Auto-hide: build-time (todayKey <= '2026-11-22') + data-show-until.
+ * REMOVE Monday 23 Nov: delete this file and SAT-21-NOV-RUGBY-UNTIL-2026-11-22
+ * wrappers in index.astro, es/index.astro, whats-on, es/partidos, ireland-rugby pages.
  */
-import { SITE } from '../site';
+import { SITE, withBase } from '../site';
 import { OPENING_HOURS } from '../data/hours';
 
 interface Props {
   lang?: 'en' | 'es';
+  /** Hide the guide CTA when already on the Saturday rugby page. */
+  showCta?: boolean;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', showCta = true } = Astro.props;
 const es = lang === 'es';
-const SHOW_UNTIL = '2026-11-21';
+const SHOW_UNTIL = '2026-11-22';
 const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
-const guideUrl = es
-  ? `${SITE.siteUrl}/es/rugby-irlanda-21-noviembre-puerta-del-sol/`
-  : `${SITE.siteUrl}/irish-rugby-fans-madrid-saturday-21-nov/`;
+const guideHref = es
+  ? '/es/rugby-irlanda-21-noviembre-puerta-del-sol/'
+  : '/irish-rugby-fans-madrid-saturday-21-nov/';
+
+const SLOTS = es
+  ? [
+      {
+        time: '15:10',
+        matches: [
+          { name: 'Inglaterra–Nueva Zelanda', priority: true },
+          { name: 'Escocia–Japón', priority: false },
+        ],
+      },
+      {
+        time: '17:40',
+        matches: [
+          { name: 'Irlanda–Sudáfrica', priority: true },
+          { name: 'Italia–Fiyi', priority: false },
+        ],
+      },
+      {
+        time: '21:10',
+        matches: [
+          { name: 'Francia–Argentina', priority: false },
+          { name: 'Gales–Australia', priority: false },
+        ],
+      },
+    ]
+  : [
+      {
+        time: '15:10',
+        matches: [
+          { name: 'England–New Zealand', priority: true },
+          { name: 'Scotland–Japan', priority: false },
+        ],
+      },
+      {
+        time: '17:40',
+        matches: [
+          { name: 'Ireland–South Africa', priority: true },
+          { name: 'Italy–Fiji', priority: false },
+        ],
+      },
+      {
+        time: '21:10',
+        matches: [
+          { name: 'France–Argentina', priority: false },
+          { name: 'Wales–Australia', priority: false },
+        ],
+      },
+    ];
 ---
 
 <section
@@ -28,97 +79,132 @@ const guideUrl = es
   aria-label={es ? 'Rugby sábado 21 de noviembre' : 'Rugby Saturday 21 November'}
 >
   <div class="home-rugby-21nov__inner">
+    <p class="home-rugby-21nov__kicker">{es ? 'Sábado 21 de noviembre' : 'Saturday 21 November'}</p>
     <h2 class="home-rugby-21nov__title">
-      {es ? 'Jornada internacional de rugby – sábado 21 de noviembre' : 'International Rugby – Saturday 21 November'}
+      {es ? 'Rugby Nations Championship — seis partidos' : 'Rugby Nations Championship — six tests'}
     </h2>
     <p class="home-rugby-21nov__lead">
       {es
-        ? 'En directo en nuestras pantallas (hora Madrid).'
-        : 'Live on our screens (Madrid time).'}
+        ? 'En directo en nuestras pantallas (hora de Madrid). Sin reservas; acceso por orden de llegada.'
+        : 'Live on our screens (Madrid time). No bookings, first come first served.'}
     </p>
-    <ul class="home-rugby-21nov__matches">
-      {es ? (
-        <>
-          <li><strong>15:10</strong> Inglaterra–Nueva Zelanda</li>
-          <li><strong>17:40</strong> Irlanda–Sudáfrica</li>
-          <li><strong>21:10</strong> Francia–Argentina</li>
-          <li><strong>21:10</strong> Gales–Australia</li>
-        </>
-      ) : (
-        <>
-          <li><strong>15:10</strong> England–New Zealand</li>
-          <li><strong>17:40</strong> Ireland–South Africa</li>
-          <li><strong>21:10</strong> France–Argentina</li>
-          <li><strong>21:10</strong> Wales–Australia</li>
-        </>
-      )}
+    <ul class="home-rugby-21nov__slots">
+      {SLOTS.map((slot) => (
+        <li class="home-rugby-21nov__slot">
+          <p class="home-rugby-21nov__time">{slot.time}</p>
+          <ul>
+            {slot.matches.map((m) => (
+              <li class:list={['home-rugby-21nov__match', { 'is-priority': m.priority }]}>
+                {m.priority ? <strong>{m.name}</strong> : m.name}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
     </ul>
     <p class="home-rugby-21nov__meta">
       <strong>{SITE.address}</strong>, {SITE.postal} ·{' '}
       {es ? `Sábado ${sat.opens}–${sat.closes}` : `Saturday ${sat.opens}–${sat.closes}`} ·{' '}
       {es ? 'Metro Sol (1, 2 y 3) o Sevilla (2)' : 'Metro Sol (L1, L2, L3) or Sevilla (L2)'} ·{' '}
-      {es ? 'Sin reservas; acceso por orden de llegada.' : 'No reservations; first come, first served.'}
+      {es ? 'Punto de encuentro' : 'Meeting point'}
     </p>
-    <a
-      class="btn btn-gold home-rugby-21nov__cta"
-      href={guideUrl}
-      data-track-event="rugby_cta_click"
-      data-track-bar="dubliners"
-    >
-      {es ? 'Ver partidos de rugby' : 'View rugby schedule'}
-    </a>
+    {showCta && (
+      <a
+        class="btn btn-gold home-rugby-21nov__cta"
+        href={withBase(guideHref)}
+        data-track-event="rugby_cta_click"
+        data-track-bar="dubliners"
+      >
+        {es ? 'Ver partidos de rugby' : 'View rugby schedule'}
+      </a>
+    )}
   </div>
 </section>
 
 <style>
   .home-rugby-21nov {
     background:
-      linear-gradient(135deg, rgba(201, 162, 39, 0.22), rgba(20, 26, 18, 0.95) 48%),
+      linear-gradient(135deg, rgba(201, 162, 39, 0.28), rgba(20, 26, 18, 0.96) 52%),
       var(--bg-elev);
-    border-bottom: 2px solid rgba(201, 162, 39, 0.45);
-    padding: 0.85rem 1rem 1rem;
+    border-bottom: 3px solid rgba(201, 162, 39, 0.7);
+    padding: 1rem 1rem 1.15rem;
   }
   .home-rugby-21nov__inner {
-    width: min(100%, 40rem);
+    width: min(100%, 44rem);
     margin-inline: auto;
     text-align: center;
   }
-  .home-rugby-21nov__title {
+  .home-rugby-21nov__kicker {
     margin: 0;
-    font-size: clamp(1.05rem, 3.4vw, 1.35rem);
-    line-height: 1.25;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+  .home-rugby-21nov__title {
+    margin: 0.2rem 0 0;
+    font-size: clamp(1.15rem, 3.6vw, 1.55rem);
+    line-height: 1.2;
     color: var(--accent-2);
   }
   .home-rugby-21nov__lead {
-    margin: 0.35rem 0 0.5rem;
-    font-size: 0.88rem;
-    color: var(--text-muted);
+    margin: 0.4rem 0 0.7rem;
+    font-size: 0.95rem;
+    color: var(--text);
   }
-  .home-rugby-21nov__matches {
+  .home-rugby-21nov__slots {
     list-style: none;
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.7rem;
     padding: 0;
     display: grid;
-    gap: 0.2rem;
+    gap: 0.55rem;
+  }
+  .home-rugby-21nov__slot {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(201, 162, 39, 0.28);
+    border-radius: 0.4rem;
+    padding: 0.45rem 0.6rem 0.5rem;
+  }
+  .home-rugby-21nov__slot ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .home-rugby-21nov__time {
+    margin: 0 0 0.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .home-rugby-21nov__match {
     font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+  .home-rugby-21nov__match.is-priority {
+    font-size: 1.12rem;
+    color: var(--accent-2);
+    line-height: 1.3;
+  }
+  .home-rugby-21nov__match.is-priority strong {
+    font-weight: 800;
   }
   .home-rugby-21nov__meta {
-    margin: 0 0 0.65rem;
+    margin: 0 0 0.7rem;
     font-size: 0.8rem;
     line-height: 1.45;
     color: var(--text-muted);
   }
   .home-rugby-21nov__cta {
     width: 100%;
-    max-width: 20rem;
+    max-width: 22rem;
     min-height: 44px;
   }
-  @media (min-width: 600px) {
-    .home-rugby-21nov__matches {
-      grid-template-columns: 1fr 1fr;
+  @media (min-width: 700px) {
+    .home-rugby-21nov__slots {
+      grid-template-columns: repeat(3, 1fr);
       text-align: left;
-      max-width: 28rem;
-      margin-inline: auto;
     }
   }
 </style>

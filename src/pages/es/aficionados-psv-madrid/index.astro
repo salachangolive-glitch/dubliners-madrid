@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const fri = OPENING_HOURS.find((d) => d.day === 'Friday')!;
 
 // Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
 // Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
@@ -40,6 +42,16 @@ const eventLd = {
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <a class="btn btn-primary" href={withBase('/es/partidos/')}>Partidos</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Actualización 20 de noviembre de 2026</h2>
+      <p class="small">Semana PSV · a cuatro días del saque (martes 24 de noviembre, 21:00 hora de Madrid).</p>
+      <p><strong>Llegada a Madrid:</strong> Desde <strong>Barajas</strong>, la línea 8 de Metro enlaza con el centro (cambio en Nuevos Ministerios o Príncipe de Gipúzkoa hacia Sol). Desde <strong>Atocha</strong> (AVE y Cercanías), la línea 1 llega a <strong>Sol</strong> en pocos minutos — {SITE.address} queda a un paseo.</p>
+      <p><strong>De Sol al Bernabéu:</strong> La línea 10 está cortada entre Cuzco y Nuevos Ministerios; la estación Bernabéu sigue cerrada. Planifica en la app del Metro de Madrid o en <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> — a menudo vía Nuevos Ministerios y el bus EMT <strong>S10</strong> gratuito para usuarios de Metro. Deja margen el día del partido.</p>
+      <p><strong>Hoy viernes abierto:</strong> {fri.opens}–{fri.closes}.</p>
+      <p><strong>Antes y después:</strong> Aficionados del PSV suelen quedar en Sol a media tarde para una pinta, mezclar idiomas en barra y luego ir al estadio — o quedarse con nosotros con el partido <strong>EN DIRECTO en pantalla</strong> si no tienen entrada. Tras el pitido final, el público vuelve por Sol; pregunta en barra qué queda emitido.</p>
     </div>
   </section>
   <section class="section">

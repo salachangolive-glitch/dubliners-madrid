@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+const fri = OPENING_HOURS.find((d) => d.day === 'Friday')!;
 
 // Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
 // Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
@@ -41,6 +43,16 @@ const eventLd = {
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Update 20 November 2026</h2>
+      <p class="small">PSV week · four days before kick-off (Tuesday 24 November, 21:00 Madrid time).</p>
+      <p><strong>Arriving in Madrid:</strong> From <strong>Barajas Airport</strong>, Metro line 8 connects to the centre (change at Nuevos Ministerios or Príncipe de Gipúzkoa for Sol). From <strong>Atocha</strong> (AVE and Cercanías), Metro line 1 reaches <strong>Sol</strong> in a few stops — {SITE.address} is a short walk from the station.</p>
+      <p><strong>From Sol toward the Bernabéu:</strong> Metro line 10 is closed between Cuzco and Nuevos Ministerios, so Santiago Bernabéu station stays closed. Plan via the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> — often Nuevos Ministerios plus the free EMT <strong>S10</strong> replacement bus for Metro ticket holders. Allow extra time on match night.</p>
+      <p><strong>Open today (Friday):</strong> {fri.opens}–{fri.closes}. Later on Friday we run until {fri.closes}.</p>
+      <p><strong>Before and after the match:</strong> PSV travellers often land in Sol for a mid-afternoon pint, mix languages at the bar, then head north for kick-off — or stay with us and watch <strong>LIVE on our screens</strong> if you are without a ticket. After full time, the Irish pub crowd drifts back through Sol; ask staff what’s still on screen.</p>
     </div>
   </section>
   <section class="section">

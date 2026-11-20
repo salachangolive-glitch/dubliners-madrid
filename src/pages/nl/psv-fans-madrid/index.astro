@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const fri = OPENING_HOURS.find((d) => d.day === 'Friday')!;
 
 // Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
 // Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
@@ -41,6 +43,16 @@ const eventLd = {
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Route</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>Programma (Engels)</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Update 20 november 2026</h2>
+      <p class="small">PSV-week · vier dagen vóór de aftrap (dinsdag 24 november, 21.00 uur).</p>
+      <p><strong>Aankomst in Madrid:</strong> Vanaf <strong>Barajas</strong> rijdt metrolijn 8 richting het centrum ( overstappen bij Nuevos Ministerios of Príncipe de Gipúzkoa voor Sol). Vanaf <strong>Atocha</strong> (AVE/Cercanías) bereik je <strong>Sol</strong> met lijn 1 — {SITE.address} ligt op loopafstand.</p>
+      <p><strong>Van Sol naar het Bernabéu:</strong> Lijn 10 is gesloten tussen Cuzco en Nuevos Ministerios; station Bernabéu blijft dicht. Plan je route in de Metro de Madrid-app of op <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> — vaak via Nuevos Ministerios en de gratis EMT-bus <strong>S10</strong> voor metroreizigers. Neem extra tijd op wedstrijdavond.</p>
+      <p><strong>Vandaag open (vrijdag):</strong> {fri.opens}–{fri.closes}.</p>
+      <p><strong>Voor en na de wedstrijd:</strong> Veel PSV-reizigers spreken eerst af in Sol voor een middagpint, mengen talen aan de bar en gaan daarna richting stadion — of blijven LIVE op onze schermen als je geen kaartje hebt. Na het fluitsignaal komt het publiek terug door Sol; vraag aan het personeel wat er nog op staat.</p>
     </div>
   </section>
   <section class="section">

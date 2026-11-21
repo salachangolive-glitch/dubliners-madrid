@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
 
 // Lithuanian pair of /zalgiris-fans-madrid/ (T22). Same verified kick-off as EN (EuroLeague E2026_139).
 const eventLd = {
@@ -38,6 +40,16 @@ const eventLd = {
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Kaip nuvykti</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>Programa (EN)</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Atnaujinimas 2026 m. lapkričio 21 d.</h2>
+      <p class="small">Žalgirio savaitė · keturios dienos iki rungtynių (2026-11-25, 20:45 Madrido laiku).</p>
+      <p><strong>Atvykimas į Madridą:</strong> Iš <strong>Barajaso</strong> metro linija 8 į centrą; iš <strong>Atochos</strong> linija 1 iki <strong>Sol</strong>. {SITE.address} — trumpas ėjimas.</p>
+      <p><strong>Nuo Sol iki Movistar Arenos:</strong> Arena šiaurės vakaruose — dažniausiai metro per <strong>Nuevos Ministerios</strong> arba autobusą pagal dienos maršrutą. Tikrinkite Metro de Madrid programėlę arba <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
+      <p><strong>Šiandien (šeštadienis) atidaryta:</strong> {sat.opens}–{sat.closes}.</p>
+      <p><strong>Prieš ir po rungtynių:</strong> Sirgaliai dažnai susitinka Sol prieš areną arba žiūri rungtynes <strong>TIESIOGIAI mūsų ekranuose</strong>. Šeštadieniais čia taip pat rugby ir LaLiga — baras veiklus iki uždarymo.</p>
     </div>
   </section>
   <section class="section">

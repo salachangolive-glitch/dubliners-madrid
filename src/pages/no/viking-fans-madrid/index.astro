@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
 
 // Norwegian (bokmål) pair of /viking-fans-madrid/ (DG LUNES-26, 26 Oct 2026, VIKING-DUB). Same verified data as EN.
 // Native-speaker review recommended.
@@ -50,6 +52,16 @@ const faqLd = {
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Veibeskrivelse</a>
         <a class="btn btn-primary" href={withBase('/contact/#request-information')}>Be om informasjon</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Oppdatering 21. november 2026</h2>
+      <p class="small">Viking-uke · fire dager før avspark (onsdag 25. november kl. 21.00).</p>
+      <p><strong>Ankomst Madrid:</strong> Fra <strong>Barajas</strong>, T-banens linje 8 mot sentrum (bytte mot Sol). Fra <strong>Atocha</strong>, linje 1 til <strong>Sol</strong> — {SITE.address} er en kort gåtur.</p>
+      <p><strong>Fra Sol til Riyadh Air Metropolitano:</strong> Stadion ligger ved T-banelinje <strong>7</strong>, stasjon <strong>Estadio Metropolitano</strong>. Planlegg ruten i Metro de Madrid-appen eller på <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>. Beregn ekstra tid på Champions League-kvelder.</p>
+      <p><strong>Åpent i dag (lørdag):</strong> {sat.opens}–{sat.closes}.</p>
+      <p><strong>Før og etter kampen:</strong> Viking-supportere møtes ofte på Sol for en ettermiddagspint, tar T-banen øst mot avspark — eller blir på Dubliners med kampen <strong>DIREKTE på skjerm</strong> uten billett. Etter sluttfløyta er det travelt på rugby- og LaLiga-lørdager også.</p>
     </div>
   </section>
   <section class="section">

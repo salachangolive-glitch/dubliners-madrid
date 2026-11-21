@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
 
 // Atlético de Madrid–Viking FK, UEFA Champions League fase liga MD5, Riyadh Air Metropolitano, mié 25 nov 2026 21:00 Madrid (CET).
 // Misma fuente verificada que /viking-fans-madrid/ (UEFA API). Canal en pantalla: no inventar.
@@ -50,6 +52,16 @@ const faqLd = {
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <a class="btn btn-primary" href={withBase('/es/contacto/#request-information')}>Solicitar información</a>
       </div>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Actualización 21 de noviembre de 2026</h2>
+      <p class="small">Semana Viking · a cuatro días del saque (miércoles 25 de noviembre, 21:00).</p>
+      <p><strong>Llegada a Madrid:</strong> Desde <strong>Barajas</strong>, Metro línea 8 al centro (cambio hacia Sol). Desde <strong>Atocha</strong>, línea 1 a <strong>Sol</strong> — {SITE.address} a pocos minutos.</p>
+      <p><strong>De Sol al Riyadh Air Metropolitano:</strong> El estadio está en la <strong>línea 7</strong>, estación <strong>Estadio Metropolitano</strong>. Planifica en la app del Metro de Madrid o en <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>. Margen extra en noches de Champions.</p>
+      <p><strong>Hoy sábado abierto:</strong> {sat.opens}–{sat.closes}.</p>
+      <p><strong>Antes y después:</strong> Aficionados del Viking suelen quedar en Sol a media tarde, luego Metro hacia el estadio — o quedarse en Dubliners con el partido <strong>EN DIRECTO en pantalla</strong> sin entrada. Al final, el grupo vuelve por Sol; los sábados de rugby y LaLiga también llenan la sala.</p>
     </div>
   </section>
   <section class="section">

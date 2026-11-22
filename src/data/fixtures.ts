@@ -123,6 +123,7 @@
  * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
  * - 17 Nov (DG): UCL MD5 RM–PSV (Tue 24) + Atlético–Viking (Wed 25) on the fixture board through 25 Nov (not only Looking ahead). Mon 23 rows on board when in range.
  * - 22 Nov (agenda lock Mon 23–Sun 29): board through 29 Nov. Played 16–21 Nov football/UNL/UWCL RETIRED; Sat 21 rugby kept (landing + removable home block). Sun 22 leftover kept, DAZN stripped. Named UCL MD5 / UEL-UECL J5 / Premier / LaLiga / rugby 23–29 ADDED, NO channel. Thanksgiving NFL + RM–Žalgiris kept. Unnamed «resto» and Celtic (no opponent) not invented.
+ * - 22 Nov (home/away, Nations Championship match centre API https://nationschampionshiprugby.com/api/match-centre/fixtures + HTML https://nationschampionshiprugby.com/en/match-centre/fixtures): FIJ–ITA Fri 16:40Z, IRE–AUS Fri 20:10Z, WAL–JPN Sat 13:10Z, ENG–NZL Sat 16:40Z, SCO–ARG Sun 13:10Z, RSA–FRA Sun 16:40Z. Madrid CET +1. Named rows restored; generic Sun 29 time-slot labels replaced. NO channel.
  * No invented fixtures / TV channels / reservations.
  */
 
@@ -608,6 +609,17 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-27',
     whenLabel: 'Fri 27 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'Fiji vs Italy',
+    teamsEs: 'Fiyi vs Italia',
+    madridTime: '17:40',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-27',
+    whenLabel: 'Fri 27 Nov',
     competition: 'LaLiga',
     teams: 'Racing Santander vs Levante',
     madridTime: '21:00',
@@ -618,9 +630,31 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-27',
     whenLabel: 'Fri 27 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'Ireland vs Australia',
+    teamsEs: 'Irlanda vs Australia',
+    madridTime: '21:10',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-27',
+    whenLabel: 'Fri 27 Nov',
     competition: 'Premier League',
     teams: 'Nottingham Forest vs Chelsea',
     madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-28',
+    whenLabel: 'Sat 28 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'Wales vs Japan',
+    teamsEs: 'Gales vs Japón',
+    madridTime: '14:10',
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
     noteEs: 'En directo en nuestras pantallas.',
@@ -688,6 +722,17 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-28',
     whenLabel: 'Sat 28 Nov',
+    competition: 'Rugby Nations Championship',
+    teams: 'England vs New Zealand',
+    teamsEs: 'Inglaterra vs Nueva Zelanda',
+    madridTime: '17:40',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-28',
+    whenLabel: 'Sat 28 Nov',
     competition: 'LaLiga',
     teams: 'Real Madrid vs Alavés',
     madridTime: '21:00',
@@ -719,8 +764,8 @@ export const FIXTURES: Fixture[] = [
     dateKey: '2026-11-29',
     whenLabel: 'Sun 29 Nov',
     competition: 'Rugby Nations Championship',
-    teams: 'Rugby Nations Championship finals (14:10 kick-off)',
-    teamsEs: 'Finales del Nations Championship de rugby (14:10)',
+    teams: 'Scotland vs Argentina',
+    teamsEs: 'Escocia vs Argentina',
     madridTime: '14:10',
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
@@ -790,8 +835,8 @@ export const FIXTURES: Fixture[] = [
     dateKey: '2026-11-29',
     whenLabel: 'Sun 29 Nov',
     competition: 'Rugby Nations Championship',
-    teams: 'Rugby Nations Championship finals (17:40 kick-off)',
-    teamsEs: 'Finales del Nations Championship de rugby (17:40)',
+    teams: 'South Africa vs France',
+    teamsEs: 'Sudáfrica vs Francia',
     madridTime: '17:40',
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',

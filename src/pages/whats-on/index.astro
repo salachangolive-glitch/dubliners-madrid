@@ -73,15 +73,10 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       {todayKey <= '2026-10-31' && (
         <p data-show-until="2026-10-31"><strong>Halloween at Dubliners: Saturday 31 October, from 19:00.</strong> Costumes, decorations and music. <a href={withBase('/halloween-madrid-2026/')}>Halloween in Madrid near Sol</a></p>
       )}
-      {todayKey <= '2026-11-22' && (
-        <>
-          <p data-show-until="2026-11-22">
-            Live sports (Sat 21–Sun 22 Nov, Madrid time): today <a href={withBase('/irish-rugby-fans-madrid-saturday-21-nov/')}>six Rugby Nations Championship tests</a> from 15:10 (Ireland–South Africa 17:40) · Premier League and LaLiga from 13:30 · then Newcastle–Arsenal 18:30 (DAZN) · Sunday Barcelona–Villarreal 14:00, Liverpool–Manchester United 17:30 (DAZN). Next week: <a href={withBase('/psv-fans-madrid/')}>PSV Tue 24</a> · <a href={withBase('/viking-fans-madrid/')}>Viking</a> and <a href={withBase('/zalgiris-fans-madrid/')}>Žalgiris Wed 25</a>. Confirmed on our screens; clashes go on different screens.
-          </p>
-          <p data-show-until="2026-11-22">
-            Irish fans: Ireland–South Africa on Saturday 21 at 17:40, LIVE on our screens near Sol — <a href={withBase('/irish-rugby-fans-madrid-saturday-21-nov/')}>Saturday 21 Nov rugby guide</a>.
-          </p>
-        </>
+      {todayKey <= '2026-11-29' && (
+        <p data-show-until="2026-11-29">
+          Live sports (Mon 23–Sun 29 Nov, Madrid time), live on our screens: <strong>Real Madrid–PSV</strong> Tuesday 24 at 21:00 (Champions, meeting point) · <strong>Atlético–Viking</strong> Wednesday 25 at 21:00 (Champions, meeting point) · <strong>Arsenal–Man City</strong> Sunday 29 at 17:30 (Premier). Rugby includes Ireland–Australia Friday 21:10 and France–South Africa Sunday 17:40. Confirmed on our screens; clashes go on different screens.
+        </p>
       )}
       <!-- THANKSGIVING-LINKS-UNTIL-2026-11-26 -->
       {todayKey <= '2026-11-26' && (
@@ -120,6 +115,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
               { href: '/brighton-fans-madrid/', label: 'Brighton fans in Madrid' },
               { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans in Madrid', note: 'EuroLeague · 25 November, 20:45' },
               { href: '/psv-fans-madrid/', label: 'PSV fans in Madrid', note: 'Champions League · 24 November, 21:00' },
+              { href: '/viking-fans-madrid/', label: 'Viking fans in Madrid', note: 'Champions League · 25 November, 21:00' },
               { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid', note: '21 November · Ireland v South Africa' },
             ],
           },
@@ -151,6 +147,8 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             title: 'Offers & events',
             items: [
               { href: '/thanksgiving-madrid/', label: 'Thanksgiving NFL in Madrid', note: 'Thursday 26 November — 19:00 & 22:30 Madrid time on our screens', until: '2026-11-26' },
+              { href: '/psv-fans-madrid/', label: 'Real Madrid v PSV in Madrid', note: 'Champions League · Tuesday 24 November, 21:00 — meeting point', until: '2026-11-24' },
+              { href: '/viking-fans-madrid/', label: 'Atlético v Viking in Madrid', note: 'Champions League · Wednesday 25 November, 21:00 — meeting point', until: '2026-11-25' },
               { href: '/irish-rugby-fans-madrid-saturday-21-nov/', label: 'Saturday 21 Nov rugby near Sol', note: 'Six Autumn Nations tests · 15:10 / 17:40 / 21:10 LIVE on our screens', until: '2026-11-21' },
               { href: '/ireland-south-africa-madrid/', label: 'Ireland v South Africa in Madrid', note: 'Autumn Nations rugby · Saturday 21 November, 17:40 — near Sol', until: '2026-11-21' },
               { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans in Madrid: EuroLeague near Sol', note: 'Real Madrid v Žalgiris · Wednesday 25 November, 20:45', until: '2026-11-25' },

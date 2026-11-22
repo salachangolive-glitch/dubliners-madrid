@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CtaRow from '../../components/CtaRow.astro';
 import FixtureBoard from '../../components/FixtureBoard.astro';
 import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
+import HomeRugbyNationsFinalsWeek from '../../components/HomeRugbyNationsFinalsWeek.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { agendaAt, sportsEventsJsonLd } from '../../data/fixtures';
@@ -30,6 +31,9 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
   <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
   {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="en" />}
   <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  <!-- NAT-27-29-RUGBY-UNTIL-2026-11-30 -->
+  {todayKey >= '2026-11-22' && todayKey <= '2026-11-29' && <HomeRugbyNationsFinalsWeek lang="en" />}
+  <!-- /NAT-27-29-RUGBY-UNTIL-2026-11-30 -->
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="What's on" />
@@ -75,12 +79,12 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       )}
       {todayKey === '2026-11-22' && (
         <p data-show-until="2026-11-22">
-          Sunday 22 November (Madrid time): T−3 for <a href={withBase('/viking-fans-madrid/')}>Viking</a> and <a href={withBase('/zalgiris-fans-madrid/')}>Žalgiris</a> (Wednesday 25) · <a href={withBase('/psv-fans-madrid/')}>PSV Tuesday 24</a>. Guides updated 22 Nov. Sunday LaLiga and Premier times are listed in the fixture table on this page. This week’s rugby: Friday <strong>Fiji–Italy</strong> 17:40 and <strong>Ireland–Australia</strong> 21:10 · Saturday <strong>Wales–Japan</strong> 14:10 and <strong>England–New Zealand</strong> 17:40 · Sunday <strong>Scotland–Argentina</strong> 14:10 and <strong>South Africa–France</strong> 17:40. Confirmed on our screens; clashes go on different screens.
+          Sunday 22 November (Madrid time): T−3 for <a href={withBase('/viking-fans-madrid/')}>Viking</a> and <a href={withBase('/zalgiris-fans-madrid/')}>Žalgiris</a> (Wednesday 25) · <a href={withBase('/psv-fans-madrid/')}>PSV Tuesday 24</a>. Guides updated 22 Nov. Sunday football in the table below. <a href={withBase('/rugby-nations-finals-weekend-madrid/')}>Nations Championship finals weekend</a> (27–29 Nov): six Tests <strong>live on our screens</strong> — see fixture board. Confirmed on our screens; clashes go on different screens.
         </p>
       )}
       {todayKey >= '2026-11-23' && todayKey <= '2026-11-29' && (
         <p data-show-until="2026-11-29">
-          Live sports (Mon 23–Sun 29 Nov, Madrid time), live on our screens: <strong>Real Madrid–PSV</strong> Tuesday 24 at 21:00 (Champions, meeting point) · <strong>Atlético–Viking</strong> Wednesday 25 at 21:00 (Champions, meeting point) · <strong>Arsenal–Man City</strong> Sunday 29 at 17:30 (Premier). Rugby: Friday <strong>Fiji–Italy</strong> 17:40 and <strong>Ireland–Australia</strong> 21:10 · Saturday <strong>Wales–Japan</strong> 14:10 and <strong>England–New Zealand</strong> 17:40 · Sunday <strong>Scotland–Argentina</strong> 14:10 and <strong>South Africa–France</strong> 17:40. Confirmed on our screens; clashes go on different screens.
+          Live sports (Mon 23–Sun 29 Nov, Madrid time), live on our screens: <strong>Real Madrid–PSV</strong> Tuesday 24 at 21:00 (Champions, meeting point) · <strong>Atlético–Viking</strong> Wednesday 25 at 21:00 (Champions, meeting point) · <strong>Arsenal–Man City</strong> Sunday 29 at 17:30 (Premier). Rugby: <a href={withBase('/rugby-nations-finals-weekend-madrid/')}>six Nations Championship Tests Fri–Sun 27–29</a> on the board below. Confirmed on our screens; clashes go on different screens.
         </p>
       )}
       {todayKey <= '2026-11-01' && (
@@ -146,6 +150,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
             items: [
               { href: '/psv-fans-madrid/', label: 'Real Madrid v PSV in Madrid', note: 'Champions League · Tuesday 24 November, 21:00 — meeting point', until: '2026-11-24' },
               { href: '/viking-fans-madrid/', label: 'Atlético v Viking in Madrid', note: 'Champions League · Wednesday 25 November, 21:00 — meeting point', until: '2026-11-25' },
+              { href: '/rugby-nations-finals-weekend-madrid/', label: 'Nations Championship finals weekend', note: 'Fri–Sun 27–29 Nov · six Tests LIVE on our screens', until: '2026-11-29' },
               { href: '/irish-rugby-fans-madrid-saturday-21-nov/', label: 'Saturday 21 Nov rugby near Sol', note: 'Six Autumn Nations tests · 15:10 / 17:40 / 21:10 LIVE on our screens', until: '2026-11-21' },
               { href: '/ireland-south-africa-madrid/', label: 'Ireland v South Africa in Madrid', note: 'Autumn Nations rugby · Saturday 21 November, 17:40 — near Sol', until: '2026-11-21' },
               { href: '/zalgiris-fans-madrid/', label: 'Žalgiris fans in Madrid: EuroLeague near Sol', note: 'Real Madrid v Žalgiris · Wednesday 25 November, 20:45', until: '2026-11-25' },

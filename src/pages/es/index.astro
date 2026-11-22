@@ -5,6 +5,7 @@ import CtaRow from '../../components/CtaRow.astro';
 import LinkHub from '../../components/LinkHub.astro';
 import HomeFixtureCards from '../../components/HomeFixtureCards.astro';
 import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
+import HomeRugbyNationsFinalsWeek from '../../components/HomeRugbyNationsFinalsWeek.astro';
 import FixtureAntiStale from '../../components/FixtureAntiStale.astro';
 import { SITE, withBase } from '../../site';
 import { hoursSummary } from '../../data/hours';
@@ -20,6 +21,9 @@ const description =
   <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
   {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="es" />}
   <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
+  <!-- NAT-27-29-RUGBY-UNTIL-2026-11-30 -->
+  {todayKey >= '2026-11-22' && todayKey <= '2026-11-29' && <HomeRugbyNationsFinalsWeek lang="es" />}
+  <!-- /NAT-27-29-RUGBY-UNTIL-2026-11-30 -->
   <!-- 1. Hero -->
   <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>
@@ -97,12 +101,12 @@ const description =
         )}
         {todayKey === '2026-11-22' && (
           <p data-show-until="2026-11-22">
-            Domingo 22 nov (hora de Madrid): a tres días de <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking</a> y <a href={withBase('/es/aficionados-zalgiris-madrid/')}>Real Madrid–Žalgiris</a> el miércoles 25 · <a href={withBase('/es/aficionados-psv-madrid/')}>Real Madrid–PSV martes 24</a>. Guías actualizadas 22 nov (reservas, horarios, FAQ). Los partidos de hoy están en <a href={withBase('/es/partidos/')}>Partidos</a>. Rugby esta semana: viernes <strong>Fiyi–Italia</strong> 17:40 e <strong>Irlanda–Australia</strong> 21:10 · sábado <strong>Gales–Japón</strong> 14:10 e <strong>Inglaterra–Nueva Zelanda</strong> 17:40 · domingo <strong>Escocia–Argentina</strong> 14:10 y <strong>Sudáfrica–Francia</strong> 17:40. Confirmados en pantallas; si coinciden, pantallas distintas.
+            Domingo 22 nov (hora de Madrid): a tres días de <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking</a> y <a href={withBase('/es/aficionados-zalgiris-madrid/')}>Real Madrid–Žalgiris</a> el miércoles 25 · <a href={withBase('/es/aficionados-psv-madrid/')}>Real Madrid–PSV martes 24</a>. Guías actualizadas 22 nov. Hoy en <a href={withBase('/es/partidos/')}>Partidos</a>. <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>Nations Championship 27–29 nov</a>: seis pruebas <strong>en directo en nuestras pantallas</strong>. Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
         )}
         {todayKey >= '2026-11-23' && todayKey <= '2026-11-29' && (
           <p data-show-until="2026-11-29">
-            Deporte en directo (lun 23–dom 29 nov, hora de Madrid), en directo en nuestras pantallas: <strong>Real Madrid–PSV</strong> martes 24 a las 21:00 (Champions, punto de encuentro) · <strong>Atlético–Viking</strong> miércoles 25 a las 21:00 (Champions, punto de encuentro) · <strong>Arsenal–Man City</strong> domingo 29 a las 17:30 (Premier). Rugby: viernes <strong>Fiyi–Italia</strong> 17:40 e <strong>Irlanda–Australia</strong> 21:10 · sábado <strong>Gales–Japón</strong> 14:10 e <strong>Inglaterra–Nueva Zelanda</strong> 17:40 · domingo <strong>Escocia–Argentina</strong> 14:10 y <strong>Sudáfrica–Francia</strong> 17:40. Confirmados en pantallas; si coinciden, pantallas distintas.
+            Deporte en directo (lun 23–dom 29 nov, hora de Madrid), en directo en nuestras pantallas: <strong>Real Madrid–PSV</strong> martes 24 a las 21:00 (Champions, punto de encuentro) · <strong>Atlético–Viking</strong> miércoles 25 a las 21:00 (Champions, punto de encuentro) · <strong>Arsenal–Man City</strong> domingo 29 a las 17:30 (Premier). Rugby: <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>seis pruebas vie–dom 27–29</a> (Italia–Fiyi 17:40, Irlanda–Australia 21:10 · Gales–Japón 14:10, Inglaterra–Nueva Zelanda 17:40 · Escocia–Argentina 14:10, final Francia–Sudáfrica 17:40). Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
         )}
         <div class="cta-row">

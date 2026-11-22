@@ -95,7 +95,12 @@ const description =
         {todayKey <= '2026-10-31' && (
           <p data-show-until="2026-10-31"><strong>Halloween at Dubliners: Saturday 31 October, from 19:00.</strong> Costumes, decorations and music. <a href={withBase('/halloween-madrid-2026/')}>Halloween in Madrid near Sol</a></p>
         )}
-        {todayKey <= '2026-11-29' && (
+        {todayKey === '2026-11-22' && (
+          <p data-show-until="2026-11-22">
+            Sunday 22 November (Madrid time): three days to <a href={withBase('/viking-fans-madrid/')}>Atlético–Viking</a> and <a href={withBase('/zalgiris-fans-madrid/')}>Real Madrid–Žalgiris</a> on Wednesday 25 · <a href={withBase('/psv-fans-madrid/')}>Real Madrid–PSV Tuesday 24</a>. Fan guides updated 22 Nov (reservations, hours, FAQ). Today’s LaLiga and Premier kick-offs are on <a href={withBase('/whats-on/')}>What’s On</a> — full Sunday list on fixtures below. Confirmed on our screens; clashes go on different screens.
+          </p>
+        )}
+        {todayKey >= '2026-11-23' && todayKey <= '2026-11-29' && (
           <p data-show-until="2026-11-29">
             Live sports (Mon 23–Sun 29 Nov, Madrid time), live on our screens: <strong>Real Madrid–PSV</strong> Tuesday 24 at 21:00 (Champions, meeting point) · <strong>Atlético–Viking</strong> Wednesday 25 at 21:00 (Champions, meeting point) · <strong>Arsenal–Man City</strong> Sunday 29 at 17:30 (Premier). Rugby includes Ireland–Australia Friday 21:10 and France–South Africa Sunday 17:40. Confirmed on our screens; clashes go on different screens.
           </p>

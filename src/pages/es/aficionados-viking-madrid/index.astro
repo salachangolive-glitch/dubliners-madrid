@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
-const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
 
 // Atlético de Madrid–Viking FK, UEFA Champions League fase liga MD5, Riyadh Air Metropolitano, mié 25 nov 2026 21:00 Madrid (CET).
 // Misma fuente verificada que /viking-fans-madrid/ (UEFA API). Canal en pantalla: no inventar.
@@ -56,12 +56,14 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Actualización 21 de noviembre de 2026</h2>
-      <p class="small">Semana Viking · a cuatro días del saque (miércoles 25 de noviembre, 21:00).</p>
+      <h2>Actualización 22 de noviembre de 2026</h2>
+      <p class="small">Semana Viking · a tres días del saque (miércoles 25 de noviembre, 21:00).</p>
       <p><strong>Llegada a Madrid:</strong> Desde <strong>Barajas</strong>, Metro línea 8 al centro (cambio hacia Sol). Desde <strong>Atocha</strong>, línea 1 a <strong>Sol</strong> — {SITE.address} a pocos minutos.</p>
       <p><strong>De Sol al Riyadh Air Metropolitano:</strong> El estadio está en la <strong>línea 7</strong>, estación <strong>Estadio Metropolitano</strong>. Planifica en la app del Metro de Madrid o en <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>. Margen extra en noches de Champions.</p>
-      <p><strong>Hoy sábado abierto:</strong> {sat.opens}–{sat.closes}.</p>
-      <p><strong>Antes y después:</strong> Aficionados del Viking suelen quedar en Sol a media tarde, luego Metro hacia el estadio — o quedarse en Dubliners con el partido <strong>EN DIRECTO en pantalla</strong> sin entrada. Al final, el grupo vuelve por Sol; los sábados de rugby y LaLiga también llenan la sala.</p>
+      <p><strong>Hoy domingo abierto:</strong> {sun.opens}–{sun.closes}.</p>
+      <p><strong>Reservas:</strong> <strong>Sin reservas de mesa</strong> — acceso por orden de llegada. La guía de tres puertas en O’Connell’s (enlaces más abajo) explica el reparto en noches europeas.</p>
+      <p><strong>Ambiente del domingo:</strong> Tarde más tranquila junto a Sol; por la noche sube el ambiente cuando hay fútbol en pantalla según <a href={withBase('/es/partidos/')}>Partidos</a>. Quien viaja al miércoles aprovecha el domingo para trazar Metro desde Sol.</p>
+      <p><strong>FAQ:</strong> Hora del saque, pantallas, horario del miércoles y ruta al estadio, en el bloque FAQ de abajo.</p>
     </div>
   </section>
   <section class="section">

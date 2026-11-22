@@ -1,0 +1,79 @@
+---
+/**
+ * Nations Championship finals weekend 27–29 Nov 2026 — hub feature.
+ * REMOVE 30 Nov: delete component + NAT-27-29-RUGBY-UNTIL-2026-11-30 wrappers.
+ */
+import { withBase } from '../site';
+import { RUGBY_FINALS_GUIDE_EN, RUGBY_FINALS_GUIDE_ES, RUGBY_FINALS_WEEKEND } from '../data/rugby-nations-finals-2026';
+
+interface Props {
+  lang?: 'en' | 'es';
+  showCta?: boolean;
+}
+const { lang = 'en', showCta = true } = Astro.props;
+const es = lang === 'es';
+const SHOW_UNTIL = '2026-11-29';
+const guideHref = es ? RUGBY_FINALS_GUIDE_ES : RUGBY_FINALS_GUIDE_EN;
+---
+
+<section class="home-rugby-finals band" data-show-until={SHOW_UNTIL}>
+  <div class="container prose">
+    <h2>{es ? 'Rugby Nations Championship — fin de semana 27–29 nov' : 'Rugby Nations Championship — weekend 27–29 Nov'}</h2>
+    <p>
+      {es ? (
+        <>
+          <strong>Domingo 29 nov, 17:40</strong> — final <strong>Francia–Sudáfrica</strong>{' '}
+          <strong>en directo en nuestras pantallas</strong> en Dubliners, junto a Sol, más cinco pruebas el fin de semana.
+        </>
+      ) : (
+        <>
+          <strong>Sunday 29 Nov, 17:40</strong> — <strong>France v South Africa</strong> final{' '}
+          <strong>live on our screens</strong> at Dubliners near Sol, plus five more Tests across the weekend.
+        </>
+      )}
+    </p>
+    <p class="small">
+      {es
+        ? 'Seis pruebas confirmadas · hora de Madrid · en directo en nuestras pantallas en Dubliners (sin emisora).'
+        : 'All six Tests confirmed · Madrid time · live on our screens at Dubliners (no TV channel named).'}
+    </p>
+    <ul class="rugby-finals-days">
+      {RUGBY_FINALS_WEEKEND.map((day) => (
+        <li>
+          <strong>{es ? day.headingEs : day.headingEn}</strong>
+          <ul>
+            {day.matches.map((m) => (
+              <li class:list={{ highlight: m.highlight }}>
+                {m.time} — {es ? m.es : m.en}
+                {m.final && (es ? ' (final)' : ' (final)')}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+    {showCta && (
+      <p>
+        <a class="btn btn-secondary" href={withBase(guideHref)}>
+          {es ? 'Guía del fin de semana rugby junto a Sol' : 'Finals weekend rugby guide near Sol'}
+        </a>
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .rugby-finals-days {
+    list-style: none;
+    padding: 0;
+  }
+  .rugby-finals-days > li {
+    margin-bottom: 0.75rem;
+  }
+  .rugby-finals-days ul {
+    margin: 0.25rem 0 0 1rem;
+  }
+  .highlight {
+    font-weight: 600;
+  }
+</style>

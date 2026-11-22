@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import LinkHub from '../../components/LinkHub.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+import { madridToday } from '../../data/fixtures';
+import { RUGBY_FINALS_GUIDE_EN, RUGBY_FINALS_GUIDE_ES, RUGBY_FINALS_WEEKEND } from '../../data/rugby-nations-finals-2026';
+
+const todayKey = madridToday();
+const PATH = RUGBY_FINALS_GUIDE_EN;
+
+const sportsEventsLd = RUGBY_FINALS_WEEKEND.flatMap((day) =>
+  day.matches.map((m) => ({
+    '@context': 'https://schema.org',
+    '@type': 'SportsEvent',
+    name: `${m.en} — Rugby Nations Championship (screening at Dubliners Madrid)`,
+    description: `${m.en} (Rugby Nations Championship) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.`,
+    startDate: `${day.dateKey}T${m.time}:00+01:00`,
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'BarOrPub',
+      name: 'Dubliners Irish Pub',
+      alternateName: 'Dubliners Madrid',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Calle de Espoz y Mina 7',
+        addressLocality: 'Madrid',
+        postalCode: '28012',
+        addressCountry: 'ES',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: 40.4158342, longitude: -3.7022626 },
+      hasMap: SITE.mapsUrl,
+    },
+    organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+    url: absUrl(PATH),
+  })),
+);
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Are all six Nations Championship Tests live on screen in Madrid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — all six Tests in this finals weekend slate are confirmed LIVE on our screens at Dubliners: Italy v Fiji, Ireland v Australia, Wales v Japan, England v New Zealand, Scotland v Argentina and France v South Africa (final). Kick-offs are Madrid time. Clashes go on different TVs — ask at the bar. We do not name a TV channel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where do rugby fans meet near Puerta del Sol?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dubliners Irish Pub, Calle de Espoz y Mina 7 — meeting point before and after Tests, a short walk from Sol. No table bookings; English at the bar.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you take table reservations for rugby?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No table bookings — first come, first served at the bar for every Test in this weekend slate.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={'Meeting point for rugby fans in Madrid: Nations Championship 27–29 Nov | Dubliners'}
+  description={'Meeting point for rugby fans in Madrid by Puerta del Sol: six Nations Championship Tests Fri–Sun 27–29 November live on our screens at Dubliners, Espoz y Mina 7. Meet before and after every match — all visiting nations welcome. No reservations.'}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: RUGBY_FINALS_GUIDE_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={[...sportsEventsLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Meeting point for rugby fans" schema />
+      <h1>Meeting point for rugby fans in Madrid — Nations Championship weekend 27–29 November</h1>
+      <p class="lead">
+        <strong>Dubliners</strong> is a <strong>meeting point for rugby fans in Madrid</strong> by{' '}
+        <strong>Puerta del Sol</strong> — {SITE.address} — before and after <strong>each</strong> of the six Nations
+        Championship Tests (27–29 November, Madrid time). Irish, French, English, Welsh, Scottish, Italian, Australian,
+        Japanese, Fijian and South African visitors use the same door: all six confirmed{' '}
+        <strong>live on our screens</strong>. Sunday’s slate ends with the <strong>France v South Africa</strong> final at
+        17:40. No table bookings; English at the bar. We do not name a TV channel.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
+        <a class="btn btn-secondary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container prose">
+      {todayKey === '2026-11-22' && (
+        <>
+          <h2>Update 22 November 2026</h2>
+          <p class="small">Five days to the first kick-off (Friday 27 November, 17:40 Madrid time).</p>
+          <p>
+            The Twickenham tournament weekend is the last concentrated burst of Nations Championship rugby on our
+            boards this month. Use this page as a single Madrid-time slate — we refresh the band here daily through
+            Sunday 29.
+          </p>
+        </>
+      )}
+      {todayKey === '2026-11-23' && (
+        <>
+          <h2>Update 23 November 2026</h2>
+          <p class="small">Four days to Italy v Fiji (Friday 17:40).</p>
+          <p>Champions League midweek still runs at Sol — rugby returns Friday with the first of six Tests <strong>live on our screens</strong>.</p>
+        </>
+      )}
+      {todayKey === '2026-11-24' && (
+        <>
+          <h2>Update 24 November 2026</h2>
+          <p class="small">Three days to the finals weekend opener.</p>
+          <p>PSV night Tuesday fills the room; bookmark Friday–Sunday for the six-match rugby block below.</p>
+        </>
+      )}
+      {todayKey === '2026-11-25' && (
+        <>
+          <h2>Update 25 November 2026</h2>
+          <p class="small">Two days to Friday’s double header.</p>
+          <p>Viking and Žalgiris visitors share Sol with rugby fans planning the long weekend — all listed sport stays <strong>live on our screens</strong> when on What’s On.</p>
+        </>
+      )}
+      {todayKey === '2026-11-26' && (
+        <>
+          <h2>Update 26 November 2026</h2>
+          <p class="small">Tomorrow: Italy v Fiji 17:40 and Ireland v Australia 21:10.</p>
+          <p>Thanksgiving NFL runs Thursday; Friday opens the rugby finals window with back-to-back Tests.</p>
+        </>
+      )}
+      {todayKey === '2026-11-27' && (
+        <>
+          <h2>Update 27 November 2026</h2>
+          <p class="small">Friday night — two Tests tonight.</p>
+          <p><strong>Italy v Fiji</strong> at 17:40, then <strong>Ireland v Australia</strong> at 21:10 — both <strong>live on our screens</strong>. Meet at Dubliners before kick-off; no reservations.</p>
+        </>
+      )}
+      {todayKey === '2026-11-28' && (
+        <>
+          <h2>Update 28 November 2026</h2>
+          <p class="small">Saturday — Wales v Japan 14:10 · England v New Zealand 17:40.</p>
+          <p>Lunchtime and tea-time Tests; the bar stays open through Saturday close for the second day of the slate.</p>
+        </>
+      )}
+      {todayKey === '2026-11-29' && (
+        <>
+          <h2>Update 29 November 2026</h2>
+          <p class="small">Sunday final — Scotland v Argentina 14:10 · France v South Africa 17:40.</p>
+          <p>Last two Tests of the weekend, including the <strong>France v South Africa</strong> final slot at 17:40 — <strong>live on our screens</strong> alongside Sunday football listed on What’s On.</p>
+        </>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Full weekend slate (Madrid time)</h2>
+      <p>
+        <strong>All six kick-offs are confirmed live on our screens</strong> at Dubliners — no TV channel named here.
+      </p>
+      {RUGBY_FINALS_WEEKEND.map((day) => (
+        <div class="rugby-day">
+          <h3>{day.headingEn}</h3>
+          <ul>
+            {day.matches.map((m) => (
+              <li class:list={{ 'rugby-day__final': m.final }}>
+                <strong>{m.time}</strong> — {m.en}
+                {m.final && ' — final'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <p class="small">
+        Kick-offs follow the World Rugby Nations Championship programme and Allianz Stadium Twickenham schedule in
+        Europe/Madrid time. The same six Tests appear on <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
+
+      <h2>Meeting point before and after</h2>
+      <p>
+        <strong>Dubliners Irish Pub</strong> — {SITE.address}, {SITE.postal}. Indoor screens, international rugby crowd,
+        short walk from Metro <strong>Sol</strong>. Meet friends before the early Tests, stay for the{' '}
+        <strong>France v South Africa</strong> final, or drop back after a stadium day elsewhere —{' '}
+        <strong>first come, first served</strong> at the bar.
+      </p>
+
+      <h2>Reservations and atmosphere</h2>
+      <p>
+        <strong>No table reservations</strong> for rugby — first come, first served. Weekend atmosphere builds from Friday
+        tea-time through Sunday evening; clashes with LaLiga or Premier fixtures go on separate TVs. Ask staff which
+        screen carries which Test.
+      </p>
+
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Map to Dubliners — Nations Championship weekend near Sol" />
+      </div>
+
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>Is Ireland v Australia on Friday?</strong></dt>
+        <dd>Yes — 21:10 Madrid time, LIVE on our screens when listed.</dd>
+        <dt><strong>What time is the France v South Africa final?</strong></dt>
+        <dd>17:40 Madrid time on Sunday 29 November.</dd>
+        <dt><strong>Reservations?</strong></dt>
+        <dd>No bookings — first come, first served at Dubliners.</dd>
+      </dl>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'More rugby near Sol',
+            items: [
+              { href: '/ireland-rugby-madrid/', label: 'Ireland rugby in Madrid' },
+              { href: '/irish-rugby-fans-madrid-saturday-21-nov/', label: 'Saturday 21 Nov rugby (archive)' },
+              { href: '/sports-bar-madrid/', label: 'Sports bar near Sol' },
+              { href: '/visit/', label: 'FIND US' },
+            ],
+          },
+        ]}
+      />
+      <p>
+        En español:{' '}
+        <a href={withBase(RUGBY_FINALS_GUIDE_ES)} hreflang="es">
+          Rugby Nations Championship — fin de semana junto a Sol
+        </a>
+      </p>
+      <p class="small">Dubliners is an independent pub, not affiliated with World Rugby or the teams.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rugby-day {
+    margin-bottom: 1rem;
+  }
+  .rugby-day__final {
+    font-weight: 600;
+  }
+</style>

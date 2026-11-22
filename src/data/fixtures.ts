@@ -609,17 +609,6 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-27',
     whenLabel: 'Fri 27 Nov',
-    competition: 'Rugby Nations Championship',
-    teams: 'Fiji vs Italy',
-    teamsEs: 'Fiyi vs Italia',
-    madridTime: '17:40',
-    confirmedOnScreens: true,
-    noteEn: 'LIVE on our screens.',
-    noteEs: 'En directo en nuestras pantallas.',
-  },
-{
-    dateKey: '2026-11-27',
-    whenLabel: 'Fri 27 Nov',
     competition: 'LaLiga',
     teams: 'Racing Santander vs Levante',
     madridTime: '21:00',

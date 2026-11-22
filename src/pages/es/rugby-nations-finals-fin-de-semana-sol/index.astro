@@ -48,7 +48,7 @@ const faqLd = {
       name: '¿Ponéis las seis pruebas del Nations Championship en pantalla?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sí — Italia–Fiyi, Irlanda–Australia, Gales–Japón, Inglaterra–Nueva Zelanda, Escocia–Argentina y Francia–Sudáfrica van EN DIRECTO en nuestras pantallas cuando constan en Partidos. Horarios en hora de Madrid. Si coinciden, pantallas distintas — pregunta en barra.',
+        text: 'Sí — las seis pruebas del fin de semana están confirmadas EN DIRECTO en nuestras pantallas en Dubliners: Italia–Fiyi, Irlanda–Australia, Gales–Japón, Inglaterra–Nueva Zelanda, Escocia–Argentina y final Francia–Sudáfrica. Horarios en hora de Madrid. Si coinciden, pantallas distintas — pregunta en barra. No nombramos emisora.',
       },
     },
     {
@@ -87,9 +87,9 @@ const faqLd = {
       <p class="lead">
         <strong>Domingo 29 de noviembre, 17:40</strong> (Madrid) — la <strong>final Francia–Sudáfrica</strong> va{' '}
         <strong>en directo en nuestras pantallas</strong> en <strong>Dubliners</strong>, {SITE.address}, punto de
-        encuentro antes y después junto a <strong>Puerta del Sol</strong>. Otras cinco pruebas el viernes–domingo en el
-        mismo cartel — <strong>en directo en nuestras pantallas</strong> cuando constan en Partidos. Sin reservas de
-        mesa; inglés en barra.
+        encuentro antes y después junto a <strong>Puerta del Sol</strong>. Las otras cinco pruebas (vie–dom 27–29) también
+        están confirmadas <strong>en directo en nuestras pantallas</strong> aquí — cartel abajo y en Partidos. Sin
+        reservas de mesa; inglés en barra. No nombramos emisora.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">CÓMO LLEGAR</a>
@@ -171,6 +171,10 @@ const faqLd = {
   <section class="section">
     <div class="container prose">
       <h2>Cartel completo (hora de Madrid)</h2>
+      <p>
+        <strong>Las seis pruebas están confirmadas en directo en nuestras pantallas</strong> en Dubliners — sin nombrar
+        emisora aquí.
+      </p>
       {RUGBY_FINALS_WEEKEND.map((day) => (
         <div class="rugby-day">
           <h3>{day.headingEs}</h3>

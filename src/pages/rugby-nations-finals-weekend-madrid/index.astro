@@ -48,7 +48,7 @@ const faqLd = {
       name: 'Are all six Nations Championship Tests live on screen in Madrid?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — Italy v Fiji, Ireland v Australia, Wales v Japan, England v New Zealand, Scotland v Argentina and France v South Africa are LIVE on our screens at Dubliners when listed on What’s On. Kick-offs are Madrid time. Clashes go on different TVs — ask at the bar.',
+        text: 'Yes — all six Tests in this finals weekend slate are confirmed LIVE on our screens at Dubliners: Italy v Fiji, Ireland v Australia, Wales v Japan, England v New Zealand, Scotland v Argentina and France v South Africa (final). Kick-offs are Madrid time. Clashes go on different TVs — ask at the bar. We do not name a TV channel.',
       },
     },
     {
@@ -87,8 +87,9 @@ const faqLd = {
       <p class="lead">
         <strong>Sunday 29 November, 17:40</strong> Madrid time — the <strong>France v South Africa</strong> final is{' '}
         <strong>live on our screens</strong> at <strong>Dubliners</strong>, {SITE.address}, meeting point before and
-        after kick-off by <strong>Puerta del Sol</strong>. Five more Tests run Friday–Sunday on the same board — all{' '}
-        <strong>live on our screens</strong> when listed on What’s On. No table bookings; English at the bar.
+        after kick-off by <strong>Puerta del Sol</strong>. The other five Tests (Fri–Sun 27–29) are also confirmed{' '}
+        <strong>live on our screens</strong> here — see the full slate below and on What’s On. No table bookings; English
+        at the bar. We do not name a TV channel.
       </p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
@@ -165,6 +166,9 @@ const faqLd = {
   <section class="section">
     <div class="container prose">
       <h2>Full weekend slate (Madrid time)</h2>
+      <p>
+        <strong>All six kick-offs are confirmed live on our screens</strong> at Dubliners — no TV channel named here.
+      </p>
       {RUGBY_FINALS_WEEKEND.map((day) => (
         <div class="rugby-day">
           <h3>{day.headingEn}</h3>
@@ -180,7 +184,7 @@ const faqLd = {
       ))}
       <p class="small">
         Kick-offs follow the World Rugby Nations Championship programme and Allianz Stadium Twickenham schedule in
-        Europe/Madrid time. We do not name a TV broadcaster — see What’s On for what is confirmed in the pub.
+        Europe/Madrid time. The same six Tests appear on <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
 
       <h2>Meeting point before and after</h2>

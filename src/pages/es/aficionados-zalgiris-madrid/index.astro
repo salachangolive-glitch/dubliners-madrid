@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
-const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
 
 // Real Madrid v Žalgiris Kaunas, EuroLeague league phase MD14, Movistar Arena, Wed 25 Nov 2026 20:45 Madrid (CET).
 // Source: Radar aficiones-visitantes-6sem-2026-11-09.md + EuroLeague feed E2026_139 (movistararena.es).
@@ -53,12 +53,14 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Actualización 21 de noviembre de 2026</h2>
-      <p class="small">Semana Žalgiris · a cuatro días del salto inicial (miércoles 25 de noviembre, 20:45).</p>
+      <h2>Actualización 22 de noviembre de 2026</h2>
+      <p class="small">Semana Žalgiris · a tres días del salto inicial (miércoles 25 de noviembre, 20:45).</p>
       <p><strong>Llegada a Madrid:</strong> Desde <strong>Barajas</strong>, Metro línea 8; desde <strong>Atocha</strong>, línea 1 a <strong>Sol</strong>. {SITE.address} junto a Sol.</p>
       <p><strong>De Sol al Movistar Arena:</strong> El pabellón queda al noroeste — suele irse por <strong>Nuevos Ministerios</strong> o autobús según el día. Consulta la app del Metro o <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
-      <p><strong>Hoy sábado abierto:</strong> {sat.opens}–{sat.closes}.</p>
-      <p><strong>Antes y después:</strong> Afición lituana y visitantes se citan en Sol; el partido va <strong>EN DIRECTO en pantalla</strong> cuando figura en Partidos. Los sábados mezclan rugby y LaLiga — pregunta en barra qué emite cada pantalla.</p>
+      <p><strong>Hoy domingo abierto:</strong> {sun.opens}–{sun.closes}.</p>
+      <p><strong>Reservas:</strong> <strong>Sin reservas de mesa</strong> — acceso por orden de llegada. Pregunta en barra qué pantalla lleva EuroLeague cuando el partido figure en la lista.</p>
+      <p><strong>Ambiente del domingo:</strong> Tarde más calmada en Sol; por la noche mezcla de afición cuando el fútbol del día está en pantalla según <a href={withBase('/es/partidos/')}>Partidos</a>. Grupos del miércoles suelen usar el domingo para trazar Metro hacia el Movistar Arena.</p>
+      <p><strong>FAQ:</strong> Hora del salto, pantallas, apertura del miércoles y dirección — bloque FAQ al final.</p>
     </div>
   </section>
   <section class="section">

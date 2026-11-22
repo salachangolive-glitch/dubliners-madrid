@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
-const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
 
 // Real Madrid v Žalgiris Kaunas, EuroLeague league phase MD14, Movistar Arena, Wed 25 Nov 2026 20:45 Madrid (CET).
 // Source: Radar aficiones-visitantes-6sem-2026-11-09.md + EuroLeague feed E2026_139 (movistararena.es).
@@ -53,12 +53,14 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Update 21 November 2026</h2>
-      <p class="small">Žalgiris week · four days before tip-off (Wednesday 25 November, 20:45 Madrid time).</p>
+      <h2>Update 22 November 2026</h2>
+      <p class="small">Žalgiris week · three days before tip-off (Wednesday 25 November, 20:45 Madrid time).</p>
       <p><strong>Arriving in Madrid:</strong> From <strong>Barajas</strong>, Metro line 8 to the centre; from <strong>Atocha</strong>, line 1 to <strong>Sol</strong>. {SITE.address} is a short walk from Sol.</p>
       <p><strong>From Sol to the Movistar Arena:</strong> The arena sits north-west of the centre — typically Metro via <strong>Nuevos Ministerios</strong> or bus links shown on the day. Check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; EuroLeague nights need extra time.</p>
-      <p><strong>Open today (Saturday):</strong> {sat.opens}–{sat.closes}.</p>
-      <p><strong>Before and after the game:</strong> Lithuanian visitors often meet at Sol for a pint before heading to the arena, or watch tip-off <strong>LIVE on our screens</strong> here. After the game, fans pass back through Sol — Saturdays here mix rugby, LaLiga and international visitors at the bar.</p>
+      <p><strong>Open today (Sunday):</strong> {sun.opens}–{sun.closes}.</p>
+      <p><strong>Reservations:</strong> <strong>No table bookings</strong> — first come, first served. Ask which screen carries EuroLeague when the game is listed on What’s On.</p>
+      <p><strong>Sunday atmosphere:</strong> Lithuanian and visiting fans mix at the bar; Sunday afternoons are a steady time to plan the arena hop before Wednesday. Evening football from the weekly listings fills the room without needing a separate landing page.</p>
+      <p><strong>FAQ:</strong> Tip-off time, live screens, opening hours and the bar address are in the FAQ section below.</p>
     </div>
   </section>
   <section class="section">

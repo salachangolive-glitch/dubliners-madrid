@@ -27,7 +27,7 @@ const untilMs = new Date(PSV_HOME_VIDEO_UNTIL_ISO).getTime();
   data-show-until-ms={String(untilMs)}
   aria-label={es ? 'Real Madrid–PSV: aficionados del PSV en Dubliners' : 'Real Madrid–PSV: PSV fans at Dubliners'}
 >
-  <div class="home-psv-eve__inner container">
+  <div class="home-psv-eve__media">
     <video
       class="home-psv-eve__video"
       controls
@@ -41,6 +41,8 @@ const untilMs = new Date(PSV_HOME_VIDEO_UNTIL_ISO).getTime();
     >
       <source src={videoSrc} type="video/mp4" />
     </video>
+  </div>
+  <div class="home-psv-eve__bar container">
     <p class="home-psv-eve__copy">{copy}</p>
     <div class="home-psv-eve__cta">
       <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{mapsLabel}</a>

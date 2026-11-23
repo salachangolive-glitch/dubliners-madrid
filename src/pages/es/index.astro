@@ -104,10 +104,15 @@ const description =
         )}
         {todayKey === '2026-11-23' && (
           <p data-show-until="2026-11-23">
-            Lunes 23 de noviembre (hora de Madrid): <a href={withBase('/es/aficionados-psv-madrid/')}>Real Madrid–PSV martes 24 a las 21:00</a> — a tres días, guía actualizada 23 nov (punto de encuentro Champions). <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking mié 25</a> y <a href={withBase('/es/aficionados-zalgiris-madrid/')}>Žalgiris mié 25</a> (emisión por confirmar) en el cuadro. Esta noche <strong>Levante–Elche</strong> y <strong>Brentford–Everton</strong> 21:00 en la tabla de <a href={withBase('/es/partidos/')}>Partidos</a>. También rugby <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>27–29 nov</a> bajo las tarjetas de fútbol. Confirmados en pantallas; si coinciden, pantallas distintas.
+            Lunes 23 de noviembre (hora de Madrid): <strong>Real Madrid–PSV martes 24 a las 21:00</strong> — <a href={withBase('/es/aficionados-psv-madrid/')}>guía PSV</a> (punto de encuentro Champions, entrada por orden de llegada). <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking mié 25</a> después; <a href={withBase('/es/aficionados-zalgiris-madrid/')}>Žalgiris mié 25</a> (emisión por confirmar). Esta noche <strong>Levante–Elche</strong> y <strong>Brentford–Everton</strong> 21:00 en <a href={withBase('/es/partidos/')}>Partidos</a>. También rugby <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>27–29 nov</a> bajo las tarjetas de fútbol. Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>
         )}
-        {todayKey >= '2026-11-24' && todayKey <= '2026-11-29' && (
+        {todayKey === '2026-11-24' && (
+          <p data-show-until="2026-11-24">
+            Martes 24 de noviembre (hora de Madrid): <strong>Real Madrid–PSV a las 21:00</strong> — en directo en nuestras pantallas; <a href={withBase('/es/aficionados-psv-madrid/')}>punto de encuentro PSV</a> junto a Sol. <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking mié 25</a> en el cuadro. También rugby <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>27–29 nov</a> bajo las tarjetas de fútbol. Confirmados en pantallas; si coinciden, pantallas distintas.
+          </p>
+        )}
+        {todayKey >= '2026-11-25' && todayKey <= '2026-11-29' && (
           <p data-show-until="2026-11-29">
             Deporte en directo (mar 24–dom 29 nov, hora de Madrid), en directo en nuestras pantallas: <strong>Real Madrid–PSV</strong> martes 24 a las 21:00 (Champions, punto de encuentro) · <strong>Atlético–Viking</strong> miércoles 25 a las 21:00 (Champions, punto de encuentro) · <strong>Arsenal–Man City</strong> domingo 29 a las 17:30 (Premier). También rugby: <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>seis pruebas Nations Championship 27–29</a> en el cuadro. Confirmados en pantallas; si coinciden, pantallas distintas.
           </p>

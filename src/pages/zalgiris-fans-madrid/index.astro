@@ -11,7 +11,7 @@ const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
   name: 'Real Madrid v Žalgiris Kaunas — EuroLeague (screening at Dubliners Madrid)',
-  description: 'Real Madrid v Žalgiris Kaunas (EuroLeague basketball, Movistar Arena) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
+  description: 'Real Madrid v Žalgiris Kaunas (EuroLeague basketball, Movistar Arena). Meeting point at Dubliners Irish Pub; screening to be confirmed. Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.',
   inLanguage: 'en',
   startDate: '2026-11-25T20:45:00+01:00',
   eventStatus: 'https://schema.org/EventScheduled',
@@ -33,18 +33,18 @@ const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'What time is Real Madrid v Žalgiris?', acceptedAnswer: { '@type': 'Answer', text: '20:45 Madrid time on Wednesday 25 November 2026 at the Movistar Arena. The game is LIVE on our screens at Dubliners, Espoz y Mina 7.' } },
-    { '@type': 'Question', name: 'Is Dubliners a meeting point for Žalgiris fans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Dubliners is a meeting point in the centre before the Movistar Arena or to watch the game LIVE on our screens if you are without a ticket. Lithuanian fans and English speakers use the same door at Calle de Espoz y Mina 7, by Puerta del Sol.' } },
+    { '@type': 'Question', name: 'What time is Real Madrid v Žalgiris?', acceptedAnswer: { '@type': 'Answer', text: '20:45 Madrid time on Wednesday 25 November 2026 at the Movistar Arena. Screening at Dubliners, Espoz y Mina 7: to be confirmed.' } },
+    { '@type': 'Question', name: 'Is Dubliners a meeting point for Žalgiris fans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Dubliners is a meeting point in the centre before the Movistar Arena. Screening of the game at Dubliners is to be confirmed. Lithuanian fans and English speakers use the same door at Calle de Espoz y Mina 7, by Puerta del Sol.' } },
   ],
 };
 ---
 
-<BaseLayout title={'Žalgiris Fans in Madrid: Real Madrid v Žalgiris, 25 Nov | Dubliners'} description={'Real Madrid v Žalgiris Kaunas (EuroLeague basketball), Wednesday 25 November, 20:45 Madrid time, Movistar Arena. Meeting point for Žalgiris fans at Dubliners, by Puerta del Sol. LIVE on our screens.'} path="/zalgiris-fans-madrid/" lang="en" hreflang={{ en: '/zalgiris-fans-madrid/', es: '/es/aficionados-zalgiris-madrid/', lt: '/lt/zalgiris-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
+<BaseLayout title={'Žalgiris Fans in Madrid: Real Madrid v Žalgiris, 25 Nov | Dubliners'} description={'Real Madrid v Žalgiris Kaunas (EuroLeague basketball), Wednesday 25 November, 20:45 Madrid time, Movistar Arena. Meeting point for Žalgiris fans at Dubliners, by Puerta del Sol. Screening to be confirmed.'} path="/zalgiris-fans-madrid/" lang="en" hreflang={{ en: '/zalgiris-fans-madrid/', es: '/es/aficionados-zalgiris-madrid/', lt: '/lt/zalgiris-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={[eventLd, faqLd]}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Žalgiris fans in Madrid'} schema />
       <h1>Žalgiris fans in Madrid: Real Madrid v Žalgiris</h1>
-      <p class="lead">Wednesday 25 November 2026, tip-off 20:45 Madrid time. EuroLeague basketball, matchday 14, at the Movistar Arena. Dubliners is a meeting point for Žalgiris supporters in the centre of Madrid — a few steps from Puerta del Sol — before the arena or to follow the game LIVE on our screens.</p>
+      <p class="lead">Wednesday 25 November 2026, tip-off 20:45 Madrid time. EuroLeague basketball, matchday 14, at the Movistar Arena. Dubliners is a meeting point for Žalgiris supporters in the centre of Madrid — a few steps from Puerta del Sol — before the arena. Screening of the game at Dubliners: to be confirmed.</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">GET DIRECTIONS</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
@@ -60,14 +60,14 @@ const faqLd = {
       <p><strong>Open today (Sunday):</strong> {sun.opens}–{sun.closes}.</p>
       <p><strong>Reservations:</strong> <strong>No table bookings</strong> — first come, first served. Ask which screen carries EuroLeague when the game is listed on What’s On.</p>
       <p><strong>Sunday atmosphere:</strong> Lithuanian and visiting fans mix at the bar; Sunday afternoons are a steady time to plan the arena hop before Wednesday. Evening football from the weekly listings fills the room without needing a separate landing page.</p>
-      <p><strong>FAQ:</strong> Tip-off time, live screens, opening hours and the bar address are in the FAQ section below.</p>
+      <p><strong>FAQ:</strong> Tip-off time, screening status, opening hours and the bar address are in the FAQ section below.</p>
     </div>
   </section>
   <section class="section">
     <div class="container split">
       <div class="prose">
 <h2>The game</h2>
-<p>Žalgiris Kaunas travel to Madrid for EuroLeague basketball against Real Madrid. With a ticket or without one, you can follow it here: we show the game LIVE on our screens when it is listed on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+<p>Žalgiris Kaunas travel to Madrid for EuroLeague basketball against Real Madrid. Screening at Dubliners is to be confirmed: check <a href={withBase('/whats-on/')}>What’s On</a> before you come.</p>
 <h2>Meeting point for Žalgiris fans</h2>
 <p>We open from 12:00 on Wednesday (12:00–02:00), so there is time to meet in the centre before heading to the Movistar Arena, or to stay and watch tip-off together. English at the bar is normal; <em>punto de encuentro</em> works too if you are mixing languages on the way from the arena district.</p>
 <h2>Getting here</h2>
@@ -86,7 +86,7 @@ const faqLd = {
 <h2>FAQ</h2>
 <dl class="faq">
   <dt><strong>What time is Real Madrid v Žalgiris?</strong></dt><dd>20:45 Madrid time on Wednesday 25 November 2026 at the Movistar Arena.</dd>
-  <dt><strong>Are you showing it live?</strong></dt><dd>Yes, LIVE on our screens when the fixture is confirmed on What’s On.</dd>
+  <dt><strong>Are you showing it?</strong></dt><dd>To be confirmed. Check What’s On before you come.</dd>
   <dt><strong>What time do you open?</strong></dt><dd>From 12:00. On Wednesday we are open 12:00–02:00.</dd>
   <dt><strong>Where are you?</strong></dt><dd>Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol. Metro Sol or Sevilla.</dd>
 </dl>

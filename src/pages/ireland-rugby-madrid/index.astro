@@ -1,28 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import HomeRugby21Nov from '../../components/HomeRugby21Nov.astro';
 import { SITE, withBase, absUrl } from '../../site';
-import { madridToday } from '../../data/fixtures';
-
-const todayKey = madridToday();
 
 // Ireland men, November 2026 (Rugby Nations Championship). Rows already in src/data/fixtures.ts (confirmedOnScreens):
 // Fri 6 Nov Ireland v Argentina 21:10, Sat 14 Nov Ireland v Fiji 21:10, Sat 21 Nov Ireland v South Africa 17:40 (Madrid, CET).
 // Source per fixtures.ts: irishrugby.ie fixtures (20:10 / 16:40 Irish time) + World Rugby API, checked 20 Oct. Venue not stated (not in repo).
-// Created 20 Oct (DG): Radar had checked this URL (404). Review after 21 Nov (PENDIENTES.md).
+// Created 20 Oct (DG): Radar had checked this URL (404). 23 Nov (DG): past tense, all three games played; no score (no official result in repo).
 const path = '/ireland-rugby-madrid/';
 const games = [
-  { name: 'Ireland v Argentina', start: '2026-11-06T21:10:00+01:00', away: 'Argentina' },
-  { name: 'Ireland v Fiji', start: '2026-11-14T21:10:00+01:00', away: 'Fiji' },
-  { name: 'Ireland v South Africa', start: '2026-11-21T17:40:00+01:00', away: 'South Africa' },
+  { name: 'Ireland v Argentina', start: '2026-11-06T21:10:00+01:00', end: '2026-11-06T23:10:00+01:00', away: 'Argentina' },
+  { name: 'Ireland v Fiji', start: '2026-11-14T21:10:00+01:00', end: '2026-11-14T23:10:00+01:00', away: 'Fiji' },
+  { name: 'Ireland v South Africa', start: '2026-11-21T17:40:00+01:00', end: '2026-11-21T19:40:00+01:00', away: 'South Africa' },
 ];
 const eventsLd = games.map((g) => ({
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
-  name: `${g.name} — Rugby Nations Championship (screening at Dubliners Madrid)`,
-  description: `${g.name} (rugby) shown LIVE on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid.`,
+  name: `${g.name} — Rugby Nations Championship (played, November 2026; screened at Dubliners Madrid)`,
+  description: `${g.name} (rugby) was played in November 2026 and was shown on the screens at Dubliners Irish Pub, Espoz y Mina 7, by Puerta del Sol, Madrid. Past event.`,
   startDate: g.start,
+  endDate: g.end,
+  // schema.org has no 'completed' EventStatusType: EventScheduled + past start/endDate marks a held event.
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
@@ -40,35 +38,31 @@ const eventsLd = games.map((g) => ({
 }));
 ---
 
-<BaseLayout title={'Ireland Rugby in Madrid: Argentina, Fiji & South Africa, Nov 2026 | Dubliners'} description={'Watch Ireland in Madrid: v Argentina (Fri 6 Nov, 21:10), v Fiji (Sat 14 Nov, 21:10) and v South Africa (Sat 21 Nov, 17:40). LIVE at Dubliners Irish pub, by Puerta del Sol.'} path={path} lang="en" ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={eventsLd}>
+<BaseLayout title={'Ireland Rugby in Madrid: November 2026 Games Played | Dubliners'} description={'Ireland’s November 2026 games — v Argentina (Fri 6 Nov), v Fiji (Sat 14 Nov) and v South Africa (Sat 21 Nov) — were shown at Dubliners Irish pub, by Puerta del Sol. Next sport on What’s On.'} path={path} lang="en" ogImage="/images/dubliners-screens-sol-1200.webp" extraJsonLd={eventsLd}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'Ireland rugby in Madrid'} schema />
-      <h1>Ireland rugby in Madrid: the November games</h1>
-      <p class="lead">Three Ireland games in November, all LIVE on the screens at Dubliners, an Irish pub in the centre of Madrid, by Puerta del Sol. Madrid is one hour ahead of Ireland.</p>
+      <h1>Ireland rugby in Madrid: the November games (played)</h1>
+      <p class="lead">Ireland played three games in November 2026, and we showed all three on the screens at Dubliners, an Irish pub in the centre of Madrid, by Puerta del Sol. The last one, Ireland v South Africa, was played on Saturday 21 November. For the next sport we show, see What’s On.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href={SITE.gbpUrl} rel="noopener noreferrer" target="_blank">Directions</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
       </div>
     </div>
   </section>
-  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
-  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="en" />}
-  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
   <section class="section">
     <div class="container split">
       <div class="prose">
-<h2>Kick-off times (Madrid time)</h2>
+<h2>The November games (Madrid time)</h2>
 <ul>
-  <li><strong>Friday 6 November:</strong> Ireland v Argentina, 21:10 (20:10 in Ireland), at the Aviva Stadium: Irish rugby Friday night by Sol.</li>
-  <li><strong>Saturday 14 November:</strong> Ireland v Fiji, 21:10 (20:10 in Ireland).</li>
-  <li><strong>Saturday 21 November:</strong> Ireland v South Africa, 17:40 (16:40 in Ireland).</li>
+  <li><strong>Friday 6 November:</strong> Ireland v Argentina was played at 21:10 (20:10 in Ireland), at the Aviva Stadium.</li>
+  <li><strong>Saturday 14 November:</strong> Ireland v Fiji was played at 21:10 (20:10 in Ireland).</li>
+  <li><strong>Saturday 21 November:</strong> Ireland v South Africa was played at 17:40 (16:40 in Ireland).</li>
 </ul>
-<p>Saturday 14 November: Ireland v Fiji at 21:10 Madrid time — LIVE when listed on What’s On. <a href={withBase('/irish-double-saturday-madrid/')}>Ireland v Fiji in Madrid</a>.</p>
-<p>Saturday 21 November: Ireland v South Africa at 17:40 Madrid time — live on our screens. <a href={withBase('/ireland-south-africa-madrid/')}>Ireland v South Africa in Madrid</a>. Full Saturday slate (six tests, no bookings, first come first served): <a href={withBase('/irish-rugby-fans-madrid-saturday-21-nov/')}>Saturday 21 Nov rugby near Sol</a>.</p>
+<p>We showed all three games on our screens, with Irish fans and rugby followers at the bar. Ireland v Fiji: <a href={withBase('/irish-double-saturday-madrid/')}>Ireland v Fiji in Madrid</a>.</p>
 <h2>Spain rugby in Madrid: Los Leones v Uruguay</h2>
-<p>Saturday 7 November, 16:00 Madrid time: Spain v Uruguay (World Rugby Nations Cup) at the Estadio Nacional Complutense, Madrid (<a href="https://ferugby.es/entradas/" rel="noopener">ferugby.es</a>). It is LIVE on our screens too: see <a href={withBase('/whats-on/')}>What's On</a>.</p>
-<h2>Watch the match with other Irish fans</h2>
+<p>Saturday 7 November, 16:00 Madrid time: Spain v Uruguay (World Rugby Nations Cup) was played at the Estadio Nacional Complutense, Madrid, and we showed it on our screens too. Upcoming sport: <a href={withBase('/whats-on/')}>What's On</a>.</p>
+<h2>Watch the next match with other Irish fans</h2>
 <p>Living in Madrid, on Erasmus or here for a weekend? Dubliners is a place where Irish fans and anyone who follows rugby watch the match together: beer at the bar, the match on every screen and a mixed crowd from Ireland, Spain and beyond. Groups are welcome; questions before you come: <a href={withBase('/contact/#request-information')}>Request information</a>.</p>
 <h2>Opening hours and address</h2>
 <p>Monday to Thursday and Sunday 12:00–02:00. Friday and Saturday 12:00–02:30.<br />{SITE.address}, {SITE.postal}, by Puerta del Sol. <a href={withBase('/visit/')}>Hours &amp; map</a></p>
@@ -80,13 +74,13 @@ const eventsLd = games.map((g) => ({
     <div class="container prose">
 <h2>FAQ</h2>
 <dl class="faq">
-  <dt><strong>Are you showing all three Ireland games?</strong></dt><dd>Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE.</dd>
+  <dt><strong>Did you show all three Ireland games?</strong></dt><dd>Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov) were all shown on our screens. The next games are on What’s On.</dd>
   <dt><strong>What time do you open?</strong></dt><dd>From 12:00 every day. Friday and Saturday until 02:30.</dd>
   <dt><strong>Where are you?</strong></dt><dd>{SITE.address}, {SITE.postal}, by Puerta del Sol.</dd>
   <dt><strong>How many screens do you have?</strong></dt><dd>Screens around the pub, plus a big screen.</dd>
   <dt><strong>How do I get there?</strong></dt><dd>Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7.</dd>
 </dl>
-<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are you showing all three Ireland games?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov), LIVE."}}, {"@type": "Question", "name": "What time do you open?", "acceptedAnswer": {"@type": "Answer", "text": "From 12:00 every day. Friday and Saturday until 02:30."}}, {"@type": "Question", "name": "Where are you?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol."}}, {"@type": "Question", "name": "How many screens do you have?", "acceptedAnswer": {"@type": "Answer", "text": "Screens around the pub, plus a big screen."}}, {"@type": "Question", "name": "How do I get there?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7."}}]})} />
+<script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Did you show all three Ireland games?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: Ireland v Argentina (6 Nov), Ireland v Fiji (14 Nov) and Ireland v South Africa (21 Nov) were all shown on our screens. The next games are on What’s On."}}, {"@type": "Question", "name": "What time do you open?", "acceptedAnswer": {"@type": "Answer", "text": "From 12:00 every day. Friday and Saturday until 02:30."}}, {"@type": "Question", "name": "Where are you?", "acceptedAnswer": {"@type": "Answer", "text": "Calle de Espoz y Mina 7, 28012 Madrid, by Puerta del Sol."}}, {"@type": "Question", "name": "How many screens do you have?", "acceptedAnswer": {"@type": "Answer", "text": "Screens around the pub, plus a big screen."}}, {"@type": "Question", "name": "How do I get there?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Sol (L1, L2, L3) or Sevilla (L2), then a short walk to Calle de Espoz y Mina 7."}}]})} />
 <p>En español: <a href={withBase('/es/rugby-irlanda-madrid/')} hreflang="es">Rugby de Irlanda en Madrid</a> · All the sport we show: <a href={withBase('/whats-on/')}>What’s On</a></p>
     </div>
   </section>

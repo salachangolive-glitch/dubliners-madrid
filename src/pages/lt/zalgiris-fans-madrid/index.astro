@@ -9,8 +9,8 @@ const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
-  name: 'Real Madrid – Žalgiris Kaunas — Eurolyga (tiesiogiai Dubliners Madridas)',
-  description: 'Real Madrid – Žalgiris Kaunas (Eurolygos krepšinis, Movistar Arena) tiesiogiai rodoma Dubliners Irish Pub ekranuose, Espoz y Mina 7, prie Puerta del Sol, Madridas.',
+  name: 'Real Madrid – Žalgiris Kaunas — Eurolyga (susitikimo vieta Dubliners Madridas; transliacija dar nepatvirtinta)',
+  description: 'Real Madrid – Žalgiris Kaunas (Eurolygos krepšinis, Movistar Arena). Susitikimo vieta Dubliners Irish Pub; transliacija dar nepatvirtinta. Dubliners Irish Pub, Espoz y Mina 7, prie Puerta del Sol, Madridas.',
   inLanguage: 'lt',
   startDate: '2026-11-25T20:45:00+01:00',
   eventStatus: 'https://schema.org/EventScheduled',
@@ -35,7 +35,7 @@ const eventLd = {
     <div class="container">
       <Breadcrumb current={'Žalgirio sirgaliai Madride'} schema />
       <h1>Žalgirio sirgaliai Madride: Real Madrid – Žalgiris</h1>
-      <p class="lead">Trečiadienį, 2026 m. lapkričio 25 d., rungtynių pradžia 20:45 Madrido laiku. Eurolyga, 14 turas, Movistar Arena. Dubliners — susitikimo vieta Žalgirio sirgaliams miesto centre, keli žingsniai nuo Puerta del Sol, prieš areną arba žiūrėti rungtynes TIESIOGIAI mūsų ekranuose.</p>
+      <p class="lead">Trečiadienį, 2026 m. lapkričio 25 d., rungtynių pradžia 20:45 Madrido laiku. Eurolyga, 14 turas, Movistar Arena. Dubliners — susitikimo vieta Žalgirio sirgaliams miesto centre, keli žingsniai nuo Puerta del Sol, prieš areną. Ar rodysime rungtynes, dar nepatvirtinta.</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Kaip nuvykti</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>Programa (EN)</a>
@@ -51,14 +51,14 @@ const eventLd = {
       <p><strong>Šiandien (sekmadienis) atidaryta:</strong> {sun.opens}–{sun.closes}.</p>
       <p><strong>Rezervacijos:</strong> <strong>Staliukų rezervacijų nėra</strong> — pirmas atėjęs, pirmas aptarnaujamas. Paklauskite barmenų, kuriame ekrane Eurolyga, kai rungtynės nurodytos programoje.</p>
       <p><strong>Sekmadienio nuotaika:</strong> Ramesnė popietė prie Sol; vakare daugiau lankytojų, kai televizijoje rodomas savaitės futbolas. Keliautojai į trečiadienio rungtynes dažnai sekmadienį patikrina maršrutą į areną.</p>
-      <p><strong>DUK:</strong> Laikas, tiesioginė transliacija, darbo laikas ir adresas — skyriuje DUK žemiau (anglų k. pagrindiniame puslapyje).</p>
+      <p><strong>DUK:</strong> Laikas, transliacijos būsena, darbo laikas ir adresas — skyriuje DUK žemiau (anglų k. pagrindiniame puslapyje).</p>
     </div>
   </section>
   <section class="section">
     <div class="container split">
       <div class="prose">
 <h2>Rungtynės</h2>
-<p>Žalgiris Kaunas atvyksta į Madridas rungtyniauti Eurolygoje prieš Real Madrid. Su bilietu ar be jo — čia galite sekti rungtynes: rodoma TIESIOGIAI mūsų ekranuose, kai nurodyta <a href={withBase('/whats-on/')}>What’s On</a> (anglų k.).</p>
+<p>Žalgiris Kaunas atvyksta į Madridas rungtyniauti Eurolygoje prieš Real Madrid. Transliacija Dubliners dar nepatvirtinta — prieš atvykdami patikrinkite <a href={withBase('/whats-on/')}>What’s On</a> (anglų k.).</p>
 <h2>Susitikimo vieta Žalgirio sirgaliams</h2>
 <p>Miško rytą atidarome nuo 12.00 (trečiadienį 12.00–02.00), todėl yra laiko susitikti centre prieš Movistar Areną arba kartu stebėti rungtynes.</p>
 <h2>Kaip mus rasti</h2>

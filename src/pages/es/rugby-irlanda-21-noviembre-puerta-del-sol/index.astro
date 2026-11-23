@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import HomeRugby21Nov from '../../../components/HomeRugby21Nov.astro';
 import LinkHub from '../../../components/LinkHub.astro';
 import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../../site';
@@ -99,9 +98,6 @@ const faqLd = {
     </div>
   </section>
 
-  <!-- SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
-  {todayKey <= '2026-11-22' && <HomeRugby21Nov lang="es" showCta={false} />}
-  <!-- /SAT-21-NOV-RUGBY-UNTIL-2026-11-22 -->
 
   <section class="section">
     <div class="container prose">

@@ -57,7 +57,7 @@ const L = es
   {picks.map((f) => (
     <li class="fx-card" data-comp={f.competition} data-pin={PIN_TEAMS.has(f.teams) ? '1' : undefined} data-start-ms={String(fixtureStartMs(f))} data-end-ms={String(fixtureEndMs(f))} hidden={!firstShown.has(f)}>
       <span class="fx-card__comp">{label(f)}</span>
-      <span class="fx-card__teams">{f.teams}</span>
+      <span class="fx-card__teams">{es && f.teamsEs ? f.teamsEs : f.teams}</span>
       <span class="fx-card__when">{es ? whenLabelEs(f.dateKey) : f.whenLabel} · {f.madridTime}{L.time}</span>
       <span class="fx-card__live">{L.live}</span>
     </li>

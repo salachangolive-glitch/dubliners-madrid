@@ -1,0 +1,67 @@
+---
+/** Owner media 23 Nov 2026 — PSV fans at Dubliners eve of RM–PSV (EN/NL/ES fan guides only). */
+import { SITE, withBase } from '../site';
+
+interface Props { lang?: 'en' | 'es' | 'nl' }
+const { lang = 'en' } = Astro.props;
+const heroWebp = withBase('/images/psv-fans-madrid/dub-psv-fans-6.4-576.webp');
+const heroJpg = withBase('/images/psv-fans-madrid/dub-psv-fans-6.4-576.jpg');
+const videoSrc = withBase('/videos/psv-fans-madrid/dub-psv-fans-23nov.mp4');
+const mapsLabel = lang === 'es' ? 'Cómo llegar' : lang === 'nl' ? 'Route' : 'Get directions';
+const alt =
+  lang === 'es'
+    ? 'Aficionados del PSV en el interior de Dubliners, junto a Sol, la noche del 23 de noviembre de 2026'
+    : lang === 'nl'
+      ? 'PSV-fans in de zaal van Dubliners bij Sol, avond van 23 november 2026'
+      : 'PSV fans inside Dubliners near Puerta del Sol on the evening of 23 November 2026';
+const ariaVideo =
+  lang === 'es'
+    ? 'Vídeo corto: ambiente con aficionados del PSV en Dubliners, 23 de noviembre de 2026'
+    : lang === 'nl'
+      ? 'Korte clip: PSV-supporters in Dubliners, 23 november 2026'
+      : 'Short clip: PSV fans at Dubliners on 23 November 2026';
+const body =
+  lang === 'es'
+    ? 'Lunes 23 de noviembre: aficionados del PSV ya se reunían en Dubliners la víspera del partido. Te esperamos el martes 24 de noviembre a las 21:00 — Real Madrid–PSV en directo en nuestras pantallas, a menos de un minuto de Sol a pie. Entrada por orden de llegada.'
+    : lang === 'nl'
+      ? 'Maandag 23 november: PSV-fans kwamen al samen in Dubliners op de avond vóór de wedstrijd. Dinsdag 24 november om 21.00 uur — Real Madrid–PSV LIVE op onze schermen, minder dan een minuut lopen vanaf Sol. Toegang op volgorde van binnenkomst.'
+      : 'Monday 23 November: PSV fans were already meeting at Dubliners the night before the match. Join us Tuesday 24 November at 21:00 — Real Madrid v PSV LIVE on our screens, less than a minute from Sol on foot. First come, first served at the bar.';
+---
+<div class="psv-eve-media" data-psv-eve-23nov>
+  <figure class="psv-eve-media__figure">
+    <picture>
+      <source type="image/webp" srcset={heroWebp} />
+      <img
+        class="psv-eve-media__hero"
+        src={heroJpg}
+        alt={alt}
+        width="576"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </figure>
+  <figure class="psv-eve-media__video-wrap">
+    <video
+      class="psv-eve-media__video"
+      controls
+      muted
+      playsinline
+      preload="metadata"
+      poster={heroJpg}
+      width="576"
+      height="1024"
+      aria-label={ariaVideo}
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+    <figcaption class="small">
+      {lang === 'es' ? 'Pulsa reproducir. Sin sonido automático.' : lang === 'nl' ? 'Tik op play. Geen automatisch geluid.' : 'Tap play. No autoplay with sound.'}
+    </figcaption>
+  </figure>
+  <p class="psv-eve-media__copy">{body}</p>
+  <p class="psv-eve-media__cta">
+    <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{mapsLabel}</a>
+  </p>
+</div>

@@ -824,6 +824,36 @@ ul {
   text-align: center;
 }
 
+.psv-eve-media {
+  margin: 0 0 1.25rem;
+  max-width: 22rem;
+}
+
+.psv-eve-media__hero,
+.psv-eve-media__video {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.psv-eve-media__figure,
+.psv-eve-media__video-wrap {
+  margin: 0 0 0.75rem;
+}
+
+.psv-eve-media__copy {
+  margin: 0 0 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.psv-eve-media__cta {
+  margin: 0;
+}
+
 @media (min-width: 640px) {
   .match-fold__cta .btn {
     width: auto;

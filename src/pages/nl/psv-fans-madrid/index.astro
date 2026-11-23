@@ -1,5 +1,6 @@
 ---
 import PsvMatchMobileFold from '../../../components/PsvMatchMobileFold.astro';
+import PsvEve23Media from '../../../components/PsvEve23Media.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
@@ -34,11 +35,12 @@ const eventLd = {
 };
 ---
 
-<BaseLayout title={'PSV-fans in Madrid: Real Madrid–PSV, 24 nov | Dubliners'} description={'Real Madrid–PSV (Champions League), dinsdag 24 november, 21.00 uur. Ontmoetingsplek voor fans van PSV in Dubliners, bij de Puerta del Sol. Open vanaf 12.00 uur.'} path="/nl/psv-fans-madrid/" lang="en" htmlLang="nl" hreflang={{ en: '/psv-fans-madrid/', es: '/es/aficionados-psv-madrid/', nl: '/nl/psv-fans-madrid/' }} ogImage="/images/dubliners-champions-night-screens-1200.webp" extraJsonLd={eventLd}>
+<BaseLayout title={'PSV-fans in Madrid: Real Madrid–PSV, 24 nov | Dubliners'} description={'Real Madrid–PSV (Champions League), dinsdag 24 november, 21.00 uur. Ontmoetingsplek voor fans van PSV in Dubliners, bij de Puerta del Sol. Open vanaf 12.00 uur.'} path="/nl/psv-fans-madrid/" lang="en" htmlLang="nl" hreflang={{ en: '/psv-fans-madrid/', es: '/es/aficionados-psv-madrid/', nl: '/nl/psv-fans-madrid/' }} ogImage="/images/psv-fans-madrid/dub-psv-fans-6.4-576.webp" extraJsonLd={eventLd}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'PSV-fans in Madrid'} schema />
       <PsvMatchMobileFold lang="nl" />
+      <PsvEve23Media lang="nl" />
       <h1>PSV-fans in Madrid: Real Madrid–PSV</h1>
       <p class="lead">Dinsdag 24 november 2026, aftrap 21.00 uur. Madrid heeft dezelfde tijd als Eindhoven. UEFA Champions League, competitiefase speelronde 5, in het Estadio Santiago Bernabéu. Dubliners is de ontmoetingsplek voor fans van PSV in het centrum van Madrid, bij de Puerta del Sol.</p>
       <div class="cta-row">

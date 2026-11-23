@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { NFL_PAST_PAGES } from './src/data/nfl-past-pages.mjs';
 
 // https://astro.build/config
 // DG 24 Oct 2026 (posicionamiento): redirect stubs + pages whose canonical points elsewhere.
@@ -42,7 +43,8 @@ export default defineConfig({
         try {
           const path = new URL(page).pathname;
           // Legacy Spanish orphan at EN root + redirect stubs and canonicalized pages (DG 24 Oct 2026) — never sitemap
-          return !RETIRED_PATHS.includes(path);
+          // + past-dated NFL pages (owner via DG 23 Nov 2026): noindex, out of the sitemap
+          return !RETIRED_PATHS.includes(path) && !NFL_PAST_PAGES.includes(path);
         } catch {
           return true;
         }

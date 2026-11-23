@@ -1,4 +1,5 @@
 ---
+import GettingHere from '../../../components/GettingHere.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import CtaRow from '../../../components/CtaRow.astro';
@@ -39,6 +40,7 @@ const sportsEvents = sportsEventsJsonLd([...today, ...upcoming], {
       <CtaRow lang="es" showWhatsOn={false} />
     </div>
   </section>
+  <GettingHere lang="es" />
 
   <section class="section">
     <div class="container">

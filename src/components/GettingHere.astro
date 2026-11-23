@@ -1,0 +1,38 @@
+---
+/**
+ * «Get directions» / «Cómo llegar» + short route from Puerta del Sol / metro Sol (owner via DG, 23 Nov 2026).
+ * Real data only (src/site.ts + /visit/): address, Metro Sol L1/L2/L3, Sevilla L2, Cercanías Sol (one stop from Atocha),
+ * Calle de Espoz y Mina just off the plaza toward Carrera de San Jerónimo / Sevilla. No minutes or distances.
+ * Button → SITE.mapsUrl (Google Maps listing, CID 4384002297188950803).
+ */
+import { SITE, withBase } from '../site';
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+---
+<section class="section getting-here" id={es ? 'como-llegar' : 'get-directions'} data-getting-here>
+  <div class="container prose">
+    <h2>{es ? 'Cómo llegar desde la Puerta del Sol / metro Sol' : 'How to get here from Puerta del Sol / metro Sol'}</h2>
+    <ul>
+      {es ? (
+        <>
+          <li><strong>Dirección:</strong> {SITE.address}, {SITE.postal}.</li>
+          <li><strong>Metro:</strong> Sol (líneas 1, 2 y 3) o Sevilla (línea 2).</li>
+          <li><strong>Cercanías:</strong> estación Sol (una parada desde Atocha).</li>
+          <li><strong>A pie desde la Puerta del Sol:</strong> sal de la plaza hacia la Carrera de San Jerónimo / Sevilla y entra en la Calle de Espoz y Mina; busca el neón verde de Dubliners en el número 7.</li>
+        </>
+      ) : (
+        <>
+          <li><strong>Address:</strong> {SITE.address}, {SITE.postal}.</li>
+          <li><strong>Metro:</strong> Sol (lines 1, 2 and 3) or Sevilla (line 2).</li>
+          <li><strong>Cercanías:</strong> Sol station (one stop from Atocha).</li>
+          <li><strong>Walking from Puerta del Sol:</strong> leave the square toward Carrera de San Jerónimo / Sevilla and turn into Calle de Espoz y Mina; look for the green Dubliners neon at number 7.</li>
+        </>
+      )}
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-track-event="directions_click" data-directions-btn href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{es ? 'Cómo llegar' : 'Get directions'}</a>
+      <a class="btn btn-secondary" href={withBase(es ? '/es/visitar/' : '/visit/')}>{es ? 'Horario y mapa' : 'Hours & map'}</a>
+    </div>
+  </div>
+</section>

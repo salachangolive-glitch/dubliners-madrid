@@ -45,7 +45,7 @@ const slots = [
   {slots.map((s) => (
     <div class="fixture-col" data-fixture-slot={s.kind}>
       <h2>{s.title}</h2>
-      <p class="empty-slot" data-fixture-empty hidden={s.rows.length > 0}>{s.empty}</p>
+      <p class="empty-slot" data-fixture-empty data-empty-copy={s.empty} hidden={s.rows.length > 0}>{s.rows.length === 0 ? s.empty : ''}</p>
       <ul class="fixture-list" hidden={s.rows.length === 0}>
         {s.rows.map((f) => (
           <li

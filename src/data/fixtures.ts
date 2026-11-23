@@ -1010,7 +1010,8 @@ function agendaBoardEndKey(weekEnd: string): string {
   return weekEnd < AGENDA_BOARD_THROUGH ? AGENDA_BOARD_THROUGH : weekEnd;
 }
 export function buildNow(): Date {
-  // Test hook: AGENDA_NOW=2026-10-09T20:50:00+02:00 npm run build (never set in deploy).
+  // AGENDA_NOW=ISO — deploy sets Europe/Madrid local now so “today” is the Madrid calendar date,
+  // not the runner’s UTC date. Tests: AGENDA_NOW=2026-10-09T20:50:00+02:00 npm run build
   const v = typeof process !== 'undefined' ? process.env?.AGENDA_NOW : undefined;
   return v ? new Date(v) : new Date();
 }

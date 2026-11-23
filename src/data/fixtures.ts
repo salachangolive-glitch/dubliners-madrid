@@ -1009,6 +1009,13 @@ const AGENDA_BOARD_THROUGH = '2026-11-29';
 function agendaBoardEndKey(weekEnd: string): string {
   return weekEnd < AGENDA_BOARD_THROUGH ? AGENDA_BOARD_THROUGH : weekEnd;
 }
+/** Home EN/ES PSV eve video band — owner 23 Nov 2026; off after Tue 24 Nov 17:00 Europe/Madrid. */
+export const PSV_HOME_VIDEO_UNTIL_ISO = '2026-11-24T17:00:00+01:00';
+
+export function psvHomeVideoActive(now: Date = buildNow()): boolean {
+  return now.getTime() < new Date(PSV_HOME_VIDEO_UNTIL_ISO).getTime();
+}
+
 export function buildNow(): Date {
   // AGENDA_NOW=ISO — deploy sets Europe/Madrid local now so “today” is the Madrid calendar date,
   // not the runner’s UTC date. Tests: AGENDA_NOW=2026-10-09T20:50:00+02:00 npm run build

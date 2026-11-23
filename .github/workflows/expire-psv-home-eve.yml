@@ -1,0 +1,22 @@
+# One-shot: rebuild Pages after PSV home eve video expires (Tue 24 Nov 2026 17:00 Europe/Madrid).
+# Build uses AGENDA_NOW past the gate so HomePsvEveVideo is omitted from static HTML.
+name: Expire PSV home eve video
+on:
+  schedule:
+    # 16:05 UTC = 17:05 CET on 24 November (safety margin after client hide at 17:00)
+    - cron: '5 16 24 11 *'
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Deploy gh-pages with post-expiry AGENDA_NOW
+        env:
+          AGENDA_NOW: '2026-11-24T17:05:00+01:00'
+        run: ./scripts/deploy-gh-pages.sh "deploy: expire PSV home eve video band"

@@ -9,6 +9,7 @@
  * Empty-slot copy is omitted from the HTML when the slot has rows (curl/no-JS);
  * this script fills data-empty-copy only when a slot actually becomes empty.
  * Also hides any [data-show-until="YYYY-MM-DD"] block after that Madrid date.
+ * Hides [data-show-until-ms] after that instant (epoch ms, e.g. PSV home eve video).
  * Without JS, the build-time HTML (same rule at build time) is shown.
  */
 ---
@@ -67,6 +68,14 @@
     for (var k = 0; k < timed.length; k++) {
       var until = timed[k].getAttribute('data-show-until');
       timed[k].hidden = !todayYmd || todayYmd > until;
+    }
+    var untilMsEls = document.querySelectorAll('[data-show-until-ms]');
+    var nowMs = now.getTime();
+    for (var u = 0; u < untilMsEls.length; u++) {
+      var um = Number(untilMsEls[u].getAttribute('data-show-until-ms'));
+      var hideMs = !isFinite(um) || nowMs >= um;
+      untilMsEls[u].hidden = hideMs;
+      if (hideMs) untilMsEls[u].setAttribute('aria-hidden', 'true');
     }
   }
   window.__dublinersAgendaRefresh = run;

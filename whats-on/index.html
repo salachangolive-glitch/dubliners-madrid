@@ -115,7 +115,7 @@
       <div class="fixture-board" data-fixture-board>
   <div class="fixture-col" data-fixture-slot="today">
       <h2>Today near Sol</h2>
-      <p class="empty-slot" data-fixture-empty hidden>Nothing listed for today — ask at the bar what’s on the screens.</p>
+      <p class="empty-slot" data-fixture-empty data-empty-copy="Nothing listed for today — ask at the bar what’s on the screens." hidden></p>
       <ul class="fixture-list">
         <li data-date-key="2026-11-23" data-madrid-time="21:00" data-start-ms="1795464000000" data-end-ms="1795471200000">
             <span class="fx-day">Mon 23 Nov</span>
@@ -141,7 +141,7 @@
       </ul>
     </div><div class="fixture-col" data-fixture-slot="week">
       <h2>Upcoming this week near Sol</h2>
-      <p class="empty-slot" data-fixture-empty hidden>This week’s upcoming list will appear here when fixtures are ready.</p>
+      <p class="empty-slot" data-fixture-empty data-empty-copy="This week’s upcoming list will appear here when fixtures are ready." hidden></p>
       <ul class="fixture-list">
         <li data-date-key="2026-11-24" data-madrid-time="18:45" data-start-ms="1795542300000" data-end-ms="1795549500000">
             <span class="fx-day">Tue 24 Nov</span>
@@ -725,8 +725,13 @@
     }
     todayList.hidden = nToday === 0;
     weekList.hidden = nWeek === 0;
-    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
-    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+    function setEmpty(el, n) {
+      if (!el) return;
+      if (n > 0) { el.hidden = true; el.textContent = ''; }
+      else { el.textContent = el.getAttribute('data-empty-copy') || el.textContent; el.hidden = false; }
+    }
+    setEmpty(todayCol.querySelector('[data-fixture-empty]'), nToday);
+    setEmpty(weekCol.querySelector('[data-fixture-empty]'), nWeek);
   }
   function run() {
     var now = new Date();
@@ -1341,8 +1346,13 @@ const emailTrackingEnabled = true;
     }
     todayList.hidden = nToday === 0;
     weekList.hidden = nWeek === 0;
-    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
-    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+    function setEmpty(el, n) {
+      if (!el) return;
+      if (n > 0) { el.hidden = true; el.textContent = ''; }
+      else { el.textContent = el.getAttribute('data-empty-copy') || el.textContent; el.hidden = false; }
+    }
+    setEmpty(todayCol.querySelector('[data-fixture-empty]'), nToday);
+    setEmpty(weekCol.querySelector('[data-fixture-empty]'), nWeek);
   }
   function run() {
     var now = new Date();

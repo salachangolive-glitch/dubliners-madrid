@@ -439,8 +439,13 @@ const emailTrackingEnabled = true;
     }
     todayList.hidden = nToday === 0;
     weekList.hidden = nWeek === 0;
-    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
-    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+    function setEmpty(el, n) {
+      if (!el) return;
+      if (n > 0) { el.hidden = true; el.textContent = ''; }
+      else { el.textContent = el.getAttribute('data-empty-copy') || el.textContent; el.hidden = false; }
+    }
+    setEmpty(todayCol.querySelector('[data-fixture-empty]'), nToday);
+    setEmpty(weekCol.querySelector('[data-fixture-empty]'), nWeek);
   }
   function run() {
     var now = new Date();

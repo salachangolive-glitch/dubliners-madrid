@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="giOZ-9tx7mDwt4RTFhmhWiqykIMNLBlm4Ye-AUKxdJU">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pub irlandés Madrid cerca de Sol | Bar deportivo, NFL y rugby — Dubliners</title>
-    <meta name="description" content="Pub irlandés y bar deportivo en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.">
+    <title>Pub irlandés Madrid, a menos de un minuto de Sol — Dubliners</title>
+    <meta name="description" content="Pub irlandés Madrid, a menos de un minuto de Sol: bar deportivo en la sastrería Barragán (1885). Fútbol, NFL y rugby en directo en nuestras pantallas. Desde las 12:00.">
     <link rel="canonical" href="https://dublinersmadrid.es/es/">
     <meta name="robots" content="index,follow">
     <meta name="google" content="notranslate">
@@ -19,15 +19,15 @@
     
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Dubliners Madrid">
-    <meta property="og:title" content="Pub irlandés Madrid cerca de Sol | Bar deportivo, NFL y rugby — Dubliners">
-    <meta property="og:description" content="Pub irlandés y bar deportivo en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.">
+    <meta property="og:title" content="Pub irlandés Madrid, a menos de un minuto de Sol — Dubliners">
+    <meta property="og:description" content="Pub irlandés Madrid, a menos de un minuto de Sol: bar deportivo en la sastrería Barragán (1885). Fútbol, NFL y rugby en directo en nuestras pantallas. Desde las 12:00.">
     <meta property="og:url" content="https://dublinersmadrid.es/es/">
     <meta property="og:image" content="https://dublinersmadrid.es/images/bar-interior.jpg">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_GB">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pub irlandés Madrid cerca de Sol | Bar deportivo, NFL y rugby — Dubliners">
-    <meta name="twitter:description" content="Pub irlandés y bar deportivo en la antigua sastrería Barragán (1885), junto a Puerta del Sol: fútbol de Premier League, Champions League y LaLiga, NFL y rugby en nuestras pantallas, ambiente internacional, desde las 12:00.">
+    <meta name="twitter:title" content="Pub irlandés Madrid, a menos de un minuto de Sol — Dubliners">
+    <meta name="twitter:description" content="Pub irlandés Madrid, a menos de un minuto de Sol: bar deportivo en la sastrería Barragán (1885). Fútbol, NFL y rugby en directo en nuestras pantallas. Desde las 12:00.">
     <meta name="twitter:image" content="https://dublinersmadrid.es/images/bar-interior.jpg">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" href="/favicon.ico">
@@ -853,8 +853,13 @@
     }
     todayList.hidden = nToday === 0;
     weekList.hidden = nWeek === 0;
-    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
-    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+    function setEmpty(el, n) {
+      if (!el) return;
+      if (n > 0) { el.hidden = true; el.textContent = ''; }
+      else { el.textContent = el.getAttribute('data-empty-copy') || el.textContent; el.hidden = false; }
+    }
+    setEmpty(todayCol.querySelector('[data-fixture-empty]'), nToday);
+    setEmpty(weekCol.querySelector('[data-fixture-empty]'), nWeek);
   }
   function run() {
     var now = new Date();
@@ -1220,8 +1225,13 @@ const emailTrackingEnabled = true;
     }
     todayList.hidden = nToday === 0;
     weekList.hidden = nWeek === 0;
-    var te = todayCol.querySelector('[data-fixture-empty]'); if (te) te.hidden = nToday > 0;
-    var we = weekCol.querySelector('[data-fixture-empty]'); if (we) we.hidden = nWeek > 0;
+    function setEmpty(el, n) {
+      if (!el) return;
+      if (n > 0) { el.hidden = true; el.textContent = ''; }
+      else { el.textContent = el.getAttribute('data-empty-copy') || el.textContent; el.hidden = false; }
+    }
+    setEmpty(todayCol.querySelector('[data-fixture-empty]'), nToday);
+    setEmpty(weekCol.querySelector('[data-fixture-empty]'), nWeek);
   }
   function run() {
     var now = new Date();

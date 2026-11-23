@@ -1,5 +1,6 @@
 ---
 import GettingHere from '../../components/GettingHere.astro';
+import PsvMatchMobileFold from '../../components/PsvMatchMobileFold.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../site';
@@ -38,6 +39,7 @@ const eventLd = {
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current={'PSV fans in Madrid'} schema />
+      <PsvMatchMobileFold lang="en" />
       <h1>PSV fans in Madrid: Real Madrid v PSV</h1>
       <p class="lead">Tuesday 24 November 2026, kick-off 21:00 Madrid time, the same time as in Eindhoven. UEFA Champions League, league phase matchday 5, at the Santiago Bernabéu. Dubliners is the place where PSV fans watch the match together in the centre of Madrid, by Puerta del Sol.</p>
       <div class="cta-row">

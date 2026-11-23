@@ -1,0 +1,35 @@
+---
+/** RM–PSV fan guides: mobile-first fold — address, Maps CTA, FCFS, Sol proximity (owner 23 Nov 2026 19:00 Madrid). */
+import { SITE } from '../site';
+
+interface Props { lang?: 'en' | 'es' | 'nl' }
+const { lang = 'en' } = Astro.props;
+const mapsLabel = lang === 'es' ? 'Cómo llegar' : lang === 'nl' ? 'Route' : 'Get directions';
+const kick =
+  lang === 'es'
+    ? 'Real Madrid–PSV · martes 24 nov 2026 · 21:00 (hora de Madrid)'
+    : lang === 'nl'
+      ? 'Real Madrid–PSV · dinsdag 24 november 2026 · 21.00 uur (Madrid)'
+      : 'Real Madrid v PSV · Tuesday 24 November 2026 · 21:00 Madrid time';
+const sol =
+  lang === 'es'
+    ? 'A menos de un minuto de Sol a pie.'
+    : lang === 'nl'
+      ? 'Minder dan een minuut lopen vanaf Sol.'
+      : 'Less than a minute from Sol on foot.';
+const entry =
+  lang === 'es'
+    ? 'Entrada por orden de llegada — sin reservas de mesa.'
+    : lang === 'nl'
+      ? 'Toegang op volgorde van binnenkomst — geen tafelreserveringen.'
+      : 'First come, first served at the bar — no table bookings.';
+---
+<div class="match-fold" data-psv-match-fold>
+  <p class="match-fold__kick"><strong>{kick}</strong></p>
+  <p class="match-fold__addr">{SITE.address}, {SITE.postal}</p>
+  <p class="match-fold__sol">{sol}</p>
+  <p class="match-fold__entry">{entry}</p>
+  <div class="match-fold__cta">
+    <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{mapsLabel}</a>
+  </div>
+</div>

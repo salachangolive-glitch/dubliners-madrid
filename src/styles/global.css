@@ -795,6 +795,41 @@ ul {
   padding-top: 1.25rem;
 }
 
+.match-fold {
+  margin: 0 0 1rem;
+  padding: 0 0 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.match-fold__kick {
+  margin: 0 0 0.4rem;
+  line-height: 1.35;
+}
+
+.match-fold__addr,
+.match-fold__sol,
+.match-fold__entry {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.match-fold__cta {
+  margin-top: 0.6rem;
+}
+
+.match-fold__cta .btn {
+  width: 100%;
+  max-width: 20rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .match-fold__cta .btn {
+    width: auto;
+  }
+}
+
 .band {
   background: var(--bg-elev);
   border-block: 1px solid var(--border);

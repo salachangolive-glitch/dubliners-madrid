@@ -8,6 +8,7 @@ import Breadcrumb from './Breadcrumb.astro';
 import LinkHub from './LinkHub.astro';
 import { SITE, withBase } from '../site';
 import { hoursSummary } from '../data/hours';
+import { NFL_PAST_PAGES } from '../data/nfl-past-pages.mjs';
 
 interface Props {
   lang: 'en' | 'es';
@@ -38,6 +39,7 @@ const nflHref = es ? '/es/nfl-madrid/' : '/nfl-madrid/';
 const whatsHref = es ? '/es/partidos/' : '/whats-on/';
 const visitHref = es ? '/es/visitar/' : '/visit/';
 const altLabel = es ? 'In English' : 'En español';
+const nflPast = NFL_PAST_PAGES.includes(path);
 ---
 
 <BaseLayout
@@ -47,6 +49,7 @@ const altLabel = es ? 'In English' : 'En español';
   lang={lang}
   hreflang={pathAlt ? (es ? { en: pathAlt, es: path } : { en: path, es: pathAlt }) : undefined}
   ogImage="/images/screens-sports.jpg"
+  robots={nflPast ? 'noindex,follow' : undefined}
 >
   <section class="hero hero-compact">
     <div class="container">

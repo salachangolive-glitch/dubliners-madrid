@@ -1,4 +1,5 @@
 ---
+import GettingHere from '../../../components/GettingHere.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
@@ -50,6 +51,7 @@ const eventsLd = games.map((g) => ({
       </div>
     </div>
   </section>
+  <GettingHere lang="es" />
   <section class="section">
     <div class="container split">
       <div class="prose">

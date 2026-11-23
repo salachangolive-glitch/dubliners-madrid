@@ -12,8 +12,14 @@ git pull --ff-only origin main
 echo "Building from $(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"
 
 npm ci --omit=dev 2>/dev/null || npm install
-# Static agenda (Today/Hoy) follows Madrid calendar at build, not UTC on the runner.
-export AGENDA_NOW="${AGENDA_NOW:-$(TZ=Europe/Madrid date +%Y-%m-%d)T12:00:00+01:00}"
+# Static agenda (Today/Hoy) follows Madrid calendar + clock at build, not UTC on the runner.
+# Use the real local offset (CET/CEST). A pinned T12:00:00+01:00 date-stamp is fine for the
+# calendar day; the previous form still went stale between deploys if the runner date drifted.
+if [ -z "${AGENDA_NOW:-}" ]; then
+  AGENDA_NOW="$(TZ=Europe/Madrid date +%Y-%m-%dT%H:%M:%S%z | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')"
+  export AGENDA_NOW
+fi
+echo "AGENDA_NOW=$AGENDA_NOW (Europe/Madrid)"
 npm run build
 
 # Custom domain (apex) — CNAME must ship with dist for GitHub Pages
@@ -54,7 +60,10 @@ fi
 if grep -q 'CUATRO BARES. UN GRAN PUNTO DE ENCUENTRO' "$HOME_ES"; then
   echo "Fan-weekend chrome still in Home ES — abort"; exit 1
 fi
-grep -q 'Irish Pub Madrid near Sol' "$HOME_EN" || { echo "HOME EN permanent title missing — abort"; exit 1; }
+grep -q 'Irish Pub Madrid, less than a minute from Sol' "$HOME_EN" || { echo "HOME EN title missing Sol phrase — abort"; exit 1; }
+grep -q 'Pub irlandés Madrid, a menos de un minuto de Sol' "$HOME_ES" || { echo "HOME ES title missing Sol phrase — abort"; exit 1; }
+grep -q 'less than a minute from Sol' "$HOME_EN" || { echo "HOME EN meta Sol phrase missing — abort"; exit 1; }
+grep -q 'a menos de un minuto de Sol' "$HOME_ES" || { echo "HOME ES meta Sol phrase missing — abort"; exit 1; }
 grep -q 'Where suits were once made' "$HOME_EN" || { echo "HOME EN brand line missing — abort"; exit 1; }
 grep -q 'Donde antes se cosían trajes' "$HOME_ES" || { echo "HOME ES brand line missing — abort"; exit 1; }
 grep -q 'The story behind Dubliners' "$ABOUT_EN" || { echo "ABOUT EN H1 missing — abort"; exit 1; }
@@ -81,6 +90,60 @@ if grep -q 'The rooms' "$HOME_EN"; then
   echo "Stale EN heading The rooms — abort"; exit 1
 fi
 
+
+# Ireland hubs: played Nov 2026 Tests must not remain EventScheduled SportsEvents
+python3 - <<'PY' || exit 1
+import json, re, pathlib, sys
+played = (
+    "Ireland v Argentina", "Ireland v Fiji", "Ireland v South Africa",
+    "Irlanda–Argentina", "Irlanda–Fiyi", "Irlanda–Sudáfrica",
+)
+files = [
+    pathlib.Path("dist/ireland-rugby-madrid/index.html"),
+    pathlib.Path("dist/es/rugby-irlanda-madrid/index.html"),
+]
+for f in files:
+    if not f.is_file():
+        sys.stderr.write(f"MISSING {f}\n")
+        sys.exit(1)
+    html = f.read_text()
+    for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        try:
+            data = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(data, dict) or data.get("@type") != "SportsEvent":
+            continue
+        status = str(data.get("eventStatus", ""))
+        name = str(data.get("name", ""))
+        if status.endswith("EventScheduled") and any(p in name for p in played):
+            sys.stderr.write(f"stale EventScheduled SportsEvent in {f}: {name}\n")
+            sys.exit(1)
+print("Ireland hub SportsEvent check OK")
+PY
+
+# What's On / Partidos: do not leave false empty-today copy when today's rows exist
+python3 - <<'PY' || exit 1
+from pathlib import Path
+import re, sys
+for f in [Path("dist/whats-on/index.html"), Path("dist/es/partidos/index.html")]:
+    if not f.is_file():
+        sys.stderr.write(f"MISSING {f}\n")
+        sys.exit(1)
+    html = f.read_text()
+    m = re.search(r'data-fixture-slot="today"(.*?)data-fixture-slot="week"', html, re.S)
+    if not m:
+        sys.stderr.write(f"no today slot in {f}\n")
+        sys.exit(1)
+    col = m.group(1)
+    empty = re.search(r'data-fixture-empty[^>]*>([^<]*)', col)
+    empty_text = (empty.group(1) if empty else "").strip()
+    has_rows = "data-date-key=" in col
+    if has_rows and empty_text:
+        sys.stderr.write(f"false empty-today copy in {f}: {empty_text!r}\n")
+        sys.exit(1)
+print("Fixture board empty-today check OK")
+PY
 
 touch dist/.nojekyll
 MSG="${1:-deploy: Pages from $(git rev-parse --short HEAD)}"

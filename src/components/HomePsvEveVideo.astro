@@ -1,0 +1,50 @@
+---
+import { SITE, withBase } from '../site';
+import { PSV_HOME_VIDEO_UNTIL_ISO, psvHomeVideoActive } from '../data/fixtures';
+
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+if (!psvHomeVideoActive()) return null;
+
+const es = lang === 'es';
+const poster = withBase('/images/psv-fans-madrid/dub-psv-fans-6.4-576.webp');
+const videoSrc = withBase('/videos/psv-fans-madrid/dub-psv-fans-23nov.mp4');
+const guideHref = withBase(es ? '/es/aficionados-psv-madrid/' : '/psv-fans-madrid/');
+const mapsLabel = es ? 'Cómo llegar' : 'Get directions';
+const guideLabel = es ? 'Guía PSV en Madrid' : 'PSV fan guide';
+const copy = es
+  ? 'Aficionados del PSV ya están en Dubliners. Real Madrid–PSV martes 24 a las 21:00, en directo en nuestras pantallas, a menos de un minuto de Sol. Entrada por orden de llegada.'
+  : 'PSV fans are already at Dubliners. Real Madrid–PSV Tuesday 24 at 21:00, LIVE on our screens, less than a minute from Sol. First come, first served.';
+const ariaVideo = es
+  ? 'Vídeo: aficionados del PSV en Dubliners, 23 de noviembre de 2026'
+  : 'Video: PSV fans at Dubliners, 23 November 2026';
+const untilMs = new Date(PSV_HOME_VIDEO_UNTIL_ISO).getTime();
+---
+<section
+  class="home-psv-eve"
+  id={es ? 'psv-en-directo' : 'psv-live-now'}
+  data-psv-home-eve
+  data-show-until-ms={String(untilMs)}
+  aria-label={es ? 'Real Madrid–PSV: aficionados del PSV en Dubliners' : 'Real Madrid–PSV: PSV fans at Dubliners'}
+>
+  <div class="home-psv-eve__inner container">
+    <video
+      class="home-psv-eve__video"
+      controls
+      muted
+      playsinline
+      preload="metadata"
+      poster={poster}
+      width="576"
+      height="1024"
+      aria-label={ariaVideo}
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+    <p class="home-psv-eve__copy">{copy}</p>
+    <div class="home-psv-eve__cta">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">{mapsLabel}</a>
+      <a class="btn btn-secondary" href={guideHref}>{guideLabel}</a>
+    </div>
+  </div>
+</section>

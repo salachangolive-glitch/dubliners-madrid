@@ -6,7 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
-const mon = OPENING_HOURS.find((d) => d.day === 'Monday')!;
+const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
 
 // Real Madrid v PSV, UEFA Champions League league phase MD5, Estadio Santiago Bernabéu, Tue 24 Nov 2026 21:00 Madrid (CET).
 // Source: uefa.com match API (match.uefa.com/v5/matches, id 2049625, kickOff 2026-11-24T20:00Z), checked 20 Oct 2026.
@@ -53,15 +53,13 @@ const eventLd = {
   <GettingHere lang="en" />
   <section class="section band">
     <div class="container prose">
-      <h2>Update 23 November 2026</h2>
-      <p class="small">PSV week · three days before kick-off (Tuesday 24 November, 21:00 Madrid time).</p>
-      <p><strong>Arriving in Madrid:</strong> From <strong>Barajas Airport</strong>, Metro line 8 connects to the centre (change at Nuevos Ministerios or Príncipe de Gipúzkoa for Sol). From <strong>Atocha</strong> (AVE and Cercanías), Metro line 1 reaches <strong>Sol</strong> in a few stops — {SITE.address} is a short walk from the station.</p>
-      <p><strong>From Sol toward the Bernabéu:</strong> Metro line 10 is closed between Cuzco and Nuevos Ministerios, so Santiago Bernabéu station stays closed. Plan via the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> — often Nuevos Ministerios plus the free EMT <strong>S10</strong> replacement bus for Metro ticket holders. Allow extra time on match night.</p>
-      <p><strong>Open today (Monday):</strong> {mon.opens}–{mon.closes}.</p>
-      <p><strong>Reservations:</strong> <strong>No table bookings</strong> — first come, first served at the bar. The three-bar guide on O’Connell’s explains how the doors split on European nights (link below in the main copy).</p>
-      <p><strong>Monday atmosphere:</strong> Quieter walk-ins at lunchtime, then tonight’s football on <a href={withBase('/whats-on/')}>What’s On</a> while Champions travellers test the hop toward the Bernabéu. English and Dutch at the bar ahead of Tuesday’s game.</p>
-      <p><strong>Before and after Tuesday’s match:</strong> PSV travellers often land in Sol for a mid-afternoon pint, mix languages at the bar, then head north for kick-off — or stay with us and watch <strong>LIVE on our screens</strong> if you are without a ticket. After full time, the crowd drifts back through Sol; ask staff what’s still on screen.</p>
-      <p><strong>FAQ:</strong> Kick-off, live screens, Tuesday opening hours and the Bernabéu route are answered in the FAQ block below.</p>
+      <h2>Update 24 November 2026</h2>
+      <p class="small">Match day · Real Madrid v PSV, 21:00 Madrid time (Champions League).</p>
+      <p><strong>Tonight at Dubliners:</strong> Kick-off is <strong>21:00</strong>. We show the match <strong>LIVE on our screens</strong> at {SITE.address}, less than a minute from <strong>Puerta del Sol</strong> on foot — a natural meeting point if you are without a stadium ticket or regrouping before or after the Bernabéu.</p>
+      <p><strong>Open today (Tuesday):</strong> {tue.opens}–{tue.closes}. Doors are already open; from mid-afternoon the room fills ahead of Champions kick-off. <strong>No table bookings</strong> — first come, first served at the bar.</p>
+      <p><strong>On your way to the stadium:</strong> Metro line 10 stays closed between Cuzco and Nuevos Ministerios, so Bernabéu station is shut. Plan with the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a> (often Nuevos Ministerios plus the free EMT <strong>S10</strong> for Metro travellers). Leave extra time tonight.</p>
+      <p><strong>After full time:</strong> Supporters drift back through Sol. English and Dutch at the bar; ask staff what stays on screen once the whistle goes.</p>
+      <p><strong>This week:</strong> <a href={withBase('/whats-on/')}>What’s On</a> lists everything confirmed today; Nations Championship rugby <a href={withBase('/rugby-nations-finals-weekend-madrid/')}>27–29 November</a> is on the home agenda below the football cards.</p>
     </div>
   </section>
   <section class="section">

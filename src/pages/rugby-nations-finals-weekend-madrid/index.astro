@@ -131,8 +131,15 @@ const faqLd = {
       {todayKey === '2026-11-25' && (
         <>
           <h2>Update 25 November 2026</h2>
-          <p class="small">Two days to Friday’s double header.</p>
-          <p>Viking and Žalgiris visitors share Sol with rugby fans planning the long weekend. What we show is on What’s On; Žalgiris screening is to be confirmed.</p>
+          <p class="small">Two days to the finals weekend — six Tests, Madrid time.</p>
+          <p>
+            <strong>Full slate:</strong> Fri 27 <strong>Italy v Fiji</strong> 17:40, <strong>Ireland v Australia</strong> 21:10; Sat 28{' '}
+            <strong>Wales v Japan</strong> 14:10, <strong>England v New Zealand</strong> 17:40; Sun 29 <strong>Scotland v Argentina</strong>{' '}
+            14:10, <strong>final France v South Africa</strong> 17:40 — all <strong>live on our screens</strong>.{' '}
+            <strong>Meeting point</strong> at {SITE.address}, less than a minute from Sol.{' '}
+            <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Get directions</a>
+          </p>
+          <p class="small">Champions night Wednesday at Sol; rugby block starts Friday. Same fixtures on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
         </>
       )}
       {todayKey === '2026-11-26' && (

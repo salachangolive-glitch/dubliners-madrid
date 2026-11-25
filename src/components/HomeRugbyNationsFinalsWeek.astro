@@ -1,81 +1,135 @@
 ---
 /**
- * Nations Championship finals weekend 27–29 Nov 2026 — hub feature.
- * REMOVE 30 Nov: delete component + NAT-27-29-RUGBY-UNTIL-2026-11-30 wrappers.
+ * Nations Championship finals weekend 27–29 Nov 2026 (Twickenham) — home top feature + hub band.
+ * Home top: REMOVE from 2026-11-30 Madrid (placement home-top). Hub: NAT wrappers on Partidos/What’s On.
  */
 import { SITE, withBase } from '../site';
+import { buildNow, madridToday } from '../data/fixtures';
 import { RUGBY_FINALS_GUIDE_EN, RUGBY_FINALS_GUIDE_ES, RUGBY_FINALS_WEEKEND } from '../data/rugby-nations-finals-2026';
 
 interface Props {
   lang?: 'en' | 'es';
   showCta?: boolean;
+  /** Featured second block on home EN/ES only — no Sol phrase, landing CTA only. */
+  placement?: 'home-top' | 'default';
 }
-const { lang = 'en', showCta = true } = Astro.props;
+const { lang = 'en', showCta = true, placement = 'default' } = Astro.props;
 const es = lang === 'es';
 const SHOW_UNTIL = '2026-11-29';
 const guideHref = es ? RUGBY_FINALS_GUIDE_ES : RUGBY_FINALS_GUIDE_EN;
+const homeTop = placement === 'home-top';
+
+if (homeTop && madridToday(buildNow()) > SHOW_UNTIL) return null;
 ---
 
-<section class="home-rugby-finals band" data-show-until={SHOW_UNTIL}>
-  <div class="container prose">
-    <h2>{es ? 'También: rugby Nations Championship 27–29 nov' : 'Also: Nations Championship rugby 27–29 Nov'}</h2>
-    <p class="small">{es ? 'Además del fútbol y la Champions en el cuadro de arriba.' : 'In addition to football and Champions League on the board above.'}</p>
-    <p>
-      {es ? (
-        <>
-          <strong>Domingo 29 nov, 17:40</strong> — final <strong>Francia–Sudáfrica</strong>{' '}
-          <strong>en directo en nuestras pantallas</strong> en Dubliners, junto a Sol, más cinco pruebas el fin de semana.
-        </>
-      ) : (
-        <>
-          <strong>Sunday 29 Nov, 17:40</strong> — <strong>France v South Africa</strong> final{' '}
-          <strong>live on our screens</strong> at Dubliners near Sol, plus five more Tests across the weekend.
-        </>
-      )}
-    </p>
-    <p>
-      {es ? (
-        <>
-          <strong>Punto de encuentro</strong> en {SITE.address} — a menos de un minuto de Sol a pie. Sin reservas de mesa.
-        </>
-      ) : (
-        <>
-          <strong>Meeting point</strong> at {SITE.address} — less than a minute from Puerta del Sol on foot. No table bookings.
-        </>
-      )}
-    </p>
-    <p class="small">
-      {es
-        ? 'Seis pruebas confirmadas · hora de Madrid · en directo en nuestras pantallas en Dubliners (sin emisora).'
-        : 'All six Tests confirmed · Madrid time · live on our screens at Dubliners (no TV channel named).'}
-    </p>
-    <ul class="rugby-finals-days">
+{homeTop ? (
+  <section
+    class="section band-gold home-rugby-finals-featured"
+    id="nations-championship-finals-weekend"
+    data-show-until={SHOW_UNTIL}
+    data-home-block="rugby-finals-27-29"
+    aria-label={es ? 'Finales Nations Championship en pantalla' : 'Nations Championship finals on our screens'}
+  >
+    <div class="container prose">
+      <h2 class="home-rugby-finals-featured__title">
+        {es
+          ? 'Finales del Nations Championship · Twickenham · vie 27–dom 29 nov · hora de Madrid'
+          : 'Nations Championship finals · Twickenham · Fri 27–Sun 29 Nov · Madrid time'}
+      </h2>
+      <p class="home-rugby-finals-featured__intro">
+        {es ? (
+          <>
+            <strong>Las seis pruebas están confirmadas en directo en nuestras pantallas</strong> en Dubliners — sin nombrar
+            emisora aquí.
+          </>
+        ) : (
+          <>
+            <strong>All six kick-offs are confirmed live on our screens</strong> at Dubliners — no TV channel named here.
+          </>
+        )}
+      </p>
       {RUGBY_FINALS_WEEKEND.map((day) => (
-        <li>
-          <strong>{es ? day.headingEs : day.headingEn}</strong>
+        <div class="rugby-day">
+          <h3>{es ? day.headingEs : day.headingEn}</h3>
           <ul>
             {day.matches.map((m) => (
-              <li class:list={{ highlight: m.highlight }}>
-                {m.time} — {es ? m.es : m.en}
-                {m.final && (es ? ' (final)' : ' (final)')}
+              <li class:list={{ 'rugby-day__final': m.final }}>
+                <strong>{m.time}</strong> — {es ? m.es : m.en}
+                {m.final && (es ? ' — final' : ' — final')}
               </li>
             ))}
           </ul>
-        </li>
+        </div>
       ))}
-    </ul>
-    {showCta && (
-      <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">
-          {es ? 'Cómo llegar' : 'Get directions'}
-        </a>
-        <a class="btn btn-secondary" href={withBase(guideHref)}>
-          {es ? 'Guía del fin de semana rugby junto a Sol' : 'Finals weekend rugby guide near Sol'}
+      <div class="cta-row home-rugby-finals-featured__cta">
+        <a class="btn btn-gold" href={withBase(guideHref)}>
+          {es ? 'Ver todos los partidos de las finales' : 'See all the finals fixtures'}
         </a>
       </div>
-    )}
-  </div>
-</section>
+    </div>
+  </section>
+) : (
+  <section class="home-rugby-finals band" data-show-until={SHOW_UNTIL}>
+    <div class="container prose">
+      <h2>{es ? 'También: rugby Nations Championship 27–29 nov' : 'Also: Nations Championship rugby 27–29 Nov'}</h2>
+      <p class="small">{es ? 'Además del fútbol y la Champions en el cuadro de arriba.' : 'In addition to football and Champions League on the board above.'}</p>
+      <p>
+        {es ? (
+          <>
+            <strong>Domingo 29 nov, 17:40</strong> — final <strong>Francia–Sudáfrica</strong>{' '}
+            <strong>en directo en nuestras pantallas</strong> en Dubliners, junto a Sol, más cinco pruebas el fin de semana.
+          </>
+        ) : (
+          <>
+            <strong>Sunday 29 Nov, 17:40</strong> — <strong>France v South Africa</strong> final{' '}
+            <strong>live on our screens</strong> at Dubliners near Sol, plus five more Tests across the weekend.
+          </>
+        )}
+      </p>
+      <p>
+        {es ? (
+          <>
+            <strong>Punto de encuentro</strong> en {SITE.address} — a menos de un minuto de Sol a pie. Sin reservas de mesa.
+          </>
+        ) : (
+          <>
+            <strong>Meeting point</strong> at {SITE.address} — less than a minute from Puerta del Sol on foot. No table bookings.
+          </>
+        )}
+      </p>
+      <p class="small">
+        {es
+          ? 'Seis pruebas confirmadas · hora de Madrid · en directo en nuestras pantallas en Dubliners (sin emisora).'
+          : 'All six Tests confirmed · Madrid time · live on our screens at Dubliners (no TV channel named).'}
+      </p>
+      <ul class="rugby-finals-days">
+        {RUGBY_FINALS_WEEKEND.map((day) => (
+          <li>
+            <strong>{es ? day.headingEs : day.headingEn}</strong>
+            <ul>
+              {day.matches.map((m) => (
+                <li class:list={{ highlight: m.highlight }}>
+                  {m.time} — {es ? m.es : m.en}
+                  {m.final && (es ? ' (final)' : ' (final)')}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+      {showCta && (
+        <div class="cta-row">
+          <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">
+            {es ? 'Cómo llegar' : 'Get directions'}
+          </a>
+          <a class="btn btn-secondary" href={withBase(guideHref)}>
+            {es ? 'Guía del fin de semana rugby junto a Sol' : 'Finals weekend rugby guide near Sol'}
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+)}
 
 <style>
   .rugby-finals-days {

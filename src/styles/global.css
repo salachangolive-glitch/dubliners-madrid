@@ -846,6 +846,40 @@ ul {
   margin: 0;
 }
 
+/* Home EN/ES — Nations Championship finals featured (temp until 2026-11-29 Madrid). */
+.home-rugby-finals-featured {
+  margin: 0;
+  padding: 0.85rem 0 1rem;
+}
+
+.home-rugby-finals-featured__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.home-rugby-finals-featured__intro {
+  margin: 0 0 0.75rem;
+}
+
+.home-rugby-finals-featured .rugby-day {
+  margin-bottom: 0.65rem;
+}
+
+.home-rugby-finals-featured .rugby-day h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.home-rugby-finals-featured .rugby-day ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.home-rugby-finals-featured__cta {
+  margin: 0.75rem 0 0;
+}
+
 /* Home EN/ES — PSV eve video above hero (temp until PSV_HOME_VIDEO_UNTIL_ISO). */
 .home-psv-eve {
   margin: 0;

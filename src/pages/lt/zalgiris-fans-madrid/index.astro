@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
-const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
+const wed = OPENING_HOURS.find((d) => d.day === 'Wednesday')!;
 
 // Lithuanian pair of /zalgiris-fans-madrid/ (T22). Same verified kick-off as EN (EuroLeague E2026_139).
 const eventLd = {
@@ -44,14 +44,13 @@ const eventLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Atnaujinimas 2026 m. lapkričio 22 d.</h2>
-      <p class="small">Žalgirio savaitė · trys dienos iki rungtynių (2026-11-25, 20:45 Madrido laiku).</p>
-      <p><strong>Atvykimas į Madridą:</strong> Iš <strong>Barajaso</strong> metro linija 8 į centrą; iš <strong>Atochos</strong> linija 1 iki <strong>Sol</strong>. {SITE.address} — trumpas ėjimas.</p>
-      <p><strong>Nuo Sol iki Movistar Arenos:</strong> Arena šiaurės vakaruose — dažniausiai metro per <strong>Nuevos Ministerios</strong> arba autobusą pagal dienos maršrutą. Tikrinkite Metro de Madrid programėlę arba <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
-      <p><strong>Šiandien (sekmadienis) atidaryta:</strong> {sun.opens}–{sun.closes}.</p>
-      <p><strong>Rezervacijos:</strong> <strong>Staliukų rezervacijų nėra</strong> — pirmas atėjęs, pirmas aptarnaujamas. Paklauskite barmenų, kuriame ekrane Eurolyga, kai rungtynės nurodytos programoje.</p>
-      <p><strong>Sekmadienio nuotaika:</strong> Ramesnė popietė prie Sol; vakare daugiau lankytojų, kai televizijoje rodomas savaitės futbolas. Keliautojai į trečiadienio rungtynes dažnai sekmadienį patikrina maršrutą į areną.</p>
-      <p><strong>DUK:</strong> Laikas, transliacijos būsena, darbo laikas ir adresas — skyriuje DUK žemiau (anglų k. pagrindiniame puslapyje).</p>
+      <h2>Atnaujinimas 2026 m. lapkričio 25 d.</h2>
+      <p class="small">Rungtynių vakaras · Real Madrid – Žalgiris, 20:45 Madrido laiku (Eurolyga).</p>
+      <p><strong>Šį vakarą Dubliners:</strong> Pradžia Movistar Arenoje <strong>20:45</strong>. Esame <strong>susitikimo vieta</strong> adresu {SITE.address}, prie Sol, prieš kelionę į areną. Ar rodysime rungtynes čia, <strong>dar nepatvirtinta</strong> — prieš atvykdami patikrinkite <a href={withBase('/whats-on/')} hreflang="en">What’s On</a>.</p>
+      <p><strong>Tas pats trečiadienis prie Sol:</strong> Po penkiolikos minučių <a href={withBase('/viking-fans-madrid/')} hreflang="en">Atlético – Viking</a> <strong>21:00</strong> — Čempionų lyga <strong>TIESIOGIAI mūsų ekranuose</strong>.</p>
+      <p><strong>Šiandien (trečiadienis) atidaryta:</strong> {wed.opens}–{wed.closes}. <strong>Be staliukų rezervacijos</strong> — pirmas atėjęs. Jei Eurolyga įtraukta į sąrašą, paklauskite, kuriame ekrane.</p>
+      <p><strong>Į Movistar Areną:</strong> Metro de Madrid programėlė arba <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; skirkite laiko Eurolygos vakarui.</p>
+      <p><strong>Šią savaitę:</strong> Visas tvarkaraštis — <a href={withBase('/whats-on/')} hreflang="en">What’s On</a>; Nations Championship regbis <a href={withBase('/rugby-nations-finals-weekend-madrid/')} hreflang="en">lapkr. 27–29</a> po futbolo kortelių pagrindiniame puslapyje.</p>
     </div>
   </section>
   <section class="section">

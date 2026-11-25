@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../site';
 import { OPENING_HOURS } from '../../data/hours';
-const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
+const wed = OPENING_HOURS.find((d) => d.day === 'Wednesday')!;
 
 // Real Madrid v Žalgiris Kaunas, EuroLeague league phase MD14, Movistar Arena, Wed 25 Nov 2026 20:45 Madrid (CET).
 // Source: Radar aficiones-visitantes-6sem-2026-11-09.md + EuroLeague feed E2026_139 (movistararena.es).
@@ -53,14 +53,13 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Update 22 November 2026</h2>
-      <p class="small">Žalgiris week · three days before tip-off (Wednesday 25 November, 20:45 Madrid time).</p>
-      <p><strong>Arriving in Madrid:</strong> From <strong>Barajas</strong>, Metro line 8 to the centre; from <strong>Atocha</strong>, line 1 to <strong>Sol</strong>. {SITE.address} is a short walk from Sol.</p>
-      <p><strong>From Sol to the Movistar Arena:</strong> The arena sits north-west of the centre — typically Metro via <strong>Nuevos Ministerios</strong> or bus links shown on the day. Check the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; EuroLeague nights need extra time.</p>
-      <p><strong>Open today (Sunday):</strong> {sun.opens}–{sun.closes}.</p>
-      <p><strong>Reservations:</strong> <strong>No table bookings</strong> — first come, first served. Ask which screen carries EuroLeague when the game is listed on What’s On.</p>
-      <p><strong>Sunday atmosphere:</strong> Lithuanian and visiting fans mix at the bar; Sunday afternoons are a steady time to plan the arena hop before Wednesday. Evening football from the weekly listings fills the room without needing a separate landing page.</p>
-      <p><strong>FAQ:</strong> Tip-off time, screening status, opening hours and the bar address are in the FAQ section below.</p>
+      <h2>Update 25 November 2026</h2>
+      <p class="small">Match night · Real Madrid v Žalgiris Kaunas, 20:45 Madrid time (EuroLeague).</p>
+      <p><strong>Tonight at Dubliners:</strong> Tip-off at the Movistar Arena is <strong>20:45</strong>. We are a <strong>meeting point</strong> at {SITE.address}, steps from Puerta del Sol, before you head to the arena. Screening of the game on our screens remains <strong>to be confirmed</strong> — check <a href={withBase('/whats-on/')}>What’s On</a> before you come.</p>
+      <p><strong>Same Wednesday at Sol:</strong> Fifteen minutes later, <a href={withBase('/viking-fans-madrid/')}>Atlético v Viking</a> kicks off at <strong>21:00</strong> — Champions League <strong>LIVE on our screens</strong>.</p>
+      <p><strong>Open today (Wednesday):</strong> {wed.opens}–{wed.closes}. <strong>No table bookings</strong> — first come, first served. If EuroLeague is listed, ask staff which screen has the feed.</p>
+      <p><strong>To the Movistar Arena:</strong> Plan via the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; leave extra time on a EuroLeague night.</p>
+      <p><strong>This week:</strong> Full listings on <a href={withBase('/whats-on/')}>What’s On</a>; Nations Championship rugby <a href={withBase('/rugby-nations-finals-weekend-madrid/')}>27–29 November</a> below the football cards on home.</p>
     </div>
   </section>
   <section class="section">

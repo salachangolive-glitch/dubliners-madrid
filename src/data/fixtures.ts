@@ -127,8 +127,12 @@
  * - 23 Nov (DG): home/away per laliga.com J14 (Radar): Levante–Racing (Fri 27) and Betis–Rayo (Sat 28). RM–Žalgiris: broadcast NOT confirmed →
  *   confirmedOnScreens false + «To be confirmed / por confirmar». Sat 21 rugby rows RETIRED (Ireland v South Africa kept, unlinked, as data for its archive page).
  *   Final written France v South Africa / Francia–Sudáfrica (owner rule).
+ * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
+ *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
+ *   confirmedOnScreens false; meeting point only. Links /bayern-basketball-fans-madrid/. Outside the current board window (through 29 Nov).
  * No invented fixtures / TV channels / reservations.
  */
+
 
 export type Fixture = {
   dateKey: string; // YYYY-MM-DD Madrid calendar day of kickoff
@@ -844,6 +848,23 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
     noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-12-15',
+    whenLabel: 'Tue 15 Dec',
+    competition: 'EuroLeague',
+    teams: 'Real Madrid vs FC Bayern Munich',
+    madridTime: '20:45',
+    confirmedOnScreens: false,
+    noteEn: 'EuroLeague basketball at the Movistar Arena. Meeting point at Dubliners; screening not confirmed.',
+    noteEs: 'Baloncesto EuroLeague en el Movistar Arena. Punto de encuentro en Dubliners; emisión no confirmada.',
+    link: {
+      href: '/bayern-basketball-fans-madrid/',
+      hrefEs: '/es/aficionados-bayern-baloncesto-madrid/',
+      labelEn: 'Bayern basketball fans in Madrid: meeting point (EN · ES · DE)',
+      labelEs: 'Aficionados del Bayern de baloncesto en Madrid: punto de encuentro',
+      hreflang: 'en',
+    },
   }
 ];
 

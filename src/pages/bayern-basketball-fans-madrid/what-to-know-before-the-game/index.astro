@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+
+// T-20 article, 25 Nov 2026. Sources checked the same day: Real Madrid match page + EuroLeague feed E2026_166.
+// fcbayern.com/basketball and euroleaguebasketball.net HTML not verifiable (403 / 429) — not linked.
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Bayern fans in Madrid: what you need to know before the game',
+  datePublished: '2026-11-25',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl('/bayern-basketball-fans-madrid/what-to-know-before-the-game/'),
+};
+---
+
+<BaseLayout
+  title={'Bayern Fans in Madrid: What You Need to Know Before the Game | Dubliners'}
+  description={'Real Madrid v FC Bayern Munich, EuroLeague, 15 December 2026, 20:45, Movistar Arena. What to know before you travel: meeting point at Dubliners, less than a minute from Sol, public transport, no reservations.'}
+  path="/bayern-basketball-fans-madrid/what-to-know-before-the-game/"
+  lang="en"
+  hreflang={{ en: '/bayern-basketball-fans-madrid/what-to-know-before-the-game/', de: '/de/bayern-basketball-fans-madrid/was-ihr-vor-dem-spiel-wissen-muesst/' }}
+  ogImage="/images/facade.jpg"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'What to know before the game'} schema />
+      <h1>Bayern fans in Madrid: what you need to know before the game</h1>
+      <p class="small">Guide · 25 November 2026 · 20 days before tip-off</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+        <a class="btn btn-primary" href={withBase('/bayern-basketball-fans-madrid/')}>Meeting point</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>On <strong>Tuesday 15 December 2026</strong>, Real Madrid host FC Bayern Munich in the EuroLeague (round 17). Tip-off is <strong>20:45 Madrid time</strong> — the same clock as in Munich in December — at the <strong>Movistar Arena</strong>, Avenida de Felipe II, 28009 Madrid. That is the fixture on the <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">Real Madrid match page</a>, and it is confirmed on the EuroLeague feed (game E2026_166, 19:45 UTC).</p>
+      <h2>The meeting point in the centre</h2>
+      <p>Dubliners, an Irish pub at {SITE.address}, {SITE.postal}, is the meeting point for Bayern fans, <strong>less than a minute from Puerta del Sol</strong>. On Tuesday we are open {tue.opens}–{tue.closes}. <strong>No reservations</strong> — first come, first served. A screening of this game at Dubliners is not confirmed. The full meeting-point page: <a href={withBase('/bayern-basketball-fans-madrid/')}>Bayern basketball fans in Madrid</a>.</p>
+      <h2>How to find us</h2>
+      <p>Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). From Puerta del Sol, walk toward Carrera de San Jerónimo / Sevilla and turn into Calle de Espoz y Mina; the green neon is at number 7. Open the route with <a href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>.</p>
+      <h2>From Sol to the Movistar Arena</h2>
+      <p>Public transport only, with no journey times invented. The <a href="https://www.realmadrid.com/es-ES/el-club/movistar-arena" rel="noopener noreferrer" target="_blank">Real Madrid page for the arena</a> lists Metro <strong>Goya (lines 2 and 4)</strong> and <strong>O’Donnell (line 6)</strong>, and Cercanías Recoletos. Line 2 serves both Sol and Goya. For the connection on the day, use the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
+      <h2>Before and after the game</h2>
+      <p>Before tip-off you can meet at the pub from 12:00 and then travel to the arena. After the game, the same Sol stop is a natural place to regroup; we stay open until 02:00 on Tuesday.</p>
+      <p>Auf Deutsch: <a href={withBase('/de/bayern-basketball-fans-madrid/was-ihr-vor-dem-spiel-wissen-muesst/')} hreflang="de">Was ihr vor dem Spiel wissen müsst</a>.</p>
+      <p class="small">Dubliners is an independent pub, not affiliated with the EuroLeague, Real Madrid or FC Bayern Munich.</p>
+    </div>
+  </section>
+</BaseLayout>

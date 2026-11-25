@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import GettingHere from '../../components/GettingHere.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import { SITE, withBase, absUrl } from '../../site';
+import { OPENING_HOURS } from '../../data/hours';
+const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+
+// Real Madrid v FC Bayern Munich, EuroLeague Regular Season Round 17, Movistar Arena,
+// Tue 15 Dec 2026, 20:45 Madrid (CET = 19:45Z).
+// Verified 25 Nov 2026:
+// - Radar FUENTES-PARTIDOS-COMPARTIDAS.md (~line 230) and SEMANA-2026-11-25.md: E2026_166, confirmed.
+// - EuroLeague incrowd feed (feeds.incrowdsports.com, teamCode=MAD): code 166, date 2026-12-15T19:45:00.000Z,
+//   confirmedDate + confirmedTime true, venue MOVISTAR ARENA, Av. de Felipe II 1, 28009 Madrid.
+// - realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026 (HTTP 200;
+//   dateTime 2026-12-15T19:45:00.000Z; venue Movistar Arena). The "19:45" pill on that page is the UTC instant.
+// Transport (same day, realmadrid.com/es-ES/el-club/movistar-arena, HTTP 200): Metro Goya (lines 2 and 4),
+// O'Donnell (line 6); Cercanías Recoletos; EMT buses listed on that page. No journey times given here.
+// fcbayern.com/basketball and euroleaguebasketball.net HTML were not verifiable today (403 / 429) — not linked.
+// Screening at Dubliners: not confirmed (owner: Ads = football only; this event is organic / meeting point).
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: 'Real Madrid v FC Bayern Munich — EuroLeague basketball',
+  description:
+    'Real Madrid v FC Bayern Munich, EuroLeague, Tuesday 15 December 2026, 20:45 Madrid time, at the Movistar Arena. Dubliners Irish Pub, Calle de Espoz y Mina 7, less than a minute from Puerta del Sol, is a meeting point for Bayern basketball fans before and after the game.',
+  inLanguage: 'en',
+  startDate: '2026-12-15T20:45:00+01:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'StadiumOrArena',
+    name: 'Movistar Arena',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Avenida de Felipe II s/n',
+      addressLocality: 'Madrid',
+      postalCode: '28009',
+      addressCountry: 'ES',
+    },
+  },
+  homeTeam: { '@type': 'SportsTeam', name: 'Real Madrid' },
+  awayTeam: { '@type': 'SportsTeam', name: 'FC Bayern Munich' },
+  url: absUrl('/bayern-basketball-fans-madrid/'),
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When is Real Madrid v FC Bayern Munich in basketball?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tuesday 15 December 2026, 20:45 Madrid time, at the Movistar Arena (EuroLeague, round 17). Madrid and Munich are in the same time zone in December.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Dubliners a meeting point for Bayern basketball fans?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Dubliners, Calle de Espoz y Mina 7, less than a minute from Puerta del Sol, is a meeting point before and after the game. No reservations — first come, first served. A screening of this game at Dubliners is not confirmed.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get from Sol to the Movistar Arena?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The arena is at Avenida de Felipe II, 28009 Madrid. The Real Madrid club page lists Metro Goya (lines 2 and 4) and O’Donnell (line 6), plus Cercanías Recoletos. Dubliners is by Metro Sol (lines 1, 2 and 3) or Sevilla (line 2); line 2 serves both Sol and Goya. Check the Metro de Madrid app or crtm.es on the day. No journey times are given here.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={'Bayern Basketball Fans in Madrid: Meeting Point, 15 Dec | Dubliners'}
+  description={'Real Madrid v FC Bayern Munich (EuroLeague basketball), Tuesday 15 December 2026, 20:45 Madrid time, Movistar Arena. Meeting point for Bayern fans at Dubliners, less than a minute from Sol. No reservations, first come, first served.'}
+  path="/bayern-basketball-fans-madrid/"
+  lang="en"
+  hreflang={{ en: '/bayern-basketball-fans-madrid/', es: '/es/aficionados-bayern-baloncesto-madrid/', de: '/de/bayern-basketball-fans-madrid/' }}
+  ogImage="/images/facade-queue.jpg"
+  extraJsonLd={[eventLd, faqLd]}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Bayern basketball fans in Madrid'} schema />
+      <h1>Bayern basketball fans in Madrid: meeting point before Real Madrid v Bayern</h1>
+      <p class="lead">Tuesday 15 December 2026, tip-off 20:45 Madrid time. EuroLeague basketball, round 17, at the Movistar Arena. Dubliners is a meeting point for Bayern fans in the centre of Madrid, less than a minute from Puerta del Sol — before you go to the arena, and after you come back.</p>
+      <p class="small">Calle de Espoz y Mina 7, 28012 Madrid · Tuesday hours {tue.opens}–{tue.closes} · No reservations, first come, first served</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+        <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
+      </div>
+    </div>
+  </section>
+  <GettingHere lang="en" />
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>The game</h2>
+        <p>FC Bayern Munich travel to Madrid to play Real Madrid in the EuroLeague on Tuesday 15 December 2026. Tip-off is 20:45 Madrid time (the same clock as in Munich in December) at the Movistar Arena, Avenida de Felipe II, 28009 Madrid. Fixture details as published on the <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">Real Madrid match page</a> and confirmed on the EuroLeague feed (game E2026_166, 19:45 UTC).</p>
+        <h2>Meeting point at Dubliners</h2>
+        <p>Dubliners is an Irish pub at {SITE.address}, {SITE.postal}, less than a minute from Puerta del Sol. On Tuesday we are open {tue.opens}–{tue.closes}, so there is time to meet in the centre before heading to the arena, and to come back afterwards. English and German are welcome at the bar. A screening of this game at Dubliners is not confirmed.</p>
+        <h2>Reservations</h2>
+        <p><strong>No reservations</strong> — first come, first served.</p>
+        <h2>From Sol to the Movistar Arena</h2>
+        <p>Public transport only, with no journey times invented. The <a href="https://www.realmadrid.com/es-ES/el-club/movistar-arena" rel="noopener noreferrer" target="_blank">Real Madrid page for the Movistar Arena</a> lists Metro <strong>Goya (lines 2 and 4)</strong> and <strong>O’Donnell (line 6)</strong>, and Cercanías <strong>Recoletos</strong>, plus EMT buses named on that page. Dubliners is by Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). Line 2 serves both Sol and Goya. For the connection on the day, use the Metro de Madrid app or <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
+        <h2>Before and after the game</h2>
+        <p><strong>Before tip-off:</strong> come from midday, meet at the pub, then take public transport to the arena. <strong>After the game:</strong> the same Sol stop is a natural place to regroup; we stay open until {tue.closes} on Tuesday.</p>
+        <p>A short guide for travelling fans: <a href={withBase('/bayern-basketball-fans-madrid/what-to-know-before-the-game/')}>what you need to know before the game</a>. Auf Deutsch: <a href={withBase('/de/bayern-basketball-fans-madrid/')} hreflang="de">Treffpunkt für Bayern-Basketball-Fans</a>. En español: <a href={withBase('/es/aficionados-bayern-baloncesto-madrid/')} hreflang="es">Punto de encuentro para aficionados del Bayern de baloncesto</a>.</p>
+        <p class="small">Dubliners is an independent pub, not affiliated with the EuroLeague, Real Madrid or FC Bayern Munich. This page is not the football guide for Atlético v Bayern on 3 November — that remains at <a href={withBase('/bayern-fans-madrid/')}>/bayern-fans-madrid/</a>.</p>
+      </div>
+      <picture>
+        <source type="image/webp" srcset={`${withBase('/images/facade-queue-sm.webp')} 640w, ${withBase('/images/facade-queue.webp')} 1320w`} sizes="(max-width: 800px) 100vw, 720px" />
+        <img class="split-photo landscape" src={withBase('/images/facade-queue.jpg')} width="1320" height="986" loading="lazy" decoding="async" alt="People at the door of Dubliners at night, Calle de Espoz y Mina 7, less than a minute from Puerta del Sol" />
+      </picture>
+    </div>
+  </section>
+  <section class="section band">
+    <div class="container prose">
+      <h2>Map</h2>
+      <div class="map-frame">
+        <MapEmbed lang="en" title="Google Map — Dubliners Madrid, Espoz y Mina 7" />
+      </div>
+      <h2>Opening hours</h2>
+      <ul>{OPENING_HOURS.map((d) => <li>{d.day}: {d.opens}–{d.closes}</li>)}</ul>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt><strong>When is Real Madrid v FC Bayern Munich in basketball?</strong></dt>
+        <dd>Tuesday 15 December 2026, 20:45 Madrid time, at the Movistar Arena (EuroLeague, round 17).</dd>
+        <dt><strong>Is Dubliners a meeting point for Bayern basketball fans?</strong></dt>
+        <dd>Yes. Less than a minute from Puerta del Sol. No reservations — first come, first served. A screening of this game is not confirmed.</dd>
+        <dt><strong>How do I get from Sol to the Movistar Arena?</strong></dt>
+        <dd>Metro Goya (lines 2 and 4) and O’Donnell (line 6) are the stops listed on the Real Madrid club page; line 2 also serves Sol. Check the Metro de Madrid app or crtm.es on the day. No journey times are given here.</dd>
+        <dt><strong>What time do you open on Tuesday?</strong></dt>
+        <dd>From 12:00. On Tuesday we are open 12:00–02:00.</dd>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

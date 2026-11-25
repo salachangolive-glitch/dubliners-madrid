@@ -8,12 +8,15 @@ import { SITE } from '../site';
 
 interface Props {
   title: string;
-  lang?: 'en' | 'es';
+  lang?: 'en' | 'es' | 'de';
   referrerpolicy?: string;
 }
 const { title, lang = 'en', referrerpolicy } = Astro.props;
 const es = lang === 'es';
-const L = es
+const de = lang === 'de';
+const L = de
+  ? { show: 'Karte anzeigen', note: '(Google Maps kann Cookies verwenden)', open: 'In Google Maps öffnen' }
+  : es
   ? { show: 'Mostrar mapa', note: '(Google Maps puede usar cookies)', open: 'Abrir en Google Maps' }
   : { show: 'Show map', note: '(Google Maps may set cookies)', open: 'Open in Google Maps' };
 ---

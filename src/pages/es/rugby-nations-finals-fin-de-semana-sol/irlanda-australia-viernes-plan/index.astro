@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+import { RUGBY_FINALS_GUIDE_ES, RUGBY_FINALS_WEEKEND } from '../../../../data/rugby-nations-finals-2026';
+
+// Artículo T-2, 25 nov 2026. Horarios de src/data/rugby-nations-finals-2026.ts
+// (World Rugby match centre + programa de Allianz Stadium Twickenham, hora de Madrid). Rugby: emisión confirmada.
+const PATH = '/es/rugby-nations-finals-fin-de-semana-sol/irlanda-australia-viernes-plan/';
+const PATH_EN = '/rugby-nations-finals-weekend-madrid/ireland-australia-friday-night-plan/';
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const fri = OPENING_HOURS.find((d) => d.day === 'Friday')!;
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Irlanda–Australia el viernes junto a Sol: plan del fin de semana de rugby',
+  datePublished: '2026-11-25',
+  inLanguage: 'es',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl(PATH),
+};
+---
+
+<BaseLayout
+  title={'Irlanda–Australia el viernes junto a Sol: plan del fin de semana de rugby | Dubliners'}
+  description={'Irlanda–Australia, viernes 27 de noviembre, 21:10 hora de Madrid, en directo en nuestras pantallas en Dubliners, a menos de un minuto de Sol. Las seis pruebas de las finales del Nations Championship, punto de encuentro, sin reservas, acceso por orden de llegada.'}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Irlanda–Australia: plan del viernes'} schema />
+      <h1>Irlanda–Australia el viernes junto a Sol: plan del fin de semana de rugby</h1>
+      <p class="small">Guía · 25 de noviembre de 2026 · a dos días del primer partido</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase(RUGBY_FINALS_GUIDE_ES)}>Todo el fin de semana de rugby</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>El fin de semana de finales del Nations Championship arranca el <strong>viernes 27 de noviembre</strong>, y el partido de la noche es el que la afición irlandesa y australiana en Madrid tiene marcado: <strong>Irlanda–Australia a las 21:10, hora de Madrid</strong>. Dubliners, en {SITE.address}, está <strong>a menos de un minuto de Sol</strong>, y las seis pruebas del fin de semana están <strong>confirmadas en directo en nuestras pantallas</strong>. Este es el plan, en hora de Madrid, del viernes por la tarde a la final del domingo.</p>
+
+      <h2>Los seis partidos en hora de Madrid</h2>
+      {RUGBY_FINALS_WEEKEND.map((day) => (
+        <div class="rugby-day">
+          <h3>{day.headingEs}</h3>
+          <ul>
+            {day.matches.map((m) => (
+              <li>
+                <strong>{m.time}</strong> — {m.es}
+                {m.final && ' — final'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <p class="small">Horarios del World Rugby match centre y del programa de Allianz Stadium Twickenham, en hora de Madrid. No nombramos emisora.</p>
+
+      <h2>Viernes: doble sesión desde las 17:40</h2>
+      <p>El viernes empieza con <strong>Italia–Fiyi a las 17:40</strong>, así que puedes venir directamente del trabajo o de pasear por el centro. Después, <strong>Irlanda–Australia a las 21:10</strong>. El viernes abrimos de {fri.opens} a {fri.closes}, con tiempo de sobra para quedarse tras el pitido final.</p>
+
+      <h2>A qué hora llegar</h2>
+      <p><strong>Sin reservas, acceso por orden de llegada</strong>. Para Irlanda–Australia, lo más sencillo es venir durante o después del Italia–Fiyi y no a las 21:00. Lo mismo el sábado con Inglaterra–Nueva Zelanda (17:40) y el domingo con la final Francia–Sudáfrica (17:40): ven al partido anterior y quédate.</p>
+
+      <h2>Punto de encuentro para la afición irlandesa y australiana</h2>
+      <p>Si estás en Madrid por trabajo, estudios o un fin de semana largo, Dubliners es el punto de encuentro en el centro: pub irlandés, se habla inglés en la barra, cerveza fría y aficionados de los dos equipos del viernes. Queda con tu grupo en el neón verde del número 7. Franceses, ingleses, galeses, escoceses, italianos, fiyianos, japoneses, argentinos, neozelandeses y sudafricanos, igual de bienvenidos el resto del fin de semana.</p>
+
+      <h2>Cómo llegar desde Sol</h2>
+      <p>Metro <strong>Sol</strong> (líneas 1, 2 y 3), Metro Sevilla (línea 2) o Cercanías Sol. Desde la Puerta del Sol, sal de la plaza hacia la Carrera de San Jerónimo / Sevilla y entra en la Calle de Espoz y Mina; Dubliners está en el número 7, {SITE.postal} Madrid. Abre la ruta en el móvil con <a href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>.</p>
+
+      <h2>Sábado y domingo</h2>
+      <p>El sábado ({sat.opens}–{sat.closes}): Gales–Japón a las 14:10 e Inglaterra–Nueva Zelanda a las 17:40. El domingo ({sun.opens}–{sun.closes}): Escocia–Argentina a las 14:10 y la <strong>final Francia–Sudáfrica a las 17:40</strong>. Todo el fin de semana, con preguntas frecuentes y mapa, en la página principal: <a href={withBase(RUGBY_FINALS_GUIDE_ES)}>Nations Championship — fin de semana junto a Sol</a>. Más rugby irlandés: <a href={withBase('/es/rugby-irlanda-madrid/')}>Rugby de Irlanda en Madrid</a>.</p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      </div>
+
+      <p>In English: <a href={withBase(PATH_EN)} hreflang="en">Ireland v Australia on Friday night near Sol: your plan for the rugby weekend</a>.</p>
+      <p class="small">Dubliners es un pub independiente, sin vinculación con World Rugby ni con los equipos.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rugby-day {
+    margin-bottom: 1rem;
+  }
+</style>

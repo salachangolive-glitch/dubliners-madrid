@@ -5,13 +5,13 @@
  * REMOVE after 2026-12-02: delete component + home imports.
  */
 import { SITE } from '../site';
-import { madridToday } from '../data/fixtures';
+import { buildNow, madridToday } from '../data/fixtures';
 
 interface Props { lang?: 'en' | 'es' }
 const { lang = 'en' } = Astro.props;
 const es = lang === 'es';
 const SHOW_UNTIL = '2026-12-02';
-if (madridToday() > SHOW_UNTIL) return null;
+if (madridToday(buildNow()) > SHOW_UNTIL) return null;
 ---
 
 <section

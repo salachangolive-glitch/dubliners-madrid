@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
-const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
+const wed = OPENING_HOURS.find((d) => d.day === 'Wednesday')!;
 
 // Norwegian (bokmål) pair of /viking-fans-madrid/ (DG LUNES-26, 26 Oct 2026, VIKING-DUB). Same verified data as EN.
 // Native-speaker review recommended.
@@ -56,14 +56,13 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Oppdatering 22. november 2026</h2>
-      <p class="small">Viking-uke · tre dager før avspark (onsdag 25. november kl. 21.00).</p>
-      <p><strong>Ankomst Madrid:</strong> Fra <strong>Barajas</strong>, T-banens linje 8 mot sentrum (bytte mot Sol). Fra <strong>Atocha</strong>, linje 1 til <strong>Sol</strong> — {SITE.address} er en kort gåtur.</p>
-      <p><strong>Fra Sol til Riyadh Air Metropolitano:</strong> Stadion ligger ved T-banelinje <strong>7</strong>, stasjon <strong>Estadio Metropolitano</strong>. Planlegg ruten i Metro de Madrid-appen eller på <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>. Beregn ekstra tid på Champions League-kvelder.</p>
-      <p><strong>Åpent i dag (søndag):</strong> {sun.opens}–{sun.closes}.</p>
-      <p><strong>Reservasjoner:</strong> <strong>Ingen bordreservasjoner</strong> — førstemann til mølla. Tre-barer-guiden på O’Connell’s (lenker i hovedteksten) forklarer dørene på europakvelder.</p>
-      <p><strong>Søndagsstemning:</strong> Roligere midt på dagen, så fotballgjester når kampene går på skjerm. Mange som reiser til onsdagskampen bruker søndagen til å sjekke T-baneruten fra Sol.</p>
-      <p><strong>FAQ:</strong> Avspark, direktesending, åpningstider onsdag og vei til stadion står i FAQ nedenfor.</p>
+      <h2>Oppdatering 25. november 2026</h2>
+      <p class="small">Kampkveld · Atlético de Madrid–Viking FK, avspark kl. 21.00 (Madrid), Champions League.</p>
+      <p><strong>I kveld på Dubliners:</strong> Avspark <strong>kl. 21.00</strong>. Vi viser <strong>Atlético–Viking DIREKTE på skjermene</strong> på {SITE.address}, mindre enn ett minutt fra Puerta del Sol — møteplass uten stadionbillett eller før/etter Riyadh Air Metropolitano.</p>
+      <p><strong>Samme onsdag ved Sol:</strong> <a href={withBase('/zalgiris-fans-madrid/')} hreflang="en">Real Madrid–Žalgiris</a> starter <strong>kl. 20.45</strong> i Movistar Arena; EuroLeague-visning her er <strong>ikke bekreftet</strong> — sjekk <a href={withBase('/whats-on/')} hreflang="en">What’s On</a> før du kommer.</p>
+      <p><strong>Åpent i dag (onsdag):</strong> {wed.opens}–{wed.closes}. Dørene er åpne; fra ettermiddag bygges stemningen mot begge kampene. <strong>Ingen bordreservasjoner</strong> — førstemann til mølla.</p>
+      <p><strong>Til stadion:</strong> T-banelinje 7, stasjon Estadio Metropolitano. Bruk Metro de Madrid-appen eller <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; ekstra tid i kveld.</p>
+      <p><strong>Denne uken:</strong> Champions på <a href={withBase('/whats-on/')} hreflang="en">What’s On</a>; Nations Championship-rugby <a href={withBase('/rugby-nations-finals-weekend-madrid/')} hreflang="en">27.–29. nov</a> under fotballkortene på forsiden.</p>
     </div>
   </section>
   <section class="section">

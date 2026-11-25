@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
-const sun = OPENING_HOURS.find((d) => d.day === 'Sunday')!;
+const wed = OPENING_HOURS.find((d) => d.day === 'Wednesday')!;
 
 // Real Madrid v Žalgiris Kaunas, EuroLeague league phase MD14, Movistar Arena, Wed 25 Nov 2026 20:45 Madrid (CET).
 // Source: Radar aficiones-visitantes-6sem-2026-11-09.md + EuroLeague feed E2026_139 (movistararena.es).
@@ -53,14 +53,13 @@ const faqLd = {
   </section>
   <section class="section band">
     <div class="container prose">
-      <h2>Actualización 22 de noviembre de 2026</h2>
-      <p class="small">Semana Žalgiris · a tres días del salto inicial (miércoles 25 de noviembre, 20:45).</p>
-      <p><strong>Llegada a Madrid:</strong> Desde <strong>Barajas</strong>, Metro línea 8; desde <strong>Atocha</strong>, línea 1 a <strong>Sol</strong>. {SITE.address} junto a Sol.</p>
-      <p><strong>De Sol al Movistar Arena:</strong> El pabellón queda al noroeste — suele irse por <strong>Nuevos Ministerios</strong> o autobús según el día. Consulta la app del Metro o <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
-      <p><strong>Hoy domingo abierto:</strong> {sun.opens}–{sun.closes}.</p>
-      <p><strong>Reservas:</strong> <strong>Sin reservas de mesa</strong> — acceso por orden de llegada. Pregunta en barra qué pantalla lleva EuroLeague cuando el partido figure en la lista.</p>
-      <p><strong>Ambiente del domingo:</strong> Tarde más calmada en Sol; por la noche mezcla de afición cuando el fútbol del día está en pantalla según <a href={withBase('/es/partidos/')}>Partidos</a>. Grupos del miércoles suelen usar el domingo para trazar Metro hacia el Movistar Arena.</p>
-      <p><strong>FAQ:</strong> Hora del salto, estado de la emisión, apertura del miércoles y dirección — bloque FAQ al final.</p>
+      <h2>Actualización 25 de noviembre de 2026</h2>
+      <p class="small">Noche de partido · Real Madrid–Žalgiris Kaunas, 20:45 hora de Madrid (EuroLeague).</p>
+      <p><strong>Esta noche en Dubliners:</strong> Salto inicial en el Movistar Arena a las <strong>20:45</strong>. Somos <strong>punto de encuentro</strong> en {SITE.address}, junto a Sol, antes de ir al pabellón. Emisión del partido en nuestras pantallas <strong>por confirmar</strong> — mira <a href={withBase('/es/partidos/')}>Partidos</a> antes de venir.</p>
+      <p><strong>El mismo miércoles en Sol:</strong> Quince minutos después, <a href={withBase('/es/aficionados-viking-madrid/')}>Atlético–Viking</a> a las <strong>21:00</strong> — Champions <strong>EN DIRECTO en nuestras pantallas</strong>.</p>
+      <p><strong>Hoy miércoles abierto:</strong> {wed.opens}–{wed.closes}. <strong>Sin reservas de mesa</strong> — acceso por orden de llegada. Si EuroLeague está en la lista, pregunta en barra qué pantalla lleva el partido.</p>
+      <p><strong>Hacia el Movistar Arena:</strong> App del Metro o <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>; margen extra en noche de EuroLeague.</p>
+      <p><strong>Esta semana:</strong> Agenda en <a href={withBase('/es/partidos/')}>Partidos</a>; rugby Nations Championship <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/')}>27–29 nov</a> debajo de las tarjetas de fútbol en la home.</p>
     </div>
   </section>
   <section class="section">

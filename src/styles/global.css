@@ -824,6 +824,28 @@ ul {
   text-align: center;
 }
 
+/* Home EN/ES — Barça v Atlético featured block (temp until 2026-12-02 Madrid). */
+.home-barca-atleti {
+  margin: 0;
+  padding: 0.85rem 0 1rem;
+}
+
+.home-barca-atleti__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.home-barca-atleti__hook {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.home-barca-atleti__cta {
+  margin: 0;
+}
+
 /* Home EN/ES — PSV eve video above hero (temp until PSV_HOME_VIDEO_UNTIL_ISO). */
 .home-psv-eve {
   margin: 0;

@@ -8,24 +8,23 @@ import { TG } from '../../data/thanksgiving';
 
 // THANKSGIVING-DUB (DG 25 Oct): permanent, reusable page. Update src/data/thanksgiving.ts each year (Radar-verified only).
 const thu = OPENING_HOURS.find((d) => d.day === 'Thursday')!;
-const ex = TG.excluded[0];
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: `What time is the Thanksgiving NFL in Madrid in ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `On ${TG.dateEn}: ${TG.games.map((g) => `${g.away} at ${g.home} ${g.madridTime}`).join(', ')} (Madrid time). Whether we show them at Dubliners is to be confirmed: check What’s On.` } },
-    { '@type': 'Question', name: 'Do you show the Thanksgiving night game?', acceptedAnswer: { '@type': 'Answer', text: ex ? `No. ${ex.away} at ${ex.home} starts at ${ex.madridTime} Madrid time, after we close at ${thu.closes} on Thursday.` : 'Only games that start within our opening hours.' } },
+    { '@type': 'Question', name: `What time is the Thanksgiving NFL in Madrid in ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `Thanksgiving ${TG.year}: ${TG.games.map((g) => `${g.away} at ${g.home} ${g.madridTime} Madrid${g.dayNoteEn ? ` (${g.dayNoteEn})` : ''}`).join('; ')}. All confirmed LIVE on our screens at Dubliners.` } },
+    { '@type': 'Question', name: 'Do you show the Thanksgiving night game?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — Chiefs at Bills is on our screens too (02:20 Madrid time, Friday 27 November). Check What’s On for the full board.' } },
     { '@type': 'Question', name: 'Where is Dubliners?', acceptedAnswer: { '@type': 'Answer', text: `Calle de Espoz y Mina 7, 28012 Madrid, a few steps from Puerta del Sol. Metro Sol (lines 1, 2 and 3) or Sevilla (line 2). Thursday ${thu.opens}–${thu.closes}.` } },
   ],
 };
 ---
 
-<BaseLayout title={`Thanksgiving NFL in Madrid ${TG.year}: game times near Sol | Dubliners`} description={`Thanksgiving in Madrid ${TG.year}: Bears–Lions and Eagles–Cowboys kick-off times (Madrid time). Welcome for US fans — Dubliners, O’Connell’s and O’Reilly’s as a meeting point by Puerta del Sol. Screening to be confirmed on What’s On. Nations Championship rugby Fri–Sun 27–29 on the board.`} path="/thanksgiving-madrid/" lang="en" hreflang={{ en: '/thanksgiving-madrid/', es: '/es/thanksgiving-madrid/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
+<BaseLayout title={`Thanksgiving NFL in Madrid ${TG.year}: game times near Sol | Dubliners`} description={`Thanksgiving in Madrid ${TG.year}: Bears–Lions, Eagles–Cowboys and Chiefs–Bills kick-off times (Madrid time). LIVE on our screens at Dubliners, O’Connell’s and O’Reilly’s by Puerta del Sol. Nations Championship rugby Fri–Sun 27–29 on the board.`} path="/thanksgiving-madrid/" lang="en" hreflang={{ en: '/thanksgiving-madrid/', es: '/es/thanksgiving-madrid/' }} ogImage="/images/screens-sports.jpg" extraJsonLd={[faqLd]}>
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Thanksgiving in Madrid" schema />
       <h1>Thanksgiving in Madrid: NFL times near Puerta del Sol</h1>
-      <p class="lead">If you are from the US and staying in Madrid, {TG.dateEn} is Thanksgiving with the Bears–Lions and Eagles–Cowboys double-header on the clock (Madrid time). Dubliners is with O’Connell’s and O’Reilly’s on the same streets — one Irish-pub meeting point by Puerta del Sol for friends after work. Whether we put the games on is to be confirmed: see <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <p class="lead">If you are from the US and staying in Madrid, {TG.dateEn} is Thanksgiving with Bears–Lions and Eagles–Cowboys on the clock, plus Chiefs–Bills early Friday (Madrid time). Dubliners is with O’Connell’s and O’Reilly’s on the same streets — one Irish-pub meeting point by Puerta del Sol. <strong>All three games are confirmed LIVE on our screens</strong> at Dubliners. Full board: <a href={withBase('/whats-on/')}>What’s On</a>.</p>
       <p class="small">{TG.dateEn} · Madrid time · Updated {TG.updatedEn}</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Open directions</a>
@@ -38,7 +37,7 @@ const faqLd = {
       <h2>Thanksgiving tonight — NFL kick-offs (Madrid time)</h2>
       <p>
         <strong>{TG.dateEn}</strong>: {TG.games.map((g) => (<><strong>{g.madridTime}</strong> — {g.away} at {g.home}{' '}</>))}
-        Walk-ins are welcome at Dubliners, O’Connell’s and O’Reilly’s near Puerta del Sol. We list any confirmed screening on <a href={withBase('/whats-on/')}>What’s On</a> once the owner has confirmed it.
+        Walk-ins are welcome at Dubliners, O’Connell’s and O’Reilly’s near Puerta del Sol. These Thanksgiving NFL games are <strong>LIVE on our screens</strong> at Dubliners — see <a href={withBase('/whats-on/')}>What’s On</a>.
       </p>
       <h2>Nations Championship rugby — Fri–Sun 27–29 November</h2>
       <p>
@@ -46,10 +45,9 @@ const faqLd = {
       </p>
       <h2>Thanksgiving {TG.year}: NFL games (Madrid time)</h2>
       <ul>
-        {TG.games.map((g) => (<li><strong>{g.madridTime}</strong> — {g.away} at {g.home}</li>))}
+        {TG.games.map((g) => (<li><strong>{g.madridTime}</strong> — {g.away} at {g.home}{g.dayNoteEn ? ` · ${g.dayNoteEn}` : ''}</li>))}
       </ul>
-      {ex && (<p>{ex.away} at {ex.home} starts at {ex.madridTime} Madrid time on Friday, after we close at {thu.closes} on Thursday, so it is not on our list.</p>)}
-      <p class="small">Kick-off times from the NFL schedule ({TG.games.concat(TG.excluded).map((g, i) => (<>{i > 0 && ' · '}<a href={g.source} rel="noopener noreferrer" target="_blank">nfl.com</a></>))}). Board listing: <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <p class="small">Kick-off times from the NFL schedule (<a href="https://www.nfl.com/schedules/2026/REG11/" rel="noopener noreferrer" target="_blank">nfl.com</a>, week 11). Board listing: <a href={withBase('/whats-on/')}>What’s On</a>.</p>
       <picture><source type="image/webp" srcset={`${withBase('/images/screens-sports-sm.webp')} 800w, ${withBase('/images/screens-sports.webp')} 1400w`} sizes="(max-width: 800px) 100vw, 720px" /><img class="split-photo landscape" src={withBase('/images/screens-sports.jpg')} width="1400" height="788" loading="lazy" decoding="async" alt="Sports on the screens inside Dubliners Madrid" /></picture>
       <h2>Thanksgiving Thursday, every year</h2>
       <p>Thanksgiving is the fourth Thursday of November. In Madrid it is a normal working day, so the first game usually starts in the early evening and the second one later at night, a good plan after work with friends from home. We update this page each year as soon as the times are confirmed.</p>

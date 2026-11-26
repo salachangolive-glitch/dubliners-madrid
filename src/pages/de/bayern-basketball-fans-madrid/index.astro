@@ -60,7 +60,7 @@ const faqLd = {
       name: 'Ist Dubliners ein Treffpunkt für Bayern-Basketball-Fans?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ja. Dubliners, Calle de Espoz y Mina 7, weniger als eine Minute von der Puerta del Sol, ist der Treffpunkt am Montag, 14., und Dienstag, 15. Dezember, vor und nach dem Spiel. Keine Reservierungen. Das Spiel läuft LIVE auf unseren Bildschirmen bei Dubliners am Dienstag, 15. Dezember. Wir nennen keinen TV-Sender.',
+        text: 'Ja. Dubliners ist mit O’Connell’s und O’Reilly’s an denselben Straßen an der Puerta del Sol — ein Treffpunkt für Bayern-Fans am Montag, 14., und Dienstag, 15. Dezember, vor und nach dem Spiel in der Movistar Arena. Keine Reservierungen. Ob wir das Spiel zeigen, ist noch nicht bestätigt: siehe What’s On.',
       },
     },
     {
@@ -87,10 +87,10 @@ const faqLd = {
   <section class="hero hero-compact">
     <div class="container">
       <h1>Bayern-Basketball-Fans in Madrid: Treffpunkt vor Real Madrid gegen Bayern</h1>
-      <p class="lead">Dienstag, 15. Dezember 2026, Spielbeginn 20:45 Uhr Madrider Zeit. EuroLeague-Basketball, 17. Spieltag, in der Movistar Arena. Dubliners ist der Treffpunkt für Bayern-Fans im Zentrum von Madrid, weniger als eine Minute von der Puerta del Sol — vor dem Weg zur Halle und danach wieder zurück.</p>
+      <p class="lead">Dienstag, 15. Dezember 2026, Spielbeginn 20:45 Uhr Madrider Zeit. EuroLeague-Basketball, 17. Spieltag, in der Movistar Arena. Dubliners, O’Connell’s und O’Reilly’s bilden den Treffpunkt an der Puerta del Sol — vor der Halle und danach. Übertragung noch nicht bestätigt: <a href={withBase('/whats-on/')}>What’s On</a>.</p>
       <p class="small">Calle de Espoz y Mina 7, 28012 Madrid · Dienstag {tue.opens}–{tue.closes} Uhr · Keine Reservierungen, Einlass nach Reihenfolge der Ankunft</p>
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Route planen</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route planen</a>
         <a class="btn btn-primary" href={withBase('/whats-on/')}>What’s On</a>
       </div>
     </div>
@@ -105,7 +105,7 @@ const faqLd = {
         <li><strong>Zu Fuß von der Puerta del Sol:</strong> verlasst den Platz in Richtung Carrera de San Jerónimo / Sevilla und geht in die Calle de Espoz y Mina; das grüne Neon von Dubliners hängt an der Nummer 7, weniger als eine Minute von der Sol.</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" data-directions-btn href={mapsCta} rel="noopener noreferrer" target="_blank">Route planen</a>
+        <a class="btn btn-gold" data-track-event="directions_click" data-directions-btn href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Route planen</a>
         <a class="btn btn-secondary" href={withBase('/visit/')}>Öffnungszeiten und Karte</a>
       </div>
     </div>
@@ -116,7 +116,7 @@ const faqLd = {
         <h2>Das Spiel</h2>
         <p>Der FC Bayern München gastiert am Dienstag, 15. Dezember 2026, bei Real Madrid in der EuroLeague. Spielbeginn ist 20:45 Uhr Madrider Zeit (im Dezember dieselbe Uhrzeit wie in München), in der Movistar Arena, Avenida de Felipe II, 28009 Madrid. Die Angaben stehen auf der <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">Spielseite von Real Madrid</a> und stimmen mit dem EuroLeague-Feed überein (Spiel E2026_166, 19:45 UTC).</p>
         <h2>Treffpunkt bei Dubliners</h2>
-        <p>Dubliners ist ein Irish Pub in der {SITE.address}, {SITE.postal}, weniger als eine Minute von der Puerta del Sol. <strong>Montag, 14., und Dienstag, 15. Dezember</strong> ist ihr Treffpunkt im Zentrum — vor der Movistar Arena und danach. Am Dienstag haben wir von {tue.opens} bis {tue.closes} Uhr geöffnet. <strong>Real Madrid gegen FC Bayern München läuft LIVE auf unseren Bildschirmen bei Dubliners</strong> (20:45 Uhr). An der Bar wird Deutsch und Englisch verstanden. Wir nennen keinen TV-Sender.</p>
+        <p>Dubliners ist ein Irish Pub in der {SITE.address}, {SITE.postal}, mit O’Connell’s und O’Reilly’s an denselben Straßen an der Puerta del Sol. <strong>Montag, 14., und Dienstag, 15. Dezember</strong> ist ihr Treffpunkt — vor der Movistar Arena und danach. Am Dienstag haben wir von {tue.opens} bis {tue.closes} Uhr geöffnet. Eine bestätigte Übertragung steht auf <a href={withBase('/whats-on/')}>What’s On</a>, sobald der Eigner sie bestätigt hat. An der Bar wird Deutsch und Englisch verstanden.</p>
         <h2>Reservierungen</h2>
         <p><strong>Keine Reservierungen</strong>, Einlass nach Reihenfolge der Ankunft.</p>
         <h2>Von der Sol zur Movistar Arena</h2>
@@ -145,7 +145,7 @@ const faqLd = {
         <dt><strong>Wann spielt Real Madrid gegen den FC Bayern München im Basketball?</strong></dt>
         <dd>Am Dienstag, 15. Dezember 2026, um 20:45 Uhr Madrider Zeit in der Movistar Arena (EuroLeague, 17. Spieltag).</dd>
         <dt><strong>Ist Dubliners ein Treffpunkt für Bayern-Basketball-Fans?</strong></dt>
-        <dd>Ja — Montag, 14., und Dienstag, 15. Dezember, vor und nach dem Spiel. Weniger als eine Minute von der Puerta del Sol. Keine Reservierungen. LIVE auf unseren Bildschirmen bei Dubliners am Dienstag, 15. Dezember.</dd>
+        <dd>Ja — Montag, 14., und Dienstag, 15. Dezember, vor und nach dem Spiel, mit O’Connell’s und O’Reilly’s an der Puerta del Sol. Keine Reservierungen. Übertragung noch nicht bestätigt (What’s On).</dd>
         <dt><strong>Wie komme ich von der Sol zur Movistar Arena?</strong></dt>
         <dd>Die Real-Madrid-Seite nennt Metro Goya (Linien 2 und 4) und O’Donnell (Linie 6); die Linie 2 bedient auch Sol. Prüft die App von Metro de Madrid oder crtm.es am Spieltag. Hier stehen keine Fahrzeiten.</dd>
         <dt><strong>Wann habt ihr am Dienstag geöffnet?</strong></dt>

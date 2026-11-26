@@ -1,0 +1,48 @@
+---
+/**
+ * TEMPORARY home featured — Real Madrid v FC Bayern Munich EuroLeague, Tue 15 Dec 2026 20:45 Movistar Arena (T52).
+ * Meeting point Mon 14 & Tue 15. Off from Wed 16 Dec 2026 (Europe/Madrid). REMOVE after expiry.
+ */
+import { SITE } from '../site';
+import { buildNow, madridToday } from '../data/fixtures';
+
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const SHOW_UNTIL = '2026-12-15';
+if (madridToday(buildNow()) > SHOW_UNTIL) return null;
+
+---
+
+<section
+  class="section band-gold home-bayern-basket-15dec"
+  id={es ? 'bayern-baloncesto-15-diciembre' : 'bayern-basketball-15-december'}
+  data-show-until={SHOW_UNTIL}
+  data-home-block="bayern-basket-15dec"
+  aria-label={es ? 'Bayern baloncesto: punto de encuentro' : 'Bayern basketball: meeting point'}
+>
+  <div class="container">
+    {es ? (
+      <>
+        <h2 class="home-bayern-basket-15dec__title">Real Madrid–FC Bayern Munich · EuroLeague · mar 15 dic · 20:45 · Movistar Arena</h2>
+        <p class="home-bayern-basket-15dec__hook">
+          Punto de encuentro para la afición del Bayern el <strong>lunes 14</strong> y el <strong>martes 15 de diciembre</strong>, antes y después del partido — en Dubliners, en el centro de Madrid.
+        </p>
+        <p class="home-bayern-basket-15dec__de" lang="de">Bayern-Fans: Treffpunkt Mo&nbsp;14. &amp; Di&nbsp;15. Dez. — vor und nach dem Spiel.</p>
+      </>
+    ) : (
+      <>
+        <h2 class="home-bayern-basket-15dec__title">Real Madrid v FC Bayern Munich · EuroLeague · Tue 15 Dec · 20:45 · Movistar Arena</h2>
+        <p class="home-bayern-basket-15dec__hook">
+          Meeting point for Bayern fans on <strong>Monday 14</strong> and <strong>Tuesday 15 December</strong>, before and after the game — at Dubliners in central Madrid.
+        </p>
+        <p class="home-bayern-basket-15dec__de" lang="de">Bayern-Fans: Treffpunkt Mo&nbsp;14. &amp; Di&nbsp;15. Dez. — vor und nach dem Spiel.</p>
+      </>
+    )}
+    <div class="cta-row home-bayern-basket-15dec__cta">
+      <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">
+        {es ? 'Cómo llegar' : 'Get directions'}
+      </a>
+    </div>
+  </div>
+</section>

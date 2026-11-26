@@ -1,0 +1,21 @@
+# Daily rebuild so date-gated home bands drop on schedule (rugby 30 Nov, Barça 3 Dec, Bayern 16 Dec).
+# 03:00 UTC ≈ 04:00 Europe/Madrid in winter (CET); ≈ 05:00 in summer (CEST).
+name: Daily gh-pages rebuild (Madrid)
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Deploy gh-pages with Europe/Madrid AGENDA_NOW
+        run: ./scripts/deploy-gh-pages.sh "deploy: daily cron Madrid AGENDA_NOW"

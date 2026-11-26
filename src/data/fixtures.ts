@@ -855,9 +855,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'EuroLeague',
     teams: 'Real Madrid vs FC Bayern Munich',
     madridTime: '20:45',
-    confirmedOnScreens: false,
-    noteEn: 'EuroLeague basketball at the Movistar Arena. Meeting point at Dubliners; screening not confirmed.',
-    noteEs: 'Baloncesto EuroLeague en el Movistar Arena. Punto de encuentro en Dubliners; emisión no confirmada.',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball at the Movistar Arena, 20:45 Madrid. LIVE on our screens at Dubliners; meeting point Mon 14 & Tue 15.',
+    noteEs: 'Baloncesto EuroLeague en el Movistar Arena, 20:45 Madrid. En directo en nuestras pantallas en Dubliners; punto de encuentro lun 14 y mar 15.',
     link: {
       href: '/bayern-basketball-fans-madrid/',
       hrefEs: '/es/aficionados-bayern-baloncesto-madrid/',

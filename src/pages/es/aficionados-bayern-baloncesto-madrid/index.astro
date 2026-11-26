@@ -10,7 +10,7 @@ const mapsCta =
   'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
 
 // Misma ficha que la hub EN: 15 dic 2026, 20:45 Madrid, Movistar Arena, E2026_166.
-// Emisión no confirmada. No usar «en directo», LIVE ni «en nuestras pantallas» sobre este partido.
+// Emisión confirmada en Dubliners (dueño 24 nov 2026). Sin nombrar emisora.
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
@@ -53,7 +53,7 @@ const faqLd = {
       name: '¿Dubliners es punto de encuentro para aficionados del Bayern de baloncesto?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sí. Dubliners, Calle de Espoz y Mina 7, a menos de un minuto de la Puerta del Sol, es punto de encuentro antes y después del partido. Sin reservas, acceso por orden de llegada. La emisión de este partido en Dubliners no está confirmada.',
+        text: 'Sí. Dubliners, Calle de Espoz y Mina 7, a menos de un minuto de la Puerta del Sol, es punto de encuentro el lunes 14 y el martes 15 de diciembre, antes y después del partido. Sin reservas, acceso por orden de llegada. El partido está confirmado en directo en nuestras pantallas en Dubliners el martes 15 de diciembre. No nombramos emisora.',
       },
     },
     {
@@ -96,14 +96,14 @@ const faqLd = {
         <h2>El partido</h2>
         <p>El FC Bayern Munich visita Madrid para jugar contra el Real Madrid en la EuroLeague el martes 15 de diciembre de 2026. El salto inicial es a las 20:45 hora de Madrid (el mismo reloj que en Múnich en diciembre), en el Movistar Arena, Avenida de Felipe II, 28009 Madrid. Los datos figuran en la <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">página del partido del Real Madrid</a> y están confirmados en el feed de la EuroLeague (partido E2026_166, 19:45 UTC).</p>
         <h2>Punto de encuentro en Dubliners</h2>
-        <p>Dubliners es un pub irlandés en {SITE.address}, {SITE.postal}, a menos de un minuto de la Puerta del Sol. El martes abrimos de {tue.opens} a {tue.closes}, así que hay tiempo para quedar en el centro antes de ir al pabellón y para volver después. En barra se habla inglés, alemán y español. La emisión de este partido en Dubliners no está confirmada.</p>
+        <p>Dubliners es un pub irlandés en {SITE.address}, {SITE.postal}, a menos de un minuto de la Puerta del Sol. Punto de encuentro el <strong>lunes 14</strong> y el <strong>martes 15 de diciembre</strong> en el centro de Madrid, antes del Movistar Arena y al volver. El martes abrimos de {tue.opens} a {tue.closes}. El <strong>Real Madrid–FC Bayern Munich está confirmado en directo en nuestras pantallas en Dubliners</strong> (20:45). En barra se habla inglés, alemán y español. No nombramos emisora.</p>
         <h2>Reservas</h2>
         <p><strong>Sin reservas</strong>, acceso por orden de llegada.</p>
         <h2>De Sol al Movistar Arena</h2>
         <p>Solo transporte público, sin inventar tiempos. La <a href="https://www.realmadrid.com/es-ES/el-club/movistar-arena" rel="noopener noreferrer" target="_blank">página del Real Madrid sobre el Movistar Arena</a> indica Metro <strong>Goya (líneas 2 y 4)</strong> y <strong>O’Donnell (línea 6)</strong>, Cercanías <strong>Recoletos</strong> y los autobuses EMT que figuran en esa página. Dubliners está junto al Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2). La línea 2 sirve Sol y Goya. Para la conexión del día, usa la app de Metro de Madrid o <a href="https://www.crtm.es/" rel="noopener noreferrer" target="_blank">crtm.es</a>.</p>
         <h2>Antes y después del partido</h2>
         <p><strong>Antes del salto inicial:</strong> desde las 12:00 podéis quedar en el pub y luego ir al pabellón en transporte público. <strong>Después del partido:</strong> la misma parada de Sol es un sitio natural para reagruparse; el martes cerramos a las {tue.closes}.</p>
-        <p>In English: <a href={withBase('/bayern-basketball-fans-madrid/')} hreflang="en">Bayern basketball meeting point</a>. Auf Deutsch: <a href={withBase('/de/bayern-basketball-fans-madrid/')} hreflang="de">Treffpunkt für Bayern-Basketball-Fans</a>. Guía breve: <a href={withBase('/bayern-basketball-fans-madrid/what-to-know-before-the-game/')} hreflang="en">what to know before the game</a>.</p>
+        <p>In English: <a href={withBase('/bayern-basketball-fans-madrid/')} hreflang="en">Bayern basketball meeting point</a>. Auf Deutsch: <a href={withBase('/de/bayern-basketball-fans-madrid/')} hreflang="de">Treffpunkt für Bayern-Basketball-Fans</a>. La noche anterior (EN/DE): <a href={withBase('/bayern-basketball-fans-madrid/what-to-know-before-the-game/')} hreflang="en">Bayern Fans Madrid Kneipe — Monday 14 December</a>.</p>
         <p class="small">Dubliners es un pub independiente, sin vinculación con la EuroLeague, el Real Madrid ni el FC Bayern Munich. Esta página no es la guía de fútbol de Atlético–Bayern del 3 de noviembre, que sigue en <a href={withBase('/bayern-fans-madrid/')}>/bayern-fans-madrid/</a>.</p>
       </div>
       <picture>
@@ -125,7 +125,7 @@ const faqLd = {
         <dt><strong>¿Cuándo es el Real Madrid–FC Bayern Munich de baloncesto?</strong></dt>
         <dd>El martes 15 de diciembre de 2026, a las 20:45 hora de Madrid, en el Movistar Arena (EuroLeague, jornada 17).</dd>
         <dt><strong>¿Dubliners es punto de encuentro para aficionados del Bayern de baloncesto?</strong></dt>
-        <dd>Sí. A menos de un minuto de la Puerta del Sol. Sin reservas, acceso por orden de llegada. La emisión de este partido no está confirmada.</dd>
+        <dd>Sí — lunes 14 y martes 15 de diciembre, antes y después del partido. A menos de un minuto de la Puerta del Sol. Sin reservas. Confirmado en directo en nuestras pantallas en Dubliners el martes 15 de diciembre.</dd>
         <dt><strong>¿Cómo ir de Sol al Movistar Arena?</strong></dt>
         <dd>La página del Real Madrid indica Metro Goya (líneas 2 y 4) y O’Donnell (línea 6); la línea 2 también sirve Sol. Consulta la app de Metro de Madrid o crtm.es el mismo día. Aquí no damos tiempos de trayecto.</dd>
         <dt><strong>¿A qué hora abrís el martes?</strong></dt>

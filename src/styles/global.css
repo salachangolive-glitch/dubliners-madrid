@@ -880,6 +880,35 @@ ul {
   margin: 0.75rem 0 0;
 }
 
+/* Home EN/ES — Bayern basketball EuroLeague 15 Dec (temp until 2026-12-15 Madrid). */
+.home-bayern-basket-15dec {
+  margin: 0;
+  padding: 0.85rem 0 1rem;
+}
+
+.home-bayern-basket-15dec__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.home-bayern-basket-15dec__hook {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.home-bayern-basket-15dec__de {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-style: italic;
+}
+
+.home-bayern-basket-15dec__cta {
+  margin: 0;
+}
+
 /* Home EN/ES — PSV eve video above hero (temp until PSV_HOME_VIDEO_UNTIL_ISO). */
 .home-psv-eve {
   margin: 0;

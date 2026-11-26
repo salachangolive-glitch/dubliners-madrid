@@ -127,6 +127,9 @@
  * - 23 Nov (DG): home/away per laliga.com J14 (Radar): Levante–Racing (Fri 27) and Betis–Rayo (Sat 28). RM–Žalgiris: broadcast NOT confirmed →
  *   confirmedOnScreens false + «To be confirmed / por confirmar». Sat 21 rugby rows RETIRED (Ireland v South Africa kept, unlinked, as data for its archive page).
  *   Final written France v South Africa / Francia–Sudáfrica (owner rule).
+ * - 26 Nov (DG): LaLiga J16 Sun 13 Dec — Atlético de Madrid–Valencia 14:00, Real Madrid–Osasuna 21:00 (LaLiga jornada 16;
+ *   realmadrid.com 23 Nov 2026 + laliga.com; FUENTES-PARTIDOS-COMPARTIDAS.md not in agencia-digital-operaciones main/PR15).
+ *   Thanksgiving NFL Thu 26 Nov Bears–Lions 19:00, Eagles–Cowboys 22:30 (nfl.com, thanksgiving.ts) restored on board.
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens false; meeting point only. Links /bayern-basketball-fans-madrid/. Outside the current board window (through 29 Nov).
@@ -455,6 +458,38 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
     noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-26',
+    whenLabel: 'Thu 26 Nov',
+    competition: 'NFL',
+    teams: 'Chicago Bears at Detroit Lions',
+    madridTime: '19:00',
+    confirmedOnScreens: true,
+    noteEn: 'Thanksgiving NFL — LIVE on our screens.',
+    noteEs: 'NFL de Thanksgiving — en directo en nuestras pantallas.',
+    link: {
+      href: '/thanksgiving-madrid/',
+      hrefEs: '/es/thanksgiving-madrid/',
+      labelEn: 'Thanksgiving NFL in Madrid',
+      labelEs: 'NFL de Thanksgiving en Madrid',
+    },
+  },
+{
+    dateKey: '2026-11-26',
+    whenLabel: 'Thu 26 Nov',
+    competition: 'NFL',
+    teams: 'Philadelphia Eagles at Dallas Cowboys',
+    madridTime: '22:30',
+    confirmedOnScreens: true,
+    noteEn: 'Thanksgiving NFL — LIVE on our screens.',
+    noteEs: 'NFL de Thanksgiving — en directo en nuestras pantallas.',
+    link: {
+      href: '/thanksgiving-madrid/',
+      hrefEs: '/es/thanksgiving-madrid/',
+      labelEn: 'Thanksgiving NFL in Madrid',
+      labelEs: 'NFL de Thanksgiving en Madrid',
+    },
   },
 {
     dateKey: '2026-11-26',
@@ -850,6 +885,28 @@ export const FIXTURES: Fixture[] = [
     noteEs: 'En directo en nuestras pantallas.',
   },
 {
+    dateKey: '2026-12-13',
+    whenLabel: 'Sun 13 Dec',
+    competition: 'LaLiga',
+    teams: 'Atlético de Madrid vs Valencia',
+    teamsEs: 'Atlético de Madrid vs Valencia',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens. LaLiga matchday 16.',
+    noteEs: 'En directo en nuestras pantallas. Jornada 16 de LaLiga.',
+  },
+{
+    dateKey: '2026-12-13',
+    whenLabel: 'Sun 13 Dec',
+    competition: 'LaLiga',
+    teams: 'Real Madrid vs Osasuna',
+    teamsEs: 'Real Madrid vs Osasuna',
+    madridTime: '21:00',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens. LaLiga matchday 16.',
+    noteEs: 'En directo en nuestras pantallas. Jornada 16 de LaLiga.',
+  },
+{
     dateKey: '2026-12-15',
     whenLabel: 'Tue 15 Dec',
     competition: 'EuroLeague',
@@ -1024,8 +1081,8 @@ export function sortFixturesSoonestFirst(list: Fixture[]): Fixture[] {
  * The client script (FixtureAntiStale) hides finished rows; the board HTML only includes this week.
  */
 
-/** Latest Madrid calendar day on the fixture board (Mon 23–Sun 29 Nov 2026 lock). */
-const AGENDA_BOARD_THROUGH = '2026-11-29';
+/** Latest Madrid calendar day on the fixture board (extends through Tue 15 Dec 2026 Bayern week). */
+const AGENDA_BOARD_THROUGH = '2026-12-15';
 
 function agendaBoardEndKey(weekEnd: string): string {
   return weekEnd < AGENDA_BOARD_THROUGH ? AGENDA_BOARD_THROUGH : weekEnd;

@@ -6,11 +6,9 @@ import MapEmbed from '../../../components/MapEmbed.astro';
 import { SITE, withBase, absUrl } from '../../../site';
 import { OPENING_HOURS } from '../../../data/hours';
 const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
-const mapsCta =
-  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
 
 // Misma ficha que la hub EN: 15 dic 2026, 20:45 Madrid, Movistar Arena, E2026_166.
-// Emisión confirmada en Dubliners (dueño 24 nov 2026). Sin nombrar emisora.
+// Emisión por confirmar (regla dueño 20 nov). Punto de encuentro con O’Connell’s y O’Reilly’s. Sin nombrar emisora.
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
@@ -53,7 +51,7 @@ const faqLd = {
       name: '¿Dubliners es punto de encuentro para aficionados del Bayern de baloncesto?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sí. Dubliners, Calle de Espoz y Mina 7, a menos de un minuto de la Puerta del Sol, es punto de encuentro el lunes 14 y el martes 15 de diciembre, antes y después del partido. Sin reservas, acceso por orden de llegada. El partido está confirmado en directo en nuestras pantallas en Dubliners el martes 15 de diciembre. No nombramos emisora.',
+        text: 'Sí. Dubliners, O’Connell’s y O’Reilly’s comparten las calles junto a Puerta del Sol: punto de encuentro el lunes 14 y el martes 15 de diciembre, antes y después del partido en el Movistar Arena. Sin reservas, acceso por orden de llegada. Si emitimos el partido, lo confirmamos en Partidos.',
       },
     },
     {
@@ -81,10 +79,10 @@ const faqLd = {
     <div class="container">
       <Breadcrumb current={'Aficionados del Bayern de baloncesto'} lang="es" schema />
       <h1>Aficionados del Bayern de baloncesto en Madrid: punto de encuentro</h1>
-      <p class="lead">Martes 15 de diciembre de 2026, salto inicial a las 20:45 hora de Madrid. EuroLeague, jornada 17, en el Movistar Arena. Dubliners es punto de encuentro para aficionados del Bayern en el centro de Madrid, a menos de un minuto de la Puerta del Sol — antes de ir al pabellón y al volver.</p>
+      <p class="lead">Martes 15 de diciembre de 2026, salto inicial a las 20:45 hora de Madrid. EuroLeague, jornada 17, en el Movistar Arena. Dubliners, O’Connell’s y O’Reilly’s forman el punto de encuentro junto a Puerta del Sol — antes del pabellón y al volver. Emisión por confirmar en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
       <p class="small">Calle de Espoz y Mina 7, 28012 Madrid · martes {tue.opens}–{tue.closes} · Sin reservas, acceso por orden de llegada</p>
       <div class="cta-row">
-        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
         <a class="btn btn-primary" href={withBase('/es/partidos/')}>Partidos</a>
       </div>
     </div>
@@ -96,7 +94,7 @@ const faqLd = {
         <h2>El partido</h2>
         <p>El FC Bayern Munich visita Madrid para jugar contra el Real Madrid en la EuroLeague el martes 15 de diciembre de 2026. El salto inicial es a las 20:45 hora de Madrid (el mismo reloj que en Múnich en diciembre), en el Movistar Arena, Avenida de Felipe II, 28009 Madrid. Los datos figuran en la <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">página del partido del Real Madrid</a> y están confirmados en el feed de la EuroLeague (partido E2026_166, 19:45 UTC).</p>
         <h2>Punto de encuentro en Dubliners</h2>
-        <p>Dubliners es un pub irlandés en {SITE.address}, {SITE.postal}, a menos de un minuto de la Puerta del Sol. Punto de encuentro el <strong>lunes 14</strong> y el <strong>martes 15 de diciembre</strong> en el centro de Madrid, antes del Movistar Arena y al volver. El martes abrimos de {tue.opens} a {tue.closes}. El <strong>Real Madrid–FC Bayern Munich está confirmado en directo en nuestras pantallas en Dubliners</strong> (20:45). En barra se habla inglés, alemán y español. No nombramos emisora.</p>
+        <p>Dubliners es un pub irlandés en {SITE.address}, {SITE.postal}, con O’Connell’s y O’Reilly’s en las mismas calles junto a Puerta del Sol. Punto de encuentro el <strong>lunes 14</strong> y el <strong>martes 15 de diciembre</strong> antes del Movistar Arena y al volver. El martes abrimos de {tue.opens} a {tue.closes}. Cuando el propietario confirme emisión, lo verás en <a href={withBase('/es/partidos/')}>Partidos</a>. En barra se habla inglés, alemán y español.</p>
         <h2>Reservas</h2>
         <p><strong>Sin reservas</strong>, acceso por orden de llegada.</p>
         <h2>De Sol al Movistar Arena</h2>
@@ -125,7 +123,7 @@ const faqLd = {
         <dt><strong>¿Cuándo es el Real Madrid–FC Bayern Munich de baloncesto?</strong></dt>
         <dd>El martes 15 de diciembre de 2026, a las 20:45 hora de Madrid, en el Movistar Arena (EuroLeague, jornada 17).</dd>
         <dt><strong>¿Dubliners es punto de encuentro para aficionados del Bayern de baloncesto?</strong></dt>
-        <dd>Sí — lunes 14 y martes 15 de diciembre, antes y después del partido. A menos de un minuto de la Puerta del Sol. Sin reservas. Confirmado en directo en nuestras pantallas en Dubliners el martes 15 de diciembre.</dd>
+        <dd>Sí — lunes 14 y martes 15 de diciembre, antes y después del partido, con O’Connell’s y O’Reilly’s junto a Puerta del Sol. Sin reservas. Emisión por confirmar en Partidos.</dd>
         <dt><strong>¿Cómo ir de Sol al Movistar Arena?</strong></dt>
         <dd>La página del Real Madrid indica Metro Goya (líneas 2 y 4) y O’Donnell (línea 6); la línea 2 también sirve Sol. Consulta la app de Metro de Madrid o crtm.es el mismo día. Aquí no damos tiempos de trayecto.</dd>
         <dt><strong>¿A qué hora abrís el martes?</strong></dt>

@@ -18,7 +18,7 @@ const tue = OPENING_HOURS.find((d) => d.day === 'Tuesday')!;
 // Transport (same day, realmadrid.com/es-ES/el-club/movistar-arena, HTTP 200): Metro Goya (lines 2 and 4),
 // O'Donnell (line 6); Cercanías Recoletos; EMT buses listed on that page. No journey times given here.
 // fcbayern.com/basketball and euroleaguebasketball.net HTML were not verifiable today (403 / 429) — not linked.
-// Screening at Dubliners: to be confirmed (owner rule 20 Nov); meeting point Mon 14 & Tue 15 with O’Connell’s & O’Reilly’s. No TV channel named.
+// Screening at Dubliners, O’Connell’s and O’Reilly’s: confirmed LIVE 24 Nov 2026 20:24 (owner). Meeting point Mon 14 & Tue 15 by Puerta del Sol. No TV channel named.
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
@@ -61,7 +61,7 @@ const faqLd = {
       name: 'Is Dubliners a meeting point for Bayern basketball fans?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Dubliners is with O’Connell’s and O’Reilly’s on the same streets by Puerta del Sol — one meeting point for Bayern fans on Monday 14 and Tuesday 15 December, before and after the Movistar Arena game. No reservations — first come, first served. Whether we put the game on is to be confirmed: check What’s On.',
+        text: 'Yes. Dubliners is with O’Connell’s and O’Reilly’s on the same streets by Puerta del Sol — one meeting point for Bayern fans on Monday 14 and Tuesday 15 December, before and after the Movistar Arena game. No reservations — first come, first served. The game is confirmed LIVE on our screens at Dubliners on Tuesday 15 December. We do not name a TV channel.',
       },
     },
     {
@@ -89,7 +89,7 @@ const faqLd = {
     <div class="container">
       <Breadcrumb current={'Bayern basketball fans in Madrid'} schema />
       <h1>Bayern basketball fans in Madrid: meeting point before Real Madrid v Bayern</h1>
-      <p class="lead">Tuesday 15 December 2026, tip-off 20:45 Madrid time. EuroLeague basketball, round 17, at the Movistar Arena. Dubliners, O’Connell’s and O’Reilly’s share the streets by Puerta del Sol — one Irish-pub meeting point for Bayern fans before the arena and when you come back. Screening to be confirmed on <a href={withBase('/whats-on/')}>What’s On</a>.</p>
+      <p class="lead">Tuesday 15 December 2026, tip-off 20:45 Madrid time. EuroLeague basketball, round 17, at the Movistar Arena. Dubliners, O’Connell’s and O’Reilly’s share the streets by Puerta del Sol — one Irish-pub meeting point for Bayern fans before the arena and when you come back. <strong>Real Madrid v FC Bayern Munich is confirmed LIVE on our screens at Dubliners</strong> on match night.</p>
       <p class="small">Calle de Espoz y Mina 7, 28012 Madrid · Tuesday hours {tue.opens}–{tue.closes} · No reservations, first come, first served</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Get directions</a>
@@ -104,7 +104,7 @@ const faqLd = {
         <h2>The game</h2>
         <p>FC Bayern Munich travel to Madrid to play Real Madrid in the EuroLeague on Tuesday 15 December 2026. Tip-off is 20:45 Madrid time (the same clock as in Munich in December) at the Movistar Arena, Avenida de Felipe II, 28009 Madrid. Fixture details as published on the <a href="https://www.realmadrid.com/es-ES/baloncesto/partidos/euroliga/real-madrid-fc-bayern-munich/15-12-2026" rel="noopener noreferrer" target="_blank">Real Madrid match page</a> and confirmed on the EuroLeague feed (game E2026_166, 19:45 UTC).</p>
         <h2>Meeting point at Dubliners</h2>
-        <p>Dubliners is an Irish pub at {SITE.address}, {SITE.postal}, with O’Connell’s and O’Reilly’s on the same streets by Puerta del Sol. On <strong>Monday 14</strong> and <strong>Tuesday 15 December</strong> we are your meeting point in central Madrid — before you head to the Movistar Arena and when you come back. On Tuesday we are open {tue.opens}–{tue.closes}. We list any confirmed screening on <a href={withBase('/whats-on/')}>What’s On</a> once the owner has confirmed it. English and German are welcome at the bar.</p>
+        <p>Dubliners is an Irish pub at {SITE.address}, {SITE.postal}, with O’Connell’s and O’Reilly’s on the same streets by Puerta del Sol. On <strong>Monday 14</strong> and <strong>Tuesday 15 December</strong> we are your meeting point in central Madrid — before you head to the Movistar Arena and when you come back. On Tuesday we are open {tue.opens}–{tue.closes}. <strong>Real Madrid v FC Bayern Munich is confirmed LIVE on our screens at Dubliners</strong> on match night (20:45). English and German are welcome at the bar. We do not name a TV channel.</p>
         <h2>Reservations</h2>
         <p><strong>No reservations</strong> — first come, first served.</p>
         <h2>From Sol to the Movistar Arena</h2>
@@ -133,7 +133,7 @@ const faqLd = {
         <dt><strong>When is Real Madrid v FC Bayern Munich in basketball?</strong></dt>
         <dd>Tuesday 15 December 2026, 20:45 Madrid time, at the Movistar Arena (EuroLeague, round 17).</dd>
         <dt><strong>Is Dubliners a meeting point for Bayern basketball fans?</strong></dt>
-        <dd>Yes — Monday 14 and Tuesday 15 December, before and after the game, with O’Connell’s and O’Reilly’s by Puerta del Sol. No reservations. Screening to be confirmed on What’s On.</dd>
+        <dd>Yes — Monday 14 and Tuesday 15 December, before and after the game, with O’Connell’s and O’Reilly’s by Puerta del Sol. No reservations. Confirmed LIVE on our screens at Dubliners on Tuesday 15 December.</dd>
         <dt><strong>How do I get from Sol to the Movistar Arena?</strong></dt>
         <dd>Metro Goya (lines 2 and 4) and O’Donnell (line 6) are the stops listed on the Real Madrid club page; line 2 also serves Sol. Check the Metro de Madrid app or crtm.es on the day. No journey times are given here.</dd>
         <dt><strong>What time do you open on Tuesday?</strong></dt>

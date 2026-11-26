@@ -120,7 +120,7 @@
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. No broadcast without verified in-pub channel (owner 9 Nov). Removed Austria–Ireland; removed UWCL rows without channel; removed ATP Finals Sun 15. Channels: Spain–England La 1; Spain–Chile + Ireland–Fiji Movistar Plus; RM–Zvezda Movistar+ Baloncesto; Czechia–Spain La 1. NFL Sun 15 kept. Premier Sat 21 / Sun 22: Newcastle–Arsenal + Liverpool–United DAZN (Radar 9 Nov).
  * - 12 Nov (owner standing rule via DG 15:08): ALL sport events listed ≥7 days ahead, times from league/federation sources; channel NOT required (9 Nov no-channel exclusion annulled). 66 rows added 12–22 Nov.
- * - 26 Nov (morning block): played rows dateKey <= 2026-11-25 RETIRED (Radar 2026-11-26-ligero) except Ireland–Fiji + Ireland–South Africa (landing pages read them); added 2–12 Dec rows from Radar (FUENTES-PARTIDOS-COMPARTIDAS 24–26 Nov). RM–Bayern basket LIVE at DUB/OC/OR (owner 24 Nov 20:24). RM–Barça basket 3 Dec stays unconfirmed.
+ * - 26 Nov (morning block): played rows dateKey <= 2026-11-25 RETIRED (Radar 2026-11-26-ligero) except Ireland–Fiji + Ireland–South Africa (landing pages read them); added 2–12 Dec rows from Radar (FUENTES-PARTIDOS-COMPARTIDAS 24–26 Nov). All major sport LIVE incl. NFL + basketball (owner 26 Nov 11:13).
  * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
  * - 17 Nov (DG): UCL MD5 RM–PSV (Tue 24) + Atlético–Viking (Wed 25) on the fixture board through 25 Nov (not only Looking ahead). Mon 23 rows on board when in range.
  * - 22 Nov (agenda lock Mon 23–Sun 29): board through 29 Nov. Played 16–21 Nov football/UNL/UWCL RETIRED; Sat 21 rugby kept (landing + removable home block). Sun 22 leftover kept, DAZN stripped. Named UCL MD5 / UEL-UECL J5 / Premier / LaLiga / rugby 23–29 ADDED, NO channel. Thanksgiving NFL + RM–Žalgiris kept. Unnamed «resto» and Celtic (no opponent) not invented.
@@ -130,7 +130,7 @@
  *   Final written France v South Africa / Francia–Sudáfrica (owner rule).
  * - 26 Nov (DG): LaLiga J16 Sun 13 Dec — Atlético de Madrid–Valencia 14:00, Real Madrid–Osasuna 21:00 (LaLiga jornada 16;
  *   realmadrid.com 23 Nov 2026 + laliga.com; FUENTES-PARTIDOS-COMPARTIDAS.md not in agencia-digital-operaciones main/PR15).
- *   Thanksgiving NFL Thu 26 Nov Bears–Lions 19:00, Eagles–Cowboys 22:30 (nfl.com, thanksgiving.ts) on board; confirmedOnScreens false until owner confirms (DG 20 Nov).
+ *   Thanksgiving NFL (nfl.com REG11): Thu 26 Bears–Lions 19:00, Eagles–Cowboys 22:30; Fri 27 02:20 Chiefs–Bills (Madrid). All LIVE (owner 26 Nov).
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens true (owner 24 Nov 20:24). Meeting point + LIVE at Dubliners; links /bayern-basketball-fans-madrid/.
@@ -192,9 +192,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Chicago Bears at Detroit Lions',
     madridTime: '19:00',
-    confirmedOnScreens: false,
-    noteEn: 'Thanksgiving NFL. Meeting point by Puerta del Sol — screening to be confirmed on What’s On.',
-    noteEs: 'NFL de Thanksgiving. Punto de encuentro en Puerta del Sol — emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'Thanksgiving NFL. LIVE on our screens at Dubliners by Puerta del Sol.',
+    noteEs: 'NFL de Thanksgiving. En directo en nuestras pantallas en Dubliners junto a Puerta del Sol.',
     link: {
       href: '/thanksgiving-madrid/',
       hrefEs: '/es/thanksgiving-madrid/',
@@ -208,9 +208,25 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Philadelphia Eagles at Dallas Cowboys',
     madridTime: '22:30',
-    confirmedOnScreens: false,
-    noteEn: 'Thanksgiving NFL. Meeting point by Puerta del Sol — screening to be confirmed on What’s On.',
-    noteEs: 'NFL de Thanksgiving. Punto de encuentro en Puerta del Sol — emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'Thanksgiving NFL. LIVE on our screens at Dubliners by Puerta del Sol.',
+    noteEs: 'NFL de Thanksgiving. En directo en nuestras pantallas en Dubliners junto a Puerta del Sol.',
+    link: {
+      href: '/thanksgiving-madrid/',
+      hrefEs: '/es/thanksgiving-madrid/',
+      labelEn: 'Thanksgiving NFL in Madrid',
+      labelEs: 'NFL de Thanksgiving en Madrid',
+    },
+  },
+{
+    dateKey: '2026-11-27',
+    whenLabel: 'Fri 27 Nov',
+    competition: 'NFL',
+    teams: 'Kansas City Chiefs at Buffalo Bills',
+    madridTime: '02:20',
+    confirmedOnScreens: true,
+    noteEn: 'Thanksgiving NFL (Friday 02:20 Madrid). LIVE on our screens at Dubliners.',
+    noteEs: 'NFL de Thanksgiving (viernes 02:20 Madrid). En directo en nuestras pantallas en Dubliners.',
     link: {
       href: '/thanksgiving-madrid/',
       hrefEs: '/es/thanksgiving-madrid/',
@@ -647,9 +663,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'EuroLeague',
     teams: 'Real Madrid vs Barcelona',
     madridTime: '20:45',
-    confirmedOnScreens: false,
-    noteEn: 'EuroLeague basketball at the Movistar Arena, 20:45 Madrid. Screening to be confirmed on What’s On.',
-    noteEs: 'Baloncesto EuroLeague en el Movistar Arena, 20:45 Madrid. Emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball at the Movistar Arena, 20:45 Madrid. LIVE on our screens at Dubliners.',
+    noteEs: 'Baloncesto EuroLeague en el Movistar Arena, 20:45 Madrid. En directo en nuestras pantallas en Dubliners.',
   },
 {
     dateKey: '2026-12-05',
@@ -687,9 +703,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Champions League',
     teams: 'Barcelona vs Manchester City',
     madridTime: '21:00',
-    confirmedOnScreens: false,
-    noteEn: 'Fixture on the Dubliners board; screening to be confirmed on What’s On.',
-    noteEs: 'Partido en la agenda de Dubliners; emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'UEFA Champions League at Spotify Camp Nou, 21:00 CET (uefa.com matchday 6). LIVE on our screens.',
+    noteEs: 'Champions League en el Spotify Camp Nou, 21:00 CET (uefa.com jornada 6). En directo en nuestras pantallas.',
   },
 {
     dateKey: '2026-12-09',
@@ -697,9 +713,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Champions League',
     teams: 'Arsenal vs Real Madrid',
     madridTime: '21:00',
-    confirmedOnScreens: false,
-    noteEn: 'Fixture on the Dubliners board; screening to be confirmed on What’s On.',
-    noteEs: 'Partido en la agenda de Dubliners; emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'UEFA Champions League at Arsenal Stadium, 21:00 CET (uefa.com matchday 6). LIVE on our screens.',
+    noteEs: 'Champions League en el Emirates, 21:00 CET (uefa.com jornada 6). En directo en nuestras pantallas.',
   },
 {
     dateKey: '2026-12-09',
@@ -707,9 +723,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'UEFA Champions League',
     teams: 'PSV Eindhoven vs Atlético de Madrid',
     madridTime: '21:00',
-    confirmedOnScreens: false,
-    noteEn: 'Fixture on the Dubliners board; screening to be confirmed on What’s On.',
-    noteEs: 'Partido en la agenda de Dubliners; emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'UEFA Champions League, 21:00 CET (uefa.com matchday 6). LIVE on our screens.',
+    noteEs: 'Champions League, 21:00 CET (uefa.com jornada 6). En directo en nuestras pantallas.',
   },
 {
     dateKey: '2026-12-10',

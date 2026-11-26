@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+import {
+  CHAMPIONS_CUP_GUIDE_ES,
+  CHAMPIONS_CUP_R2_MATCHES,
+} from '../../../../data/champions-cup-r2-2026';
+
+const PATH = '/es/champions-cup-rugby-leinster-munster-madrid/provincias-irlandesas-sabado-12-diciembre/';
+const PATH_EN = '/leinster-munster-champions-cup-madrid/irish-provinces-saturday-12-december/';
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Provincias irlandesas el sábado 12 de diciembre junto a Sol: plan Champions Cup',
+  datePublished: '2026-11-26',
+  inLanguage: 'es',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl(PATH),
+};
+---
+
+<BaseLayout
+  title={'Leinster y Munster sáb 12 dic junto a Sol | Dubliners'}
+  description={'Champions Cup jornada 2: Leinster–Sale Sharks 18:30 y Bristol Bears–Munster 21:00 hora de Madrid, en directo en nuestras pantallas en Dubliners, a menos de un minuto de Sol — a 16 días del pitido.'}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Provincias irlandesas: 12 de diciembre'} schema />
+      <h1>Provincias irlandesas el sábado 12 de diciembre junto a Sol: plan Champions Cup</h1>
+      <p class="small">Guía · 26 de noviembre de 2026 · a 16 días del pitido inicial</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase(CHAMPIONS_CUP_GUIDE_ES)}>Guía Champions Cup</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>
+        El <strong>sábado 12 de diciembre</strong> concentra a las dos provincias irlandesas en la misma tarde: <strong>Leinster–Sale Sharks</strong> y <strong>Bristol Bears–Munster</strong>, los dos <strong>en directo en nuestras pantallas</strong> en Dubliners, {SITE.address}, <strong>a menos de un minuto de Sol</strong>.
+      </p>
+
+      <h2>Pitidos en hora de Madrid</h2>
+      <ul>
+        {CHAMPIONS_CUP_R2_MATCHES.map((m) => (
+          <li>
+            <strong>{m.timeMadrid}</strong> — {m.es} ({m.venueEs})
+          </li>
+        ))}
+      </ul>
+      <p class="small">
+        Verificado el 26 de noviembre de 2026: Leinster indica pitido a las 17:30 en Laya Arena (leinsterrugby.ie fixture/view/169); Munster indica 20:00 en Ashton Gate (munsterrugby.ie fixture/view/1440). Hora de Madrid derivada del pitido local y el desfase invernal a CET. No nombramos emisora.
+      </p>
+
+      <h2>Cómo plantear la doble sesión</h2>
+      <p>
+        Ven para <strong>Leinster–Sale a las 18:30</strong> y quédate hasta <strong>Munster en Bristol a las 21:00</strong> si sigues las dos provincias, o divide el grupo en dos oleadas. Horario del sábado: {sat.opens}–{sat.closes}. Choques en pantallas distintas; pregunta en la barra.
+      </p>
+
+      <h2>Punto de encuentro para aficionados de Leinster y Munster</h2>
+      <p>
+        Vives en Madrid, estás de Erasmus o de visita? Dubliners es el punto de encuentro que usa la afición irlandesa en el centro: inglés en la barra, rugby en pantalla y seguidores de Sale Sharks o Bristol Bears bienvenidos en la misma sala. Queda en el neón verde del número 7.
+      </p>
+
+      <h2>Cómo llegar desde Sol</h2>
+      <p>
+        Metro <strong>Sol</strong>, Metro Sevilla o Cercanías Sol. <a href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a> en el móvil.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      </div>
+
+      <p>In English: <a href={withBase(PATH_EN)} hreflang="en">Irish provinces on Saturday 12 December near Sol</a>.</p>
+      <p class="small">Dubliners es un pub independiente, sin vinculación con la URC, EPCR ni los clubes.</p>
+    </div>
+  </section>
+</BaseLayout>

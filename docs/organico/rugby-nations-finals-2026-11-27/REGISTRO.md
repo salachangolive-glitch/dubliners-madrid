@@ -6,10 +6,10 @@ Para que las siguientes ejecuciones no repitan tema ni slug. Hora en Europa/Madr
 |---|---|---|---|---|---|
 | 2026-11-25 18:16 | T−2 | «Ireland v Australia on Friday night near Sol: your plan for the rugby weekend»: 6 partidos en hora de Madrid, a qué hora llegar, cómo llegar desde Sol, punto de encuentro IE/AU, CTA Maps | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/ireland-australia-friday-night-plan/ | `5a5f0a46` (PR #101, merge `20c2206b`, gh-pages `a8cb0e5a`) |
 | 2026-11-25 18:16 | T−2 | «Irlanda–Australia el viernes junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/irlanda-australia-viernes-plan/ | `5a5f0a46` |
-| 2026-11-26 12:00 | T−1 | «England v New Zealand on Saturday near Sol: your plan for the rugby weekend» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/england-new-zealand-saturday-plan/ | (PR pending) |
-| 2026-11-26 12:00 | T−1 | «Inglaterra–Nueva Zelanda el sábado junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/inglaterra-nueva-zelanda-sabado-plan/ | (PR pending) |
-| 2026-11-26 18:00 | T−1 | «France v South Africa final on Sunday near Sol: your plan for the rugby weekend» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/france-south-africa-final-sunday-plan/ | (PR pending) |
-| 2026-11-26 18:00 | T−1 | «Final Francia–Sudáfrica el domingo junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/final-francia-sudafrica-domingo-plan/ | (PR pending) |
+| 2026-11-26 12:00 | T−1 | «England v New Zealand on Saturday near Sol: your plan for the rugby weekend» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/england-new-zealand-saturday-plan/ | `5cf6cde` (PR #113, gh-pages `65a913f`) |
+| 2026-11-26 12:00 | T−1 | «Inglaterra–Nueva Zelanda el sábado junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/inglaterra-nueva-zelanda-sabado-plan/ | `5cf6cde` |
+| 2026-11-26 18:00 | T−1 | «France v South Africa final on Sunday near Sol: your plan for the rugby weekend» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/france-south-africa-final-sunday-plan/ | `5cf6cde` |
+| 2026-11-26 18:00 | T−1 | «Final Francia–Sudáfrica el domingo junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/final-francia-sudafrica-domingo-plan/ | `5cf6cde` |
 
 La hub EN y la ES enlazan cada artículo desde su LinkHub (mismo commit que el batch).
 

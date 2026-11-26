@@ -1,0 +1,127 @@
+---
+import GettingHere from '../../../components/GettingHere.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MapEmbed from '../../../components/MapEmbed.astro';
+import LinkHub from '../../../components/LinkHub.astro';
+import { withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+import {
+  CHAMPIONS_CUP_GUIDE_EN,
+  CHAMPIONS_CUP_GUIDE_ES,
+  CHAMPIONS_CUP_R2_DATE,
+  CHAMPIONS_CUP_R2_MATCHES,
+} from '../../../data/champions-cup-r2-2026';
+
+const PATH = CHAMPIONS_CUP_GUIDE_ES;
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+const sportsEventsLd = CHAMPIONS_CUP_R2_MATCHES.map((m) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SportsEvent',
+  name: `${m.es} — Champions Cup (emisión en Dubliners Madrid)`,
+  description: `${m.es} (Champions Cup) en directo en las pantallas de Dubliners Irish Pub, Espoz y Mina 7, junto a Puerta del Sol, Madrid.`,
+  startDate: `${CHAMPIONS_CUP_R2_DATE}T${m.timeMadrid}:00+01:00`,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'BarOrPub',
+    name: 'Dubliners Irish Pub',
+    alternateName: 'Dubliners Madrid',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calle de Espoz y Mina 7',
+      addressLocality: 'Madrid',
+      postalCode: '28012',
+      addressCountry: 'ES',
+    },
+  },
+  organizer: { '@type': 'BarOrPub', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  url: absUrl(PATH),
+}));
+---
+
+<BaseLayout
+  title={'Champions Cup rugby junto a Sol: Leinster y Munster, sáb 12 dic | Dubliners'}
+  description={'Punto de encuentro de la afición irlandesa en Madrid: Leinster–Sale Sharks y Bristol Bears–Munster, sábado 12 de diciembre, en directo en nuestras pantallas en Dubliners junto a Sol.'}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: CHAMPIONS_CUP_GUIDE_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={sportsEventsLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current="Champions Cup rugby junto a Sol" schema />
+      <h1>Punto de encuentro rugby irlandés — Champions Cup, sábado 12 de diciembre</h1>
+      <p class="lead">
+        <strong>Dubliners</strong> es <strong>punto de encuentro para aficionados de Leinster y Munster en Madrid</strong>, a menos de un minuto de <strong>Puerta del Sol</strong>. El <strong>sábado 12 de diciembre</strong> emitimos los dos partidos irlandeses de la Champions Cup <strong>en directo en nuestras pantallas</strong>. No nombramos emisora.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-secondary" href={withBase('/es/partidos/')}>Partidos</a>
+      </div>
+    </div>
+  </section>
+  <GettingHere lang="es" />
+
+  <section class="section band">
+    <div class="container prose">
+      <h2>Sábado 12 de diciembre — hora de Madrid</h2>
+      <ul>
+        {CHAMPIONS_CUP_R2_MATCHES.map((m) => (
+          <li>
+            <strong>{m.timeMadrid}</strong> — {m.es} ({m.venueEs}; pitido inicial {m.kickOffLocal} hora local)
+          </li>
+        ))}
+      </ul>
+      <p class="small">
+        Horarios comprobados el 26 de noviembre de 2026: Leinster–Sale Sharks a las 17:30 en Laya Arena (leinsterrugby.ie fixture/view/169); Bristol Bears–Munster a las 20:00 en Ashton Gate (munsterrugby.ie fixture/view/1440), convertidos a hora de Madrid (CET).
+      </p>
+
+      <h2>Doble sesión en el pub</h2>
+      <p>
+        <strong>Leinster–Sale</strong> a las <strong>18:30</strong> abre la tarde; <strong>Bristol Bears–Munster</strong> sigue a las <strong>21:00</strong>. El sábado abrimos de {sat.opens} a {sat.closes}. Inglés en la barra, pantallas por el local y aficionados de Dublín, Cork y Limerick bienvenidos.
+      </p>
+
+      <p>
+        Plan práctico del día: <a href={withBase('/es/champions-cup-rugby-leinster-munster-madrid/provincias-irlandesas-sabado-12-diciembre/')}>provincias irlandesas el sábado 12 de diciembre junto a Sol</a>. Más rugby irlandés: <a href={withBase('/es/rugby-irlanda-madrid/')}>Rugby de Irlanda en Madrid</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="map-frame">
+        <MapEmbed lang="es" title="Mapa a Dubliners — Champions Cup junto a Sol" />
+      </div>
+
+      <LinkHub
+        heading="h2"
+        groups={[
+          {
+            title: 'Más rugby junto a Sol',
+            items: [
+              {
+                href: '/es/champions-cup-rugby-leinster-munster-madrid/provincias-irlandesas-sabado-12-diciembre/',
+                label: 'Provincias irlandesas el sábado 12: plan junto a Sol',
+              },
+              { href: '/es/rugby-irlanda-madrid/', label: 'Rugby de Irlanda en Madrid' },
+              { href: '/es/rugby-nations-finals-fin-de-semana-sol/', label: 'Finales Nations Championship' },
+              { href: '/es/visitar/', label: 'Visitar' },
+            ],
+          },
+        ]}
+      />
+      <p>
+        In English:{' '}
+        <a href={withBase(CHAMPIONS_CUP_GUIDE_EN)} hreflang="en">
+          Champions Cup rugby — Leinster &amp; Munster near Sol
+        </a>
+      </p>
+      <p class="small">Dubliners es un pub independiente, sin vinculación con la URC, EPCR ni los clubes.</p>
+    </div>
+  </section>
+</BaseLayout>

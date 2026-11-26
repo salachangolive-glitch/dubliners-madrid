@@ -130,7 +130,7 @@
  *   Final written France v South Africa / Francia–Sudáfrica (owner rule).
  * - 26 Nov (DG): LaLiga J16 Sun 13 Dec — Atlético de Madrid–Valencia 14:00, Real Madrid–Osasuna 21:00 (LaLiga jornada 16;
  *   realmadrid.com 23 Nov 2026 + laliga.com; FUENTES-PARTIDOS-COMPARTIDAS.md not in agencia-digital-operaciones main/PR15).
- *   Thanksgiving NFL (nfl.com REG11): Thu 26 Bears–Lions 19:00, Eagles–Cowboys 22:30; Fri 27 02:20 Chiefs–Bills (Madrid). All LIVE (owner 26 Nov).
+ *   Thanksgiving NFL (nfl.com REG11): Thu 26 Bears–Lions 19:00, Eagles–Cowboys 22:30; Fri 27 02:20 Chiefs–Bills (Madrid). Thu games LIVE on board; Chiefs–Bills hideFromAgenda (kick-off after close 02:00, owner 26 Nov).
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens true (owner 24 Nov 20:24). Meeting point + LIVE at Dubliners; links /bayern-basketball-fans-madrid/.
@@ -162,6 +162,8 @@ export type Fixture = {
   startUtc?: string;
   /** Optional per-row internal link (site path, e.g. a fans page). Rendered after the note. */
   link?: { href: string; labelEn: string; labelEs: string; hreflang?: string; hrefEs?: string };
+  /** Row kept in FIXTURES but omitted from What’s On / Partidos (e.g. kick-off after close). */
+  hideFromAgenda?: boolean;
 };
 
 export const FIXTURES: Fixture[] = [
@@ -224,9 +226,10 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Kansas City Chiefs at Buffalo Bills',
     madridTime: '02:20',
-    confirmedOnScreens: true,
-    noteEn: 'Thanksgiving NFL (Friday 02:20 Madrid). LIVE on our screens at Dubliners.',
-    noteEs: 'NFL de Thanksgiving (viernes 02:20 Madrid). En directo en nuestras pantallas en Dubliners.',
+    confirmedOnScreens: false,
+    hideFromAgenda: true,
+    noteEn: 'Thanksgiving NFL (Friday 02:20 Madrid). Omitted from the pub board — kick-off after close.',
+    noteEs: 'NFL de Thanksgiving (viernes 02:20 Madrid). Fuera del cartel del pub — pitido tras el cierre.',
     link: {
       href: '/thanksgiving-madrid/',
       hrefEs: '/es/thanksgiving-madrid/',
@@ -988,7 +991,9 @@ export function agendaAt(now: Date = buildNow()): { todayKey: string; today: Fix
   const todayKey = madridToday(now);
   const weekEnd = agendaBoardEndKey(madridWeekEnd(todayKey));
   const t = now.getTime();
-  const live = sortFixturesSoonestFirst(FIXTURES).filter((f) => t < fixtureEndMs(f) && f.dateKey <= weekEnd);
+  const live = sortFixturesSoonestFirst(FIXTURES).filter(
+    (f) => t < fixtureEndMs(f) && f.dateKey <= weekEnd && !f.hideFromAgenda,
+  );
   const today = live.filter((f) => f.dateKey === todayKey || (f.dateKey < todayKey && fixtureStartMs(f) <= t));
   const upcoming = live.filter((f) => f.dateKey > todayKey);
   return { todayKey, today, upcoming, weekEnd };

@@ -13,7 +13,7 @@ const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: `¿A qué hora es la NFL de Thanksgiving en Madrid en ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `El ${TG.dateEs}: ${TG.games.map((g) => `${g.away} at ${g.home} a las ${g.madridTime}`).join(' y ')} (hora de Madrid). Los dos partidos están confirmados en directo en nuestras pantallas en Dubliners, O’Connell’s y O’Reilly’s — un punto de encuentro en Puerta del Sol.` } },
+    { '@type': 'Question', name: `¿A qué hora es la NFL de Thanksgiving en Madrid en ${TG.year}?`, acceptedAnswer: { '@type': 'Answer', text: `El ${TG.dateEs}: ${TG.games.map((g) => `${g.away} at ${g.home} a las ${g.madridTime}`).join(' y ')} (hora de Madrid). Si los emitimos en Dubliners queda por confirmar: consulta Partidos.` } },
     { '@type': 'Question', name: '¿Ponéis el partido de la noche de Thanksgiving?', acceptedAnswer: { '@type': 'Answer', text: ex ? `No. ${ex.away} at ${ex.home} empieza a las ${ex.madridTime} (hora de Madrid), después de nuestro cierre del jueves a las ${thu.closes}.` : 'Solo los partidos que empiezan dentro de nuestro horario.' } },
     { '@type': 'Question', name: '¿Dónde está Dubliners?', acceptedAnswer: { '@type': 'Answer', text: `Calle de Espoz y Mina 7, 28012 Madrid, a un paso de Puerta del Sol. Metro Sol (líneas 1, 2 y 3) o Sevilla (línea 2). Jueves ${thu.opens}–${thu.closes}.` } },
   ],
@@ -24,8 +24,8 @@ const faqLd = {
   <section class="hero hero-compact">
     <div class="container">
       <Breadcrumb current="Thanksgiving en Madrid" lang="es" schema />
-      <h1>Thanksgiving en Madrid: NFL esta noche en Puerta del Sol</h1>
-      <p class="lead">Esta noche, {TG.dateEs}, el doble partido de Thanksgiving está <strong>en directo en nuestras pantallas</strong> en Dubliners, con O’Connell’s y O’Reilly’s en las mismas calles: un punto de encuentro en Puerta del Sol.</p>
+      <h1>Thanksgiving en Madrid: horarios NFL cerca de Puerta del Sol</h1>
+      <p class="lead">Si vienes de EE. UU. y pasas Thanksgiving en Madrid, el {TG.dateEs} tocan Bears–Lions y Eagles–Cowboys (hora de Madrid). Dubliners, O’Connell’s y O’Reilly’s comparten las mismas calles: un punto de encuentro de pubs irlandeses junto a Puerta del Sol. Si ponemos los partidos, lo confirmamos en <a href={withBase('/es/partidos/')}>Partidos</a>.</p>
       <p class="small">{TG.dateEs} · hora de Madrid · Actualizado el {TG.updatedEs}</p>
       <div class="cta-row">
         <a class="btn btn-gold" data-track-event="directions_click" href={SITE.mapsUrl} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
@@ -35,10 +35,10 @@ const faqLd = {
   </section>
   <section class="section">
     <div class="container prose">
-      <h2>Esta noche in situ — NFL de Thanksgiving (hora de Madrid)</h2>
+      <h2>Esta noche — horarios NFL de Thanksgiving (Madrid)</h2>
       <p>
         <strong>{TG.dateEs}</strong>: {TG.games.map((g) => (<><strong>{g.madridTime}</strong> — {g.away} at {g.home}{' '}</>))}
-        — confirmados <strong>en directo en nuestras pantallas</strong> en Dubliners, O’Connell’s y O’Reilly’s. Entrada por orden de llegada; si coinciden, pantallas distintas en las tres puertas de la agencia junto a Puerta del Sol.
+        Puedes pasar por Dubliners, O’Connell’s y O’Reilly’s junto a Puerta del Sol. Cuando el propietario confirme emisión, lo verás en <a href={withBase('/es/partidos/')}>Partidos</a>.
       </p>
       <h2>Rugby Nations Championship — vie–dom 27–29 noviembre</h2>
       <p>

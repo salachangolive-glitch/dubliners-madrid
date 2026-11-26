@@ -129,7 +129,7 @@
  *   Final written France v South Africa / Francia–Sudáfrica (owner rule).
  * - 26 Nov (DG): LaLiga J16 Sun 13 Dec — Atlético de Madrid–Valencia 14:00, Real Madrid–Osasuna 21:00 (LaLiga jornada 16;
  *   realmadrid.com 23 Nov 2026 + laliga.com; FUENTES-PARTIDOS-COMPARTIDAS.md not in agencia-digital-operaciones main/PR15).
- *   Thanksgiving NFL Thu 26 Nov Bears–Lions 19:00, Eagles–Cowboys 22:30 (nfl.com, thanksgiving.ts) restored on board.
+ *   Thanksgiving NFL Thu 26 Nov Bears–Lions 19:00, Eagles–Cowboys 22:30 (nfl.com, thanksgiving.ts) on board; confirmedOnScreens false until owner confirms (DG 20 Nov).
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens false; meeting point only. Links /bayern-basketball-fans-madrid/. Outside the current board window (through 29 Nov).
@@ -465,9 +465,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Chicago Bears at Detroit Lions',
     madridTime: '19:00',
-    confirmedOnScreens: true,
-    noteEn: 'Thanksgiving NFL — LIVE on our screens.',
-    noteEs: 'NFL de Thanksgiving — en directo en nuestras pantallas.',
+    confirmedOnScreens: false,
+    noteEn: 'Thanksgiving NFL. Meeting point by Puerta del Sol — screening to be confirmed on What’s On.',
+    noteEs: 'NFL de Thanksgiving. Punto de encuentro en Puerta del Sol — emisión por confirmar en Partidos.',
     link: {
       href: '/thanksgiving-madrid/',
       hrefEs: '/es/thanksgiving-madrid/',
@@ -481,9 +481,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'NFL',
     teams: 'Philadelphia Eagles at Dallas Cowboys',
     madridTime: '22:30',
-    confirmedOnScreens: true,
-    noteEn: 'Thanksgiving NFL — LIVE on our screens.',
-    noteEs: 'NFL de Thanksgiving — en directo en nuestras pantallas.',
+    confirmedOnScreens: false,
+    noteEn: 'Thanksgiving NFL. Meeting point by Puerta del Sol — screening to be confirmed on What’s On.',
+    noteEs: 'NFL de Thanksgiving. Punto de encuentro en Puerta del Sol — emisión por confirmar en Partidos.',
     link: {
       href: '/thanksgiving-madrid/',
       hrefEs: '/es/thanksgiving-madrid/',

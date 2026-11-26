@@ -120,7 +120,7 @@
  * - 6 Nov (afternoon): Spain–Chile note — venue confirmed Estadio Ontime Butarque (Radar/FERugby).
  * - 9 Nov (agenda lock Mon 9–Sun 15): board for 10–15 Nov is the approved subset only. No broadcast without verified in-pub channel (owner 9 Nov). Removed Austria–Ireland; removed UWCL rows without channel; removed ATP Finals Sun 15. Channels: Spain–England La 1; Spain–Chile + Ireland–Fiji Movistar Plus; RM–Zvezda Movistar+ Baloncesto; Czechia–Spain La 1. NFL Sun 15 kept. Premier Sat 21 / Sun 22: Newcastle–Arsenal + Liverpool–United DAZN (Radar 9 Nov).
  * - 12 Nov (owner standing rule via DG 15:08): ALL sport events listed ≥7 days ahead, times from league/federation sources; channel NOT required (9 Nov no-channel exclusion annulled). 66 rows added 12–22 Nov.
- * - 26 Nov (morning block): played rows dateKey <= 2026-11-25 RETIRED (Radar 2026-11-26-ligero) except Ireland–Fiji + Ireland–South Africa (landing pages read them); added 2–12 Dec rows from Radar (FUENTES-PARTIDOS-COMPARTIDAS 24–26 Nov). RM–Bayern basket neutral (no LIVE until owner confirms).
+ * - 26 Nov (morning block): played rows dateKey <= 2026-11-25 RETIRED (Radar 2026-11-26-ligero) except Ireland–Fiji + Ireland–South Africa (landing pages read them); added 2–12 Dec rows from Radar (FUENTES-PARTIDOS-COMPARTIDAS 24–26 Nov). RM–Bayern basket LIVE at DUB/OC/OR (owner 24 Nov 20:24). RM–Barça basket 3 Dec stays unconfirmed.
  * - 16 Nov (agenda lock Mon 16–Sun 22): board is the approved subset only. Played rows (dateKey ≤ 2026-11-15) RETIRED except Ireland–Fiji (landing). Removed ATP, NFL this week, F1, extra rugby / other UWCL / EuroLeague / MotoGP. RM Fem–Inter (Wed 18, 18:45, UWCL) published, no channel. Austria–Ireland not published. Channel DAZN only on Newcastle–Arsenal and Liverpool–United.
  * - 17 Nov (DG): UCL MD5 RM–PSV (Tue 24) + Atlético–Viking (Wed 25) on the fixture board through 25 Nov (not only Looking ahead). Mon 23 rows on board when in range.
  * - 22 Nov (agenda lock Mon 23–Sun 29): board through 29 Nov. Played 16–21 Nov football/UNL/UWCL RETIRED; Sat 21 rugby kept (landing + removable home block). Sun 22 leftover kept, DAZN stripped. Named UCL MD5 / UEL-UECL J5 / Premier / LaLiga / rugby 23–29 ADDED, NO channel. Thanksgiving NFL + RM–Žalgiris kept. Unnamed «resto» and Celtic (no opponent) not invented.
@@ -133,7 +133,7 @@
  *   Thanksgiving NFL Thu 26 Nov Bears–Lions 19:00, Eagles–Cowboys 22:30 (nfl.com, thanksgiving.ts) on board; confirmedOnScreens false until owner confirms (DG 20 Nov).
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
- *   confirmedOnScreens false; meeting point only. Links /bayern-basketball-fans-madrid/. Outside the current board window (through 29 Nov).
+ *   confirmedOnScreens true (owner 24 Nov 20:24). Meeting point + LIVE at Dubliners; links /bayern-basketball-fans-madrid/.
  * No invented fixtures / TV channels / reservations.
  */
 
@@ -769,9 +769,9 @@ export const FIXTURES: Fixture[] = [
     competition: 'EuroLeague',
     teams: 'Real Madrid vs FC Bayern Munich',
     madridTime: '20:45',
-    confirmedOnScreens: false,
-    noteEn: 'EuroLeague basketball at the Movistar Arena, 20:45 Madrid. Meeting point Mon 14 & Tue 15 Dec; screening to be confirmed on What’s On.',
-    noteEs: 'Baloncesto EuroLeague en el Movistar Arena, 20:45 Madrid. Punto de encuentro lun 14 y mar 15 dic; emisión por confirmar en Partidos.',
+    confirmedOnScreens: true,
+    noteEn: 'EuroLeague basketball at the Movistar Arena, 20:45 Madrid. LIVE on our screens at Dubliners; meeting point Mon 14 & Tue 15 Dec with O’Connell’s & O’Reilly’s by Puerta del Sol.',
+    noteEs: 'Baloncesto EuroLeague en el Movistar Arena, 20:45 Madrid. En directo en nuestras pantallas en Dubliners; punto de encuentro lun 14 y mar 15 dic con O’Connell’s y O’Reilly’s junto a Puerta del Sol.',
     link: {
       href: '/bayern-basketball-fans-madrid/',
       hrefEs: '/es/aficionados-bayern-baloncesto-madrid/',

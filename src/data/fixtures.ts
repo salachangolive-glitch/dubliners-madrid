@@ -135,6 +135,9 @@
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens true (owner 24 Nov 20:24). Meeting point + LIVE at Dubliners; links /bayern-basketball-fans-madrid/.
+ * - 27 Nov (DG 12:06): Copa Libertadores final Palmeiras–Estudiantes de La Plata Sat 28 21:00 Madrid (17:00 Montevideo,
+ *   Estadio Centenario; conmebol.com 25 Nov + afa.com.ar agenda). LIVE alongside Real Madrid–Alavés. 165 min covers extra
+ *   time + penalties; board drop via fixtureEndMs. NO channel.
  * No invented fixtures / TV channels / reservations.
  */
 
@@ -507,6 +510,18 @@ export const FIXTURES: Fixture[] = [
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
     noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-28',
+    whenLabel: 'Sat 28 Nov',
+    competition: 'Copa Libertadores',
+    competitionEs: 'Copa Libertadores',
+    teams: 'Palmeiras vs Estudiantes de La Plata',
+    madridTime: '21:00',
+    approxDurationMin: 165,
+    confirmedOnScreens: true,
+    noteEn: 'Final, LIVE on our screens. Both sets of fans welcome near Sol, before and after. Ao vivo nas nossas telas.',
+    noteEs: 'Final, en directo en nuestras pantallas. Las dos aficiones, bienvenidas junto a Sol antes y después. Ao vivo nas nossas telas.',
   },
 {
     dateKey: '2026-11-29',

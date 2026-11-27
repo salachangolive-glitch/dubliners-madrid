@@ -10,8 +10,8 @@ Para que las siguientes ejecuciones no repitan tema ni slug. Hora en Europa/Madr
 | 2026-11-26 12:00 | T−1 | «Inglaterra–Nueva Zelanda el sábado junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/inglaterra-nueva-zelanda-sabado-plan/ | `5cf6cde` |
 | 2026-11-26 18:00 | T−1 | «France v South Africa final on Sunday near Sol: your plan for the rugby weekend» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/france-south-africa-final-sunday-plan/ | `5cf6cde` |
 | 2026-11-26 18:00 | T−1 | «Final Francia–Sudáfrica el domingo junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/final-francia-sudafrica-domingo-plan/ | `5cf6cde` |
-| 2026-11-27 08:00 | T0 | «Today near Sol: Friday finals — Italy v Fiji and Ireland v Australia» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/friday-finals-today-near-sol/ | (PR pending) |
-| 2026-11-27 08:00 | T0 | «Hoy junto a Sol: finales del viernes — Italia–Fiyi e Irlanda–Australia» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/viernes-finales-hoy-junto-sol/ | (PR pending) |
+| 2026-11-27 08:00 | T0 | «Today near Sol: Friday finals — Italy v Fiji and Ireland v Australia» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/friday-finals-today-near-sol/ | `a34ce38` (PR #116, gh-pages `3060f70`) |
+| 2026-11-27 08:00 | T0 | «Hoy junto a Sol: finales del viernes — Italia–Fiyi e Irlanda–Australia» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/viernes-finales-hoy-junto-sol/ | `a34ce38` |
 
 La hub EN y la ES enlazan cada artículo desde su LinkHub (mismo commit que el batch).
 

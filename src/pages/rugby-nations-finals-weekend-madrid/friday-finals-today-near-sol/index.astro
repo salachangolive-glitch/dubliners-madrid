@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+import { RUGBY_FINALS_GUIDE_EN } from '../../../data/rugby-nations-finals-2026';
+
+// T0 article, Friday 27 Nov 2026. Kick-offs from src/data/rugby-nations-finals-2026.ts (World Rugby / Twickenham, Madrid time).
+const PATH = '/rugby-nations-finals-weekend-madrid/friday-finals-today-near-sol/';
+const PATH_ES = '/es/rugby-nations-finals-fin-de-semana-sol/viernes-finales-hoy-junto-sol/';
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const fri = OPENING_HOURS.find((d) => d.day === 'Friday')!;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Today near Sol: Italy v Fiji and Ireland v Australia — Nations Championship finals Friday',
+  datePublished: '2026-11-27',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl(PATH),
+};
+---
+
+<BaseLayout
+  title={'Today: Italy v Fiji & Ireland v Australia near Sol | Dubliners'}
+  description={'Friday 27 November 2026: Italy v Fiji 17:40 and Ireland v Australia 21:10 Madrid time, LIVE on our screens at Dubliners, less than a minute from Sol.'}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Friday finals today'} schema />
+      <h1>Today near Sol: Friday finals — Italy v Fiji and Ireland v Australia</h1>
+      <p class="small">Friday 27 November 2026 · Madrid time · Nations Championship</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+        <a class="btn btn-primary" href={withBase(RUGBY_FINALS_GUIDE_EN)}>Rugby finals weekend hub</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>
+        <strong>Friday 27 November</strong> opens the Twickenham finals weekend at Dubliners, {SITE.address} — <strong>less than a minute from Sol</strong>. Two Tests today, both <strong>LIVE on our screens</strong>: <strong>Italy v Fiji at 17:40</strong> and the evening headline <strong>Ireland v Australia at 21:10</strong> (Madrid time). We do not name a TV channel.
+      </p>
+
+      <h2>Today’s kick-offs (Madrid time)</h2>
+      <ul>
+        <li><strong>17:40</strong> — Italy v Fiji</li>
+        <li><strong>21:10</strong> — Ireland v Australia</li>
+      </ul>
+      <p class="small">Times from the World Rugby match centre and the Allianz Stadium Twickenham programme, converted to Madrid time.</p>
+
+      <h2>How the afternoon and evening line up</h2>
+      <p>
+        We are open {fri.opens}–{fri.closes} on Friday. Come for Italy v Fiji and stay on for Ireland v Australia if you want one long rugby evening — or land at Dubliners closer to 21:00 for the main Test. Clashes with other sport on the board go on different TVs; ask at the bar.
+      </p>
+
+      <h2>Meeting point today</h2>
+      <p>
+        Irish and Australian supporters in Madrid often use Dubliners as the meeting point before kick-off: English at the bar, rugby on every screen, and Italian and Fijian fans welcome in the same room. For background on the full six-Test slate, see <a href={withBase('/rugby-nations-finals-weekend-madrid/ireland-australia-friday-night-plan/')}>Ireland v Australia: Friday night plan</a> or the hub <a href={withBase(RUGBY_FINALS_GUIDE_EN)}>Nations Championship finals weekend near Sol</a>.
+      </p>
+
+      <h2>Saturday and Sunday ahead</h2>
+      <p>
+        Tomorrow: <a href={withBase('/rugby-nations-finals-weekend-madrid/england-new-zealand-saturday-plan/')}>England v New Zealand Saturday plan</a> (Wales v Japan 14:10, England v New Zealand 17:40). Sunday: <a href={withBase('/rugby-nations-finals-weekend-madrid/france-south-africa-final-sunday-plan/')}>France v South Africa final plan</a>. Live board: <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
+
+      <h2>How to get here</h2>
+      <p>
+        Metro <strong>Sol</strong> (lines 1, 2 and 3), Metro Sevilla (line 2) or Cercanías Sol. Walk to Calle de Espoz y Mina 7. <a href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a> on your phone.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+      </div>
+
+      <p>En español: <a href={withBase(PATH_ES)} hreflang="es">Viernes finales hoy junto a Sol</a>.</p>
+      <p class="small">Dubliners is an independent pub, not affiliated with World Rugby or the teams.</p>
+    </div>
+  </section>
+</BaseLayout>

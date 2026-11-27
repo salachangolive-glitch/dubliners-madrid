@@ -131,6 +131,7 @@
  * - 26 Nov (DG): LaLiga J16 Sun 13 Dec — Atlético de Madrid–Valencia 14:00, Real Madrid–Osasuna 21:00 (LaLiga jornada 16;
  *   realmadrid.com 23 Nov 2026 + laliga.com; FUENTES-PARTIDOS-COMPARTIDAS.md not in agencia-digital-operaciones main/PR15).
  *   Thanksgiving NFL (nfl.com REG11): Thu 26 Bears–Lions 19:00, Eagles–Cowboys 22:30; Fri 27 02:20 Chiefs–Bills (Madrid). Thu games LIVE on board; Chiefs–Bills hideFromAgenda (kick-off after close 02:00, owner 26 Nov).
+ * - 27 Nov (DG 09:45): MotoGP Valencia Tissot Sprint Sat 28 15:00 + GP race Sun 29 14:00 (motogp.com/en/news/2026/11/25/time-schedule-motul-grand-prix-of-valencia/1268060, Ricardo Tormo local = Madrid CET); F1 Qatar GP race Sun 29 17:00 (formula1.com/en/racing/2026/qatar Race startDate 16:00 UTC). NO channel. Board drop: agendaAt() via fixtureEndMs (MotoGP 120 min, F1 150 min); after Mon 30 dateKey < todayKey removes from upcoming.
  * - 25 Nov (owner via DG): Ads is football-only; other events go organic. + EuroLeague Real Madrid–FC Bayern Munich
  *   basketball Tue 15 Dec 20:45 Movistar Arena (feed E2026_166, 19:45Z, confirmedDate/Time; realmadrid.com match page).
  *   confirmedOnScreens true (owner 24 Nov 20:24). Meeting point + LIVE at Dubliners; links /bayern-basketball-fans-madrid/.
@@ -422,6 +423,17 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-28',
     whenLabel: 'Sat 28 Nov',
+    competition: 'MotoGP',
+    teams: 'Valencia GP — Tissot Sprint',
+    teamsEs: 'GP de Valencia — Tissot Sprint',
+    madridTime: '15:00',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens. Season finale.',
+    noteEs: 'En directo en nuestras pantallas. Final de temporada.',
+  },
+{
+    dateKey: '2026-11-28',
+    whenLabel: 'Sat 28 Nov',
     competition: 'Premier League',
     teams: 'Leeds United vs Coventry City',
     madridTime: '16:00',
@@ -519,6 +531,17 @@ export const FIXTURES: Fixture[] = [
 {
     dateKey: '2026-11-29',
     whenLabel: 'Sun 29 Nov',
+    competition: 'MotoGP',
+    teams: 'Valencia Grand Prix',
+    teamsEs: 'Gran Premio de Valencia',
+    madridTime: '14:00',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens. Season finale.',
+    noteEs: 'En directo en nuestras pantallas. Final de temporada.',
+  },
+{
+    dateKey: '2026-11-29',
+    whenLabel: 'Sun 29 Nov',
     competition: 'Rugby Nations Championship',
     teams: 'Scotland vs Argentina',
     teamsEs: 'Escocia vs Argentina',
@@ -579,6 +602,17 @@ export const FIXTURES: Fixture[] = [
     competition: 'LaLiga',
     teams: 'Deportivo vs Barcelona',
     madridTime: '16:15',
+    confirmedOnScreens: true,
+    noteEn: 'LIVE on our screens.',
+    noteEs: 'En directo en nuestras pantallas.',
+  },
+{
+    dateKey: '2026-11-29',
+    whenLabel: 'Sun 29 Nov',
+    competition: 'Formula 1',
+    teams: 'Qatar Grand Prix',
+    teamsEs: 'Gran Premio de Qatar',
+    madridTime: '17:00',
     confirmedOnScreens: true,
     noteEn: 'LIVE on our screens.',
     noteEs: 'En directo en nuestras pantallas.',

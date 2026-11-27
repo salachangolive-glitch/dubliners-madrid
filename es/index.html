@@ -37,7 +37,7 @@
     
   <link rel="stylesheet" href="/_astro/BaseLayout.BNbiPz4t.css">
 <style>.rugby-finals-days[data-astro-cid-ewjhqgqj]{padding:0;list-style:none}.rugby-finals-days[data-astro-cid-ewjhqgqj]>li[data-astro-cid-ewjhqgqj]{margin-bottom:.75rem}.rugby-finals-days[data-astro-cid-ewjhqgqj] ul[data-astro-cid-ewjhqgqj]{margin:.25rem 0 0 1rem}.highlight[data-astro-cid-ewjhqgqj]{font-weight:600}
-.home-weekend-video[data-astro-cid-46jr7p32]{background:var(--bg);border-bottom:1px solid var(--border);margin:0}.home-weekend-video__video[data-astro-cid-46jr7p32]{aspect-ratio:4/3;background:#000;width:100%;max-width:720px;height:auto;margin:0 auto;display:block}.home-weekend-video__bar[data-astro-cid-46jr7p32]{padding:.6rem 1rem .85rem}.home-weekend-video__cta[data-astro-cid-46jr7p32]{gap:.5rem;display:flex}.home-weekend-video__cta[data-astro-cid-46jr7p32] .btn[data-astro-cid-46jr7p32]{text-align:center;flex:1 1 0}.home-weekend-video__copy[data-astro-cid-46jr7p32]{margin:.55rem 0 0;font-size:.9rem;line-height:1.4}@media (width>=640px){.home-weekend-video__cta[data-astro-cid-46jr7p32] .btn[data-astro-cid-46jr7p32]{flex:none}}
+.home-weekend-video[data-astro-cid-46jr7p32]{background:var(--bg);border-bottom:1px solid var(--border);margin:0;overflow:visible}.home-weekend-video__video[data-astro-cid-46jr7p32]{aspect-ratio:4/3;object-position:center;background:#000;border:0;border-radius:0;max-width:720px;margin:0 auto;display:block;object-fit:contain!important;width:100%!important;height:auto!important;max-height:none!important}.home-weekend-video__toggle[data-astro-cid-46jr7p32]{color:inherit;font:inherit;cursor:pointer;background:0 0;border:0;margin-top:.45rem;padding:.3rem 0;font-size:.82rem;text-decoration:underline}.home-weekend-video__bar[data-astro-cid-46jr7p32]{padding:.6rem 1rem .85rem}.home-weekend-video__cta[data-astro-cid-46jr7p32]{gap:.5rem;display:flex}.home-weekend-video__cta[data-astro-cid-46jr7p32] .btn[data-astro-cid-46jr7p32]{text-align:center;flex:1 1 0}.home-weekend-video__copy[data-astro-cid-46jr7p32]{margin:.55rem 0 0;font-size:.9rem;line-height:1.4}@media (width>=640px){.home-weekend-video__cta[data-astro-cid-46jr7p32] .btn[data-astro-cid-46jr7p32]{flex:none}}
 </style></head>
   <body>
     <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
@@ -75,8 +75,8 @@
     <main id="main-content">
       
   <section class="home-weekend-video" id="fin-de-semana-28-29" data-show-until-ms="1795993200000" data-home-block="weekend-video-28-29" aria-label="Fin de semana de deporte 28–29 nov en Dubliners" data-astro-cid-46jr7p32>
-  <video class="home-weekend-video__video" autoplay muted loop playsinline controls preload="metadata" poster="/videos/finde-28-29-nov/finde-28-29-nov-poster-640.webp" width="960" height="720" aria-label="Vídeo: fin de semana de deporte 28 y 29 de noviembre de 2026 en Dubliners" data-astro-cid-46jr7p32>
-    <source src="/videos/finde-28-29-nov/finde-28-29-nov.mp4" type="video/mp4" data-astro-cid-46jr7p32>
+  <video class="home-weekend-video__video" autoplay muted loop playsinline preload="metadata" poster="/videos/finde-28-29-nov/finde-28-29-nov-poster-640.webp" width="960" height="720" aria-label="Vídeo: fin de semana de deporte 28 y 29 de noviembre de 2026 en Dubliners" data-astro-cid-46jr7p32>
+    <source src="/videos/finde-28-29-nov/finde-28-29-nov-v2.mp4" type="video/mp4" data-astro-cid-46jr7p32>
   </video>
   <div class="home-weekend-video__bar container" data-astro-cid-46jr7p32>
     <div class="home-weekend-video__cta" data-astro-cid-46jr7p32>
@@ -84,8 +84,20 @@
       <a class="btn btn-secondary" data-track-event="whats_on_cta_click" href="/es/partidos/" data-astro-cid-46jr7p32>Partidos de la semana</a>
     </div>
     <p class="home-weekend-video__copy" data-astro-cid-46jr7p32>Este fin de semana, en directo en nuestras pantallas (hora de Madrid): rugby Nations Championship sáb 28 a las 14:10 y 17:40 y dom 29 a las 14:10 y 17:40 (final Francia–Sudáfrica); final de la Copa Libertadores Palmeiras–Estudiantes sáb 28 a las 21:00; UCLA–USC sáb 28 a las 21:30.</p>
+    <button type="button" class="home-weekend-video__toggle" data-weekend-video-toggle data-label-pause="Pausar vídeo" data-label-play="Reproducir vídeo" data-astro-cid-46jr7p32>Pausar vídeo</button>
   </div>
 </section>
+<script>
+(function () {
+  var b = document.querySelector('[data-weekend-video-toggle]');
+  var v = document.querySelector('.home-weekend-video__video');
+  if (!b || !v) return;
+  b.addEventListener('click', function () {
+    if (v.paused) { v.play(); b.textContent = b.getAttribute('data-label-pause'); }
+    else { v.pause(); b.textContent = b.getAttribute('data-label-play'); }
+  });
+})();
+</script>
   
   <section class="hero-photo-band" aria-label="Interior del bar">
     <picture>

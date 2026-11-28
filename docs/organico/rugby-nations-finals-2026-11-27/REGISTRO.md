@@ -12,6 +12,8 @@ Para que las siguientes ejecuciones no repitan tema ni slug. Hora en Europa/Madr
 | 2026-11-26 18:00 | T−1 | «Final Francia–Sudáfrica el domingo junto a Sol: plan del fin de semana de rugby» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/final-francia-sudafrica-domingo-plan/ | `5cf6cde` |
 | 2026-11-27 08:00 | T0 | «Today near Sol: Friday finals — Italy v Fiji and Ireland v Australia» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/friday-finals-today-near-sol/ | `a34ce38` (PR #116, gh-pages `3060f70`) |
 | 2026-11-27 08:00 | T0 | «Hoy junto a Sol: finales del viernes — Italia–Fiyi e Irlanda–Australia» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/viernes-finales-hoy-junto-sol/ | `a34ce38` |
+| 2026-11-28 08:00 | T0 | «Today near Sol: Saturday finals — Wales v Japan and England v New Zealand» | EN | https://dublinersmadrid.es/rugby-nations-finals-weekend-madrid/saturday-finals-today-near-sol/ | (this PR) |
+| 2026-11-28 08:00 | T0 | «Hoy junto a Sol: finales del sábado — Gales–Japón e Inglaterra–Nueva Zelanda» | ES | https://dublinersmadrid.es/es/rugby-nations-finals-fin-de-semana-sol/sabado-finales-hoy-junto-sol/ | (this PR) |
 
 La hub EN y la ES enlazan cada artículo desde su LinkHub (mismo commit que el batch).
 
@@ -24,6 +26,8 @@ Temas/slugs ya usados (no repetir):
 - final-francia-sudafrica-domingo-plan
 - friday-finals-today-near-sol
 - viernes-finales-hoy-junto-sol
+- saturday-finals-today-near-sol
+- sabado-finales-hoy-junto-sol
 - hubs `/rugby-nations-finals-weekend-madrid/`, `/es/rugby-nations-finals-fin-de-semana-sol/` (anteriores)
 
 ## QA LIVE · 25 nov 2026, 18:16 (Europa/Madrid)

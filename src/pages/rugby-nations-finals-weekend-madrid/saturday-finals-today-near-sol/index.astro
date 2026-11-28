@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../site';
+import { OPENING_HOURS } from '../../../data/hours';
+import { RUGBY_FINALS_GUIDE_EN } from '../../../data/rugby-nations-finals-2026';
+
+// T0 article, Saturday 28 Nov 2026. Kick-offs from src/data/rugby-nations-finals-2026.ts (World Rugby / Twickenham, Madrid time).
+const PATH = '/rugby-nations-finals-weekend-madrid/saturday-finals-today-near-sol/';
+const PATH_ES = '/es/rugby-nations-finals-fin-de-semana-sol/sabado-finales-hoy-junto-sol/';
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Today near Sol: Wales v Japan and England v New Zealand — Nations Championship finals Saturday',
+  datePublished: '2026-11-28',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl(PATH),
+};
+---
+
+<BaseLayout
+  title={'Today: Wales v Japan & England v New Zealand near Sol | Dubliners'}
+  description={'Saturday 28 November 2026: Wales v Japan 14:10 and England v New Zealand 17:40 Madrid time, LIVE on our screens at Dubliners, less than a minute from Sol.'}
+  path={PATH}
+  lang="en"
+  hreflang={{ en: PATH, es: PATH_ES }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Saturday finals today'} schema />
+      <h1>Today near Sol: Saturday finals — Wales v Japan and England v New Zealand</h1>
+      <p class="small">Saturday 28 November 2026 · Madrid time · Nations Championship</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+        <a class="btn btn-primary" href={withBase(RUGBY_FINALS_GUIDE_EN)}>Rugby finals weekend hub</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>
+        <strong>Saturday 28 November</strong> is the Welsh–Japanese opener and the England–All Blacks headline at Twickenham — both <strong>LIVE on our screens</strong> at Dubliners, {SITE.address}, <strong>less than a minute from Sol</strong>. Kick-offs in Madrid time: <strong>Wales v Japan at 14:10</strong>, then <strong>England v New Zealand at 17:40</strong>. We do not name a TV channel.
+      </p>
+
+      <h2>Today’s kick-offs (Madrid time)</h2>
+      <ul>
+        <li><strong>14:10</strong> — Wales v Japan</li>
+        <li><strong>17:40</strong> — England v New Zealand</li>
+      </ul>
+      <p class="small">Times from the World Rugby match centre and the Allianz Stadium Twickenham programme, converted to Madrid time.</p>
+
+      <h2>How the afternoon runs</h2>
+      <p>
+        We are open {sat.opens}–{sat.closes} on Saturday. Land for Wales v Japan if you want the full double header, or join closer to 17:00 for England v New Zealand. Other sport on the board uses separate TVs — ask at the bar.
+      </p>
+
+      <h2>Meeting point today</h2>
+      <p>
+        English, Welsh, Japanese and Kiwi supporters in Madrid often meet at Dubliners before kick-off: English at the bar, rugby on every screen, and the rest of the finals weekend crowd welcome in the same room. Deeper Saturday context: <a href={withBase('/rugby-nations-finals-weekend-madrid/england-new-zealand-saturday-plan/')}>England v New Zealand Saturday plan</a>; yesterday’s Tests: <a href={withBase('/rugby-nations-finals-weekend-madrid/friday-finals-today-near-sol/')}>Friday finals today</a>. Hub: <a href={withBase(RUGBY_FINALS_GUIDE_EN)}>Nations Championship finals weekend near Sol</a>.
+      </p>
+
+      <h2>Sunday: the final</h2>
+      <p>
+        Tomorrow closes the tournament with <strong>France v South Africa at 17:40</strong>. Plan: <a href={withBase('/rugby-nations-finals-weekend-madrid/france-south-africa-final-sunday-plan/')}>France v South Africa final near Sol</a>. Live board: <a href={withBase('/whats-on/')}>What’s On</a>.
+      </p>
+
+      <h2>How to get here</h2>
+      <p>
+        Metro <strong>Sol</strong> (lines 1, 2 and 3), Metro Sevilla (line 2) or Cercanías Sol. Walk to Calle de Espoz y Mina 7. <a href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a> on your phone.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Get directions</a>
+      </div>
+
+      <p>En español: <a href={withBase(PATH_ES)} hreflang="es">Sábado finales hoy junto a Sol</a>.</p>
+      <p class="small">Dubliners is an independent pub, not affiliated with World Rugby or the teams.</p>
+    </div>
+  </section>
+</BaseLayout>

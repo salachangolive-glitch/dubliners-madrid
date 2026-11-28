@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import { SITE, withBase, absUrl } from '../../../../site';
+import { OPENING_HOURS } from '../../../../data/hours';
+import { RUGBY_FINALS_GUIDE_ES } from '../../../../data/rugby-nations-finals-2026';
+
+const PATH = '/es/rugby-nations-finals-fin-de-semana-sol/sabado-finales-hoy-junto-sol/';
+const PATH_EN = '/rugby-nations-finals-weekend-madrid/saturday-finals-today-near-sol/';
+const mapsCta =
+  'https://www.google.com/maps/dir/?api=1&destination=Dubliners+Madrid&destination_place_id=ChIJLdKNhYAoQg0RE6Nxotwa1zw';
+const sat = OPENING_HOURS.find((d) => d.day === 'Saturday')!;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Hoy junto a Sol: Gales–Japón e Inglaterra–Nueva Zelanda — finales Nations Championship sábado',
+  datePublished: '2026-11-28',
+  inLanguage: 'es',
+  author: { '@type': 'Organization', name: 'Dubliners Irish Pub' },
+  publisher: { '@type': 'Organization', name: 'Dubliners Irish Pub', url: absUrl('/') },
+  mainEntityOfPage: absUrl(PATH),
+};
+---
+
+<BaseLayout
+  title={'Hoy: Gales–Japón e Inglaterra–Nueva Zelanda junto a Sol | Dubliners'}
+  description={'Sábado 28 de noviembre de 2026: Gales–Japón 14:10 e Inglaterra–Nueva Zelanda 17:40 hora de Madrid, en directo en nuestras pantallas en Dubliners, a menos de un minuto de Sol.'}
+  path={PATH}
+  lang="es"
+  hreflang={{ en: PATH_EN, es: PATH }}
+  ogImage="/images/dubliners-screens-sol-1200.webp"
+  extraJsonLd={articleLd}
+>
+  <section class="hero hero-compact">
+    <div class="container">
+      <Breadcrumb current={'Sábado finales hoy'} schema />
+      <h1>Hoy junto a Sol: finales del sábado — Gales–Japón e Inglaterra–Nueva Zelanda</h1>
+      <p class="small">Sábado 28 de noviembre de 2026 · hora de Madrid · Nations Championship</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+        <a class="btn btn-primary" href={withBase(RUGBY_FINALS_GUIDE_ES)}>Guía del fin de semana de rugby</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p>
+        El <strong>sábado 28 de noviembre</strong> tocan Gales–Japón por la tarde y el gran partido Inglaterra–All Blacks en Twickenham — los dos <strong>en directo en nuestras pantallas</strong> en Dubliners, {SITE.address}, <strong>a menos de un minuto de Sol</strong>. Pitidos en hora de Madrid: <strong>Gales–Japón a las 14:10</strong> e <strong>Inglaterra–Nueva Zelanda a las 17:40</strong>. No nombramos emisora.
+      </p>
+
+      <h2>Pitidos de hoy (hora de Madrid)</h2>
+      <ul>
+        <li><strong>14:10</strong> — Gales–Japón</li>
+        <li><strong>17:40</strong> — Inglaterra–Nueva Zelanda</li>
+      </ul>
+      <p class="small">Horarios del World Rugby match centre y del programa de Allianz Stadium Twickenham, en hora de Madrid.</p>
+
+      <h2>Cómo encaja la tarde</h2>
+      <p>
+        Hoy abrimos de {sat.opens} a {sat.closes}. Ven a Gales–Japón si quieres el doblete entero, o entra más cerca de las 17:00 para Inglaterra–Nueva Zelanda. Si coinciden otros deportes en el cartel, van en pantallas distintas; pregunta en la barra.
+      </p>
+
+      <h2>Punto de encuentro hoy</h2>
+      <p>
+        Aficionados ingleses, galeses, japoneses y neozelandeses en Madrid suelen quedar en Dubliners antes del pitido: inglés en la barra, rugby en pantalla y el resto del fin de semana de finales bienvenido en la misma sala. Más contexto del sábado: <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/inglaterra-nueva-zelanda-sabado-plan/')}>plan Inglaterra–Nueva Zelanda</a>; ayer: <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/viernes-finales-hoy-junto-sol/')}>viernes finales hoy</a>. Guía: <a href={withBase(RUGBY_FINALS_GUIDE_ES)}>Nations Championship — fin de semana junto a Sol</a>.
+      </p>
+
+      <h2>Domingo: la final</h2>
+      <p>
+        Mañana cierra el torneo con <strong>Francia–Sudáfrica a las 17:40</strong>. Plan: <a href={withBase('/es/rugby-nations-finals-fin-de-semana-sol/final-francia-sudafrica-domingo-plan/')}>final Francia–Sudáfrica junto a Sol</a>. Cartel: <a href={withBase('/es/partidos/')}>Partidos</a>.
+      </p>
+
+      <h2>Cómo llegar</h2>
+      <p>
+        Metro <strong>Sol</strong> (líneas 1, 2 y 3), Metro Sevilla (línea 2) o Cercanías Sol. Calle de Espoz y Mina 7. <a href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a> en el móvil.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" data-track-event="directions_click" href={mapsCta} rel="noopener noreferrer" target="_blank">Cómo llegar</a>
+      </div>
+
+      <p>In English: <a href={withBase(PATH_EN)} hreflang="en">Saturday finals today near Sol</a>.</p>
+      <p class="small">Dubliners es un pub independiente, sin vinculación con World Rugby ni con los equipos.</p>
+    </div>
+  </section>
+</BaseLayout>
